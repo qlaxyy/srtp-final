@@ -7,6 +7,9 @@ import gc
 import json
 import os
 import platform
+import hashlib
+import signal
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -55,6 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--group-timeout-seconds", type=int, default=1500)
     parser.add_argument("--initial-coef", type=float, default=-1.0)
     parser.add_argument("--q25c", type=float, default=0.662293)
     parser.add_argument("--q75c", type=float, default=0.94805)
@@ -126,6 +130,8 @@ def main() -> None:
         args.vector, "steer_vector_layer19_conf_mixed.pt"
     )
     output_path = Path(args.output).resolve()
+    if output_path.exists():
+        raise FileExistsError(output_path)
     examples = load_examples(dataset_path, args.offset, args.limit)
 
     tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
@@ -198,6 +204,46 @@ def main() -> None:
             "vllm": vllm.__version__,
         },
     }
+    root = Path(__file__).resolve().parents[3]
+    result["provenance"] = {
+        "commit": subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=root, text=True
+        ).strip(),
+        "git_status": subprocess.check_output(
+            ["git", "status", "--porcelain"], cwd=root, text=True
+        ),
+        "dataset_sha256": hashlib.sha256(dataset_path.read_bytes()).hexdigest(),
+        "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
+    }
+    result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
+
+    def run_group(prompts, sampling, boundary_set, steering):
+        def timeout_handler(signum, frame):
+            raise TimeoutError("Evaluation group exceeded its time budget")
+        previous = signal.signal(signal.SIGALRM, timeout_handler)
+        started = time.perf_counter()
+        signal.alarm(args.group_timeout_seconds)
+        try:
+            records, seconds = generate_records(
+                llm, prompts, examples, sampling, boundary_set, steering=steering
+            )
+            for record in records:
+                ids = record["token_ids"]
+                ended = think_end_id in ids
+                # The chat prompt already opens <think>; delimiter is excluded.
+                stop = ids.index(think_end_id) if ended else len(ids)
+                record["thinking_tokens"] = stop
+                record["thinking_ended"] = ended
+                record["answer_tokens"] = len(ids) - stop - int(ended)
+            summary = summarize(records, seconds, args.max_tokens)
+            summary["mean_thinking_tokens"] = sum(r["thinking_tokens"] for r in records) / len(records)
+            summary["mean_answer_tokens"] = sum(r["answer_tokens"] for r in records) / len(records)
+            summary["thinking_not_ended"] = sum(not r["thinking_ended"] for r in records)
+            summary["group_seconds_including_grading"] = time.perf_counter() - started
+            return records, summary
+        finally:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous)
 
     llm = None
     try:
@@ -229,11 +275,8 @@ def main() -> None:
         boundary_set = set(boundary_ids)
 
         print("Running paired vLLM baseline...")
-        baseline, baseline_seconds = generate_records(
-            llm, prompts, examples, sampling, boundary_set, steering=None
-        )
-        baseline_summary = summarize(
-            baseline, baseline_seconds, args.max_tokens
+        baseline, baseline_summary = run_group(
+            prompts, sampling, boundary_set, steering=None
         )
         result["baseline"] = {
             "summary": baseline_summary,
@@ -242,10 +285,9 @@ def main() -> None:
         write_result(output_path, result)
 
         print("Running dynamic ReBalance steering...")
-        dynamic, dynamic_seconds = generate_records(
-            llm, prompts, examples, sampling, boundary_set, steering=steering
+        dynamic, dynamic_summary = run_group(
+            prompts, sampling, boundary_set, steering=steering
         )
-        dynamic_summary = summarize(dynamic, dynamic_seconds, args.max_tokens)
         result["rebalance_dynamic"] = {
             "summary": dynamic_summary,
             "records": dynamic,
