@@ -10,6 +10,7 @@ import platform
 import hashlib
 import signal
 import subprocess
+import threading
 import sys
 import time
 from pathlib import Path
@@ -222,6 +223,13 @@ def main() -> None:
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
         started = time.perf_counter()
+        # Graders may use SIGALRM internally; keep an independent wall-time cap.
+        def enforce_deadline():
+            print("Evaluation group exceeded its wall-time budget", file=sys.stderr, flush=True)
+            os._exit(124)
+        watchdog = threading.Timer(args.group_timeout_seconds, enforce_deadline)
+        watchdog.daemon = True
+        watchdog.start()
         signal.alarm(args.group_timeout_seconds)
         try:
             records, seconds = generate_records(
@@ -242,6 +250,7 @@ def main() -> None:
             summary["group_seconds_including_grading"] = time.perf_counter() - started
             return records, summary
         finally:
+            watchdog.cancel()
             signal.alarm(0)
             signal.signal(signal.SIGALRM, previous)
 
