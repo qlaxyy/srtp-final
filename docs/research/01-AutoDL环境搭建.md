@@ -1,6 +1,6 @@
 # AutoDL 环境搭建与迁移
 
-本项目采用“代码进 Git，重资产留数据盘”的方式。新服务器只需克隆仓库并运行统一脚本；已有数据盘无需重复下载模型和 wheel。
+本项目采用“代码进 Git，重资产留数据盘”的方式。自己的服务器迁移优先克隆完整实例；只有完全空白的新服务器才运行环境安装脚本。
 
 ## 已验证平台
 
@@ -10,7 +10,32 @@
 
 本流程只适用于 NVIDIA CUDA，不要安装 Ascend/CANN。此前的 `kernel_operator.h` 编译错误来自误走 Ascend 算子构建链路，与本项目无关。
 
-## 新实例
+## 场景一：自己的实例迁移（默认工作流）
+
+如果当前可租用实例都被占用，就在 AutoDL 控制台：
+
+1. 选择最新一次使用的实例；
+2. 点击“克隆实例”；
+3. 勾选同时克隆数据盘；
+4. 启动克隆后的新实例，直接继续实验。
+
+完整克隆会复制系统盘上的 Miniconda、SSH 配置和系统工具，也会复制数据盘上的仓库、模型、Python 环境、wheel、数据和结果。因此克隆后不需要运行 `setup_autodl.sh`。如果克隆源在克隆前已经是 GitHub 最新代码，也不需要执行任何命令。
+
+下面只是可选的更新和检查：
+
+```bash
+cd /root/autodl-tmp/projects/srtp-final
+git pull --ff-only                         # 仅当 GitHub 有更新
+
+/root/autodl-tmp/venvs/easysteer-vllm026/bin/python \
+  scripts/verify_environment.py            # 仅当需要检查环境
+```
+
+如果存在一台以前创建、目前可以直接启动的实例，可以先启动它并从 GitHub 拉取代码；但 Git 只能更新源码，不能补齐模型、环境、向量和数据。缺少这些资产时，仍应克隆最新完整实例。
+
+## 场景二：队友的完全空白实例
+
+队友没有现成系统盘和数据盘可以克隆时，才执行：
 
 ```bash
 nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader
@@ -50,9 +75,9 @@ AutoDL 官方说明内置学术加速仅面向 GitHub 和 Hugging Face，而且�
 
 所有大 wheel 使用固定文件名和 `aria2 --continue`。脚本即使看到已有文件也会重新核对下载状态：完整文件立即通过，半成品从 `.aria2` 进度继续，不再因为“文件非空”错误跳过。每个 wheel 下载后还会进行 ZIP 完整性检查；普通依赖缓存则保存在 `/root/autodl-tmp/pip-cache`。网络失败时进度不会丢失，重新执行同一脚本即可续传，不要换 URL 或手工删除临时文件。
 
-第一次从零安装仍需下载约数 GB。后续更换实例但保留数据盘时，大 wheel 和模型会直接复用。
+`setup_autodl.sh` 只建立 Python、vLLM 和 EasySteer 环境，不会下载模型、ReBalance 向量或实验数据。第一次从零安装仍需下载约数 GB；模型和实验资产需要另外复制到文档规定的路径。
 
-## 已有服务器更新代码
+## 场景三：已有实例只更新代码
 
 ```bash
 bash /root/autodl-tmp/projects/srtp-final/scripts/update_server.sh
@@ -75,6 +100,6 @@ bash /root/autodl-tmp/projects/srtp-final/scripts/update_server.sh
 
 Git 管理：源码、脚本、配置、测试、中文文档和小型结果摘要。
 
-数据盘管理：`venvs/`、`wheels/`、`models/`、`hf-cache/`、完整数据集及逐题结果。实例克隆或挂载旧数据盘后，只需拉取新代码；依赖版本未变时无需重装环境。
+数据盘管理：`venvs/`、`wheels/`、`models/`、`hf-cache/`、完整数据集及逐题结果。完整克隆系统盘并勾选数据盘后可直接运行；只有代码落后时才拉取，依赖版本变化时才重装环境。
 
 环境安装脚本已按本次成功命令合并，但尚未在完全空白的新实例做一次 clean-room 全流程复验；首次队友复现时应保留完整日志，并据此更新脚本。
