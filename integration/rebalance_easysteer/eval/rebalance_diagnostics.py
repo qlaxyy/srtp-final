@@ -3,6 +3,7 @@
 import hashlib
 import json
 import math
+import os
 import statistics
 import subprocess
 from pathlib import Path
@@ -111,8 +112,39 @@ def main():
         llm.generate(prompts, SamplingParams(temperature=args.temperature,
                      top_p=args.top_p, seed=args.seed, max_tokens=64),
                      steering=steering, use_tqdm=False)
-        runs = [original_generate(llm, prompts, examples, sampling, boundary_ids, steering)
-                for _ in range(3)]
+        runs = []
+        uncached_runs = []
+        compare_cache = steering is not None and os.environ.get('REBALANCE_COMPARE_POSITION_CACHE') == '1'
+        if compare_cache:
+            cached_positions = runtime.SteerVectorState._positions_tensor
+            def uncached_positions(state, params, positions, device):
+                return torch.tensor(positions, dtype=torch.long, device=device)
+            try:
+                runtime.SteerVectorState._positions_tensor = uncached_positions
+                llm.generate(prompts, SamplingParams(temperature=args.temperature,
+                             top_p=args.top_p, seed=args.seed, max_tokens=64),
+                             steering=steering, use_tqdm=False)
+                for repeat in range(3):
+                    # Reverse pair order to reduce fixed-order timing bias.
+                    for cached in ([False, True] if repeat % 2 == 0 else [True, False]):
+                        runtime.SteerVectorState._positions_tensor = cached_positions if cached else uncached_positions
+                        measured = original_generate(llm, prompts, examples, sampling, boundary_ids, steering)
+                        (runs if cached else uncached_runs).append(measured)
+            finally:
+                runtime.SteerVectorState._positions_tensor = cached_positions
+            diagnostics['position_cache_comparison'] = {
+                'order': ['uncached', 'cached', 'cached', 'uncached', 'uncached', 'cached'],
+                'uncached_seconds': [s for _, s in uncached_runs],
+                'cached_seconds': [s for _, s in runs],
+                'uncached_median_seconds': statistics.median(s for _, s in uncached_runs),
+                'cached_median_seconds': statistics.median(s for _, s in runs),
+                'all_token_ids_equal': all(
+                    [r['token_ids'] for r in records] == [r['token_ids'] for r in runs[0][0]]
+                    for records, _ in runs + uncached_runs),
+            }
+        else:
+            runs = [original_generate(llm, prompts, examples, sampling, boundary_ids, steering)
+                    for _ in range(3)]
         reference = [r['token_ids'] for r in runs[0][0]]
         diagnostics[label] = {
             'seconds': [seconds for _, seconds in runs],

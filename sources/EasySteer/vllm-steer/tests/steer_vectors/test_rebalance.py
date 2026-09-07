@@ -140,3 +140,31 @@ def test_rebalance_reordering_think_end_and_slot_reuse():
     assert state.batch_scales(batch)[0] == -1
     assert state._step_tok_count[1] == 0
     assert torch.isnan(state._prev_step_mean[1])
+
+
+def test_rebalance_cached_positions_follow_changed_batch_membership():
+    state = SteerVectorState(max_num_reqs=3, device=torch.device("cpu"))
+    manager = _Manager()
+    for index, req_id in enumerate(("a", "b")):
+        state.add_request(req_id, _request(), manager, req_index=index,
+                          prompt_token_ids=[10])
+    state._coefs[:2] = torch.tensor([-0.2, -0.8])
+    batch = SimpleNamespace(
+        req_ids=["a", "plain", "b"], num_reqs=3,
+        idx_mapping=torch.tensor([0, 2, 1], dtype=torch.int32),
+    )
+    torch.testing.assert_close(state.batch_scales(batch),
+                               torch.tensor([-0.2, 1.0, -0.8]))
+    # Identical position pattern, but a different live request-to-state mapping.
+    batch.req_ids = ["b", "plain", "a"]
+    batch.idx_mapping = torch.tensor([1, 2, 0], dtype=torch.int32)
+    torch.testing.assert_close(state.batch_scales(batch),
+                               torch.tensor([-0.8, 1.0, -0.2]))
+    # The next scheduler batch changes the position pattern itself.
+    batch.req_ids = ["plain", "b", "a"]
+    batch.idx_mapping = torch.tensor([2, 1, 0], dtype=torch.int32)
+    torch.testing.assert_close(state.batch_scales(batch),
+                               torch.tensor([1.0, -0.8, -0.2]))
+    state.remove_request("a", manager)
+    state.remove_request("b", manager)
+    assert not state._position_tensors

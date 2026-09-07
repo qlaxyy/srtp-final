@@ -32,6 +32,9 @@ class SteerVectorState:
         self._dynamic_params: dict[str, ReBalanceParams] = {}
         self._dynamic_indices: dict[str, int] = {}
         self._boundary_tensors: dict[ReBalanceParams, torch.Tensor] = {}
+        self._position_tensors: dict[
+            ReBalanceParams, tuple[tuple[int, ...], torch.Tensor]
+        ] = {}
         self._coefs: torch.Tensor | None = None
         self._step_prob_sum: torch.Tensor | None = None
         self._step_tok_count: torch.Tensor | None = None
@@ -93,7 +96,9 @@ class SteerVectorState:
         if self._requests.pop(req_id, None) is None:
             return
         self._slots.pop(req_id, None)
-        self._dynamic_params.pop(req_id, None)
+        params = self._dynamic_params.pop(req_id, None)
+        if params is not None and params not in self._dynamic_params.values():
+            self._position_tensors.pop(params, None)
         req_index = self._dynamic_indices.pop(req_id, None)
         if req_index is not None and self._coefs is not None:
             self._coefs[req_index] = 0.0
@@ -123,6 +128,18 @@ class SteerVectorState:
                 groups.setdefault(params, []).append(position)
         return groups
 
+    def _positions_tensor(
+        self, params: ReBalanceParams, positions: list[int], device: torch.device
+    ) -> torch.Tensor:
+        """Reuse batch positions; state indices still follow the live mapping."""
+        key = tuple(positions)
+        cached = self._position_tensors.get(params)
+        if cached is None or cached[0] != key or cached[1].device != device:
+            tensor = torch.tensor(positions, dtype=torch.long, device=device)
+            self._position_tensors[params] = (key, tensor)
+            return tensor
+        return cached[1]
+
     def batch_scales(self, input_batch: InputBatch) -> torch.Tensor:
         """Return one online coefficient per request in scheduler order."""
         device = input_batch.idx_mapping.device
@@ -130,8 +147,10 @@ class SteerVectorState:
         if not self.has_dynamic():
             return scales
         assert self._coefs is not None and self._in_think is not None
-        for positions in self._group_batch_positions(input_batch.req_ids).values():
-            pos = torch.tensor(positions, dtype=torch.long, device=device)
+        for params, positions in self._group_batch_positions(
+            input_batch.req_ids
+        ).items():
+            pos = self._positions_tensor(params, positions, device)
             state_idx = input_batch.idx_mapping.index_select(0, pos).long()
             active_scales = self._coefs.index_select(0, state_idx)
             active_scales *= self._in_think.index_select(0, state_idx)
@@ -152,7 +171,7 @@ class SteerVectorState:
         sampled_token_ids: torch.Tensor,
         max_probabilities: torch.Tensor,
     ) -> None:
-        """Update each request after sampling without synchronizing to the CPU."""
+        """Update each request after sampling using device-resident state."""
         if not self.has_dynamic():
             return
         if input_batch.num_draft_tokens != 0:
@@ -175,7 +194,7 @@ class SteerVectorState:
         for params, positions in self._group_batch_positions(
             input_batch.req_ids
         ).items():
-            pos = torch.tensor(positions, dtype=torch.long, device=device)
+            pos = self._positions_tensor(params, positions, device)
             state_idx = input_batch.idx_mapping.index_select(0, pos).long()
             tokens = sampled.index_select(0, pos)
             probabilities = max_probabilities.index_select(0, pos)
