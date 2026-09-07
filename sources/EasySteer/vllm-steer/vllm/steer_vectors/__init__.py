@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: Apache-2.0
+
+"""Steer Vectors for vLLM V1.
+
+This module provides runtime intervention capabilities for LLMs through
+steer vectors, allowing dynamic control over model behavior.
+"""
+
+from vllm.steer_vectors.api import (
+    ApplySpec,
+    SelectSpec,
+    SteeringSpec,
+    VectorSpec,
+    to_engine_request,
+)
+from vllm.steer_vectors.payloads import (
+    ConceptPair,
+    DirectionVector,
+    LinearMap,
+    LowRankProjector,
+    ReftIntervention,
+)
+from vllm.steer_vectors.controllers import DecoderSteerController
+from vllm.steer_vectors.controller_manager import (
+    LoadedSteerVector,
+    SteerControllerManager,
+    create_steer_controller_manager,
+)
+from vllm.steer_vectors.request import SteerVectorRequest, VectorConfig
+from vllm.steer_vectors.worker_manager import WorkerSteerVectorManager
+
+__all__ = [
+    # v2 user-facing API
+    "ApplySpec",
+    "SelectSpec",
+    "SteeringSpec",
+    "VectorSpec",
+    "to_engine_request",
+    # In-memory payloads (VectorSpec.data)
+    "ConceptPair",
+    "DirectionVector",
+    "LinearMap",
+    "LowRankProjector",
+    "ReftIntervention",
+    # Layers
+    "DecoderSteerController",
+    # Models
+    "LoadedSteerVector",
+    "SteerControllerManager",
+    "create_steer_controller_manager",
+    # Internal engine request structs (produced by to_engine_request)
+    "SteerVectorRequest",
+    "VectorConfig",
+    # Worker Manager
+    "WorkerSteerVectorManager",
+]

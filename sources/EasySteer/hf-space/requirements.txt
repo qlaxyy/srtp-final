@@ -1,0 +1,5 @@
+# App dependencies
+# GPU mode: vLLM / torch / transformers ship in the base image
+# API mode: only gradio + openai are needed
+gradio>=5.0.0
+openai>=1.0.0

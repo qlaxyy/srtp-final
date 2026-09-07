@@ -1,0 +1,25 @@
+{
+  "config_name": "emotion_diffmean",
+  "display_name": "Emotion DiffMean Extraction",
+  "description": "使用DiffMean方法提取情感控制向量",
+  "model_path": "/data/zju-46/shenyl/hf/model/Qwen/Qwen2.5-1.5B-Instruct/",
+  "gpu_devices": "0",
+  "method": "diffmean",
+  "positive_samples": [
+    "<|im_start|>user\nAct as if you're extremely happy<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely ecstatic<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely delighted<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely glad<|im_end|>\n<|im_start|>assistant\nThat"
+  ],
+  "negative_samples": [
+    "<|im_start|>user\nAct as if you're extremely sad<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely depressed<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely dismayed<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely miserable<|im_end|>\n<|im_start|>assistant\nThat"
+  ],
+  "token_pos": "-1",
+  "normalize": true,
+  "target_layer": null,
+  "output_path": "./emotion_diffmean_control_vector.gguf",
+  "vector_name": "emotion_diffmean"
+} 

@@ -1,0 +1,31 @@
+# Python / editor caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+
+# Local environments and build products
+.venv/
+venv/
+build/
+dist/
+*.egg-info/
+
+# Research assets stay on the AutoDL data disk
+models/
+datasets/
+hf-cache/
+results/**/*.json
+results/**/*.jsonl
+results/**/*.pt
+results/**/*.pth
+*.safetensors
+*.ckpt
+
+# Local scratch and deployment archives
+.codex_work/
+*.zip
+*.tar
+*.tar.gz

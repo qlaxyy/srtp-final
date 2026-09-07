@@ -1,0 +1,25 @@
+{
+  "config_name": "personality_diffmean",
+  "display_name": "Personality DiffMean Extraction",
+  "description": "使用DiffMean方法提取个性控制向量",
+  "model_path": "/data/zju-46/shenyl/hf/model/Qwen/Qwen2.5-1.5B-Instruct/",
+  "gpu_devices": "0",
+  "method": "diffmean",
+  "positive_samples": [
+    "<|im_start|>user\nAct as if you're extremely confident<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely assertive<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely bold<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely decisive<|im_end|>\n<|im_start|>assistant\nThat"
+  ],
+  "negative_samples": [
+    "<|im_start|>user\nAct as if you're extremely shy<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely hesitant<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely uncertain<|im_end|>\n<|im_start|>assistant\nThat",
+    "<|im_start|>user\nAct as if you're extremely timid<|im_end|>\n<|im_start|>assistant\nThat"
+  ],
+  "token_pos": "-1",
+  "normalize": true,
+  "target_layer": null,
+  "output_path": "./personality_diffmean_control_vector.gguf",
+  "vector_name": "personality_diffmean"
+} 

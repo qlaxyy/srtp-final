@@ -1,0 +1,183 @@
+# Steering (v2 API)
+
+Steering is configured with three objects from `vllm.steer_vectors`
+(see [`STEERING_API_V2.md`](https://github.com/ZJU-REAL/EasySteer/blob/main/docs/design/STEERING_API_V2.md)
+for the design rationale):
+
+1. **`ApplySpec`** — *where and when* a vector applies (phases, token/position filters,
+   generation window).
+2. **`VectorSpec`** — one vector: source file, algorithm, scale, layers, normalize,
+   algorithm-specific `params`, and its `apply` clause.
+3. **`SteeringSpec`** — an ordered list of `VectorSpec`s plus a conflict policy.
+
+Specs are backend-independent: eager, `split`, and `in_graph` engines accept the same
+spec; a request using an algorithm outside the engine's declared `steer_algorithms`
+is rejected at admission (the declaration is required whenever steering is enabled —
+see the [vllm-steer steering guide](../../vllm-steer/docs/features/steer_vectors.md)).
+
+## Attaching a spec
+
+Same object, two scopes:
+
+- **Per request**: `llm.generate(prompts, steering=spec, ...)`, or the JSON field
+  `"steering"` on HTTP requests (see [OpenAI-compatible server](openai-server.md)).
+- **Engine default**: `--steering-config spec.json` (or inline JSON) at startup,
+  replaceable at runtime via `POST /v1/steering {"spec": {...}}` (resets the prefix
+  cache).
+
+Server-level and per-request steering cannot currently be combined in one request.
+
+## `ApplySpec`: the where-clause
+
+`ApplySpec` shares its selection language with hidden-state capture (both subclass
+`SelectSpec`), so a clause means the same thing in both systems.
+
+Each phase is selected independently and only by what you name: there is no
+separate phase gate. `prompt="all"` selects every prompt token and
+`generation="all"` every decode step — the widest include selector of each
+phase — and six narrower include selectors, three per phase, each named for
+it and carrying a symmetric exclude twin, refine the selection. A phase with
+neither `"all"` nor a selector is untouched:
+
+| Include | Exclude twin | Matches |
+|---|---|---|
+| `prompt_tokens` | `exclude_prompt_tokens` | Token-id allowlist (real ids, `>= 0`) over prompt occurrences. |
+| `prompt_positions` | `exclude_prompt_positions` | Prompt positions; negative values are Python-style from the end of the prompt (`-1` = last prompt token), stable across prefill chunks. Positive values past the prompt end clamp to the last prompt token (warned at admission). |
+| `prompt_window` | `exclude_prompt_window` | Half-open `(start, stop)` over prompt positions; negative bounds and `stop=None` resolve from the prompt end (`(-5, None)` = the last five prompt tokens). |
+| `generation_tokens` | `exclude_generation_tokens` | Token-id allowlist over generated occurrences. |
+| `generation_positions` | `exclude_generation_positions` | Exact 0-based decode steps (`[0]` = the first generated token). |
+| `generation_window` | `exclude_generation_window` | Half-open `(start, stop)` over 0-based decode steps; `stop=None` = unbounded. `(0, k)` selects exactly the first `k` decode steps. |
+
+The include selectors (with `prompt="all"` / `generation="all"` among them)
+select the **union** of their matches. The exclude selectors union and
+**always subtract**: where an include and an exclude overlap, the exclusion
+wins; an exclude requires its phase to be covered, and a clause that selects
+nothing is rejected — as is the removed `phases` key. One clause can mix
+granularities across phases:
+
+```python
+# Last prompt token plus the whole generation (the SHARP shape):
+ApplySpec(prompt_positions=[-1], generation="all")
+
+# Prompt tail plus the first decode steps:
+ApplySpec(prompt_window=(-4, None), generation_window=(0, 4))
+```
+
+## `VectorSpec`: one vector
+
+| Field | Default | Meaning |
+|---|---|---|
+| `source` | `None` | Path to a vector file in a format EasySteer itself defines (its GGUF export; the `moe_router` JSON). For third-party checkpoint formats use `data` instead. Plain path only — no `"path\|algo"`. |
+| `data` | `None` | An in-memory payload (see [Steering with your own tensors](#steering-with-your-own-tensors)). Mutually exclusive with `source`. |
+| `algorithm` | `"direct"` | Registry key: `direct`, `linear`, `loreft`, `lm_steer`, `erase`, `replace`, `concept_replace`, `moe_router`. |
+| `scale` | `1.0` | Scale factor (negative suppresses the direction). |
+| `layers` | `None` | Layer indices to apply to; `None` lets the file decide. |
+| `normalize` | `False` | Normalize the vector before applying. |
+| `apply` | — | **Required** `ApplySpec`. |
+| `params` | `{}` | Algorithm-specific parameters, validated per algorithm; unknown keys are rejected. Only `moe_router` takes params: `expert_ids`, `mode`, `lambda`, `topk`. |
+| `name` | `None` | Label used in logs only (not identity). |
+
+## Steering with your own tensors
+
+The engine loads only formats whose schema EasySteer defines. Everything else —
+pyreft checkpoints, LM-Steer `.pt` files, pickled transport maps, or tensors you
+just computed — is passed in memory through `VectorSpec(data=...)` using the
+canonical payload structures:
+
+| Payload | Algorithms | Shape |
+|---|---|---|
+| `DirectionVector({layer: vec})` | `direct`, `erase`, `replace` | one 1-D vector per layer |
+| `LinearMap(weight, bias=None)` | `linear` | one affine map, applied to each `layers` entry |
+| `LowRankProjector(p1, p2)` | `lm_steer` | low-rank update factors, applied to each `layers` entry |
+| `ReftIntervention(rotate, weight, bias=None, layer=None)` | `loreft` | LoReFT intervention; `layer` from the checkpoint wins |
+| `ConceptPair(h1=..., h2=...)` | `concept_replace` | named roles — steer toward `h1`, away from `h2` |
+
+```python
+from vllm.steer_vectors import ApplySpec, DirectionVector, SteeringSpec, VectorSpec
+
+# Any tensor you have — numpy or torch — becomes steerable directly:
+spec = SteeringSpec(vectors=[VectorSpec(
+    data=DirectionVector({10: my_vector}),
+    scale=2.0,
+    apply=ApplySpec(prompt="all", generation="all"),
+)])
+```
+
+Payloads are validated at construction (shapes, finiteness, role names) and
+identified engine-side by a content hash, so identical payloads share one
+resident copy regardless of how many requests carry them. `easysteer.vectors`
+ships adapters for the common third-party layouts (`from_pyreft`,
+`from_lm_steer`, `from_linear_transport`, `from_pt_direction`, `from_gguf`),
+and `easysteer.vectors.from_control_vector(cv)` steers an extraction result
+with no GGUF round-trip.
+
+## `SteeringSpec`: vectors + conflict policy
+
+| Field | Default | Meaning |
+|---|---|---|
+| `vectors` | — | Non-empty ordered list of `VectorSpec`s. |
+| `conflict` | `"priority"` | When several vectors target one position: `"priority"` (first wins), `"sequential"` (stack in order), `"error"`. |
+| `debug` | `False` | Verbose logging during the forward pass. |
+
+`moe_router` is not yet supported in multi-vector specs.
+
+## Examples
+
+```python
+from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
+
+# Single vector on every prompt + generated token
+sentiment = SteeringSpec(vectors=[
+    VectorSpec(source="vectors/happy.gguf", scale=2.0, layers=[10, 11, 12],
+               apply=ApplySpec(prompt="all", generation="all")),
+])
+
+# Several directions stacked at the second-to-last prompt token
+multi = SteeringSpec(
+    conflict="sequential",
+    vectors=[
+        VectorSpec(source="dir1.gguf", scale=1.5, layers=[20],
+                   apply=ApplySpec(prompt_positions=[-2])),
+        VectorSpec(source="dir2.gguf", scale=-0.8, layers=[20],
+                   apply=ApplySpec(prompt_positions=[-2])),
+    ],
+)
+
+# Steer only the first 8 generated tokens
+early = SteeringSpec(vectors=[
+    VectorSpec(source="vectors/happy.gguf", scale=2.0, layers=[10, 11, 12],
+               apply=ApplySpec(generation_window=(0, 8))),
+])
+```
+
+## Interaction with engine features
+
+- **Prefix caching** is supported: block hashes are keyed by the steering config
+  fingerprint; engine-default mode salts every hash, and spec updates reset the cache.
+- **Chunked prefill** is supported; negative positions resolve stably across chunks.
+- **CUDA graphs**: full-graph mode currently requires a single-vector, `direct`,
+  non-normalized spec; other specs are rejected at admission with an explicit error.
+  `--steer-graph-mode` is an engine optimization setting and never changes how a spec is
+  written.
+
+## Migrating from v1
+
+The v1 surface (trigger fields, `steer_vector_request`, `--steer-vector-path` flags, the
+`-1` token sentinel, `"path|algo"` sources) has been **deleted**. Key semantic changes:
+
+- Exclusions always subtract; nothing bypasses them.
+- `generation_window=(0, k)` steers exactly `k` decode steps (the v1 `first_k`
+  off-by-one is gone).
+- Phase selection (`phases`) replaces the `-1` sentinel.
+- `normalize` defaults to `False` everywhere, including server-level steering.
+- `generation_window` is an include selector like any other: it **unions** with
+  the token/position selectors instead of constraining decode tokens, and a
+  cross-phase clause with only a `generation_window` no longer covers the
+  prompt — select prompt tokens explicitly (e.g. `prompt_window=(0, None)`).
+- Every selector is phase-scoped and named for it: token-id filters split into
+  `prompt_tokens` / `generation_tokens`, and `prompt_positions` (formerly
+  `positions`) selects prompt tokens only — decode steps are always addressed
+  through `generation_positions` / `generation_window`.
+
+<!-- TODO: per-algorithm pages (file formats, payload shapes) — currently only the
+README's "Adding a New Algorithm" snippet covers this. -->
