@@ -33,6 +33,23 @@ bash scripts/setup_autodl.sh
 4. 以 editable 方式安装仓库内 EasySteer/vLLM；
 5. 检查依赖、CUDA 扩展和 steering 导入。
 
+仓库中的 vLLM 已由独立子仓库改为统一仓库内的固定源码，因此安装脚本会显式设置已验证版本 `0.1.dev18960+g6267ca0cf`，不再依赖内层 `.git` 推导版本。
+
+## 下载源策略
+
+不强行让所有文件来自同一个网站，而是给每类文件固定唯一来源，避免自动回退和 CUDA 混装：
+
+| 内容 | 固定来源 | 学术加速 |
+| --- | --- | --- |
+| vLLM 预编译 wheel | GitHub Release | 仅下载这个文件时开启 |
+| torch、torchvision、torchaudio、torchcodec、Triton | PyTorch 官方 CDN | 明确关闭代理 |
+| pip、EasySteer 普通依赖 | 清华 PyPI 镜像 | 不开启 |
+| GitHub/Hugging Face 后续资源 | 对应官方站点 | 访问慢时临时开启 |
+
+AutoDL 官方说明内置学术加速仅面向 GitHub 和 Hugging Face，而且不承诺稳定，也建议不用时关闭。因此脚本把 GitHub 下载放进独立子进程；该文件完成后代理自动消失，不会污染 PyTorch CDN、清华镜像或模型推理。
+
+所有大 wheel 使用固定文件名和 `aria2 --continue`。脚本即使看到已有文件也会重新核对下载状态：完整文件立即通过，半成品从 `.aria2` 进度继续，不再因为“文件非空”错误跳过。每个 wheel 下载后还会进行 ZIP 完整性检查；普通依赖缓存则保存在 `/root/autodl-tmp/pip-cache`。网络失败时进度不会丢失，重新执行同一脚本即可续传，不要换 URL 或手工删除临时文件。
+
 第一次从零安装仍需下载约数 GB。后续更换实例但保留数据盘时，大 wheel 和模型会直接复用。
 
 ## 已有服务器更新代码
