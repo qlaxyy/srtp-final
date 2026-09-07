@@ -33,6 +33,8 @@ bash scripts/setup_autodl.sh
 4. 以 editable 方式安装仓库内 EasySteer/vLLM；
 5. 检查依赖、CUDA 扩展和 steering 导入。
 
+仓库中的 vLLM 已由独立子仓库改为统一仓库内的固定源码，因此安装脚本会显式设置已验证版本 `0.1.dev18960+g6267ca0cf`，不再依赖内层 `.git` 推导版本。
+
 ## 下载源策略
 
 不强行让所有文件来自同一个网站，而是给每类文件固定唯一来源，避免自动回退和 CUDA 混装：

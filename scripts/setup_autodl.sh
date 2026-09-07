@@ -119,6 +119,9 @@ export VLLM_USE_PRECOMPILED=1
 export VLLM_PRECOMPILED_WHEEL_VARIANT=cu129
 export VLLM_PRECOMPILED_WHEEL_COMMIT=568afb3a13806beb53bb2e6bd518269357b237c0
 export VLLM_PRECOMPILED_WHEEL_LOCATION="${WHEEL_DIR}/vllm-0.26.0-cu129-x86_64.whl"
+# vllm-steer is vendored inside this monorepo, so setuptools-scm cannot infer
+# its former standalone Git version.  Keep the verified upstream version.
+export VLLM_VERSION_OVERRIDE=0.1.dev18960+g6267ca0cf
 
 "${PYTHON}" -m pip install --editable "${PROJECT_ROOT}/sources/EasySteer/vllm-steer" \
   --find-links "${WHEEL_DIR}" -i "${PYPI_INDEX}"
