@@ -14,15 +14,23 @@ dist/
 *.egg-info/
 
 # Research assets stay on the AutoDL data disk
-models/
-datasets/
-hf-cache/
-results/**/*.json
-results/**/*.jsonl
-results/**/*.pt
-results/**/*.pth
+/models/
+/datasets/
+/hf-cache/
+/results/**/*.json
+/results/**/*.jsonl
+/results/**/*.pt
+/results/**/*.pth
 *.safetensors
 *.ckpt
+
+# Non-runtime upstream directories whose names match local asset folders
+/sources/EasySteer/vllm-steer/docs/assets/models/
+/sources/EasySteer/vllm-steer/docs/models/
+/sources/EasySteer/vllm-steer/rust/src/bench/src/datasets/
+/sources/EasySteer/vllm-steer/tests/entrypoints/openai/models/
+/sources/EasySteer/vllm-steer/tests/models/
+/sources/EasySteer/vllm-steer/vllm/benchmarks/datasets/
 
 # Local scratch and deployment archives
 .codex_work/
