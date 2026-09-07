@@ -116,6 +116,10 @@ def main():
         uncached_runs = []
         compare_cache = steering is not None and os.environ.get('REBALANCE_COMPARE_POSITION_CACHE') == '1'
         if compare_cache:
+            diagnostics['timing_protocol'] = (
+                '64-token warmup per mode; three baseline runs, then '
+                'three interleaved uncached/cached dynamic pairs; trace/profile separate'
+            )
             cached_positions = runtime.SteerVectorState._positions_tensor
             def uncached_positions(state, params, positions, device):
                 return torch.tensor(positions, dtype=torch.long, device=device)
