@@ -166,7 +166,7 @@ def main():
                     runtime.SteerVectorState.observe_sample = original_observe
             profiler.export_chrome_trace(str(output.with_suffix('.trace.json')))
             diagnostics['profile'] = [dict(
-                name=event.key, calls=event.count,
+                name=event.key, calls=event.count, device_type=str(event.device_type),
                 cpu_total_us=event.cpu_time_total, self_cpu_us=event.self_cpu_time_total,
                 device_total_us=event.device_time_total, self_device_us=event.self_device_time_total,
             ) for event in profiler.key_averages()]

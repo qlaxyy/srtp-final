@@ -103,3 +103,40 @@ def test_rebalance_state_is_request_local_and_uses_arithmetic_mean():
         params,
     )
     torch.testing.assert_close(state.batch_scales(batch), expected)
+
+
+def test_rebalance_reordering_think_end_and_slot_reuse():
+    state = SteerVectorState(max_num_reqs=3, device=torch.device("cpu"))
+    manager = _Manager()
+    for index, req_id in enumerate(("a", "b")):
+        state.add_request(req_id, _request(), manager, req_index=index,
+                          prompt_token_ids=[10])
+    batch = SimpleNamespace(
+        req_ids=["b", "a", "plain"],
+        idx_mapping=torch.tensor([1, 0, 2], dtype=torch.int32),
+        num_reqs=3, num_draft_tokens=0,
+    )
+    state.observe_sample(batch, torch.tensor([[1], [1], [1]]),
+                         torch.tensor([0.8, 0.3, 0.9]))
+    state.observe_sample(batch, torch.tensor([[99], [99], [99]]),
+                         torch.tensor([0.1, 0.9, 0.2]))
+    expected = compute_rebalance_coefficient(
+        torch.tensor([0.8, 0.3]), torch.zeros(2),
+        ReBalanceParams.from_request(_request()),
+    )
+    torch.testing.assert_close(state.batch_scales(batch),
+                               torch.cat([expected, torch.ones(1)]))
+    # Consecutive boundaries must not replace the previous nonempty step.
+    state.observe_sample(batch, torch.tensor([[99], [99], [99]]),
+                         torch.tensor([0.9, 0.1, 0.2]))
+    torch.testing.assert_close(state.batch_scales(batch)[:2], expected)
+    state.observe_sample(batch, torch.tensor([[11], [1], [1]]),
+                         torch.tensor([0.9, 0.1, 0.2]))
+    assert state.batch_scales(batch)[0] == 0
+    state.remove_request("b", manager)
+    state.add_request("new", _request(), manager, req_index=1,
+                      prompt_token_ids=[10])
+    batch.req_ids[0] = "new"
+    assert state.batch_scales(batch)[0] == -1
+    assert state._step_tok_count[1] == 0
+    assert torch.isnan(state._prev_step_mean[1])

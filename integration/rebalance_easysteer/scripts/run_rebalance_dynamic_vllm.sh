@@ -16,7 +16,12 @@ export PATH="${ENV_DIR}/bin:${PATH}"
 export PYTHONNOUSERSITE=1
 cd "${PROJECT_ROOT}"
 
-"${ENV_DIR}/bin/python" integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py \
+EVAL_SCRIPT="integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py"
+if [[ "${DIAGNOSTICS:-0}" == "1" ]]; then
+  EVAL_SCRIPT="integration/rebalance_easysteer/eval/rebalance_diagnostics.py"
+fi
+
+"${ENV_DIR}/bin/python" "${EVAL_SCRIPT}" \
   --limit "${LIMIT}" \
   --offset "${OFFSET}" \
   --output "${OUTPUT}" \
