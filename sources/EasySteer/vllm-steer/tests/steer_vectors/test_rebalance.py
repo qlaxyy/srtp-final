@@ -44,6 +44,19 @@ class _Manager:
         pass
 
 
+def test_rebalance_boundary_matches_isin():
+    # Includes repeated sampled IDs, absent IDs, and an empty boundary set.
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for size in (1, 20, 256):
+            tokens = torch.arange(size, device=device) % 37 - 1
+            for count in (0, 1, 565):
+                boundaries = torch.arange(count, device=device) * 2
+                torch.testing.assert_close(
+                    SteerVectorState._is_boundary(tokens, boundaries),
+                    torch.isin(tokens, boundaries),
+                )
+
+
 def _request():
     return SimpleNamespace(
         algorithm="rebalance",

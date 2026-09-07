@@ -165,6 +165,11 @@ class SteerVectorState:
         ).long()
         return torch.repeat_interleave(request_scales, repeats)
 
+    @staticmethod
+    def _is_boundary(tokens: torch.Tensor, boundaries: torch.Tensor) -> torch.Tensor:
+        """Match without isin's data-dependent unique/scalar synchronization."""
+        return (tokens[:, None] == boundaries).any(dim=-1)
+
     def observe_sample(
         self,
         input_batch: InputBatch,
@@ -206,7 +211,7 @@ class SteerVectorState:
                     device=device,
                 )
                 self._boundary_tensors[params] = boundaries
-            is_boundary = torch.isin(tokens, boundaries)
+            is_boundary = self._is_boundary(tokens, boundaries)
 
             in_think = self._in_think.index_select(0, state_idx)
             in_think |= tokens == params.think_start_token_id
