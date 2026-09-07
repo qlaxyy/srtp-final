@@ -80,7 +80,7 @@ download_github() {
 
 verify_wheel() {
   local wheel="$1"
-  "${PYTHON}" -m zipfile --test "${WHEEL_DIR}/${wheel}" >/dev/null
+  "${PYTHON}" -m zipfile -t "${WHEEL_DIR}/${wheel}" >/dev/null
   echo "Wheel integrity OK: ${wheel}"
 }
 
