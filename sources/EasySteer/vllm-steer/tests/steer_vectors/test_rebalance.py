@@ -22,14 +22,15 @@ def test_rebalance_controller_hits_published_anchor_values():
         low_val_2=-1.91,
         high_val_2=0.1,
     )
-    confidence = torch.tensor([params.q25c, 1.0])
-    variance = torch.tensor([params.q75v, params.q25v])
+    confidence = torch.tensor([params.q25c, 1.0, 0.7, 0.8, 0.9])
+    variance = torch.tensor([params.q75v, params.q25v, 0.001, 0.001, 0.001])
 
     actual = compute_rebalance_coefficient(confidence, variance, params)
 
     torch.testing.assert_close(
         actual,
-        torch.tensor([params.low_val_2, params.high_val_2]),
+        # Interior values from the executable author build_F/default high_val=0.
+        torch.tensor([-1.91, 0.1, -0.99339795, -0.55161738, -0.04057819]),
         atol=1e-5,
         rtol=1e-5,
     )

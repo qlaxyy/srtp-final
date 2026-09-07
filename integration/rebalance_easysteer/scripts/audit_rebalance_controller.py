@@ -61,3 +61,5 @@ result = dict(scope='CPU function audit, no model generation', torch=torch.__ver
     mismatches_at_1e_5=int((diff>1e-5).sum()),
     sign_mismatches=int(((ag<0)&(bg>0) | (ag>0)&(bg<0)).sum()))
 print(json.dumps(result, indent=2))
+if '--assert-equivalent' in sys.argv:
+    torch.testing.assert_close(ag, bg, atol=1e-5, rtol=1e-5)

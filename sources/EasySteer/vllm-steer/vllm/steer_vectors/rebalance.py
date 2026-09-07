@@ -86,6 +86,8 @@ def compute_rebalance_coefficient(
     q25c, q75c = sorted((params.q25c, params.q75c))
     q25v, q75v = sorted((params.q25v, params.q75v))
     high_val_1 = 0.01
+    # Author build_F omits high_val (default 0.0); 0.01 is tau, not high_val.
+    curve_high = 0.0
 
     midpoint = 0.5 * (q25c + q75c)
     half_width = max(1e-9, 0.5 * (q75c - q25c))
@@ -93,12 +95,12 @@ def compute_rebalance_coefficient(
         q25c,
         q75c,
         params.low_val_1,
-        high_val_1,
+        curve_high,
         high_val_1,
     )
     span = math.tanh(k * half_width)
-    intercept = 0.5 * (params.low_val_1 + high_val_1)
-    slope = (high_val_1 - params.low_val_1) / (2.0 * max(span, 1e-12))
+    intercept = 0.5 * (params.low_val_1 + curve_high)
+    slope = (curve_high - params.low_val_1) / (2.0 * max(span, 1e-12))
 
     def baseline(values: torch.Tensor) -> torch.Tensor:
         values = torch.nan_to_num(

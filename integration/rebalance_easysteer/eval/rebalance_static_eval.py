@@ -179,6 +179,7 @@ def generate_records(
                 "correct": correct,
                 "grading_error": grading_error,
                 "tokens": len(token_ids),
+                "token_ids": token_ids,
                 "boundary_tokens": sum(token in boundary_ids for token in token_ids),
                 "finish_reason": output.finish_reason,
                 "text": output.text,
