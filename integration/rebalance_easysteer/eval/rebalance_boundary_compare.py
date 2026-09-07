@@ -1,7 +1,10 @@
 """One old/new boundary comparison on <=20 examples; no repeated full runs."""
 
 import gc
+import os
 import subprocess
+import sys
+import types
 from pathlib import Path
 
 import rebalance_dynamic_eval as evaluation
@@ -11,6 +14,7 @@ from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
 from vllm.v1.worker.gpu.steer_vector_utils import SteerVectorState
+from vllm.v1.worker.gpu import steer_vector_utils as runtime
 
 from rebalance_diagnostics import digest
 
@@ -47,6 +51,26 @@ def main():
                       torch=torch.__version__),
                   tests=[])
     optimized = SteerVectorState._is_boundary
+    old_label, new_label = 'T2_old_isin', 'T3_direct_compare'
+    before = torch.isin
+    def select(function):
+        SteerVectorState._is_boundary = staticmethod(function)
+    if os.environ.get('REBALANCE_COMPARE_CONSTANTS') == '1':
+        # Load the exact previously validated implementation, not a rewritten approximation.
+        reference_commit = '713b34e'
+        source = subprocess.check_output([
+            'git', 'show', reference_commit + ':sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py'
+        ], cwd=root, text=True)
+        reference = types.ModuleType('rebalance_constants_reference')
+        sys.modules[reference.__name__] = reference
+        exec(compile(source, reference_commit + '/rebalance.py', 'exec'), reference.__dict__)
+        before = reference.compute_rebalance_coefficient
+        optimized = runtime.compute_rebalance_coefficient
+        def select(function):
+            runtime.compute_rebalance_coefficient = function
+        old_label, new_label = 'before_constant_cache', 'after_constant_cache'
+        result['scope'] = 'one-pass constant reuse comparison'
+        result['provenance']['reference_commit'] = reference_commit
     llm = None
     try:
         llm = LLM(model=args.model, dtype='bfloat16', tensor_parallel_size=1,
@@ -58,34 +82,34 @@ def main():
                                   max_tokens=args.max_tokens, seed=args.seed,
                                   skip_special_tokens=True)
         # A single short engineering prompt per implementation, not a full-set warmup.
-        for label, function in [('W1', torch.isin), ('W2', optimized)]:
+        for label, function in [('W1', before), ('W2', optimized)]:
             print(label, 'warmup: one engineering prompt, max_tokens=64', flush=True)
-            SteerVectorState._is_boundary = staticmethod(function)
+            select(function)
             llm.generate([evaluation.build_prompt(tokenizer, 'Compute 2 + 3.')],
                          SamplingParams(temperature=args.temperature, top_p=args.top_p,
                                         max_tokens=64, seed=args.seed),
                          steering=steering, use_tqdm=False)
             result['tests'].append(dict(id=label, kind='warmup', prompts=1, max_tokens=64))
-        for label, function in [('T2_old_isin', torch.isin), ('T3_direct_compare', optimized)]:
+        for label, function in [(old_label, before), (new_label, optimized)]:
             print(label, 'one pass on', len(examples), 'examples', flush=True)
-            SteerVectorState._is_boundary = staticmethod(function)
+            select(function)
             records, seconds = evaluation.generate_records(
                 llm, prompts, examples, sampling, set(boundaries), steering)
             result[label] = dict(summary=evaluation.summarize(records, seconds, args.max_tokens),
                                  records=records)
             result['tests'].append(dict(id=label, kind='evaluation', prompts=len(examples), repeats=1))
             evaluation.write_result(output, result)
-        old, new = result['T2_old_isin'], result['T3_direct_compare']
+        old, new = result[old_label], result[new_label]
         result['token_ids_equal'] = all(a['token_ids'] == b['token_ids'] for a, b in
                                        zip(old['records'], new['records'], strict=True))
         result['time_change_percent'] = (new['summary']['generation_seconds'] /
                                          old['summary']['generation_seconds'] - 1) * 100
         evaluation.write_result(output, result)
-        for label in ('T2_old_isin', 'T3_direct_compare'):
+        for label in (old_label, new_label):
             print(label, result[label]['summary'], flush=True)
         print('token_ids_equal:', result['token_ids_equal'], flush=True)
     finally:
-        SteerVectorState._is_boundary = staticmethod(optimized)
+        select(optimized)
         del llm
         gc.collect()
         if torch.distributed.is_initialized():

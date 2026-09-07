@@ -2,6 +2,7 @@
 """ReBalance's published online confidence controller."""
 
 from dataclasses import dataclass
+from functools import lru_cache
 import math
 
 import torch
@@ -77,14 +78,16 @@ def _solve_k_for_tau(
     return 0.5 * (low + high)
 
 
-def compute_rebalance_coefficient(
-    confidence: torch.Tensor,
-    variance: torch.Tensor,
-    params: ReBalanceParams,
-) -> torch.Tensor:
-    """Map step confidence and the two-step variance proxy to a coefficient."""
-    q25c, q75c = sorted((params.q25c, params.q75c))
-    q25v, q75v = sorted((params.q25v, params.q75v))
+def _baseline(values, midpoint, k, intercept, slope):
+    values = torch.nan_to_num(
+        values, nan=0.5, posinf=1.0, neginf=0.0
+    ).clamp(0.0, 1.0)
+    return intercept + slope * torch.tanh(k * (values - midpoint))
+
+
+@lru_cache(maxsize=128)
+def _curve_constants(q25c, q75c, low_val, device, dtype):
+    """Cache only fixed curve values, separately for each device and dtype."""
     high_val_1 = 0.01
     # Author build_F omits high_val (default 0.0); 0.01 is tau, not high_val.
     curve_high = 0.0
@@ -94,19 +97,42 @@ def compute_rebalance_coefficient(
     k = _solve_k_for_tau(
         q25c,
         q75c,
-        params.low_val_1,
+        low_val,
         curve_high,
         high_val_1,
     )
     span = math.tanh(k * half_width)
-    intercept = 0.5 * (params.low_val_1 + curve_high)
-    slope = (curve_high - params.low_val_1) / (2.0 * max(span, 1e-12))
+    intercept = 0.5 * (low_val + curve_high)
+    slope = (curve_high - low_val) / (2.0 * max(span, 1e-12))
+
+    # Preserve the original scalar tensor operations and their rounding.
+    with torch.no_grad():
+        at_q25 = _baseline(
+            torch.tensor(q25c, device=device, dtype=dtype),
+            midpoint, k, intercept, slope,
+        )
+        at_one = _baseline(
+            torch.tensor(1.0, device=device, dtype=dtype),
+            midpoint, k, intercept, slope,
+        )
+    return midpoint, k, intercept, slope, at_q25, at_one
+
+
+def compute_rebalance_coefficient(
+    confidence: torch.Tensor,
+    variance: torch.Tensor,
+    params: ReBalanceParams,
+) -> torch.Tensor:
+    """Map step confidence and the two-step variance proxy to a coefficient."""
+    q25c, q75c = sorted((params.q25c, params.q75c))
+    q25v, q75v = sorted((params.q25v, params.q75v))
+    high_val_1 = 0.01
+    midpoint, k, intercept, slope, at_q25, at_one = _curve_constants(
+        q25c, q75c, params.low_val_1, confidence.device, confidence.dtype
+    )
 
     def baseline(values: torch.Tensor) -> torch.Tensor:
-        values = torch.nan_to_num(
-            values, nan=0.5, posinf=1.0, neginf=0.0
-        ).clamp(0.0, 1.0)
-        return intercept + slope * torch.tanh(k * (values - midpoint))
+        return _baseline(values, midpoint, k, intercept, slope)
 
     iqrc = max(1e-12, q75c - q25c)
     iqrv = max(1e-12, q75v - q25v)
@@ -132,8 +158,6 @@ def compute_rebalance_coefficient(
         high_gate * low_variance_gate / high_normalizer
     ).clamp(max=1.0)
 
-    at_q25 = baseline(confidence.new_tensor(q25c))
-    at_one = baseline(confidence.new_tensor(1.0))
     updated = baseline(confidence)
     updated += (params.low_val_2 - at_q25) * low_weight
     updated += (params.high_val_2 - at_one) * high_weight

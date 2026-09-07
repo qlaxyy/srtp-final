@@ -15,6 +15,9 @@ from pathlib import Path
 
 import torch
 
+if '--cuda' in sys.argv:
+    torch.set_default_device('cuda')
+
 root = Path(__file__).resolve().parents[3]
 author_path = root / 'sources/ReBalance/modeling_utils/modeling_qwen2_dynamic_3D.py'
 adapter_path = root / 'sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py'
@@ -52,7 +55,7 @@ cg, vg = torch.meshgrid(torch.linspace(0, 1, 1001), torch.linspace(0, 0.25, 251)
 ag, bg = compare(cg.flatten(), vg.flatten())
 diff = (ag-bg).abs()
 index = int(diff.argmax())
-result = dict(scope='CPU function audit, no model generation', torch=torch.__version__,
+result = dict(scope='function audit, no model generation', device=str(c.device), torch=torch.__version__,
     author_source_sha256=hashlib.sha256(source.encode()).hexdigest(),
     adapter_source_sha256=hashlib.sha256(adapter_path.read_text(encoding='utf-8').encode()).hexdigest(),
     examples=[dict(c=float(ci), v=float(vi), author=float(ai), adapter=float(bi)) for ci,vi,ai,bi in zip(c,v,a,b)],
