@@ -54,6 +54,6 @@ LIMIT=20 bash integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm
 
 模型、向量、完整数据、Python 环境和逐题结果均保存在 `/root/autodl-tmp`，不提交 Git。默认外部路径及覆盖方法见 [ReBalance 运行说明](docs/research/03-ReBalance适配与运行.md)。
 
-## 协作方式
+## 代码更新方式
 
-首次基线建立后，所有修改统一采用：本地功能分支 → 推送 GitHub → PR 审查合并 → 服务器 `git pull --ff-only`。不再发送 ZIP，也不再手工覆盖服务器源码。
+当前按单人维护处理：日常且已验证的修改直接提交并推送到 `main`，服务器随后执行 `git pull --ff-only`。只有高风险实验、较大重构或需要长期保留独立版本时才创建功能分支；不要求每次创建 PR。不再发送 ZIP，也不再手工覆盖服务器源码。
