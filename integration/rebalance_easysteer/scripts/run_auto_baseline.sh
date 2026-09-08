@@ -14,7 +14,7 @@ mkdir -p "$OUT"
 if [[ "${1:-}" != --group ]]; then
     common=(--source "$SOURCE" --output "$OUT" --model "$MODEL")
     if [[ ! -f "$SOURCE/generation_summary.json" ]]; then
-        timeout --signal=TERM --kill-after=10 1500 "$VLLM" -u \
+        timeout --signal=TERM --kill-after=10 "${CALIBRATION_TIMEOUT_SECONDS:-1500}" "$VLLM" -u \
             integration/rebalance_easysteer/scripts/calibrate_auto.py generate "${common[@]}" \
             > "$OUT/generate.log" 2>&1
     fi
@@ -28,14 +28,17 @@ if [[ "${1:-}" != --group ]]; then
         if [[ ! -f "$OUT/$marker" ]]; then
             extra=()
             [[ -z "${FEATURE_CACHE:-}" ]] || extra=(--feature-cache "$FEATURE_CACHE")
+            [[ -z "${FEATURE_DIR:-}" ]] || extra+=(--feature-dir "$FEATURE_DIR")
             timeout --signal=TERM --kill-after=10 1500 "$LEGACY" -u \
                 integration/rebalance_easysteer/scripts/calibrate_auto.py "$stage" \
                 "${common[@]}" "${extra[@]}" > "$OUT/${stage}.log" 2>&1
         fi
     done
     for dataset in ${BENCHMARKS:-math500 gsm8k}; do
-        # Includes initialization, generation and both graders; no implicit repeats.
-        timeout --signal=TERM --kill-after=10 1500 bash "$0" --group "$dataset"
+        # Each arm has its own 1500s generation+grading budget inside Python.
+        # A new model needs two arms; neither is allowed to borrow the other's time.
+        # The outer cap additionally bounds startup and cleanup.
+        timeout --signal=TERM --kill-after=10 3300 bash "$0" --group "$dataset"
     done
     echo "Automatic baseline completed $(date -Is)"
     exit 0

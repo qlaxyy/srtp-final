@@ -10,6 +10,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import sys
 import time
 
@@ -107,7 +108,9 @@ def prepare(args):
 def collect(args):
     from transformers import AutoModelForCausalLM
     out = args.output
-    if (out / "collection.json").exists() or (out / "layer_1.npy").exists():
+    features = (args.feature_dir or out).resolve()
+    features.mkdir(parents=True, exist_ok=True)
+    if (out / "collection.json").exists() or any(features.glob("layer_*.npy")):
         raise FileExistsError("Hidden collection already started")
     protocol = json.loads((out / "protocol.json").read_text())
     assert protocol["source_sha256"] == sha(args.source / "generations.jsonl")
@@ -121,6 +124,11 @@ def collect(args):
     if not hasattr(decoder, "layers") or not hasattr(decoder, "norm"):
         raise ValueError("Model needs an explicit decoder-output hook adapter")
     layers, width = len(decoder.layers), model.config.hidden_size
+    required_bytes = layers * (count * width * 4 + 256)
+    new_bytes = required_bytes if not args.feature_cache else required_bytes // layers
+    if shutil.disk_usage(features).free < new_bytes + 1024**3:
+        raise OSError(f"Hidden cache needs {new_bytes / 1024**3:.2f} GiB "
+                      f"plus 1 GiB reserve at {features}")
     reused = []
     if args.feature_cache:
         cache = args.feature_cache
@@ -134,7 +142,7 @@ def collect(args):
             x = np.load(src, mmap_mode="r")
             assert x.shape == (count, width) and x.dtype == np.float32
             del x
-            os.link(src, out / src.name)
+            os.link(src, features / src.name)
             reused.append(i)
     maps, capture, selected = {}, {}, []
     def hook(i):
@@ -144,7 +152,7 @@ def collect(args):
         return save_layer
     missing = [i for i in range(1, layers+1) if i not in reused]
     for i in missing:
-        maps[i] = np.lib.format.open_memmap(out / f"layer_{i}.npy", mode="w+",
+        maps[i] = np.lib.format.open_memmap(features / f"layer_{i}.npy", mode="w+",
             dtype=np.float32, shape=(count, width))
     handles = [decoder.layers[i-1].register_forward_hook(hook(i)) for i in missing]
     offset, checked = 0, False
@@ -160,7 +168,7 @@ def collect(args):
             if not checked:
                 for i in range(1, layers):
                     ref = result.hidden_states[i][0, selected].float().cpu().numpy()
-                    actual = (np.load(out / f"layer_{i}.npy", mmap_mode="r")
+                    actual = (np.load(features / f"layer_{i}.npy", mmap_mode="r")
                               [offset:offset+len(selected)] if i in reused else capture[i])
                     assert np.array_equal(actual, ref), i
                 last = torch.from_numpy(capture[layers]).to("cuda", dtype=torch.bfloat16)
@@ -181,6 +189,7 @@ def collect(args):
     for x in maps.values():
         x.flush()
     save(out / "collection.json", dict(layers=layers, width=width, steps=count,
+        feature_dir=str(features), dtype="float32", cache_bytes=required_bytes,
         layer_ids=list(range(1, layers+1)), seconds=time.time()-started,
         representation="raw decoder block outputs (before final norm)", reused_layers=reused))
 
@@ -196,6 +205,7 @@ def select(args):
         raise FileExistsError("Layer already selected")
     steps = json.loads((out / "steps.json").read_text())
     config = json.loads((out / "collection.json").read_text())
+    features = Path(config.get("feature_dir", out))
     y = np.asarray([r["confidence"] for r in steps], dtype=np.float32)
     groups = np.asarray([r["question"] for r in steps])
     train, valid = next(GroupShuffleSplit(n_splits=1, test_size=.2,
@@ -204,7 +214,7 @@ def select(args):
     scores, started = [], time.time()
     with threadpool_limits(limits=8):
         for layer in config["layer_ids"]:
-            x = np.load(out / f"layer_{layer}.npy", mmap_mode="r")
+            x = np.load(features / f"layer_{layer}.npy", mmap_mode="r")
             pca = PCA(n_components=min(64, len(train), x.shape[1]),
                       svd_solver="randomized", random_state=42)
             xt, xv = pca.fit_transform(x[train]), None
@@ -236,7 +246,9 @@ def fit(args):
     vl, vh = protocol["variance_quantiles"]
     over, under = lexical | (c < cl), ~lexical & (c > ch)
     assert over.any() and under.any() and not (over & under).any()
-    x = np.load(out / f"layer_{layer}.npy", mmap_mode="r")
+    collection = json.loads((out / "collection.json").read_text())
+    features = Path(collection.get("feature_dir", out))
+    x = np.load(features / f"layer_{layer}.npy", mmap_mode="r")
     xo, xu = x[over].astype(np.float64), x[under].astype(np.float64)
     mo, mu = xo.mean(0), xu.mean(0)
     direction = mo-mu
@@ -298,6 +310,8 @@ if __name__ == "__main__":
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--feature-cache", type=Path)
+    p.add_argument("--feature-dir", type=Path,
+                   help="Optional scratch storage; metadata and fitted assets stay in output")
     args = p.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     if args.stage == "generate":

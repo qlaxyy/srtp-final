@@ -43,7 +43,8 @@ def prompt(tokenizer, problem):
 
 
 def generate(out, model_path=MODEL):
-    if (out / "generations.jsonl").exists():
+    partial = out / "generations.partial.jsonl"
+    if (out / "generations.jsonl").exists() or partial.exists():
         raise FileExistsError("Generation already exists; do not repeat it")
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
@@ -79,23 +80,41 @@ def generate(out, model_path=MODEL):
               gpu_memory_utilization=.9, seed=42,
               enable_prefix_caching=False, enable_chunked_prefill=False)
     started = time.time()
-    results = llm.generate([prompt(tok, train[i]["problem"]) for i in selected],
+    request_ids = llm.enqueue([prompt(tok, train[i]["problem"]) for i in selected],
         SamplingParams(temperature=0, max_tokens=16000, logprobs=1,
                        seed=42, skip_special_tokens=True))
+    indices = dict(zip(request_ids, selected, strict=True))
+    records = {}
+    # Same enqueue/engine-step path as LLM.generate; checkpoint each completed
+    # request so an interrupted long calibration does not lose finished answers.
+    with partial.open("x") as f:
+        while llm.llm_engine.has_unfinished_requests():
+            for result in llm.llm_engine.step():
+                if not result.finished:
+                    continue
+                index = indices[result.request_id]
+                assert index not in records
+                seq = result.outputs[0]
+                row = dict(train_index=index, problem=train[index]["problem"],
+                    prompt_token_ids=list(result.prompt_token_ids),
+                    token_ids=list(seq.token_ids), text=seq.text,
+                    logprobs=[p[t].logprob for t, p in
+                              zip(seq.token_ids, seq.logprobs, strict=True)],
+                    finish_reason=seq.finish_reason)
+                records[index] = row
+                f.write(json.dumps(row, ensure_ascii=False) + "\n")
+                f.flush()
+                if len(records) % 10 == 0:
+                    print(f"Calibration {len(records)}/500 completed, "
+                          f"{time.time()-started:.1f}s", flush=True)
+    assert set(records) == set(selected)
     with (out / "generations.jsonl").open("x") as f:
-        for index, result in zip(selected, results, strict=True):
-            seq = result.outputs[0]
-            row = dict(train_index=index, problem=train[index]["problem"],
-                prompt_token_ids=list(result.prompt_token_ids),
-                token_ids=list(seq.token_ids), text=seq.text,
-                logprobs=[p[t].logprob for t, p in
-                          zip(seq.token_ids, seq.logprobs, strict=True)],
-                finish_reason=seq.finish_reason)
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-    save(out / "generation_summary.json", dict(count=len(results),
+        for index in selected:
+            f.write(json.dumps(records[index], ensure_ascii=False) + "\n")
+    save(out / "generation_summary.json", dict(count=len(records),
         seconds=time.time()-started,
-        mean_tokens=sum(len(x.outputs[0].token_ids) for x in results)/len(results),
-        capped=sum(x.outputs[0].finish_reason=="length" for x in results)))
+        mean_tokens=sum(len(x["token_ids"]) for x in records.values())/len(records),
+        capped=sum(x["finish_reason"]=="length" for x in records.values())))
 
 
 def extract(out):
