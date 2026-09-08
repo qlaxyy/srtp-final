@@ -59,6 +59,7 @@ esac
 [[ ! -e "$OUT/${dataset}_eval.json" ]] || { echo "Result exists: $dataset"; exit 2; }
 reuse=()
 [[ -z "$baseline" ]] || reuse=(--baseline-result "$baseline")
+[[ -n "$baseline" ]] || reuse+=(--dynamic-first)
 context="${EVAL_MAX_MODEL_LEN:-32768}"
 if [[ -f "$OUT/eval_runtime.json" ]]; then
     context=$("$LEGACY" -c 'import json,sys; from pathlib import Path; c=json.load(open(sys.argv[1])); assert Path(c["model"]).resolve()==Path(sys.argv[2]).resolve(); n=c["max_model_len"]; assert isinstance(n,int) and n>16000; print(n)' "$OUT/eval_runtime.json" "$MODEL")

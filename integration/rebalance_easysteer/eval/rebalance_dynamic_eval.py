@@ -75,6 +75,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--paper-fit", type=Path)
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a compatible saved baseline; no generation repeat")
+    parser.add_argument("--dynamic-first", action="store_true",
+                        help="Check the intervention arm before spending time on baseline")
     return parser.parse_args()
 
 
@@ -260,6 +262,9 @@ def main() -> None:
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
     result["protocol"]["preemption_policy"] = "reject dynamic KV recomputation after output"
+    result["protocol"]["run_order"] = (
+        ["rebalance_dynamic", "baseline"] if args.dynamic_first
+        else ["baseline", "rebalance_dynamic"])
     if paper is not None:
         if result["provenance"]["vector_sha256"] != paper["vector_sha256"]:
             raise ValueError("Paper vector hash mismatch")
@@ -381,29 +386,21 @@ def main() -> None:
         result["status"] = "incomplete"
         write_result(output_path, result)
 
-        if reused_baseline is None:
-            print("Running paired vLLM baseline...")
-            baseline, baseline_summary = run_group(
-                prompts, sampling, boundary_set, steering=None
-            )
-        else:
-            print("Reusing verified saved baseline; no baseline generation")
-            baseline = reused_baseline["records"]
-            baseline_summary = reused_baseline["summary"]
-        result["baseline"] = {
-            "summary": baseline_summary,
-            "records": baseline,
-        }
-        write_result(output_path, result)
-
-        print("Running dynamic ReBalance steering...")
-        dynamic, dynamic_summary = run_group(
-            prompts, sampling, boundary_set, steering=steering
-        )
-        result["rebalance_dynamic"] = {
-            "summary": dynamic_summary,
-            "records": dynamic,
-        }
+        for mode in result["protocol"]["run_order"]:
+            if mode == "baseline" and reused_baseline is not None:
+                print("Reusing verified saved baseline; no baseline generation")
+                result[mode] = reused_baseline
+            else:
+                print(f"Running {mode}...")
+                records, summary = run_group(
+                    prompts, sampling, boundary_set,
+                    steering=None if mode == "baseline" else steering,
+                )
+                result[mode] = {"summary": summary, "records": records}
+            write_result(output_path, result)
+        baseline, dynamic = result["baseline"]["records"], result["rebalance_dynamic"]["records"]
+        baseline_summary = result["baseline"]["summary"]
+        dynamic_summary = result["rebalance_dynamic"]["summary"]
         result["comparison"] = comparison(
             baseline,
             dynamic,
