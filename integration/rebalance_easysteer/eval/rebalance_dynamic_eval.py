@@ -25,6 +25,7 @@ from easysteer.vectors import from_pt_direction
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
+from runtime_guards import guard_dynamic_preemption
 
 from rebalance_static_eval import (
     DEFAULT_DATASET,
@@ -253,6 +254,7 @@ def main() -> None:
         "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
+    result["protocol"]["preemption_policy"] = "reject dynamic KV recomputation after output"
     if paper is not None:
         if result["provenance"]["vector_sha256"] != paper["vector_sha256"]:
             raise ValueError("Paper vector hash mismatch")
@@ -306,6 +308,7 @@ def main() -> None:
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
         started = time.perf_counter()
+        previous_preemptions = preemptions["events"]
         # Graders may use SIGALRM internally; keep an independent wall-time cap.
         def enforce_deadline():
             print("Evaluation group exceeded its wall-time budget", file=sys.stderr, flush=True)
@@ -331,6 +334,7 @@ def main() -> None:
             summary["mean_answer_tokens"] = sum(r["answer_tokens"] for r in records) / len(records)
             summary["thinking_not_ended"] = sum(not r["thinking_ended"] for r in records)
             summary["group_seconds_including_grading"] = time.perf_counter() - started
+            summary["preemptions"] = preemptions["events"] - previous_preemptions
             return records, summary
         finally:
             watchdog.cancel()
@@ -355,6 +359,8 @@ def main() -> None:
             seed=args.seed,
         )
         result["startup_seconds"] = time.perf_counter() - started
+        preemptions = guard_dynamic_preemption(
+            llm.llm_engine.engine_core.engine_core.scheduler)
         result["environment"]["gpu"] = torch.cuda.get_device_name(0)
         prompts = [build_prompt(tokenizer, row["problem"]) for row in examples]
         sampling = SamplingParams(
