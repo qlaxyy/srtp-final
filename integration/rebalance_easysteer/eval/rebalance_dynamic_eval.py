@@ -58,6 +58,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-tokens", type=int, default=4096)
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--gpu-memory-utilization", type=float, default=0.90)
+    parser.add_argument("--max-num-seqs", type=int, default=256)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
@@ -234,6 +235,7 @@ def main() -> None:
             "easysteer_output_layer": args.layer,
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
+            "max_num_seqs": args.max_num_seqs,
             "max_prompt_tokens": max_prompt_tokens,
             "temperature": args.temperature,
             "top_p": args.top_p,
@@ -300,6 +302,8 @@ def main() -> None:
         for key in ("torch", "vllm"):
             if saved["environment"][key] != result["environment"][key]:
                 raise ValueError(f"Incompatible saved baseline environment: {key}")
+        if saved["protocol"].get("max_num_seqs", 256) != args.max_num_seqs:
+            raise ValueError("Incompatible saved baseline concurrency")
         reused_baseline = saved["baseline"]
         if len(reused_baseline["records"]) != len(examples):
             raise ValueError("Saved baseline record count mismatch")
@@ -362,6 +366,7 @@ def main() -> None:
             dtype="bfloat16",
             tensor_parallel_size=1,
             max_model_len=args.max_model_len,
+            max_num_seqs=args.max_num_seqs,
             gpu_memory_utilization=args.gpu_memory_utilization,
             enable_steer_vector=True,
             steer_algorithms=["rebalance"],
