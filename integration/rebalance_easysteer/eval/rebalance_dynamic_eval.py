@@ -319,7 +319,10 @@ def main() -> None:
         signal.alarm(args.group_timeout_seconds)
         try:
             records, seconds = generate_records(
-                llm, prompts, examples, sampling, boundary_set, steering=steering
+                llm, prompts, examples, sampling, boundary_set, steering=steering,
+                checkpoint_path=output_path.with_suffix(
+                    ".baseline.partial.jsonl" if steering is None
+                    else ".dynamic.partial.jsonl"),
             )
             for record in records:
                 ids = record["token_ids"]
@@ -371,6 +374,8 @@ def main() -> None:
             skip_special_tokens=True,
         )
         boundary_set = set(boundary_ids)
+        result["status"] = "incomplete"
+        write_result(output_path, result)
 
         if reused_baseline is None:
             print("Running paired vLLM baseline...")
@@ -402,6 +407,7 @@ def main() -> None:
             dynamic_summary,
             args.offset,
         )
+        result["status"] = "completed"
         write_result(output_path, result)
 
         change = result["comparison"]

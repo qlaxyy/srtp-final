@@ -155,14 +155,17 @@ def generate_records(
     params: SamplingParams,
     boundary_ids: set[int],
     steering: SteeringSpec | None,
+    checkpoint_path: Path | None = None,
 ) -> tuple[list[dict[str, Any]], float]:
     started = time.perf_counter()
-    outputs = llm.generate(
-        prompts,
-        sampling_params=params,
-        steering=steering,
-        use_tqdm=True,
-    )
+    if checkpoint_path is None:
+        outputs = llm.generate(
+            prompts, sampling_params=params, steering=steering, use_tqdm=True,
+        )
+    else:
+        from runtime_guards import generate_with_checkpoint
+        outputs = generate_with_checkpoint(
+            llm, prompts, params, steering, checkpoint_path)
     seconds = time.perf_counter() - started
     records: list[dict[str, Any]] = []
     for local_index, (example, request_output) in enumerate(
