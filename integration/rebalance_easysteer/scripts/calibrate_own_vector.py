@@ -55,6 +55,17 @@ def generate(out):
     eligible = [i for i, x in enumerate(train)
                 if normalize(x["problem"]) not in forbidden]
     selected = random.Random(42).sample(eligible, 500)
+    selected_problems = {normalize(train[i]["problem"]) for i in selected}
+    assert len(selected_problems) == 500
+    split_check = dict(train_total=len(train), selected_indices=len(selected),
+                       unique_selected_problems=len(selected_problems))
+    for name in ("Math_Math500", "Math_GSM8K"):
+        held_out = read(ROOT / f"sources/ReBalance/Data/{name}/test.jsonl")
+        overlap = selected_problems & {normalize(x["problem"]) for x in held_out}
+        assert not overlap, f"Calibration overlaps {name}"
+        split_check[name] = dict(test_count=len(held_out),
+                                exact_normalized_problem_overlap=len(overlap))
+    save(out / "split_check.json", split_check)
     manifest = dict(seed=42, count=500, train_indices=selected,
         train_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
         excluded_test_overlap=len(train)-len(eligible),
@@ -97,6 +108,12 @@ def extract(out):
     hidden_dir = out / "hidden"
     hidden_dir.mkdir(exist_ok=True)
     rows = read(out / "generations.jsonl")
+    manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+    assert len(rows) == manifest["count"] == 500
+    assert [r["train_index"] for r in rows] == manifest["train_indices"]
+    for row in rows:
+        assert len(row["token_ids"]) == len(row["logprobs"]) > 0
+        assert all(math.isfinite(p) and p <= 1e-5 for p in row["logprobs"])
     records = []
     capture = {}
     positions = []
