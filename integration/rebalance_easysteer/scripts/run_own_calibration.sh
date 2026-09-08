@@ -37,6 +37,13 @@ if [[ ! -f "$OUT/extraction_summary.json" ]]; then
     run_budgeted "$LEGACY" -u integration/rebalance_easysteer/scripts/calibrate_own_vector.py \
         extract --output "$OUT" > "$OUT/extract.log" 2>&1
 fi
+if [[ ! -f "$OUT/prompt_boundary_correction.json" ]]; then
+    if [[ ! -f "$OUT/prompt_corrected/prompt_boundary_correction.json" ]]; then
+        run_budgeted "$LEGACY" -u integration/rebalance_easysteer/scripts/calibrate_own_vector.py \
+            align --output "$OUT/prompt_corrected" > "$OUT/align.log" 2>&1
+    fi
+    OUT="$OUT/prompt_corrected"
+fi
 if [[ ! -f "$OUT/fit.json" ]]; then
     run_budgeted "$LEGACY" -u integration/rebalance_easysteer/scripts/calibrate_own_vector.py \
         fit --output "$OUT" > "$OUT/fit.log" 2>&1

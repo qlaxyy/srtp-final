@@ -222,13 +222,60 @@ def fit(out):
         "Our explicit endpoint mapping: low1=-alpha_mean_S; low2=-alpha_all_S. "
         "high2=0.1 and initial=-1 are fixed design constants, not fitted. "
         "Offline geometric confidence; online released arithmetic controller. "
-        "Fixed author layer19; no layer search or benchmark tuning."))
+        "Fixed author layer19; no layer search or benchmark tuning.",
+        prompt_boundary_correction=(out / "prompt_boundary_correction.json").exists()))
     print((out / "fit.json").read_text(), flush=True)
+
+
+def align(out):
+    """Remove prompt boundaries from saved author-format states; no forward pass.
+
+    The released extractor scans prompt + response for blank lines. Its label
+    builder only counts response steps, silently dropping multi-paragraph
+    questions. Correct the scope, retaining the released response-step offset.
+    """
+    import torch
+    from transformers import AutoTokenizer
+    source = out.parent
+    assert (source / "calibration.jsonl").exists()
+    tok = AutoTokenizer.from_pretrained(MODEL)
+    generations = read(source / "generations.jsonl")
+    records = read(source / "calibration.jsonl")
+    (out / "hidden").mkdir(exist_ok=True)
+    corrections = []
+    for i, (row, gen) in enumerate(zip(records, generations, strict=True)):
+        # Re-tokenize exactly as the author extractor, so prompt token indices
+        # match the saved full-sequence hidden states.
+        ids = tok(prompt(tok, gen["problem"]))["input_ids"]
+        extra = sum("ĊĊ" in t for t in tok.convert_ids_to_tokens(ids))
+        raw = torch.load(source / "hidden" / f"hidden_{i}.pt", weights_only=False)
+        values = raw[19][0]["step"]
+        corrected = values[extra:].clone()
+        assert corrected.shape[0] == len(row["sentence_confidences"])-1, i
+        assert torch.equal(corrected, values[extra:])
+        torch.save({19: {0: {"step": corrected}}}, out / "hidden" / f"hidden_{i}.pt")
+        row["step_count"] = corrected.shape[0]
+        if extra:
+            corrections.append(dict(index=i, train_index=row["train_index"],
+                                    prompt_boundaries_removed=extra))
+    for name in ("manifest.json", "generations.jsonl", "generation_summary.json",
+                 "split_check.json", "hidden_hook_check.json", "preflight_checks.json"):
+        if not (out / name).exists():
+            os.link(source / name, out / name)
+    with (out / "calibration.jsonl").open("x", encoding="utf-8") as f:
+        for row in records:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    save(out / "prompt_boundary_correction.json", dict(source=str(source),
+        corrected_questions=len(corrections), matching_questions=len(records),
+        regenerated_answers=0, extra_model_forwards=0, corrections=corrections))
+    save(out / "extraction_summary.json", dict(count=len(records),
+        matching_author_offset=len(records), corrected_prompt_boundaries=True))
+    print(f"Aligned {len(records)} questions; corrected {len(corrections)}", flush=True)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("stage", choices=["generate", "extract", "fit"])
+    parser.add_argument("stage", choices=["generate", "extract", "align", "fit"])
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
