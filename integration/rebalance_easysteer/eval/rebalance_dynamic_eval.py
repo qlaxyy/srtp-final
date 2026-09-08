@@ -169,6 +169,10 @@ def main() -> None:
     examples = load_examples(dataset_path, args.offset, args.limit)
 
     tokenizer = AutoTokenizer.from_pretrained(str(model_path), local_files_only=True)
+    prompts = [build_prompt(tokenizer, row["problem"]) for row in examples]
+    max_prompt_tokens = max(len(tokenizer.encode(prompt)) for prompt in prompts)
+    if max_prompt_tokens + args.max_tokens > args.max_model_len:
+        raise ValueError("Context limit would shorten at least one requested generation")
     boundary_ids = sorted(
         token_id
         for token, token_id in tokenizer.get_vocab().items()
@@ -228,6 +232,7 @@ def main() -> None:
             "easysteer_output_layer": args.layer,
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
+            "max_prompt_tokens": max_prompt_tokens,
             "temperature": args.temperature,
             "top_p": args.top_p,
             "seed": args.seed,
@@ -365,7 +370,6 @@ def main() -> None:
         preemptions = guard_dynamic_preemption(
             llm.llm_engine.engine_core.engine_core.scheduler)
         result["environment"]["gpu"] = torch.cuda.get_device_name(0)
-        prompts = [build_prompt(tokenizer, row["problem"]) for row in examples]
         sampling = SamplingParams(
             temperature=args.temperature,
             top_p=args.top_p,

@@ -57,10 +57,14 @@ esac
 [[ ! -e "$OUT/${dataset}_eval.json" ]] || { echo "Result exists: $dataset"; exit 2; }
 reuse=()
 [[ -z "$baseline" ]] || reuse=(--baseline-result "$baseline")
+context="${EVAL_MAX_MODEL_LEN:-32768}"
+if [[ -f "$OUT/eval_runtime.json" ]]; then
+    context=$("$LEGACY" -c 'import json,sys; from pathlib import Path; c=json.load(open(sys.argv[1])); assert Path(c["model"]).resolve()==Path(sys.argv[2]).resolve(); n=c["max_model_len"]; assert isinstance(n,int) and n>16000; print(n)' "$OUT/eval_runtime.json" "$MODEL")
+fi
 echo "$dataset started $(date -Is)"
 "$VLLM" -u integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py \
     --model "$MODEL" --dataset "$data" --limit "$count" \
-    --max-tokens 16000 --max-model-len 32768 \
+    --max-tokens 16000 --max-model-len "$context" \
     --vector "$OUT/auto_vector.pt" --calibration-fit "$OUT/fit.json" \
     "${reuse[@]}" --output "$OUT/${dataset}_eval.json" \
     --group-timeout-seconds 1500 > "$OUT/${dataset}_eval.log" 2>&1
