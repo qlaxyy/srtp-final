@@ -23,6 +23,22 @@ class ReBalanceParams:
     q75v: float = 0.01
     low_val_2: float = -2.0
     high_val_2: float = 0.1
+    paper_parameters: tuple[float, ...] | None = None
+
+    def __post_init__(self):
+        if self.paper_parameters is None:
+            return
+        p = self.paper_parameters
+        if len(p) != 5 or not all(math.isfinite(x) for x in p):
+            raise ValueError("Paper parameters require Bm, Bo, Bu, eta_c, eta_v")
+        if min(p[:3]) < 0 or min(p[3:]) <= 0:
+            raise ValueError("Invalid paper amplitudes or gate widths")
+        if not 0 <= self.q25c < self.q75c <= 1:
+            raise ValueError("Invalid paper confidence thresholds")
+        if not 0 <= self.q25v < self.q75v <= 0.25:
+            raise ValueError("Invalid paper variance thresholds")
+        if self.initial_coef != 0:
+            raise ValueError("Paper reconstruction starts without intervention")
 
     @classmethod
     def from_request(cls, request) -> "ReBalanceParams":
@@ -44,7 +60,24 @@ class ReBalanceParams:
             q75v=request.rebalance_q75v,
             low_val_2=request.rebalance_low_val_2,
             high_val_2=request.rebalance_high_val_2,
+            paper_parameters=(
+                tuple(request.rebalance_paper_parameters)
+                if getattr(request, "rebalance_paper_parameters", None) is not None
+                else None
+            ),
         )
+
+
+def compute_paper_coefficient(confidence, variance, params: ReBalanceParams):
+    """Literal Appendix B.3 final surface with explicit reconstruction constants."""
+    bm, bo, bu, eta_c, eta_v = params.paper_parameters
+    over = torch.sigmoid((params.q25c - confidence) / eta_c)
+    over *= torch.sigmoid((variance - params.q75v) / eta_v)
+    under = torch.sigmoid((confidence - params.q75c) / eta_c)
+    under *= torch.sigmoid((params.q25v - variance) / eta_v)
+    amplitude = bm + (bo - bm) * over + (bu - bm) * under
+    delta = confidence - params.q75c
+    return torch.sign(delta) * amplitude * torch.tanh(delta.abs())
 
 
 def _solve_k_for_tau(

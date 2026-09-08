@@ -70,6 +70,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--low-val-2", type=float, default=-1.91)
     parser.add_argument("--high-val-2", type=float, default=0.1)
     parser.add_argument("--calibration-fit", type=Path)
+    parser.add_argument("--paper-fit", type=Path)
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a compatible saved baseline; no generation repeat")
     return parser.parse_args()
@@ -127,6 +128,14 @@ def comparison(
 
 def main() -> None:
     args = parse_args()
+    if args.paper_fit and args.calibration_fit:
+        raise ValueError("Select one baseline definition")
+    paper = None
+    if args.paper_fit:
+        paper = json.loads(args.paper_fit.read_text(encoding="utf-8"))
+        args.layer = paper["decoder_output_layer"]
+        for key in ("q25c", "q75c", "q25v", "q75v", "initial_coef"):
+            setattr(args, key, paper["parameters"][key])
     fitted = None
     if args.calibration_fit:
         fitted = json.loads(args.calibration_fit.read_text(encoding="utf-8"))
@@ -175,6 +184,8 @@ def main() -> None:
         "high_val_2": args.high_val_2,
     }
     payload = from_pt_direction(str(vector_path), layers=[args.layer])
+    if paper is not None:
+        dynamic_params["paper_parameters"] = paper["parameters"]["paper_parameters"]
     steering = SteeringSpec(
         vectors=[
             VectorSpec(
@@ -184,7 +195,8 @@ def main() -> None:
                 scale=1.0,
                 layers=[args.layer],
                 normalize=False,
-                apply=ApplySpec(generation_tokens=boundary_ids),
+                apply=(ApplySpec(generation="all") if paper is not None else
+                       ApplySpec(generation_tokens=boundary_ids)),
                 params=dynamic_params,
             )
         ]
@@ -232,6 +244,17 @@ def main() -> None:
         "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
+    if paper is not None:
+        if result["provenance"]["vector_sha256"] != paper["vector_sha256"]:
+            raise ValueError("Paper vector hash mismatch")
+        if str(model_path) != paper["model"]:
+            raise ValueError("Paper calibration model mismatch")
+        result["scope"] = "ReBalance-paper-reconstruction-vllm-v1"
+        result["confidence_definition"] = "Geometric mean of raw max probabilities"
+        result["protocol"]["rebalance_source_layer"] = paper["hidden_state_index"]
+        result["paper_reconstruction"] = paper
+        result["provenance"]["paper_fit_sha256"] = hashlib.sha256(
+            args.paper_fit.read_bytes()).hexdigest()
     if fitted is not None:
         if result["provenance"]["vector_sha256"] != fitted["vector_sha256"]:
             raise ValueError("Vector does not match calibration fit")

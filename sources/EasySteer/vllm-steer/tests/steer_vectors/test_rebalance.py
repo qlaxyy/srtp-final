@@ -4,9 +4,81 @@ import torch
 
 from vllm.steer_vectors.rebalance import (
     ReBalanceParams,
+    compute_paper_coefficient,
     compute_rebalance_coefficient,
 )
 from vllm.v1.worker.gpu.steer_vector_utils import SteerVectorState
+
+
+def test_paper_next_content_reordering_and_slot_reuse():
+    """Geometric confidence must follow request slots and steer only one token."""
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        req = _request()
+        req.rebalance_initial_coef = 0.0
+        req.rebalance_paper_parameters = [2., 2., 2., .02, .002]
+        state = SteerVectorState(3, torch.device(device))
+        manager = _Manager()
+        for i, name in enumerate(("a", "b")):
+            state.add_request(name, req, manager, req_index=i, prompt_token_ids=[10])
+        batch = SimpleNamespace(
+            req_ids=["b", "plain", "a"], num_reqs=3, num_draft_tokens=0,
+            idx_mapping=torch.tensor([1, 2, 0], device=device),
+        )
+
+        def observe(tokens, probs):
+            state.observe_sample(
+                batch, torch.tensor(tokens, device=device)[:, None],
+                torch.tensor(probs, device=device),
+            )
+            return state.batch_scales(batch)
+
+        observe([1, 1, 1], [.9, .5, .4])
+        observe([2, 2, 2], [.1, .5, .4])
+        scales = observe([99, 2, 99], [.99, .5, .01])
+        torch.testing.assert_close(scales, torch.tensor([0., 1., 0.], device=device))
+        torch.testing.assert_close(
+            state._prev_step_mean[:2], torch.tensor([.4, .3], device=device)
+        )
+        observe([99, 2, 99], [.9, .5, .9])
+        scales = observe([3, 2, 3], [.5, .5, .5])
+        expected = 2 * torch.tanh(torch.tensor([.3, .4], device=device) - .9)
+        torch.testing.assert_close(scales[[0, 2]], expected)
+        scales = observe([4, 2, 4], [.5, .5, .5])
+        torch.testing.assert_close(scales[[0, 2]], torch.zeros(2, device=device))
+        observe([99, 2, 99], [.9, .5, .9])
+        scales = observe([11, 2, 3], [.9, .5, .5])
+        assert scales[0] == 0 and scales[2] < 0
+        state.remove_request("b", manager)
+        state.add_request("new", req, manager, req_index=1, prompt_token_ids=[10])
+        batch.req_ids[0] = "new"
+        assert state.batch_scales(batch)[0] == 0
+        assert state._step_tok_count[1] == 0
+
+
+def test_paper_surface_sign_and_explicit_parameter_wire():
+    """Paper opt-in survives API/wire conversion without changing legacy defaults."""
+    import msgspec
+    from vllm.steer_vectors.api import ApplySpec, SteeringSpec, VectorSpec, to_engine_request
+    from vllm.steer_vectors.request import SteerVectorRequest
+
+    spec = SteeringSpec(vectors=[VectorSpec(
+        name="paper", source="/unused.pt", layers=[22], algorithm="rebalance",
+        apply=ApplySpec(generation="all"), params=dict(
+            boundary_token_ids=[99], think_start_token_id=10,
+            think_end_token_id=11, initial_coef=0.,
+            paper_parameters=[2., 2., 2., .02, .002],
+        ),
+    )])
+    req = to_engine_request(spec, name="paper", int_id=1)
+    decoded = msgspec.msgpack.decode(msgspec.msgpack.encode(req), type=SteerVectorRequest)
+    params = ReBalanceParams.from_request(decoded)
+    assert params.paper_parameters == (2., 2., 2., .02, .002)
+    assert ReBalanceParams.from_request(_request()).paper_parameters is None
+    c = torch.tensor([.1, .5, .9, 1.])
+    torch.testing.assert_close(
+        compute_paper_coefficient(c, torch.zeros_like(c), params),
+        2 * torch.tanh(c - .9),
+    )
 
 
 def test_rebalance_controller_hits_published_anchor_values():

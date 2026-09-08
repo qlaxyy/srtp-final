@@ -92,6 +92,7 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
         "q75v",
         "low_val_2",
         "high_val_2",
+        "paper_parameters",
     ),
 }
 
@@ -569,6 +570,7 @@ def to_engine_request(
                 "rebalance_q75v": v.params.get("q75v", 0.01),
                 "rebalance_low_val_2": v.params.get("low_val_2", -2.0),
                 "rebalance_high_val_2": v.params.get("high_val_2", 0.1),
+                "rebalance_paper_parameters": v.params.get("paper_parameters"),
             }
         wire = _payload_wire(v)
         return SteerVectorRequest(

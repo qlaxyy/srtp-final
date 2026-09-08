@@ -1,0 +1,95 @@
+{
+  "version": "paper-reconstruction-v1",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 23,
+  "decoder_output_layer": 22,
+  "vector_sha256": "67ec656fbe18939ec940247e8aeaa6ec965b4dfa85026fac8a06297f8e7c1249",
+  "parameters": {
+    "q25c": 0.8623069711481826,
+    "q75c": 0.9989067712826595,
+    "q25v": 2.3049904957126906e-07,
+    "q75v": 0.002124354134527731,
+    "initial_coef": 0.0,
+    "paper_parameters": [
+      63.5931298803839,
+      119.94055284944014,
+      12.71862597607678,
+      0.03414995003361923,
+      0.00053103090886954
+    ]
+  },
+  "parameter_order": [
+    "Bm",
+    "Bo",
+    "Bu",
+    "eta_c",
+    "eta_v"
+  ],
+  "conventions": {
+    "Bm": "max(d_O_m, d_U_m); direct moderate-target amplitude mapping",
+    "Bo": "d_O_a (paper)",
+    "Bu": "rho_a * d_prot (paper form)",
+    "rho_m": 0.01,
+    "rho_a": 0.1,
+    "eta_c": "confidence IQR / 4",
+    "eta_v": "variance IQR / 4",
+    "f_to_B": "Use moderate target distances directly for Bm; no separate tanh f fit because its mapping to final B is unspecified",
+    "online": "Literal Appendix B.3 final smooth g, geometric max-probability mean, adjacent population variance, exclude boundary tokens",
+    "injection": "First content token of next step only; initial step zero",
+    "calibration": "Reuse 500 seed42 greedy MATH-train answers; cap16000; exclude incomplete final steps; author step-level Ridge split",
+    "status": "Explicit reconstruction choices, not unique paper reproduction; fixed before benchmark outcomes, no test-set parameter search"
+  },
+  "calibration_protocol": {
+    "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "source": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908",
+    "source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+    "questions": 500,
+    "steps": 84008,
+    "confidence_quantiles": [
+      0.8623069711481826,
+      0.9989067712826595
+    ],
+    "variance_quantiles": [
+      2.3049904957126906e-07,
+      0.002124354134527731
+    ],
+    "overthinking_steps": 12609,
+    "underthinking_steps": 14152,
+    "seed": 42,
+    "pca_components": 64,
+    "ridge_alpha": 1.0,
+    "held_out_fraction": 0.2,
+    "split_unit": "reasoning step (author script)",
+    "confidence": "geometric mean of raw max probabilities; greedy chosen=max",
+    "steps_policy": "Exclude delimiter token and incomplete trailing step",
+    "classification": "paper Eq.5 joint confidence and variance; no lexicon"
+  },
+  "geometry": {
+    "layer": 23,
+    "norm": 0.9999999403953552,
+    "prototype_distance": 127.1862597607678,
+    "moderate_overthinking": 63.5931298803839,
+    "aggressive_overthinking": 119.94055284944014,
+    "projection_threshold": -20.810765408828118,
+    "overthinking_steps": 12609,
+    "underthinking_steps": 14152,
+    "vector_sha256": "67ec656fbe18939ec940247e8aeaa6ec965b4dfa85026fac8a06297f8e7c1249",
+    "control_status": "geometry only; missing paper control constants not guessed"
+  },
+  "selection": {
+    "layer": 23,
+    "r2": 0.6945352554321289,
+    "pca_solver": "randomized"
+  },
+  "evaluation": {
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42,
+    "max_tokens": 16000,
+    "max_model_len": 32768,
+    "datasets": {
+      "MATH-500": 500,
+      "GSM8K": 1319
+    }
+  }
+}

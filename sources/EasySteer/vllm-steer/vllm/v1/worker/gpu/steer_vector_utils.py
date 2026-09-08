@@ -9,6 +9,7 @@ from vllm.steer_vectors import trace
 from vllm.steer_vectors.rebalance import (
     ReBalanceParams,
     compute_rebalance_coefficient,
+    compute_paper_coefficient,
 )
 from vllm.steer_vectors.request import SteerVectorRequest
 from vllm.v1.worker.gpu.input_batch import InputBatch
@@ -55,6 +56,8 @@ class SteerVectorState:
         self._in_think = torch.zeros(
             max_num_reqs, dtype=torch.bool, device=device
         )
+        self._paper_strength = torch.zeros_like(self._coefs)
+        self._paper_pending = torch.zeros_like(self._in_think)
 
     def add_request(
         self,
@@ -89,6 +92,8 @@ class SteerVectorState:
         self._step_prob_sum[req_index] = 0.0
         self._step_tok_count[req_index] = 0
         self._prev_step_mean[req_index] = torch.nan
+        self._paper_strength[req_index] = 0.0
+        self._paper_pending[req_index] = True
         prompt_token_ids = prompt_token_ids or []
         self._in_think[req_index] = params.think_start_token_id in prompt_token_ids
 
@@ -106,6 +111,8 @@ class SteerVectorState:
             self._step_tok_count[req_index] = 0
             self._prev_step_mean[req_index] = torch.nan
             self._in_think[req_index] = False
+            self._paper_strength[req_index] = 0.0
+            self._paper_pending[req_index] = False
         if manager is not None:
             manager.release_config(req_id)
 
@@ -213,6 +220,12 @@ class SteerVectorState:
                 self._boundary_tensors[params] = boundaries
             is_boundary = self._is_boundary(tokens, boundaries)
 
+            if params.paper_parameters is not None:
+                self._observe_paper(
+                    state_idx, tokens, probabilities, is_boundary, params
+                )
+                continue
+
             in_think = self._in_think.index_select(0, state_idx)
             in_think |= tokens == params.think_start_token_id
             in_think &= tokens != params.think_end_token_id
@@ -250,6 +263,41 @@ class SteerVectorState:
                 state_idx,
                 torch.where(ready, step_means.detach(), previous),
             )
+
+    def _observe_paper(self, idx, tokens, probabilities, boundary, params):
+        """Store a scale only for the next first-content input token."""
+        active = self._in_think.index_select(0, idx)
+        active &= tokens != params.think_end_token_id
+        content = active & ~boundary
+        pending = self._paper_pending.index_select(0, idx)
+        strength = self._paper_strength.index_select(0, idx)
+        self._coefs.index_copy_(
+            0, idx, torch.where(content & pending, strength, 0.0)
+        )
+        pending = torch.where(boundary, True, pending) & ~content & active
+        sums = self._step_prob_sum.index_select(0, idx)
+        counts = self._step_tok_count.index_select(0, idx)
+        logp = probabilities.clamp_min(torch.finfo(torch.float32).tiny).log()
+        sums += torch.where(content, logp, 0.0)
+        counts += content
+        ready = boundary & active & (counts > 0)
+        confidence = torch.exp(sums / counts.clamp_min(1))
+        previous = self._prev_step_mean.index_select(0, idx)
+        variance = torch.where(
+            torch.isfinite(previous), (confidence - previous).square() / 4, 0.0
+        )
+        updated = compute_paper_coefficient(confidence, variance, params)
+        reset = ready | ~active
+        self._in_think.index_copy_(0, idx, active)
+        self._paper_pending.index_copy_(0, idx, pending)
+        self._paper_strength.index_copy_(
+            0, idx, torch.where(ready, updated, strength)
+        )
+        self._step_prob_sum.index_copy_(0, idx, torch.where(reset, 0.0, sums))
+        self._step_tok_count.index_copy_(0, idx, torch.where(reset, 0, counts))
+        self._prev_step_mean.index_copy_(
+            0, idx, torch.where(ready, confidence, previous)
+        )
 
 
 def build_batch_geometry(input_batch: InputBatch) -> "BatchGeometry":
