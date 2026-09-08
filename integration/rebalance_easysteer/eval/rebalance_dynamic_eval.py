@@ -238,6 +238,7 @@ def main() -> None:
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
             "max_num_seqs": args.max_num_seqs,
+            "gpu_memory_utilization": args.gpu_memory_utilization,
             "chunked_prefill": args.chunked_prefill,
             "max_num_batched_tokens": args.max_num_batched_tokens,
             "max_prompt_tokens": max_prompt_tokens,
@@ -309,6 +310,8 @@ def main() -> None:
                 raise ValueError(f"Incompatible saved baseline environment: {key}")
         if saved["protocol"].get("max_num_seqs", 256) != args.max_num_seqs:
             raise ValueError("Incompatible saved baseline concurrency")
+        if saved["protocol"].get("async_scheduling", True):
+            raise ValueError("Saved baseline did not use synchronous scheduling")
         if (saved["protocol"].get("chunked_prefill", False) != args.chunked_prefill
                 or saved["protocol"].get("max_num_batched_tokens") != args.max_num_batched_tokens):
             raise ValueError("Incompatible saved baseline prefill configuration")
@@ -365,6 +368,10 @@ def main() -> None:
                 key: value - previous_replays[key]
                 for key, value in replay_state.replay_counts.items()
             }
+            if steering is not None:
+                assert not replay_state._suspended
+                assert (summary["dynamic_kv_replay"]["suspended"]
+                        == summary["dynamic_kv_replay"]["restored"])
             return records, summary
         finally:
             watchdog.cancel()

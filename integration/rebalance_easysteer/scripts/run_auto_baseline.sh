@@ -75,6 +75,7 @@ echo "$dataset started $(date -Is)"
     --model "$MODEL" --dataset "$data" --limit "$count" \
     --max-tokens 16000 --max-model-len "$context" \
     --max-num-seqs "$concurrency" \
+    --gpu-memory-utilization "${EVAL_GPU_MEMORY_UTILIZATION:-0.90}" \
     "${prefill[@]}" \
     --vector "$OUT/auto_vector.pt" --calibration-fit "$OUT/fit.json" \
     "${reuse[@]}" --output "$OUT/${dataset}_eval.json" \
