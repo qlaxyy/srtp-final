@@ -24,6 +24,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--calibration", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--reference", type=Path)
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
     fit = json.loads((args.calibration / "fit.json").read_text())
@@ -46,7 +47,7 @@ def main():
               max_num_seqs=4, max_num_batched_tokens=128,
               enable_chunked_prefill=True, enable_prefix_caching=False,
               enable_steer_vector=True, steer_algorithms=["rebalance"],
-              steer_graph_mode="in_graph", seed=42)
+              steer_graph_mode="in_graph", async_scheduling=False, seed=42)
     core = llm.llm_engine.engine_core.engine_core
     state = core.model_executor.driver_worker.worker.model_runner.steer_vector_state
     counts = guard_dynamic_preemption(core.scheduler, state)
@@ -59,14 +60,21 @@ def main():
                                        torch.diff(batch.query_start_loc[:batch.num_reqs + 1]))
 
     # The reference uses the previous uninterrupted scale expansion.
-    state.token_scales = old_scales
-    before = generate_with_checkpoint(llm, [prompt], sampling, spec,
-                                      args.output / "uninterrupted.jsonl")[0]
-    state.token_scales = original_scales
+    if args.reference:
+        reference = json.loads(args.reference.read_text())
+        assert reference["prompt_token_ids"] == tokenizer.encode(prompt)
+        a = reference["token_ids"]
+        assert len(a) == 384
+    else:
+        state.token_scales = old_scales
+        before = generate_with_checkpoint(llm, [prompt], sampling, spec,
+                                          args.output / "uninterrupted.jsonl")[0]
+        a = list(before.outputs[0].token_ids)
+        state.token_scales = original_scales
     scheduled = core.scheduler.schedule
     forced = []
 
-    def force_eviction():
+    def force_eviction(*schedule_args, **schedule_kwargs):
         if len(forced) < 2:
             target = [64, 192][len(forced)]
             for request in list(core.scheduler.running):
@@ -75,14 +83,15 @@ def main():
                     forced.append(request.num_output_tokens)
                     core.scheduler._preempt_request(request, time.monotonic())
                     break
-        return scheduled()
+        return scheduled(*schedule_args, **schedule_kwargs)
 
     core.scheduler.schedule = force_eviction
     after = generate_with_checkpoint(llm, [prompt], sampling, spec,
                                      args.output / "forced_replay.jsonl")[0]
-    a, b = list(before.outputs[0].token_ids), list(after.outputs[0].token_ids)
+    b = list(after.outputs[0].token_ids)
     result = dict(
         purpose="7B calibration prompt, old uninterrupted scales vs historical replay",
+        reused_reference=str(args.reference) if args.reference else None,
         commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         vector_sha256=fit["vector_sha256"], calibration_train_index=row["train_index"],
         forced_at_output_tokens=forced, replay_counts=state.replay_counts,

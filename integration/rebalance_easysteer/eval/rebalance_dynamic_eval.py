@@ -245,6 +245,7 @@ def main() -> None:
             "top_p": args.top_p,
             "seed": args.seed,
             "execution_mode": "in_graph",
+            "async_scheduling": False,
             "dynamic_params": dynamic_params,
         },
         "environment": {
@@ -387,6 +388,7 @@ def main() -> None:
             steer_graph_mode="in_graph",
             enable_chunked_prefill=args.chunked_prefill,
             enable_prefix_caching=False,
+            async_scheduling=False,
             seed=args.seed,
         )
         result["startup_seconds"] = time.perf_counter() - started
