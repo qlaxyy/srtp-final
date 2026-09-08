@@ -10,6 +10,34 @@ from vllm.steer_vectors.rebalance import (
 from vllm.v1.worker.gpu.steer_vector_utils import SteerVectorState
 
 
+def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():
+    """Catch the silent k-floor failure missed by final-surface endpoint checks."""
+    from vllm.steer_vectors.rebalance import (
+        _baseline, _curve_constants, validate_curve_targets,
+    )
+    cl, ch, low = .8669240897121249, .9989939076206545, -.3394509798752199
+    try:
+        validate_curve_targets(cl, ch, low, .01)
+    except ValueError as error:
+        assert "Infeasible curve" in str(error)
+    else:
+        raise AssertionError("Old self-calibration must not silently pass")
+    tau = min(.01, .5 * -low * (1-ch)/(ch-cl))
+    validate_curve_targets(cl, ch, low, tau)
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for dtype in (torch.float32, torch.float64):
+            mid, k, a, b, _, at_one = _curve_constants(
+                cl, ch, low, torch.device(device), dtype, tau
+            )
+            assert 1e-6 < k < 1e6
+            c = torch.tensor([cl, ch, 1.], device=device, dtype=dtype)
+            torch.testing.assert_close(
+                _baseline(c, mid, k, a, b),
+                torch.tensor([low, 0., tau], device=device, dtype=dtype),
+                atol=3e-7, rtol=1e-5,
+            )
+
+
 def test_paper_next_content_reordering_and_slot_reuse():
     """Geometric confidence must follow request slots and steer only one token."""
     for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
@@ -67,12 +95,14 @@ def test_paper_surface_sign_and_explicit_parameter_wire():
             boundary_token_ids=[99], think_start_token_id=10,
             think_end_token_id=11, initial_coef=0.,
             paper_parameters=[2., 2., 2., .02, .002],
+            curve_tau=.004,
         ),
     )])
     req = to_engine_request(spec, name="paper", int_id=1)
     decoded = msgspec.msgpack.decode(msgspec.msgpack.encode(req), type=SteerVectorRequest)
     params = ReBalanceParams.from_request(decoded)
     assert params.paper_parameters == (2., 2., 2., .02, .002)
+    assert params.curve_tau == .004
     assert ReBalanceParams.from_request(_request()).paper_parameters is None
     c = torch.tensor([.1, .5, .9, 1.])
     torch.testing.assert_close(

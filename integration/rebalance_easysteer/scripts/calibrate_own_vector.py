@@ -42,7 +42,7 @@ def prompt(tokenizer, problem):
     ], tokenize=False, add_generation_prompt=True)
 
 
-def generate(out):
+def generate(out, model_path=MODEL):
     if (out / "generations.jsonl").exists():
         raise FileExistsError("Generation already exists; do not repeat it")
     from transformers import AutoTokenizer
@@ -69,13 +69,13 @@ def generate(out):
     manifest = dict(seed=42, count=500, train_indices=selected,
         train_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
         excluded_test_overlap=len(train)-len(eligible),
-        model=MODEL, max_tokens=16000, temperature=0,
+        model=str(model_path), max_tokens=16000, temperature=0,
         generation="vLLM greedy, raw selected-token log probabilities",
         commit=subprocess.check_output(["git", "rev-parse", "HEAD"],
                                        cwd=ROOT, text=True).strip())
     save(out / "manifest.json", manifest)
-    tok = AutoTokenizer.from_pretrained(MODEL)
-    llm = LLM(model=MODEL, dtype="bfloat16", max_model_len=32768,
+    tok = AutoTokenizer.from_pretrained(model_path)
+    llm = LLM(model=str(model_path), dtype="bfloat16", max_model_len=32768,
               gpu_memory_utilization=.9, seed=42,
               enable_prefix_caching=False, enable_chunked_prefill=False)
     started = time.time()

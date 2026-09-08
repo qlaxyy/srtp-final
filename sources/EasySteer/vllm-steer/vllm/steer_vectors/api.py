@@ -93,6 +93,7 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
         "low_val_2",
         "high_val_2",
         "paper_parameters",
+        "curve_tau",
     ),
 }
 
@@ -571,6 +572,7 @@ def to_engine_request(
                 "rebalance_low_val_2": v.params.get("low_val_2", -2.0),
                 "rebalance_high_val_2": v.params.get("high_val_2", 0.1),
                 "rebalance_paper_parameters": v.params.get("paper_parameters"),
+                "rebalance_curve_tau": v.params.get("curve_tau", 0.01),
             }
         wire = _payload_wire(v)
         return SteerVectorRequest(

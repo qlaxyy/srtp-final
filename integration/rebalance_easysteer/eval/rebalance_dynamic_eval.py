@@ -69,6 +69,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--q75v", type=float, default=0.011597)
     parser.add_argument("--low-val-2", type=float, default=-1.91)
     parser.add_argument("--high-val-2", type=float, default=0.1)
+    parser.add_argument("--curve-tau", type=float, default=0.01)
     parser.add_argument("--calibration-fit", type=Path)
     parser.add_argument("--paper-fit", type=Path)
     parser.add_argument("--baseline-result", type=Path,
@@ -141,12 +142,19 @@ def main() -> None:
         fitted = json.loads(args.calibration_fit.read_text(encoding="utf-8"))
         expected = {"q25c", "q75c", "q25v", "q75v", "low_val_1",
                     "low_val_2", "high_val_2", "initial_coef"}
-        if set(fitted["parameters"]) != expected:
+        if set(fitted["parameters"]) not in (expected, expected | {"curve_tau"}):
             raise ValueError("Calibration must provide every controller parameter")
         for key, value in fitted["parameters"].items():
             if not isinstance(value, (float, int)) or not math.isfinite(value):
                 raise ValueError(f"Invalid fitted parameter: {key}")
             setattr(args, key, value)
+        if fitted.get("version") == "auto-code-v2":
+            if Path(fitted["model"]).resolve() != Path(args.model).resolve():
+                raise ValueError("Automatic calibration model mismatch")
+            args.layer = fitted["decoder_output_layer"]
+    if paper is None:
+        from vllm.steer_vectors.rebalance import validate_curve_targets
+        validate_curve_targets(args.q25c, args.q75c, args.low_val_1, args.curve_tau)
     model_path = Path(args.model).resolve()
     if not (model_path / "config.json").is_file():
         raise FileNotFoundError(model_path / "config.json")
@@ -182,6 +190,7 @@ def main() -> None:
         "q75v": args.q75v,
         "low_val_2": args.low_val_2,
         "high_val_2": args.high_val_2,
+        "curve_tau": args.curve_tau,
     }
     payload = from_pt_direction(str(vector_path), layers=[args.layer])
     if paper is not None:
@@ -259,6 +268,10 @@ def main() -> None:
         if result["provenance"]["vector_sha256"] != fitted["vector_sha256"]:
             raise ValueError("Vector does not match calibration fit")
         result["scope"] = "ReBalance-self-calibrated-author-code-vllm"
+        if fitted.get("version") == "auto-code-v2":
+            result["scope"] = "ReBalance-auto-calibrated-code-v2-vllm"
+            result["confidence_definition"] = "Arithmetic mean of raw max probabilities, offline and online"
+            result["protocol"]["rebalance_source_layer"] = fitted["hidden_state_index"]
         result["calibration"] = fitted
         result["provenance"]["calibration_fit_sha256"] = hashlib.sha256(
             args.calibration_fit.read_bytes()).hexdigest()

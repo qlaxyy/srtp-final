@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 """ReBalance's published online confidence controller."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 from functools import lru_cache
 import math
@@ -24,6 +26,7 @@ class ReBalanceParams:
     low_val_2: float = -2.0
     high_val_2: float = 0.1
     paper_parameters: tuple[float, ...] | None = None
+    curve_tau: float = 0.01
 
     def __post_init__(self):
         if self.paper_parameters is None:
@@ -65,6 +68,7 @@ class ReBalanceParams:
                 if getattr(request, "rebalance_paper_parameters", None) is not None
                 else None
             ),
+            curve_tau=getattr(request, "rebalance_curve_tau", 0.01),
         )
 
 
@@ -111,6 +115,20 @@ def _solve_k_for_tau(
     return 0.5 * (low + high)
 
 
+def validate_curve_targets(q25, q75, low_val, tau=0.01):
+    """Reject unattainable three-anchor fits before calibration/evaluation."""
+    if not all(math.isfinite(x) for x in (q25, q75, low_val, tau)):
+        raise ValueError("Nonfinite curve targets")
+    if not 0 <= q25 < q75 < 1 or low_val >= 0 or tau <= 0:
+        raise ValueError("Curve needs 0 <= q25 < q75 < 1, low < 0, tau > 0")
+    ceiling = -low_val * (1 - q75) / (q75 - q25)
+    if not tau < ceiling:
+        raise ValueError(
+            f"Infeasible curve: F(1) target {tau} must be below {ceiling}"
+        )
+    return ceiling
+
+
 def _baseline(values, midpoint, k, intercept, slope):
     values = torch.nan_to_num(
         values, nan=0.5, posinf=1.0, neginf=0.0
@@ -119,9 +137,9 @@ def _baseline(values, midpoint, k, intercept, slope):
 
 
 @lru_cache(maxsize=128)
-def _curve_constants(q25c, q75c, low_val, device, dtype):
+def _curve_constants(q25c, q75c, low_val, device, dtype, tau=0.01):
     """Cache only fixed curve values, separately for each device and dtype."""
-    high_val_1 = 0.01
+    high_val_1 = tau
     # Author build_F omits high_val (default 0.0); 0.01 is tau, not high_val.
     curve_high = 0.0
 
@@ -161,7 +179,8 @@ def compute_rebalance_coefficient(
     q25v, q75v = sorted((params.q25v, params.q75v))
     high_val_1 = 0.01
     midpoint, k, intercept, slope, at_q25, at_one = _curve_constants(
-        q25c, q75c, params.low_val_1, confidence.device, confidence.dtype
+        q25c, q75c, params.low_val_1, confidence.device, confidence.dtype,
+        params.curve_tau,
     )
 
     def baseline(values: torch.Tensor) -> torch.Tensor:
