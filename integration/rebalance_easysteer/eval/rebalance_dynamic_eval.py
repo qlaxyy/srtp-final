@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import gc
 import json
+import math
 import os
 import platform
 import hashlib
@@ -68,6 +69,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--q75v", type=float, default=0.011597)
     parser.add_argument("--low-val-2", type=float, default=-1.91)
     parser.add_argument("--high-val-2", type=float, default=0.1)
+    parser.add_argument("--calibration-fit", type=Path)
+    parser.add_argument("--baseline-result", type=Path,
+                        help="Reuse a compatible saved baseline; no generation repeat")
     return parser.parse_args()
 
 
@@ -123,6 +127,17 @@ def comparison(
 
 def main() -> None:
     args = parse_args()
+    fitted = None
+    if args.calibration_fit:
+        fitted = json.loads(args.calibration_fit.read_text(encoding="utf-8"))
+        expected = {"q25c", "q75c", "q25v", "q75v", "low_val_1",
+                    "low_val_2", "high_val_2", "initial_coef"}
+        if set(fitted["parameters"]) != expected:
+            raise ValueError("Calibration must provide every controller parameter")
+        for key, value in fitted["parameters"].items():
+            if not isinstance(value, (float, int)) or not math.isfinite(value):
+                raise ValueError(f"Invalid fitted parameter: {key}")
+            setattr(args, key, value)
     model_path = Path(args.model).resolve()
     if not (model_path / "config.json").is_file():
         raise FileNotFoundError(model_path / "config.json")
@@ -217,6 +232,38 @@ def main() -> None:
         "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
+    if fitted is not None:
+        if result["provenance"]["vector_sha256"] != fitted["vector_sha256"]:
+            raise ValueError("Vector does not match calibration fit")
+        result["scope"] = "ReBalance-self-calibrated-author-code-vllm"
+        result["calibration"] = fitted
+        result["provenance"]["calibration_fit_sha256"] = hashlib.sha256(
+            args.calibration_fit.read_bytes()).hexdigest()
+
+    reused_baseline = None
+    if args.baseline_result:
+        saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
+        for key in ("model", "dataset", "offset", "limit", "max_tokens",
+                    "max_model_len", "temperature", "top_p", "seed", "execution_mode"):
+            if saved["protocol"][key] != result["protocol"][key]:
+                raise ValueError(f"Incompatible saved baseline protocol: {key}")
+        if saved["provenance"]["dataset_sha256"] != result["provenance"]["dataset_sha256"]:
+            raise ValueError("Incompatible saved baseline dataset contents")
+        for key in ("torch", "vllm"):
+            if saved["environment"][key] != result["environment"][key]:
+                raise ValueError(f"Incompatible saved baseline environment: {key}")
+        reused_baseline = saved["baseline"]
+        if len(reused_baseline["records"]) != len(examples):
+            raise ValueError("Saved baseline record count mismatch")
+        if any(a["problem"] != b["problem"] for a, b in
+               zip(reused_baseline["records"], examples, strict=True)):
+            raise ValueError("Saved baseline problem order mismatch")
+        result["provenance"]["reused_baseline"] = {
+            "path": str(args.baseline_result),
+            "sha256": hashlib.sha256(args.baseline_result.read_bytes()).hexdigest(),
+            "provenance": saved["provenance"],
+            "timing_is_historical": True,
+        }
 
     def run_group(prompts, sampling, boundary_set, steering):
         def timeout_handler(signum, frame):
@@ -283,10 +330,15 @@ def main() -> None:
         )
         boundary_set = set(boundary_ids)
 
-        print("Running paired vLLM baseline...")
-        baseline, baseline_summary = run_group(
-            prompts, sampling, boundary_set, steering=None
-        )
+        if reused_baseline is None:
+            print("Running paired vLLM baseline...")
+            baseline, baseline_summary = run_group(
+                prompts, sampling, boundary_set, steering=None
+            )
+        else:
+            print("Reusing verified saved baseline; no baseline generation")
+            baseline = reused_baseline["records"]
+            baseline_summary = reused_baseline["summary"]
         result["baseline"] = {
             "summary": baseline_summary,
             "records": baseline,
