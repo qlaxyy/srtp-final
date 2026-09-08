@@ -17,7 +17,10 @@ class LLM:
     def enqueue(self, prompts, params):
         self.prompts=prompts
         assert len(prompts)==500 and params['temperature']==0 and params['max_tokens']==16000
-        return [str(i) for i in range(500)]
+        ids=[f'{i}-internal' for i in range(500)]
+        self.output_processor=SimpleNamespace(request_states={
+            rid:SimpleNamespace(external_req_id=str(i)) for i,rid in enumerate(ids)})
+        return ids
     def has_unfinished_requests(self): return not self.done
     def step(self):
         self.round+=1

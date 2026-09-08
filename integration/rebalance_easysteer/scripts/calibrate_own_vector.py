@@ -83,7 +83,12 @@ def generate(out, model_path=MODEL):
     request_ids = llm.enqueue([prompt(tok, train[i]["problem"]) for i in selected],
         SamplingParams(temperature=0, max_tokens=16000, logprobs=1,
                        seed=42, skip_special_tokens=True))
-    indices = dict(zip(request_ids, selected, strict=True))
+    # enqueue returns internal IDs (with a random suffix), while completed
+    # RequestOutput carries the original external ID. Resolve before stepping.
+    states = llm.llm_engine.output_processor.request_states
+    indices = {states[req_id].external_req_id: index
+               for req_id, index in zip(request_ids, selected, strict=True)}
+    assert len(indices) == len(selected)
     records = {}
     # Same enqueue/engine-step path as LLM.generate; checkpoint each completed
     # request so an interrupted long calibration does not lose finished answers.
