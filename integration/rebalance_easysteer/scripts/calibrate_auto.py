@@ -310,12 +310,13 @@ if __name__ == "__main__":
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--model", type=Path, required=True)
     p.add_argument("--feature-cache", type=Path)
+    p.add_argument("--resume-generation", action="store_true")
     p.add_argument("--feature-dir", type=Path,
                    help="Optional scratch storage; metadata and fitted assets stay in output")
     args = p.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     if args.stage == "generate":
         args.source.mkdir(parents=True, exist_ok=True)
-        generate(args.source, str(args.model))
+        generate(args.source, str(args.model), resume=args.resume_generation)
     else:
         globals()[args.stage](args)

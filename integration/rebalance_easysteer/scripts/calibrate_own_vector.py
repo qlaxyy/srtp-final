@@ -42,10 +42,12 @@ def prompt(tokenizer, problem):
     ], tokenize=False, add_generation_prompt=True)
 
 
-def generate(out, model_path=MODEL):
+def generate(out, model_path=MODEL, resume=False):
     partial = out / "generations.partial.jsonl"
-    if (out / "generations.jsonl").exists() or partial.exists():
+    if (out / "generations.jsonl").exists() or (partial.exists() and not resume):
         raise FileExistsError("Generation already exists; do not repeat it")
+    if resume and not partial.exists():
+        raise FileNotFoundError(partial)
     from transformers import AutoTokenizer
     from vllm import LLM, SamplingParams
     source = ROOT / "sources/ReBalance/Data/Math_Train/test.jsonl"
@@ -74,25 +76,45 @@ def generate(out, model_path=MODEL):
         generation="vLLM greedy, raw selected-token log probabilities",
         commit=subprocess.check_output(["git", "rev-parse", "HEAD"],
                                        cwd=ROOT, text=True).strip())
-    save(out / "manifest.json", manifest)
+    records = {}
+    if resume:
+        original = json.loads((out / "manifest.json").read_text())
+        for key in ("seed", "count", "train_indices", "train_sha256", "model",
+                    "max_tokens", "temperature", "generation"):
+            assert original[key] == manifest[key], key
+        for row in read(partial):
+            index = row["train_index"]
+            assert index in selected and index not in records
+            assert row["problem"] == train[index]["problem"]
+            assert len(row["token_ids"]) == len(row["logprobs"]) <= 16000
+            assert all(math.isfinite(p) and p <= 1e-5 for p in row["logprobs"])
+            assert row["finish_reason"] in ("stop", "length")
+            records[index] = row
+        attempts = original.setdefault("resume_attempts", [])
+        attempts.append(dict(commit=manifest["commit"], reused_completed=len(records),
+                             started_at=time.time()))
+        save(out / "manifest.json", original)
+    else:
+        save(out / "manifest.json", manifest)
+    reused_count = len(records)
+    pending = [i for i in selected if i not in records]
     tok = AutoTokenizer.from_pretrained(model_path)
     llm = LLM(model=str(model_path), dtype="bfloat16", max_model_len=32768,
               gpu_memory_utilization=.9, seed=42,
               enable_prefix_caching=False, enable_chunked_prefill=False)
     started = time.time()
-    request_ids = llm.enqueue([prompt(tok, train[i]["problem"]) for i in selected],
+    request_ids = llm.enqueue([prompt(tok, train[i]["problem"]) for i in pending],
         SamplingParams(temperature=0, max_tokens=16000, logprobs=1,
                        seed=42, skip_special_tokens=True))
     # enqueue returns internal IDs (with a random suffix), while completed
     # RequestOutput carries the original external ID. Resolve before stepping.
     states = llm.llm_engine.output_processor.request_states
     indices = {states[req_id].external_req_id: index
-               for req_id, index in zip(request_ids, selected, strict=True)}
-    assert len(indices) == len(selected)
-    records = {}
+               for req_id, index in zip(request_ids, pending, strict=True)}
+    assert len(indices) == len(pending)
     # Same enqueue/engine-step path as LLM.generate; checkpoint each completed
     # request so an interrupted long calibration does not lose finished answers.
-    with partial.open("x") as f:
+    with partial.open("a" if resume else "x") as f:
         while llm.llm_engine.has_unfinished_requests():
             for result in llm.llm_engine.step():
                 if not result.finished:
@@ -118,6 +140,8 @@ def generate(out, model_path=MODEL):
             f.write(json.dumps(records[index], ensure_ascii=False) + "\n")
     save(out / "generation_summary.json", dict(count=len(records),
         seconds=time.time()-started,
+        seconds_scope="current attempt only" if resume else "whole generation",
+        reused_completed=reused_count, newly_generated=len(pending),
         mean_tokens=sum(len(x["token_ids"]) for x in records.values())/len(records),
         capped=sum(x["finish_reason"]=="length" for x in records.values())))
 

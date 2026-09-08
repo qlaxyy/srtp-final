@@ -16,8 +16,8 @@ class LLM:
     def __init__(self, **kw): self.llm_engine=self; self.done=False; self.round=0
     def enqueue(self, prompts, params):
         self.prompts=prompts
-        assert len(prompts)==500 and params['temperature']==0 and params['max_tokens']==16000
-        ids=[f'{i}-internal' for i in range(500)]
+        assert 0 < len(prompts) <= 500 and params['temperature']==0 and params['max_tokens']==16000
+        ids=[f'{i}-internal' for i in range(len(prompts))]
         self.output_processor=SimpleNamespace(request_states={
             rid:SimpleNamespace(external_req_id=str(i)) for i,rid in enumerate(ids)})
         return ids
@@ -26,9 +26,9 @@ class LLM:
         self.round+=1
         if self.fail and self.round==2: raise RuntimeError('simulated interrupt')
         if self.round==1:
-            return [SimpleNamespace(finished=False)] + [self.output(i) for i in range(490,500)]
+            return [SimpleNamespace(finished=False)] + [self.output(i) for i in range(len(self.prompts)-10,len(self.prompts))]
         self.done=True
-        return [self.output(i) for i in reversed(range(490))]
+        return [self.output(i) for i in reversed(range(len(self.prompts)-10))]
     def output(self, i):
         seq=SimpleNamespace(token_ids=[10,11], text=self.prompts[i], logprobs=[{10:SimpleNamespace(logprob=-.2)},{11:SimpleNamespace(logprob=-.3)}], finish_reason='length' if i==2 else 'stop')
         return SimpleNamespace(finished=True, request_id=str(i), outputs=[seq], prompt_token_ids=[7])
@@ -54,6 +54,13 @@ def test_generation_checkpoint():
         try: own.generate(interrupted, '/fake/model')
         except FileExistsError: pass
         else: raise AssertionError('Must not rerun saved requests')
+        preserved=own.read(interrupted/'generations.partial.jsonl')
+        LLM.fail=False
+        own.generate(interrupted, '/fake/model', resume=True)
+        summary=json.loads((interrupted/'generation_summary.json').read_text())
+        assert summary['reused_completed']==10 and summary['newly_generated']==490
+        assert own.read(interrupted/'generations.partial.jsonl')[:10]==preserved
+        assert [r['train_index'] for r in own.read(interrupted/'generations.jsonl')]==manifest['train_indices']
     print('PASS checkpoint: completion order, logprobs, partial-output retention, repeat refusal')
 
 def test_feature_storage_equivalence():

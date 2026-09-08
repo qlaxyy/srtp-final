@@ -14,8 +14,10 @@ mkdir -p "$OUT"
 if [[ "${1:-}" != --group ]]; then
     common=(--source "$SOURCE" --output "$OUT" --model "$MODEL")
     if [[ ! -f "$SOURCE/generation_summary.json" ]]; then
+        resume=()
+        [[ "${RESUME_CALIBRATION:-0}" != 1 ]] || resume=(--resume-generation)
         timeout --signal=TERM --kill-after=10 "${CALIBRATION_TIMEOUT_SECONDS:-1500}" "$VLLM" -u \
-            integration/rebalance_easysteer/scripts/calibrate_auto.py generate "${common[@]}" \
+            integration/rebalance_easysteer/scripts/calibrate_auto.py generate "${common[@]}" "${resume[@]}" \
             > "$OUT/generate.log" 2>&1
     fi
     for stage in prepare collect select fit; do
