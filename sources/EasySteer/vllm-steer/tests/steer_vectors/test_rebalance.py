@@ -1,5 +1,6 @@
 from types import SimpleNamespace
 
+import numpy as np
 import torch
 
 from vllm.steer_vectors.rebalance import (
@@ -8,6 +9,98 @@ from vllm.steer_vectors.rebalance import (
     compute_rebalance_coefficient,
 )
 from vllm.v1.worker.gpu.steer_vector_utils import SteerVectorState
+
+
+def _replay_batch(device, tokens, computed, prefill, slot=0):
+    n = len(tokens)
+    return SimpleNamespace(
+        req_ids=["a"], num_reqs=1, num_draft_tokens=0, num_tokens=n,
+        idx_mapping=torch.tensor([slot], device=device),
+        idx_mapping_np=np.array([slot]),
+        query_start_loc=torch.tensor([0, n], device=device, dtype=torch.int32),
+        query_start_loc_np=np.array([0, n]),
+        seq_lens=torch.tensor([computed + n], device=device),
+        num_computed_tokens_np=np.array([computed]),
+        num_scheduled_tokens=np.array([n]), prefill_len_np=np.array([prefill]),
+        is_prefilling_np=np.array([computed < prefill]),
+        positions=torch.arange(computed, computed + n, device=device),
+        input_ids=torch.tensor(tokens, device=device),
+    )
+
+
+def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse():
+    """Eviction must preserve past injections even when current strength is zero."""
+    from vllm.v1.worker.gpu.steer_vector_utils import (
+        build_batch_geometry, resolve_slot_positions,
+    )
+    from vllm.steer_vectors.algorithms.clause import clause_cache_key
+
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for paper in (False, True):
+            req = _request()
+            if paper:
+                req.rebalance_initial_coef = 0.
+                req.rebalance_paper_parameters = [2., 2., 2., .02, .002]
+            state = SteerVectorState(2, torch.device(device), max_model_len=32)
+            manager = _Manager()
+            state.add_request("a", req, manager, req_index=0, prompt_token_ids=[10, 99])
+            tokens = [10, 99]
+            batch = _replay_batch(device, tokens, 0, 2)
+            for token, prob in zip([1, 99, 2, 99, 3, 11, 99], [.4, .8, .7, .9, .8, .7, .9]):
+                state.observe_sample(batch, torch.tensor([[token]], device=device),
+                                     torch.tensor([prob], device=device))
+                tokens.append(token)
+                batch = _replay_batch(device, [token], len(tokens)-1, 2)
+            history = state._history[0, :len(tokens)].clone()
+            assert history.abs().sum() > 0 and history[-1] == 0
+            fields = [field[0].clone() for field in state._state_fields()]
+
+            state.suspend_request("a")
+            state.remove_request("a", manager)
+            state.add_request("other", req, manager, req_index=0, prompt_token_ids=[10])
+            state.add_request("a", req, manager, req_index=1,
+                              prompt_token_ids=[10, 99], num_generated_tokens=len(tokens)-2)
+            for field, value in zip(state._state_fields(), fields):
+                torch.testing.assert_close(field[1], value, equal_nan=True)
+            # The first replay chunk emits no real sample.
+            chunk = _replay_batch(device, tokens[:4], 0, len(tokens), slot=1)
+            state.observe_sample(chunk, torch.tensor([[99]], device=device),
+                                 torch.tensor([.01], device=device))
+            for field, value in zip(state._state_fields(), fields):
+                torch.testing.assert_close(field[1], value, equal_nan=True)
+            batch = _replay_batch(device, tokens, 0, len(tokens), slot=1)
+            torch.testing.assert_close(state.token_scales(batch), history)
+            geo = build_batch_geometry(batch, state)
+            clause = {"generation_tokens": [99]}
+            resolved = resolve_slot_positions(
+                {0: [clause]}, [0], np.zeros(len(tokens), dtype=np.int32),
+                torch.device(device), geo,
+            )
+            # The prompt's boundary token must never be steered on replay.
+            assert resolved[(0, clause_cache_key(clause))].tolist() == [3, 5, 8]
+            # A second eviction during partial replay preserves the full history.
+            state.suspend_request("a")
+            state.remove_request("a", manager)
+            state.add_request("a", req, manager, req_index=1,
+                              prompt_token_ids=[10, 99], num_generated_tokens=len(tokens)-2)
+            torch.testing.assert_close(state.token_scales(batch), history)
+            assert state.replay_counts == {"suspended": 2, "restored": 2}
+            assert not state._suspended
+            state.suspend_request("a")
+            state.remove_request("a", manager)
+            state.discard_suspended("a")
+            assert not state._suspended
+
+
+def test_rebalance_rejects_generated_prefix_without_history():
+    state = SteerVectorState(1, torch.device("cpu"), max_model_len=32)
+    try:
+        state.add_request("a", _request(), _Manager(), req_index=0,
+                          prompt_token_ids=[10], num_generated_tokens=3)
+    except RuntimeError as error:
+        assert "no saved" in str(error)
+    else:
+        raise AssertionError("A restarted worker cannot invent dynamic history")
 
 
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():

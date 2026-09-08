@@ -2,7 +2,7 @@
 import json
 
 
-def guard_dynamic_preemption(scheduler):
+def guard_dynamic_preemption(scheduler, replay_state=None):
     original = scheduler._preempt_request
     counts = {"events": 0, "rejected_dynamic_events": 0}
 
@@ -10,7 +10,8 @@ def guard_dynamic_preemption(scheduler):
         counts["events"] += 1
         steering = getattr(request, "steer_vector_request", None)
         if (steering is not None and steering.algorithm == "rebalance"
-                and request.num_output_tokens > 0):
+                and request.num_output_tokens > 0
+                and not getattr(replay_state, "supports_kv_replay", False)):
             counts["rejected_dynamic_events"] += 1
             raise RuntimeError(
                 "Dynamic ReBalance cannot yet replay steering through KV-cache "

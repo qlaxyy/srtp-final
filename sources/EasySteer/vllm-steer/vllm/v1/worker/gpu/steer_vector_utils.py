@@ -27,6 +27,7 @@ class SteerVectorState:
         self,
         max_num_reqs: int | None = None,
         device: torch.device | None = None,
+        max_model_len: int | None = None,
     ) -> None:
         self._requests: dict[str, SteerVectorRequest] = {}
         self._slots: dict[str, int] = {}
@@ -41,8 +42,46 @@ class SteerVectorState:
         self._step_tok_count: torch.Tensor | None = None
         self._prev_step_mean: torch.Tensor | None = None
         self._in_think: torch.Tensor | None = None
+        self._history = None
+        self._history_lengths: dict[str, int] = {}
+        self._prompt_lengths: dict[str, int] = {}
+        self._suspended: dict[str, dict] = {}
+        self.replay_counts = {"suspended": 0, "restored": 0}
         if max_num_reqs is not None and device is not None:
             self._allocate_dynamic_state(max_num_reqs, device)
+            if max_model_len is not None:
+                self._history = torch.ones(
+                    (max_num_reqs, max_model_len + 1),
+                    dtype=torch.float32, device=device,
+                )
+
+    @property
+    def supports_kv_replay(self) -> bool:
+        return self._history is not None
+
+    def _state_fields(self):
+        return (self._coefs, self._step_prob_sum, self._step_tok_count,
+                self._prev_step_mean, self._in_think, self._paper_strength,
+                self._paper_pending)
+
+    def suspend_request(self, req_id: str) -> None:
+        """Retain controller state and historical input scales before KV eviction."""
+        idx = self._dynamic_indices.get(req_id)
+        if idx is None:
+            return
+        if not self.supports_kv_replay:
+            raise RuntimeError("Dynamic KV eviction requires steering history")
+        length = self._history_lengths[req_id]
+        self._suspended[req_id] = dict(
+            params=self._dynamic_params[req_id],
+            prompt_length=self._prompt_lengths[req_id],
+            history=self._history[idx, :length].cpu().clone(),
+            fields=[field[idx].cpu().clone() for field in self._state_fields()],
+        )
+        self.replay_counts["suspended"] += 1
+
+    def discard_suspended(self, req_id: str) -> None:
+        self._suspended.pop(req_id, None)
 
     def _allocate_dynamic_state(
         self, max_num_reqs: int, device: torch.device
@@ -67,6 +106,7 @@ class SteerVectorState:
         *,
         req_index: int | None = None,
         prompt_token_ids: list[int] | None = None,
+        num_generated_tokens: int = 0,
     ) -> None:
         if steer_vector_request is None:
             return
@@ -96,6 +136,24 @@ class SteerVectorState:
         self._paper_pending[req_index] = True
         prompt_token_ids = prompt_token_ids or []
         self._in_think[req_index] = params.think_start_token_id in prompt_token_ids
+        self._prompt_lengths[req_id] = len(prompt_token_ids)
+        self._history_lengths[req_id] = len(prompt_token_ids)
+        if self._history is not None:
+            self._history[req_index].zero_()
+        saved = self._suspended.pop(req_id, None)
+        if saved is not None:
+            length = len(saved["history"])
+            if (saved["params"] != params
+                    or saved["prompt_length"] != len(prompt_token_ids)
+                    or length != len(prompt_token_ids) + num_generated_tokens):
+                raise RuntimeError("Resumed ReBalance request/history mismatch")
+            self._history[req_index, :length].copy_(saved["history"])
+            self._history_lengths[req_id] = length
+            for field, value in zip(self._state_fields(), saved["fields"]):
+                field[req_index].copy_(value)
+            self.replay_counts["restored"] += 1
+        elif num_generated_tokens:
+            raise RuntimeError("Generated prefix has no saved ReBalance history")
 
     def remove_request(self, req_id: str, manager) -> None:
         if self._requests.pop(req_id, None) is None:
@@ -105,7 +163,11 @@ class SteerVectorState:
         if params is not None and params not in self._dynamic_params.values():
             self._position_tensors.pop(params, None)
         req_index = self._dynamic_indices.pop(req_id, None)
+        self._prompt_lengths.pop(req_id, None)
+        self._history_lengths.pop(req_id, None)
         if req_index is not None and self._coefs is not None:
+            if self._history is not None:
+                self._history[req_index].fill_(1.0)
             self._coefs[req_index] = 0.0
             self._step_prob_sum[req_index] = 0.0
             self._step_tok_count[req_index] = 0
@@ -166,6 +228,15 @@ class SteerVectorState:
 
     def token_scales(self, input_batch: InputBatch) -> torch.Tensor:
         """Expand request coefficients to the flattened input-token rows."""
+        if self._history is not None:
+            indices = torch.repeat_interleave(
+                input_batch.idx_mapping.long(),
+                torch.diff(input_batch.query_start_loc[:input_batch.num_reqs + 1]),
+                output_size=input_batch.num_tokens,
+            )
+            return self._history[
+                indices, input_batch.positions[:input_batch.num_tokens].long()
+            ]
         request_scales = self.batch_scales(input_batch)
         repeats = torch.diff(
             input_batch.query_start_loc[: input_batch.num_reqs + 1]
@@ -206,6 +277,14 @@ class SteerVectorState:
         for params, positions in self._group_batch_positions(
             input_batch.req_ids
         ).items():
+            if hasattr(input_batch, "prefill_len_np"):
+                # Partial prefill/replay rows have dummy samples: never count them.
+                positions = [p for p in positions if (
+                    input_batch.num_computed_tokens_np[p]
+                    + input_batch.num_scheduled_tokens[p]
+                    >= input_batch.prefill_len_np[p])]
+                if not positions:
+                    continue
             pos = self._positions_tensor(params, positions, device)
             state_idx = input_batch.idx_mapping.index_select(0, pos).long()
             tokens = sampled.index_select(0, pos)
@@ -224,6 +303,7 @@ class SteerVectorState:
                 self._observe_paper(
                     state_idx, tokens, probabilities, is_boundary, params
                 )
+                self._record_scales(input_batch, positions, pos, state_idx)
                 continue
 
             in_think = self._in_think.index_select(0, state_idx)
@@ -263,6 +343,20 @@ class SteerVectorState:
                 state_idx,
                 torch.where(ready, step_means.detach(), previous),
             )
+            self._record_scales(input_batch, positions, pos, state_idx)
+
+    def _record_scales(self, batch, positions, pos, idx):
+        if self._history is None:
+            return
+        # The sampled token is the next input, at the current sequence length.
+        token_pos = batch.seq_lens.index_select(0, pos).long()
+        self._history[idx, token_pos] = (
+            self._coefs.index_select(0, idx) * self._in_think.index_select(0, idx)
+        )
+        for p in positions:
+            self._history_lengths[batch.req_ids[p]] = int(
+                batch.num_computed_tokens_np[p] + batch.num_scheduled_tokens[p] + 1
+            )
 
     def _observe_paper(self, idx, tokens, probabilities, boundary, params):
         """Store a scale only for the next first-content input token."""
@@ -300,7 +394,9 @@ class SteerVectorState:
         )
 
 
-def build_batch_geometry(input_batch: InputBatch) -> "BatchGeometry":
+def build_batch_geometry(
+    input_batch: InputBatch, state: SteerVectorState | None = None
+) -> "BatchGeometry":
     """Build the per-step BatchGeometry from the runner's InputBatch.
 
     The single producer of batch geometry: steering triggers, capture
@@ -312,6 +408,12 @@ def build_batch_geometry(input_batch: InputBatch) -> "BatchGeometry":
     num_reqs = input_batch.num_reqs
     num_computed = input_batch.num_computed_tokens_np[:num_reqs]
     prefill_len = input_batch.prefill_len_np[:num_reqs]
+    if state is not None and state.has_dynamic():
+        # A resumed prefill contains generated tokens. Keep the original boundary.
+        prefill_len = np.array([
+            state._prompt_lengths.get(req_id, int(prefill_len[i]))
+            for i, req_id in enumerate(input_batch.req_ids)
+        ], dtype=np.int32)
     is_prefilling = input_batch.is_prefilling_np[:num_reqs]
     # While prefilling, nothing has been generated for this request yet.
     # During decode, the scheduler has computed prefill_len + (k - 1) tokens
@@ -491,10 +593,8 @@ def resolve_slot_positions(
     assert qsl is not None, "BatchGeometry is missing its host query_start_loc"
     num_computed = geo.num_computed.numpy()
     num_prompt = geo.num_prompt.numpy()
-    num_output = geo.num_output.numpy()
     lens = (qsl[1:] - qsl[:-1]).astype(np.int64)
     starts_all = qsl[:-1].astype(np.int64)
-    is_decode_req = num_output > 0
 
     # Group batch requests by routing slot (a request's slot is its
     # first token's slot; all its tokens share it).
@@ -525,7 +625,7 @@ def resolve_slot_positions(
         )
         tok_idx = np.repeat(starts_all[reqs_np], seg_lens) + within
         abs_pos = within + num_computed[samp]
-        is_dec = is_decode_req[samp]
+        is_dec = abs_pos >= num_prompt[samp]
 
         for clause in clauses:
             key = clause_cache_key(clause)
@@ -539,7 +639,7 @@ def resolve_slot_positions(
                     is_dec,
                     abs_pos,
                     num_prompt[samp],
-                    num_output[samp] - 1,
+                    abs_pos - num_prompt[samp],
                     lambda: geo.token_ids_cpu()[tok_idx],
                 )
                 pos_np = tok_idx[mask]
@@ -579,7 +679,7 @@ def make_steer_vector_forward_kwargs(
     requests without their own steering config are routed to it.
     """
     num_reqs = input_batch.num_reqs
-    geo = build_batch_geometry(input_batch)
+    geo = build_batch_geometry(input_batch, state)
     kwargs = {"batch_geometry": geo}
 
     if state is not None and (state.has_routed() or default_slot >= 0):
@@ -659,7 +759,7 @@ def fill_graph_steer_buffers(
 
     # Batch geometry for the trigger collector: the same object the
     # forward context carries, from the single producer.
-    geo = build_batch_geometry(input_batch)
+    geo = build_batch_geometry(input_batch, state)
     batch_slots = set(slots_np.tolist())
     active_slots = sorted(s for s in entries if s in batch_slots)
     resolved = resolve_slot_positions(

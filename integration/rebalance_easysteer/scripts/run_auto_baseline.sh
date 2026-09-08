@@ -62,6 +62,10 @@ reuse=()
 [[ -n "$baseline" ]] || reuse+=(--dynamic-first)
 context="${EVAL_MAX_MODEL_LEN:-32768}"
 concurrency="${EVAL_MAX_NUM_SEQS:-256}"
+prefill=()
+if [[ "${EVAL_CHUNKED_PREFILL:-0}" == 1 ]]; then
+    prefill=(--chunked-prefill --max-num-batched-tokens "${EVAL_MAX_BATCHED_TOKENS:-2048}")
+fi
 if [[ -f "$OUT/eval_runtime.json" ]]; then
     context=$("$LEGACY" -c 'import json,sys; from pathlib import Path; c=json.load(open(sys.argv[1])); assert Path(c["model"]).resolve()==Path(sys.argv[2]).resolve(); n=c["max_model_len"]; assert isinstance(n,int) and n>16000; print(n)' "$OUT/eval_runtime.json" "$MODEL")
     concurrency=$("$LEGACY" -c 'import json,sys; n=json.load(open(sys.argv[1])).get("max_num_seqs",256); assert isinstance(n,int) and n>0; print(n)' "$OUT/eval_runtime.json")
@@ -71,6 +75,7 @@ echo "$dataset started $(date -Is)"
     --model "$MODEL" --dataset "$data" --limit "$count" \
     --max-tokens 16000 --max-model-len "$context" \
     --max-num-seqs "$concurrency" \
+    "${prefill[@]}" \
     --vector "$OUT/auto_vector.pt" --calibration-fit "$OUT/fit.json" \
     "${reuse[@]}" --output "$OUT/${dataset}_eval.json" \
     --group-timeout-seconds 1500 > "$OUT/${dataset}_eval.log" 2>&1

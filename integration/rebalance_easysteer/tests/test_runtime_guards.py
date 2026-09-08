@@ -28,6 +28,12 @@ def test_preemption_guard():
         raise AssertionError("Must reject lost dynamic history")
     assert handled == [plain, fresh]
     assert counts == {"events": 3, "rejected_dynamic_events": 1}
+    scheduler = SimpleNamespace(_preempt_request=lambda r, t: handled.append(r))
+    restored = guard_dynamic_preemption(
+        scheduler, SimpleNamespace(supports_kv_replay=True))
+    scheduler._preempt_request(dynamic, 4)
+    assert restored == {"events": 1, "rejected_dynamic_events": 0}
+    assert handled[-1] is dynamic
 
 
 def test_evaluation_checkpoint():

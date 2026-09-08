@@ -59,6 +59,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--gpu-memory-utilization", type=float, default=0.90)
     parser.add_argument("--max-num-seqs", type=int, default=256)
+    parser.add_argument("--chunked-prefill", action="store_true")
+    parser.add_argument("--max-num-batched-tokens", type=int)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
@@ -236,6 +238,8 @@ def main() -> None:
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
             "max_num_seqs": args.max_num_seqs,
+            "chunked_prefill": args.chunked_prefill,
+            "max_num_batched_tokens": args.max_num_batched_tokens,
             "max_prompt_tokens": max_prompt_tokens,
             "temperature": args.temperature,
             "top_p": args.top_p,
@@ -263,7 +267,7 @@ def main() -> None:
         "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
-    result["protocol"]["preemption_policy"] = "reject dynamic KV recomputation after output"
+    result["protocol"]["preemption_policy"] = "restore controller and replay historical input scales"
     result["protocol"]["run_order"] = (
         ["rebalance_dynamic", "baseline"] if args.dynamic_first
         else ["baseline", "rebalance_dynamic"])
@@ -304,6 +308,9 @@ def main() -> None:
                 raise ValueError(f"Incompatible saved baseline environment: {key}")
         if saved["protocol"].get("max_num_seqs", 256) != args.max_num_seqs:
             raise ValueError("Incompatible saved baseline concurrency")
+        if (saved["protocol"].get("chunked_prefill", False) != args.chunked_prefill
+                or saved["protocol"].get("max_num_batched_tokens") != args.max_num_batched_tokens):
+            raise ValueError("Incompatible saved baseline prefill configuration")
         reused_baseline = saved["baseline"]
         if len(reused_baseline["records"]) != len(examples):
             raise ValueError("Saved baseline record count mismatch")
@@ -323,6 +330,7 @@ def main() -> None:
         previous = signal.signal(signal.SIGALRM, timeout_handler)
         started = time.perf_counter()
         previous_preemptions = preemptions["events"]
+        previous_replays = dict(replay_state.replay_counts)
         # Graders may use SIGALRM internally; keep an independent wall-time cap.
         def enforce_deadline():
             print("Evaluation group exceeded its wall-time budget", file=sys.stderr, flush=True)
@@ -352,6 +360,10 @@ def main() -> None:
             summary["thinking_not_ended"] = sum(not r["thinking_ended"] for r in records)
             summary["group_seconds_including_grading"] = time.perf_counter() - started
             summary["preemptions"] = preemptions["events"] - previous_preemptions
+            summary["dynamic_kv_replay"] = {
+                key: value - previous_replays[key]
+                for key, value in replay_state.replay_counts.items()
+            }
             return records, summary
         finally:
             watchdog.cancel()
@@ -367,18 +379,22 @@ def main() -> None:
             tensor_parallel_size=1,
             max_model_len=args.max_model_len,
             max_num_seqs=args.max_num_seqs,
+            max_num_batched_tokens=args.max_num_batched_tokens,
             gpu_memory_utilization=args.gpu_memory_utilization,
             enable_steer_vector=True,
             steer_algorithms=["rebalance"],
             enforce_eager=False,
             steer_graph_mode="in_graph",
-            enable_chunked_prefill=False,
+            enable_chunked_prefill=args.chunked_prefill,
             enable_prefix_caching=False,
             seed=args.seed,
         )
         result["startup_seconds"] = time.perf_counter() - started
-        preemptions = guard_dynamic_preemption(
-            llm.llm_engine.engine_core.engine_core.scheduler)
+        core = llm.llm_engine.engine_core.engine_core
+        replay_state = core.model_executor.driver_worker.worker.model_runner.steer_vector_state
+        if not replay_state.supports_kv_replay:
+            raise RuntimeError("This evaluator requires the V2 steering replay runner")
+        preemptions = guard_dynamic_preemption(core.scheduler, replay_state)
         result["environment"]["gpu"] = torch.cuda.get_device_name(0)
         sampling = SamplingParams(
             temperature=args.temperature,

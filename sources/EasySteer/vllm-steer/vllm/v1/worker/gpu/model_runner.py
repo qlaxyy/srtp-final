@@ -259,6 +259,7 @@ class GPUModelRunner(
         self.steer_vector_state = SteerVectorState(
             max_num_reqs=self.max_num_reqs,
             device=self.device,
+            max_model_len=self.max_model_len,
         )
         self.lora_capture_cases = [0]
         if self.lora_config:
@@ -801,9 +802,13 @@ class GPUModelRunner(
         finished_req_ids = scheduler_output.finished_req_ids
         preempted_req_ids = scheduler_output.preempted_req_ids
         if preempted_req_ids:
+            for req_id in preempted_req_ids - finished_req_ids:
+                self.steer_vector_state.suspend_request(req_id)
             finished_req_ids = finished_req_ids.union(preempted_req_ids)
         for req_id in finished_req_ids:
             self._remove_request(req_id)
+        for req_id in scheduler_output.finished_req_ids:
+            self.steer_vector_state.discard_suspended(req_id)
 
     def free_states(self, scheduler_output: SchedulerOutput) -> None:
         if self.encoder_cache is not None:
@@ -854,7 +859,10 @@ class GPUModelRunner(
                 new_req_data.steer_vector_request,
                 self.steer_vector_manager,
                 req_index=req_index,
-                prompt_token_ids=new_req_data.prefill_token_ids,
+                prompt_token_ids=new_req_data.prompt_token_ids,
+                num_generated_tokens=(
+                    len(new_req_data.prefill_token_ids) - prompt_len
+                ),
             )
             if new_req_data.capture_select is not None:
                 self._capture_session().add_request(
