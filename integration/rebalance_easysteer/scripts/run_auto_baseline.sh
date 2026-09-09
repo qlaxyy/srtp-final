@@ -50,11 +50,11 @@ dataset="$2"
 case "$dataset" in
     math500)
         data="$ROOT/sources/ReBalance/Data/Math_Math500/test.jsonl"
-        max_tokens="${EVAL_MAX_TOKENS_MATH500:-8192}"
+        max_tokens="${EVAL_MAX_TOKENS_MATH500:-16000}"
         count=500; grade=math; baseline="${BASELINE_MATH500:-}" ;;
     gsm8k)
         data="$ROOT/sources/ReBalance/Data/Math_GSM8K/test.jsonl"
-        max_tokens="${EVAL_MAX_TOKENS_GSM8K:-4096}"
+        max_tokens="${EVAL_MAX_TOKENS_GSM8K:-16000}"
         count=1319; grade=Math_GSM8K; baseline="${BASELINE_GSM8K:-}" ;;
     *) exit 2 ;;
 esac
@@ -64,7 +64,7 @@ reuse=()
 [[ -n "$baseline" ]] || reuse+=(--dynamic-first)
 [[ "$max_tokens" =~ ^[1-9][0-9]*$ ]] || { echo "Invalid generation limit"; exit 2; }
 # The evaluator checks every actual prompt fits; never silently truncate inputs.
-context="${EVAL_MAX_MODEL_LEN:-$((max_tokens + 1024))}"
+context="${EVAL_MAX_MODEL_LEN:-$((((max_tokens + 1024 + 511) / 512) * 512))}"
 concurrency="${EVAL_MAX_NUM_SEQS:-32}"
 prefill=()
 if [[ "${EVAL_CHUNKED_PREFILL:-1}" == 1 ]]; then

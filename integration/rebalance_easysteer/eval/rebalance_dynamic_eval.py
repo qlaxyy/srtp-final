@@ -83,9 +83,13 @@ def parse_args() -> argparse.Namespace:
                         help="Reuse a compatible saved baseline; no generation repeat")
     parser.add_argument("--dynamic-first", action="store_true",
                         help="Check the intervention arm before spending time on baseline")
+    parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
+                        help="Engineering-only single arm; never a formal method comparison")
     args = parser.parse_args()
     if args.profile_steps < 0 or args.profile_start_step < 0:
         parser.error("Profiling step counts must be nonnegative")
+    if args.diagnostic_group and args.baseline_result:
+        parser.error("Diagnostic runs cannot reuse formal baselines")
     return args
 
 
@@ -283,6 +287,9 @@ def main() -> None:
     result["protocol"]["run_order"] = (
         ["rebalance_dynamic", "baseline"] if args.dynamic_first
         else ["baseline", "rebalance_dynamic"])
+    result["protocol"]["diagnostic_only"] = args.diagnostic_group is not None
+    if args.diagnostic_group:
+        result["protocol"]["run_order"] = [args.diagnostic_group]
     if paper is not None:
         if result["provenance"]["vector_sha256"] != paper["vector_sha256"]:
             raise ValueError("Paper vector hash mismatch")
@@ -311,6 +318,8 @@ def main() -> None:
         saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
         if saved["protocol"].get("profiling_enabled", False):
             raise ValueError("A diagnostic profiling run is not a formal baseline")
+        if saved["protocol"].get("diagnostic_only", False):
+            raise ValueError("An engineering diagnostic is not a formal baseline")
         for key in ("model", "dataset", "offset", "limit", "max_tokens",
                     "max_model_len", "temperature", "top_p", "seed", "execution_mode"):
             if saved["protocol"][key] != result["protocol"][key]:
@@ -451,6 +460,11 @@ def main() -> None:
                 )
                 result[mode] = {"summary": summary, "records": records}
             write_result(output_path, result)
+        if args.diagnostic_group:
+            result["status"] = "diagnostic_completed"
+            write_result(output_path, result)
+            print(f"Engineering diagnostic completed: {args.diagnostic_group}; {output_path}")
+            return
         baseline, dynamic = result["baseline"]["records"], result["rebalance_dynamic"]["records"]
         baseline_summary = result["baseline"]["summary"]
         dynamic_summary = result["rebalance_dynamic"]["summary"]

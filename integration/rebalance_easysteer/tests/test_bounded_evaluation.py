@@ -81,7 +81,7 @@ def test_dataset_budgets_reach_paired_evaluator():
                                     f"{name}='{stub.as_posix()}'")
         copied = tmp / "run.sh"
         copied.write_text(source, encoding="utf-8", newline="\n")
-        for dataset, cap, count in (("gsm8k", 4096, 1319), ("math500", 8192, 500)):
+        for dataset, cap, count in (("gsm8k", 16000, 1319), ("math500", 16000, 500)):
             capture = tmp / f"{dataset}.args"
             env = {k:v for k,v in os.environ.items() if not k.startswith(("EVAL_", "BASELINE_"))}
             env.update(PROJECT_ROOT=root.as_posix(), MODEL="model", CALIBRATION_SOURCE="calibration",
@@ -91,7 +91,7 @@ def test_dataset_budgets_reach_paired_evaluator():
                            check=True, capture_output=True)
             args = capture.read_text(encoding="utf-8").splitlines()
             for flag, value in (("--max-tokens", cap), ("--limit", count),
-                                ("--max-model-len", cap+1024), ("--max-num-seqs", 32)):
+                                ("--max-model-len", 17408), ("--max-num-seqs", 32)):
                 assert args[args.index(flag)+1] == str(value)
             assert "--chunked-prefill" in args
             assert args[args.index("--vector")+1].endswith("/frozen/auto_vector.pt")
