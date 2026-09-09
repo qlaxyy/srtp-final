@@ -107,6 +107,7 @@ def main():
     pairs = [(args.onefive, "math500", "1.5B"), (args.onefive, "gsm8k", "1.5B"),
              (args.seven_gsm, "gsm8k", "7B"), (args.seven_math, "math500", "7B")]
     benchmarks = [paired_metrics(*pair) for pair in pairs]
+    asset_manifest = args.seven_math / "asset_manifest.json"
     files = sorted((ROOT / "integration/rebalance_easysteer").rglob("*.py"))
     files += sorted((ROOT / "integration/rebalance_easysteer/scripts").glob("*.sh"))
     files += [ROOT / "sources/EasySteer/vllm-steer/vllm" / f for f in (
@@ -117,6 +118,7 @@ def main():
         scope="Self-calibrated adaptation of released code; not an exact paper reproduction",
         freeze_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         benchmarks=benchmarks,
+        assets=read(asset_manifest), asset_manifest_sha256=sha(asset_manifest),
         limitations=["Independent per-model calibration and layer selection; shared algorithm, distinct fitted values",
             "Historical 1.5B uses older runtime and lacks preemption counters; do not assume no preemption",
             "1.5B context32768; 7B context17408; 7B GSM concurrency32 and MATH concurrency64",
