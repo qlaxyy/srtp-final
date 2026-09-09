@@ -20,6 +20,12 @@ def read(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def source_sha(path):
+    relative = Path(path).relative_to(ROOT).as_posix()
+    blob = subprocess.check_output(["git", "show", "HEAD:" + relative], cwd=ROOT)
+    return hashlib.sha256(blob).hexdigest()
+
+
 def paired_metrics(directory, dataset, model_size):
     source = directory / f"{dataset}_eval.json"
     grading = directory / f"{dataset}_author_grading.json"
@@ -84,7 +90,7 @@ def paired_metrics(directory, dataset, model_size):
         protocol=protocol, provenance=provenance, environment=run["environment"],
         artifacts=dict(evaluation=source.name, evaluation_sha256=sha(source),
             grading=grading.name, grading_sha256=sha(grading), frozen_config=str(config.relative_to(ROOT)),
-            frozen_config_sha256=sha(config)))
+            frozen_config_sha256=source_sha(config)))
 
 
 def main():
@@ -96,6 +102,8 @@ def main():
     args = parser.parse_args()
     if args.output.exists():
         raise FileExistsError(args.output)
+    if subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True).strip():
+        raise RuntimeError("Commit validated scripts before creating the result lock")
     pairs = [(args.onefive, "math500", "1.5B"), (args.onefive, "gsm8k", "1.5B"),
              (args.seven_gsm, "gsm8k", "7B"), (args.seven_math, "math500", "7B")]
     benchmarks = [paired_metrics(*pair) for pair in pairs]
@@ -114,7 +122,8 @@ def main():
             "1.5B context32768; 7B context17408; 7B GSM concurrency32 and MATH concurrency64",
             "Do not pool model accuracies or attribute cross-model latency differences to engineering gains",
             "All capped and incorrect generations remain included; single seed"],
-        source_sha256={str(p.relative_to(ROOT)): sha(p) for p in files})
+        source_hash_format="SHA256 of canonical Git blobs; independent of Windows CRLF checkout",
+        source_sha256={p.relative_to(ROOT).as_posix(): source_sha(p) for p in files})
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(lock, stream, ensure_ascii=False, indent=2)
