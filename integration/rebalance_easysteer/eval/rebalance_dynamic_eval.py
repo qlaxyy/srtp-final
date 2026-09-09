@@ -26,6 +26,7 @@ from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
 from runtime_guards import guard_dynamic_preemption
+from decode_profiler import ProfileWindowComplete
 
 from rebalance_static_eval import (
     DEFAULT_DATASET,
@@ -64,6 +65,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--profile-steps", type=int, default=0,
                         help="Diagnostic CPU/CUDA trace only; timings include overhead")
     parser.add_argument("--profile-start-step", type=int, default=16)
+    parser.add_argument("--profile-only", action="store_true",
+                        help="Stop after the trace window; requires --diagnostic-group")
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
@@ -90,6 +93,8 @@ def parse_args() -> argparse.Namespace:
         parser.error("Profiling step counts must be nonnegative")
     if args.diagnostic_group and args.baseline_result:
         parser.error("Diagnostic runs cannot reuse formal baselines")
+    if args.profile_only and (not args.diagnostic_group or not args.profile_steps):
+        parser.error("--profile-only requires --diagnostic-group and positive --profile-steps")
     return args
 
 
@@ -260,6 +265,7 @@ def main() -> None:
             "profiling_enabled": args.profile_steps > 0,
             "profile_steps": args.profile_steps,
             "profile_start_step": args.profile_start_step,
+            "profile_only": args.profile_only,
             "length_policy": "all generated tokens, including capped/incorrect answers",
             "dynamic_params": dynamic_params,
         },
@@ -373,7 +379,8 @@ def main() -> None:
                 step_profiler = EngineStepProfiler(
                     output_path.with_suffix(".baseline.trace.json" if steering is None
                                             else ".dynamic.trace.json"),
-                    args.profile_start_step, args.profile_steps)
+                    args.profile_start_step, args.profile_steps,
+                    stop_after_window=args.profile_only)
             records, seconds = generate_records(
                 llm, prompts, examples, sampling, boundary_set, steering=steering,
                 checkpoint_path=output_path.with_suffix(
@@ -432,7 +439,11 @@ def main() -> None:
         )
         result["startup_seconds"] = time.perf_counter() - started
         core = llm.llm_engine.engine_core.engine_core
-        replay_state = core.model_executor.driver_worker.worker.model_runner.steer_vector_state
+        runner = core.model_executor.driver_worker.worker.model_runner
+        replay_state = runner.steer_vector_state
+        if args.profile_steps:
+            from decode_profiler import mark_runtime_ranges
+            mark_runtime_ranges(runner)
         if not replay_state.supports_kv_replay:
             raise RuntimeError("This evaluator requires the V2 steering replay runner")
         preemptions = guard_dynamic_preemption(core.scheduler, replay_state)
@@ -454,10 +465,17 @@ def main() -> None:
                 result[mode] = reused_baseline
             else:
                 print(f"Running {mode}...")
-                records, summary = run_group(
-                    prompts, sampling, boundary_set,
-                    steering=None if mode == "baseline" else steering,
-                )
+                try:
+                    records, summary = run_group(
+                        prompts, sampling, boundary_set,
+                        steering=None if mode == "baseline" else steering,
+                    )
+                except ProfileWindowComplete as completed:
+                    result.update(status="profile_completed", profile_trace=str(completed),
+                                  profile_scope="bounded decode window; no full generation or accuracy metrics")
+                    write_result(output_path, result)
+                    print(f"Profile window saved: {completed}; remaining generation stopped")
+                    return
                 result[mode] = {"summary": summary, "records": records}
             write_result(output_path, result)
         if args.diagnostic_group:

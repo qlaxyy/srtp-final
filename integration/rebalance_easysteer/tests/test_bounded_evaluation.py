@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "eval"))
 from token_metrics import length_metrics
-from decode_profiler import EngineStepProfiler
+from decode_profiler import EngineStepProfiler, ProfileWindowComplete
 
 
 def test_capped_and_incorrect_answers_stay_in_denominator():
@@ -59,6 +59,20 @@ def test_profiler_only_records_selected_steps_and_closes_once():
         except ZeroDivisionError:
             profiler.close()
         assert events == ["start", "stop", "export"]
+        events.clear()
+        profiler = EngineStepProfiler(Path(folder) / "only.json", 2, 3, FakeProfiler,
+                                      stop_after_window=True)
+        calls = []
+        try:
+            for i in range(20):
+                profiler.run_step(lambda i=i: calls.append(i))
+        except ProfileWindowComplete as complete:
+            assert str(complete).endswith("only.json")
+        else:
+            raise AssertionError("Diagnostic-only mode must stop at the requested window")
+        profiler.close()
+        assert calls == list(range(5))
+        assert events == ["start", "step", "step", "step", "stop", "export"]
 
 
 def test_dataset_budgets_reach_paired_evaluator():
