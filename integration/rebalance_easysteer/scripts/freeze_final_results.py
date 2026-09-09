@@ -71,6 +71,9 @@ def paired_metrics(directory, dataset, model_size):
             capped=sum(r["finish_reason"] == "length" for r in records),
             generation_seconds=summary["generation_seconds"],
             generation_and_grading_seconds=scores["total_group_seconds"],
+            resumed_completed_answers=summary.get("resumed_completed_answers", 0),
+            prior_interrupted_seconds=summary.get("prior_interrupted_seconds", 0),
+            timing_note=summary.get("timing_note"),
             within_original_time_budget=(scores["total_group_seconds"] <= budget) if budget else None,
             preemptions=summary.get("preemptions"))
     base, dynamic = (groups[name] for name in GROUPS)
