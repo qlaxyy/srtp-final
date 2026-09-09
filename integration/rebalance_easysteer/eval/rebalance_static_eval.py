@@ -156,6 +156,7 @@ def generate_records(
     boundary_ids: set[int],
     steering: SteeringSpec | None,
     checkpoint_path: Path | None = None,
+    step_profiler=None,
 ) -> tuple[list[dict[str, Any]], float]:
     started = time.perf_counter()
     if checkpoint_path is None:
@@ -165,7 +166,7 @@ def generate_records(
     else:
         from runtime_guards import generate_with_checkpoint
         outputs = generate_with_checkpoint(
-            llm, prompts, params, steering, checkpoint_path)
+            llm, prompts, params, steering, checkpoint_path, step_profiler)
     seconds = time.perf_counter() - started
     records: list[dict[str, Any]] = []
     for local_index, (example, request_output) in enumerate(
@@ -194,18 +195,14 @@ def generate_records(
 def summarize(
     records: list[dict[str, Any]], seconds: float, max_tokens: int
 ) -> dict[str, Any]:
-    counts = [record["tokens"] for record in records]
-    total = sum(counts)
+    from token_metrics import length_metrics
+    lengths = length_metrics(records, max_tokens)
+    total = lengths["total_tokens"]
     return {
         "examples": len(records),
         "correct": sum(record["correct"] for record in records),
         "accuracy": mean(record["correct"] for record in records),
-        "mean_tokens": mean(counts),
-        "total_tokens": total,
-        "capped": sum(
-            record["finish_reason"] == "length" and record["tokens"] >= max_tokens
-            for record in records
-        ),
+        **lengths,
         "boundary_tokens": sum(record["boundary_tokens"] for record in records),
         "generation_seconds": seconds,
         "tokens_per_second": total / seconds if seconds else None,

@@ -50,9 +50,11 @@ dataset="$2"
 case "$dataset" in
     math500)
         data="$ROOT/sources/ReBalance/Data/Math_Math500/test.jsonl"
+        max_tokens="${EVAL_MAX_TOKENS_MATH500:-8192}"
         count=500; grade=math; baseline="${BASELINE_MATH500:-}" ;;
     gsm8k)
         data="$ROOT/sources/ReBalance/Data/Math_GSM8K/test.jsonl"
+        max_tokens="${EVAL_MAX_TOKENS_GSM8K:-4096}"
         count=1319; grade=Math_GSM8K; baseline="${BASELINE_GSM8K:-}" ;;
     *) exit 2 ;;
 esac
@@ -60,24 +62,27 @@ esac
 reuse=()
 [[ -z "$baseline" ]] || reuse=(--baseline-result "$baseline")
 [[ -n "$baseline" ]] || reuse+=(--dynamic-first)
-context="${EVAL_MAX_MODEL_LEN:-32768}"
-concurrency="${EVAL_MAX_NUM_SEQS:-256}"
+[[ "$max_tokens" =~ ^[1-9][0-9]*$ ]] || { echo "Invalid generation limit"; exit 2; }
+# The evaluator checks every actual prompt fits; never silently truncate inputs.
+context="${EVAL_MAX_MODEL_LEN:-$((max_tokens + 1024))}"
+concurrency="${EVAL_MAX_NUM_SEQS:-32}"
 prefill=()
-if [[ "${EVAL_CHUNKED_PREFILL:-0}" == 1 ]]; then
+if [[ "${EVAL_CHUNKED_PREFILL:-1}" == 1 ]]; then
     prefill=(--chunked-prefill --max-num-batched-tokens "${EVAL_MAX_BATCHED_TOKENS:-2048}")
 fi
 if [[ -f "$OUT/eval_runtime.json" ]]; then
-    context=$("$LEGACY" -c 'import json,sys; from pathlib import Path; c=json.load(open(sys.argv[1])); assert Path(c["model"]).resolve()==Path(sys.argv[2]).resolve(); n=c["max_model_len"]; assert isinstance(n,int) and n>16000; print(n)' "$OUT/eval_runtime.json" "$MODEL")
+    context=$("$LEGACY" -c 'import json,sys; from pathlib import Path; c=json.load(open(sys.argv[1])); assert Path(c["model"]).resolve()==Path(sys.argv[2]).resolve(); n=c["max_model_len"]; assert isinstance(n,int) and n>int(sys.argv[3]); print(n)' "$OUT/eval_runtime.json" "$MODEL" "$max_tokens")
     concurrency=$("$LEGACY" -c 'import json,sys; n=json.load(open(sys.argv[1])).get("max_num_seqs",256); assert isinstance(n,int) and n>0; print(n)' "$OUT/eval_runtime.json")
 fi
-echo "$dataset started $(date -Is)"
+artifacts="${EVAL_ARTIFACTS_DIR:-$OUT}"
+echo "$dataset: count=$count, max_tokens=$max_tokens, context=$context, concurrency=$concurrency; started $(date -Is)"
 "$VLLM" -u integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py \
     --model "$MODEL" --dataset "$data" --limit "$count" \
-    --max-tokens 16000 --max-model-len "$context" \
+    --max-tokens "$max_tokens" --max-model-len "$context" \
     --max-num-seqs "$concurrency" \
-    --gpu-memory-utilization "${EVAL_GPU_MEMORY_UTILIZATION:-0.90}" \
+    --gpu-memory-utilization "${EVAL_GPU_MEMORY_UTILIZATION:-0.92}" \
     "${prefill[@]}" \
-    --vector "$OUT/auto_vector.pt" --calibration-fit "$OUT/fit.json" \
+    --vector "$artifacts/auto_vector.pt" --calibration-fit "$artifacts/fit.json" \
     "${reuse[@]}" --output "$OUT/${dataset}_eval.json" \
     --group-timeout-seconds 1500 > "$OUT/${dataset}_eval.log" 2>&1
 "$LEGACY" -u integration/rebalance_easysteer/scripts/regrade_saved_results.py \

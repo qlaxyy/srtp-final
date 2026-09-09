@@ -61,6 +61,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-num-seqs", type=int, default=256)
     parser.add_argument("--chunked-prefill", action="store_true")
     parser.add_argument("--max-num-batched-tokens", type=int)
+    parser.add_argument("--profile-steps", type=int, default=0,
+                        help="Diagnostic CPU/CUDA trace only; timings include overhead")
+    parser.add_argument("--profile-start-step", type=int, default=16)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
@@ -80,7 +83,10 @@ def parse_args() -> argparse.Namespace:
                         help="Reuse a compatible saved baseline; no generation repeat")
     parser.add_argument("--dynamic-first", action="store_true",
                         help="Check the intervention arm before spending time on baseline")
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.profile_steps < 0 or args.profile_start_step < 0:
+        parser.error("Profiling step counts must be nonnegative")
+    return args
 
 
 def single_token_id(tokenizer: AutoTokenizer, text: str) -> int:
@@ -247,6 +253,10 @@ def main() -> None:
             "seed": args.seed,
             "execution_mode": "in_graph",
             "async_scheduling": False,
+            "profiling_enabled": args.profile_steps > 0,
+            "profile_steps": args.profile_steps,
+            "profile_start_step": args.profile_start_step,
+            "length_policy": "all generated tokens, including capped/incorrect answers",
             "dynamic_params": dynamic_params,
         },
         "environment": {
@@ -299,6 +309,8 @@ def main() -> None:
     reused_baseline = None
     if args.baseline_result:
         saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
+        if saved["protocol"].get("profiling_enabled", False):
+            raise ValueError("A diagnostic profiling run is not a formal baseline")
         for key in ("model", "dataset", "offset", "limit", "max_tokens",
                     "max_model_len", "temperature", "top_p", "seed", "execution_mode"):
             if saved["protocol"][key] != result["protocol"][key]:
@@ -310,6 +322,8 @@ def main() -> None:
                 raise ValueError(f"Incompatible saved baseline environment: {key}")
         if saved["protocol"].get("max_num_seqs", 256) != args.max_num_seqs:
             raise ValueError("Incompatible saved baseline concurrency")
+        if saved["protocol"].get("gpu_memory_utilization") != args.gpu_memory_utilization:
+            raise ValueError("Incompatible saved baseline GPU memory budget")
         if saved["protocol"].get("async_scheduling", True):
             raise ValueError("Saved baseline did not use synchronous scheduling")
         if (saved["protocol"].get("chunked_prefill", False) != args.chunked_prefill
@@ -344,11 +358,19 @@ def main() -> None:
         watchdog.start()
         signal.alarm(args.group_timeout_seconds)
         try:
+            step_profiler = None
+            if args.profile_steps:
+                from decode_profiler import EngineStepProfiler
+                step_profiler = EngineStepProfiler(
+                    output_path.with_suffix(".baseline.trace.json" if steering is None
+                                            else ".dynamic.trace.json"),
+                    args.profile_start_step, args.profile_steps)
             records, seconds = generate_records(
                 llm, prompts, examples, sampling, boundary_set, steering=steering,
                 checkpoint_path=output_path.with_suffix(
                     ".baseline.partial.jsonl" if steering is None
                     else ".dynamic.partial.jsonl"),
+                step_profiler=step_profiler,
             )
             for record in records:
                 ids = record["token_ids"]
@@ -363,6 +385,7 @@ def main() -> None:
             summary["mean_answer_tokens"] = sum(r["answer_tokens"] for r in records) / len(records)
             summary["thinking_not_ended"] = sum(not r["thinking_ended"] for r in records)
             summary["group_seconds_including_grading"] = time.perf_counter() - started
+            summary["timing_includes_profiler_overhead"] = args.profile_steps > 0
             summary["preemptions"] = preemptions["events"] - previous_preemptions
             summary["dynamic_kv_replay"] = {
                 key: value - previous_replays[key]

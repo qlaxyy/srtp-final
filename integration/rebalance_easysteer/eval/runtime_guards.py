@@ -25,7 +25,7 @@ def guard_dynamic_preemption(scheduler, replay_state=None):
     return counts
 
 
-def generate_with_checkpoint(llm, prompts, params, steering, path):
+def generate_with_checkpoint(llm, prompts, params, steering, path, step_profiler=None):
     """Use the same engine loop as generate, retaining completed raw answers."""
     if path.exists():
         raise FileExistsError(path)
@@ -34,9 +34,19 @@ def generate_with_checkpoint(llm, prompts, params, steering, path):
     indices = {states[rid].external_req_id: i for i, rid in enumerate(request_ids)}
     assert len(indices) == len(prompts)
     completed = {}
+    try:
+        return _checkpoint_loop(llm, prompts, path, indices, completed, step_profiler)
+    finally:
+        if step_profiler is not None:
+            step_profiler.close()
+
+
+def _checkpoint_loop(llm, prompts, path, indices, completed, step_profiler):
     with path.open("x", encoding="utf-8") as stream:
         while llm.llm_engine.has_unfinished_requests():
-            for result in llm.llm_engine.step():
+            outputs = (llm.llm_engine.step() if step_profiler is None else
+                       step_profiler.run_step(llm.llm_engine.step))
+            for result in outputs:
                 if not result.finished:
                     continue
                 index = indices[result.request_id]
