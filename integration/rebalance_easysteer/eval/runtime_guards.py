@@ -1,5 +1,6 @@
 """Fail closed when KV recomputation would invalidate dynamic steering."""
 import json
+from types import SimpleNamespace
 
 
 def guard_dynamic_preemption(scheduler, replay_state=None):
@@ -25,15 +26,33 @@ def guard_dynamic_preemption(scheduler, replay_state=None):
     return counts
 
 
-def generate_with_checkpoint(llm, prompts, params, steering, path, step_profiler=None):
+def generate_with_checkpoint(llm, prompts, params, steering, path, step_profiler=None,
+                             resume_path=None):
     """Use the same engine loop as generate, retaining completed raw answers."""
     if path.exists():
         raise FileExistsError(path)
-    request_ids = llm.enqueue(prompts, sampling_params=params, steering=steering)
-    states = llm.llm_engine.output_processor.request_states
-    indices = {states[rid].external_req_id: i for i, rid in enumerate(request_ids)}
-    assert len(indices) == len(prompts)
     completed = {}
+    if resume_path is not None:
+        for line in resume_path.read_text(encoding="utf-8").splitlines():
+            row = json.loads(line)
+            index = row["local_index"]
+            if not 0 <= index < len(prompts) or index in completed:
+                raise ValueError("Invalid or duplicate checkpoint index")
+            if row["finish_reason"] not in ("stop", "length"):
+                raise ValueError("Checkpoint contains an unfinished answer")
+            if len(row["token_ids"]) > params.max_tokens:
+                raise ValueError("Checkpoint exceeds generation limit")
+            completed[index] = SimpleNamespace(prompt_token_ids=row["prompt_token_ids"],
+                outputs=[SimpleNamespace(token_ids=row["token_ids"], text=row["text"],
+                                         finish_reason=row["finish_reason"])])
+    pending = [i for i in range(len(prompts)) if i not in completed]
+    request_ids = llm.enqueue([prompts[i] for i in pending], sampling_params=params,
+                              steering=steering) if pending else []
+    states = llm.llm_engine.output_processor.request_states
+    indices = {states[rid].external_req_id: pending[i] for i, rid in enumerate(request_ids)}
+    assert len(indices) == len(pending)
+    if completed:
+        print(f"Resuming: retained {len(completed)} answers; generating only {len(pending)}", flush=True)
     try:
         return _checkpoint_loop(llm, prompts, path, indices, completed, step_profiler)
     finally:
@@ -43,6 +62,12 @@ def generate_with_checkpoint(llm, prompts, params, steering, path, step_profiler
 
 def _checkpoint_loop(llm, prompts, path, indices, completed, step_profiler):
     with path.open("x", encoding="utf-8") as stream:
+        for index, result in sorted(completed.items()):
+            output = result.outputs[0]
+            stream.write(json.dumps(dict(local_index=index, prompt_token_ids=result.prompt_token_ids,
+                token_ids=list(output.token_ids), text=output.text,
+                finish_reason=output.finish_reason), ensure_ascii=False) + "\n")
+        stream.flush()
         while llm.llm_engine.has_unfinished_requests():
             outputs = (llm.llm_engine.step() if step_profiler is None else
                        step_profiler.run_step(llm.llm_engine.step))

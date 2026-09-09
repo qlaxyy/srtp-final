@@ -71,6 +71,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--group-timeout-seconds", type=int, default=1500)
+    parser.add_argument("--resume-result", type=Path, help="Continue a matching interrupted pair into a NEW output")
+    parser.add_argument("--resume-elapsed-seconds", type=float, default=0,
+                        help="Prior interrupted arm wall time; retained in total cost")
     parser.add_argument("--initial-coef", type=float, default=-1.0)
     parser.add_argument("--q25c", type=float, default=0.662293)
     parser.add_argument("--q75c", type=float, default=0.94805)
@@ -89,6 +92,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
     args = parser.parse_args()
+    if args.group_timeout_seconds < 0 or args.resume_elapsed_seconds < 0:
+        parser.error("Timeout and previous elapsed seconds must be nonnegative; zero timeout disables it")
+    if args.resume_result and (args.baseline_result or args.diagnostic_group or args.profile_steps):
+        parser.error("Resume is only for an unprofiled paired evaluation")
     if args.profile_steps < 0 or args.profile_start_step < 0:
         parser.error("Profiling step counts must be nonnegative")
     if args.diagnostic_group and args.baseline_result:
@@ -357,7 +364,13 @@ def main() -> None:
             "timing_is_historical": True,
         }
 
-    def run_group(prompts, sampling, boundary_set, steering):
+    resumed = None
+    if args.resume_result:
+        from resume_validation import validate_resume
+        resumed, receipt = validate_resume(args.resume_result, output_path, result, args.resume_elapsed_seconds)
+        result["provenance"]["resumed_evaluation"] = receipt
+
+    def run_group(prompts, sampling, boundary_set, steering, resume_path=None):
         def timeout_handler(signum, frame):
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
@@ -370,8 +383,9 @@ def main() -> None:
             os._exit(124)
         watchdog = threading.Timer(args.group_timeout_seconds, enforce_deadline)
         watchdog.daemon = True
-        watchdog.start()
-        signal.alarm(args.group_timeout_seconds)
+        if args.group_timeout_seconds:
+            watchdog.start()
+            signal.alarm(args.group_timeout_seconds)
         try:
             step_profiler = None
             if args.profile_steps:
@@ -387,6 +401,7 @@ def main() -> None:
                     ".baseline.partial.jsonl" if steering is None
                     else ".dynamic.partial.jsonl"),
                 step_profiler=step_profiler,
+                resume_path=resume_path,
             )
             for record in records:
                 ids = record["token_ids"]
@@ -407,6 +422,15 @@ def main() -> None:
                 key: value - previous_replays[key]
                 for key, value in replay_state.replay_counts.items()
             }
+            if resume_path is not None:
+                summary["resumed_completed_answers"] = sum(1 for _ in resume_path.open())
+                summary["prior_interrupted_seconds"] = args.resume_elapsed_seconds
+                summary["generation_seconds"] += args.resume_elapsed_seconds
+                summary["tokens_per_second"] = summary["total_tokens"] / summary["generation_seconds"]
+                summary["group_seconds_including_grading"] += args.resume_elapsed_seconds
+                summary["timing_note"] = "Includes prior interrupted arm wall time and discarded unfinished generation; not a single uninterrupted speed measurement"
+                summary["resume_session_preemptions"] = summary["preemptions"]
+                summary["preemptions"] = None  # Prior interrupted process did not save its counter.
             if steering is not None:
                 assert not replay_state._suspended
                 assert (summary["dynamic_kv_replay"]["suspended"]
@@ -460,15 +484,25 @@ def main() -> None:
         write_result(output_path, result)
 
         for mode in result["protocol"]["run_order"]:
-            if mode == "baseline" and reused_baseline is not None:
+            if resumed is not None and mode in resumed:
+                print(f"Retaining completed {mode}; no generation repeat")
+                result[mode] = resumed[mode]
+            elif mode == "baseline" and reused_baseline is not None:
                 print("Reusing verified saved baseline; no baseline generation")
                 result[mode] = reused_baseline
             else:
                 print(f"Running {mode}...")
                 try:
+                    resume_path = None
+                    if resumed is not None:
+                        candidate = args.resume_result.with_suffix(
+                            ".baseline.partial.jsonl" if mode == "baseline" else ".dynamic.partial.jsonl")
+                        if candidate.exists():
+                            resume_path = candidate
                     records, summary = run_group(
                         prompts, sampling, boundary_set,
                         steering=None if mode == "baseline" else steering,
+                        resume_path=resume_path,
                     )
                 except ProfileWindowComplete as completed:
                     result.update(status="profile_completed", profile_trace=str(completed),

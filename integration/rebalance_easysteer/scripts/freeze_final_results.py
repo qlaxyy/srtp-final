@@ -65,7 +65,8 @@ def paired_metrics(directory, dataset, model_size):
         assert abs(summary["mean_thinking_tokens"] - thinking) < 1e-8
         correct = sum(r["author_correct"] for r in scores["records"])
         assert correct == scores["author_correct"]
-        assert scores["total_group_seconds"] <= 1500, "Group exceeds frozen time budget"
+        budget = protocol.get("group_timeout_seconds", 1500)
+        assert not budget or scores["total_group_seconds"] <= budget, "Group exceeds declared time budget"
         groups[name] = dict(correct=correct, accuracy_percent=100 * correct / count,
             mean_tokens=total / count, mean_thinking_tokens=thinking,
             capped=sum(r["finish_reason"] == "length" for r in records),

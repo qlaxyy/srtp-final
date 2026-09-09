@@ -63,6 +63,7 @@ reuse=()
 [[ -z "$baseline" ]] || reuse=(--baseline-result "$baseline")
 [[ -n "$baseline" ]] || reuse+=(--dynamic-first)
 [[ "$max_tokens" =~ ^[1-9][0-9]*$ ]] || { echo "Invalid generation limit"; exit 2; }
+[[ -z "${RESUME_RESULT:-}" ]] || reuse+=(--resume-result "$RESUME_RESULT" --resume-elapsed-seconds "${RESUME_ELAPSED_SECONDS:?Set interrupted arm elapsed time}")
 # The evaluator checks every actual prompt fits; never silently truncate inputs.
 context="${EVAL_MAX_MODEL_LEN:-$((((max_tokens + 1024 + 511) / 512) * 512))}"
 concurrency="${EVAL_MAX_NUM_SEQS:-32}"
@@ -84,8 +85,8 @@ echo "$dataset: count=$count, max_tokens=$max_tokens, context=$context, concurre
     "${prefill[@]}" \
     --vector "$artifacts/auto_vector.pt" --calibration-fit "$artifacts/fit.json" \
     "${reuse[@]}" --output "$OUT/${dataset}_eval.json" \
-    --group-timeout-seconds 1500 > "$OUT/${dataset}_eval.log" 2>&1
+    --group-timeout-seconds "${EVAL_GROUP_TIMEOUT_SECONDS:-1500}" > "$OUT/${dataset}_eval.log" 2>&1
 "$LEGACY" -u integration/rebalance_easysteer/scripts/regrade_saved_results.py \
     --input "$OUT/${dataset}_eval.json" --output "$OUT/${dataset}_author_grading.json" \
-    --data-name "$grade" > "$OUT/${dataset}_grading.log" 2>&1
+    --data-name "$grade" --group-budget-seconds "${EVAL_GROUP_TIMEOUT_SECONDS:-1500}" > "$OUT/${dataset}_grading.log" 2>&1
 echo "$dataset completed $(date -Is)"

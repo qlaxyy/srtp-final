@@ -15,9 +15,10 @@ export EVAL_MAX_NUM_SEQS=64
 export EVAL_CHUNKED_PREFILL=1
 export EVAL_MAX_BATCHED_TOKENS=2048
 export EVAL_GPU_MEMORY_UTILIZATION=0.92
+export EVAL_GROUP_TIMEOUT_SECONDS=0
 unset BASELINE_MATH500
 cd "$PROJECT_ROOT"
-# Both arms freshly generated, dynamic first; 1500s per arm including graders.
-# Sampling defaults in the frozen evaluator: temperature .7, top_p .95, seed 42.
-timeout --signal=TERM --kill-after=10 3300 bash \
+# User removed the time limit to finish. Optional RESUME_RESULT retains completed answers.
+# Sampling defaults: temperature .7, top_p .95, seed 42. No calibration is rerun.
+bash \
     integration/rebalance_easysteer/scripts/run_auto_baseline.sh --group math500

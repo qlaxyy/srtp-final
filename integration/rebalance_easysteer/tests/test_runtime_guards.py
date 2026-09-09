@@ -80,7 +80,51 @@ def test_evaluation_checkpoint():
         assert saved["local_index"] == 1 and saved["text"] == "b"
 
 
+def test_resume_only_missing_answers():
+    class FakeLLM:
+        def __init__(self):
+            self.llm_engine = self
+            self.done = False
+
+        def enqueue(self, prompts, sampling_params, steering):
+            assert prompts == ["a", "c"], "Retained question b must never be generated again"
+            self.output_processor = SimpleNamespace(request_states={
+                "r0": SimpleNamespace(external_req_id="external-a"),
+                "r1": SimpleNamespace(external_req_id="external-c")})
+            return ["r0", "r1"]
+
+        def has_unfinished_requests(self):
+            return not self.done
+
+        def step(self):
+            self.done = True
+            return [SimpleNamespace(finished=True, request_id="external-" + s,
+                prompt_token_ids=[10], outputs=[SimpleNamespace(token_ids=[11],
+                text=s, finish_reason="stop")]) for s in ("c", "a")]
+
+    with tempfile.TemporaryDirectory() as folder:
+        old, new = Path(folder) / "old.jsonl", Path(folder) / "new.jsonl"
+        row = dict(local_index=1, prompt_token_ids=[10], token_ids=[777],
+                   text="retained-b", finish_reason="stop")
+        old.write_text(json.dumps(row) + "\n")
+        original = old.read_bytes()
+        result = generate_with_checkpoint(FakeLLM(), ["a", "b", "c"],
+            SimpleNamespace(max_tokens=16000), None, new, resume_path=old)
+        assert [r.outputs[0].text for r in result] == ["a", "retained-b", "c"]
+        assert result[1].outputs[0].token_ids == [777] and old.read_bytes() == original
+        assert sorted(json.loads(s)["local_index"] for s in new.read_text().splitlines()) == [0, 1, 2]
+        old.write_text(json.dumps(row) + "\n" + json.dumps(row) + "\n")
+        try:
+            generate_with_checkpoint(FakeLLM(), ["a", "b", "c"],
+                SimpleNamespace(max_tokens=16000), None, Path(folder) / "bad.jsonl", resume_path=old)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Duplicate saved answer was accepted")
+
+
 if __name__ == "__main__":
     test_preemption_guard()
     test_evaluation_checkpoint()
+    test_resume_only_missing_answers()
     print("PASS dynamic preemption guard and evaluation checkpoint")

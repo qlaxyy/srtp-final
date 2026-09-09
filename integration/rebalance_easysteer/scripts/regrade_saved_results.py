@@ -49,11 +49,12 @@ def main():
         assert len(records) == len(rows) == count
         previous_seconds = saved[group]['summary']['group_seconds_including_grading']
         remaining = args.group_budget_seconds - previous_seconds
-        if remaining <= 0:
+        if args.group_budget_seconds > 0 and remaining <= 0:
             raise TimeoutError(f'{group} has exhausted its budget')
         timer = threading.Timer(remaining, lambda: os._exit(124))
         timer.daemon = True
-        timer.start()
+        if args.group_budget_seconds > 0:
+            timer.start()
         started = time.monotonic()
         graded = []
         try:
