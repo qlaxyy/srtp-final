@@ -66,12 +66,12 @@ def paired_metrics(directory, dataset, model_size):
         correct = sum(r["author_correct"] for r in scores["records"])
         assert correct == scores["author_correct"]
         budget = protocol.get("group_timeout_seconds", 1500)
-        assert not budget or scores["total_group_seconds"] <= budget, "Group exceeds declared time budget"
         groups[name] = dict(correct=correct, accuracy_percent=100 * correct / count,
             mean_tokens=total / count, mean_thinking_tokens=thinking,
             capped=sum(r["finish_reason"] == "length" for r in records),
             generation_seconds=summary["generation_seconds"],
             generation_and_grading_seconds=scores["total_group_seconds"],
+            within_original_time_budget=(scores["total_group_seconds"] <= budget) if budget else None,
             preemptions=summary.get("preemptions"))
     base, dynamic = (groups[name] for name in GROUPS)
     return dict(model=model_size, dataset=dataset, count=count, groups=groups,
@@ -102,6 +102,7 @@ def main():
         "steer_vectors/rebalance.py", "v1/worker/gpu/model_runner.py",
         "v1/worker/gpu/steer_vector_utils.py")]
     lock = dict(status="frozen_complete", name="EasySteer + ReBalance auto-code-v2",
+        time_policy="User removed the MATH-500 wall-time limit to complete evaluation; generation cap remains16000",
         scope="Self-calibrated adaptation of released code; not an exact paper reproduction",
         freeze_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         benchmarks=benchmarks,
