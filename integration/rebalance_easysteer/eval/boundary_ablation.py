@@ -148,11 +148,15 @@ def run(args):
             if includes_boundary and job['apply']:
                 expected[-1] = coef
             for controller in controllers:
-                torch.testing.assert_close(controller.graph_mask[a:a+prefix_count].float(), expected, atol=2e-4, rtol=0)
+                # Persistent masks use the model dtype (BF16). Compare against
+                # the same cast, without loosening the allowed position error.
+                expected_mask = expected.to(controller.graph_mask.dtype)
+                torch.testing.assert_close(controller.graph_mask[a:a+prefix_count], expected_mask, atol=0, rtol=0)
             if includes_boundary:
                 boundary_seen.add(rid)
                 checks.append(dict(case_id=job['case']['case_id'], arm=job['arm'],
-                    computed_coefficient=coef, applied_coefficient=coef if job['apply'] else 0.,
+                    computed_coefficient=coef, applied_coefficient=float(expected_mask[-1]),
+                    kernel_mask_dtype=str(controller.graph_mask.dtype),
                     previous_mean=float(live_state._prev_step_mean[idx]),
                     prompt_tokens=n, kernel_prefix_mask_checked=True))
         # Host mask audit cost only, not a claim of total GPU prefill time.
