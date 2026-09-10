@@ -1,0 +1,3644 @@
+{
+  "status": "completed_single_reviewer_content_audit",
+  "name": "1.5B无干预训练校准标签内容审查",
+  "date": "2026-09-10",
+  "execution_parent_commit": "7162688e2de4b3cffc3e0723a3287ee4bac4250c",
+  "purpose": "检查自校准的过度／欠思考代理标签与上下文内容是否一致；不是干预效果评测。",
+  "difference_from_previous": "首次审查已有训练校准步骤的语义内容；不再测试首步强度，不复用测试集挑规则。",
+  "protocol": {
+    "status": "prepared_unreviewed",
+    "seed": 20260910,
+    "question_count": 30,
+    "target_count": 76,
+    "max_targets_per_question": 3,
+    "sampling": "uniform questions; one random step per available original stratum per question; no replacement for absent strata",
+    "strata": [
+      "over",
+      "under",
+      "unselected"
+    ],
+    "selected_calibration_indices": [
+      7,
+      39,
+      46,
+      47,
+      60,
+      66,
+      83,
+      89,
+      95,
+      129,
+      130,
+      176,
+      186,
+      187,
+      203,
+      249,
+      264,
+      275,
+      290,
+      321,
+      347,
+      355,
+      366,
+      367,
+      380,
+      405,
+      423,
+      449,
+      451,
+      456
+    ],
+    "source_archive": ".codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz",
+    "source_member": "generations.jsonl",
+    "source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+    "source_model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "source_count": 500,
+    "source_temperature": 0,
+    "source_max_tokens": 16000,
+    "regenerated_answers": 0,
+    "model_forwards": 0,
+    "server_compute": false,
+    "population_steps": 84008,
+    "population_label_counts": {
+      "over": 48251,
+      "unselected": 24448,
+      "under": 11309
+    },
+    "full_decode_verified_questions": 500,
+    "capped_incomplete_utf8_tail_holds": [
+      {
+        "calibration_index": 245,
+        "suffix_codepoints": [
+          32,
+          65533
+        ]
+      }
+    ],
+    "current_quantiles_reproduced": true,
+    "test_overlap": 0,
+    "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "frozen_manifest_sha256": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+    "private_key_sha256": "524fed4a390e76d288c39e60ed0243008b816f84d701d01a0e0ddb285c5ad512",
+    "rubric": {
+      "new": "New derivation, condition, case elimination, correction or different verification. Mathematical validity recorded separately.",
+      "repeat": "Equivalent prior reasoning or conclusion without new condition, calculation or verification. Must cite an earlier step.",
+      "uncertain": "Mixed, transitional, or insufficient evidence."
+    },
+    "validity_values": [
+      "supported",
+      "error",
+      "uncertain",
+      "not_applicable"
+    ],
+    "reviewer": "Single Codex model-assisted review; no independent human gold labels",
+    "masking": "Original label, confidence, match flags and final grading hidden. Review packets in numerical rounds; seal each round before reading later prefixes. Visible wording can suggest the heuristic label; not perfect blindness.",
+    "interpretation": "Content audit only, not causal redundancy, underthinking ground truth, population error rate or efficacy evidence. Stratified counts must not be pooled as prevalence.",
+    "incidental_prior_exposure": "Schema inspection printed calibration question 0 before sampling. No other selected answer was read before preparation.",
+    "preexposed_selected_questions": []
+  },
+  "by_original_label": {
+    "over": {
+      "repeat": 14,
+      "uncertain": 6,
+      "new": 10
+    },
+    "under": {
+      "uncertain": 2,
+      "new": 11,
+      "repeat": 3
+    },
+    "unselected": {
+      "uncertain": 6,
+      "new": 14,
+      "repeat": 10
+    }
+  },
+  "by_trigger_route": {
+    "both": {
+      "repeat": 6,
+      "uncertain": 2,
+      "new": 3
+    },
+    "lexical_only": {
+      "repeat": 5,
+      "new": 2
+    },
+    "low_confidence_only": {
+      "repeat": 3,
+      "uncertain": 4,
+      "new": 5
+    },
+    "under": {
+      "uncertain": 2,
+      "new": 11,
+      "repeat": 3
+    },
+    "unselected": {
+      "uncertain": 6,
+      "new": 14,
+      "repeat": 10
+    }
+  },
+  "new_over_validity": {
+    "error": 3,
+    "supported": 6,
+    "uncertain": 1
+  },
+  "question_summary": [
+    {
+      "question": "Q01",
+      "calibration_index": 7,
+      "train_index": 1143,
+      "available_strata": {
+        "over": 533,
+        "under": 21,
+        "unselected": 83
+      },
+      "target_count": 3,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q02",
+      "calibration_index": 39,
+      "train_index": 6216,
+      "available_strata": {
+        "over": 13,
+        "under": 0,
+        "unselected": 14
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 855
+    },
+    {
+      "question": "Q03",
+      "calibration_index": 46,
+      "train_index": 1273,
+      "available_strata": {
+        "over": 7,
+        "under": 0,
+        "unselected": 2
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 895
+    },
+    {
+      "question": "Q04",
+      "calibration_index": 47,
+      "train_index": 1763,
+      "available_strata": {
+        "over": 107,
+        "under": 10,
+        "unselected": 78
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 5044
+    },
+    {
+      "question": "Q05",
+      "calibration_index": 60,
+      "train_index": 355,
+      "available_strata": {
+        "over": 15,
+        "under": 0,
+        "unselected": 1
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 1443
+    },
+    {
+      "question": "Q06",
+      "calibration_index": 66,
+      "train_index": 645,
+      "available_strata": {
+        "over": 17,
+        "under": 0,
+        "unselected": 2
+      },
+      "target_count": 2,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q07",
+      "calibration_index": 83,
+      "train_index": 2370,
+      "available_strata": {
+        "over": 129,
+        "under": 5,
+        "unselected": 53
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 5337
+    },
+    {
+      "question": "Q08",
+      "calibration_index": 89,
+      "train_index": 3113,
+      "available_strata": {
+        "over": 11,
+        "under": 0,
+        "unselected": 3
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 1073
+    },
+    {
+      "question": "Q09",
+      "calibration_index": 95,
+      "train_index": 1332,
+      "available_strata": {
+        "over": 29,
+        "under": 5,
+        "unselected": 23
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 4473
+    },
+    {
+      "question": "Q10",
+      "calibration_index": 129,
+      "train_index": 2584,
+      "available_strata": {
+        "over": 123,
+        "under": 4,
+        "unselected": 127
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 10734
+    },
+    {
+      "question": "Q11",
+      "calibration_index": 130,
+      "train_index": 3286,
+      "available_strata": {
+        "over": 164,
+        "under": 228,
+        "unselected": 380
+      },
+      "target_count": 3,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q12",
+      "calibration_index": 176,
+      "train_index": 4885,
+      "available_strata": {
+        "over": 27,
+        "under": 1,
+        "unselected": 41
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 2246
+    },
+    {
+      "question": "Q13",
+      "calibration_index": 186,
+      "train_index": 94,
+      "available_strata": {
+        "over": 4,
+        "under": 0,
+        "unselected": 5
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 601
+    },
+    {
+      "question": "Q14",
+      "calibration_index": 187,
+      "train_index": 5572,
+      "available_strata": {
+        "over": 12,
+        "under": 0,
+        "unselected": 3
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 1517
+    },
+    {
+      "question": "Q15",
+      "calibration_index": 203,
+      "train_index": 26,
+      "available_strata": {
+        "over": 32,
+        "under": 5,
+        "unselected": 40
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 2578
+    },
+    {
+      "question": "Q16",
+      "calibration_index": 249,
+      "train_index": 4363,
+      "available_strata": {
+        "over": 226,
+        "under": 19,
+        "unselected": 50
+      },
+      "target_count": 3,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q17",
+      "calibration_index": 264,
+      "train_index": 6187,
+      "available_strata": {
+        "over": 31,
+        "under": 1,
+        "unselected": 48
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 2151
+    },
+    {
+      "question": "Q18",
+      "calibration_index": 275,
+      "train_index": 4239,
+      "available_strata": {
+        "over": 5,
+        "under": 0,
+        "unselected": 4
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 862
+    },
+    {
+      "question": "Q19",
+      "calibration_index": 290,
+      "train_index": 5798,
+      "available_strata": {
+        "over": 9,
+        "under": 0,
+        "unselected": 10
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 1796
+    },
+    {
+      "question": "Q20",
+      "calibration_index": 321,
+      "train_index": 3531,
+      "available_strata": {
+        "over": 641,
+        "under": 20,
+        "unselected": 219
+      },
+      "target_count": 3,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q21",
+      "calibration_index": 347,
+      "train_index": 3789,
+      "available_strata": {
+        "over": 35,
+        "under": 0,
+        "unselected": 15
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 2068
+    },
+    {
+      "question": "Q22",
+      "calibration_index": 355,
+      "train_index": 4508,
+      "available_strata": {
+        "over": 17,
+        "under": 1,
+        "unselected": 6
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 1547
+    },
+    {
+      "question": "Q23",
+      "calibration_index": 366,
+      "train_index": 1362,
+      "available_strata": {
+        "over": 197,
+        "under": 4,
+        "unselected": 154
+      },
+      "target_count": 3,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q24",
+      "calibration_index": 367,
+      "train_index": 3329,
+      "available_strata": {
+        "over": 19,
+        "under": 1,
+        "unselected": 22
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 1852
+    },
+    {
+      "question": "Q25",
+      "calibration_index": 380,
+      "train_index": 6423,
+      "available_strata": {
+        "over": 14,
+        "under": 1,
+        "unselected": 8
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 1210
+    },
+    {
+      "question": "Q26",
+      "calibration_index": 405,
+      "train_index": 4785,
+      "available_strata": {
+        "over": 369,
+        "under": 0,
+        "unselected": 6
+      },
+      "target_count": 2,
+      "capped": true,
+      "tokens": 16000
+    },
+    {
+      "question": "Q27",
+      "calibration_index": 423,
+      "train_index": 982,
+      "available_strata": {
+        "over": 13,
+        "under": 3,
+        "unselected": 11
+      },
+      "target_count": 3,
+      "capped": false,
+      "tokens": 1550
+    },
+    {
+      "question": "Q28",
+      "calibration_index": 449,
+      "train_index": 3745,
+      "available_strata": {
+        "over": 27,
+        "under": 0,
+        "unselected": 11
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 2994
+    },
+    {
+      "question": "Q29",
+      "calibration_index": 451,
+      "train_index": 6159,
+      "available_strata": {
+        "over": 13,
+        "under": 0,
+        "unselected": 15
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 2094
+    },
+    {
+      "question": "Q30",
+      "calibration_index": 456,
+      "train_index": 4612,
+      "available_strata": {
+        "over": 39,
+        "under": 0,
+        "unselected": 11
+      },
+      "target_count": 2,
+      "capped": false,
+      "tokens": 3165
+    }
+  ],
+  "selected_questions_capped": 7,
+  "selected_saved_output_tokens": 170085,
+  "judgment_seals": [
+    {
+      "round": 1,
+      "path": "judgments_round1.json",
+      "sha256": "8bc7dccf544fe64b1e15a2e8d056de35660a36ce37bff22f1ba2530b6f5c125c"
+    },
+    {
+      "round": 2,
+      "path": "judgments_round2.json",
+      "sha256": "3ca0623a2ba5cf72da790a5f07e241841867f268d7d75a9ac8fb4e1fdef31ce5"
+    },
+    {
+      "round": 3,
+      "path": "judgments_round3.json",
+      "sha256": "b52894059998b6d24f29b1b7663c20f1ea037540f5c448a104a332b9696d41a0"
+    }
+  ],
+  "math_evidence_checks": {
+    "purpose": "Check mathematical evidence for six supported new-over cases, three erroneous new-over cases and one erroneous repeated-under case",
+    "checked_cases": 10,
+    "newly_generated_answers": 0,
+    "checks": [
+      {
+        "case_id": "S7267ec8e",
+        "passed": true,
+        "evidence": "8×9=72，首次乘法正确。"
+      },
+      {
+        "case_id": "S46900ec4",
+        "passed": true,
+        "evidence": "奇数首位恰为3、7、9。"
+      },
+      {
+        "case_id": "S57c409ec",
+        "passed": true,
+        "evidence": "3(x+1)^2+6展开系数为3、6、9。"
+      },
+      {
+        "case_id": "S42ef7399",
+        "passed": true,
+        "evidence": "1.5x=30两侧除1.5合法，x=20。"
+      },
+      {
+        "case_id": "Sf8f01f31",
+        "passed": true,
+        "evidence": "x=-8四分母非零且两侧均为0；另一分支要求63=60不成立。"
+      },
+      {
+        "case_id": "S4407a34e",
+        "passed": true,
+        "evidence": "54与210均可除6，约分正确。"
+      },
+      {
+        "case_id": "S51734870",
+        "passed": true,
+        "evidence": "枚举固定两种点数的8张牌，符合3+2的5张组合为48，非24。"
+      },
+      {
+        "case_id": "S5885ca13",
+        "passed": true,
+        "evidence": "P(1)=0，对数导数不能在此直接取值。"
+      },
+      {
+        "case_id": "Sa351dcbd",
+        "passed": true,
+        "evidence": "若原多项式及倒数多项式有公共根，相减迫使r=5/13，但代回原式为-144/169，矛盾。"
+      },
+      {
+        "case_id": "S0256f06b",
+        "passed": true,
+        "evidence": "目标用水0.16升，重复结论0.04升错误。"
+      }
+    ]
+  },
+  "interpretation": [
+    "过度组30步中，14步文本重复、10步有新内容、6步不确定；新内容含6步局部数学有支持、3步有错、1步未确定。",
+    "欠思考组16步中，11步为有支持的新计算、3步文本重复、2步不确定；不能把这些审读类别直接当欠思考真值。",
+    "未选中组30步中，14步新内容、10步文本重复、6步不确定。",
+    "6个有支持的新过度样本中，3个仅低置信度触发、3个词表和低置信度同时触发；没有证明去掉词表即可解决。",
+    "同一循环可以同时包含过度、欠思考和未选中标签。代理标签不等于是否已有相同推理的上下文判断。",
+    "分层小样本、单模型辅助审读，无独立人工金标准；不报告总体误标率，不证明删除或注入会保准确率。"
+  ],
+  "proposed_next_step": "先由用户复核代表案例及边界判定，再研究利用已有推理上下文区分重复与首次推进；暂不改向量／控制器或启动GPU。",
+  "examples": [
+    {
+      "case_id": "S51734870",
+      "problem": "We have a standard deck of 52 cards, with 4 cards in each of 13 ranks.  We call a 5-card poker hand a full house if the hand has 3 cards of one rank and 2 cards of another rank (such as 33355 or AAAKK).  What is the probability that five cards chosen at random form a full house?",
+      "text": "Therefore, for each pair of ranks, the number of full houses is C(4, 3) * C(4, 2) = 4 * 6 = 24. So, for each combination of two ranks, there are 24 possible full houses"
+    },
+    {
+      "case_id": "Sa6efe0c9",
+      "problem": "Find the range of\n\\[f(A)=\\frac{\\sin A(3\\cos^{2}A+\\cos^{4}A+3\\sin^{2}A+\\sin^{2}A\\cos^{2}A)}{\\tan A (\\sec A-\\sin A\\tan A)}\\]if $A\\neq \\dfrac{n\\pi}{2}$ for any integer $n.$  Enter your answer using interval notation.",
+      "text": "Therefore, the range is (3,4"
+    },
+    {
+      "case_id": "S7267ec8e",
+      "problem": "What is the least common multiple of the numbers 1332 and 888?",
+      "text": "Now, 8 × 9 is 72"
+    },
+    {
+      "case_id": "S0256f06b",
+      "problem": "In Chemistry class, Samantha finds that she can make a certain solution by mixing $.04$ liters of chemical A with $.02$ liters of water (this gives her $.06$ liters of the solution). She wants to make a total of $.48$ liters of this new solution.  To do so, how many liters of water will she use?",
+      "text": "So, both methods are consistent. So, 0.04 liters of water"
+    },
+    {
+      "case_id": "S57c409ec",
+      "problem": "What is the minimum value of $y$ if $y=3x^2+6x+9?$",
+      "text": "Now, inside the parentheses, I have x² + 2x. To complete the square, I take half of the coefficient of x, which is 2, so half of that is 1, and then square it, which is 1² = 1. So, I need to add and subtract this square inside the parentheses. But wait, since I'm adding 1 inside the parentheses, and the parentheses is multiplied by 3, I actually need to subtract 3*1 to keep the equation balanced."
+    },
+    {
+      "case_id": "Sf8f01f31",
+      "problem": "Solve\n\\[\\frac{1}{x + 9} + \\frac{1}{x + 7} = \\frac{1}{x + 10} + \\frac{1}{x + 6}.\\]",
+      "text": "Wait, that's not true. 63 is not equal to 60. So, this case doesn't give any solution. So, the only solution is from Case 1, which is \\(x = -8\\"
+    }
+  ],
+  "reviewed_cases": [
+    {
+      "case_id": "Sa81dfed5",
+      "question": "Q01",
+      "calibration_index": 7,
+      "train_index": 1143,
+      "step": 572,
+      "start": 14212,
+      "stop": 14238,
+      "confidence": 0.9986374751658366,
+      "variance": 7.296189690526587e-10,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait",
+        "but"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "dfe25a70de5b5a90535575c4d6ad88dad7ee4e74ef2d7a594dbea6b12971bbdb",
+      "review": {
+        "case_id": "Sa81dfed5",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          210,
+          212,
+          571
+        ],
+        "evidence_quote": "the product is quartic, so when divided by (x + 1), it's cubic",
+        "reason": "第212步之后持续原样复述同一次数关系，至572步没有新计算。该次数关系本身正确，但文本处于循环。"
+      },
+      "prior_evidence": [
+        {
+          "step": 210,
+          "text": "But in my calculation, the product is quartic, so when divided by (x + 1), it's cubic"
+        },
+        {
+          "step": 212,
+          "text": "Wait, but in my calculation, the product is quartic, so when divided by (x + 1), it's cubic"
+        },
+        {
+          "step": 571,
+          "text": "Wait, but in my calculation, the product is quartic, so when divided by (x + 1), it's cubic"
+        }
+      ]
+    },
+    {
+      "case_id": "S9bf02158",
+      "question": "Q01",
+      "calibration_index": 7,
+      "train_index": 1143,
+      "step": 78,
+      "start": 1392,
+      "stop": 1405,
+      "confidence": 0.9999685592684575,
+      "variance": 2.2138355584110248e-08,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "ec7f41f8fadbf05275725cf3f945f215468680e5660c5ec816d485506f120ae4",
+      "review": {
+        "case_id": "S9bf02158",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          67
+        ],
+        "evidence_quote": "Case 8: b = -6, c = -1",
+        "reason": "第67步已列此因数对，现在编号整理成待检查的案例。没有新运算，但组织枚举的作用与无目的反复难以区分。"
+      },
+      "prior_evidence": [
+        {
+          "step": 67,
+          "text": "(1, 6), (2, 3), (3, 2), (6, 1), (-1, -6), (-2, -3), (-3, -2), (-6, -1"
+        }
+      ]
+    },
+    {
+      "case_id": "S0c67831b",
+      "question": "Q01",
+      "calibration_index": 7,
+      "train_index": 1143,
+      "step": 41,
+      "start": 798,
+      "stop": 807,
+      "confidence": 0.9636107998998749,
+      "variance": 0.0011749414907897384,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "5c06f83d4a169746cd85450ce00331fa597d5b9770e26d6c8ff54af07ddb9fe2",
+      "review": {
+        "case_id": "S0c67831b",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          27,
+          39
+        ],
+        "evidence_quote": "- x⁴ term: x⁴",
+        "reason": "当前在整理右侧乘积的系数；第39步已有此项，虽无新运算，但不能仅因与左侧第17步同字就认定无效重复。属于分项整理，作用未定。"
+      },
+      "prior_evidence": [
+        {
+          "step": 27,
+          "text": "x² * x² = x⁴"
+        },
+        {
+          "step": 39,
+          "text": "x⁴ + b x³ + c x² + a x³ + a b x² + a c x + b x² + b² x + b c"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa938fd0e",
+      "question": "Q02",
+      "calibration_index": 39,
+      "train_index": 6216,
+      "step": 21,
+      "start": 524,
+      "stop": 534,
+      "confidence": 0.8179576908748896,
+      "variance": 0.0004411536371830002,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "53f7eb8893f844502fde9842faae9e8b0e2fb296d3671cf23bbb38316bee9591",
+      "review": {
+        "case_id": "Sa938fd0e",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          14
+        ],
+        "evidence_quote": "100*6 = 600",
+        "reason": "与第14步计算135×6时采用的同一拆分子运算完全相同，此处再次执行没有新检验方式。"
+      },
+      "prior_evidence": [
+        {
+          "step": 14,
+          "text": "Hmm, 100 * 6 is 600, and 35 * 6 is 210, so adding those together: 600 + 210 = 810"
+        }
+      ]
+    },
+    {
+      "case_id": "Se8958dc5",
+      "question": "Q02",
+      "calibration_index": 39,
+      "train_index": 6216,
+      "step": 10,
+      "start": 290,
+      "stop": 322,
+      "confidence": 0.9390201373913373,
+      "variance": 2.4428042712138955e-05,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "09ca29f63c5d050ea9bcc5bb15add711b46eed73979174f9121817a010244b5f",
+      "review": {
+        "case_id": "Se8958dc5",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          8,
+          9
+        ],
+        "evidence_quote": "multiplying the number of cubic feet by the cost per cubic foot",
+        "reason": "在已完成体积换算后，首次明确把135立方英尺与单价相乘来求总价，给出具体下一运算。"
+      },
+      "prior_evidence": [
+        {
+          "step": 8,
+          "text": "5 cubic yards * 27 cubic feet/cubic yard = 135 cubic feet"
+        },
+        {
+          "step": 9,
+          "text": "So, 5 cubic yards is equal to 135 cubic feet"
+        }
+      ]
+    },
+    {
+      "case_id": "S4de4b7f7",
+      "question": "Q03",
+      "calibration_index": 46,
+      "train_index": 1273,
+      "step": 1,
+      "start": 0,
+      "stop": 91,
+      "confidence": 0.8813615342986518,
+      "variance": 0.0,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "d750f982e26cf6b77014087778d7554d3a34de84c4ef1a221ac21dfa078bafe6",
+      "review": {
+        "case_id": "S4de4b7f7",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [],
+        "evidence_quote": "The domain of a function is all the real numbers for which the function is defined.",
+        "reason": "首段重述题意并解释定义域，没有推出分母或根号约束；无此前推理可用于认定反复，记为起始说明。"
+      },
+      "prior_evidence": []
+    },
+    {
+      "case_id": "S6c6fb755",
+      "question": "Q03",
+      "calibration_index": 46,
+      "train_index": 1273,
+      "step": 9,
+      "start": 660,
+      "stop": 680,
+      "confidence": 0.9518144480781991,
+      "variance": 0.007286021283244586,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "09b25ee3668217103bddd5963a6eb63f7eb6c334c7ad1e383881236f6f510968",
+      "review": {
+        "case_id": "S6c6fb755",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          6,
+          8
+        ],
+        "evidence_quote": "The domain of the function is \\boxed{(5, \\infty)}.",
+        "reason": "重复已有数学结论，但该步骤承担最终答案格式化功能，不据此归为可压缩反复；区间正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 6,
+          "text": "So, in interval notation, that would be \\( (5, \\infty) \\). So, the domain is all real numbers greater than 5"
+        },
+        {
+          "step": 8,
+          "text": "I don't think there are any other restrictions because the numerator doesn't cause any issues as long as \\( x > 5 \\). So, I think I'm confident that the domain is \\( (5, \\infty) \\"
+        }
+      ]
+    },
+    {
+      "case_id": "S58984e7f",
+      "question": "Q04",
+      "calibration_index": 47,
+      "train_index": 1763,
+      "step": 118,
+      "start": 2649,
+      "stop": 2684,
+      "confidence": 0.711531730368056,
+      "variance": 0.0012429270472649303,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Alternatively",
+        "maybe",
+        "but",
+        "but",
+        "perhaps"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "111670406cb8192152a3ec1d4b3efd99fe14f6bc8ffeebdc2b870d53a6d87d7e",
+      "review": {
+        "case_id": "S58984e7f",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          95,
+          96,
+          111
+        ],
+        "evidence_quote": "perhaps there are other solutions",
+        "reason": "几乎原样重复第111步的线性/其他解猜想，没有提出新的代入、证明或分支条件；已验证-x为一个解。"
+      },
+      "prior_evidence": [
+        {
+          "step": 95,
+          "text": "So, that's good. So, \\(f(x) = -x\\) is a solution. But is it the only solution? Or are there other functions that satisfy the equation"
+        },
+        {
+          "step": 96,
+          "text": "I need to check if this is the only solution or if there are other possible functions"
+        },
+        {
+          "step": 111,
+          "text": "Alternatively, maybe I can find \\(f\\) is linear, but we saw that \\(f(x) = -x\\) is a solution, but perhaps there are other solutions"
+        }
+      ]
+    },
+    {
+      "case_id": "S0c37aacf",
+      "question": "Q04",
+      "calibration_index": 47,
+      "train_index": 1763,
+      "step": 31,
+      "start": 733,
+      "stop": 749,
+      "confidence": 0.9991561706439216,
+      "variance": 0.005127938027238213,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "c33f39867ba071e2b06847614231d5c68986eda53178950ce5138d03b86616c0",
+      "review": {
+        "case_id": "S0c37aacf",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          18,
+          30
+        ],
+        "evidence_quote": "f(z) = c + f(f(c - z) - c)",
+        "reason": "把第18步的y替换为c-z，得出以z为自变量的新表达式，代换正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 18,
+          "text": "\\[f(c - y) = c + f(f(y) - c)\\"
+        },
+        {
+          "step": 30,
+          "text": "Let me denote \\(z = c - y\\), so \\(y = c - z\\). Substituting back"
+        }
+      ]
+    },
+    {
+      "case_id": "S976b3d26",
+      "question": "Q04",
+      "calibration_index": 47,
+      "train_index": 1763,
+      "step": 171,
+      "start": 3639,
+      "stop": 3658,
+      "confidence": 0.9833674304009942,
+      "variance": 0.0033511207497512203,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "ee99e743e7255d67656e5b8c168116b4002be08c03abe9aed924a6a7793e7420",
+      "review": {
+        "case_id": "S976b3d26",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          166,
+          169
+        ],
+        "evidence_quote": "f(f(x)) = f(x) + f(-f(-x)) + x",
+        "reason": "重写第166步方程，但中间刚获得第169步的新关系；可能是在回引待代入式。本步未实际使用新关系，记为衔接而非确定冗余。"
+      },
+      "prior_evidence": [
+        {
+          "step": 166,
+          "text": "\\[f(f(x)) = f(x) + f(-f(-x)) + x\\"
+        },
+        {
+          "step": 169,
+          "text": "\\(f(-(-x)) = f(f(-x))\\), which is \\(f(x) = f(f(-x))\\). So, \\(f(f(-x)) = f(x)\\"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa869081d",
+      "question": "Q05",
+      "calibration_index": 60,
+      "train_index": 355,
+      "step": 10,
+      "start": 715,
+      "stop": 767,
+      "confidence": 0.6727126602119784,
+      "variance": 0.0008442470615196269,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Alternatively"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "b1010dd36c65a179bcfbef24832ebe7579bc1ee7a4a23b26d6e8d50698005b84",
+      "review": {
+        "case_id": "Sa869081d",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          2,
+          3,
+          7
+        ],
+        "evidence_quote": "choosing the other three players",
+        "reason": "再次讲述固定两人后从10人选3人的同一建模过程，没有真正执行上一段提到的排列除重方法。"
+      },
+      "prior_evidence": [
+        {
+          "step": 2,
+          "text": "So, if two of the five starting players are already decided, that leaves us with three more players to choose from the remaining team members. Let me think about how to calculate that. Since the order of the players doesn't matter in a basketball lineup, this is a combination problem. Combinations are used when the order isn't important, unlike permutations where it does matter."
+        },
+        {
+          "step": 3,
+          "text": "The formula for combinations is C(n, k) = n! / (k! * (n - k)!), where n is the total number of items, and k is the number of items we want to choose. In this case, we have 10 players left (since Ace and Zeppo are already in the lineup, and there are 12 total), and we need to choose 3 more players. So, n is 10 and k is 3."
+        },
+        {
+          "step": 7,
+          "text": "1. Total players: 12.\n2. Two players are definitely in the lineup: Ace and Zeppo.\n3. So, we need to choose 3 more players from the remaining 10.\n4. Using combinations: C(10, 3) = 120.\n5. Calculations seem correct: 10 × 9 × 8 / (3 × 2 × 1) = 720 / 6 = 120"
+        }
+      ]
+    },
+    {
+      "case_id": "S199296c5",
+      "question": "Q05",
+      "calibration_index": 60,
+      "train_index": 355,
+      "step": 5,
+      "start": 412,
+      "stop": 498,
+      "confidence": 0.9200938660885762,
+      "variance": 0.0005341771227394634,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "697fe0d4e22f5200f4c44ac0688c7ef16cac99422866677ba5389c6301f14997",
+      "review": {
+        "case_id": "S199296c5",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          4
+        ],
+        "evidence_quote": "720 ÷ 6 is 120",
+        "reason": "首次完成组合式的乘法、阶乘与除法，得到120，算术正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 4,
+          "text": "Let me write that down: C(10, 3) = 10! / (3! * (10 - 3)!). Simplifying that, 10 - 3 is 7, so it becomes 10! / (3! * 7!). Now, I remember that factorials can be simplified when they're in the numerator and denominator. Specifically, 10! is 10 × 9 × 8 × 7!, so the 7! in the numerator and denominator will cancel out. That leaves us with (10 × 9 × 8) / (3!)."
+        }
+      ]
+    },
+    {
+      "case_id": "S51734870",
+      "question": "Q06",
+      "calibration_index": 66,
+      "train_index": 645,
+      "step": 9,
+      "start": 798,
+      "stop": 855,
+      "confidence": 0.8865288523295558,
+      "variance": 0.0008335715765367181,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "bacd1405d8fca989a8e946d7e3e09f4f3f65c1a5f5879f0f8cb2f9d2158f5fce",
+      "review": {
+        "case_id": "S51734870",
+        "category": "new",
+        "math_validity": "error",
+        "prior_steps": [
+          5,
+          6,
+          8
+        ],
+        "evidence_quote": "for each combination of two ranks, there are 24 possible full houses",
+        "reason": "新增了花色选择乘法，但前文按无序C(13,2)选两种点数，此处遗漏谁作三张、谁作两张的两种分配，应为48而非24。新增推理不等于正确推理。"
+      },
+      "prior_evidence": [
+        {
+          "step": 5,
+          "text": "First, let's think about the ranks. There are 13 different ranks in a deck, from Ace to King. For a full house, I need to choose two different ranks: one for the three cards and one for the two cards. So, how many ways can I choose these two ranks? It's like choosing 2 ranks out of 13, which is C(13, 2). Let me compute that"
+        },
+        {
+          "step": 6,
+          "text": "C(13, 2) = 13! / (2! * 11!) = (13 × 12) / (2 × 1) = 78. So, there are 78 ways to choose the two different ranks needed for the full house"
+        },
+        {
+          "step": 8,
+          "text": "So, for the three-of-a-kind, the number of ways is C(4, 3) for each rank. Since there are 4 suits, choosing 3 suits is just 4 ways. Similarly, for the pair, it's C(4, 2) for each rank, which is 6 ways"
+        }
+      ]
+    },
+    {
+      "case_id": "S6548fd66",
+      "question": "Q06",
+      "calibration_index": 66,
+      "train_index": 645,
+      "step": 14,
+      "start": 1212,
+      "stop": 1434,
+      "confidence": 0.913313805004508,
+      "variance": 0.0009218006932577766,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "f3b0ccafc967ad16acbe1a4bc457364ff7c0780aa7f0d476dff0c1522edde4e4",
+      "review": {
+        "case_id": "S6548fd66",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          13
+        ],
+        "evidence_quote": "13*8,330 is 108,290",
+        "reason": "首次检验13整除108290并继续约分至6/8330，局部算术正确；此前分子计数错误不使这一步成为重复。"
+      },
+      "prior_evidence": [
+        {
+          "step": 13,
+          "text": "So, probability P = 1872 / 2,598,960. Let me compute that. First, let's simplify the fraction. Both numerator and denominator are divisible by 24. Let me check: 1872 ÷ 24 is 78, and 2,598,960 ÷ 24 is 108,290. Wait, 24*108,290 is 2,598,960. So, 78 / 108,290. Hmm, can we simplify this further"
+        }
+      ]
+    },
+    {
+      "case_id": "Sdeb551b4",
+      "question": "Q07",
+      "calibration_index": 83,
+      "train_index": 2370,
+      "step": 42,
+      "start": 1474,
+      "stop": 1498,
+      "confidence": 0.6944583808521254,
+      "variance": 0.012529508922826203,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait",
+        "but",
+        "make sure"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "293471f4ed85db33fd8b904f64be5b272c79da0143065953f1c8185e8050307a",
+      "review": {
+        "case_id": "Sdeb551b4",
+        "category": "uncertain",
+        "math_validity": "not_applicable",
+        "prior_steps": [
+          17,
+          21,
+          35,
+          40
+        ],
+        "evidence_quote": "let me go through them again",
+        "reason": "已经做过除法和反向换算，此步仅宣布再次检查，尚未展示重复计算或新的检查内容；不提前用后续内容判定。"
+      },
+      "prior_evidence": [
+        {
+          "step": 17,
+          "text": "5 goes into 27 five times (5*5=25), subtract 25 from 27, you get 2. Bring down the next digit, which is 9, making it 29"
+        },
+        {
+          "step": 21,
+          "text": "55 * 5 is 275, and 279 - 275 is 4. Yes, that's correct. So, the first remainder is 4, and the quotient is 55"
+        },
+        {
+          "step": 35,
+          "text": "Calculating 2*5^3 + 1*5^2 + 0*5^1 + 4*5^0"
+        },
+        {
+          "step": 40,
+          "text": "Adding them up: 250 + 25 is 275, plus 0 is 275, plus 4 is 279. Perfect, that's correct"
+        }
+      ]
+    },
+    {
+      "case_id": "S69ec1de8",
+      "question": "Q07",
+      "calibration_index": 83,
+      "train_index": 2370,
+      "step": 156,
+      "start": 4252,
+      "stop": 4264,
+      "confidence": 0.9995169995370494,
+      "variance": 0.0009123128557433049,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "a11de1ba60a3eac5070ca462b247ae70fd8db8189d4f3dc753f77c5ba18064b8",
+      "review": {
+        "case_id": "S69ec1de8",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          60,
+          75,
+          139
+        ],
+        "evidence_quote": "2 in base 8 is 2 in base 5",
+        "reason": "此前已多次给出同一单个数字等值关系；没有新的位权处理或计算。局部命题正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 60,
+          "text": "Similarly, 2 in base 8 is 2 in base 10, which is 2 in base 5"
+        },
+        {
+          "step": 75,
+          "text": "2 in base 8 is 2 in base 10, which is 2 in base 5"
+        },
+        {
+          "step": 139,
+          "text": "2 in base 8 is 2 in base 5"
+        }
+      ]
+    },
+    {
+      "case_id": "S11f8e07e",
+      "question": "Q07",
+      "calibration_index": 83,
+      "train_index": 2370,
+      "step": 83,
+      "start": 2674,
+      "stop": 2690,
+      "confidence": 0.9934044924833273,
+      "variance": 0.0040698586743342985,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "dec34edf61b655f2ecafc1f624d0decb30df498e220421cc0d6c9e2b15617134",
+      "review": {
+        "case_id": "S11f8e07e",
+        "category": "repeat",
+        "math_validity": "uncertain",
+        "prior_steps": [
+          61,
+          66,
+          74
+        ],
+        "evidence_quote": "4 in base 5 is 4",
+        "reason": "此前三次已给出同一单个数字换算。局部4写成五进制4正确，但将其当完整目标数的最高位缺少位权依据，整体用途未成立。"
+      },
+      "prior_evidence": [
+        {
+          "step": 61,
+          "text": "And 4 in base 8 is 4 in base 10, which is 4 in base 5"
+        },
+        {
+          "step": 66,
+          "text": "Wait, no, hold on. 4 in base 8 is 4 in base 10, which is 4 in base 5. So, it's just 4"
+        },
+        {
+          "step": 74,
+          "text": "Wait, actually, 4 in base 8 is 4 in base 10, which is 4 in base 5. So, it's just 4"
+        }
+      ]
+    },
+    {
+      "case_id": "S578f06b3",
+      "question": "Q08",
+      "calibration_index": 89,
+      "train_index": 3113,
+      "step": 6,
+      "start": 439,
+      "stop": 490,
+      "confidence": 0.7715735209955205,
+      "variance": 3.190635307094803e-05,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait",
+        "but",
+        "sometimes",
+        "but"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "fb9ac087c77ceaffc34474f182ac96fa52f32101e781c133f049de3b00644329",
+      "review": {
+        "case_id": "S578f06b3",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          1,
+          5
+        ],
+        "evidence_quote": "since the point is on the negative x-axis, θ is π",
+        "reason": "重复了第5步的角度结论，同时讨论角度起算约定。没有新计算，但含核对坐标约定的成分，记混合；标准柱坐标下结论正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 1,
+          "text": "Okay, so I need to convert the rectangular coordinates (-5, 0, -8) to cylindrical coordinates. Hmm, I remember that cylindrical coordinates are represented as (r, θ, z), where r is the radial distance from the z-axis, θ is the angle made with the positive x-axis in the xy-plane, and z is the same as in rectangular coordinates."
+        },
+        {
+          "step": 5,
+          "text": "Looking at the original point (-5, 0, -8), it's located in the negative x-axis direction, but since y is 0, it's actually on the negative x-axis. So, in the xy-plane, this point is on the negative x-axis. So, the angle θ should be π radians, right? Because from the positive x-axis, going π radians counterclockwise gets you to the negative x-axis."
+        }
+      ]
+    },
+    {
+      "case_id": "S5c2bf63d",
+      "question": "Q08",
+      "calibration_index": 89,
+      "train_index": 3113,
+      "step": 14,
+      "start": 815,
+      "stop": 835,
+      "confidence": 0.9560718413241803,
+      "variance": 0.005590564192592032,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "389b0ef2920a1287e93085d183d9c0e751d6d28ef37bbe394b64ab23fe374f13",
+      "review": {
+        "case_id": "S5c2bf63d",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          10,
+          13
+        ],
+        "evidence_quote": "The cylindrical coordinates are \\boxed{(5, \\pi, -8)}.",
+        "reason": "结论已经给出，本步承担最终答案格式化；不把必要输出格式直接当作无效重复。坐标正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 10,
+          "text": "Putting it all together, the cylindrical coordinates are (5, π, -8)."
+        },
+        {
+          "step": 13,
+          "text": "So, I think I'm confident that the cylindrical coordinates are (5, π, -8)."
+        }
+      ]
+    },
+    {
+      "case_id": "S25f72a00",
+      "question": "Q09",
+      "calibration_index": 95,
+      "train_index": 1332,
+      "step": 51,
+      "start": 3484,
+      "stop": 3527,
+      "confidence": 0.7599675337981777,
+      "variance": 2.05374461680382e-06,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait",
+        "but",
+        "think again",
+        "but",
+        "Maybe"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "4a0707aff29a20f920a0206abbb04c0b98240d93df9b129627e972cd980eb66c",
+      "review": {
+        "case_id": "S25f72a00",
+        "category": "repeat",
+        "math_validity": "uncertain",
+        "prior_steps": [
+          35,
+          42,
+          50
+        ],
+        "evidence_quote": "Maybe that's the only solution",
+        "reason": "重复第35步关于平方、x=49成立以及是否唯一的猜想；没有增加唯一性论证。成立性有前文代入证据，唯一性尚无支持。"
+      },
+      "prior_evidence": [
+        {
+          "step": 35,
+          "text": "Yes, both sides are equal. So \\(x = 49\\) is a solution. But wait, when I squared both sides earlier, I might have introduced extraneous solutions, but in this case, it worked out. Let me check if there are any other solutions"
+        },
+        {
+          "step": 42,
+          "text": "Not equal. Hmm, so far, only \\(x = 49\\) works. Maybe that's the only solution"
+        },
+        {
+          "step": 50,
+          "text": "Still not equal. So, it seems like \\(x = 49\\) is the only solution"
+        }
+      ]
+    },
+    {
+      "case_id": "Sb493903e",
+      "question": "Q09",
+      "calibration_index": 95,
+      "train_index": 1332,
+      "step": 28,
+      "start": 2382,
+      "stop": 2427,
+      "confidence": 0.9993607141210514,
+      "variance": 8.332455649365167e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "cba248c22c512c1f52959a26cee9bb905fc4424d84bb2a75d64db0fb2b20a2e7",
+      "review": {
+        "case_id": "Sb493903e",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          26,
+          27
+        ],
+        "evidence_quote": "\\sqrt[3]{7} \\approx 1.913",
+        "reason": "首次计算x=36时原式右端，用于与刚算出的左端比较；近似值正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 26,
+          "text": "Closer, but still not equal. Maybe \\(x = 36\\"
+        },
+        {
+          "step": 27,
+          "text": "Left side: \\(\\sqrt{1 + \\sqrt{2 + \\sqrt{36}}} = \\sqrt{1 + \\sqrt{2 + 6}} = \\sqrt{1 + \\sqrt{8}} \\approx \\sqrt{1 + 2.828} \\approx \\sqrt{3.828} \\approx 1.957\\"
+        }
+      ]
+    },
+    {
+      "case_id": "S6a6f3722",
+      "question": "Q09",
+      "calibration_index": 95,
+      "train_index": 1332,
+      "step": 18,
+      "start": 1881,
+      "stop": 1959,
+      "confidence": 0.997435887711053,
+      "variance": 0.0041254044842931594,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "e477c454d6eca1303c6b2a8a7efaebc6be48c94a03f98d8a93f8b316d1911ed2",
+      "review": {
+        "case_id": "S6a6f3722",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          12,
+          15,
+          17
+        ],
+        "evidence_quote": "sqrt{3.236}",
+        "reason": "首次代入x=9计算原式左端，近似1.799正确；此前只检查了x=1、4。这是新数值尝试，不能因前面变形有错就算重复。"
+      },
+      "prior_evidence": [
+        {
+          "step": 12,
+          "text": "Left side: \\(\\sqrt{1 + \\sqrt{2 + \\sqrt{1}}} = \\sqrt{1 + \\sqrt{3}} \\approx \\sqrt{1 + 1.732} \\approx \\sqrt{2.732} \\approx 1.652\\"
+        },
+        {
+          "step": 15,
+          "text": "Left side: \\(\\sqrt{1 + \\sqrt{2 + \\sqrt{4}}} = \\sqrt{1 + \\sqrt{2 + 2}} = \\sqrt{1 + \\sqrt{4}} = \\sqrt{1 + 2} = \\sqrt{3} \\approx 1.732\\"
+        },
+        {
+          "step": 17,
+          "text": "Still not equal. Maybe \\(x = 9\\"
+        }
+      ]
+    },
+    {
+      "case_id": "S294ecda3",
+      "question": "Q10",
+      "calibration_index": 129,
+      "train_index": 2584,
+      "step": 120,
+      "start": 4810,
+      "stop": 4879,
+      "confidence": 0.8639776947171695,
+      "variance": 0.00010861995223634733,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "5173bb3c89e4b52d424db34f29a497ef96340ad9ffac7fb0926b55bf8fad9bb2",
+      "review": {
+        "case_id": "S294ecda3",
+        "category": "repeat",
+        "math_validity": "error",
+        "prior_steps": [
+          119
+        ],
+        "evidence_quote": "2^6 divides 2^1",
+        "reason": "延续并重复第119步声称576整除2×3^11的同一判断，没有检验余数或纠正；明确错误在于64不整除2。"
+      },
+      "prior_evidence": [
+        {
+          "step": 119,
+          "text": "576: 576 = 2^6 × 3^2. 3 is a factor, but 2^6 is also a factor. So, 576 is a divisor of \\( 2 \\times 3^{11} \\) because 576 divides \\( 2 \\times 3^{11} \\) as 2 × 3^11 is divisible by 2^6 × 3^2"
+        }
+      ]
+    },
+    {
+      "case_id": "Se774d5ee",
+      "question": "Q10",
+      "calibration_index": 129,
+      "train_index": 2584,
+      "step": 75,
+      "start": 2304,
+      "stop": 2332,
+      "confidence": 0.999168286605679,
+      "variance": 0.009274256715266452,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "d246c1193f3566c38211561202c184ebecdeae087387d1dfba1e67a2fe2ac72e",
+      "review": {
+        "case_id": "Se774d5ee",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          70,
+          73
+        ],
+        "evidence_quote": "1 + \\sqrt{1 + 8 \\times 3^{11}}",
+        "reason": "从正负两根中选出正根，推进正整数k的上界分析；这里还没有声称该根本身是可行整数解。"
+      },
+      "prior_evidence": [
+        {
+          "step": 70,
+          "text": "\\[\nk^2 - k - 2 \\times 3^{11} < 0\n\\"
+        },
+        {
+          "step": 73,
+          "text": "\\[\nk = \\frac{1 \\pm \\sqrt{1 + 8 \\times 3^{11}}}{2}\n\\"
+        }
+      ]
+    },
+    {
+      "case_id": "S0d5bd91c",
+      "question": "Q10",
+      "calibration_index": 129,
+      "train_index": 2584,
+      "step": 171,
+      "start": 6353,
+      "stop": 6374,
+      "confidence": 0.9409820484778548,
+      "variance": 0.00764908012298605,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "25cb005fbbba527abb82393748d34897005bdb7d2cf370165bc179936bff3023",
+      "review": {
+        "case_id": "S0d5bd91c",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          68,
+          169
+        ],
+        "evidence_quote": "k(k - 1) < 2 \\times 3^{11}",
+        "reason": "与第68及169步相同的不等式，仅交换左右顺序，未增加新约束。"
+      },
+      "prior_evidence": [
+        {
+          "step": 68,
+          "text": "\\[\n2 \\times 3^{11} > k(k - 1)\n\\"
+        },
+        {
+          "step": 169,
+          "text": "\\[\n2 \\times 3^{11} > k(k - 1)\n\\"
+        }
+      ]
+    },
+    {
+      "case_id": "Sb0aded73",
+      "question": "Q11",
+      "calibration_index": 130,
+      "train_index": 3286,
+      "step": 623,
+      "start": 12954,
+      "stop": 12974,
+      "confidence": 0.9853607582186024,
+      "variance": 5.097534937818209e-05,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "But",
+        "wait",
+        "Maybe"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "936e50c376cfc6ed31d8674c2da6d927ff32ea8744fd643a827bdd7983de409a",
+      "review": {
+        "case_id": "Sb0aded73",
+        "category": "repeat",
+        "math_validity": "not_applicable",
+        "prior_steps": [
+          94,
+          126,
+          608
+        ],
+        "evidence_quote": "Maybe I made a mistake in simplifying",
+        "reason": "同一检查宣言自第94步起反复出现，前缀已经多轮原样重放相同化简；本次没有指出任何新疑点。"
+      },
+      "prior_evidence": [
+        {
+          "step": 94,
+          "text": "But wait, let me think about the original function again. Maybe I made a mistake in simplifying"
+        },
+        {
+          "step": 126,
+          "text": "But wait, let me think about the original function again. Maybe I made a mistake in simplifying"
+        },
+        {
+          "step": 608,
+          "text": "But wait, let me think about the original function again. Maybe I made a mistake in simplifying"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa6efe0c9",
+      "question": "Q11",
+      "calibration_index": 130,
+      "train_index": 3286,
+      "step": 652,
+      "start": 13550,
+      "stop": 13559,
+      "confidence": 0.999736862394358,
+      "variance": 2.1536821208490502e-07,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "9cebdc201d2d1b67630b88a0e8010ce8141f6146fbad82d71522cfa7dd48e082",
+      "review": {
+        "case_id": "Sa6efe0c9",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          63,
+          637
+        ],
+        "evidence_quote": "Therefore, the range is (3,4",
+        "reason": "与第63及637步完全相同的区间结论，已在多轮原样化简中反复出现，本步无新信息。"
+      },
+      "prior_evidence": [
+        {
+          "step": 63,
+          "text": "Therefore, the range is (3,4"
+        },
+        {
+          "step": 637,
+          "text": "Therefore, the range is (3,4"
+        }
+      ]
+    },
+    {
+      "case_id": "Sbf5d5d2e",
+      "question": "Q11",
+      "calibration_index": 130,
+      "train_index": 3286,
+      "step": 123,
+      "start": 2943,
+      "stop": 2955,
+      "confidence": 0.939222028327976,
+      "variance": 0.011324507956926591,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "3c3a103e6e8942bfffe66bbaa1299667ec8a0950334a3ae71eef9d826019a1a5",
+      "review": {
+        "case_id": "Sbf5d5d2e",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          36,
+          85,
+          109
+        ],
+        "evidence_quote": "f(A) = 3 + cos²A",
+        "reason": "同一化简式已在第36、85、109步给出，期间多次重复同一分子分母化简；本步没有新条件或运算。"
+      },
+      "prior_evidence": [
+        {
+          "step": 36,
+          "text": "Thus, f(A) simplifies to 3 + cos²A"
+        },
+        {
+          "step": 85,
+          "text": "Therefore, f(A) = 3 + cos²A"
+        },
+        {
+          "step": 109,
+          "text": "Therefore, f(A) = 3 + cos²A"
+        }
+      ]
+    },
+    {
+      "case_id": "S7267ec8e",
+      "question": "Q12",
+      "calibration_index": 176,
+      "train_index": 4885,
+      "step": 17,
+      "start": 626,
+      "stop": 637,
+      "confidence": 0.8256590304911442,
+      "variance": 0.0028172976076714217,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "13767fc797e5a312bc5c062e60f4d9e016920c3efeafc3bedf41eec0962a576f",
+      "review": {
+        "case_id": "S7267ec8e",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          13,
+          15,
+          16
+        ],
+        "evidence_quote": "8 × 9 is 72",
+        "reason": "首次计算LCM乘积的前两个因子，算术正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 13,
+          "text": "So, the LCM is 2³ × 3² × 37¹"
+        },
+        {
+          "step": 15,
+          "text": "First, 2³ is 8"
+        },
+        {
+          "step": 16,
+          "text": "Then, 3² is 9"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa40219af",
+      "question": "Q12",
+      "calibration_index": 176,
+      "train_index": 4885,
+      "step": 11,
+      "start": 547,
+      "stop": 564,
+      "confidence": 0.9992720372778209,
+      "variance": 0.0017280578971160029,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "ddee5ec2acee53d72e485685cdfe568fb2dda4770baeb72a0f7032630ffe8f87",
+      "review": {
+        "case_id": "Sa40219af",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          5,
+          8,
+          9
+        ],
+        "evidence_quote": "the highest power is 3² from 1332",
+        "reason": "比较两个分解中的3的指数，首次为LCM选择较高的3²，属于新决策。"
+      },
+      "prior_evidence": [
+        {
+          "step": 5,
+          "text": "So, the prime factors of 1332 are 2² × 3² × 37¹"
+        },
+        {
+          "step": 8,
+          "text": "Therefore, the prime factors of 888 are 2³ × 3¹ × 37¹"
+        },
+        {
+          "step": 9,
+          "text": "Now, to find the LCM, I need to take the highest power of each prime number that appears in either factorization. So, let's list out the primes involved: 2, 3, and 37"
+        }
+      ]
+    },
+    {
+      "case_id": "S73dfa83d",
+      "question": "Q12",
+      "calibration_index": 176,
+      "train_index": 4885,
+      "step": 52,
+      "start": 1431,
+      "stop": 1446,
+      "confidence": 0.9951349415543757,
+      "variance": 0.002436116249488348,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "64b41b02ae4b564d50ccff7572d8452bc0b78ceef4b5283b83ffe139ba35892d",
+      "review": {
+        "case_id": "S73dfa83d",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          26,
+          32,
+          49,
+          50
+        ],
+        "evidence_quote": "37 × 600 = 22,200",
+        "reason": "通过欧几里得算法核验LCM的新路线中，首次计算37×2664的这一部分，算术正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 26,
+          "text": "Let me try to compute the GCD using the Euclidean algorithm"
+        },
+        {
+          "step": 32,
+          "text": "Therefore, GCD(1332, 888) is 444"
+        },
+        {
+          "step": 49,
+          "text": "So, now it's 98,568 ÷ 37"
+        },
+        {
+          "step": 50,
+          "text": "Let me compute 37 × 2,664"
+        }
+      ]
+    },
+    {
+      "case_id": "S46900ec4",
+      "question": "Q13",
+      "calibration_index": 186,
+      "train_index": 94,
+      "step": 3,
+      "start": 95,
+      "stop": 127,
+      "confidence": 0.8290353954027888,
+      "variance": 7.669594470985656e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "e0ff69c29f626320843f34c7cc79f1b038fba19c6f754dee0e60bdcb177de0e2",
+      "review": {
+        "case_id": "S46900ec4",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          1,
+          2
+        ],
+        "evidence_quote": "it can be 3, 7, or 9",
+        "reason": "首次把首位为奇数的限制落实为三个允许数字，排除了2作首位。"
+      },
+      "prior_evidence": [
+        {
+          "step": 1,
+          "text": "First, I need to determine the number of possible six-digit ages that can be formed using the digits 2, 2, 2, 3, 7, and 9, with the condition that the age begins with an odd digit"
+        },
+        {
+          "step": 2,
+          "text": "The available digits are 2, 2, 2, 3, 7, and 9. Since there are three 2s, they are indistinguishable, and the other digits are unique"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa1de2388",
+      "question": "Q13",
+      "calibration_index": 186,
+      "train_index": 94,
+      "step": 7,
+      "start": 236,
+      "stop": 262,
+      "confidence": 0.9419501990233756,
+      "variance": 0.0003374278048245375,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "662aeffceb476529a88e864f8636010cb52f3ed00ef04522fbbba09c9fb449db",
+      "review": {
+        "case_id": "Sa1de2388",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          3,
+          5,
+          6
+        ],
+        "evidence_quote": "Multiplying the number of choices for the first digit",
+        "reason": "首次把首位3种选择与剩余20种排列按乘法原理合并，得到总数的具体步骤。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "The first digit must be an odd number, so it can be 3, 7, or 9. This gives us three choices for the first digit"
+        },
+        {
+          "step": 5,
+          "text": "\\[\n\\frac{5!}{3!} = \\frac{120}{6} = 20\n\\"
+        },
+        {
+          "step": 6,
+          "text": "Therefore, for each choice of the first digit, there are 20 possible arrangements of the remaining digits"
+        }
+      ]
+    },
+    {
+      "case_id": "Sc9feee06",
+      "question": "Q14",
+      "calibration_index": 187,
+      "train_index": 5572,
+      "step": 9,
+      "start": 855,
+      "stop": 979,
+      "confidence": 0.817443536273845,
+      "variance": 0.0005976347369858386,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "another",
+        "Maybe"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "c8e3d9063e3f87c1dce473f673ffc4e3661458eb799094dd3cc83d9a4e344769",
+      "review": {
+        "case_id": "Sc9feee06",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          5,
+          6,
+          7
+        ],
+        "evidence_quote": "tan 120° is sin 120° divided by cos 120°",
+        "reason": "已在第5至7步用同一sin、cos数值及同一比值核验。本步仅改写除法措辞，没有新的独立检查。"
+      },
+      "prior_evidence": [
+        {
+          "step": 5,
+          "text": "But just to make sure I'm not making a mistake, let me think about the coordinates on the unit circle. For 120°, the coordinates are (cos 120°, sin 120°). So, cos 120° is equal to cos(180° - 60°), which is -cos 60°, right? And cos 60° is 0.5, so cos 120° is -0.5. Similarly, sin 120° is sin(180° - 60°), which is sin 60°, and sin 60° is √3/2. So, sin 120° is √3/2"
+        },
+        {
+          "step": 6,
+          "text": "Therefore, tan 120° is sin 120° divided by cos 120°, which is (√3/2) divided by (-0.5). Let me compute that. So, (√3/2) divided by (-1/2) is the same as (√3/2) multiplied by (-2/1), which is -√3. So, that confirms it. So, tan 120° is indeed -√3"
+        },
+        {
+          "step": 7,
+          "text": "Wait, let me just visualize the unit circle again. At 120°, the point is in the second quadrant, so the x-coordinate is negative, and the y-coordinate is positive. So, the coordinates are (-0.5, √3/2). So, the tangent is y over x, which is (√3/2) divided by (-0.5). That's the same as (√3/2) divided by (-1/2), which is -√3. So, that's consistent"
+        }
+      ]
+    },
+    {
+      "case_id": "S9a19ca69",
+      "question": "Q14",
+      "calibration_index": 187,
+      "train_index": 5572,
+      "step": 6,
+      "start": 567,
+      "stop": 668,
+      "confidence": 0.8945269428469447,
+      "variance": 2.577942033114614e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "9197f136f66a7ba8f190b9516b315b66b46b50db4a77c68c25ec8de1d459b9d1",
+      "review": {
+        "case_id": "S9a19ca69",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          4,
+          5
+        ],
+        "evidence_quote": "(√3/2) multiplied by (-2/1), which is -√3",
+        "reason": "第4步通过参考角判断答案，本步实际执行由sin、cos数值相除的不同核验，运算正确；相同结论不自动等于重复。"
+      },
+      "prior_evidence": [
+        {
+          "step": 4,
+          "text": "I remember that tan of 60° is a standard angle. Let me think, tan 60° is equal to √3. But wait, since 120° is in the second quadrant where tangent is negative, does that mean tan 120° is -√3? That seems right because tangent is positive in the first and third quadrants and negative in the second and fourth. So, yeah, tan 120° should be -√3"
+        },
+        {
+          "step": 5,
+          "text": "But just to make sure I'm not making a mistake, let me think about the coordinates on the unit circle. For 120°, the coordinates are (cos 120°, sin 120°). So, cos 120° is equal to cos(180° - 60°), which is -cos 60°, right? And cos 60° is 0.5, so cos 120° is -0.5. Similarly, sin 120° is sin(180° - 60°), which is sin 60°, and sin 60° is √3/2. So, sin 120° is √3/2"
+        }
+      ]
+    },
+    {
+      "case_id": "S2d9bac2d",
+      "question": "Q15",
+      "calibration_index": 203,
+      "train_index": 26,
+      "step": 23,
+      "start": 828,
+      "stop": 870,
+      "confidence": 0.8749575157585586,
+      "variance": 0.0029601334254580128,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "8527a570649ec47012ce75fcc9e6e6bb30932482fe4974d1efc650aca2c91bb4",
+      "review": {
+        "case_id": "S2d9bac2d",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          14,
+          15
+        ],
+        "evidence_quote": "50 + 29 is 79, 79 + 34 is 113",
+        "reason": "与第15步使用相同输入、相同加法顺序、相同结果，没有新核验方式；仅重复已完成的算术。"
+      },
+      "prior_evidence": [
+        {
+          "step": 14,
+          "text": "First, add up the individual sets: 50 + 29 + 34"
+        },
+        {
+          "step": 15,
+          "text": "50 + 29 is 79, and 79 + 34 is 113"
+        }
+      ]
+    },
+    {
+      "case_id": "S5d98dd97",
+      "question": "Q15",
+      "calibration_index": 203,
+      "train_index": 26,
+      "step": 47,
+      "start": 1454,
+      "stop": 1463,
+      "confidence": 0.9998392110142797,
+      "variance": 1.618321554530607e-07,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "29285f2586b721a351094e0b60161939c0eae9afb9b44206b71acdc2f9acac15",
+      "review": {
+        "case_id": "S5d98dd97",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          32,
+          42,
+          46
+        ],
+        "evidence_quote": "54 + 3 = 57",
+        "reason": "这是首次把互斥区域逐项求和的当前子运算，和先前整体容斥计算不同；算术正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 32,
+          "text": "Similarly, stay and roll over: 12 - 9 = 3 can do stay and roll over only"
+        },
+        {
+          "step": 42,
+          "text": "Total: 24 + 9 + 13 + 8 + 3 + 9 + 9"
+        },
+        {
+          "step": 46,
+          "text": "46 + 8 = 54"
+        }
+      ]
+    },
+    {
+      "case_id": "S740850f2",
+      "question": "Q15",
+      "calibration_index": 203,
+      "train_index": 26,
+      "step": 69,
+      "start": 1991,
+      "stop": 2009,
+      "confidence": 0.896873664710237,
+      "variance": 0.0018850764269348823,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "47db9de8cd11ac51a02f62bfee2055a6a3236f695984390cbe3d754d8268b4d3",
+      "review": {
+        "case_id": "S740850f2",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          15,
+          23
+        ],
+        "evidence_quote": "50 + 29 + 34 = 113",
+        "reason": "第三次给出同一总和，数据、加法和结果与第15、23步相同，没有新核验。"
+      },
+      "prior_evidence": [
+        {
+          "step": 15,
+          "text": "50 + 29 is 79, and 79 + 34 is 113"
+        },
+        {
+          "step": 23,
+          "text": "First, 50 + 29 + 34: 50 + 29 is 79, 79 + 34 is 113. That seems right"
+        }
+      ]
+    },
+    {
+      "case_id": "Sfaf9db77",
+      "question": "Q16",
+      "calibration_index": 249,
+      "train_index": 4363,
+      "step": 280,
+      "start": 15090,
+      "stop": 15205,
+      "confidence": 0.9990135130544336,
+      "variance": 2.7188036657724197e-08,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait",
+        "but"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "0a81ab6e05105b4b88965c74b6175a5475c79dd76dc4a73b16c1de337c910f98",
+      "review": {
+        "case_id": "Sfaf9db77",
+        "category": "repeat",
+        "math_validity": "error",
+        "prior_steps": [
+          20,
+          72,
+          276
+        ],
+        "evidence_quote": "So, 0.04 liters of water",
+        "reason": "与第20步整段相同，反复混淆原配方和目标体积，末尾0.04既不跟随本段的0.02也不满足目标所需0.16。"
+      },
+      "prior_evidence": [
+        {
+          "step": 20,
+          "text": "Wait, but in the first method, I thought of 0.04 liters of A and 0.02 liters of water, which is 0.06 liters. So, 0.04:0.02 is 2:1, so 2 parts A to 1 part water. So, 0.06 liters is 3 parts, so each part is 0.02 liters. So, 1 part water is 0.02 liters. So, 0.04 liters of water"
+        },
+        {
+          "step": 72,
+          "text": "Wait, but in the first method, I thought of 0.04 liters of A and 0.02 liters of water, which is 0.06 liters. So, 0.04:0.02 is 2:1, so 2 parts A to 1 part water. So, 0.06 liters is 3 parts, so each part is 0.02 liters. So, 1 part water is 0.02 liters. So, 0.04 liters of water"
+        },
+        {
+          "step": 276,
+          "text": "Wait, but in the first method, I thought of 0.04 liters of A and 0.02 liters of water, which is 0.06 liters. So, 0.04:0.02 is 2:1, so 2 parts A to 1 part water. So, 0.06 liters is 3 parts, so each part is 0.02 liters. So, 1 part water is 0.02 liters. So, 0.04 liters of water"
+        }
+      ]
+    },
+    {
+      "case_id": "S0256f06b",
+      "question": "Q16",
+      "calibration_index": 249,
+      "train_index": 4363,
+      "step": 271,
+      "start": 14650,
+      "stop": 14667,
+      "confidence": 0.9992471381952558,
+      "variance": 3.645524666930676e-08,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "e50cec3044e293512458919e99d149035f243522248bb5eb2a324bf00fd51116",
+      "review": {
+        "case_id": "S0256f06b",
+        "category": "repeat",
+        "math_validity": "error",
+        "prior_steps": [
+          19,
+          71,
+          267
+        ],
+        "evidence_quote": "So, both methods are consistent. So, 0.04 liters of water",
+        "reason": "与第19和71步完全相同，前缀持续重复四步循环，既无新计算也未纠正0.04的错误结论。"
+      },
+      "prior_evidence": [
+        {
+          "step": 19,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        },
+        {
+          "step": 71,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        },
+        {
+          "step": 267,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        }
+      ]
+    },
+    {
+      "case_id": "S0f81af27",
+      "question": "Q16",
+      "calibration_index": 249,
+      "train_index": 4363,
+      "step": 71,
+      "start": 4100,
+      "stop": 4117,
+      "confidence": 0.9957674647635912,
+      "variance": 8.91670978420467e-08,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "e50cec3044e293512458919e99d149035f243522248bb5eb2a324bf00fd51116",
+      "review": {
+        "case_id": "S0f81af27",
+        "category": "repeat",
+        "math_validity": "error",
+        "prior_steps": [
+          19,
+          27,
+          67
+        ],
+        "evidence_quote": "both methods are consistent. So, 0.04 liters of water",
+        "reason": "原样重复第19步及后续循环结论，无新检查。且0.48/0.06×0.02=0.16，0.04不符合题意；这里是错误循环，不是正确答案后的冗余。"
+      },
+      "prior_evidence": [
+        {
+          "step": 19,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        },
+        {
+          "step": 27,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        },
+        {
+          "step": 67,
+          "text": "So, both methods are consistent. So, 0.04 liters of water"
+        }
+      ]
+    },
+    {
+      "case_id": "Sefe813dc",
+      "question": "Q17",
+      "calibration_index": 264,
+      "train_index": 6187,
+      "step": 61,
+      "start": 1280,
+      "stop": 1287,
+      "confidence": 0.8309396621344013,
+      "variance": 0.005156975434852491,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "9205458ed84bb6b9a156a828a2c6b98b848249138f4f31771fb17e7bfcf76569",
+      "review": {
+        "case_id": "Sefe813dc",
+        "category": "uncertain",
+        "math_validity": "not_applicable",
+        "prior_steps": [
+          57,
+          59,
+          60
+        ],
+        "evidence_quote": "Now, let's compute the differences",
+        "reason": "此时换成纠正后的x=-5/2，后续差值核验可能有新信息，但本步只是宣布计算，不能提前替后续步骤判定。"
+      },
+      "prior_evidence": [
+        {
+          "step": 57,
+          "text": "Wait, let me try plugging x = -5/2 into the terms"
+        },
+        {
+          "step": 59,
+          "text": "Second term: x - 1 = (-5/2) - 1 = (-5/2) - (2/2) = (-7/2"
+        },
+        {
+          "step": 60,
+          "text": "Third term: 3x = 3*(-5/2) = (-15/2"
+        }
+      ]
+    },
+    {
+      "case_id": "S45b891e6",
+      "question": "Q17",
+      "calibration_index": 264,
+      "train_index": 6187,
+      "step": 12,
+      "start": 313,
+      "stop": 318,
+      "confidence": 0.9999619059453767,
+      "variance": 0.004644435306884234,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "6e4bb9d71d834ed8409b985ea7ad7e372b935ac1c58d6a65ef79bc5adf94ee33",
+      "review": {
+        "case_id": "S45b891e6",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          9,
+          11
+        ],
+        "evidence_quote": "2x + 1",
+        "reason": "首次给出右侧3x-(x-1)的完整化简结果，局部运算正确；前文左侧化简错误另当别论。"
+      },
+      "prior_evidence": [
+        {
+          "step": 9,
+          "text": "3x - (x - 1) = 3x - x + 1"
+        },
+        {
+          "step": 11,
+          "text": "3x - x is 2x, so it becomes"
+        }
+      ]
+    },
+    {
+      "case_id": "S2d0acdaa",
+      "question": "Q17",
+      "calibration_index": 264,
+      "train_index": 6187,
+      "step": 69,
+      "start": 1474,
+      "stop": 1498,
+      "confidence": 0.9339494612365352,
+      "variance": 0.0020754539127007406,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "7299304907e76e6cd9e8ea72d2cf4fdfa96af72ee2bde1b74d3f9f37885bcdb2",
+      "review": {
+        "case_id": "S2d0acdaa",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          3,
+          34,
+          47,
+          48
+        ],
+        "evidence_quote": "(x - 1) - (1/2) = 3x - (x - 1",
+        "reason": "已在第3、34步建立同一等差方程，且后续已纠正并核验；当前回顾没有新增条件。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "(x - 1) - (1/2) = 3x - (x - 1"
+        },
+        {
+          "step": 34,
+          "text": "(x - 1) - (1/2) = 3x - (x - 1"
+        },
+        {
+          "step": 47,
+          "text": "Wait, let me double-check the original terms. The terms are 1/2, x - 1, 3x. So, the difference between the second and first term is (x - 1) - 1/2, which is x - 1 - 1/2 = x - 3/2"
+        },
+        {
+          "step": 48,
+          "text": "The difference between the third and second term is 3x - (x - 1) = 3x - x + 1 = 2x + 1"
+        }
+      ]
+    },
+    {
+      "case_id": "Sfd5db805",
+      "question": "Q18",
+      "calibration_index": 275,
+      "train_index": 4239,
+      "step": 5,
+      "start": 325,
+      "stop": 397,
+      "confidence": 0.8601732038305401,
+      "variance": 0.0008795291900938908,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "But",
+        "wait"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "4d9ac5cc93b9eb15fa8666bee998a7d98ac3b040435672f7789540afcb092a80",
+      "review": {
+        "case_id": "Sfd5db805",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          4
+        ],
+        "evidence_quote": "there are 300 zeros after the 1",
+        "reason": "重复第4步已经给出的零位数解释，没有新的指数运算、例子或限制。"
+      },
+      "prior_evidence": [
+        {
+          "step": 4,
+          "text": "Okay, so 1000^100 simplifies to 10^300. Now, what does 10^300 look like? I remember that 10 raised to any power is a 1 followed by that many zeros. So, 10^1 is 10 (1 zero), 10^2 is 100 (2 zeros), 10^3 is 1000 (3 zeros), and so on. So, following that pattern, 10^300 should be a 1 followed by 300 zeros"
+        }
+      ]
+    },
+    {
+      "case_id": "S40ad310e",
+      "question": "Q18",
+      "calibration_index": 275,
+      "train_index": 4239,
+      "step": 1,
+      "start": 0,
+      "stop": 52,
+      "confidence": 0.9113937743896631,
+      "variance": 0.0,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "661a71dd9673ac3da96bb96c1cffd1a6c8069c1dca8da6c5b642399bf1c04675",
+      "review": {
+        "case_id": "S40ad310e",
+        "category": "uncertain",
+        "math_validity": "not_applicable",
+        "prior_steps": [],
+        "evidence_quote": "let me try to figure this out step by step",
+        "reason": "仅重述题目和宣布开始，没有具体推导，也没有更早推理可作为重复证据。"
+      },
+      "prior_evidence": []
+    },
+    {
+      "case_id": "S57c409ec",
+      "question": "Q19",
+      "calibration_index": 290,
+      "train_index": 5798,
+      "step": 4,
+      "start": 260,
+      "stop": 367,
+      "confidence": 0.8549878455913508,
+      "variance": 0.00047957067719640764,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "But",
+        "wait"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "6195e0ed43a2d5d55995965ff3453cb6b5a41d143f5b23cab0f20fb473b86bb8",
+      "review": {
+        "case_id": "S57c409ec",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          3
+        ],
+        "evidence_quote": "subtract 3*1 to keep the equation balanced",
+        "reason": "首次计算配方需补1并补偿外部系数3，指出等式保持的具体条件，不能只因出现But wait判为反复。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "Starting with completing the square. The general form of a quadratic is y = ax² + bx + c. In this case, a = 3, b = 6, and c = 9. To complete the square, I need to factor out the coefficient of x² from the first two terms. So, let's factor out 3 from 3x² + 6x. That gives me 3(x² + 2x) + 9."
+        }
+      ]
+    },
+    {
+      "case_id": "S313fdded",
+      "question": "Q19",
+      "calibration_index": 290,
+      "train_index": 5798,
+      "step": 6,
+      "start": 451,
+      "stop": 538,
+      "confidence": 0.8984675416456562,
+      "variance": 3.8131402983509374e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "fa78107fa8d61806c594033b2226498c95887f57db7b1e48a24ebb8cde678a61",
+      "review": {
+        "case_id": "S313fdded",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          1,
+          5
+        ],
+        "evidence_quote": "the vertex is at (-1, 6)",
+        "reason": "首次从刚完成的配方式读出顶点并结合开口向上推出最小值6，推导正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 1,
+          "text": "Okay, so I need to find the minimum value of y for the equation y = 3x² + 6x + 9. Hmm, let me think about how to approach this. I remember that quadratic equations graph as parabolas, and since the coefficient of x² is positive (which is 3 in this case), the parabola opens upwards. That means the vertex of the parabola will be the lowest point, so the y-coordinate of the vertex will be the minimum value of y."
+        },
+        {
+          "step": 5,
+          "text": "So, rewriting it, I have 3[(x² + 2x + 1) - 1] + 9. Simplifying that, it becomes 3(x + 1)² - 3 + 9. Combining the constants, -3 + 9 is 6. So, the equation becomes y = 3(x + 1)² + 6."
+        }
+      ]
+    },
+    {
+      "case_id": "Sad3bbe1f",
+      "question": "Q20",
+      "calibration_index": 321,
+      "train_index": 3531,
+      "step": 533,
+      "start": 10593,
+      "stop": 10615,
+      "confidence": 0.9966697602692487,
+      "variance": 1.0769077913196467e-06,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Alternatively",
+        "perhaps"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "64599ee17a7934d29c85837132d8aca55a822f52cfcadce0c632b758830f7ec6",
+      "review": {
+        "case_id": "Sad3bbe1f",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          380,
+          457,
+          531
+        ],
+        "evidence_quote": "in an acute triangle, the orthocenter is inside the triangle",
+        "reason": "同一几何事实及使用建议已在第380步及457步后的循环中反复出现，本次没有给出新的实际应用。"
+      },
+      "prior_evidence": [
+        {
+          "step": 380,
+          "text": "But perhaps we can use the fact that in an acute triangle, the orthocenter lies inside the triangle"
+        },
+        {
+          "step": 457,
+          "text": "Alternatively, perhaps we can use the fact that in an acute triangle, the orthocenter is inside the triangle"
+        },
+        {
+          "step": 531,
+          "text": "Alternatively, perhaps we can use the fact that in an acute triangle, the orthocenter is inside the triangle"
+        }
+      ]
+    },
+    {
+      "case_id": "S1b32af35",
+      "question": "Q20",
+      "calibration_index": 321,
+      "train_index": 3531,
+      "step": 119,
+      "start": 3481,
+      "stop": 3485,
+      "confidence": 0.9999047280660939,
+      "variance": 0.006312064221683442,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "56361d6669d112e6653919f152440a644c18f77d42a3c2b0d7b4b8ee63d92a70",
+      "review": {
+        "case_id": "S1b32af35",
+        "category": "uncertain",
+        "math_validity": "not_applicable",
+        "prior_steps": [
+          93,
+          118
+        ],
+        "evidence_quote": "Equation 2",
+        "reason": "只有切换到第二个方程的标题，不承载计算；无法把组织性文本直接判成冗余推理。"
+      },
+      "prior_evidence": [
+        {
+          "step": 93,
+          "text": "2) -9b + 4*( b (c - a) c / ( (c - a)^2 + b^2 ) ) + 7*( a b c / (a^2 + b^2 ) ) = 0"
+        },
+        {
+          "step": 118,
+          "text": "Now, let's look at equation 2"
+        }
+      ]
+    },
+    {
+      "case_id": "S6dfef437",
+      "question": "Q20",
+      "calibration_index": 321,
+      "train_index": 3531,
+      "step": 74,
+      "start": 2295,
+      "stop": 2320,
+      "confidence": 0.9342289956202259,
+      "variance": 3.180507041748273e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "0d63c7beb021ae4d772365f47244173d28fb0fa3a4bf964f5b856e42ea9ebbda",
+      "review": {
+        "case_id": "S6dfef437",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          68,
+          71,
+          72
+        ],
+        "evidence_quote": "(a - a, 0 - b) = (0, -b",
+        "reason": "首次由A和D坐标实际计算向量AD的分量，得到(0,-b)，运算正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 68,
+          "text": "Point D is (a,0"
+        },
+        {
+          "step": 71,
+          "text": "Now, vectors AD, BE, CF can be expressed as the coordinates of D - A, E - B, F - C"
+        },
+        {
+          "step": 72,
+          "text": "Wait, no. Vector AD is from A to D, so it's D - A"
+        }
+      ]
+    },
+    {
+      "case_id": "S83e3c257",
+      "question": "Q21",
+      "calibration_index": 347,
+      "train_index": 3789,
+      "step": 19,
+      "start": 658,
+      "stop": 743,
+      "confidence": 0.848707744264337,
+      "variance": 0.00017456581393421262,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "f57a3fbc5a40bdec3368a914d2c5f2e3c35d588f396b381cce78be665d43f15c",
+      "review": {
+        "case_id": "S83e3c257",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          11,
+          13,
+          14,
+          15
+        ],
+        "evidence_quote": "Simplify 24/144 is 1/6",
+        "reason": "把第11至15步的同一方程、化简、解x过程重新叙述，未增加新的检验条件。"
+      },
+      "prior_evidence": [
+        {
+          "step": 11,
+          "text": "So, x * (1/144) * 24 = 2/3"
+        },
+        {
+          "step": 13,
+          "text": "(24 / 144) * x = 2/3  \nSimplify 24/144: that's 1/6"
+        },
+        {
+          "step": 14,
+          "text": "So, (1/6) * x = 2/3  \nMultiply both sides by 6"
+        },
+        {
+          "step": 15,
+          "text": "x = (2/3) * 6  \nx = 4"
+        }
+      ]
+    },
+    {
+      "case_id": "S9243f770",
+      "question": "Q21",
+      "calibration_index": 347,
+      "train_index": 3789,
+      "step": 43,
+      "start": 1449,
+      "stop": 1465,
+      "confidence": 0.9114387467550391,
+      "variance": 0.0011231134122121943,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "383f252b817b0cff94c0e3dab98392a95589399f4b51c860997598d1984f8cee",
+      "review": {
+        "case_id": "S9243f770",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          30
+        ],
+        "evidence_quote": "x = (2/3)/(1/6) = 4",
+        "reason": "与第30步的同一求人数除法相同，此前没有改变已知工作量或人均效率。"
+      },
+      "prior_evidence": [
+        {
+          "step": 30,
+          "text": "So, x = (2/3) / (1/6) = (2/3) * 6 = 4"
+        }
+      ]
+    },
+    {
+      "case_id": "S42ef7399",
+      "question": "Q22",
+      "calibration_index": 355,
+      "train_index": 4508,
+      "step": 4,
+      "start": 173,
+      "stop": 244,
+      "confidence": 0.8475998386876306,
+      "variance": 1.807586107429771e-06,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "951f2effa2980c946f8f042bf3fd7331d13ffce39d4ba2647eb749020e024118",
+      "review": {
+        "case_id": "S42ef7399",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          3
+        ],
+        "evidence_quote": "divide both sides of the equation by 1.5",
+        "reason": "首次为1.5x=30指定合法的解方程操作，除数非零，属于具体推进。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "Let me denote the unknown number as \\( x \\). So, the problem can be translated into an equation: \\( 1.5 \\times x = 30 \\). Yeah, that makes sense. So, I need to solve for \\( x \\"
+        }
+      ]
+    },
+    {
+      "case_id": "S72773bc0",
+      "question": "Q22",
+      "calibration_index": 355,
+      "train_index": 4508,
+      "step": 13,
+      "start": 619,
+      "stop": 635,
+      "confidence": 0.9998006832360224,
+      "variance": 0.0027333857955794305,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "5db7174dd2ef38960720a99b52ccfc4c5026b498f74b9a4939ae373ae37a30d5",
+      "review": {
+        "case_id": "S72773bc0",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          6,
+          11,
+          12
+        ],
+        "evidence_quote": "x = 30 \\times \\frac{2}{3}",
+        "reason": "实际应用刚引入的分数倒数法解除系数，形成30×2/3的计算式；与此前小数除法数值等价，但属于另一具体运算表示。"
+      },
+      "prior_evidence": [
+        {
+          "step": 6,
+          "text": "Divide both sides by 1.5:\n\\[ x = \\frac{30}{1.5} \\"
+        },
+        {
+          "step": 11,
+          "text": "\\[ \\frac{3}{2} \\times x = 30 \\"
+        },
+        {
+          "step": 12,
+          "text": "Then, to solve for \\( x \\), I can multiply both sides by the reciprocal of \\( \\frac{3}{2} \\), which is \\( \\frac{2}{3} \\). So, that would give me"
+        }
+      ]
+    },
+    {
+      "case_id": "S7cc69df2",
+      "question": "Q22",
+      "calibration_index": 355,
+      "train_index": 4508,
+      "step": 11,
+      "start": 555,
+      "stop": 571,
+      "confidence": 0.9892885229348742,
+      "variance": 0.00842857358227413,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "b22ecbbf41fa17137dcc20c6bb5cb235bee14deffe691c0c2eed49243933305d",
+      "review": {
+        "case_id": "S7cc69df2",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [
+          3,
+          5,
+          10
+        ],
+        "evidence_quote": "\\frac{3}{2} \\times x = 30",
+        "reason": "把1.5改写为3/2，数学关系没有变化；可能是后续分数算法的准备，此时尚未执行，记为表达整理。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "Let me denote the unknown number as \\( x \\). So, the problem can be translated into an equation: \\( 1.5 \\times x = 30 \\). Yeah, that makes sense. So, I need to solve for \\( x \\"
+        },
+        {
+          "step": 5,
+          "text": "So, starting with:\n\\[ 1.5 \\times x = 30 \\"
+        },
+        {
+          "step": 10,
+          "text": "But just to make sure I didn't make any mistakes, let me go through the steps again. The problem is asking for one and one-half of a number equals 30. So, one and one-half is the same as 1.5 or \\( \\frac{3}{2} \\). So, if I write the equation as"
+        }
+      ]
+    },
+    {
+      "case_id": "S5885ca13",
+      "question": "Q23",
+      "calibration_index": 366,
+      "train_index": 1362,
+      "step": 95,
+      "start": 4585,
+      "stop": 4672,
+      "confidence": 0.9181544265394291,
+      "variance": 0.00014283028479756925,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "But"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "5ae3ed63d239ebcc38e20e851084dc583609e9aa14c61ca4c45d79617bd6184a",
+      "review": {
+        "case_id": "S5885ca13",
+        "category": "new",
+        "math_validity": "error",
+        "prior_steps": [
+          94
+        ],
+        "evidence_quote": "Let me set \\( t = 1 \\)",
+        "reason": "新尝试把对数导数代入t=1，但P(t)=t^n-1在1处为零，且右侧含k=n的零分母，当前代入不合法。不是此前式子的纯重复。"
+      },
+      "prior_evidence": [
+        {
+          "step": 94,
+          "text": "Wait, perhaps I can relate this to the derivative of the polynomial \\( P(t) = t^n - 1 \\). The derivative \\( P'(t) = n t^{n-1} \\). Then, \\( \\frac{P'(t)}{P(t)} = \\sum_{k=1}^{n} \\frac{1}{t - y^k} \\), where \\( y^k \\) are the roots of \\( P(t) \\"
+        }
+      ]
+    },
+    {
+      "case_id": "S3192d43c",
+      "question": "Q23",
+      "calibration_index": 366,
+      "train_index": 1362,
+      "step": 120,
+      "start": 5828,
+      "stop": 5844,
+      "confidence": 0.999976741653265,
+      "variance": 5.105695189658823e-10,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "7279aceb44450c4513de905661d89a51f3be8ead03722eea1d14fe821c1d073b",
+      "review": {
+        "case_id": "S3192d43c",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          113,
+          114,
+          119
+        ],
+        "evidence_quote": "Fourth term: \\( \\frac{1}{1 - y^4}",
+        "reason": "在首次考察n=5的数值例子时展开此前n=3、4没有的第四项，补充本例待计算项；原根为五次本原根时分母非零。"
+      },
+      "prior_evidence": [
+        {
+          "step": 113,
+          "text": "Wait, perhaps I can compute \\( T \\) for \\( n = 5 \\) and see what it is"
+        },
+        {
+          "step": 114,
+          "text": "Let me take \\( n = 5 \\), so \\( y \\) is a primitive 5th root of unity. Then, \\( T = \\sum_{k=1}^{4} \\frac{1}{1 - y^k} \\"
+        },
+        {
+          "step": 119,
+          "text": "Third term: \\( \\frac{1}{1 - y^3} \\"
+        }
+      ]
+    },
+    {
+      "case_id": "S33a4048f",
+      "question": "Q23",
+      "calibration_index": 366,
+      "train_index": 1362,
+      "step": 125,
+      "start": 5998,
+      "stop": 6117,
+      "confidence": 0.9806204825987587,
+      "variance": 0.0005119415625747031,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "ca1eb641cb34e8e1dab4ff4b4da464e0b432a140e66208d8123c750152a5f832",
+      "review": {
+        "case_id": "S33a4048f",
+        "category": "new",
+        "math_validity": "error",
+        "prior_steps": [
+          122,
+          123,
+          124
+        ],
+        "evidence_quote": "0.50 - 0.69i",
+        "reason": "首次计算五次单位根例子的第一项，但正虚部分子除以正实数后应仍为正虚部，末式负号错误。"
+      },
+      "prior_evidence": [
+        {
+          "step": 122,
+          "text": "First, \\( y = e^{2\\pi i /5} \\approx \\cos(72^\\circ) + i \\sin(72^\\circ) \\approx 0.3090 + 0.9511i \\"
+        },
+        {
+          "step": 123,
+          "text": "Compute \\( 1 - y \\approx 1 - 0.3090 - 0.9511i = 0.6910 - 0.9511i \\"
+        },
+        {
+          "step": 124,
+          "text": "Compute \\( \\frac{1}{1 - y} \\approx \\frac{1}{0.6910 - 0.9511i} \\). Multiply numerator and denominator by the conjugate"
+        }
+      ]
+    },
+    {
+      "case_id": "Se62c150d",
+      "question": "Q24",
+      "calibration_index": 367,
+      "train_index": 3329,
+      "step": 1,
+      "start": 0,
+      "stop": 60,
+      "confidence": 0.8297175382491696,
+      "variance": 0.0,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "674a322f6cfa9a3ecbfc7270d7eed731c3516a3d1b55dfe25ed1359b21e3ed13",
+      "review": {
+        "case_id": "Se62c150d",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [],
+        "evidence_quote": "P is somewhere in the first octant",
+        "reason": "把题目所有坐标为正改述为第一卦限，尚未建立方向余弦约束；属于题意解释而非可证冗余或实质求解。"
+      },
+      "prior_evidence": []
+    },
+    {
+      "case_id": "S0bb1d2d9",
+      "question": "Q24",
+      "calibration_index": 367,
+      "train_index": 3329,
+      "step": 20,
+      "start": 626,
+      "stop": 642,
+      "confidence": 0.9997695865299903,
+      "variance": 0.014452033188799595,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "0e6ba52610f0a27c9a2a1f39ab5181aaa63d4855cb0f8eb1924ebdb99e2afefa",
+      "review": {
+        "case_id": "S0bb1d2d9",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          16,
+          18
+        ],
+        "evidence_quote": "r² = (34/225) r² + z²",
+        "reason": "将刚求得的分数和34/225代回长度方程，得到用于解z/r的新简化关系。"
+      },
+      "prior_evidence": [
+        {
+          "step": 16,
+          "text": "r² = (1/9 + 1/25) r² + z²"
+        },
+        {
+          "step": 18,
+          "text": "1/9 = 25/225  \n1/25 = 9/225  \nSo, 25/225 + 9/225 = 34/225"
+        }
+      ]
+    },
+    {
+      "case_id": "S80de8092",
+      "question": "Q24",
+      "calibration_index": 367,
+      "train_index": 3329,
+      "step": 36,
+      "start": 1156,
+      "stop": 1204,
+      "confidence": 0.9920558228559434,
+      "variance": 0.005697472799432777,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "390b91eaac2a913fb671e077ab388fede1db439da0cb83ccfdbb9a9a49fb381c",
+      "review": {
+        "case_id": "S80de8092",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          18,
+          28
+        ],
+        "evidence_quote": "25/225 + 9/225 = 34/225",
+        "reason": "与第18步完全相同的分数通分加法；虽外层采用方向余弦恒等式，此子步骤没有新数值或核验方式。"
+      },
+      "prior_evidence": [
+        {
+          "step": 18,
+          "text": "1/9 = 25/225  \n1/25 = 9/225  \nSo, 25/225 + 9/225 = 34/225"
+        },
+        {
+          "step": 28,
+          "text": "r² = (1/9 + 1/25) r² + z²  \nr² = (25 + 9)/225 r² + z²  \nr² = 34/225 r² + z²  \nSubtract 34/225 r²:  \nr² - 34/225 r² = z²  \n(225/225 - 34/225) r² = z²  \n191/225 r² = z²  \nSo, z = sqrt(191)/15 * r"
+        }
+      ]
+    },
+    {
+      "case_id": "S020de7c5",
+      "question": "Q25",
+      "calibration_index": 380,
+      "train_index": 6423,
+      "step": 1,
+      "start": 0,
+      "stop": 52,
+      "confidence": 0.8424127001668142,
+      "variance": 0.0,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "202b4020ff1ad00dcb3a33254bea14820f54a3221d52f0d6c241e8194384fa99",
+      "review": {
+        "case_id": "S020de7c5",
+        "category": "uncertain",
+        "math_validity": "supported",
+        "prior_steps": [],
+        "evidence_quote": "finding common factors in the terms",
+        "reason": "首段重述题目并回忆因式分解的一般操作，尚未找到公因数；没有此前步骤可支撑反复判定。"
+      },
+      "prior_evidence": []
+    },
+    {
+      "case_id": "S98d1277c",
+      "question": "Q25",
+      "calibration_index": 380,
+      "train_index": 6423,
+      "step": 5,
+      "start": 157,
+      "stop": 189,
+      "confidence": 0.9999263884541695,
+      "variance": 0.00011556618088329285,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "22909641af92bbadc4b3421f7a359bdc8a4ee59460815466a03ca48d539bd293",
+      "review": {
+        "case_id": "S98d1277c",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          2,
+          3,
+          4
+        ],
+        "evidence_quote": "Factors of 30: 1, 2, 3, 5, 6, 10, 15, 30",
+        "reason": "首次列出30的全部正因数，可与45因数表比较求公因数；列表正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 2,
+          "text": "First, let me look at the two terms: 45x and 30. I need to find the greatest common factor (GCF) of these two numbers because that will help me factor them out. The GCF is the largest number that divides both numbers without leaving a remainder"
+        },
+        {
+          "step": 3,
+          "text": "Starting with 45 and 30. Let me list the factors of each"
+        },
+        {
+          "step": 4,
+          "text": "Factors of 45: 1, 3, 5, 9, 15, 45"
+        }
+      ]
+    },
+    {
+      "case_id": "Sfe66b8a9",
+      "question": "Q25",
+      "calibration_index": 380,
+      "train_index": 6423,
+      "step": 22,
+      "start": 969,
+      "stop": 998,
+      "confidence": 0.9028220044819877,
+      "variance": 0.011527030175887314,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "e81ebbd9e3aba2de643f21245da23b77d7fdf087af81f0221eb3adab88ae85ad",
+      "review": {
+        "case_id": "Sfe66b8a9",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          10,
+          18,
+          20
+        ],
+        "evidence_quote": "the factored form of 45x + 30 is 15*(3x + 2",
+        "reason": "再次陈述已求得且已展开核验的因式分解，没有新增推理或最终答案格式操作。"
+      },
+      "prior_evidence": [
+        {
+          "step": 10,
+          "text": "So, putting it all together, the expression 45x + 30 can be written as 15*(3x) + 15*(2). Now, since both terms have a common factor of 15, I can factor that out, resulting in 15*(3x + 2"
+        },
+        {
+          "step": 18,
+          "text": "Alright, so factoring out 15 from both terms gives me 15*(3x + 2). I don't think I can factor anything else out from inside the parentheses because 3x + 2 doesn't have any common factors besides 1. So, that should be the fully factored form"
+        },
+        {
+          "step": 20,
+          "text": "1. Identify the two terms: 45x and 30.\n2. Find the GCF of the coefficients (45 and 30), which is 15.\n3. Factor out 15 from each term:\n   - 45x ÷ 15 = 3x\n   - 30 ÷ 15 = 2\n4. Write the expression as 15*(3x + 2"
+        }
+      ]
+    },
+    {
+      "case_id": "S274d484a",
+      "question": "Q26",
+      "calibration_index": 405,
+      "train_index": 4785,
+      "step": 301,
+      "start": 13071,
+      "stop": 13096,
+      "confidence": 0.9998864708904427,
+      "variance": 4.692741592060689e-08,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Alternatively"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "f4b88a0bf5142bc958cda399dc3857e3745271bf28c8f239534ca31ac51e4dab",
+      "review": {
+        "case_id": "S274d484a",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          83,
+          123,
+          299
+        ],
+        "evidence_quote": "5 × 4, that's 20",
+        "reason": "与第83步原样一致，前缀后半段已大量重复同一两步循环；没有新例子或条件。"
+      },
+      "prior_evidence": [
+        {
+          "step": 83,
+          "text": "Alternatively, if I think about it as 5 × 4, that's 20. So, that's consistent"
+        },
+        {
+          "step": 123,
+          "text": "Alternatively, if I think about it as 5 × 4, that's 20. So, that's consistent"
+        },
+        {
+          "step": 299,
+          "text": "Alternatively, if I think about it as 5 × 4, that's 20. So, that's consistent"
+        }
+      ]
+    },
+    {
+      "case_id": "Sa580ae8e",
+      "question": "Q26",
+      "calibration_index": 405,
+      "train_index": 4785,
+      "step": 62,
+      "start": 3186,
+      "stop": 3251,
+      "confidence": 0.9970537770318546,
+      "variance": 0.013645821856102162,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "790874e3284654a36fe30bcec3a2a6c389dfcbe68af923a04a96550ecf8b45f3",
+      "review": {
+        "case_id": "Sa580ae8e",
+        "category": "repeat",
+        "math_validity": "supported",
+        "prior_steps": [
+          25
+        ],
+        "evidence_quote": "1. President: A, Vice-President: B",
+        "reason": "完整六种三人排列与第25步逐项相同；此前已用该小例子验证，当前没有换例子或增加情况。"
+      },
+      "prior_evidence": [
+        {
+          "step": 25,
+          "text": "1. President: A, Vice-President: B\n2. President: A, Vice-President: C\n3. President: B, Vice-President: A\n4. President: B, Vice-President: C\n5. President: C, Vice-President: A\n6. President: C, Vice-President: B"
+        }
+      ]
+    },
+    {
+      "case_id": "Sf8f01f31",
+      "question": "Q27",
+      "calibration_index": 423,
+      "train_index": 982,
+      "step": 19,
+      "start": 745,
+      "stop": 792,
+      "confidence": 0.82899289594259,
+      "variance": 0.007088419802685087,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Wait"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "eac93b352d69f2bb80a8d96818278e0abd186642b3ed7cb8ab2fff9ebe264243",
+      "review": {
+        "case_id": "Sf8f01f31",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          9,
+          11,
+          18
+        ],
+        "evidence_quote": "this case doesn't give any solution",
+        "reason": "首次利用63不等于60排除分母相等分支，并保留x=-8；该值不使原式任何分母为零。"
+      },
+      "prior_evidence": [
+        {
+          "step": 9,
+          "text": "Hmm, so if I have \\(\\frac{A}{B} = \\frac{A}{C}\\), then either \\(A = 0\\) or \\(B = C\\). So, let me consider both cases"
+        },
+        {
+          "step": 11,
+          "text": "\\[\n2x + 16 = 0 \\\\\n2x = -16 \\\\\nx = -8\n\\"
+        },
+        {
+          "step": 18,
+          "text": "\\[\n63 = 60\n\\"
+        }
+      ]
+    },
+    {
+      "case_id": "S10f6328a",
+      "question": "Q27",
+      "calibration_index": 423,
+      "train_index": 982,
+      "step": 6,
+      "start": 322,
+      "stop": 399,
+      "confidence": 0.999971142713188,
+      "variance": 0.004524998338092135,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "under",
+      "route": "under",
+      "text_sha256": "29fe433dd16baa5fee789fdbd95bb604014bb4939d286f3a45175efb74104808",
+      "review": {
+        "case_id": "S10f6328a",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          2,
+          4
+        ],
+        "evidence_quote": "\\frac{2x + 16}{(x + 10)(x + 6)}",
+        "reason": "首次通分等式右侧，尽管分子与左侧相同，分母和所处理对象不同，属于必要的另一侧计算。"
+      },
+      "prior_evidence": [
+        {
+          "step": 2,
+          "text": "First, maybe I should combine the fractions on each side. On the left side, I have \\(\\frac{1}{x + 9} + \\frac{1}{x + 7}\\). To combine these, I need a common denominator, which would be \\((x + 9)(x + 7)\\). Similarly, on the right side, I have \\(\\frac{1}{x + 10} + \\frac{1}{x + 6}\\), so the common denominator there would be \\((x + 10)(x + 6)\\)."
+        },
+        {
+          "step": 4,
+          "text": "\\[\n\\frac{1}{x + 9} + \\frac{1}{x + 7} = \\frac{(x + 7) + (x + 9)}{(x + 9)(x + 7)} = \\frac{2x + 16}{(x + 9)(x + 7)}\n\\"
+        }
+      ]
+    },
+    {
+      "case_id": "S30dea7dd",
+      "question": "Q27",
+      "calibration_index": 423,
+      "train_index": 982,
+      "step": 4,
+      "start": 242,
+      "stop": 315,
+      "confidence": 0.9852207966901811,
+      "variance": 0.01772101408913215,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "528b29b556c0b6450ac89918fbf4b838630887e8dadd093ac4d7e9d34a6cf541",
+      "review": {
+        "case_id": "S30dea7dd",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          2
+        ],
+        "evidence_quote": "\\frac{2x + 16}{(x + 9)(x + 7)}",
+        "reason": "首次执行左侧通分并合并分子，得到新的有理式；在原式分母非零的定义域上成立。"
+      },
+      "prior_evidence": [
+        {
+          "step": 2,
+          "text": "First, maybe I should combine the fractions on each side. On the left side, I have \\(\\frac{1}{x + 9} + \\frac{1}{x + 7}\\). To combine these, I need a common denominator, which would be \\((x + 9)(x + 7)\\). Similarly, on the right side, I have \\(\\frac{1}{x + 10} + \\frac{1}{x + 6}\\), so the common denominator there would be \\((x + 10)(x + 6)\\)."
+        }
+      ]
+    },
+    {
+      "case_id": "S4407a34e",
+      "question": "Q28",
+      "calibration_index": 449,
+      "train_index": 3745,
+      "step": 6,
+      "start": 513,
+      "stop": 604,
+      "confidence": 0.8449339165580134,
+      "variance": 0.0009344954277726691,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "But",
+        "wait",
+        "Let me check"
+      ],
+      "original_label": "over",
+      "route": "both",
+      "text_sha256": "b64f906be95ca2b1298d8edd6808de6f004e84184481d0a0fe3a432770eb5d81",
+      "review": {
+        "case_id": "S4407a34e",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          5
+        ],
+        "evidence_quote": "both numbers are divisible by 6",
+        "reason": "在得到54/210后首次识别公因数6并提出约分，推进答案化简，整除判断正确。"
+      },
+      "prior_evidence": [
+        {
+          "step": 5,
+          "text": "Alright, so now both fractions have the same denominator: 84/210 minus 30/210. Since the denominators are the same, I can subtract the numerators directly. So, 84 minus 30 is... let me do that. 84 minus 30 is 54. So, the result is 54/210."
+        }
+      ]
+    },
+    {
+      "case_id": "S8ce18e4c",
+      "question": "Q28",
+      "calibration_index": 449,
+      "train_index": 3745,
+      "step": 23,
+      "start": 1965,
+      "stop": 2009,
+      "confidence": 0.9927748172208614,
+      "variance": 0.002281653459336672,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "2edbb6f4b9275d00fc04f052a652593ffcb59b28854aeefdcd7c15210f6747c4",
+      "review": {
+        "case_id": "S8ce18e4c",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          4,
+          19,
+          21,
+          22
+        ],
+        "evidence_quote": "1/7 is 5/35",
+        "reason": "先约分再通分的新路线中，首次把1/7改为5/35；不同于前文使用210作分母的运算。"
+      },
+      "prior_evidence": [
+        {
+          "step": 4,
+          "text": "Now, the second fraction is 1/7. To change the denominator from 7 to 210, I have to multiply both the numerator and the denominator by 30, since 7 times 30 is 210. So, 1 times 30 is 30, and 7 times 30 is 210. Therefore, 1/7 becomes 30/210."
+        },
+        {
+          "step": 19,
+          "text": "Wait, another thought: maybe I can simplify the original fractions before subtracting? Let me see. 12/30 can be simplified because both 12 and 30 are divisible by 6. 12 divided by 6 is 2, and 30 divided by 6 is 5. So, 12/30 simplifies to 2/5."
+        },
+        {
+          "step": 21,
+          "text": "So, maybe that's a simpler way to handle it. Let me try that. So, 2/5 minus 1/7. Now, the denominators are 5 and 7. So, the LCD is 35 because 5 times 7 is 35."
+        },
+        {
+          "step": 22,
+          "text": "So, converting 2/5 to 35ths: 2 times 7 is 14, and 5 times 7 is 35, so 2/5 is 14/35."
+        }
+      ]
+    },
+    {
+      "case_id": "Sa351dcbd",
+      "question": "Q29",
+      "calibration_index": 451,
+      "train_index": 6159,
+      "step": 24,
+      "start": 1498,
+      "stop": 1651,
+      "confidence": 0.9134432157027779,
+      "variance": 0.0004811281198440556,
+      "lexical_hit": true,
+      "lexical_matches": [
+        "Let me check"
+      ],
+      "original_label": "over",
+      "route": "lexical_only",
+      "text_sha256": "0af64b9af1ae0349026cd5c06cbe7925cc2bbf4ef65107c1568c4aaf24bfeac9",
+      "review": {
+        "case_id": "Sa351dcbd",
+        "category": "new",
+        "math_validity": "error",
+        "prior_steps": [
+          23
+        ],
+        "evidence_quote": "then \\( 1/r \\) is a root",
+        "reason": "首次尝试证明倒数根方程，但错误地把原根r的倒数也代入原方程声称为零；最终反转系数式正确，所写证明前提不成立。"
+      },
+      "prior_evidence": [
+        {
+          "step": 23,
+          "text": "Alternatively, I could think about the equation whose roots are reciprocals of the original equation. If the original equation is \\( x^2 - 13x + 4 = 0 \\), then the equation with roots \\( 1/r_1 \\) and \\( 1/r_2 \\) would be \\( 4x^2 - 13x + 1 = 0 \\). Is that right"
+        }
+      ]
+    },
+    {
+      "case_id": "S5c43cbb1",
+      "question": "Q29",
+      "calibration_index": 451,
+      "train_index": 6159,
+      "step": 5,
+      "start": 323,
+      "stop": 442,
+      "confidence": 0.8980361662513922,
+      "variance": 5.812915678939947e-07,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "5d2d4df571aaea2e4e26d5fcbb6bae1e92ca314bf0d827b1baede5197fa6a8f3",
+      "review": {
+        "case_id": "S5c43cbb1",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          3,
+          4
+        ],
+        "evidence_quote": "(r_1 + r_2)/(r_1 r_2)",
+        "reason": "首次建立倒数和与根的和、积的关系，连接已有韦达信息与所求量；积为4保证分母非零。"
+      },
+      "prior_evidence": [
+        {
+          "step": 3,
+          "text": "So, the sum of the roots, let's call them \\( r_1 \\) and \\( r_2 \\), would be \\( -b/a = -(-13)/1 = 13 \\). And the product of the roots would be \\( c/a = 4/1 = 4 \\). Got that down"
+        },
+        {
+          "step": 4,
+          "text": "Now, the problem is asking for the sum of the reciprocals of the roots. That is, \\( 1/r_1 + 1/r_2 \\). Hmm, how can I express this in terms of the sum and product of the roots? Let me think."
+        }
+      ]
+    },
+    {
+      "case_id": "Se1217a90",
+      "question": "Q30",
+      "calibration_index": 456,
+      "train_index": 4612,
+      "step": 11,
+      "start": 375,
+      "stop": 403,
+      "confidence": 0.85459497475841,
+      "variance": 0.0009256433474876529,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "over",
+      "route": "low_confidence_only",
+      "text_sha256": "4fa43104a35d342651cafc3673ec9852212effd65a6dd3ef7cba6c0417393ea6",
+      "review": {
+        "case_id": "Se1217a90",
+        "category": "new",
+        "math_validity": "uncertain",
+        "prior_steps": [
+          6,
+          9,
+          10
+        ],
+        "evidence_quote": "divide the total area by the area of one tile",
+        "reason": "首次提出用已求面积计算砖数；面积比提供下界，尚未展示可无缝铺满的排列，故对其声称可直接得到所需数保留判断。"
+      },
+      "prior_evidence": [
+        {
+          "step": 6,
+          "text": "Now, each tile is 3 inches by 4 inches. I need to figure out how many of these tiles will fit into the 24x60 inch region. But wait, the question is asking for the fewest number of tiles needed. So, I need to make sure that the tiles fit perfectly without any gaps or overlaps"
+        },
+        {
+          "step": 9,
+          "text": "Area = 24 inches * 60 inches = 1440 square inches"
+        },
+        {
+          "step": 10,
+          "text": "Now, the area of one tile is 3 inches * 4 inches = 12 square inches"
+        }
+      ]
+    },
+    {
+      "case_id": "Se708c598",
+      "question": "Q30",
+      "calibration_index": 456,
+      "train_index": 4612,
+      "step": 4,
+      "start": 135,
+      "stop": 170,
+      "confidence": 0.9779056127539034,
+      "variance": 0.005024273035970968,
+      "lexical_hit": false,
+      "lexical_matches": [],
+      "original_label": "unselected",
+      "route": "unselected",
+      "text_sha256": "f824a401898eba266963faa3c9fe50f9e1a8465676e916da356ae8b3d4e81feb",
+      "review": {
+        "case_id": "Se708c598",
+        "category": "new",
+        "math_validity": "supported",
+        "prior_steps": [
+          2,
+          3
+        ],
+        "evidence_quote": "2 * 12 inches = 24 inches",
+        "reason": "首次把区域两边长具体换算成24和60英寸，为面积或铺排计算提供新数值。"
+      },
+      "prior_evidence": [
+        {
+          "step": 2,
+          "text": "First, I should probably convert all the measurements to the same unit to make things easier. The tiles are measured in inches, and the region is in feet. I know that 1 foot is 12 inches, so I can convert the feet measurements to inches"
+        },
+        {
+          "step": 3,
+          "text": "Let me do that step by step. The region is 2 feet by 5 feet. So, converting each foot to inches"
+        }
+      ]
+    }
+  ],
+  "local_artifacts": ".codex_work\\label_audit_30_20260910",
+  "artifact_sha256": {
+    "audit_protocol.json": "19e515b401e1edf4cf62047e4883cb8b5b250be0a4ec8dbf31e1e5bfd1f0f539",
+    "private_key.json": "524fed4a390e76d288c39e60ed0243008b816f84d701d01a0e0ddb285c5ad512",
+    "private_questions.json": "cbf9f2023ceec318175ff537a96db6265395f47342844c7b436fdb96974647ff",
+    "judgments_round1.json": "8bc7dccf544fe64b1e15a2e8d056de35660a36ce37bff22f1ba2530b6f5c125c",
+    "judgments_round2.json": "3ca0623a2ba5cf72da790a5f07e241841867f268d7d75a9ac8fb4e1fdef31ce5",
+    "judgments_round3.json": "b52894059998b6d24f29b1b7663c20f1ea037540f5c448a104a332b9696d41a0",
+    "unmasked_audit.json": "de854bda323df7625d0b05817652d748b763581b8b4f4be979f89a6bbb65fa18",
+    "math_evidence_checks.json": "f36c0f8fa3457f0343af683b5469c2dc9112b2608e4488d278df549f6549473d"
+  },
+  "source_sha256": {
+    "integration\\rebalance_easysteer\\scripts\\calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+    "sources\\ReBalance\\hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641",
+    "integration\\rebalance_easysteer\\scripts\\audit_calibration_labels.py": "8d3812686ea6aa2004e9ebd377d56816dc2c6b893f8b55ea18b266d7bf0240b8"
+  },
+  "infrastructure": {
+    "compute": "local CPU",
+    "gpu_tasks": 0,
+    "model_forwards": 0,
+    "regenerated_answers": 0,
+    "server_access": "One read-only SCP attempt refused; no file copied or remote computation started.",
+    "tokenizer": "Downloaded public Hugging Face file in byte ranges; SHA256 matched frozen 1.5B asset.",
+    "server_sync": "Not performed; server connection refused."
+  },
+  "source_hash_note": "source_sha256 records local raw bytes; source_git_blob uses Git clean filters for portable CRLF/LF verification.",
+  "source_git_blob": {
+    "integration\\rebalance_easysteer\\scripts\\calibrate_auto.py": "72b7aa85c4bc4019cab2f3f7ad0f96d690de6681",
+    "sources\\ReBalance\\hidden_analysis_auto.py": "5ceb819d627ff0e0c30d8655a6d12cb9f77d702f",
+    "integration\\rebalance_easysteer\\scripts\\audit_calibration_labels.py": "c5c48f7b434987de37d062163d4e2cfac0b926df"
+  },
+  "frozen_manifest_git_blob": "eddbc16a9224463da792cedc8f529ba72810b19c"
+}
