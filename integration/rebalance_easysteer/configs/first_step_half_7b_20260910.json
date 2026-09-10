@@ -1,0 +1,156 @@
+{
+  "status": "gsm8k_completed_math500_running",
+  "experiment_branch": "codex/first-step-half-20260910",
+  "run_commit": "ef938bd",
+  "artifact_directory_remote": "/root/autodl-tmp/results/easysteer/first_step_half_7b_20260910",
+  "artifact_directory_local": ".codex_work/first_step_half_7b_20260910",
+  "runner_sha256": "d6a72ef107bb260ed7fffefce4a33135a8af012e59f7b885893d42dfc88a87cb",
+  "benchmarks": {
+    "gsm8k": {
+      "status": "completed",
+      "model": "7B",
+      "dataset": "gsm8k",
+      "run_commit": "ef938bda513f48ebdb57f3140fc89bc924d470c9",
+      "new_answers": 1319,
+      "reference_answers_regenerated": 0,
+      "hashes": {
+        "candidate": "a3cc86d9beddc5febe94cda61a83e11ec1e5426084faa01d59ab0a4a6e8e2241",
+        "candidate_grading": "ee3eb8c608d350c1a0601cc427d181c52a1c1280869504d5a68682e4117a13be",
+        "frozen_evaluation": "543b6e21996900ec764e1b4dcb9130f392843dec98d8b389a66667f7264e0f59",
+        "frozen_grading": "1a22e8f662b9990028832bd51a00583645ed60f68a7c20488d81c3afda6cf89c"
+      },
+      "protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_GSM8K/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/auto_vector.pt",
+        "offset": 0,
+        "limit": 1319,
+        "rebalance_source_layer": 22,
+        "easysteer_output_layer": 21,
+        "max_tokens": 16000,
+        "max_model_len": 17408,
+        "max_num_seqs": 32,
+        "gpu_memory_utilization": 0.92,
+        "chunked_prefill": true,
+        "max_num_batched_tokens": 2048,
+        "max_prompt_tokens": 208,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "async_scheduling": false,
+        "profiling_enabled": false,
+        "profile_steps": 0,
+        "profile_start_step": 16,
+        "profile_only": false,
+        "length_policy": "all generated tokens, including capped/incorrect answers",
+        "dynamic_params": {
+          "think_start_token_id": 151648,
+          "think_end_token_id": 151649,
+          "initial_coef": -1.0,
+          "q25c": 0.8317082060541336,
+          "q75c": 0.9945348667431668,
+          "low_val_1": -0.5,
+          "q25v": 1.4148273953095856e-05,
+          "q75v": 0.003785505352312093,
+          "low_val_2": -1.478875294778046,
+          "high_val_2": 0.1,
+          "curve_tau": 0.008391029506019446,
+          "inject_first_step": true,
+          "first_step_coef": -0.5
+        },
+        "group_timeout_seconds": 0,
+        "preemption_policy": "restore controller and replay historical input scales",
+        "run_order": [
+          "rebalance_dynamic"
+        ],
+        "diagnostic_only": false,
+        "first_step_comparison": true,
+        "group_meanings": {
+          "baseline": "frozen dynamic controller, generation boundaries only",
+          "rebalance_dynamic": "same controller plus -0.5 once at last prompt token"
+        },
+        "initial_injection_position": "last prompt input, before first generated token",
+        "candidate_only": true,
+        "boundary_token_count": 565
+      },
+      "provenance": {
+        "commit": "ef938bda513f48ebdb57f3140fc89bc924d470c9",
+        "git_status": "",
+        "dataset_sha256": "8975a8f57b8343c1e8fb38cc08b88028b9192a04fda78deb1d5bd56ff0a81eaa",
+        "vector_sha256": "be4d6fd01334e10c81819c1472fcaa04ed169db9a23ab8649d8eaf85ecb94e9e",
+        "calibration_fit_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+      },
+      "groups": {
+        "no_intervention": {
+          "count": 1319,
+          "author_correct": 1191,
+          "math_verify_correct": 1201,
+          "mean_tokens": 1184.849886277483,
+          "mean_thinking_tokens": 939.2805155420773,
+          "capped": 0,
+          "thinking_not_ended": 0,
+          "generation_seconds": 1394.3886927366257,
+          "generation_and_grading_seconds": 1414.7458944022655,
+          "grading_errors": 0
+        },
+        "original_dynamic": {
+          "count": 1319,
+          "author_correct": 1182,
+          "math_verify_correct": 1192,
+          "mean_tokens": 1005.3942380591357,
+          "mean_thinking_tokens": 759.6072782410918,
+          "capped": 0,
+          "thinking_not_ended": 0,
+          "generation_seconds": 1257.273646891117,
+          "generation_and_grading_seconds": 1276.0889852195978,
+          "grading_errors": 0
+        },
+        "first_step_half": {
+          "count": 1319,
+          "author_correct": 1182,
+          "math_verify_correct": 1197,
+          "mean_tokens": 764.8127369219105,
+          "mean_thinking_tokens": 492.5564821834723,
+          "capped": 0,
+          "thinking_not_ended": 0,
+          "generation_seconds": 1066.372696056962,
+          "generation_and_grading_seconds": 1089.058596327901,
+          "grading_errors": 0
+        }
+      },
+      "comparisons": {
+        "no_intervention": {
+          "accuracy_change_pp": -0.6823351023502654,
+          "thinking_change_percent": -47.560236368875564,
+          "total_token_change_percent": -35.450663769334476,
+          "improved_count": 40,
+          "degraded_count": 49
+        },
+        "original_dynamic": {
+          "accuracy_change_pp": 0.0,
+          "thinking_change_percent": -35.15642934280313,
+          "total_token_change_percent": -23.929071008170478,
+          "improved_count": 50,
+          "degraded_count": 50
+        }
+      },
+      "gpu": {
+        "samples": 1066,
+        "mean_utilization": 70.453095684803,
+        "peak_utilization": 89,
+        "tokens_per_second": 945.9994650370473,
+        "preemptions": 0,
+        "kv_replay": {
+          "suspended": 0,
+          "restored": 0
+        }
+      },
+      "limitations": [
+        "Fixed -0.5 transfer; one seed, no test-set parameter search.",
+        "Historical references reused; later code differs, and frozen MATH dynamic was resumed. Not a strict continuous-run timing ablation."
+      ]
+    }
+  },
+  "note": "Full raw outputs and paired indices are in the artifact directories; frozen baseline remains unchanged."
+}
