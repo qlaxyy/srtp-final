@@ -113,7 +113,7 @@ def run(args):
     preemptions = guard_dynamic_preemption(core.scheduler, state)
     checks, boundary_seen, req_jobs = [], set(), {}
     original_fill = runner_module.fill_graph_steer_buffers
-    prefill_steps, prefill_host_seconds = 0, 0.
+    prefill_host_seconds = 0.
 
     def checked_fill(batch, live_state, manager):
         # Validate the actual persistent kernel mask during the formal run;

@@ -94,6 +94,9 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
         "high_val_2",
         "paper_parameters",
         "curve_tau",
+        "prefix_mean",
+        "prefix_variance",
+        "prefix_apply",
     ),
 }
 
