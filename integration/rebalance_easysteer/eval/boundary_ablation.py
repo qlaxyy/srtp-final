@@ -28,8 +28,11 @@ def write(path, value):
 
 
 def sha(path):
+    digest = hashlib.sha256()
     with Path(path).open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
+        for chunk in iter(lambda: stream.read(1024 * 1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def ids_hash(ids):
@@ -260,6 +263,8 @@ def grade(args):
                 ('both_correct','apply_only_correct','skip_only_correct','both_wrong')})
     summary = dict(status='completed', scope='20 calibration training prefixes, single-boundary action diagnostic',
         question_count=20, continuations=40, grading='Released author math grader on full prefix plus continuation; errors/caps retained',
+        grading_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip(),
+        grader_sha256={name:sha(ROOT/'sources/ReBalance/utils'/name) for name in ('parser.py','grader.py')},
         groups=groups, records=scored, runtime=runtime,
         grading_seconds=time.perf_counter()-started,
         hashes={name:sha(args.output/name) for name in ('protocol.json','continuations.jsonl','runtime_checks.json')},
