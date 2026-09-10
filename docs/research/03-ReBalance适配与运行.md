@@ -51,6 +51,28 @@ OUTPUT已有`eval_runtime.json`时，其中上下文和并发会覆盖相关设�
 
 ## 复用、续跑与冻结
 
+### 1.5B 高利用率配置参考（2026-09-10）
+
+已在本机单张RTX 4090D、现有EasySteer/vLLM环境、DeepSeek-R1-Distill-Qwen-1.5B上完成MATH-500验证。作为同模型其他题集的起始运行配置；不是任意1.5B模型或7B的通用最优配置。题集的提示词／生成长度和排队情况会影响显存、抢占及吞吐，不能把MATH的408.3秒外推到GSM8K。后续明确的新实验可沿用并记录实际统计，不必重复性能短窗。
+
+| 设置 | 参考值 |
+| --- | --- |
+| 精度／设备 | BF16、单张RTX 4090D |
+| 调度 | `--async-scheduling` |
+| 并发／每轮token预算 | `--max-num-seqs 128 --max-num-batched-tokens 32768` |
+| 分块预填充／前缀缓存 | 均关闭（不传`--chunked-prefill`；入口关闭前缀缓存） |
+| 显存预算 | `--gpu-memory-utilization 0.90` |
+| 总上下文／新生成上限 | `--max-model-len 32768 --max-tokens 16000` |
+| 采样 | `--temperature 0.7 --top-p 0.95 --seed 42` |
+| 动态执行 | in-graph、保留KV历史；运行中记录抢占／恢复 |
+| 评测墙钟限制 | `--group-timeout-seconds 0`，完整答案逐题落盘 |
+
+运行入口是实验分支`codex/first-step-half-20260910`的`eval/rebalance_dynamic_eval.py`（代码引入提交`1cab764`）；main只保存记录，不能拿main入口直接传候选参数。沿用`/root/autodl-tmp/venvs/easysteer-vllm026/bin/python`，同时把该环境`bin`放在PATH最前并设置`PYTHONNOUSERSITE=1`，避免已有ninja无法被找到。
+
+方法参数与上述运行配置分开：1.5B仍用`auto_code_v2_500_20260908/auto_vector.pt`、`fit.json`、decoder输出层20。首段起点−0.5候选额外传`--first-step-comparison --candidate-only --first-step-coef -0.5`；这些参数不是所有未来方法都要启用的性能设置。新目录单独保存结果，作者判分入口只指定`--group rebalance_dynamic`，数据类型与该题集冻结判分一致。
+
+**两个强度的区别：** `first_step_coef=-0.5`仅在最后一个prompt输入位置注入一次；`initial_coef=-1`是每条请求创建时的控制器状态初值，不是后续每步固定施加−1，也不在每步重新设为−1。首次有内容统计的步骤边界先计算动态强度并覆盖该状态，再用于边界注入；只有尚无有效内容统计的特殊边界才可能沿用初值。对应实验源码`steer_vector_utils.py`中`add_request`初始化与提示词末尾历史赋值，以及`ready = is_boundary & (counts > 0)`后更新系数的逻辑。后续步骤仍按当前置信度和相邻步骤波动计算。
+
 1. 同模型已有500题答案：优先复用；改变离线方法时回放答案并写入新向量／参数目录，不能根据测试成绩反复选参数。
    只改变在线注入时机／初值的对照可复用已有层、向量和其余动态参数，跳过整套校准。先在CPU核对改动是否真正进入注入：当前版本仅在生成分隔token触发，初值可能在首次有效注入前已被动态值覆盖，单改`initial_coef`不等于“关闭首段干预”；9月10日检查及新候选见00。
 2. 只缺部分评测：核对协议和完整题数，只补缺题；保留原文件及恢复来源。重新排队可能改变新输出，不宣称等价于连续运行。

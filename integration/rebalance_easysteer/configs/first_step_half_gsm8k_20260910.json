@@ -1,0 +1,182 @@
+{
+  "status": "completed",
+  "scope": "1.5B full GSM8K candidate versus immutable historical references",
+  "new_answers": 1319,
+  "reference_answers_regenerated": 0,
+  "run_commit": "83e708c54891f3cebc4222ef49e18fd2df414be8",
+  "hashes": {
+    "candidate": "385fb6883430522445e82194194fbe4d9b382b21db6ecfc2dcb6fc5143342ebc",
+    "candidate_grading": "69de36e9a0b15250425b6bbb6a7f09d5fde37bd5fc2bb0373f769f4cab9bd4d3",
+    "frozen_evaluation": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579",
+    "frozen_grading": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9"
+  },
+  "provenance": {
+    "commit": "83e708c54891f3cebc4222ef49e18fd2df414be8",
+    "git_status": "",
+    "dataset_sha256": "8975a8f57b8343c1e8fb38cc08b88028b9192a04fda78deb1d5bd56ff0a81eaa",
+    "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+    "calibration_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+  },
+  "protocol": {
+    "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_GSM8K/test.jsonl",
+    "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+    "offset": 0,
+    "limit": 1319,
+    "rebalance_source_layer": 21,
+    "easysteer_output_layer": 20,
+    "max_tokens": 16000,
+    "max_model_len": 32768,
+    "max_num_seqs": 128,
+    "gpu_memory_utilization": 0.9,
+    "chunked_prefill": false,
+    "max_num_batched_tokens": 32768,
+    "max_prompt_tokens": 208,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42,
+    "execution_mode": "in_graph",
+    "async_scheduling": true,
+    "profiling_enabled": false,
+    "profile_steps": 0,
+    "profile_start_step": 16,
+    "profile_only": false,
+    "length_policy": "all generated tokens, including capped/incorrect answers",
+    "dynamic_params": {
+      "think_start_token_id": 151648,
+      "think_end_token_id": 151649,
+      "initial_coef": -1.0,
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "low_val_1": -0.49999999999999994,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "curve_tau": 0.002450814632284028,
+      "inject_first_step": true,
+      "first_step_coef": -0.5
+    },
+    "group_timeout_seconds": 0,
+    "preemption_policy": "restore controller and replay historical input scales",
+    "run_order": [
+      "rebalance_dynamic"
+    ],
+    "diagnostic_only": false,
+    "first_step_comparison": true,
+    "group_meanings": {
+      "baseline": "frozen dynamic controller, generation boundaries only",
+      "rebalance_dynamic": "same controller plus -0.5 once at last prompt token"
+    },
+    "initial_injection_position": "last prompt input, before first generated token",
+    "candidate_only": true,
+    "boundary_token_count": 565
+  },
+  "groups": {
+    "frozen_no_intervention": {
+      "count": 1319,
+      "author_correct": 1030,
+      "math_verify_correct": 1060,
+      "mean_total_tokens": 1173.1660348749053,
+      "mean_thinking_tokens": 905.5996967399545,
+      "capped": 5,
+      "thinking_not_ended": 5,
+      "grading_errors": 0,
+      "generation_seconds": 257.85016959905624,
+      "generation_and_grading_seconds": 289.1466167718172
+    },
+    "frozen_original_dynamic": {
+      "count": 1319,
+      "author_correct": 1042,
+      "math_verify_correct": 1083,
+      "mean_total_tokens": 846.3563305534495,
+      "mean_thinking_tokens": 588.2577710386656,
+      "capped": 0,
+      "thinking_not_ended": 0,
+      "grading_errors": 0,
+      "generation_seconds": 179.48161393404007,
+      "generation_and_grading_seconds": 210.76700600981712
+    },
+    "first_step_candidate": {
+      "count": 1319,
+      "author_correct": 1034,
+      "math_verify_correct": 1055,
+      "mean_total_tokens": 647.4715693707354,
+      "mean_thinking_tokens": 370.1956027293404,
+      "capped": 3,
+      "thinking_not_ended": 3,
+      "grading_errors": 0,
+      "generation_seconds": 185.4242966324091,
+      "generation_and_grading_seconds": 218.3253951370716
+    }
+  },
+  "historical_comparisons": {
+    "frozen_no_intervention": {
+      "accuracy_change_pp": 0.3032600454890068,
+      "thinking_change_percent": -59.12149661025747,
+      "total_token_change_percent": -44.80989475289614,
+      "improved_count": 111,
+      "degraded_count": 107
+    },
+    "frozen_original_dynamic": {
+      "accuracy_change_pp": -0.6065200909780136,
+      "thinking_change_percent": -37.06915217189578,
+      "total_token_change_percent": -23.498939395025186,
+      "improved_count": 99,
+      "degraded_count": 107
+    }
+  },
+  "gpu": {
+    "samples": 185,
+    "sampling_interval_seconds": 1,
+    "scope": "whole actual generation window, including prefill and long-answer tail",
+    "mean_utilization_percent": 91.98378378378378,
+    "median_utilization_percent": 93,
+    "peak_utilization_percent": 96,
+    "fraction_at_least_90_percent": 0.9513513513513514,
+    "peak_memory_bytes": 22949396480,
+    "actual_generation_tokens_per_second": 4605.734067812192,
+    "preemptions": 0,
+    "kv_replay": {
+      "suspended": 0,
+      "restored": 0
+    }
+  },
+  "performance_probe": {
+    "tokens_equal": true,
+    "histories_equal": true,
+    "changed_token_sequences": 0,
+    "changed_history_sequences": 0,
+    "count": 128,
+    "compared_generated_prefix": 321,
+    "preemptions": 0,
+    "async_tokens_per_second": 4487.578714598078,
+    "sync_tokens_per_second": 3099.296397466141,
+    "async_gpu_utilization": 97.9375,
+    "sync_gpu_utilization": 67.6875,
+    "timing_note": "Async raw probe numerator includes one drained batch outside window; corrected here to 32768 tokens."
+  },
+  "limitations": [
+    "Both frozen reference and candidate use async scheduling and no chunked prefill; candidate explicitly uses concurrency128 and retains added KV replay code, whereas reference default concurrency was 256.",
+    "Historical comparison does not isolate the first-step intervention from runtime differences.",
+    "Fixed -0.5 transfer from prior MATH-500 exploration; no GSM8K parameter search. Errors and capped outputs included.",
+    "Training throughput probe is a short synthetic window, not full-run speedup.",
+    "No claim that GPU performance has been fully saturated."
+  ],
+  "paired_indices_location": "analysis.json in artifact directory",
+  "artifact_directory_remote": "/root/autodl-tmp/results/easysteer/first_step_half_gsm8k_20260910",
+  "artifact_directory_local": ".codex_work/first_step_half_gsm8k_20260910",
+  "experiment_branch": "codex/first-step-half-20260910",
+  "decision": "Retain frozen baseline; shorter reasoning with a small author-graded accuracy loss versus original dynamic.",
+  "cleanup": {
+    "status": "completed",
+    "reason": "Remove rebuildable nonselected layer feature caches only; selected layer21 and every nonfeature file retained.",
+    "unique_files": 29,
+    "free_before": 2169782272,
+    "free_after": 17138085888,
+    "completed_unix": 1789029508.1695848,
+    "freed_bytes": 14968303616,
+    "removed_paths": 55,
+    "manifest_sha256": "a71221bb602cb164e1cb5bc77b41a36b027de71479d95984c2f0ce5b44936233"
+  }
+}
