@@ -410,6 +410,7 @@ def main() -> None:
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
         started = time.perf_counter()
+        started_unix = time.time()
         previous_preemptions = preemptions["events"]
         previous_replays = dict(replay_state.replay_counts)
         # Graders may use SIGALRM internally; keep an independent wall-time cap.
@@ -447,6 +448,8 @@ def main() -> None:
                 record["thinking_ended"] = ended
                 record["answer_tokens"] = len(ids) - stop - int(ended)
             summary = summarize(records, seconds, args.max_tokens)
+            summary["generation_started_unix"] = started_unix
+            summary["generation_finished_unix"] = started_unix + seconds
             summary["mean_thinking_tokens"] = sum(r["thinking_tokens"] for r in records) / len(records)
             summary["mean_answer_tokens"] = sum(r["answer_tokens"] for r in records) / len(records)
             summary["thinking_not_ended"] = sum(not r["thinking_ended"] for r in records)
