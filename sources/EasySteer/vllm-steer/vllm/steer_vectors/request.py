@@ -53,6 +53,7 @@ STEER_REBALANCE_FIELDS: tuple[str, ...] = (
     "rebalance_high_val_2",
     "rebalance_paper_parameters",
     "rebalance_curve_tau",
+    "rebalance_inject_first_step",
 )
 
 
@@ -324,6 +325,7 @@ class SteerVectorRequest(
     # Explicit opt-in: Bm, Bo, Bu, eta_c, eta_v (paper reconstruction).
     rebalance_paper_parameters: list[float] | None = None
     rebalance_curve_tau: float = 0.01
+    rebalance_inject_first_step: bool = False
 
     def __post_init__(self):
         """Validate configuration consistency."""
@@ -376,6 +378,11 @@ class SteerVectorRequest(
 
                 MoERouterAlgorithm.validate_mode(self.moe_mode)
             if self.algorithm == "rebalance":
+                if self.rebalance_inject_first_step:
+                    if (self.apply_spec or {}).get("prompt_positions") != [-1]:
+                        raise ValueError("First-step injection requires prompt_positions=[-1]")
+                    if self.rebalance_paper_parameters is not None:
+                        raise ValueError("First-step injection cannot use paper reconstruction")
                 if not self.rebalance_boundary_token_ids:
                     raise ValueError(
                         "rebalance requires rebalance_boundary_token_ids"

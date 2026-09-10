@@ -103,6 +103,87 @@ def test_rebalance_rejects_generated_prefix_without_history():
         raise AssertionError("A restarted worker cannot invent dynamic history")
 
 
+def test_first_step_injection_is_once_at_prompt_tail_and_survives_replay():
+    """The new arm must reach the first-token logits, without steering the rest of the prompt."""
+    from vllm.steer_vectors.algorithms.clause import clause_cache_key
+    from vllm.v1.worker.gpu.steer_vector_utils import build_batch_geometry, resolve_slot_positions
+
+    snapshots = []
+    for enabled in (False, True):
+        req = _request()
+        req.rebalance_inject_first_step = enabled
+        state = SteerVectorState(2, torch.device("cpu"), max_model_len=32)
+        manager = _Manager()
+        prompt = [7, 10, 8]
+        state.add_request("a", req, manager, req_index=0, prompt_token_ids=prompt)
+        clause = {"generation_tokens": [99]}
+        if enabled:
+            clause["prompt_positions"] = [-1]
+
+        def effective(batch):
+            geo = build_batch_geometry(batch, state)
+            positions = resolve_slot_positions(
+                {0: [clause]}, [0], np.zeros(batch.num_tokens, dtype=np.int32),
+                torch.device("cpu"), geo,
+            )[(0, clause_cache_key(clause))]
+            values = torch.zeros(batch.num_tokens)
+            if positions is not None:
+                values[positions] = state.token_scales(batch)[positions]
+            return values
+
+        # The incomplete prefill sample must not replace the initial scale.
+        chunk = _replay_batch("cpu", prompt[:2], 0, 3)
+        state.observe_sample(chunk, torch.tensor([[99]]), torch.tensor([.01]))
+        assert state._step_tok_count[0] == 0
+        batch = _replay_batch("cpu", prompt, 0, 3)
+        torch.testing.assert_close(effective(batch), torch.tensor([0., 0., -float(enabled)]))
+        tokens = list(prompt)
+        for token, prob in zip([1, 99, 2, 99, 11], [.4, .9, .7, .8, .9]):
+            state.observe_sample(batch, torch.tensor([[token]]), torch.tensor([prob]))
+            tokens.append(token)
+            batch = _replay_batch("cpu", [token], len(tokens) - 1, 3)
+        all_tokens = _replay_batch("cpu", tokens, 0, len(tokens))
+        before = effective(all_tokens)
+        snapshots.append(before)
+        assert before[4] != 0 and before[6] != 0
+        assert before[[0, 1, 3, 5, 7]].abs().sum() == 0
+
+        state.suspend_request("a")
+        state.remove_request("a", manager)
+        state.add_request("a", req, manager, req_index=1,
+                          prompt_token_ids=prompt, num_generated_tokens=5)
+        replay = _replay_batch("cpu", tokens, 0, len(tokens), slot=1)
+        torch.testing.assert_close(effective(replay), before)
+        assert state.replay_counts == {"suspended": 1, "restored": 1}
+    difference = snapshots[1] - snapshots[0]
+    assert difference.nonzero().flatten().tolist() == [2]
+    assert difference[2] == -1
+
+
+def test_first_step_injection_requires_prompt_trigger_and_survives_wire():
+    import msgspec
+    from vllm.steer_vectors.api import ApplySpec, SteeringSpec, VectorSpec, to_engine_request
+    from vllm.steer_vectors.request import SteerVectorRequest
+
+    params = dict(boundary_token_ids=[99], think_start_token_id=10,
+                  think_end_token_id=11, inject_first_step=True, initial_coef=-1.)
+    for selected in (False, True):
+        spec = SteeringSpec(vectors=[VectorSpec(
+            name="initial", source="/unused.pt", layers=[20], algorithm="rebalance",
+            apply=ApplySpec(prompt_positions=[-1] if selected else None,
+                            generation_tokens=[99]), params=params,
+        )])
+        try:
+            request = to_engine_request(spec, name="initial", int_id=1)
+        except ValueError as error:
+            assert not selected and "prompt_positions" in str(error)
+        else:
+            assert selected
+            decoded = msgspec.msgpack.decode(msgspec.msgpack.encode(request),
+                                            type=SteerVectorRequest)
+            assert ReBalanceParams.from_request(decoded).inject_first_step
+
+
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():
     """Catch the silent k-floor failure missed by final-surface endpoint checks."""
     from vllm.steer_vectors.rebalance import (

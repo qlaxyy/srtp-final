@@ -89,9 +89,16 @@ def parse_args() -> argparse.Namespace:
                         help="Reuse a compatible saved baseline; no generation repeat")
     parser.add_argument("--dynamic-first", action="store_true",
                         help="Check the intervention arm before spending time on baseline")
+    parser.add_argument("--first-step-comparison", action="store_true",
+                        help="Compare frozen dynamic steering with one extra initial injection")
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
     args = parser.parse_args()
+    if args.first_step_comparison and (
+        not args.calibration_fit or args.paper_fit or args.baseline_result
+        or args.diagnostic_group or args.profile_steps
+    ):
+        parser.error("First-step comparison requires self-calibration and two fresh unprofiled arms")
     if args.group_timeout_seconds < 0 or args.resume_elapsed_seconds < 0:
         parser.error("Timeout and previous elapsed seconds must be nonnegative; zero timeout disables it")
     if args.resume_result and (args.baseline_result or args.diagnostic_group or args.profile_steps):
@@ -242,6 +249,18 @@ def main() -> None:
             )
         ]
     )
+    baseline_steering = None
+    if args.first_step_comparison:
+        if fitted.get("version") != "auto-code-v2" or args.initial_coef != -1.0:
+            raise ValueError("First-step comparison requires frozen auto-code-v2 initial coefficient -1")
+        baseline_steering = steering
+        dynamic_params = {**dynamic_params, "inject_first_step": True}
+        steering = SteeringSpec(vectors=[VectorSpec(
+            name="rebalance_dynamic_first_step", data=payload,
+            algorithm="rebalance", scale=1.0, layers=[args.layer], normalize=False,
+            apply=ApplySpec(prompt_positions=[-1], generation_tokens=boundary_ids),
+            params=dynamic_params,
+        )])
     result: dict[str, Any] = {
         "scope": "ReBalance-official-code-vllm",
         "confidence_definition": (
@@ -327,6 +346,14 @@ def main() -> None:
             args.calibration_fit.read_bytes()).hexdigest()
 
     reused_baseline = None
+    if args.first_step_comparison:
+        result["scope"] = "ReBalance-first-step-injection-validation-v1"
+        result["protocol"]["first_step_comparison"] = True
+        result["protocol"]["group_meanings"] = {
+            "baseline": "frozen dynamic controller, generation boundaries only",
+            "rebalance_dynamic": "same controller plus -1 once at last prompt token",
+        }
+        result["protocol"]["initial_injection_position"] = "last prompt input, before first generated token"
     if args.baseline_result:
         saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
         if saved["protocol"].get("profiling_enabled", False):
@@ -370,7 +397,7 @@ def main() -> None:
         resumed, receipt = validate_resume(args.resume_result, output_path, result, args.resume_elapsed_seconds)
         result["provenance"]["resumed_evaluation"] = receipt
 
-    def run_group(prompts, sampling, boundary_set, steering, resume_path=None):
+    def run_group(prompts, sampling, boundary_set, steering, group_name, resume_path=None):
         def timeout_handler(signum, frame):
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
@@ -391,14 +418,14 @@ def main() -> None:
             if args.profile_steps:
                 from decode_profiler import EngineStepProfiler
                 step_profiler = EngineStepProfiler(
-                    output_path.with_suffix(".baseline.trace.json" if steering is None
+                    output_path.with_suffix(".baseline.trace.json" if group_name == "baseline"
                                             else ".dynamic.trace.json"),
                     args.profile_start_step, args.profile_steps,
                     stop_after_window=args.profile_only)
             records, seconds = generate_records(
                 llm, prompts, examples, sampling, boundary_set, steering=steering,
                 checkpoint_path=output_path.with_suffix(
-                    ".baseline.partial.jsonl" if steering is None
+                    ".baseline.partial.jsonl" if group_name == "baseline"
                     else ".dynamic.partial.jsonl"),
                 step_profiler=step_profiler,
                 resume_path=resume_path,
@@ -501,7 +528,8 @@ def main() -> None:
                             resume_path = candidate
                     records, summary = run_group(
                         prompts, sampling, boundary_set,
-                        steering=None if mode == "baseline" else steering,
+                        steering=baseline_steering if mode == "baseline" else steering,
+                        group_name=mode,
                         resume_path=resume_path,
                     )
                 except ProfileWindowComplete as completed:

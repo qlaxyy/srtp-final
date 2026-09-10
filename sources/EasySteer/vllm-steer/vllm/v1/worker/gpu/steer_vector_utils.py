@@ -135,11 +135,22 @@ class SteerVectorState:
         self._paper_strength[req_index] = 0.0
         self._paper_pending[req_index] = True
         prompt_token_ids = prompt_token_ids or []
+        if params.inject_first_step:
+            last_start = max((i for i, t in enumerate(prompt_token_ids)
+                              if t == params.think_start_token_id), default=-1)
+            last_end = max((i for i, t in enumerate(prompt_token_ids)
+                            if t == params.think_end_token_id), default=-1)
+            if last_start <= last_end or self._history is None:
+                raise ValueError("First-step injection needs an open think prompt and KV history")
         self._in_think[req_index] = params.think_start_token_id in prompt_token_ids
         self._prompt_lengths[req_id] = len(prompt_token_ids)
         self._history_lengths[req_id] = len(prompt_token_ids)
         if self._history is not None:
             self._history[req_index].zero_()
+            if params.inject_first_step:
+                # This input produces the first generated token. Replay uses the
+                # same saved scale, including when prefill is split into chunks.
+                self._history[req_index, len(prompt_token_ids) - 1] = params.initial_coef
         saved = self._suspended.pop(req_id, None)
         if saved is not None:
             length = len(saved["history"])
