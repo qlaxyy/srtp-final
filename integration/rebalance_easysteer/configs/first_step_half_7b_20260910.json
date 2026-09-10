@@ -1,5 +1,5 @@
 {
-  "status": "gsm8k_completed_math500_running",
+  "status": "completed",
   "experiment_branch": "codex/first-step-half-20260910",
   "run_commit": "ef938bd",
   "artifact_directory_remote": "/root/autodl-tmp/results/easysteer/first_step_half_7b_20260910",
@@ -144,6 +144,151 @@
         "kv_replay": {
           "suspended": 0,
           "restored": 0
+        }
+      },
+      "limitations": [
+        "Fixed -0.5 transfer; one seed, no test-set parameter search.",
+        "Historical references reused; later code differs, and frozen MATH dynamic was resumed. Not a strict continuous-run timing ablation."
+      ]
+    },
+    "math500": {
+      "status": "completed",
+      "model": "7B",
+      "dataset": "math500",
+      "run_commit": "ef938bda513f48ebdb57f3140fc89bc924d470c9",
+      "new_answers": 500,
+      "reference_answers_regenerated": 0,
+      "hashes": {
+        "candidate": "909016f0a61c595b9cb7b0005d95ffbe3648cf766268a685156c1e8260886375",
+        "candidate_grading": "3e1b58f8c350553830def8dc4fce00bdaef4dc19028201ce4baa9d16a5a083f9",
+        "frozen_evaluation": "025b483d8b4f8af32f7415d7ec5ccbd04b9c4bd4046539a58d6014f122044dd2",
+        "frozen_grading": "149b94ded8d286f27a3867d5987cb19ecfb226d3bcdaad105616b25f01ec8047"
+      },
+      "protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_Math500/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/auto_vector.pt",
+        "offset": 0,
+        "limit": 500,
+        "rebalance_source_layer": 22,
+        "easysteer_output_layer": 21,
+        "max_tokens": 16000,
+        "max_model_len": 17408,
+        "max_num_seqs": 64,
+        "gpu_memory_utilization": 0.92,
+        "chunked_prefill": true,
+        "max_num_batched_tokens": 2048,
+        "max_prompt_tokens": 811,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "async_scheduling": false,
+        "profiling_enabled": false,
+        "profile_steps": 0,
+        "profile_start_step": 16,
+        "profile_only": false,
+        "length_policy": "all generated tokens, including capped/incorrect answers",
+        "dynamic_params": {
+          "think_start_token_id": 151648,
+          "think_end_token_id": 151649,
+          "initial_coef": -1.0,
+          "q25c": 0.8317082060541336,
+          "q75c": 0.9945348667431668,
+          "low_val_1": -0.5,
+          "q25v": 1.4148273953095856e-05,
+          "q75v": 0.003785505352312093,
+          "low_val_2": -1.478875294778046,
+          "high_val_2": 0.1,
+          "curve_tau": 0.008391029506019446,
+          "inject_first_step": true,
+          "first_step_coef": -0.5
+        },
+        "group_timeout_seconds": 0,
+        "preemption_policy": "restore controller and replay historical input scales",
+        "run_order": [
+          "rebalance_dynamic"
+        ],
+        "diagnostic_only": false,
+        "first_step_comparison": true,
+        "group_meanings": {
+          "baseline": "frozen dynamic controller, generation boundaries only",
+          "rebalance_dynamic": "same controller plus -0.5 once at last prompt token"
+        },
+        "initial_injection_position": "last prompt input, before first generated token",
+        "candidate_only": true,
+        "boundary_token_count": 565
+      },
+      "provenance": {
+        "commit": "ef938bda513f48ebdb57f3140fc89bc924d470c9",
+        "git_status": "",
+        "dataset_sha256": "a239272930e5202bf1d5275f7fa475a56687c775a61f1354a6d3371bf9dd7a94",
+        "vector_sha256": "be4d6fd01334e10c81819c1472fcaa04ed169db9a23ab8649d8eaf85ecb94e9e",
+        "calibration_fit_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+      },
+      "groups": {
+        "no_intervention": {
+          "count": 500,
+          "author_correct": 459,
+          "math_verify_correct": 469,
+          "mean_tokens": 3842.052,
+          "mean_thinking_tokens": 3452.56,
+          "capped": 18,
+          "thinking_not_ended": 18,
+          "generation_seconds": 2159.445396527648,
+          "generation_and_grading_seconds": 2180.2162796258926,
+          "grading_errors": 0
+        },
+        "original_dynamic": {
+          "count": 500,
+          "author_correct": 460,
+          "math_verify_correct": 469,
+          "mean_tokens": 3234.13,
+          "mean_thinking_tokens": 2842.156,
+          "capped": 12,
+          "thinking_not_ended": 12,
+          "generation_seconds": 1975.7026176899672,
+          "generation_and_grading_seconds": 2001.6844661533833,
+          "grading_errors": 0
+        },
+        "first_step_half": {
+          "count": 500,
+          "author_correct": 452,
+          "math_verify_correct": 462,
+          "mean_tokens": 3370.996,
+          "mean_thinking_tokens": 2987.394,
+          "capped": 17,
+          "thinking_not_ended": 15,
+          "generation_seconds": 2013.1466297060251,
+          "generation_and_grading_seconds": 2039.7913628667593,
+          "grading_errors": 0
+        }
+      },
+      "comparisons": {
+        "no_intervention": {
+          "accuracy_change_pp": -1.4,
+          "thinking_change_percent": -13.473075051555949,
+          "total_token_change_percent": -12.2605316117533,
+          "improved_count": 5,
+          "degraded_count": 12
+        },
+        "original_dynamic": {
+          "accuracy_change_pp": -1.6,
+          "thinking_change_percent": 5.1101347005583,
+          "total_token_change_percent": 4.23192636041223,
+          "improved_count": 9,
+          "degraded_count": 17
+        }
+      },
+      "gpu": {
+        "samples": 2011,
+        "mean_utilization": 77.09249129786176,
+        "peak_utilization": 100,
+        "tokens_per_second": 837.2455215773971,
+        "preemptions": 1470,
+        "kv_replay": {
+          "suspended": 1470,
+          "restored": 1470
         }
       },
       "limitations": [
