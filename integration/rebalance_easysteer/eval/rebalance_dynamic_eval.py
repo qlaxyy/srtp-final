@@ -93,7 +93,11 @@ def parse_args() -> argparse.Namespace:
                         help="Compare frozen dynamic steering with one extra initial injection")
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
+    parser.add_argument("--candidate-only", action="store_true",
+                        help="Generate only the first-step candidate; retain frozen comparisons separately")
     args = parser.parse_args()
+    if args.candidate_only and not args.first_step_comparison:
+        parser.error("--candidate-only requires --first-step-comparison")
     if args.first_step_comparison and (
         not args.calibration_fit or args.paper_fit or args.baseline_result
         or args.diagnostic_group or args.profile_steps
@@ -354,6 +358,10 @@ def main() -> None:
             "rebalance_dynamic": "same controller plus -1 once at last prompt token",
         }
         result["protocol"]["initial_injection_position"] = "last prompt input, before first generated token"
+        if args.candidate_only:
+            result["scope"] = "ReBalance-first-step-injection-single-candidate-v1"
+            result["protocol"]["candidate_only"] = True
+            result["protocol"]["run_order"] = ["rebalance_dynamic"]
     if args.baseline_result:
         saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
         if saved["protocol"].get("profiling_enabled", False):
@@ -544,6 +552,11 @@ def main() -> None:
             result["status"] = "diagnostic_completed"
             write_result(output_path, result)
             print(f"Engineering diagnostic completed: {args.diagnostic_group}; {output_path}")
+            return
+        if args.candidate_only:
+            result["status"] = "completed_single_candidate"
+            write_result(output_path, result)
+            print("Candidate completed:", json.dumps(result["rebalance_dynamic"]["summary"]))
             return
         baseline, dynamic = result["baseline"]["records"], result["rebalance_dynamic"]["records"]
         baseline_summary = result["baseline"]["summary"]

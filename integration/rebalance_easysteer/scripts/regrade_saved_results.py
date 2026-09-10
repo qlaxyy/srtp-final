@@ -24,6 +24,8 @@ def main():
     parser.add_argument('--output', required=True)
     parser.add_argument('--data-name', required=True)
     parser.add_argument('--group-budget-seconds', type=int, default=1500)
+    parser.add_argument('--group', choices=('baseline', 'rebalance_dynamic'),
+                        help='Grade one saved group without regenerating or regrading its reference')
     args = parser.parse_args()
     source = Path(args.input)
     output = Path(args.output)
@@ -44,7 +46,8 @@ def main():
         result[filename + '_sha256'] = hashlib.sha256(
             (ROOT / 'sources/ReBalance/utils' / filename).read_bytes()).hexdigest()
 
-    for group in ('baseline', 'rebalance_dynamic'):
+    groups = (args.group,) if args.group else ('baseline', 'rebalance_dynamic')
+    for group in groups:
         records = saved[group]['records']
         assert len(records) == len(rows) == count
         previous_seconds = saved[group]['summary']['group_seconds_including_grading']
@@ -79,6 +82,8 @@ def main():
         temporary.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
         temporary.replace(output)
         print(group, result['groups'][group]['author_correct'], '/', count, flush=True)
+    if args.group:
+        return
     baseline = result['groups']['baseline']['records']
     dynamic = result['groups']['rebalance_dynamic']['records']
     result['improved_indices'] = [a['index'] for a, b in zip(baseline, dynamic)
