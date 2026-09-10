@@ -1,0 +1,976 @@
+{
+  "status": "completed_cpu_qualitative_review",
+  "date": "2026-09-10",
+  "reviewer": "Single Codex assistant, full saved text read with exact mathematical checks; no independent second annotator.",
+  "purpose": "Explain the four largest absolute paired token differences without assigning over/under/normal gold labels.",
+  "changed_from_previous": "Previously checked first divergence and endings; now read the complete question, shared prefix, and both continuations for all four pairs and separated thinking from answer tokens.",
+  "selection": "Largest four absolute paired total-token differences, selected after outcomes; qualitative examples, not representative accuracy estimate.",
+  "question_count": 4,
+  "saved_continuations": 8,
+  "gpu_runs": 0,
+  "new_generations": 0,
+  "model_forwards": 0,
+  "selected_cases": [
+    "B19",
+    "B13",
+    "B03",
+    "B05"
+  ],
+  "parent_question_count": 20,
+  "parent_continuations": 40,
+  "accounting": "Total is shared generated prefix plus continuation, excluding input prompt. Thinking is before the first </think>; marker is one token. after_think_marker includes final answer and EOS. No characters/words are substituted for token counts.",
+  "annotation": "Paragraph IDs split the decoded continuation on literal blank lines. These are display references, not frozen calibration steps. Character offsets are Unicode positions in decode(new_token_ids) including special tokens.",
+  "anchor_method": "Post-hoc explicit target-answer statement selected during full reading, rounded to the smallest whole-token prefix containing the entire paragraph. Not claimed to be the earliest derivable answer, a valid online stop, or a verified dispensable suffix.",
+  "sources": {
+    "parent_summary": "integration\\rebalance_easysteer\\configs\\boundary_ablation20_20260910.json",
+    "parent_summary_sha256": "1a0518f4c42ebb585b6d0dcccbcf93b06e2fb4ffdc3b5c0ac4db76f0599d08ef",
+    "raw": {
+      "protocol.json": "e4b35eaf204498d20e719dc127ebf525ba933e03d174f19fb503e557d9e2b6b6",
+      "continuations.jsonl": "66777ed6d1bea2c26bb176f3b7f4594bc76f0f0c7a34ca5332a28296a2fc347b",
+      "runtime_checks.json": "066a4a67f4f1c31d3a8422234b7908d7c4f01d5e1239243510237b9bd6f41fa6"
+    },
+    "inputs_sha256": "264ef2d92e3e439c4754c113d66134c33ebce8f1b20b06ee2aa459cc9be5a7d4",
+    "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "reading_index_sha256": "950472f3a637f3dce16c3e2dc8b3daddcb06130a908534f902692d07ef04a3d6",
+    "packets": {
+      "B19": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\content_review4\\B19.txt",
+        "sha256": "d78acb67afea8215704edc500074a331d9998a811580ec290f6d7da34f3ce844",
+        "lines": 192
+      },
+      "B13": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\content_review4\\B13.txt",
+        "sha256": "602ba8c060da0268f7e2d22cc1d342d59418b1e04a03e235a39307aaa3d8522f",
+        "lines": 281
+      },
+      "B03": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\content_review4\\B03.txt",
+        "sha256": "7c622127f0ace9c5c5ad8ab27f4d6f444169320472261dce619456f3fcc69676",
+        "lines": 124
+      },
+      "B05": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\content_review4\\B05.txt",
+        "sha256": "01aa6edc5d97fff20a5f65cf2c0233022b85325fe7cfe84b5aeab9826cb7ce0c",
+        "lines": 187
+      }
+    },
+    "base_commit": "d558ffcb49e29a0ad0e6beabfe9dce547c7e46ca",
+    "source_location_local": "E:\\srtp\\srtp-final\\.codex_work\\boundary_ablation20_20260910",
+    "source_location_remote": "/root/autodl-tmp/results/easysteer/boundary_ablation20_20260910_run2/"
+  },
+  "cases": [
+    {
+      "case_id": "B19",
+      "boundary": {
+        "calibration_index": 457,
+        "stratum": "positive",
+        "step": 21,
+        "boundary_output_offset": 909,
+        "confidence": 0.9999255689120886,
+        "variance": 0.005662193499327956,
+        "confidence_float32": 0.9999256730079651,
+        "variance_float32": 0.005662194453179836,
+        "step_tokens": 25,
+        "projected_coefficient": 0.0022854327759365967,
+        "projected_coefficient_float32": 0.0022856295108795166,
+        "case_id": "B19",
+        "train_index": 819,
+        "prefix_generated_tokens": 910,
+        "original_prompt_tokens": 70,
+        "remaining_tokens": 15090,
+        "prefix_sha256": "0322784c6569d0b5e0192056cdf9da5dee0ecdaa6f7e3c1f94e55fc0106eaec6",
+        "prompt_sha256": "7e369b0abcb5f5d03a5eddcd453f2b490478f70207c3b3815bec5ea16e37b87b",
+        "source_output_tokens": 2667,
+        "source_finish_reason": "stop"
+      },
+      "question": "The graph of the equation \\[ x^2 + 4y^2 - 10x + 56y = k\\]is a non-degenerate ellipse if and only if $k > a.$ What is $a?$",
+      "shared_prefix": "Okay, so I have this equation: \\( x^2 + 4y^2 - 10x + 56y = k \\). The problem says that this graph is a non-degenerate ellipse if and only if \\( k > a \\). I need to find what \\( a \\) is. Hmm, okay, let me think about how to approach this.\n\nFirst, I remember that the general form of a conic section is \\( Ax^2 + By^2 + Cx + Dy + E = 0 \\). Depending on the coefficients, it can be a circle, ellipse, parabola, hyperbola, etc. Since the problem mentions it's an ellipse, I know that the coefficients of \\( x^2 \\) and \\( y^2 \\) should be positive and not equal, right? So, in this case, the coefficients are 1 for \\( x^2 \\) and 4 for \\( y^2 \\). Both are positive, so that's good. Also, they are not equal, so that's another good sign.\n\nBut wait, the equation isn't in the standard form of an ellipse. I think the standard form is \\( \\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1 \\), where \\( (h,k) \\) is the center, and \\( a \\) and \\( b \\) are the semi-major and semi-minor axes. So, I need to complete the square for both \\( x \\) and \\( y \\) terms to get it into that form.\n\nLet me write down the equation again:\n\n\\( x^2 + 4y^2 - 10x + 56y = k \\)\n\nI think I should group the \\( x \\) terms together and the \\( y \\) terms together. So, let's rearrange:\n\n\\( x^2 - 10x + 4y^2 + 56y = k \\)\n\nNow, I need to complete the square for \\( x \\) and \\( y \\). Let's start with the \\( x \\) terms: \\( x^2 - 10x \\). To complete the square, I take half of the coefficient of \\( x \\), which is -10, so half is -5, and then square it, which is 25. So, I can write \\( x^2 - 10x = (x - 5)^2 - 25 \\).\n\nSimilarly, for the \\( y \\) terms: \\( 4y^2 + 56y \\). Hmm, I notice that the coefficient of \\( y^2 \\) is 4, so I might factor that out first to make it easier. Let's factor out 4:\n\n\\( 4(y^2 + 14y) \\)\n\nNow, inside the parentheses, it's \\( y^2 + 14y \\). To complete the square, take half of 14, which is 7, square it, which is 49. So, \\( y^2 + 14y = (y + 7)^2 - 49 \\).\n\nBut remember, we factored out a 4 earlier, so we have to multiply that back in. So, \\( 4(y^2 + 14y) = 4[(y + 7)^2 - 49] = 4(y + 7)^2 - 196 \\).\n\nOkay, so now let's substitute these back into the original equation.\n\nOriginal equation after grouping:\n\n\\( (x - 5)^2 - 25 + 4(y + 7)^2 - 196 = k \\)\n\nCombine the constants on the left side:\n\n\\( (x - 5)^2 + 4(y + 7)^2 - 25 - 196 = k \\)\n\nCalculate \\( -25 - 196 \\): that's \\( -221 \\). So,\n\n\\( (x - 5)^2 + 4(y + 7)^2 - 221 = k \\)\n\nNow, let's move the constant term to the right side:\n\n\\( (x - 5)^2 + 4(y + 7)^2 = k + 221 \\)\n\n",
+      "conclusion": "施加后主要多出答后配方复核和坐标平移重推，另有有效的退化边界核验；不是最终答案排版拉长，也不能把全部额外思考一律判成无用。",
+      "prefix_state": "前缀已得到 (x-5)^2+4(y+7)^2=k+221，但尚未明确写出请求的 a 值。",
+      "math_check": "(x-5)^2+4(y+7)^2=k+221；k>-221 时为实非退化椭圆，等号为单点，小于时无实点，故 a=-221。",
+      "arms": {
+        "apply": {
+          "phase_counts": {
+            "total": 3343,
+            "thinking": 2873,
+            "new_thinking": 1963,
+            "after_think_marker": 469,
+            "marker": 1,
+            "prefix": 910,
+            "new_tokens": 2433
+          },
+          "author_correct": true,
+          "extracted_answer": "-221",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B19:apply:P001",
+            "last_paragraph": "B19:apply:P068",
+            "continuation_sha256": "f1f7becac71c690bea5b4e147babae9e397b4230678e24a97f1c112e16437260"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B19:apply:P008",
+            "text": "Therefore, the equation represents a non-degenerate ellipse if and only if \\( k > -221 \\). So, the value of \\( a \\) is \\( -221 \\).",
+            "continuation_tokens_through_anchor": 511,
+            "remaining_thinking_tokens": 1452
+          }
+        },
+        "skip": {
+          "phase_counts": {
+            "total": 2415,
+            "thinking": 1916,
+            "new_thinking": 1006,
+            "after_think_marker": 498,
+            "marker": 1,
+            "prefix": 910,
+            "new_tokens": 1505
+          },
+          "author_correct": true,
+          "extracted_answer": "-221",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B19:skip:P001",
+            "last_paragraph": "B19:skip:P035",
+            "continuation_sha256": "e8d86fd22ec6768ca173624e6d791e68b8857c7b505b27c0c03961fb379cb199"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B19:skip:P009",
+            "text": "So, \\( k + 221 > 0 \\) implies \\( k > -221 \\). Therefore, the equation represents a non-degenerate ellipse if and only if \\( k > -221 \\). So, \\( a = -221 \\).",
+            "continuation_tokens_through_anchor": 435,
+            "remaining_thinking_tokens": 571
+          }
+        }
+      },
+      "evidence": [
+        {
+          "arm": "apply",
+          "start_paragraph": "B19:apply:P007",
+          "end_paragraph": "B19:apply:P008",
+          "start_char": 812,
+          "stop_char": 1325,
+          "passage_sha256": "0d9cd9f50bcbd173def6975aed6a4c6ad527d727dc27938af951acde69a81bc1",
+          "finding": "从标准形式得到阈值和目标答案。",
+          "excerpts": [
+            {
+              "paragraph": "B19:apply:P008",
+              "text": "Therefore, the equation represents a non-degenerate ellipse if and only if \\( k > -221 \\). So, the value of \\( a \\) is \\( -221 \\)."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B19:apply:P009",
+          "end_paragraph": "B19:apply:P028",
+          "start_char": 1327,
+          "stop_char": 2272,
+          "passage_sha256": "c059dcfaa5dec15810dc3a62e3fcaaa866779b888489b818185eb2111b56b0f7",
+          "finding": "回到原式再次配方，复算已完成的代数。",
+          "excerpts": [
+            {
+              "paragraph": "B19:apply:P009",
+              "text": "Wait, hold on, let me double-check my steps because sometimes when completing the square, especially with coefficients, it's easy to make a mistake."
+            },
+            {
+              "paragraph": "B19:apply:P010",
+              "text": "Starting again, the original equation:"
+            },
+            {
+              "paragraph": "B19:apply:P028",
+              "text": "Yes, that seems correct. So, the denominators must be positive, so \\( k + 221 > 0 \\), so \\( k > -221 \\). Therefore, \\( a = -221 \\)."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B19:apply:P029",
+          "end_paragraph": "B19:apply:P029",
+          "start_char": 2274,
+          "stop_char": 2814,
+          "passage_sha256": "bb71aebef2e27f04d79b103b56e7ed6b63671dbafedb1637bfd8503bad6e99d4",
+          "finding": "补查等号时退化为一点，是有效的边界检查。",
+          "excerpts": [
+            {
+              "paragraph": "B19:apply:P029",
+              "text": "But wait, let me think about whether \\( k + 221 \\) is positive. If \\( k + 221 \\) is positive, then both denominators are positive, so it's an ellipse. If \\( k + 221 = 0 \\), then the equation becomes \\( (x - 5)^2 + 4(y + 7)^2 = 0 \\), which only has the trivial solution \\( x = 5 \\) and \\( y = -7 \\), which is a single point, not an ellipse. So, \\( k = -221 \\) is the boundary case where it's a degenerate ellipse (a single point). Therefore, for it to be a non-degenerate ellipse, \\( k \\) must be greater than \\( -221 \\). So, \\( a = -221 \\)."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B19:apply:P031",
+          "end_paragraph": "B19:apply:P033",
+          "start_char": 2980,
+          "stop_char": 3640,
+          "passage_sha256": "ec307268c98276ceb5e138ef9cdae789c742a545f3c351ac3faafe136470b472",
+          "finding": "提到矩阵行列式/二次型判别但未落实；仅凭二次型正定不足以断言实非退化椭圆。此处不能当作新增的完整正确证明。",
+          "excerpts": [
+            {
+              "paragraph": "B19:apply:P032",
+              "text": "The general equation of an ellipse is \\( Ax^2 + By^2 + Cx + Dy + E = 0 \\), and it's non-degenerate if the determinant of the matrix formed by the coefficients is positive. But I think that's more complicated. Alternatively, the condition for the equation to represent an ellipse is that the quadratic form is positive definite, which in this case, since the coefficients of \\( x^2 \\) and \\( y^2 \\) are positive, it's an ellipse."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B19:apply:P034",
+          "end_paragraph": "B19:apply:P057",
+          "start_char": 3642,
+          "stop_char": 4827,
+          "passage_sha256": "474699783147c7de4ff2cb11d35ba321fa7e75fb22a9e46282a29eb2a7c44c1d",
+          "finding": "坐标平移、展开和常数运算，重新得到同一个配方结果；有效的等价重推。",
+          "excerpts": [
+            {
+              "paragraph": "B19:apply:P034",
+              "text": "Alternatively, maybe I can think about the equation in terms of shifting the origin. Let me set \\( h = 5 \\) and \\( k' = -7 \\), so shifting the coordinates to center the ellipse."
+            },
+            {
+              "paragraph": "B19:apply:P054",
+              "text": "\\( X^2 + 4Y^2 = k + 221 \\)"
+            },
+            {
+              "paragraph": "B19:apply:P057",
+              "text": "Which is the standard form of an ellipse, as long as \\( k + 221 > 0 \\). So, again, \\( k > -221 \\). Therefore, \\( a = -221 \\)."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B19:skip:P010",
+          "end_paragraph": "B19:skip:P024",
+          "start_char": 1141,
+          "stop_char": 2657,
+          "passage_sha256": "1fd0a937640499eeef7d91e5aa76dcfc99fde4dc22dfa7ab1ec1a6df950c8467",
+          "finding": "也做符号及配方复核，但没有同样长的坐标平移展开。",
+          "excerpts": [
+            {
+              "paragraph": "B19:skip:P010",
+              "text": "Wait, hold on, let me make sure I didn't make a mistake in the signs. When I completed the square for the \\( y \\) terms, I had \\( 4(y^2 + 14y) \\), which became \\( 4[(y + 7)^2 - 49] \\), which is \\( 4(y + 7)^2 - 196 \\). So, that's correct."
+            },
+            {
+              "paragraph": "B19:skip:P019",
+              "text": "So, yes, the denominators must be positive, so \\( k + 221 > 0 \\), so \\( k > -221 \\). Therefore, \\( a = -221 \\)."
+            },
+            {
+              "paragraph": "B19:skip:P024",
+              "text": "**Final Answer**\nThe value of \\( a \\) is \\boxed{-221}.\n</think>"
+            }
+          ]
+        }
+      ],
+      "apply_minus_skip": {
+        "total": 928,
+        "thinking": 957,
+        "after_think_marker": -29
+      }
+    },
+    {
+      "case_id": "B13",
+      "boundary": {
+        "calibration_index": 107,
+        "stratum": "positive",
+        "step": 16,
+        "boundary_output_offset": 786,
+        "confidence": 0.9991181205384101,
+        "variance": 0.009726792040316613,
+        "confidence_float32": 0.9991180896759033,
+        "variance_float32": 0.009726779535412788,
+        "step_tokens": 13,
+        "projected_coefficient": 0.0004666786746365392,
+        "projected_coefficient_float32": 0.0004665553569793701,
+        "case_id": "B13",
+        "train_index": 1401,
+        "prefix_generated_tokens": 787,
+        "original_prompt_tokens": 70,
+        "remaining_tokens": 15213,
+        "prefix_sha256": "fadb7f50b8c9fabef79fac5f2f6fe1d4e2291ae95a283dc27dacaca278f4ea20",
+        "prompt_sha256": "5be4564c7950b875b664e36d6b10db0e9707f6875a132374d2a66115e4504ad8",
+        "source_output_tokens": 2333,
+        "source_finish_reason": "stop"
+      },
+      "question": "The graph of $y = ax^2 + bx + c$ has a maximum value of 54, and passes through the points $(-2,0)$ and $(4,0).$  Find $a + b + c.$",
+      "shared_prefix": "Okay, so I have this problem here: the graph of y = ax² + bx + c has a maximum value of 54, and it passes through the points (-2, 0) and (4, 0). I need to find a + b + c. Hmm, let me think about how to approach this.\n\nFirst, I remember that the graph of a quadratic equation is a parabola. Since it has a maximum value, that means the parabola opens downward. So, the coefficient 'a' must be negative. That's good to know.\n\nNow, the parabola passes through the points (-2, 0) and (4, 0). That means when x is -2, y is 0, and when x is 4, y is 0. So, these are the roots of the quadratic equation. I remember that if a quadratic has roots at x = r and x = s, it can be written in the form y = a(x - r)(x - s). That might be helpful here.\n\nLet me write that down. So, y = a(x - (-2))(x - 4). Simplifying that, it becomes y = a(x + 2)(x - 4). Okay, so that's the equation in factored form. Now, I can expand this to get it into standard form, which is y = ax² + bx + c.\n\nLet me do that expansion step by step. First, multiply (x + 2) and (x - 4). Using the distributive property:\n\n(x + 2)(x - 4) = x(x - 4) + 2(x - 4) = x² - 4x + 2x - 8 = x² - 2x - 8.\n\nSo, now, the equation is y = a(x² - 2x - 8). Let me distribute the 'a' into the parentheses:\n\ny = a*x² - 2a*x - 8a.\n\nSo, in standard form, that's y = ax² + (-2a)x + (-8a). Therefore, comparing with y = ax² + bx + c, we have:\n\na = a (which is consistent),\nb = -2a,\nc = -8a.\n\nAlright, so now I have expressions for b and c in terms of a. But I need to find the specific values of a, b, and c. I know that the parabola has a maximum value of 54. Since it's a quadratic with a maximum, the vertex is the highest point on the parabola.\n\nI remember that the vertex of a parabola given by y = ax² + bx + c is at the point (h, k), where h = -b/(2a) and k is the maximum value (since a is negative). So, in this case, the vertex is at (h, 54). So, h = -b/(2a) and k = 54.\n\nBut I already have expressions for b and c in terms of a. Let me substitute those into h.\n\nSo, h = -b/(2a) = -(-2a)/(2a) = (2a)/(2a) = 1. So, h is 1. That means the vertex is at (1, 54). So, the x-coordinate of the vertex is 1, and the y-coordinate is 54.\n\nNow, I can use the vertex form of a quadratic equation to find 'a'. The vertex form is y = a(x - h)² + k. Plugging in the vertex (1, 54), we get:\n\ny = a(x - 1)² + 54.\n\n",
+      "conclusion": "跳过支路更早明确算出请求的和，随后额外用顶点高度公式和方程组分别重推。施加支路仍保留 f(1) 的结构核验与步骤回顾。主要长度差发生在已有答案之后。",
+      "prefix_state": "前缀已有 b=-2a、c=-8a、顶点 (1,54) 和顶点式；尚未明确把 a+b+c 写成54，但这些信息已足以直接推出答案，不能把后续明确答案锚点当成最早可停止处。",
+      "math_check": "两根为 -2、4，顶点横坐标为1，因此 a+b+c=f(1)=54；展开可得 a=-6、b=12、c=48。",
+      "arms": {
+        "apply": {
+          "phase_counts": {
+            "total": 2458,
+            "thinking": 1896,
+            "new_thinking": 1109,
+            "after_think_marker": 561,
+            "marker": 1,
+            "prefix": 787,
+            "new_tokens": 1671
+          },
+          "author_correct": true,
+          "extracted_answer": "54",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B13:apply:P001",
+            "last_paragraph": "B13:apply:P042",
+            "continuation_sha256": "bc947a8fdf6129435431550d3f44eb9dced6a0719e0572fd26ec856aa47e8197"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B13:apply:P030",
+            "text": "So, a + b + c = 54.",
+            "continuation_tokens_through_anchor": 592,
+            "remaining_thinking_tokens": 517
+          }
+        },
+        "skip": {
+          "phase_counts": {
+            "total": 3242,
+            "thinking": 2719,
+            "new_thinking": 1932,
+            "after_think_marker": 522,
+            "marker": 1,
+            "prefix": 787,
+            "new_tokens": 2455
+          },
+          "author_correct": true,
+          "extracted_answer": "54",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B13:skip:P001",
+            "last_paragraph": "B13:skip:P103",
+            "continuation_sha256": "ee2731cfca3236a6e4cfca62b5e42b8e88e1ae60b6369db383c0b3718e634ddc"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B13:skip:P020",
+            "text": "Wait, that's interesting. So, a + b + c is 54. Hmm, is that correct? Let me verify.",
+            "continuation_tokens_through_anchor": 513,
+            "remaining_thinking_tokens": 1419
+          }
+        }
+      },
+      "evidence": [
+        {
+          "arm": "apply",
+          "start_paragraph": "B13:apply:P009",
+          "end_paragraph": "B13:apply:P030",
+          "start_char": 682,
+          "stop_char": 1439,
+          "passage_sha256": "cd06a377b947d6c1037defc07b33528a79826b38503ed5a8b5a11b624480e5b2",
+          "finding": "代入根求 a，再求 b、c 和目标和。",
+          "excerpts": [
+            {
+              "paragraph": "B13:apply:P020",
+              "text": "9a = -54,\na = -54 / 9,\na = -6."
+            },
+            {
+              "paragraph": "B13:apply:P025",
+              "text": "c = -6 + 54 = 48."
+            },
+            {
+              "paragraph": "B13:apply:P030",
+              "text": "So, a + b + c = 54."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B13:apply:P031",
+          "end_paragraph": "B13:apply:P039",
+          "start_char": 1441,
+          "stop_char": 2710,
+          "passage_sha256": "063affaece0017cd5c2f5c971dfab652e17499cbb2ddd26831e3a29836e9b45b",
+          "finding": "用 f(1)=a+b+c=54 作另一种简明验证，并回顾已有步骤。",
+          "excerpts": [
+            {
+              "paragraph": "B13:apply:P033",
+              "text": "y = a(1)² + b(1) + c = a + b + c."
+            },
+            {
+              "paragraph": "B13:apply:P035",
+              "text": "Therefore, the answer is 54."
+            },
+            {
+              "paragraph": "B13:apply:P037",
+              "text": "1. The parabola has a maximum, so a is negative.\n2. Passes through (-2, 0) and (4, 0), so roots at x = -2 and x = 4.\n3. Factored form: y = a(x + 2)(x - 4).\n4. Expanded to y = a(x² - 2x - 8).\n5. Vertex at (1, 54), so h = 1, k = 54.\n6. Vertex form: y = a(x - 1)² + 54.\n7. Expanded to y = ax² - 2a x + a + 54.\n8. Comparing with standard form, found b = -2a, c = a + 54.\n9. Used point (-2, 0) to find a: 0 = 4a - 2b + c.\n10. Substituted b and c: 0 = 4a - 2*(-2a) + (a + 54) => 0 = 4a + 4a + a + 54 => 9a + 54 = 0 => a = -6.\n11. Then, b = -2*(-6) = 12, c = -6 + 54 = 48.\n12. Therefore, a + b + c = -6 + 12 + 48 = 54."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B13:skip:P007",
+          "end_paragraph": "B13:skip:P020",
+          "start_char": 371,
+          "stop_char": 1258,
+          "passage_sha256": "fe4d83ff7c7ab06601dbe112fcc12809f9153c6e0c8e65c3571db92e30fb5cf8",
+          "finding": "把 c=-8a 与 c=a+54 联立，直接解出 a，再求和。conflicting 一词不是数学出错证据，两条约束相容。",
+          "excerpts": [
+            {
+              "paragraph": "B13:skip:P007",
+              "text": "Wait, earlier I had c = -8a. Hmm, that seems conflicting. Let me check my earlier steps."
+            },
+            {
+              "paragraph": "B13:skip:P011",
+              "text": "-8a - a = 54 => -9a = 54 => a = 54 / (-9) => a = -6."
+            },
+            {
+              "paragraph": "B13:skip:P020",
+              "text": "Wait, that's interesting. So, a + b + c is 54. Hmm, is that correct? Let me verify."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B13:skip:P021",
+          "end_paragraph": "B13:skip:P028",
+          "start_char": 1260,
+          "stop_char": 1770,
+          "passage_sha256": "f36af34e2bbf90ead77676de9d0bc0766317ebdd69f9f69ae0296127f3571bde",
+          "finding": "代回两个根和顶点做有效核验，不把这种代入检查自动判为冗余。",
+          "excerpts": [
+            {
+              "paragraph": "B13:skip:P021",
+              "text": "First, let's check if the quadratic equation with a = -6, b = 12, c = 48 indeed passes through (-2, 0) and (4, 0)."
+            },
+            {
+              "paragraph": "B13:skip:P023",
+              "text": "y = -6*(-2)^2 + 12*(-2) + 48 = -6*4 + (-24) + 48 = -24 -24 + 48 = 0. Correct."
+            },
+            {
+              "paragraph": "B13:skip:P027",
+              "text": "y = -6*(1)^2 + 12*(1) + 48 = -6 + 12 + 48 = 54. Correct."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B13:skip:P029",
+          "end_paragraph": "B13:skip:P043",
+          "start_char": 1772,
+          "stop_char": 2677,
+          "passage_sha256": "d96829e3c1c7e00329dcb71b9d7e90e5fc06e7c8c54514eea8695a2d03685c0b",
+          "finding": "答案后用顶点高度公式再求一次系数与和。",
+          "excerpts": [
+            {
+              "paragraph": "B13:skip:P029",
+              "text": "But wait, just to make sure, let me think if there's another way to approach this problem. Maybe using the vertex formula directly."
+            },
+            {
+              "paragraph": "B13:skip:P030",
+              "text": "We know that the vertex is at (h, k) = (1, 54). So, h = -b/(2a) = 1, so -b/(2a) = 1 => b = -2a."
+            },
+            {
+              "paragraph": "B13:skip:P043",
+              "text": "Therefore, I think 54 is the correct answer."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B13:skip:P044",
+          "end_paragraph": "B13:skip:P094",
+          "start_char": 2679,
+          "stop_char": 4498,
+          "passage_sha256": "502336e2d6068cc027c60f895216fc692925a507113b6942e66f10f4d3cc01f9",
+          "finding": "又从两根和顶点条件列方程组，完整重做系数与目标和。",
+          "excerpts": [
+            {
+              "paragraph": "B13:skip:P044",
+              "text": "But just to make sure, let me think if there's another way to approach this problem, maybe using the system of equations."
+            },
+            {
+              "paragraph": "B13:skip:P072",
+              "text": "12a + 6b = 0 => Divide both sides by 6: 2a + b = 0 => b = -2a."
+            },
+            {
+              "paragraph": "B13:skip:P089",
+              "text": "-9a = 54,"
+            },
+            {
+              "paragraph": "B13:skip:P093",
+              "text": "So, same result as before. Therefore, a + b + c = (-6) + 12 + 48 = 54."
+            }
+          ]
+        }
+      ],
+      "apply_minus_skip": {
+        "total": -784,
+        "thinking": -823,
+        "after_think_marker": 39
+      }
+    },
+    {
+      "case_id": "B03",
+      "boundary": {
+        "calibration_index": 91,
+        "stratum": "strong_negative",
+        "step": 1,
+        "boundary_output_offset": 54,
+        "confidence": 0.8455569400460695,
+        "variance": 0.0,
+        "confidence_float32": 0.8455569744110107,
+        "variance_float32": 0.0,
+        "step_tokens": 54,
+        "projected_coefficient": -0.5522460251698378,
+        "projected_coefficient_float32": -0.5522459745407104,
+        "case_id": "B03",
+        "train_index": 3714,
+        "prefix_generated_tokens": 55,
+        "original_prompt_tokens": 277,
+        "remaining_tokens": 15945,
+        "prefix_sha256": "1633b205af8b0108dac0fdc45fcc11b133b8a8bc05df2d76b19956c8b8b5dea5",
+        "prompt_sha256": "c20120913beee488a087d18b019ccb43f02ea15eaa25b19f37e3a6aaf37c930a",
+        "source_output_tokens": 2962,
+        "source_finish_reason": "stop"
+      },
+      "question": "In trapezoid $ABCD$, the sides $AB$ and $CD$ are equal. What is the perimeter of $ABCD$? [asy]\n/* AMC8 1999 #14 Problem */\npen p = linetype(\"4 4\");\ndraw((0,0)--(4,3)--(12,3)--(16,0)--cycle);\ndraw((4,0)--(4,3), p);\ndraw((3.5,0)--(3.5, .5)--(4.0,0.5));\n\nlabel(scale(0.75)*\"A\", (0,0), W);\nlabel(scale(0.75)*\"B\", (4,3), NW);\nlabel(scale(0.75)*\"C\", (12, 3), NE);\nlabel(scale(0.75)*\"D\", (16, 0), E);\nlabel(scale(0.75)*\"8\", (8,3), N);\nlabel(scale(0.75)*\"16\", (8,0), S);\nlabel(scale(0.75)*\"3\", (4, 1.5), E);\n[/asy]",
+      "shared_prefix": "Okay, so I have this trapezoid ABCD, and the sides AB and CD are equal. I need to find the perimeter of ABCD. Hmm, let me try to visualize the trapezoid based on the Asymptote code provided. \n\n",
+      "conclusion": "两支都误把底边标签当成腰长并反复怀疑图示；施加支路还用未知投影长度解等腰条件，答后继续纠缠边名并重推。长度差混有读图错误、纠错、有效代数和重复确认，不能统称过度核验。",
+      "prefix_state": "仅55个生成token，复述题意并准备读图；标签误读出现在两支续写的共同开头，不能归因于施加支路独有。",
+      "math_check": "图示 BC=8、AD=16、高3，AB和CD是相等的腰。每侧投影4，腰长 sqrt(4^2+3^2)=5，周长34。坐标与标签一致。",
+      "arms": {
+        "apply": {
+          "phase_counts": {
+            "total": 2968,
+            "thinking": 2600,
+            "new_thinking": 2545,
+            "after_think_marker": 367,
+            "marker": 1,
+            "prefix": 55,
+            "new_tokens": 2913
+          },
+          "author_correct": true,
+          "extracted_answer": "34",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B03:apply:P001",
+            "last_paragraph": "B03:apply:P048",
+            "continuation_sha256": "c0e5f14228b73beaf8918120f4f6989313695dfa45b8e574ab553d10e8026cea"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B03:apply:P028",
+            "text": "Therefore, the perimeter is AB + BC + CD + DA = 5 + 8 + 5 + 16 = 34.",
+            "continuation_tokens_through_anchor": 1750,
+            "remaining_thinking_tokens": 795
+          }
+        },
+        "skip": {
+          "phase_counts": {
+            "total": 2263,
+            "thinking": 1978,
+            "new_thinking": 1923,
+            "after_think_marker": 284,
+            "marker": 1,
+            "prefix": 55,
+            "new_tokens": 2208
+          },
+          "author_correct": true,
+          "extracted_answer": "34",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B03:skip:P001",
+            "last_paragraph": "B03:skip:P027",
+            "continuation_sha256": "f98076ea9955ff10ec6bb9529c5ce4f462c17774c1b30e7b4d1f8b774131016d"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B03:skip:P014",
+            "text": "Therefore, each leg is 5 units, so the perimeter is 2*(5) + 8 + 16 = 10 + 8 + 16 = 34 units.",
+            "continuation_tokens_through_anchor": 1633,
+            "remaining_thinking_tokens": 290
+          }
+        }
+      },
+      "evidence": [
+        {
+          "arm": "apply",
+          "start_paragraph": "B03:apply:P001",
+          "end_paragraph": "B03:apply:P007",
+          "start_char": 0,
+          "stop_char": 2519,
+          "passage_sha256": "7570d05815fbf69ac4cf668c22fc7bae1fc4032ec794b7ade44233e7ad2f9e65",
+          "finding": "错误地声称 AB 标8、CD 标16，并混淆底边与腰、等腰条件。",
+          "excerpts": [
+            {
+              "paragraph": "B03:apply:P001",
+              "text": "First, the Asymptote code draws a trapezoid with coordinates: A at (0,0), B at (4,3), C at (12,3), and D at (16,0). It also draws some additional lines, like a dashed line from (4,0) to (4,3), which is probably the height of the trapezoid. The labels show that side AB is labeled 8, side CD is labeled 16, and the height is labeled 3. "
+            },
+            {
+              "paragraph": "B03:apply:P004",
+              "text": "So, in a trapezoid, the perimeter is the sum of all sides. I know AB and CD are equal, but I don't know their lengths yet. The other sides are BC and AD, which are the non-parallel sides. Since it's a trapezoid, the two non-parallel sides are called the legs. "
+            },
+            {
+              "paragraph": "B03:apply:P006",
+              "text": "Wait, but in the Asymptote code, the sides AB and CD are equal, but in the coordinate system, they aren't. So, maybe it's an isosceles trapezoid? Hmm, but the problem doesn't specify that. So, perhaps I need to figure out the lengths of the legs."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B03:skip:P001",
+          "end_paragraph": "B03:skip:P010",
+          "start_char": 0,
+          "stop_char": 4247,
+          "passage_sha256": "e5e7463062e95219095d60b902f4392325619276bf34afae55d60f93b53548ec",
+          "finding": "同样的标签误读以及反复声称坐标和题意矛盾；两边都有，不能只把较长支路视为发生错误。",
+          "excerpts": [
+            {
+              "paragraph": "B03:skip:P001",
+              "text": "First, the Asymptote code draws a trapezoid with coordinates: A at (0,0), B at (4,3), C at (12,3), and D at (16,0). It also draws some additional lines, like a dashed line from (4,0) to (4,3), which is probably the height of the trapezoid. The labels show that side AB is labeled 8, side CD is labeled 16, and the height is labeled 3. "
+            },
+            {
+              "paragraph": "B03:skip:P005",
+              "text": "Wait, let me think. In a trapezoid, the bases are the two sides that are parallel. So, in the Asymptote code, the sides AB and CD are not necessarily parallel. The sides BC and AD are the ones that are parallel because they are the top and bottom bases. So, in the Asymptote code, BC is from (4,3) to (12,3), which is 8 units long, and AD is from (0,0) to (16,0), which is 16 units long. So, BC is 8, AD is 16, and the height is 3. So, the trapezoid is not isosceles because the legs AB and CD are not equal in length. Wait, but the problem says AB and CD are equal. Hmm, that's conflicting."
+            },
+            {
+              "paragraph": "B03:skip:P006",
+              "text": "Wait, maybe I misread the Asymptote code. Let me check again. The Asymptote code draws the trapezoid with coordinates A(0,0), B(4,3), C(12,3), D(16,0). So, AB is from (0,0) to (4,3), which is 5 units, BC is from (4,3) to (12,3), which is 8 units, CD is from (12,3) to (16,0), which is sqrt[(16-12)^2 + (0-3)^2] = sqrt[16 + 9] = 5 units, and DA is from (16,0) to (0,0), which is 16 units. So, in this trapezoid, AB and CD are both 5 units, BC is 8 units, and DA is 16 units. But the problem says AB and CD are equal, but in this case, they are both 5. So, maybe the Asymptote code is just an example, and the actual problem is different."
+            },
+            {
+              "paragraph": "B03:skip:P008",
+              "text": "So, let me try to reconstruct the problem. We have a trapezoid ABCD with AB and CD equal. The height is 3, and the lengths of the two bases are 8 and 16. Wait, but in a trapezoid, the two bases are the two parallel sides. So, if AB and CD are equal, and the height is 3, then perhaps AB and CD are the legs, and the bases are BC and AD. But in that case, the legs are equal, making it an isosceles trapezoid. But in the Asymptote code, the legs are not equal. Hmm, maybe I need to clarify."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B03:apply:P010",
+          "end_paragraph": "B03:apply:P028",
+          "start_char": 3181,
+          "stop_char": 5477,
+          "passage_sha256": "3acba4bca11a7893740fbf2aada7ad8649335deae1e422488df3d6f1a4e28e91",
+          "finding": "逐渐恢复正确边名，通过 a^2+9=(8-a)^2+9 求投影4，再求周长34。代数本身有效。",
+          "excerpts": [
+            {
+              "paragraph": "B03:apply:P010",
+              "text": "But wait, in a trapezoid, the legs are the non-parallel sides, so in this case, AB and CD are the legs. So, the legs are AB and CD, which are equal. So, AB = CD = x. Then, the other sides are BC and AD."
+            },
+            {
+              "paragraph": "B03:apply:P013",
+              "text": "So, AE + FD = 8. But since AB and CD are equal, and the trapezoid is not necessarily isosceles, AE and FD can be different. Let me denote AE = a, then FD = 8 - a."
+            },
+            {
+              "paragraph": "B03:apply:P014",
+              "text": "Now, in the right triangles ABE and CDF, we can apply the Pythagorean theorem. The height is 3, so the legs of these triangles are 3 and a, and 3 and (8 - a), respectively. So, the lengths of the legs AB and CD can be found as sqrt(a^2 + 3^2) and sqrt((8 - a)^2 + 3^2). But since AB = CD, we have sqrt(a^2 + 9) = sqrt((8 - a)^2 + 9). Let me square both sides to eliminate the square roots:"
+            },
+            {
+              "paragraph": "B03:apply:P023",
+              "text": "Therefore, a = 4."
+            },
+            {
+              "paragraph": "B03:apply:P028",
+              "text": "Therefore, the perimeter is AB + BC + CD + DA = 5 + 8 + 5 + 16 = 34."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B03:skip:P011",
+          "end_paragraph": "B03:skip:P014",
+          "start_char": 4249,
+          "stop_char": 5263,
+          "passage_sha256": "bb399632ba271dc28110fcf1c1eae86bde77fd34db7580265a2c0008521ef578",
+          "finding": "明确两腰相等后直接平分底差，用勾股定理得到34。",
+          "excerpts": [
+            {
+              "paragraph": "B03:skip:P011",
+              "text": "So, let me try to model this trapezoid. Let me denote the trapezoid as ABCD, with AB and CD equal. Let me assume that AB and CD are the legs, and BC and AD are the bases. So, BC is 8 units, AD is 16 units, and the height is 3 units. So, the legs AB and CD are equal in length, and I need to find their length."
+            },
+            {
+              "paragraph": "B03:skip:P012",
+              "text": "To find the length of the legs, I can use the Pythagorean theorem. Since the trapezoid has two bases of different lengths, the legs will form right triangles on each side. The difference in the lengths of the bases is 16 - 8 = 8 units. Since the trapezoid is isosceles (because legs are equal), this difference is split equally on both sides. So, each side will have an overhang of 8 / 2 = 4 units."
+            },
+            {
+              "paragraph": "B03:skip:P014",
+              "text": "Therefore, each leg is 5 units, so the perimeter is 2*(5) + 8 + 16 = 10 + 8 + 16 = 34 units."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B03:apply:P029",
+          "end_paragraph": "B03:apply:P038",
+          "start_char": 5479,
+          "stop_char": 7686,
+          "passage_sha256": "55dfc6bd2cb47ba6391cd76f51c0563a1c925c6a4e9a5dfd01fd40c4c696ff90",
+          "finding": "答后再次核对标签，仍夹杂误述，最后用题给边长重新推导。",
+          "excerpts": [
+            {
+              "paragraph": "B03:apply:P030",
+              "text": "In the Asymptote code, the labels are: AB is labeled 8, CD is labeled 16, and the height is labeled 3. So, in the diagram, AB is the left leg, BC is the top base, CD is the right leg, and DA is the bottom base. So, yes, AB = 5, BC = 8, CD = 5, DA = 16. So, perimeter is 5 + 8 + 5 + 16 = 34."
+            },
+            {
+              "paragraph": "B03:apply:P032",
+              "text": "But wait, in the problem statement, it's just given that AB and CD are equal, not necessarily that the legs are equal. So, in the Asymptote code, it's a specific case where AB and CD are equal, but in reality, the problem is general. So, perhaps the perimeter is 34 regardless of the specific lengths, as long as AB and CD are equal."
+            },
+            {
+              "paragraph": "B03:apply:P036",
+              "text": "Top base BC is 8, bottom base AD is 16, height is 3. AB = CD = x. Then, the legs AB and CD can be found using the Pythagorean theorem. The difference in the bases is 16 - 8 = 8. So, the total overhang on both sides is 8, so each side overhangs by 4. So, AE = FD = 4. Then, AB = sqrt(4^2 + 3^2) = 5. So, AB = CD = 5. Then, the perimeter is 5 + 8 + 5 + 16 = 34."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B03:skip:P015",
+          "end_paragraph": "B03:skip:P020",
+          "start_char": 5265,
+          "stop_char": 6114,
+          "passage_sha256": "0ff9a0612076f8340dcfc25297a59173239e3e34f5fbde6f6a713ee4d78b0d3b",
+          "finding": "答后仍检查坐标与等腰性质，但收束更早。",
+          "excerpts": [
+            {
+              "paragraph": "B03:skip:P017",
+              "text": "Alternatively, if the trapezoid is not isosceles, but legs are equal, then the overhang on each side would be different, but in that case, the legs would not be equal. So, in this problem, since AB and CD are equal, the trapezoid must be isosceles, so the overhang on each side is equal, which is 4 units each, leading to legs of 5 units each."
+            },
+            {
+              "paragraph": "B03:skip:P019",
+              "text": "Wait, but in the Asymptote code, the perimeter was 5 + 8 + 5 + 16 = 34 as well. So, that's consistent."
+            }
+          ]
+        }
+      ],
+      "apply_minus_skip": {
+        "total": 705,
+        "thinking": 622,
+        "after_think_marker": 83
+      }
+    },
+    {
+      "case_id": "B05",
+      "boundary": {
+        "calibration_index": 190,
+        "stratum": "strong_negative",
+        "step": 6,
+        "boundary_output_offset": 699,
+        "confidence": 0.8183731871381345,
+        "variance": 6.35495394179043e-05,
+        "confidence_float32": 0.8183731436729431,
+        "variance_float32": 6.355044024530798e-05,
+        "step_tokens": 60,
+        "projected_coefficient": -0.5611929726329105,
+        "projected_coefficient_float32": -0.5611929893493652,
+        "case_id": "B05",
+        "train_index": 5584,
+        "prefix_generated_tokens": 700,
+        "original_prompt_tokens": 288,
+        "remaining_tokens": 15300,
+        "prefix_sha256": "5f7daccd57e3bd99a372cc50be0c7df500547454003f75561f2c01ef94d0fdf6",
+        "prompt_sha256": "424a098a8a811eb7bf98971440d407a0970e49d80195c5a591e7503365a0ad3c",
+        "source_output_tokens": 2264,
+        "source_finish_reason": "stop"
+      },
+      "question": "In the figure below, $ABCD$ is a square piece of paper 6 cm on each side. Corner $C$ is folded over so that it coincides with $E$, the midpoint of $\\overline{AD}$. If $\\overline{GF}$ represents the crease created by the fold such that $F$ is on $CD,$ what is the length of $\\overline{FD}$? Express your answer as a common fraction. [asy]\nimport geometry;\nsize(150);\npair A = (0,0), B = (0,1), C = (1,1), D = (1,0);\npath square = A--B--C--D--cycle;\ndraw(square);\nlabel(\"A\",A,SW); label(\"B\",B,NW); label(\"C\",C,NE); label(\"D\",D,SE);\npair E = midpoint(A--D);\nline CE = line(C,E);\npair X = midpoint(C--E); line FG = perpendicular(X,CE);\n\npair[] intwithsquare = intersectionpoints(FG,square);\npair G = intwithsquare[0];\npair F = intwithsquare[1];\ndraw(F--G,dashed);\nlabel(\"F\",F,E);\nlabel(\"G\",G,W);\n[/asy]",
+      "shared_prefix": "Okay, so I have this problem where there's a square piece of paper ABCD, each side is 6 cm. Corner C is folded over so that it coincides with E, the midpoint of AD. Then, there's a crease GF created by this fold, and F is on CD. I need to find the length of FD. Hmm, okay, let me try to visualize this.\n\nFirst, let me sketch the square in my mind. ABCD is a square, so all sides are 6 cm. Let me label the corners: A is at the bottom-left, B at the top-left, C at the top-right, and D at the bottom-right. So, the square is oriented with A at the origin if I place it on a coordinate system.\n\nE is the midpoint of AD. Since AD is 6 cm, E must be 3 cm from both A and D. So, if A is at (0,0), then D is at (6,0), and E is at (3,0). Wait, no, hold on. If AD is the side from A to D, which is from (0,0) to (6,0), then the midpoint E is at (3,0). But in the Asymptote code, they have A at (0,0), B at (0,1), C at (1,1), D at (1,0). So, in their coordinate system, E is the midpoint of AD, which is from (0,0) to (1,0), so E is at (0.5,0). But in the problem, each side is 6 cm, so maybe the Asymptote code is scaled down? Maybe it's just a unit square for illustration.\n\nAnyway, moving on. Corner C is folded over so that it coincides with E. So, point C is at (6,6) if we consider the square with side length 6 cm, but in the Asymptote code, it's (1,1). Maybe I should just consider the square with side length 6 cm, so A is (0,0), B is (0,6), C is (6,6), D is (6,0). Then, E is the midpoint of AD, so E is (6,0) to (0,0), so midpoint is (3,0). Wait, no, AD is from A(0,0) to D(6,0), so midpoint E is (3,0). So, E is at (3,0).\n\nSo, when we fold point C(6,6) over to E(3,0), the crease GF is formed, and F is on CD. So, CD is the side from C(6,6) to D(6,0). So, F is somewhere on CD, which is the vertical line x=6 from (6,6) to (6,0). So, F is at (6, y) for some y between 0 and 6.\n\nI need to find the length FD, which is the distance from F(6,y) to D(6,0). So, FD is just |6 - y|, since they share the same x-coordinate. So, if I can find y, then FD is just 6 - y.\n\n",
+      "conclusion": "两支都改正了共享前缀的 FD=6-y 错误。施加支路额外完整展开等距方程，得到与垂直平分线法相同的折痕；随后还有反复确认。不能说所有额外token是无效绕路，也不能用最终正确倒推前缀没有错误。",
+      "prefix_state": "前缀设 F=(6,y)、D=(6,0)，却写 FD=|6-y|、FD=6-y；应为 y，6-y 对应 CF。这个错误发生在干预边界之前，两支共享。",
+      "math_check": "折痕为 CE 的垂直平分线 y=-x/2+21/4；F=(6,9/4)，FD=9/4，CF=15/4。F 到 C、E 的平方距离均为225/16。",
+      "arms": {
+        "apply": {
+          "phase_counts": {
+            "total": 3299,
+            "thinking": 2716,
+            "new_thinking": 2016,
+            "after_think_marker": 582,
+            "marker": 1,
+            "prefix": 700,
+            "new_tokens": 2599
+          },
+          "author_correct": true,
+          "extracted_answer": "\\dfrac{9}{4}",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B05:apply:P001",
+            "last_paragraph": "B05:apply:P062",
+            "continuation_sha256": "b38007e5e885d7aefe4934606f1e053ef2742f1a6dfd8e4e7e65174fe3212371"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B05:apply:P015",
+            "text": "So, F is at (6, 2.25). Therefore, FD is the distance from (6, 2.25) to (6,0), which is 2.25 cm. But the problem says to express it as a common fraction. 2.25 is equal to 9/4. Wait, 2.25 is 9/4? Wait, no, 2.25 is 9/4? Wait, 9 divided by 4 is 2.25, yes. So, FD is 9/4 cm.",
+            "continuation_tokens_through_anchor": 684,
+            "remaining_thinking_tokens": 1332
+          }
+        },
+        "skip": {
+          "phase_counts": {
+            "total": 2867,
+            "thinking": 2250,
+            "new_thinking": 1550,
+            "after_think_marker": 616,
+            "marker": 1,
+            "prefix": 700,
+            "new_tokens": 2167
+          },
+          "author_correct": true,
+          "extracted_answer": "\\dfrac{9}{4}",
+          "finish_reason": "stop",
+          "completed_reading": {
+            "first_paragraph": "B05:skip:P001",
+            "last_paragraph": "B05:skip:P048",
+            "continuation_sha256": "37b65e19804ac671ac8b0a96a7cc675513e6c2d762947ad989f46f14ccbb748f"
+          },
+          "explicit_answer_anchor": {
+            "paragraph": "B05:skip:P014",
+            "text": "So, the crease GF intersects CD at (6, 2.25). Therefore, point F is at (6, 2.25). So, FD is the distance from (6, 2.25) to (6,0), which is 2.25 cm. But the problem says to express it as a common fraction. 2.25 is 9/4. Wait, 2.25 is 9/4? Wait, 9 divided by 4 is 2.25, yes. So, FD is 9/4 cm.",
+            "continuation_tokens_through_anchor": 618,
+            "remaining_thinking_tokens": 932
+          }
+        }
+      },
+      "evidence": [
+        {
+          "arm": "apply",
+          "start_paragraph": "B05:apply:P001",
+          "end_paragraph": "B05:apply:P015",
+          "start_char": 0,
+          "stop_char": 1871,
+          "passage_sha256": "a0d371471410631dd8a1f6df5bb643b1088f2c8182da54fe372547e0e5fd3ace",
+          "finding": "垂直平分线求 F=(6,2.25)，在目标距离处直接改用 FD=2.25=9/4。",
+          "excerpts": [
+            {
+              "paragraph": "B05:apply:P014",
+              "text": "y = (-1/2)(6) + 5.25 = (-3) + 5.25 = 2.25"
+            },
+            {
+              "paragraph": "B05:apply:P015",
+              "text": "So, F is at (6, 2.25). Therefore, FD is the distance from (6, 2.25) to (6,0), which is 2.25 cm. But the problem says to express it as a common fraction. 2.25 is equal to 9/4. Wait, 2.25 is 9/4? Wait, no, 2.25 is 9/4? Wait, 9 divided by 4 is 2.25, yes. So, FD is 9/4 cm."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B05:skip:P001",
+          "end_paragraph": "B05:skip:P014",
+          "start_char": 0,
+          "stop_char": 1606,
+          "passage_sha256": "45476d44a55eb9ff01fd503a2c3405da07c8c75be949a0f5da5842b0f25e6284",
+          "finding": "同样求出 F 并正确使用 FD=y，纠错并非施加独有。",
+          "excerpts": [
+            {
+              "paragraph": "B05:skip:P013",
+              "text": "y = (-1/2)(6) + 5.25 = (-3) + 5.25 = 2.25"
+            },
+            {
+              "paragraph": "B05:skip:P014",
+              "text": "So, the crease GF intersects CD at (6, 2.25). Therefore, point F is at (6, 2.25). So, FD is the distance from (6, 2.25) to (6,0), which is 2.25 cm. But the problem says to express it as a common fraction. 2.25 is 9/4. Wait, 2.25 is 9/4? Wait, 9 divided by 4 is 2.25, yes. So, FD is 9/4 cm."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B05:apply:P019",
+          "end_paragraph": "B05:apply:P041",
+          "start_char": 2695,
+          "stop_char": 3856,
+          "passage_sha256": "b0db1bc49d80f110d94f1d8d93ce17c3083d9a69f1bf52feb347d4d4777ecce1",
+          "finding": "额外展开到 C、E 等距的方程，化成 x+2y=10.5，验证同一折痕和答案，是有效的等价代数核验。",
+          "excerpts": [
+            {
+              "paragraph": "B05:apply:P019",
+              "text": "Alternatively, maybe I can use coordinate geometry to find the crease. Let me try that."
+            },
+            {
+              "paragraph": "B05:apply:P021",
+              "text": "So, if I take a general point (x,y) on GF, then sqrt((x - 6)^2 + (y - 6)^2) = sqrt((x - 3)^2 + (y - 0)^2). Squaring both sides:"
+            },
+            {
+              "paragraph": "B05:apply:P036",
+              "text": "2x + 4y -21 = 0"
+            },
+            {
+              "paragraph": "B05:apply:P040",
+              "text": "So, the equation of the crease GF is x + 2y = 10.5, or y = (-1/2)x + 10.5/2, which is y = (-1/2)x + 5.25, which matches what I found earlier. So, that's correct."
+            },
+            {
+              "paragraph": "B05:apply:P041",
+              "text": "So, plugging x=6 into this equation, y = (-1/2)(6) + 5.25 = -3 + 5.25 = 2.25, which is 9/4. So, FD is 9/4 cm."
+            }
+          ]
+        },
+        {
+          "arm": "apply",
+          "start_paragraph": "B05:apply:P042",
+          "end_paragraph": "B05:apply:P053",
+          "start_char": 3858,
+          "stop_char": 5389,
+          "passage_sha256": "58189063af30a7bdbd6b77a51fe32a9b63a4b2d425a203997f72715e00bc1a28",
+          "finding": "提出相似三角形/向量等可能性但未完成新解法，并继续复述折痕和答案。",
+          "excerpts": [
+            {
+              "paragraph": "B05:apply:P043",
+              "text": "Alternatively, maybe I can use similar triangles or coordinate geometry to find the crease."
+            },
+            {
+              "paragraph": "B05:apply:P047",
+              "text": "As we did before, y = (-1/2)(6) + 5.25 = -3 + 5.25 = 2.25, so F is at (6, 2.25). So, FD is the distance from (6, 2.25) to (6,0), which is 2.25 cm, which is 9/4 cm."
+            },
+            {
+              "paragraph": "B05:apply:P050",
+              "text": "Wait, but let me just make sure that the crease is indeed the perpendicular bisector. So, when you fold C over to E, the crease is the set of points equidistant from C and E. So, any point on the crease is equidistant from C and E. So, the crease is the perpendicular bisector of CE, which is exactly what I found."
+            },
+            {
+              "paragraph": "B05:apply:P052",
+              "text": "Alternatively, maybe I can use vectors or parametric equations, but I think the coordinate method is sufficient here."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B05:skip:P017",
+          "end_paragraph": "B05:skip:P028",
+          "start_char": 2004,
+          "stop_char": 2917,
+          "passage_sha256": "1729e9cdf3481a9f8ca258921bb0ba5e03c5f4e1838da2491ff5aead0e063303",
+          "finding": "逐项回顾此前的垂直平分线计算。",
+          "excerpts": [
+            {
+              "paragraph": "B05:skip:P017",
+              "text": "But let me think again. Is that correct? Because sometimes when folding, the crease might not intersect CD at (6, 2.25). Maybe I made a mistake in the equation of the crease."
+            },
+            {
+              "paragraph": "B05:skip:P019",
+              "text": "1. Square ABCD with side length 6 cm. Coordinates: A(0,0), B(0,6), C(6,6), D(6,0)."
+            },
+            {
+              "paragraph": "B05:skip:P025",
+              "text": "7. Equation of GF: y - 3 = (-1/2)(x - 4.5). So, y = (-1/2)x + 2.25 + 3 = (-1/2)x + 5.25."
+            },
+            {
+              "paragraph": "B05:skip:P027",
+              "text": "So, yes, F is at (6, 2.25). So, FD is 2.25 cm, which is 9/4 cm."
+            }
+          ]
+        },
+        {
+          "arm": "skip",
+          "start_paragraph": "B05:skip:P029",
+          "end_paragraph": "B05:skip:P040",
+          "start_char": 2919,
+          "stop_char": 4086,
+          "passage_sha256": "817691db64600b6e27b6ad0378198c00dde65e472477ce9420b0ba63a05c3013",
+          "finding": "口头解释反射与等距关系并再次确认，没有展开施加支路中的第二套等距方程。",
+          "excerpts": [
+            {
+              "paragraph": "B05:skip:P029",
+              "text": "But let me think if there's another way to approach this problem, maybe using reflections or something."
+            },
+            {
+              "paragraph": "B05:skip:P036",
+              "text": "When you fold point C over to E, the crease GF is the set of points equidistant from C and E. So, any point on GF is equidistant from C and E."
+            },
+            {
+              "paragraph": "B05:skip:P039",
+              "text": "So, yes, the crease is y = (-1/2)x + 5.25, and it intersects CD at (6, 2.25). So, FD is 2.25 cm, which is 9/4 cm."
+            }
+          ]
+        }
+      ],
+      "apply_minus_skip": {
+        "total": 432,
+        "thinking": 466,
+        "after_think_marker": -34
+      }
+    }
+  ],
+  "limitations": [
+    "Four pairs were selected after observing lengths. All eight happen to be correct and uncapped. This selection cannot estimate prevalence, labeling accuracy, or general action benefit. All incorrect/capped outputs remain in the unchanged 20-pair parent statistics.",
+    "Correct final answers do not make every prior statement correct. Valid independent checks and error repair must not be equated with text repetition.",
+    "A different equivalent proof is not automatically wasted computation. No exact number of safely removable tokens is assigned.",
+    "Quoted answer statements and subsequent repetitions occur after the tested boundary. They are unavailable when choosing the tested action; using them as online features would leak future output.",
+    "The two positive coefficients are small. This single deterministic-decoding realization does not establish stable benefit, a monotone strength response, or a semantic interpretation of coefficient sign.",
+    "No three-way thinking classifier, new labels, gate, vector, layer, or strength function has been trained or substituted."
+  ],
+  "next_minimal_work": "Before proposing an online gate, audit the existing six both-wrong pairs, especially repeated wrong conclusions at the cap, for counterexamples to answer-present/repetition rules. Preserve their full parent statistics; no new GPU generation is needed for that audit."
+}
