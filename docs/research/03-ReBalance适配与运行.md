@@ -1,6 +1,6 @@
 # ReBalance 适配与运行
 
-更新日期：2026-09-10。本文是当前脚本操作手册；目标、最终指标和版本解释见[00-研究交接.md](00-研究交接.md)。1.5B／7B四组完整结果已冻结，阅读或接手不需要执行生成命令。
+更新日期：2026-09-11。本文是当前脚本操作手册；目标、最终指标和版本解释见[00-研究交接.md](00-研究交接.md)。1.5B／7B四组完整结果已冻结，阅读或接手不需要执行生成命令。
 
 ## 当前链路与入口
 
@@ -20,6 +20,7 @@
 | `scripts/audit_calibration_labels.py` | 原30题／76步内容审查：准备、按轮查看、揭示代理标签；样本及旧审读已固定，不重新抽样 |
 | `scripts/audit_answer_evidence.py` | 本地CPU答案证据索引、查看与审读校验；不调用模型，不自动分三类，不改向量 |
 | `scripts/audit_control_alignment.py` | 把已有30题证据与原函数在前后边界的系数对齐；CPU投影，不是实际干预效果测试 |
+| `scripts/replay_cycle_monitor.py` | CPU逐token回放原500题、记录精确相邻段落块重复；只报警，不截断、不选择答案、不调用模型 |
 
 `run_rebalance_static_vllm.sh`、`run_rebalance_dynamic_vllm.sh`、`run_own_calibration.sh`、`run_paper_baseline.sh`保留历史路径，不能替代当前自动校准基线入口。没有默认先跑20题的要求。
 
@@ -107,6 +108,18 @@ python integration/rebalance_easysteer/scripts/audit_control_alignment.py --outp
 输入依赖原校准归档、固定30题的`audit_protocol.json`／`private_key.json`、答案证据索引、原`curve_check.json`和仓库内冻结清单／1.5B参数。按文件哈希验证后，从当前冻结源码提取数值函数，在CPU重建4652步系数；不import vLLM。`incoming`是前一步边界可能施加的系数，`outgoing`是本步结束后的系数；首个prompt和结束思考记无注入边界。float32模拟仅核对数值敏感性，不代替CUDA运行验证。
 
 默认完整产物目录为`.codex_work/control_alignment30_20260910/`，其中`projected_steps.json`保存全部步骤，已纳入Git的结果摘要保存76个检查位置和44条答案见证的对齐。新输出不得覆盖已存在文件；该工具不提供续写、调参或修改在线控制器的入口。
+
+## 本地CPU循环回放工具
+
+9月11日首轮500题已完成，直接查看[回放结果](../../integration/rebalance_easysteer/configs/cycle_monitor500_20260911.json)，不用重跑。工具仅需Python 3.11以上与标准库；复用原校准归档、现有tokenizer、冻结参数及30／20题样本清单，无需服务器、torch或重新生成。需要验证后续工具改动时，在仓库根目录指定**新目录**：
+
+```text
+python integration/rebalance_easysteer/scripts/replay_cycle_monitor.py --output <新目录>
+```
+
+默认方案为`configs/cycle_monitor_plan_20260911.json`，运行前已固定并提交。输出目录存在即拒绝覆盖；先落盘方案，再核对输入哈希，逐token记录已闭合段落的重复报警。`summary.json`含500题记录、停止状态交叉统计、首报位置和固定抽查索引；`details.json`另存全文、全部段落和重复块。已完成目录是`.codex_work/cycle_monitor500_20260911/`，其中`review/`保留本次审读窗口及哈希，Git结果摘要记录全部500题位置和18份审读证据。
+
+生成token位置按从1数的数量记录，跨度为从0数的半开区间；审读段号从1数，校准索引／训练索引从0数。这种字节流段落划分用于取证，不替换原校准步骤对齐。它会漏掉未闭合段落内的循环，正常结束也可能报警；报警后剩余token不是实际节省量，停止状态不是思考类别金标准。当前工具没有GPU、自动结束、注入强度或阈值搜索入口。
 
 ## 单边界配对续写（实验已完成）
 
