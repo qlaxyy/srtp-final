@@ -17,6 +17,8 @@
 | `eval/resume_validation.py` | 由评测入口调用，检查续跑协议、保留完整答案、只补缺题 |
 | `scripts/regrade_saved_results.py` | 对保存答案调用作者判分，不重新生成 |
 | `scripts/freeze_final_results.py` | CPU检查完整配对、协议／判分匹配及资产哈希，再生成冻结清单；现有冻结JSON不要覆盖 |
+| `scripts/audit_calibration_labels.py` | 原30题／76步内容审查：准备、按轮查看、揭示代理标签；样本及旧审读已固定，不重新抽样 |
+| `scripts/audit_answer_evidence.py` | 本地CPU答案证据索引、查看与审读校验；不调用模型，不自动分三类，不改向量 |
 
 `run_rebalance_static_vllm.sh`、`run_rebalance_dynamic_vllm.sh`、`run_own_calibration.sh`、`run_paper_baseline.sh`保留历史路径，不能替代当前自动校准基线入口。没有默认先跑20题的要求。
 
@@ -80,3 +82,15 @@ OUTPUT已有`eval_runtime.json`时，其中上下文和并发会覆盖相关设�
 4. 全部完成：保存逐题文本/token、截断、正确数、协议、资产／源码哈希及运行账本，只汇总完整配对；未来方法另建目录，不覆盖JSON、不移动旧标签。
 
 当前资产位置见00及[最终冻结清单](../../integration/rebalance_easysteer/configs/final_results_20260909.json)。7B旧`formal_kv_replay/`内“MATH未完成”由另一个最终目录补齐，不能据此重新测评。
+
+## 本地CPU答案证据工具
+
+使用Python 3.11以上和标准库，无需服务器或额外安装依赖。默认索引已存在于`.codex_work/label_evidence_30_20260910/v2/evidence_index.json`；在仓库根目录查看Q16：
+
+```text
+python integration/rebalance_easysteer/scripts/audit_answer_evidence.py show --first 16 --last 16
+```
+
+默认展示检索线索、目标相邻步骤及精确重复的代表；`--all-steps`展示所有不同完整步骤。全文和未完成尾段仍在索引，屏幕长尾预览有限长。分隔token中的数学符号在展示时恢复，`start:stop`保留校准跨度，`start:evidence_stop`是含该符号的取证跨度；均为从0数的生成token半开区间。
+
+`prepare --output <新目录>`从原归档及固定30题重建索引并核验哈希，不生成答案；目标已有索引时拒绝覆盖。`finalize --output <索引目录> --review <审读JSON> --report <新结果JSON>`核对引用、前缀位置、精确有理数及人工修订后汇总。当前审读输入是上述本地目录的`answer_anchor_review.json`，并嵌入[结果摘要](../../integration/rebalance_easysteer/configs/calibration_label_evidence30_20260910.json)的`questions[].annotation_input`。检索词和精确重复只帮助找证据，不是语义判定规则；未找到见证不自动标错或欠思考。既有摘要无需重新生成。
