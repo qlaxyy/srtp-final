@@ -154,6 +154,25 @@ class SteerVectorState:
             self.replay_counts["restored"] += 1
         elif num_generated_tokens:
             raise RuntimeError("Generated prefix has no saved ReBalance history")
+        elif steer_vector_request.rebalance_prefix_mean is not None:
+            # All old prefix inputs were unsteered. Only its final boundary
+            # may be perturbed; keep the computed controller state in BOTH arms.
+            if (self._history is None or not prompt_token_ids
+                    or prompt_token_ids[-1] not in params.boundary_token_ids
+                    or params.think_start_token_id not in prompt_token_ids
+                    or params.think_end_token_id in prompt_token_ids):
+                raise ValueError("Continuation needs a live thinking boundary and KV history")
+            mean = torch.tensor([steer_vector_request.rebalance_prefix_mean],
+                                dtype=torch.float32, device=self._coefs.device)
+            variance = torch.tensor([steer_vector_request.rebalance_prefix_variance],
+                                    dtype=torch.float32, device=self._coefs.device)
+            coef = compute_rebalance_coefficient(mean, variance, params)[0]
+            self._coefs[req_index] = coef
+            self._prev_step_mean[req_index] = mean[0]
+            self._in_think[req_index] = True
+            self._history[req_index, len(prompt_token_ids) - 1] = (
+                coef if steer_vector_request.rebalance_prefix_apply else 0.0
+            )
 
     def remove_request(self, req_id: str, manager) -> None:
         if self._requests.pop(req_id, None) is None:

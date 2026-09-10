@@ -573,6 +573,9 @@ def to_engine_request(
                 "rebalance_high_val_2": v.params.get("high_val_2", 0.1),
                 "rebalance_paper_parameters": v.params.get("paper_parameters"),
                 "rebalance_curve_tau": v.params.get("curve_tau", 0.01),
+                "rebalance_prefix_mean": v.params.get("prefix_mean"),
+                "rebalance_prefix_variance": v.params.get("prefix_variance"),
+                "rebalance_prefix_apply": v.params.get("prefix_apply"),
             }
         wire = _payload_wire(v)
         return SteerVectorRequest(

@@ -10,6 +10,7 @@ ApplySpec).
 """
 
 import msgspec
+import math
 
 from vllm.logger import init_logger
 
@@ -53,6 +54,9 @@ STEER_REBALANCE_FIELDS: tuple[str, ...] = (
     "rebalance_high_val_2",
     "rebalance_paper_parameters",
     "rebalance_curve_tau",
+    "rebalance_prefix_mean",
+    "rebalance_prefix_variance",
+    "rebalance_prefix_apply",
 )
 
 
@@ -324,6 +328,10 @@ class SteerVectorRequest(
     # Explicit opt-in: Bm, Bo, Bu, eta_c, eta_v (paper reconstruction).
     rebalance_paper_parameters: list[float] | None = None
     rebalance_curve_tau: float = 0.01
+    # Experimental continuation from an unsteered, completed reasoning boundary.
+    rebalance_prefix_mean: float | None = None
+    rebalance_prefix_variance: float | None = None
+    rebalance_prefix_apply: bool | None = None
 
     def __post_init__(self):
         """Validate configuration consistency."""
@@ -376,6 +384,18 @@ class SteerVectorRequest(
 
                 MoERouterAlgorithm.validate_mode(self.moe_mode)
             if self.algorithm == "rebalance":
+                prefix = (self.rebalance_prefix_mean,
+                          self.rebalance_prefix_variance,
+                          self.rebalance_prefix_apply)
+                if any(x is not None for x in prefix):
+                    if (any(x is None for x in prefix)
+                            or not isinstance(prefix[2], bool)
+                            or not math.isfinite(prefix[0])
+                            or not math.isfinite(prefix[1])
+                            or not 0 <= prefix[0] <= 1
+                            or not 0 <= prefix[1] <= 0.25
+                            or self.rebalance_paper_parameters is not None):
+                        raise ValueError("Invalid unsteered boundary continuation state")
                 if not self.rebalance_boundary_token_ids:
                     raise ValueError(
                         "rebalance requires rebalance_boundary_token_ids"
