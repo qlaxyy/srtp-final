@@ -1,0 +1,26 @@
+{
+  "status": "fixed_before_replay",
+  "date": "2026-09-11",
+  "purpose": "CPU shadow replay of a causal exact-block repetition monitor; no generation, stopping, answer selection or activation steering.",
+  "input": "Original 1.5B 500 MATH training calibration answers, greedy decoding, seed 42, cap 16000. Reuse saved generated tokens, not test outputs.",
+  "source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+  "rule": {
+    "unit": "A paragraph is complete only after literal double-newline bytes arrive. Trim outer ASCII whitespace, preserve every digit, mathematical symbol and internal byte. Empty units are ignored. Do not flush incomplete tails at EOF or </think>.",
+    "candidate": "At each completed paragraph, find the shortest positive period p for which the last 2p paragraphs are two identical adjacent blocks. Emit a candidate immediately after the second block completes. A period is a data property, not a searched steering parameter.",
+    "episode": "Extend a candidate while new paragraphs follow its fixed period; on mismatch close the episode and search the current suffix again. Record completed copies and exact spans. Later episode growth is retrospective metadata, not an input to the earlier alert.",
+    "runtime_inputs": "Generated token bytes and token position only. No problem gold, final grade, finish reason, confidence or unseen output.",
+    "threshold_search": "None. Two copies is the minimal definition of adjacent repetition, not an empirically validated safe-stop threshold. Short acknowledgments and formula restatements are deliberately retained as possible false alarms."
+  },
+  "report": [
+    "Report all 500 with all caps/errors retained; capped versus naturally stopped is an outcome cross-tab, not detector precision/recall.",
+    "Separately identify the previously reviewed 30, the 20 boundary-study questions, and the other 450. All remain from the same vector calibration set; the 450 are not an independent validation dataset.",
+    "Record first alert token and remaining observed tokens, explicitly not actual saved tokens or speedup.",
+    "Review a fixed random sample of 12 alerted naturally stopped cases (or all if fewer), seed 20260911; inspect complete prefixes through first alert and the endings. Labels are single-Codex qualitative evidence, not gold accuracy.",
+    "Inspect every capped case without an alert to identify literal-matching limitations; if no such cases, report zero rather than infer perfect semantic detection.",
+    "Reuse the earlier 30-question content evidence only for contextual checks. Do not substitute earlier counterfactual continuations for these original calibration answers."
+  ],
+  "gpu_tasks": 0,
+  "new_generations": 0,
+  "do_not_change": ["Frozen results and tables", "Original saved outputs or grading", "Calibration labels", "Vector or selected layer", "Original dynamic coefficient function"]
+}
