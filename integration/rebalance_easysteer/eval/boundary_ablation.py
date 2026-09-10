@@ -122,7 +122,9 @@ def run(args):
         original_fill(batch, live_state, manager)
         entries = manager.graph_batch_entries()
         for b, rid in enumerate(batch.req_ids):
-            if rid not in req_jobs or rid in boundary_seen:
+            if rid not in req_jobs:
+                raise RuntimeError(f'Unknown worker request ID during mask audit: {rid}')
+            if rid in boundary_seen:
                 continue
             job = req_jobs[rid]
             n = len(job['data']['prompt_token_ids'])
