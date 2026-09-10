@@ -109,9 +109,10 @@ def test_first_step_injection_is_once_at_prompt_tail_and_survives_replay():
     from vllm.v1.worker.gpu.steer_vector_utils import build_batch_geometry, resolve_slot_positions
 
     snapshots = []
-    for enabled in (False, True):
+    for enabled, first_coef in ((False, None), (True, None), (True, -0.5)):
         req = _request()
         req.rebalance_inject_first_step = enabled
+        req.rebalance_first_step_coef = first_coef
         state = SteerVectorState(2, torch.device("cpu"), max_model_len=32)
         manager = _Manager()
         prompt = [7, 10, 8]
@@ -136,7 +137,8 @@ def test_first_step_injection_is_once_at_prompt_tail_and_survives_replay():
         state.observe_sample(chunk, torch.tensor([[99]]), torch.tensor([.01]))
         assert state._step_tok_count[0] == 0
         batch = _replay_batch("cpu", prompt, 0, 3)
-        torch.testing.assert_close(effective(batch), torch.tensor([0., 0., -float(enabled)]))
+        expected_first = (-float(enabled) if first_coef is None else first_coef)
+        torch.testing.assert_close(effective(batch), torch.tensor([0., 0., expected_first]))
         tokens = list(prompt)
         for token, prob in zip([1, 99, 2, 99, 11], [.4, .9, .7, .8, .9]):
             state.observe_sample(batch, torch.tensor([[token]]), torch.tensor([prob]))
@@ -158,6 +160,9 @@ def test_first_step_injection_is_once_at_prompt_tail_and_survives_replay():
     difference = snapshots[1] - snapshots[0]
     assert difference.nonzero().flatten().tolist() == [2]
     assert difference[2] == -1
+    half_difference = snapshots[2] - snapshots[0]
+    assert half_difference.nonzero().flatten().tolist() == [2]
+    assert half_difference[2] == -0.5
 
 
 def test_first_step_injection_requires_prompt_trigger_and_survives_wire():
@@ -166,7 +171,8 @@ def test_first_step_injection_requires_prompt_trigger_and_survives_wire():
     from vllm.steer_vectors.request import SteerVectorRequest
 
     params = dict(boundary_token_ids=[99], think_start_token_id=10,
-                  think_end_token_id=11, inject_first_step=True, initial_coef=-1.)
+                  think_end_token_id=11, inject_first_step=True, initial_coef=-1.,
+                  first_step_coef=-0.5)
     for selected in (False, True):
         spec = SteeringSpec(vectors=[VectorSpec(
             name="initial", source="/unused.pt", layers=[20], algorithm="rebalance",
@@ -182,6 +188,8 @@ def test_first_step_injection_requires_prompt_trigger_and_survives_wire():
             decoded = msgspec.msgpack.decode(msgspec.msgpack.encode(request),
                                             type=SteerVectorRequest)
             assert ReBalanceParams.from_request(decoded).inject_first_step
+            assert ReBalanceParams.from_request(decoded).first_step_coef == -0.5
+            assert ReBalanceParams.from_request(decoded).initial_coef == -1.
 
 
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():

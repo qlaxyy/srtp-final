@@ -95,6 +95,7 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
         "paper_parameters",
         "curve_tau",
         "inject_first_step",
+        "first_step_coef",
     ),
 }
 
@@ -575,6 +576,7 @@ def to_engine_request(
                 "rebalance_paper_parameters": v.params.get("paper_parameters"),
                 "rebalance_curve_tau": v.params.get("curve_tau", 0.01),
                 "rebalance_inject_first_step": v.params.get("inject_first_step", False),
+                "rebalance_first_step_coef": v.params.get("first_step_coef"),
             }
         wire = _payload_wire(v)
         return SteerVectorRequest(

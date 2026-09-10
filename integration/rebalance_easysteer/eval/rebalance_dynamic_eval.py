@@ -70,6 +70,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--async-scheduling", action="store_true",
+                        help="Enable scheduling overlap after independent state validation")
+    parser.add_argument("--first-step-coef", type=float, default=-1.0,
+                        help="Prompt-tail injection only; leave the fitted controller initial_coef unchanged")
     parser.add_argument("--group-timeout-seconds", type=int, default=1500)
     parser.add_argument("--resume-result", type=Path, help="Continue a matching interrupted pair into a NEW output")
     parser.add_argument("--resume-elapsed-seconds", type=float, default=0,
@@ -96,6 +100,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--candidate-only", action="store_true",
                         help="Generate only the first-step candidate; retain frozen comparisons separately")
     args = parser.parse_args()
+    if not math.isfinite(args.first_step_coef):
+        parser.error("First-step coefficient must be finite")
     if args.candidate_only and not args.first_step_comparison:
         parser.error("--candidate-only requires --first-step-comparison")
     if args.first_step_comparison and (
@@ -258,7 +264,8 @@ def main() -> None:
         if fitted.get("version") != "auto-code-v2" or args.initial_coef != -1.0:
             raise ValueError("First-step comparison requires frozen auto-code-v2 initial coefficient -1")
         baseline_steering = steering
-        dynamic_params = {**dynamic_params, "inject_first_step": True}
+        dynamic_params = {**dynamic_params, "inject_first_step": True,
+                          "first_step_coef": args.first_step_coef}
         steering = SteeringSpec(vectors=[VectorSpec(
             name="rebalance_dynamic_first_step", data=payload,
             algorithm="rebalance", scale=1.0, layers=[args.layer], normalize=False,
@@ -291,7 +298,7 @@ def main() -> None:
             "top_p": args.top_p,
             "seed": args.seed,
             "execution_mode": "in_graph",
-            "async_scheduling": False,
+            "async_scheduling": args.async_scheduling,
             "profiling_enabled": args.profile_steps > 0,
             "profile_steps": args.profile_steps,
             "profile_start_step": args.profile_start_step,
@@ -355,7 +362,7 @@ def main() -> None:
         result["protocol"]["first_step_comparison"] = True
         result["protocol"]["group_meanings"] = {
             "baseline": "frozen dynamic controller, generation boundaries only",
-            "rebalance_dynamic": "same controller plus -1 once at last prompt token",
+            "rebalance_dynamic": f"same controller plus {args.first_step_coef:g} once at last prompt token",
         }
         result["protocol"]["initial_injection_position"] = "last prompt input, before first generated token"
         if args.candidate_only:
@@ -496,7 +503,7 @@ def main() -> None:
             steer_graph_mode="in_graph",
             enable_chunked_prefill=args.chunked_prefill,
             enable_prefix_caching=False,
-            async_scheduling=False,
+            async_scheduling=args.async_scheduling,
             seed=args.seed,
         )
         result["startup_seconds"] = time.perf_counter() - started

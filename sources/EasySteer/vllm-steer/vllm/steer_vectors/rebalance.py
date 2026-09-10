@@ -28,10 +28,13 @@ class ReBalanceParams:
     paper_parameters: tuple[float, ...] | None = None
     curve_tau: float = 0.01
     inject_first_step: bool = False
+    first_step_coef: float | None = None
 
     def __post_init__(self):
         if not isinstance(self.inject_first_step, bool):
             raise ValueError("inject_first_step must be a boolean")
+        if self.first_step_coef is not None and not math.isfinite(self.first_step_coef):
+            raise ValueError("first_step_coef must be finite")
         if self.inject_first_step and self.paper_parameters is not None:
             raise ValueError("First-step injection is a released-code experiment")
         if self.paper_parameters is None:
@@ -75,6 +78,7 @@ class ReBalanceParams:
             ),
             curve_tau=getattr(request, "rebalance_curve_tau", 0.01),
             inject_first_step=getattr(request, "rebalance_inject_first_step", False),
+            first_step_coef=getattr(request, "rebalance_first_step_coef", None),
         )
 
 

@@ -150,7 +150,9 @@ class SteerVectorState:
             if params.inject_first_step:
                 # This input produces the first generated token. Replay uses the
                 # same saved scale, including when prefill is split into chunks.
-                self._history[req_index, len(prompt_token_ids) - 1] = params.initial_coef
+                first_coef = (params.initial_coef if params.first_step_coef is None
+                              else params.first_step_coef)
+                self._history[req_index, len(prompt_token_ids) - 1] = first_coef
         saved = self._suspended.pop(req_id, None)
         if saved is not None:
             length = len(saved["history"])
