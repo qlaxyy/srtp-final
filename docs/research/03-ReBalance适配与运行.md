@@ -107,3 +107,13 @@ python integration/rebalance_easysteer/scripts/audit_control_alignment.py --outp
 输入依赖原校准归档、固定30题的`audit_protocol.json`／`private_key.json`、答案证据索引、原`curve_check.json`和仓库内冻结清单／1.5B参数。按文件哈希验证后，从当前冻结源码提取数值函数，在CPU重建4652步系数；不import vLLM。`incoming`是前一步边界可能施加的系数，`outgoing`是本步结束后的系数；首个prompt和结束思考记无注入边界。float32模拟仅核对数值敏感性，不代替CUDA运行验证。
 
 默认完整产物目录为`.codex_work/control_alignment30_20260910/`，其中`projected_steps.json`保存全部步骤，已纳入Git的结果摘要保存76个检查位置和44条答案见证的对齐。新输出不得覆盖已存在文件；该工具不提供续写、调参或修改在线控制器的入口。
+
+## 单边界配对续写（实验已完成）
+
+20题／40份完整结果见00与[结果摘要](../../integration/rebalance_easysteer/configs/boundary_ablation20_20260910.json)，无需重跑。代码只在`codex/boundary-ablation-20260910`，当前main保留计划和结果；进入实验代码前检查Git状态和目标提交。正式生成提交`921793f`，判分兼容修正提交`14fe410`。
+
+- `scripts/prepare_boundary_ablation.py --output <新目录>`：CPU从已存500题中固定20题和边界，排除原30题，输出`manifest.json`和不含标准答案／未来token的`model_inputs.json`。现有计划已固定，不重新抽样。
+- `eval/boundary_ablation.py run --prepared <已核验输入目录> --output <新目录>`：在原EasySteer环境运行40份接续，向量默认沿用`auto_code_v2_500_20260908/auto_vector.pt`；运行前将该环境bin置于PATH首位并设`PYTHONNOUSERSITE=1`。输出逐条落盘，异常保留部分记录；当前入口没有自动补缺或续跑功能，异常后不能直接重复完整批次。
+- 同一入口`grade --prepared <输入目录> --output <已完成运行目录>`：使用现有ReBalance Python 3.10环境进行作者判分，不调用模型，拒绝覆盖已有摘要。前缀加新增token一起判分／统计，16000是二者合计上限。
+
+接续专用参数为`prefix_mean`、`prefix_variance`、`prefix_apply`，经API与请求结构传入状态管理；不是重新设置首步常数。历史前缀不注入，仅将最后一个已完成边界纳入选择器；两组恢复相同的前一步均值／已计算系数，B只把这一个位置的实际掩码设0。之后沿用原动态更新，KV抢占时恢复历史掩码及状态。实际掩码按BF16精确核对，与控制器保存的float32系数分开记录。缺省不传这些参数时，原prompt起点行为保持不变。
