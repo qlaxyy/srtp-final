@@ -1,59 +1,32 @@
 # 思维链压缩复现仓库
 
-本仓库集中管理 EasySteer、ReBalance 参考源码，以及两者结合后的评测与运行入口。目标是减少推理模型的过度思考，并同时比较准确率、生成 token 数和运行时间。
+本仓库管理EasySteer、ReBalance参考源码及两者结合后的自校准与评测流程。目标是缩短思维链，同时尽量减少准确率损失。
 
-## 当前进度
+**当前基线已完成并冻结：DeepSeek-R1-Distill-Qwen-1.5B／7B，GSM8K全1319题、MATH-500全500题，四组完整无干预／动态配对。** 各模型使用自己的500道训练校准题提取向量、自动选层和确定参数，通过EasySteer在vLLM内动态注入。思考长度减少17.68%–35.04%，准确率变化−2.20至+0.91个百分点；不声称普遍无损或原论文完整复现。
 
-- EasySteer/vLLM 推理与 steering 链路已打通；
-- SEAL 的框架机制已完成小规模配对实验；
-- ReBalance 静态版已接入 EasySteer；
-- ReBalance 作者代码逻辑的动态版已接入，并实现逐请求状态隔离；
-- 动态版保持了准确率，但速度仍需优化。
+- **接手必读：[00-研究交接](docs/research/00-研究交接.md)**：目标、完成结果、当前状态、版本、连接／资产位置、坑、后续计划和全部docs用途。
+- 操作手册：[03-ReBalance适配与运行](docs/research/03-ReBalance适配与运行.md)；安装／迁移时才读[01-AutoDL环境搭建](docs/research/01-AutoDL环境搭建.md)。
+- 冻结标签：`easysteer-rebalance-v2-final-20260909`；[最终指标与来源清单](integration/rebalance_easysteer/configs/final_results_20260909.json)。后续文档提交不改变标签。
 
-实验结论、版本区别和后续任务统一见 [研究交接](docs/research/00-研究交接.md)。
+接手不需要重新校准、跑20题冒烟或补测已完成数据。论文重建版、作者公开向量版保留为历史实验，当前基线是明确补全过的自校准公开代码适配。
 
 ## 目录
 
 ```text
-sources/EasySteer/                 实际运行的 EasySteer，含修改后的 vLLM
-sources/ReBalance/                 作者 ReBalance 源码快照，用于核对
-integration/rebalance_easysteer/   配对评测和统一运行脚本
-scripts/                           AutoDL 安装、更新和环境验收
+sources/EasySteer/                 实际运行的EasySteer，含修改后的vLLM
+sources/ReBalance/                 作者源码快照，供核对、离线处理与判分
+integration/rebalance_easysteer/   校准、配对评测、冻结配置与运行入口
+scripts/                           AutoDL安装、更新与环境验收
 env/                               已验证版本
-docs/research/                     四份中文研究文档
+docs/research/                     当前交接／操作手册和标明日期的历史审计
+docs/UPSTREAM.md                   上游来源与修改边界
+papers/                            本地论文，不上传Git
 ```
 
-不再另外保存一份“未修改 EasySteer”。上游代码与本项目修改的区别由 Git 历史记录；必须修改推理核心的动态控制代码位于 `sources/EasySteer/vllm-steer`。
+模型、Python环境、隐藏特征和完整逐题结果在服务器数据盘及本地备份，不进Git。测试数据的仓库路径见00；Git只有源码和摘要，不能替代完整资产备份。动态控制进入了`sources/EasySteer/vllm-steer`推理核心，不能直接换成原版vLLM。
 
-## AutoDL 使用方式
+## 环境与代码更新
 
-自己的实例迁移，优先在 AutoDL 控制台选择最新实例的“克隆实例”，并勾选数据盘。系统盘和数据盘完整克隆后，仓库、模型、环境和结果都已存在，可以直接继续实验，不需要运行安装脚本。如果克隆源已经是最新代码，也不需要运行 `git pull`。
+服务器仓库`/root/autodl-tmp/projects/srtp-final`。已有两个验收环境保持隔离，不重装；迁移优先克隆完整实例并带数据盘。只有完全空白实例才用`scripts/setup_autodl.sh`，该空白安装全流程尚未独立复验。
 
-只有队友使用完全空白的实例、没有克隆现有系统盘和数据盘时，才执行：
-
-```bash
-cd /root/autodl-tmp/projects
-git clone https://github.com/qlaxyy/srtp-final.git
-cd srtp-final
-bash scripts/setup_autodl.sh
-```
-
-已有环境只更新代码：
-
-```bash
-bash /root/autodl-tmp/projects/srtp-final/scripts/update_server.sh
-```
-
-20题低成本验收：
-
-```bash
-cd /root/autodl-tmp/projects/srtp-final
-LIMIT=20 bash integration/rebalance_easysteer/scripts/run_rebalance_static_vllm.sh
-LIMIT=20 bash integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm.sh
-```
-
-模型、向量、完整数据、Python 环境和逐题结果均保存在 `/root/autodl-tmp`，不提交 Git。默认外部路径及覆盖方法见 [ReBalance 运行说明](docs/research/03-ReBalance适配与运行.md)。
-
-## 代码更新方式
-
-当前按单人维护处理：日常且已验证的修改直接提交并推送到 `main`，服务器随后执行 `git pull --ff-only`。只有高风险实验、较大重构或需要长期保留独立版本时才创建功能分支；不要求每次创建 PR。不再发送 ZIP，也不再手工覆盖服务器源码。
+日常已验证修改可直接推main，服务器随后`git pull --ff-only`。高风险重构或独立实验再建分支，不发ZIP覆盖源码，不覆盖冻结结果／移动标签。查看结果、整理文档不启动GPU实验。

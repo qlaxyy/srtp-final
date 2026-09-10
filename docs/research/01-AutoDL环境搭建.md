@@ -1,5 +1,7 @@
 # AutoDL 环境搭建与迁移
 
+用途：安装、迁移或排查环境故障时查阅。**当前两套环境已经验收，接手不要重新安装。** 最新任务、连接、模型与结果位置见[00-研究交接.md](00-研究交接.md)，当前校准／评测入口见[03-ReBalance适配与运行.md](03-ReBalance适配与运行.md)。
+
 本项目采用“代码进 Git，重资产留数据盘”的方式。自己的服务器迁移优先克隆完整实例；只有完全空白的新服务器才运行环境安装脚本。
 
 ## 已验证平台
@@ -69,6 +71,7 @@ bash scripts/setup_autodl.sh
 | vLLM 预编译 wheel | GitHub Release | 仅下载这个文件时开启 |
 | torch、torchvision、torchaudio、torchcodec、Triton | PyTorch 官方 CDN | 明确关闭代理 |
 | pip、EasySteer 普通依赖 | 清华 PyPI 镜像 | 不开启 |
+| DeepSeek模型（国内服务器） | ModelScope，保存到 `/root/autodl-tmp/models/` | 不开启；已有1.5B／7B不重复下载 |
 | GitHub/Hugging Face 后续资源 | 对应官方站点 | 访问慢时临时开启 |
 
 AutoDL 官方说明内置学术加速仅面向 GitHub 和 Hugging Face，而且不承诺稳定，也建议不用时关闭。因此脚本把 GitHub 下载放进独立子进程；该文件完成后代理自动消失，不会污染 PyTorch CDN、清华镜像或模型推理。
@@ -100,6 +103,8 @@ bash /root/autodl-tmp/projects/srtp-final/scripts/update_server.sh
 
 Git 管理：源码、脚本、配置、测试、中文文档和小型结果摘要。
 
-数据盘管理：`venvs/`、`wheels/`、`models/`、`hf-cache/`、完整数据集及逐题结果。完整克隆系统盘并勾选数据盘后可直接运行；只有代码落后时才拉取，依赖版本变化时才重装环境。
+数据盘管理：`venvs/`、`wheels/`、`models/`、`hf-cache/`、校准隐藏特征和完整逐题结果。当前MATH训练题、MATH-500、GSM8K数据入口在仓库的`sources/ReBalance/Data/`，具体路径见00。完整克隆系统盘并勾选数据盘后可直接运行；代码落后时拉取，依赖变化需明确核对后处理，不因普通代码更新重装。
+
+两环境必须隔离：`easysteer-vllm026`用于生成，`rebalance`用于原作者回放／判分。`setup_autodl.sh`不等于完整建立这两套研究环境。50GB盘曾接近满，主要大项还包括全层隐藏特征；先核对备份和硬链接占用再清理，不能只按模型大小估算。`/dev/shm`是易失内存盘，不作为迁移备份；已保存答案可用于重新回放特征，详见00的踩坑记录。
 
 环境安装脚本已按本次成功命令合并，但尚未在完全空白的新实例做一次 clean-room 全流程复验；首次队友复现时应保留完整日志，并据此更新脚本。

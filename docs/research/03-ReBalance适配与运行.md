@@ -1,56 +1,59 @@
 # ReBalance 适配与运行
 
-## 两个版本
+更新日期：2026-09-10。本文是当前脚本操作手册；目标、最终指标和版本解释见[00-研究交接.md](00-研究交接.md)。1.5B／7B四组完整结果已冻结，阅读或接手不需要执行生成命令。
 
-2026-09-08新增独立自行校准入口`integration/rebalance_easysteer/scripts/run_own_calibration.sh`：MATH训练集500题生成→隐藏状态提取→排除提示词空行→自行提取向量/计算参数→完整评测。具体参数、对齐修正及新结果统一见[00-研究交接.md](00-研究交接.md)首节；下文公开向量版及20/200题命令均为历史记录。
+## 当前链路与入口
 
-2026-09-08更新：当前1.5B动态版已完成MATH-500全500题及GSM8K全1319题正式评测，统一作者判分口径，指标已冻结，见 [00-研究交接.md](00-研究交接.md)。这是使用作者公开向量和函数参数的推理适配复现，未自行重做500题向量提取与函数拟合；旧200题数据仍是修正前结果。
+当前基线先用本模型500道独立MATH训练题生成答案，再回放隐藏状态、自动选层、自提向量并校准参数；随后在vLLM中逐请求计算算术平均置信度和两步方差，通过EasySteer注入动态向量。模型权重不训练，作者原码与我们的补全边界见00。
 
-静态版直接使用作者公开方向向量，在 EasySteer 层18的生成换段边界施加固定系数 `-1`。它故意不包含置信度控制，用来先验证向量、层映射、触发位置和 vLLM 加速。
+下列路径相对于`integration/rebalance_easysteer/`：
 
-动态版为每个请求维护独立状态：从原始 logits 计算 token 最大概率，在步骤边界汇总置信度和相邻步骤方差，再调用修正后的作者控制函数。它使用作者 Qwen2 代码中的算术平均，而非论文几何平均。静态版还会命中 think 结束后的换段，动态版用 think 状态屏蔽这些注入。
+| 入口 | 用途与限制 |
+| --- | --- |
+| `scripts/run_auto_baseline.sh` | 新模型完整流程：生成校准答案→prepare/collect/select/fit→MATH与GSM评测；已完成模型不要从头执行 |
+| `scripts/calibrate_auto.py` | 复用保存答案，完成步骤对齐、decoder层特征回放、按题分组自动选层、向量／参数计算 |
+| `scripts/run_auto_baseline.sh --group math500`或`--group gsm8k` | 只评测指定数据集，使用已有校准资产，不重新校准 |
+| `scripts/run_final_7b_math500.sh` | 冻结7B MATH配对入口：16000上限、17408上下文、并发64、不限墙钟时间、要求新目录。已执行完毕，再次执行是新测评，不是查看结果 |
+| `eval/resume_validation.py` | 由评测入口调用，检查续跑协议、保留完整答案、只补缺题 |
+| `scripts/regrade_saved_results.py` | 对保存答案调用作者判分，不重新生成 |
+| `scripts/freeze_final_results.py` | CPU检查完整配对、协议／判分匹配及资产哈希，再生成冻结清单；现有冻结JSON不要覆盖 |
 
-作者函数适合做原始方法复现。只有在收集自己的独立校准数据后，才应拟合新函数；新函数必须单列为改进方法，不能继续称为作者动态版。
+`run_rebalance_static_vllm.sh`、`run_rebalance_dynamic_vllm.sh`、`run_own_calibration.sh`、`run_paper_baseline.sh`保留历史路径，不能替代当前自动校准基线入口。没有默认先跑20题的要求。
 
-## 默认外部资产
+## 环境与运行前检查
 
-```text
-模型: /root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B
-数据: /root/autodl-tmp/ReBalance/Data/Math_GSM8K_200_seed42/test.jsonl
-向量: /root/autodl-tmp/ReBalance/vectors/DeepSeek-R1-Distill-Qwen-1.5B/steer_vector_layer19_conf_mixed.pt
-结果: /root/autodl-tmp/results/easysteer
-```
+服务器仓库`/root/autodl-tmp/projects/srtp-final`。生成使用`/root/autodl-tmp/venvs/easysteer-vllm026`；离线回放／校准／作者判分使用`/root/autodl-tmp/venvs/rebalance`。脚本直接调用环境Python，无需activate，不混装依赖。
 
-作者的“block 19 前注入”对应 EasySteer decoder output 的层18。模型、数据和向量不提交 Git。需要换路径时，直接在运行命令末尾传 `--model`、`--dataset`、`--vector` 或 `--output`。
+vLLM／EasySteer以editable方式指向`sources/EasySteer/`；wheel提供二进制依赖，实际Python控制代码在仓库里。替换成未打补丁的原生vLLM后不能声称仍在运行当前方法。
 
-## 运行顺序
+新实验前核对工作区／提交、磁盘余量、GPU占用、模型及向量参数哈希、新输出目录。仅查阅文档不必加载模型或重新做GPU验收，已有环境不重新安装。
 
-先做不加载模型的动态状态验收：
+## 通用脚本关键变量
 
-```bash
-cd /root/autodl-tmp/projects/srtp-final
-/root/autodl-tmp/venvs/easysteer-vllm026/bin/python \
-  integration/rebalance_easysteer/scripts/verify_rebalance_dynamic.py
-```
+下面是未来明确的新实验的参数说明，**不是本次接手要执行的任务**。
 
-再做20题配对冒烟：
+| 变量 | 含义 |
+| --- | --- |
+| `MODEL` | 模型绝对目录，必填 |
+| `CALIBRATION_SOURCE` | 本模型校准生成目录，必填；存在完整`generation_summary.json`时复用，不重生成 |
+| `OUTPUT` | 本次输出目录，必填；新实验独立目录，不覆盖冻结结果 |
+| `EVAL_ARTIFACTS_DIR` | 只评测时指定已有向量／fit目录，默认OUTPUT |
+| `BASELINE_MATH500` / `BASELINE_GSM8K` | 显式复用同协议、完整无干预结果；不匹配应拒绝，不拿部分结果充数 |
+| `RESUME_CALIBRATION=1` | 接续未完成校准生成，保留完整题目 |
+| `RESUME_RESULT` / `RESUME_ELAPSED_SECONDS` | 评测接续的保存结果及中断耗时，要求协议匹配，新目录保存结果 |
+| `EVAL_MAX_TOKENS_MATH500` / `EVAL_MAX_TOKENS_GSM8K` | 均默认16000；对比方法同上限，触顶仍计入统计 |
+| `EVAL_MAX_MODEL_LEN` / `EVAL_MAX_NUM_SEQS` | 总上下文／并发；默认上下文按上限＋1024向上对齐512（16000时为17408），并发32 |
+| `EVAL_CHUNKED_PREFILL` / `EVAL_MAX_BATCHED_TOKENS` / `EVAL_GPU_MEMORY_UTILIZATION` | 分块预填充／单轮token预算／显存预算；冻结7B采用开启／2048／0.92 |
 
-```bash
-LIMIT=20 bash integration/rebalance_easysteer/scripts/run_rebalance_static_vllm.sh
-LIMIT=20 bash integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm.sh
-```
+OUTPUT已有`eval_runtime.json`时，其中上下文和并发会覆盖相关设置；先检查文件，不只看环境变量。当前支持具备对应think／空行token和Qwen／Llama式decoder结构的推理模型，其他结构需要显式适配，不保证任意模型开箱即用。
 
-下面保留历史200题运行方式，新的扩大测评须经用户确认，不能因小测试通过就自动启动：
+**超时有两层：** `CALIBRATION_TIMEOUT_SECONDS`默认1500秒，prepare/collect/select/fit各1500秒。`EVAL_GROUP_TIMEOUT_SECONDS`默认1500秒，设0关闭评测／作者判分预算；但完整流水线每个数据集外层仍有硬编码3300秒超时。冻结7B入口直接调用`--group math500`，关闭内部预算且不经过外层限时。新模型若需更长预算，先处理实际入口的两层限制；运行后改设置不能撤销已启动计时器。
 
-```bash
-LIMIT=200 bash integration/rebalance_easysteer/scripts/run_rebalance_static_vllm.sh
-LIMIT=200 bash integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm.sh
-```
+## 复用、续跑与冻结
 
-脚本直接使用环境内 Python，不要求先执行 `activate`。如环境位置变化，可临时设置 `ENV_DIR=/新路径`；项目位置变化可设置 `PROJECT_ROOT=/新路径`。
+1. 同模型已有500题答案：优先复用；改变离线方法时回放答案并写入新向量／参数目录，不能根据测试成绩反复选参数。
+2. 只缺部分评测：核对协议和完整题数，只补缺题；保留原文件及恢复来源。重新排队可能改变新输出，不宣称等价于连续运行。
+3. 生成已完成仅缺判分：只处理保存文本，作者口径与math-verify分开记录。
+4. 全部完成：保存逐题文本/token、截断、正确数、协议、资产／源码哈希及运行账本，只汇总完整配对；未来方法另建目录，不覆盖JSON、不移动旧标签。
 
-## 结果解释
-
-200题历史静态结果为 token 减少32.7%、准确率下降3.0个百分点。当前动态适配版 token 减少16.0%、准确率总数持平，但生成调用时间由28.786秒升到44.989秒（原始记录已复核）。这只是该次子集观测，不能证明普遍无损、函数严格等价，或将全部16.203秒差值归因于置信度计算。环境、逐题汇总及截断情况见 [05-服务器现场验收.md](05-服务器现场验收.md)。
-
-当前版本完整指标已冻结，不再继续20题提速实验。若研究新的向量或控制函数，应使用独立校准集并另列版本，不能在测试集反复调参；论文公式版尚未实现。
+当前资产位置见00及[最终冻结清单](../../integration/rebalance_easysteer/configs/final_results_20260909.json)。7B旧`formal_kv_replay/`内“MATH未完成”由另一个最终目录补齐，不能据此重新测评。
