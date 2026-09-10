@@ -1,0 +1,1902 @@
+{
+  "status": "completed_additive_cpu_failure_audit",
+  "date": "2026-09-10",
+  "reviewer": "Single Codex assistant with exact mathematical checks; no independent second annotator.",
+  "purpose": "Distinguish extraction/format failures, capped unfinished responses, correct-answer witnesses, and later mathematical errors before constructing any thinking or action labels.",
+  "difference_from_previous": "Previous review selected four largest length differences, all officially correct. This review selects every pair labeled both_wrong by the original 20-pair author grader, then audits grading and reasoning separately.",
+  "question_count": 6,
+  "saved_continuations": 12,
+  "new_generations": 0,
+  "model_forwards": 0,
+  "gpu_tasks": 0,
+  "selection": "All six pairs labeled both_wrong by the saved author grader; not assumed to be six mathematically wrong pairs.",
+  "witness_definition": "A supported answer statement selected during this audit, not claimed to be the earliest derivable answer or a safe stopping boundary. Token positions include the saved generated prefix, exclude the input prompt, and round up to the smallest whole-token prefix containing the entire quoted paragraph.",
+  "findings": {
+    "original_author_failures": 12,
+    "completed_outputs": 2,
+    "completed_correct_choice_false_negatives": 2,
+    "capped_unfinished_outputs": 10,
+    "pairs_with_earlier_supported_correct_answer": 6,
+    "all_capped_outputs_contain_prior_correct_answer_witness": true,
+    "unchanged_token_sequence_capped_pairs": 4,
+    "capped_pair_with_different_error_routes": "B20"
+  },
+  "sources": {
+    "base_commit": "43c785e083087924c1270a610216b387678c0f86",
+    "parent_summary": "integration\\rebalance_easysteer\\configs\\boundary_ablation20_20260910.json",
+    "parent_summary_sha256": "1a0518f4c42ebb585b6d0dcccbcf93b06e2fb4ffdc3b5c0ac4db76f0599d08ef",
+    "raw_hashes": {
+      "protocol.json": "e4b35eaf204498d20e719dc127ebf525ba933e03d174f19fb503e557d9e2b6b6",
+      "continuations.jsonl": "66777ed6d1bea2c26bb176f3b7f4594bc76f0f0c7a34ca5332a28296a2fc347b",
+      "runtime_checks.json": "066a4a67f4f1c31d3a8422234b7908d7c4f01d5e1239243510237b9bd6f41fa6"
+    },
+    "train_path": "sources/ReBalance/Data/Math_Train/test.jsonl",
+    "train_sha256": "4bd7f5266f6c5c4fc729da2d9cbefbe2453cf8df7bd6ba93dc02b9e11512cefd",
+    "parser": {
+      "path": "sources/ReBalance/utils/parser.py",
+      "line": 499,
+      "sha256": "8d04ceb93e9ef50d61157fd1c8826a5cbf8d7f64cda85459f1166e19d8784208"
+    },
+    "grader": {
+      "path": "sources/ReBalance/utils/grader.py",
+      "line": 90,
+      "sha256": "0338f6549f2cb98806473e746baf40b00d9c5bd21a69bc7de0008e4ad4c8d768"
+    },
+    "experiment_grading_script": "codex/boundary-ablation-20260910:integration/rebalance_easysteer/eval/boundary_ablation.py",
+    "reading_index_sha256": "85fadf2a5eaa55edc51476a320f8ac9396cc8afd5c727378a733c84fea2e4279",
+    "local_raw": "E:\\srtp\\srtp-final\\.codex_work\\boundary_ablation20_20260910",
+    "remote_raw": "/root/autodl-tmp/results/easysteer/boundary_ablation20_20260910_run2/"
+  },
+  "extractor_check": {
+    "records_checked": 40,
+    "matches_saved": 40,
+    "method": "Execute unmodified extract_answer AST from saved-hash parser source using Python re; no symbolic grading stack installed or replaced.",
+    "finding": "Extractor only takes the last boxed expression. C is not mapped through the question to 7/15; all ten capped outputs in these six pairs have no boxed expression and yield an empty extraction."
+  },
+  "reading_receipt": {
+    "B01": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B01_unique.txt",
+        "sha256": "51f555176145e2e297c66fb3bacfa3baeaf02e8d4d8aaaeca53ed078031308aa",
+        "lines": 436
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "99e4080e661391751c0780ac881bc76b0c801170b9e11a6a4278b9eade97c848",
+          "paragraph_count": 176
+        },
+        "apply": {
+          "sha256": "df0432066e2ed3b82e0cee3da55bc958e1d87eca42d1b84dd58cc16291915833",
+          "paragraph_count": 198
+        },
+        "skip": {
+          "sha256": "df0432066e2ed3b82e0cee3da55bc958e1d87eca42d1b84dd58cc16291915833",
+          "paragraph_count": 198
+        }
+      },
+      "unique_paragraph_count": 142,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    },
+    "B04": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B04_unique.txt",
+        "sha256": "b1771cc3a01b81a8438479f963acc8e0dcdac1317f0cc9ed1a2eeb4d6d597bc2",
+        "lines": 509
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "bad60152a3a9ed153ad7c52121994a571a28a409cf81312f7e9047145d4064a1",
+          "paragraph_count": 4
+        },
+        "apply": {
+          "sha256": "c38bb3cd86ea6a3608ccfdadd0c643a6a1256e02c51578a5026733b2ee96bdbf",
+          "paragraph_count": 57
+        },
+        "skip": {
+          "sha256": "c7d1d88ff04a679a9ddc239fe31f2e9e92b70964504c77eba35299f57500737d",
+          "paragraph_count": 94
+        }
+      },
+      "unique_paragraph_count": 138,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    },
+    "B14": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B14_unique.txt",
+        "sha256": "0b0b13150a9c0759cfb2434d5e657aafedae0ddf1877db5fd2401f3abe03c328",
+        "lines": 807
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "95ae62df998d2fb9f0e0d156964c13d3500961da7238443dc8b810376aa8168d",
+          "paragraph_count": 491
+        },
+        "apply": {
+          "sha256": "c6477410574ef5c59e33179e23c141c8fc2f799be18c865ded05b1c5eb98fcdb",
+          "paragraph_count": 40
+        },
+        "skip": {
+          "sha256": "c6477410574ef5c59e33179e23c141c8fc2f799be18c865ded05b1c5eb98fcdb",
+          "paragraph_count": 40
+        }
+      },
+      "unique_paragraph_count": 267,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    },
+    "B17": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B17_unique.txt",
+        "sha256": "ca0d643121873591efe9eee30460bbcd23d63eacf3f9d28d0c74f2c7bd98fcd9",
+        "lines": 702
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "0c8c59bb4393b759e88cd407622e37e7f44d5d65fe07f2cb423f2e6f4c661cb6",
+          "paragraph_count": 552
+        },
+        "apply": {
+          "sha256": "fd9bca42172dbf81424ec822bb6b6e096d5c95d8f8d15368342f5cf7c7944f0b",
+          "paragraph_count": 303
+        },
+        "skip": {
+          "sha256": "fd9bca42172dbf81424ec822bb6b6e096d5c95d8f8d15368342f5cf7c7944f0b",
+          "paragraph_count": 303
+        }
+      },
+      "unique_paragraph_count": 231,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    },
+    "B18": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B18_unique.txt",
+        "sha256": "f4f6ce24bb3d5157814cc404e1108f5b76fb91d228f114501181536c21bb487a",
+        "lines": 92
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "829c9cbbd12fa029b6521ab7cfaa1e71bc2bc27b6a44607dd10c22df0096bdd3",
+          "paragraph_count": 145
+        },
+        "apply": {
+          "sha256": "cddced3600da8c57348dea5d3d40d6053ee9f22398ee829aba9b2c8bf4889e68",
+          "paragraph_count": 60
+        },
+        "skip": {
+          "sha256": "cddced3600da8c57348dea5d3d40d6053ee9f22398ee829aba9b2c8bf4889e68",
+          "paragraph_count": 60
+        }
+      },
+      "unique_paragraph_count": 29,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    },
+    "B20": {
+      "packet": {
+        "path": ".codex_work\\boundary_ablation20_20260910\\failure_review6\\B20_unique.txt",
+        "sha256": "cdde51dc6069730112163e47cec7adc0ac36692bd4f98fc58d1db0b73173630f",
+        "lines": 419
+      },
+      "segments": {
+        "prefix": {
+          "sha256": "c96983b6f84a7e1c02b7d1a29de5378ae292ada72ac6bb71ecb2e61a106a8c0f",
+          "paragraph_count": 21
+        },
+        "apply": {
+          "sha256": "d0b1b38d344caaeeea030d7f1a8b562e1b283cc469fa89014777e186135c9f38",
+          "paragraph_count": 107
+        },
+        "skip": {
+          "sha256": "8d51c9e5c1cf6858d39d3b66cb5bf0153572ee3b5bc271a3d383993b350b6ce5",
+          "paragraph_count": 1189
+        }
+      },
+      "unique_paragraph_count": 138,
+      "all_unique_paragraphs_read": true,
+      "reading_method": "Exact duplicate paragraphs read once, all occurrences retained in index; ordered error transitions and final loops inspected separately. Not a claim of 12 independent chronological reads."
+    }
+  },
+  "cases": [
+    {
+      "case_id": "B01",
+      "train_index": 1307,
+      "boundary": {
+        "calibration_index": 41,
+        "stratum": "strong_negative",
+        "step": 175,
+        "boundary_output_offset": 6434,
+        "confidence": 0.6576560962093805,
+        "variance": 0.01614406034326947,
+        "confidence_float32": 0.657656192779541,
+        "variance_float32": 0.016144054010510445,
+        "step_tokens": 34,
+        "projected_coefficient": -1.5353450143175593,
+        "projected_coefficient_float32": -1.5353449583053589,
+        "case_id": "B01",
+        "train_index": 1307,
+        "prefix_generated_tokens": 6435,
+        "original_prompt_tokens": 69,
+        "remaining_tokens": 9565,
+        "prefix_sha256": "90b9c935ea83bc9af6c4b0ec8d1e016cb1326422fa78c38d5edc523ec8e325f3",
+        "prompt_sha256": "7679da9a4882690ff433d4d1cab8258dd066ce672a78cf869fea16343bef476e",
+        "source_output_tokens": 16000,
+        "source_finish_reason": "length"
+      },
+      "question": "Find all values of $x > 4$ which satisfy\n\\[\\sqrt{x - 4 \\sqrt{x - 4}} + 2 = \\sqrt{x + 4 \\sqrt{x - 4}} - 2.\\]",
+      "gold_answer": "[8,\\infty)",
+      "descriptive_category": "correct_solution_statement_loop_after_temporary_doubt",
+      "conclusion": "已在共享前缀分情况正确求出 x>=8。后来一度误称只有x=8，随即纠正；续写则主要反复说明同一正确解集及区间形式，两支逐token一致并触顶。",
+      "independent_math_proof": "令t=sqrt(x-4)>0，原式等价于 |t-2|+2=t。t>=2时恒等；0<t<2时需t=2，与分支矛盾。故x属于[8,infinity)。两根号内已分别成为(t-2)^2、(t+2)^2，定义域亦满足。",
+      "arithmetic_check": "Piecewise absolute-value derivation reviewed; no numerical grid substituted for proof.",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B01",
+            "arm": "apply",
+            "stratum": "strong_negative",
+            "train_index": 1307,
+            "prefix_generated_tokens": 6435,
+            "new_tokens": 9565,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 79.3163435459137,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B01:prefix:P030",
+            "text": "So, putting it all together, the equation holds for all \\( x \\geq 8 \\). But wait, the original equation is defined for \\( x > 4 \\), but we have to check if the expressions inside the square roots are non-negative.",
+            "generated_tokens_through_anchor": 934,
+            "tokens_after_anchor": 15066,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "But in the problem statement, it's written as \"find all values of \\( x > 4 \\)\", so maybe they expect \\( x \\geq 8 \\). But in the original equation, when I tested \\( x = 8 \\), it worked, and for \\( x > 8 \\), it also worked. So, the solution is \\( x \\geq 8 \\).",
+              "count_in_continuation": 65,
+              "first": "B01:apply:P002",
+              "last": "B01:apply:P197"
+            },
+            {
+              "text": "So, the solution is \\( x \\geq 8 \\), which can be written as \\( [8, \\infty) \\).",
+              "count_in_continuation": 64,
+              "first": "B01:apply:P001",
+              "last": "B01:apply:P196"
+            },
+            {
+              "text": "But let me think about whether the problem is expecting a specific value or a range. Since it's asking for all values, it's better to write it as an interval.",
+              "count_in_continuation": 63,
+              "first": "B01:apply:P007",
+              "last": "B01:apply:P195"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B01",
+            "arm": "skip",
+            "stratum": "strong_negative",
+            "train_index": 1307,
+            "prefix_generated_tokens": 6435,
+            "new_tokens": 9565,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 79.28671915829182,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B01:prefix:P030",
+            "text": "So, putting it all together, the equation holds for all \\( x \\geq 8 \\). But wait, the original equation is defined for \\( x > 4 \\), but we have to check if the expressions inside the square roots are non-negative.",
+            "generated_tokens_through_anchor": 934,
+            "tokens_after_anchor": 15066,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "But in the problem statement, it's written as \"find all values of \\( x > 4 \\)\", so maybe they expect \\( x \\geq 8 \\). But in the original equation, when I tested \\( x = 8 \\), it worked, and for \\( x > 8 \\), it also worked. So, the solution is \\( x \\geq 8 \\).",
+              "count_in_continuation": 65,
+              "first": "B01:skip:P002",
+              "last": "B01:skip:P197"
+            },
+            {
+              "text": "So, the solution is \\( x \\geq 8 \\), which can be written as \\( [8, \\infty) \\).",
+              "count_in_continuation": 64,
+              "first": "B01:skip:P001",
+              "last": "B01:skip:P196"
+            },
+            {
+              "text": "But let me think about whether the problem is expecting a specific value or a range. Since it's asking for all values, it's better to write it as an interval.",
+              "count_in_continuation": 63,
+              "first": "B01:skip:P007",
+              "last": "B01:skip:P195"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "prefix",
+          "start": "B01:prefix:P016",
+          "end": "B01:prefix:P030",
+          "start_char": 1408,
+          "stop_char": 2477,
+          "sha256": "7a9c3b7aa20990c2679014adb4098253913f4b93ee5fdbc4ce546be3560de241",
+          "finding": "完整分情况求解后给出正确解集。",
+          "quotes": [
+            {
+              "id": "B01:prefix:P020",
+              "text": "So, both sides are equal to \\( y \\). Therefore, in this case, the equation holds for all \\( y \\geq 2 \\), which translates back to \\( x \\geq 8 \\)."
+            },
+            {
+              "id": "B01:prefix:P028",
+              "text": "\\( 4 = 2y \\) => \\( y = 2 \\)."
+            },
+            {
+              "id": "B01:prefix:P030",
+              "text": "So, putting it all together, the equation holds for all \\( x \\geq 8 \\). But wait, the original equation is defined for \\( x > 4 \\), but we have to check if the expressions inside the square roots are non-negative."
+            }
+          ]
+        },
+        {
+          "segment": "prefix",
+          "start": "B01:prefix:P077",
+          "end": "B01:prefix:P078",
+          "start_char": 7195,
+          "stop_char": 7706,
+          "sha256": "4973d8f213e16f2281be2f30826bc3af2a20aef6d45d64cd6032af4a1540ab13",
+          "finding": "短暂把恒等情形说成只有x=8，下一段回到x>=8；不能给整段历史贴全对标签。",
+          "quotes": [
+            {
+              "id": "B01:prefix:P077",
+              "text": "But wait, let me think about whether \\( x = 8 \\) is the only solution or if there are more. Since in Case 1, the equation reduces to \\( y = 2 \\), which is a single value, but \\( y = \\sqrt{x - 4} \\), so \\( x = y^2 + 4 \\). So, if \\( y = 2 \\), then \\( x = 4 + 4 = 8 \\). So, only \\( x = 8 \\) is the solution in Case 1."
+            },
+            {
+              "id": "B01:prefix:P078",
+              "text": "But wait, in Case 1, we have \\( y \\geq 2 \\), so \\( x \\geq 8 \\). So, all \\( x \\geq 8 \\) satisfy the equation. But wait, let me test \\( x = 10 \\), which is greater than 8, and we saw that it works."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B01:apply:P188",
+          "end": "B01:apply:P198",
+          "start_char": 30980,
+          "stop_char": 32838,
+          "sha256": "4ad804a607fb54f47f5903438bbea21b9c41ea947ee670d62671a8efe9c61638",
+          "finding": "触顶前仍循环复述正确解集与书写形式；skip逐token相同。",
+          "quotes": [
+            {
+              "id": "B01:apply:P189",
+              "text": "But let me think about whether the problem is expecting a specific value or a range. Since it's asking for all values, it's better to write it as an interval."
+            },
+            {
+              "id": "B01:apply:P190",
+              "text": "So, the solution is \\( x \\geq 8 \\), which can be written as \\( [8, \\infty) \\)."
+            },
+            {
+              "id": "B01:apply:P191",
+              "text": "But in the problem statement, it's written as \"find all values of \\( x > 4 \\)\", so maybe they expect \\( x \\geq 8 \\). But in the original equation, when I tested \\( x = 8 \\), it worked, and for \\( x > 8 \\), it also worked. So, the solution is \\( x \\geq 8 \\)."
+            },
+            {
+              "id": "B01:apply:P198",
+              "text": "But let me think about whether the problem is expecting a specific value or a range. Since it's asking"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": true
+    },
+    {
+      "case_id": "B04",
+      "train_index": 5369,
+      "boundary": {
+        "calibration_index": 140,
+        "stratum": "strong_negative",
+        "step": 3,
+        "boundary_output_offset": 196,
+        "confidence": 0.7891595396443688,
+        "variance": 0.0013961854667189338,
+        "confidence_float32": 0.7891596555709839,
+        "variance_float32": 0.001396182575263083,
+        "step_tokens": 69,
+        "projected_coefficient": -0.5645012311636397,
+        "projected_coefficient_float32": -0.5645012259483337,
+        "case_id": "B04",
+        "train_index": 5369,
+        "prefix_generated_tokens": 197,
+        "original_prompt_tokens": 367,
+        "remaining_tokens": 15803,
+        "prefix_sha256": "69be95dd933fa929d42dea9a69e177004a24cb10289613bfa049c690a417854d",
+        "prompt_sha256": "318e8975e18af8859210734fb4a7fbc5fd0bafac41dfcee260837cc994876c71",
+        "source_output_tokens": 3291,
+        "source_finish_reason": "stop"
+      },
+      "question": "[asy] draw((0,0)--(0,2)--(2,2)--(2,0)--cycle,dot); draw((2,2)--(0,0)--(0,1)--cycle,dot); draw((0,2)--(1,0),dot); MP(\"B\",(0,0),SW);MP(\"A\",(0,2),NW);MP(\"D\",(2,2),NE);MP(\"C\",(2,0),SE); MP(\"E\",(0,1),W);MP(\"F\",(1,0),S);MP(\"H\",(2/3,2/3),E);MP(\"I\",(2/5,6/5),N); dot((1,0));dot((0,1));dot((2/3,2/3));dot((2/5,6/5)); [/asy]\nIf $ABCD$ is a $2\\times2$ square, $E$ is the midpoint of $\\overline{AB}$,$F$ is the midpoint of $\\overline{BC}$,$\\overline{AF}$ and $\\overline{DE}$ intersect at $I$, and $\\overline{BD}$ and $\\overline{AF}$ intersect at $H$, then the area of quadrilateral $BEIH$ is\n$\\text{(A) } \\frac{1}{3}\\quad \\text{(B) } \\frac{2}{5}\\quad \\text{(C) } \\frac{7}{15}\\quad \\text{(D) } \\frac{8}{15}\\quad \\text{(E) } \\frac{3}{5}$\n",
+      "gold_answer": "\\frac{7}{15}",
+      "descriptive_category": "completed_correct_choice_not_mapped_by_grader",
+      "conclusion": "两支都正确求出面积7/15，并在最终答案框写C；题干C对应7/15。作者抽取器返回字母C，数值标准答案为7/15，导致保存结果为false。这是格式映射假阴性，不是数学推理失败。",
+      "independent_math_proof": "AF:y=-2x+2，DE:y=x/2+1，BD:y=x；I=(2/5,6/5)，H=(2/3,2/3)。鞋带和差的绝对值为14/15，面积7/15，对应题干C。",
+      "arithmetic_check": "Exact rational shoelace area = 7/15.",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B04",
+            "arm": "apply",
+            "stratum": "strong_negative",
+            "train_index": 5369,
+            "prefix_generated_tokens": 197,
+            "new_tokens": 2881,
+            "total_tokens": 3078,
+            "think_tokens": 2240,
+            "think_closed": true,
+            "finish_reason": "stop",
+            "completion_elapsed_seconds": 29.934653639793396,
+            "author_correct": false,
+            "extracted_answer": "C"
+          },
+          "correct_answer_witness": {
+            "paragraph": "B04:apply:P027",
+            "text": "So, the area of quadrilateral BEIH is 7/15.",
+            "generated_tokens_through_anchor": 1363,
+            "tokens_after_anchor": 1715,
+            "anchor_precedes_tested_action": false
+          },
+          "completed_semantic_answer": true,
+          "completed_semantic_answer_note": "Final boxed C maps uniquely to 7/15 in the problem.",
+          "exact_repetition_examples": [
+            {
+              "text": "To find the area of quadrilateral BEIH, I think I need to determine the coordinates of points B, E, I, and H. Once I have their coordinates, I can use the shoelace formula or divide the quadrilateral into triangles and calculate their areas separately. ",
+              "count_in_continuation": 1,
+              "first": "B04:apply:P001",
+              "last": "B04:apply:P001"
+            },
+            {
+              "text": "Let me assign coordinates to each point to make this easier. Let's place point B at the origin (0,0). Since ABCD is a 2x2 square, point A will be at (0,2), point D at (2,2), and point C at (2,0). ",
+              "count_in_continuation": 1,
+              "first": "B04:apply:P002",
+              "last": "B04:apply:P002"
+            },
+            {
+              "text": "E is the midpoint of AB, so since A is (0,2) and B is (0,0), E must be halfway between them. So, E is at (0,1). Similarly, F is the midpoint of BC, so since B is (0,0) and C is (2,0), F is at (1,0). ",
+              "count_in_continuation": 1,
+              "first": "B04:apply:P003",
+              "last": "B04:apply:P003"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B04",
+            "arm": "skip",
+            "stratum": "strong_negative",
+            "train_index": 5369,
+            "prefix_generated_tokens": 197,
+            "new_tokens": 3208,
+            "total_tokens": 3405,
+            "think_tokens": 2662,
+            "think_closed": true,
+            "finish_reason": "stop",
+            "completion_elapsed_seconds": 32.56026594340801,
+            "author_correct": false,
+            "extracted_answer": "C"
+          },
+          "correct_answer_witness": {
+            "paragraph": "B04:skip:P051",
+            "text": "Area = (1/2)*| -14/15 | = (1/2)*(14/15) = 7/15",
+            "generated_tokens_through_anchor": 1503,
+            "tokens_after_anchor": 1902,
+            "anchor_precedes_tested_action": false
+          },
+          "completed_semantic_answer": true,
+          "completed_semantic_answer_note": "Final boxed C maps uniquely to 7/15 in the problem.",
+          "exact_repetition_examples": [
+            {
+              "text": "B: (0,0)",
+              "count_in_continuation": 2,
+              "first": "B04:skip:P025",
+              "last": "B04:skip:P031"
+            },
+            {
+              "text": "E: (0,1)",
+              "count_in_continuation": 2,
+              "first": "B04:skip:P026",
+              "last": "B04:skip:P032"
+            },
+            {
+              "text": "I: (2/5, 6/5)",
+              "count_in_continuation": 2,
+              "first": "B04:skip:P027",
+              "last": "B04:skip:P033"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "apply",
+          "start": "B04:apply:P023",
+          "end": "B04:apply:P027",
+          "start_char": 2396,
+          "stop_char": 2783,
+          "sha256": "1e2c2b28be242a930d1abf0802140520c9a7eac742b23e98b3930a5f5c4f7cd6",
+          "finding": "鞋带计算得到7/15。",
+          "quotes": [
+            {
+              "id": "B04:apply:P023",
+              "text": "Compute the sum of x_i y_{i+1}:\n(0)(1) + (0)(6/5) + (2/5)(2/3) + (2/3)(0) = 0 + 0 + (4/15) + 0 = 4/15"
+            },
+            {
+              "id": "B04:apply:P024",
+              "text": "Compute the sum of y_i x_{i+1}:\n(0)(0) + (1)(2/5) + (6/5)(2/3) + (2/3)(0) = 0 + (2/5) + (12/15) + 0 = 2/5 + 4/5 = 6/5"
+            },
+            {
+              "id": "B04:apply:P026",
+              "text": "Then, divide by 2:\nArea = (14/15)/2 = 7/15"
+            },
+            {
+              "id": "B04:apply:P027",
+              "text": "So, the area of quadrilateral BEIH is 7/15."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B04:apply:P056",
+          "end": "B04:apply:P057",
+          "start_char": 5733,
+          "stop_char": 6529,
+          "sha256": "7c085ba61a5a91fe8d021e97001bc99c7073e27dda5ea2481e90e146e87b567d",
+          "finding": "正式答案正文也有7/15，最后box仅为C。",
+          "quotes": [
+            {
+              "id": "B04:apply:P056",
+              "text": "4. Use the shoelace formula to find the area of quadrilateral \\(BEIH\\) with vertices \\(B(0, 0)\\), \\(E(0, 1)\\), \\(I\\left(\\frac{2}{5}, \\frac{6}{5}\\right)\\), and \\(H\\left(\\frac{2}{3}, \\frac{2}{3}\\right)\\):\n   - Compute the sums:\n     \\[\n     \\text{Sum of } x_i y_{i+1} = 0 \\cdot 1 + 0 \\cdot \\frac{6}{5} + \\frac{2}{5} \\cdot \\frac{2}{3} + \\frac{2}{3} \\cdot 0 = \\frac{4}{15}\n     \\]\n     \\[\n     \\text{Sum of } y_i x_{i+1} = 0 \\cdot 0 + 1 \\cdot \\frac{2}{5} + \\frac{6}{5} \\cdot \\frac{2}{3} + \\frac{2}{3} \\cdot 0 = \\frac{6}{5}\n     \\]\n   - Calculate the area:\n     \\[\n     \\text{Area} = \\left| \\frac{4}{15} - \\frac{6}{5} \\right| / 2 = \\left| \\frac{4}{15} - \\frac{18}{15} \\right| / 2 = \\frac{14}{15} / 2 = \\frac{7}{15}\n     \\]"
+            },
+            {
+              "id": "B04:apply:P057",
+              "text": "Thus, the area of quadrilateral \\(BEIH\\) is \\(\\boxed{C}\\).<｜end▁of▁sentence｜>"
+            }
+          ]
+        },
+        {
+          "segment": "skip",
+          "start": "B04:skip:P093",
+          "end": "B04:skip:P094",
+          "start_char": 6605,
+          "stop_char": 7316,
+          "sha256": "12a1d7686ae202e64f704a6978b2b4cbb6e8d213a4092a28cfa26c1b8cb1ce24",
+          "finding": "另一支正式答案同样给出面积计算并框选C。",
+          "quotes": [
+            {
+              "id": "B04:skip:P093",
+              "text": "Using the shoelace formula to find the area of quadrilateral \\(BEIH\\) with vertices \\(B(0,0)\\), \\(E(0,1)\\), \\(I\\left(\\frac{2}{5}, \\frac{6}{5}\\right)\\), and \\(H\\left(\\frac{2}{3}, \\frac{2}{3}\\right)\\):\n- List the coordinates in order: \\(B(0,0)\\), \\(E(0,1)\\), \\(I\\left(\\frac{2}{5}, \\frac{6}{5}\\right)\\), \\(H\\left(\\frac{2}{3}, \\frac{2}{3}\\right)\\), \\(B(0,0)\\).\n- Compute the shoelace sum: \n  \\[\n  \\text{Area} = \\frac{1}{2} \\left| 0 + 0 + \\frac{4}{15} + 0 - \\left(0 + \\frac{2}{5} + \\frac{12}{15} + 0 \\right) \\right| = \\frac{1}{2} \\left| \\frac{4}{15} - \\frac{18}{15} \\right| = \\frac{1}{2} \\left| -\\frac{14}{15} \\right| = \\frac{7}{15}\n  \\]"
+            },
+            {
+              "id": "B04:skip:P094",
+              "text": "Thus, the area of quadrilateral \\(BEIH\\) is \\(\\boxed{C}\\).<｜end▁of▁sentence｜>"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": false
+    },
+    {
+      "case_id": "B14",
+      "train_index": 5574,
+      "boundary": {
+        "calibration_index": 174,
+        "stratum": "positive",
+        "step": 490,
+        "boundary_output_offset": 14794,
+        "confidence": 0.9998355189437044,
+        "variance": 9.43848284895301e-06,
+        "confidence_float32": 0.9998355507850647,
+        "variance_float32": 9.438609595235903e-06,
+        "step_tokens": 13,
+        "projected_coefficient": 0.0022988789553030704,
+        "projected_coefficient_float32": 0.002298871986567974,
+        "case_id": "B14",
+        "train_index": 5574,
+        "prefix_generated_tokens": 14795,
+        "original_prompt_tokens": 137,
+        "remaining_tokens": 1205,
+        "prefix_sha256": "56387e0e095dda5ce63794cce0b325b6932454beae3e6e7e8c49a0483e7fed50",
+        "prompt_sha256": "516578b8ab95b9d9c0f4a1f2b563592e47de4b1d62ff64459a4970dfa29efc7e",
+        "source_output_tokens": 16000,
+        "source_finish_reason": "length"
+      },
+      "question": "Point $P$ lies on the diagonal $AC$ of square $ABCD$ with $AP > CP$. Let $O_{1}$ and $O_{2}$ be the circumcenters of triangles $ABP$ and $CDP$ respectively. Given that $AB = 12$ and $\\angle O_{1}PO_{2} = 120^{\\circ}$, then $AP = \\sqrt{a} + \\sqrt{b}$, where $a$ and $b$ are positive integers. Find $a + b$.\n",
+      "gold_answer": "96",
+      "descriptive_category": "correct_target_with_invented_constraint_loop",
+      "conclusion": "共享前缀已求出a=72、b=24、和96；随后反复以题目未要求的square-free条件否定该写法，又重推相同结果。两支续写逐token一致，正确目标值与错误附加要求并存，最后触顶。",
+      "independent_math_proof": "设P=(t,t)，6<t<12。O1=(6,t-6)，O2=(6,t+6)。夹角余弦为((t-6)^2-36)/((t-6)^2+36)=-1/2，得到t=6+2sqrt(3)。AP=sqrt(2)t=sqrt(72)+sqrt(24)，a+b=96。题干只要求a,b为正整数，没有square-free要求。",
+      "arithmetic_check": "Exact Q(sqrt(3)) circumcenter equal-distances, angle cosine -1/2 and AP squared = 96+48sqrt(3).",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B14",
+            "arm": "apply",
+            "stratum": "positive",
+            "train_index": 5574,
+            "prefix_generated_tokens": 14795,
+            "new_tokens": 1205,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 15.686959013342857,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B14:prefix:P218",
+            "text": "Wait, perhaps I need to accept that AP is 6sqrt(2) + 2sqrt(6), which is sqrt(72) + sqrt(24). So, a = 72 and b = 24, so a + b = 96.",
+            "generated_tokens_through_anchor": 7530,
+            "tokens_after_anchor": 8470,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "But the problem says AP = sqrt(a) + sqrt(b), so a and b are 72 and 24, so a + b = 96.",
+              "count_in_continuation": 3,
+              "first": "B14:apply:P008",
+              "last": "B14:apply:P035"
+            },
+            {
+              "text": "Wait, but 72 and 24 are not square-free. So, maybe I made a mistake in the coordinate system.",
+              "count_in_continuation": 3,
+              "first": "B14:apply:P009",
+              "last": "B14:apply:P036"
+            },
+            {
+              "text": "So, AP = 12k√2 = 12*(3 + sqrt(3))/6 * sqrt(2) = 2*(3 + sqrt(3)) * sqrt(2) = 6sqrt(2) + 2sqrt(6)",
+              "count_in_continuation": 2,
+              "first": "B14:apply:P005",
+              "last": "B14:apply:P032"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B14",
+            "arm": "skip",
+            "stratum": "positive",
+            "train_index": 5574,
+            "prefix_generated_tokens": 14795,
+            "new_tokens": 1205,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 15.714572057127953,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B14:prefix:P218",
+            "text": "Wait, perhaps I need to accept that AP is 6sqrt(2) + 2sqrt(6), which is sqrt(72) + sqrt(24). So, a = 72 and b = 24, so a + b = 96.",
+            "generated_tokens_through_anchor": 7530,
+            "tokens_after_anchor": 8470,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "But the problem says AP = sqrt(a) + sqrt(b), so a and b are 72 and 24, so a + b = 96.",
+              "count_in_continuation": 3,
+              "first": "B14:skip:P008",
+              "last": "B14:skip:P035"
+            },
+            {
+              "text": "Wait, but 72 and 24 are not square-free. So, maybe I made a mistake in the coordinate system.",
+              "count_in_continuation": 3,
+              "first": "B14:skip:P009",
+              "last": "B14:skip:P036"
+            },
+            {
+              "text": "So, AP = 12k√2 = 12*(3 + sqrt(3))/6 * sqrt(2) = 2*(3 + sqrt(3)) * sqrt(2) = 6sqrt(2) + 2sqrt(6)",
+              "count_in_continuation": 2,
+              "first": "B14:skip:P005",
+              "last": "B14:skip:P032"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "prefix",
+          "start": "B14:prefix:P175",
+          "end": "B14:prefix:P190",
+          "start_char": 16148,
+          "stop_char": 17068,
+          "sha256": "f3ffa2e922a865a2840a3c97b4df5c0515d4a006a75edde010d751bfdf1122b4",
+          "finding": "先得到96和72/24，随后因自行添加的无平方因子要求而怀疑。",
+          "quotes": [
+            {
+              "id": "B14:prefix:P175",
+              "text": "a + b = 96"
+            },
+            {
+              "id": "B14:prefix:P187",
+              "text": "Therefore, a = 72, b = 24, or a = 24, b = 72."
+            },
+            {
+              "id": "B14:prefix:P188",
+              "text": "But the problem says AP = sqrt(a) + sqrt(b). So, if a = 72 and b = 24, then AP = sqrt(72) + sqrt(24). But 72 and 24 are not square-free. Alternatively, if a = 24 and b = 72, same thing."
+            },
+            {
+              "id": "B14:prefix:P190",
+              "text": "Wait, sqrt(72) = 6sqrt(2), sqrt(24) = 2sqrt(6). So, AP = 6sqrt(2) + 2sqrt(6), which is the same as before."
+            }
+          ]
+        },
+        {
+          "segment": "prefix",
+          "start": "B14:prefix:P218",
+          "end": "B14:prefix:P220",
+          "start_char": 18844,
+          "stop_char": 19156,
+          "sha256": "d4a8c10d2dc3e4da32884aa1509371ef3c98dbbb5dbfe2f0c4d4c605efcbb8aa",
+          "finding": "再次明确接受96，又用无平方因子要求否定。",
+          "quotes": [
+            {
+              "id": "B14:prefix:P218",
+              "text": "Wait, perhaps I need to accept that AP is 6sqrt(2) + 2sqrt(6), which is sqrt(72) + sqrt(24). So, a = 72 and b = 24, so a + b = 96."
+            },
+            {
+              "id": "B14:prefix:P219",
+              "text": "But the problem says AP = sqrt(a) + sqrt(b), so a and b are 72 and 24, so a + b = 96."
+            },
+            {
+              "id": "B14:prefix:P220",
+              "text": "Wait, but 72 and 24 are not square-free. So, maybe I made a mistake in the coordinate system."
+            }
+          ]
+        },
+        {
+          "segment": "prefix",
+          "start": "B14:prefix:P228",
+          "end": "B14:prefix:P229",
+          "start_char": 19755,
+          "stop_char": 19885,
+          "sha256": "a39a7545c85eded518622acbbe6117ecccf39dce0deb8c4f4b78e068b8536893",
+          "finding": "额外核验中把三角形CDP面积误写为72(12-k)，应为72(1-k)。不能因答案96正确而把其所有核验视为正确。",
+          "quotes": [
+            {
+              "id": "B14:prefix:P228",
+              "text": "Similarly, the area of triangle CDP is 72(12 - k)"
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B14:apply:P034",
+          "end": "B14:apply:P040",
+          "start_char": 2093,
+          "stop_char": 2767,
+          "sha256": "4d9cbc30d8ccbd4b5b93f014d0bcdcea54a20ff023fe22f7f85c5d1fe38bf725",
+          "finding": "触顶前仍交替复述96及无平方因子疑问；skip同序列。",
+          "quotes": [
+            {
+              "id": "B14:apply:P034",
+              "text": "Therefore, AP = 6sqrt(2) + 2sqrt(6) = sqrt(72) + sqrt(24). So, a = 72 and b = 24, so a + b = 96."
+            },
+            {
+              "id": "B14:apply:P036",
+              "text": "Wait, but 72 and 24 are not square-free. So, maybe I made a mistake in the coordinate system."
+            },
+            {
+              "id": "B14:apply:P037",
+              "text": "Wait, perhaps I can consider that 6sqrt(2) + 2sqrt(6) can be written as sqrt(72) + sqrt(24), but 72 and 24 are not square-free. So, maybe I need to find another way."
+            },
+            {
+              "id": "B14:apply:P040",
+              "text": "Wait, maybe I need to accept that a +"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": true
+    },
+    {
+      "case_id": "B17",
+      "train_index": 1990,
+      "boundary": {
+        "calibration_index": 312,
+        "stratum": "positive",
+        "step": 551,
+        "boundary_output_offset": 10745,
+        "confidence": 0.9999334054445084,
+        "variance": 3.9334059005679104e-11,
+        "confidence_float32": 0.9999334216117859,
+        "variance_float32": 3.9542591423469275e-11,
+        "step_tokens": 10,
+        "projected_coefficient": 0.09985204845123433,
+        "projected_coefficient_float32": 0.0998520627617836,
+        "case_id": "B17",
+        "train_index": 1990,
+        "prefix_generated_tokens": 10746,
+        "original_prompt_tokens": 97,
+        "remaining_tokens": 5254,
+        "prefix_sha256": "67c7712116eea1db469feeec4c6822304e1886ed83754cec0a6af603bc874228",
+        "prompt_sha256": "d6b274313b9f054e813ffc91ee8984560d26ab17df2a5ffe54dcd37d40fef552",
+        "source_output_tokens": 16000,
+        "source_finish_reason": "length"
+      },
+      "question": "The expression $\\log_{y^6}{x}\\cdot\\log_{x^5}{y^2}\\cdot\\log_{y^4}{x^3}\\cdot\\log_{x^3}{y^4}\\cdot\\log_{y^2}{x^5}$ can be written as $a\\log_y{x}$ for what constant $a$?",
+      "gold_answer": "\\frac16",
+      "descriptive_category": "correct_then_invalid_algebra_recheck_loop",
+      "conclusion": "先正确换底并得到a=1/6；再核验时将倒数项错写成正比项，后来又重复计入系数或多乘一个log，陷入互相矛盾的表达式。两支续写逐token一致，最后触顶。不能将高重复支路等同于已准备好正确输出。",
+      "independent_math_proof": "令L=log_y(x)，合法定义域下L非零。五项分别为L/6、2/(5L)、3L/4、4/(3L)、5L/2，乘积L/6。两项互为倒数，不能把2/(5L)变成2L/5，也不能把4/(3L)变成4L/3。",
+      "arithmetic_check": "Rational coefficient product = 1/6; exponent balance 1-1+1-1+1=1.",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B17",
+            "arm": "apply",
+            "stratum": "positive",
+            "train_index": 1990,
+            "prefix_generated_tokens": 10746,
+            "new_tokens": 5254,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 49.13046923279762,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B17:prefix:P075",
+            "text": "Therefore, the original expression is equal to $\\frac{1}{6} \\log_y{x}$, so $a = \\frac{1}{6}$.",
+            "generated_tokens_through_anchor": 1471,
+            "tokens_after_anchor": 14529,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "Simplify:",
+              "count_in_continuation": 12,
+              "first": "B17:apply:P012",
+              "last": "B17:apply:P298"
+            },
+            {
+              "text": "1/6 * 2/5 * 3/4 * 4/3 * 5/2",
+              "count_in_continuation": 12,
+              "first": "B17:apply:P007",
+              "last": "B17:apply:P293"
+            },
+            {
+              "text": "Which is:",
+              "count_in_continuation": 12,
+              "first": "B17:apply:P008",
+              "last": "B17:apply:P294"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B17",
+            "arm": "skip",
+            "stratum": "positive",
+            "train_index": 1990,
+            "prefix_generated_tokens": 10746,
+            "new_tokens": 5254,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 49.152971401810646,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B17:prefix:P075",
+            "text": "Therefore, the original expression is equal to $\\frac{1}{6} \\log_y{x}$, so $a = \\frac{1}{6}$.",
+            "generated_tokens_through_anchor": 1471,
+            "tokens_after_anchor": 14529,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "Simplify:",
+              "count_in_continuation": 12,
+              "first": "B17:skip:P012",
+              "last": "B17:skip:P298"
+            },
+            {
+              "text": "1/6 * 2/5 * 3/4 * 4/3 * 5/2",
+              "count_in_continuation": 12,
+              "first": "B17:skip:P007",
+              "last": "B17:skip:P293"
+            },
+            {
+              "text": "Which is:",
+              "count_in_continuation": 12,
+              "first": "B17:skip:P008",
+              "last": "B17:skip:P294"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "prefix",
+          "start": "B17:prefix:P068",
+          "end": "B17:prefix:P075",
+          "start_char": 3598,
+          "stop_char": 3958,
+          "sha256": "9ac03a9863744fb67fac6e0302ce7fe97f1abaca189e217d6c01bb068cab116e",
+          "finding": "首段正确化简并明确给出a=1/6。",
+          "quotes": [
+            {
+              "id": "B17:prefix:P069",
+              "text": "$\\frac{120 k^3}{720 k^2}$"
+            },
+            {
+              "id": "B17:prefix:P074",
+              "text": "$\\frac{1}{6} \\cdot k = \\frac{1}{6} \\log_y{x}$"
+            },
+            {
+              "id": "B17:prefix:P075",
+              "text": "Therefore, the original expression is equal to $\\frac{1}{6} \\log_y{x}$, so $a = \\frac{1}{6}$."
+            }
+          ]
+        },
+        {
+          "segment": "prefix",
+          "start": "B17:prefix:P092",
+          "end": "B17:prefix:P110",
+          "start_char": 4934,
+          "stop_char": 6142,
+          "sha256": "f9888764ffef99d4e5dddadb58d8993790378436c387897d8d228007c3019d76",
+          "finding": "核验中两项倒数关系被改错，得到错误的五次幂。",
+          "quotes": [
+            {
+              "id": "B17:prefix:P093",
+              "text": "2. $\\log_{x^5}{y^2} = \\frac{2}{5} \\log_y{x}$"
+            },
+            {
+              "id": "B17:prefix:P095",
+              "text": "4. $\\log_{x^3}{y^4} = \\frac{4}{3} \\log_y{x}$"
+            },
+            {
+              "id": "B17:prefix:P109",
+              "text": "$\\log_y{x} \\cdot \\log_y{x} \\cdot \\log_y{x} \\cdot \\log_y{x} \\cdot \\log_y{x} = (\\log_y{x})^5$"
+            }
+          ]
+        },
+        {
+          "segment": "prefix",
+          "start": "B17:prefix:P292",
+          "end": "B17:prefix:P305",
+          "start_char": 15327,
+          "stop_char": 16266,
+          "sha256": "66b91fa8357ecde2a796b65ff5956d439fe66ea61b416e5af41005db77fe0235",
+          "finding": "曾回到正确结果，但之后又继续怀疑；这是局部恢复，不是循环已被解决。",
+          "quotes": [
+            {
+              "id": "B17:prefix:P292",
+              "text": "120 (log_y{x})^3 / 720 (log_y{x})^2 = (120/720) * (log_y{x})^(3-2) = (1/6) log_y{x}"
+            },
+            {
+              "id": "B17:prefix:P296",
+              "text": "Therefore, the original expression simplifies to (1/6) log_y{x}, so a = 1/6."
+            },
+            {
+              "id": "B17:prefix:P301",
+              "text": "Therefore, the correct value of a is 1/6."
+            },
+            {
+              "id": "B17:prefix:P304",
+              "text": "Each term converted to base y, which is correct, and then multiplied together, which gave me (log_y{x})^5 times the constants."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B17:apply:P274",
+          "end": "B17:apply:P303",
+          "start_char": 10865,
+          "stop_char": 12084,
+          "sha256": "1f75d9375ea01839481774364af7ec7b124755a0968042fb46063c00086d70eb",
+          "finding": "尾部循环仍有额外乘log以及平方/五次幂冲突，未恢复稳定推导。",
+          "quotes": [
+            {
+              "id": "B17:apply:P277",
+              "text": "Then, (1/15) log_y{x} * log_y{x} = (1/15) (log_y{x})^2"
+            },
+            {
+              "id": "B17:apply:P278",
+              "text": "Wait, so that's (1/15) (log_y{x})^2"
+            },
+            {
+              "id": "B17:apply:P279",
+              "text": "But in the cross-check, I have (1/6) (log_y{x})^5"
+            },
+            {
+              "id": "B17:apply:P297",
+              "text": "log_y{x} * (1/(5 log_y{x})) * log_y{x} * (1/(3 log_y{x})) * log_y{x}"
+            },
+            {
+              "id": "B17:apply:P303",
+              "text": "Then, (1/15) log_y{x} * log_y{x} = (1"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": true
+    },
+    {
+      "case_id": "B18",
+      "train_index": 4742,
+      "boundary": {
+        "calibration_index": 427,
+        "stratum": "positive",
+        "step": 144,
+        "boundary_output_offset": 11631,
+        "confidence": 0.9992247878176156,
+        "variance": 1.1424532781399682e-06,
+        "confidence_float32": 0.9992251396179199,
+        "variance_float32": 1.1427808885855484e-06,
+        "step_tokens": 141,
+        "projected_coefficient": 0.09825873107496727,
+        "projected_coefficient_float32": 0.09825951606035233,
+        "case_id": "B18",
+        "train_index": 4742,
+        "prefix_generated_tokens": 11632,
+        "original_prompt_tokens": 62,
+        "remaining_tokens": 4368,
+        "prefix_sha256": "b1db7f2fe16fb1e89b69cd771057bf53ac3d6b580990e2ca2e135ebc314f9bcb",
+        "prompt_sha256": "5d477b1312489225a0764e6bf9285f788a5d32e57c668aba9c4bb1c2d82bbee0",
+        "source_output_tokens": 16000,
+        "source_finish_reason": "length"
+      },
+      "question": "A digit is written to the right of the units digit of $757$.  If the resulting four-digit number is divisible by $3$, how many possibilities are there for the digit that was written?",
+      "gold_answer": "3",
+      "descriptive_category": "correct_count_statement_loop",
+      "conclusion": "已正确列出d=2,5,8并排除其余数字，答案为3。后面反复复述相同模3计算与肯定句，两支续写逐token相同，直到触顶。没有在所见续写中产生新的候选答案。",
+      "independent_math_proof": "四位数为7570+d，7570 mod 3=1，因此d mod 3=2。0至9中仅2、5、8，计数3。",
+      "arithmetic_check": "Exhaustive ten-digit divisibility check gives [2,5,8].",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B18",
+            "arm": "apply",
+            "stratum": "positive",
+            "train_index": 4742,
+            "prefix_generated_tokens": 11632,
+            "new_tokens": 4368,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 42.413034573197365,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B18:prefix:P012",
+            "text": "So, indeed, only d=2,5,8 satisfy the condition. Therefore, there are three possibilities for the digit that was written.",
+            "generated_tokens_through_anchor": 1297,
+            "tokens_after_anchor": 14703,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "Yes, that seems correct.",
+              "count_in_continuation": 30,
+              "first": "B18:apply:P001",
+              "last": "B18:apply:P059"
+            },
+            {
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So, 19 + d ≡ 0 mod 3. So, d ≡ -19 mod 3. But 19 mod 3 is 1, so d ≡ -1 mod 3, which is 2 mod 3. So, d can be 2,5,8. So, three digits.",
+              "count_in_continuation": 29,
+              "first": "B18:apply:P002",
+              "last": "B18:apply:P058"
+            },
+            {
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So",
+              "count_in_continuation": 1,
+              "first": "B18:apply:P060",
+              "last": "B18:apply:P060"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B18",
+            "arm": "skip",
+            "stratum": "positive",
+            "train_index": 4742,
+            "prefix_generated_tokens": 11632,
+            "new_tokens": 4368,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 42.389978766441345,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B18:prefix:P012",
+            "text": "So, indeed, only d=2,5,8 satisfy the condition. Therefore, there are three possibilities for the digit that was written.",
+            "generated_tokens_through_anchor": 1297,
+            "tokens_after_anchor": 14703,
+            "anchor_precedes_tested_action": true
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "Yes, that seems correct.",
+              "count_in_continuation": 30,
+              "first": "B18:skip:P001",
+              "last": "B18:skip:P059"
+            },
+            {
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So, 19 + d ≡ 0 mod 3. So, d ≡ -19 mod 3. But 19 mod 3 is 1, so d ≡ -1 mod 3, which is 2 mod 3. So, d can be 2,5,8. So, three digits.",
+              "count_in_continuation": 29,
+              "first": "B18:skip:P002",
+              "last": "B18:skip:P058"
+            },
+            {
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So",
+              "count_in_continuation": 1,
+              "first": "B18:skip:P060",
+              "last": "B18:skip:P060"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "prefix",
+          "start": "B18:prefix:P007",
+          "end": "B18:prefix:P012",
+          "start_char": 1582,
+          "stop_char": 3522,
+          "sha256": "9d263744bbb91f99003b4189ed420502139668455a72a15b960a0f149e00c6c1",
+          "finding": "正确枚举、检验并排除其他数字后给出3。",
+          "quotes": [
+            {
+              "id": "B18:prefix:P008",
+              "text": "So, d must be congruent to 2 modulo 3. That means d can be 2, 5, or 8, because those are the digits between 0 and 9 that are 2 more than a multiple of 3. Let me check that: 2 is 2 mod 3, 5 is 2 mod 3 (since 5-3=2), 8 is 2 mod 3 (since 8-6=2). So, those are the digits that satisfy the condition."
+            },
+            {
+              "id": "B18:prefix:P010",
+              "text": "But hold on, let me test each digit to make sure. Let's take d=2: 7572. The sum of the digits is 7+5+7+2=21. 21 is divisible by 3, so that works. d=5: 7575. Sum is 7+5+7+5=24, which is divisible by 3. d=8: 7578. Sum is 7+5+7+8=27, which is also divisible by 3. So, all three digits work."
+            },
+            {
+              "id": "B18:prefix:P011",
+              "text": "Wait, but let me check if there are any other digits. For example, d=0: 7570. Sum is 7+5+7+0=19. 19 divided by 3 is 6 with a remainder of 1, so not divisible by 3. Similarly, d=1: 7571. Sum is 7+5+7+1=20. 20 divided by 3 is 6 with a remainder of 2. Not divisible by 3. d=3: 7573. Sum is 7+5+7+3=22. 22 divided by 3 is 7 with a remainder of 1. Not divisible by 3. d=4: 7574. Sum is 7+5+7+4=23. 23 divided by 3 is 7 with a remainder of 2. Not divisible by 3. d=6: 7576. Sum is 7+5+7+6=25. 25 divided by 3 is 8 with a remainder of 1. Not divisible by 3. d=7: 7577. Sum is 7+5+7+7=26. 26 divided by 3 is 8 with a remainder of 2. Not divisible by 3. d=9: 7579. Sum is 7+5+7+9=28. 28 divided by 3 is 9 with a remainder of 1. Not divisible by 3."
+            },
+            {
+              "id": "B18:prefix:P012",
+              "text": "So, indeed, only d=2,5,8 satisfy the condition. Therefore, there are three possibilities for the digit that was written."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B18:apply:P054",
+          "end": "B18:apply:P060",
+          "start_char": 9542,
+          "stop_char": 10848,
+          "sha256": "b048e573a9786c3d77ee769d0853c4021d32e219657ce454e325c183e79033b5",
+          "finding": "尾部反复同一正确算式和肯定句，最后句子截断；skip同序列。",
+          "quotes": [
+            {
+              "id": "B18:apply:P054",
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So, 19 + d ≡ 0 mod 3. So, d ≡ -19 mod 3. But 19 mod 3 is 1, so d ≡ -1 mod 3, which is 2 mod 3. So, d can be 2,5,8. So, three digits."
+            },
+            {
+              "id": "B18:apply:P055",
+              "text": "Yes, that seems correct."
+            },
+            {
+              "id": "B18:apply:P056",
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So, 19 + d ≡ 0 mod 3. So, d ≡ -19 mod 3. But 19 mod 3 is 1, so d ≡ -1 mod 3, which is 2 mod 3. So, d can be 2,5,8. So, three digits."
+            },
+            {
+              "id": "B18:apply:P060",
+              "text": "Wait, but just to make sure, let me think about the problem in terms of the four-digit number. So, 757d is a four-digit number. So, the sum of its digits is 7+5+7+d=19+d. So, 19 + d must be divisible by 3. So"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": true
+    },
+    {
+      "case_id": "B20",
+      "train_index": 2334,
+      "boundary": {
+        "calibration_index": 469,
+        "stratum": "positive",
+        "step": 20,
+        "boundary_output_offset": 869,
+        "confidence": 0.9999400114908937,
+        "variance": 0.02029348289930344,
+        "confidence_float32": 0.9999400973320007,
+        "variance_float32": 0.02029348909854889,
+        "step_tokens": 12,
+        "projected_coefficient": 0.0023175532140342348,
+        "projected_coefficient_float32": 0.0023176968097686768,
+        "case_id": "B20",
+        "train_index": 2334,
+        "prefix_generated_tokens": 870,
+        "original_prompt_tokens": 73,
+        "remaining_tokens": 15130,
+        "prefix_sha256": "acc132529f4263d903c10dbcb6bf524f844b90ff673597b4c3377107a013c741",
+        "prompt_sha256": "115d19962f8b9d1df6962a3899be8dc66d6800f7e71155be5dd502c928b1ef77",
+        "source_output_tokens": 3485,
+        "source_finish_reason": "stop"
+      },
+      "question": "Let $m$ be the smallest positive, three-digit integer congruent to 5 (mod 11). Let $n$ be the smallest positive, four-digit integer congruent to 5 (mod 11). What is $n-m$?",
+      "gold_answer": "902",
+      "descriptive_category": "correct_then_divergent_error_loops",
+      "conclusion": "两支都先得到m=104、n=1006、差902；随后施加支路错误地认为加11会改变模11余数，反复认定n=1088；跳过支路竖式中丢掉十位0，在92和902之间反复冲突。长度同为16000但错误路线不同，不能因等长而认定内容无变化。",
+      "independent_math_proof": "m=11*ceil((100-5)/11)+5=104；n=11*ceil((1000-5)/11)+5=1006；差为902。加11不改变模11余数，144 mod 11=1，1088 mod 11=10。1006-0104=0902，不是0092。",
+      "arithmetic_check": "Exhaustive finite integer check gives m=104,n=1006; erroneous candidates have residues 1 and 10.",
+      "arms": {
+        "apply": {
+          "saved_grade": {
+            "case_id": "B20",
+            "arm": "apply",
+            "stratum": "positive",
+            "train_index": 2334,
+            "prefix_generated_tokens": 870,
+            "new_tokens": 15130,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 112.72456854581833,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B20:apply:P015",
+            "text": "So, n - m = 902.",
+            "generated_tokens_through_anchor": 1402,
+            "tokens_after_anchor": 14598,
+            "anchor_precedes_tested_action": false
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "So, 1088 is the first four-digit number that is 5 mod 11. But wait, 1000 is 10 mod 11, so 1000 + 11 = 1011, which is 10 mod 11, 1011 + 11 = 1022, which is 0 mod 11, 1022 + 11 = 1033, which is 0 mod 11, 1033 + 11 = 1044, which is 1 mod 11, 1044 + 11 = 1055, which is 2 mod 11, 1055 + 11 = 1066, which is 3 mod 11, 1066 + 11 = 1077, which is 4 mod 11, 1077 + 11 = 1088, which is 5 mod 11.",
+              "count_in_continuation": 49,
+              "first": "B20:apply:P056",
+              "last": "B20:apply:P106"
+            },
+            {
+              "text": "So, 1088 is indeed the first four-digit number that is 5 mod 11. But wait, 1000 is 10 mod 11, so 1000 + 11 = 1011, which is 10 mod 11, 1011 + 11 = 1022, which is 0 mod 11, 1022 + 11 = 1033, which is 0 mod 11, 1033 + 11 = 1044, which is 1 mod 11, 1044 + 11 = 1055, which is 2 mod 11, 1055 + 11 = 1066, which is 3 mod 11, 1066 + 11 = 1077, which is 4 mod 11, 1077 + 11 = 1088, which is 5 mod 11.",
+              "count_in_continuation": 3,
+              "first": "B20:apply:P055",
+              "last": "B20:apply:P061"
+            },
+            {
+              "text": "11k + 5 ≥ 100",
+              "count_in_continuation": 1,
+              "first": "B20:apply:P032",
+              "last": "B20:apply:P032"
+            }
+          ]
+        },
+        "skip": {
+          "saved_grade": {
+            "case_id": "B20",
+            "arm": "skip",
+            "stratum": "positive",
+            "train_index": 2334,
+            "prefix_generated_tokens": 870,
+            "new_tokens": 15130,
+            "total_tokens": 16000,
+            "think_tokens": 16000,
+            "think_closed": false,
+            "finish_reason": "length",
+            "completion_elapsed_seconds": 112.70977419614792,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "correct_answer_witness": {
+            "paragraph": "B20:skip:P016",
+            "text": "So, 1006 - 104 = 902.",
+            "generated_tokens_through_anchor": 1425,
+            "tokens_after_anchor": 14575,
+            "anchor_precedes_tested_action": false
+          },
+          "completed_semantic_answer": null,
+          "completed_semantic_answer_note": "Capped with no </think> or boxed answer; earlier correct content does not turn an unfinished output into a completed correct response.",
+          "exact_repetition_examples": [
+            {
+              "text": "6 - 4 = 2.",
+              "count_in_continuation": 83,
+              "first": "B20:skip:P033",
+              "last": "B20:skip:P1185"
+            },
+            {
+              "text": "1006",
+              "count_in_continuation": 82,
+              "first": "B20:skip:P042",
+              "last": "B20:skip:P1181"
+            },
+            {
+              "text": "= ?",
+              "count_in_continuation": 82,
+              "first": "B20:skip:P044",
+              "last": "B20:skip:P1183"
+            }
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "segment": "apply",
+          "start": "B20:apply:P012",
+          "end": "B20:apply:P019",
+          "start_char": 858,
+          "stop_char": 1361,
+          "sha256": "ae38708134412d4fa0211e210f7e6f42162ddb3b9a67660d67dca645f0d2e0c8",
+          "finding": "先正确给出902并用拆分减法核验。",
+          "quotes": [
+            {
+              "id": "B20:apply:P012",
+              "text": "So, now, we have m = 104 and n = 1006. The question is asking for n - m."
+            },
+            {
+              "id": "B20:apply:P015",
+              "text": "So, n - m = 902."
+            },
+            {
+              "id": "B20:apply:P018",
+              "text": "Alternatively, 1006 - 104 can be thought of as (1000 + 6) - (100 + 4) = (1000 - 100) + (6 - 4) = 900 + 2 = 902. Yep, same result."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B20:apply:P023",
+          "end": "B20:apply:P029",
+          "start_char": 1594,
+          "stop_char": 2094,
+          "sha256": "8ad6db3d392f15686310fc7099c13573e024d3564d20bdc5785e64d25086ddf3",
+          "finding": "新的核验错误地声称加11会把余数逐次加1。",
+          "quotes": [
+            {
+              "id": "B20:apply:P023",
+              "text": "We need a number that is 5 mod 11. So, starting from 100, adding 11 each time until we get to 5 mod 11."
+            },
+            {
+              "id": "B20:apply:P024",
+              "text": "100 + 11 = 111, which is 111 ≡ 2 mod 11."
+            },
+            {
+              "id": "B20:apply:P027",
+              "text": "133 + 11 = 144 ≡ 5 mod 11."
+            },
+            {
+              "id": "B20:apply:P028",
+              "text": "So, 144 is the first three-digit number that is 5 mod 11. Wait, but earlier I thought m was 104. That's conflicting."
+            }
+          ]
+        },
+        {
+          "segment": "apply",
+          "start": "B20:apply:P100",
+          "end": "B20:apply:P107",
+          "start_char": 22348,
+          "stop_char": 25449,
+          "sha256": "4d3968c33572491d1b2ffc33e3b97d8b1aca63fc8c725690a93bc161364df6f7",
+          "finding": "尾部长段重复错误的n=1088及余数计算，直到截断。",
+          "quotes": [
+            {
+              "id": "B20:apply:P100",
+              "text": "So, 1088 is the first four-digit number that is 5 mod 11. But wait, 1000 is 10 mod 11, so 1000 + 11 = 1011, which is 10 mod 11, 1011 + 11 = 1022, which is 0 mod 11, 1022 + 11 = 1033, which is 0 mod 11, 1033 + 11 = 1044, which is 1 mod 11, 1044 + 11 = 1055, which is 2 mod 11, 1055 + 11 = 1066, which is 3 mod 11, 1066 + 11 = 1077, which is 4 mod 11, 1077 + 11 = 1088, which is 5 mod 11."
+            },
+            {
+              "id": "B20:apply:P107",
+              "text": "So, 1088 is the first four-digit number that is 5 mod 11. But wait, 1000 is 10 mod 11, so 1000 + 11 = 1011, which is 10 mod 11, 1011 + 11 = 1022, which is 0 mod 11, 1022 + 11 = 1033, which is 0 mod 11, 1033 + 11 = 1044, which is 1 mod 11, 1044 + 11 = 1055, which is 2 mod 11, 1055 + 11 = 1066, which is 3 mod 11, 1066 + 11 = 1077, which is 4 mod 11, 1077 + 11 = 1088, which is 5 mod 11"
+            }
+          ]
+        },
+        {
+          "segment": "skip",
+          "start": "B20:skip:P013",
+          "end": "B20:skip:P016",
+          "start_char": 985,
+          "stop_char": 1091,
+          "sha256": "74da3702229792584c34991bc4d160899e8f83c19ecc5a8a2c9efd189adf1471",
+          "finding": "跳过支路也先得902。",
+          "quotes": [
+            {
+              "id": "B20:skip:P013",
+              "text": "Therefore, n - m = 1006 - 104. Let's compute that:"
+            },
+            {
+              "id": "B20:skip:P016",
+              "text": "So, 1006 - 104 = 902."
+            }
+          ]
+        },
+        {
+          "segment": "skip",
+          "start": "B20:skip:P027",
+          "end": "B20:skip:P040",
+          "start_char": 1623,
+          "stop_char": 2267,
+          "sha256": "b04b313650a59a8487bb73084826671aeba534f02561c4e6f5d2658c3a99db8e",
+          "finding": "竖式丢掉十位0，形成92/902冲突。",
+          "quotes": [
+            {
+              "id": "B20:skip:P027",
+              "text": "10 - 1 = 9."
+            },
+            {
+              "id": "B20:skip:P029",
+              "text": "So, the result is 092, which is 92. Wait, that contradicts my earlier result of 902. Hmm, something's wrong here."
+            },
+            {
+              "id": "B20:skip:P040",
+              "text": "So, the result is 092, which is 92. But that can't be right because 1006 - 100 = 906, and 906 - 4 = 902. So, why is the subtraction giving me 92?"
+            }
+          ]
+        },
+        {
+          "segment": "skip",
+          "start": "B20:skip:P1177",
+          "end": "B20:skip:P1189",
+          "start_char": 38995,
+          "stop_char": 39425,
+          "sha256": "bbbc1b0042bc9409b6e9a1f9a1fca4ceb74c5a4d0d3bfd84f1377fa6a714904c",
+          "finding": "触顶时仍重复位值冲突，而非完成纠错。",
+          "quotes": [
+            {
+              "id": "B20:skip:P1179",
+              "text": "So, the result is 092, which is 92. But that's not correct because 1006 - 104 is 902. So, I'm getting a different result. Maybe I'm not subtracting correctly."
+            },
+            {
+              "id": "B20:skip:P1189",
+              "text": "Hundreds place: 0 becomes 1"
+            }
+          ]
+        }
+      ],
+      "identical_paired_continuation_tokens": false
+    }
+  ],
+  "additive_B04_choice_mapping": {
+    "scope": "Only B04 exact letter-to-option normalization, all other 38 saved grades unchanged; not a new benchmark or a complete improved grader.",
+    "mapping": {
+      "A": "\\frac{1}{3}",
+      "B": "\\frac{2}{5}",
+      "C": "\\frac{7}{15}",
+      "D": "\\frac{8}{15}",
+      "E": "\\frac{3}{5}"
+    },
+    "groups": {
+      "strong_negative": {
+        "apply": {
+          "count": 10,
+          "original_correct": 8,
+          "correct_after_only_B04_mapping": 9
+        },
+        "skip": {
+          "count": 10,
+          "original_correct": 8,
+          "correct_after_only_B04_mapping": 9
+        }
+      },
+      "positive": {
+        "apply": {
+          "count": 10,
+          "original_correct": 6,
+          "correct_after_only_B04_mapping": 6
+        },
+        "skip": {
+          "count": 10,
+          "original_correct": 6,
+          "correct_after_only_B04_mapping": 6
+        }
+      }
+    },
+    "records": [
+      {
+        "case_id": "B10",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B15",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B12",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B10",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B08",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B15",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B07",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B07",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B08",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B12",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B11",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B02",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B14",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B14",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B02",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B11",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B09",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B06",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B19",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B16",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B16",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B06",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B09",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B13",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B05",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B03",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B19",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B13",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B05",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B04",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": true,
+        "changed": true,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B03",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": true,
+        "b04_option_mapping_only_correct": true,
+        "changed": false,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B04",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": true,
+        "changed": true,
+        "finish_reason": "stop"
+      },
+      {
+        "case_id": "B18",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B18",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B17",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B17",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B01",
+        "arm": "skip",
+        "stratum": "strong_negative",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B01",
+        "arm": "apply",
+        "stratum": "strong_negative",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B20",
+        "arm": "skip",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      },
+      {
+        "case_id": "B20",
+        "arm": "apply",
+        "stratum": "positive",
+        "original_author_correct": false,
+        "b04_option_mapping_only_correct": false,
+        "changed": false,
+        "finish_reason": "length"
+      }
+    ],
+    "correctness_flips_between_actions_after_mapping": 0,
+    "capped_records_still_fail": true,
+    "raw_grades_overwritten": false
+  },
+  "limitations": [
+    "An earlier supported correct answer is content evidence, not a completed correct output and not proof that every later token can safely be deleted.",
+    "These six were selected by existing outcome, so they cannot estimate general failure prevalence or labeling accuracy.",
+    "The descriptive categories are evidence organization, not over/under/normal gold labels or a trained classifier.",
+    "Raw author grades, all error/cap token counts, the prior 20-pair summary and frozen benchmark tables remain unchanged.",
+    "No gate, stop action, regeneration, first-step strength search, or new intervention was tested.",
+    "Repeating the same statement can retain a correct conclusion or repeatedly assert an incorrect one. Detecting a cycle is not the same as verifying the answer or deciding to output its latest value."
+  ],
+  "next_minimal_work": "Build a CPU replay monitor for repeated completed blocks that only reports candidate cycles and evidence, without stopping generation or using gold answers as features. Check normal useful verification examples as well as capped loops on saved training traces before defining a GPU stopping/steering experiment."
+}
