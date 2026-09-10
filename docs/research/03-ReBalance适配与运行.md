@@ -19,6 +19,7 @@
 | `scripts/freeze_final_results.py` | CPU检查完整配对、协议／判分匹配及资产哈希，再生成冻结清单；现有冻结JSON不要覆盖 |
 | `scripts/audit_calibration_labels.py` | 原30题／76步内容审查：准备、按轮查看、揭示代理标签；样本及旧审读已固定，不重新抽样 |
 | `scripts/audit_answer_evidence.py` | 本地CPU答案证据索引、查看与审读校验；不调用模型，不自动分三类，不改向量 |
+| `scripts/audit_control_alignment.py` | 把已有30题证据与原函数在前后边界的系数对齐；CPU投影，不是实际干预效果测试 |
 
 `run_rebalance_static_vllm.sh`、`run_rebalance_dynamic_vllm.sh`、`run_own_calibration.sh`、`run_paper_baseline.sh`保留历史路径，不能替代当前自动校准基线入口。没有默认先跑20题的要求。
 
@@ -94,3 +95,15 @@ python integration/rebalance_easysteer/scripts/audit_answer_evidence.py show --f
 默认展示检索线索、目标相邻步骤及精确重复的代表；`--all-steps`展示所有不同完整步骤。全文和未完成尾段仍在索引，屏幕长尾预览有限长。分隔token中的数学符号在展示时恢复，`start:stop`保留校准跨度，`start:evidence_stop`是含该符号的取证跨度；均为从0数的生成token半开区间。
 
 `prepare --output <新目录>`从原归档及固定30题重建索引并核验哈希，不生成答案；目标已有索引时拒绝覆盖。`finalize --output <索引目录> --review <审读JSON> --report <新结果JSON>`核对引用、前缀位置、精确有理数及人工修订后汇总。当前审读输入是上述本地目录的`answer_anchor_review.json`，并嵌入[结果摘要](../../integration/rebalance_easysteer/configs/calibration_label_evidence30_20260910.json)的`questions[].annotation_input`。检索词和精确重复只帮助找证据，不是语义判定规则；未找到见证不自动标错或欠思考。既有摘要无需重新生成。
+
+## 本地CPU控制强度对齐工具
+
+本轮已完成，直接查看[结果摘要](../../integration/rebalance_easysteer/configs/calibration_control_alignment30_20260910.json)，不必重复运行。需要重新核对新的工具改动时，使用Python 3.11以上及NumPy；本地现有运行时已具备，不需要安装torch、加载模型或启动服务器：
+
+```text
+python integration/rebalance_easysteer/scripts/audit_control_alignment.py --output <新目录> --report <新结果JSON>
+```
+
+输入依赖原校准归档、固定30题的`audit_protocol.json`／`private_key.json`、答案证据索引、原`curve_check.json`和仓库内冻结清单／1.5B参数。按文件哈希验证后，从当前冻结源码提取数值函数，在CPU重建4652步系数；不import vLLM。`incoming`是前一步边界可能施加的系数，`outgoing`是本步结束后的系数；首个prompt和结束思考记无注入边界。float32模拟仅核对数值敏感性，不代替CUDA运行验证。
+
+默认完整产物目录为`.codex_work/control_alignment30_20260910/`，其中`projected_steps.json`保存全部步骤，已纳入Git的结果摘要保存76个检查位置和44条答案见证的对齐。新输出不得覆盖已存在文件；该工具不提供续写、调参或修改在线控制器的入口。
