@@ -20,6 +20,7 @@
 | `scripts/audit_calibration_labels.py` | 原30题／76步内容审查：准备、按轮查看、揭示代理标签；样本及旧审读已固定，不重新抽样 |
 | `scripts/audit_answer_evidence.py` | 本地CPU答案证据索引、查看与审读校验；不调用模型，不自动分三类，不改向量 |
 | `scripts/audit_control_alignment.py` | 把已有30题证据与原函数在前后边界的系数对齐；CPU投影，不是实际干预效果测试 |
+| `scripts/audit_repeat_confidence.py` | 读取已存30题／76步内容证据与本步统计，比较重复、新内容和冻结高／低阈值；不重新生成或拟合 |
 | `scripts/replay_cycle_monitor.py` | CPU逐token回放原500题、记录精确相邻段落块重复；只报警，不截断、不选择答案、不调用模型 |
 | `scripts/replay_atom_cycles.py` | CPU检查段落内相邻片段重复，投影原边界的正向注入机会；只记录证据，不实际干预 |
 
@@ -109,6 +110,8 @@ python integration/rebalance_easysteer/scripts/audit_control_alignment.py --outp
 输入依赖原校准归档、固定30题的`audit_protocol.json`／`private_key.json`、答案证据索引、原`curve_check.json`和仓库内冻结清单／1.5B参数。按文件哈希验证后，从当前冻结源码提取数值函数，在CPU重建4652步系数；不import vLLM。`incoming`是前一步边界可能施加的系数，`outgoing`是本步结束后的系数；首个prompt和结束思考记无注入边界。float32模拟仅核对数值敏感性，不代替CUDA运行验证。
 
 默认完整产物目录为`.codex_work/control_alignment30_20260910/`，其中`projected_steps.json`保存全部步骤，已纳入Git的结果摘要保存76个检查位置和44条答案见证的对齐。新输出不得覆盖已存在文件；该工具不提供续写、调参或修改在线控制器的入口。
+
+9月11日另已完成[重复与置信度核对](../../integration/rebalance_easysteer/configs/repeat_confidence30_20260911.json)。它直接读取上面的已存投影及证据索引，使用标准库，不需要重跑控制对齐。确需核对新改动时，用`scripts/audit_repeat_confidence.py --output <新目录> --report <新结果JSON>`；路径仍相对`integration/rebalance_easysteer/`，默认产物位于`.codex_work/repeat_confidence30_20260911/`。规则在代码提交`1eed285`中预先固定，任一输出已存在即拒绝。注意这次统计本步结束后的系数，不能与旧交接中本步之前的计数混用；分层样本比例不是总体误判率，逐字相同历史也不证明重复导致置信度上升。
 
 ## 本地CPU循环回放工具
 
