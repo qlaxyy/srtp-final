@@ -48,7 +48,7 @@ def proxy_diagnostic(steps, rows, validation):
         require(bool(values), 'No proxy observations: '+name)
         a, b = np.mean(values, axis=0)
         result[name] = dict(questions=len(values), steps=counts[name], plain_mse=float(a), pooled_mse=float(b),
-                            ratio=float(b/a), per_question_improved=sum(b<a for a,b in values))
+                            ratio=float(b/a), per_question_improved=int(sum(b<a for a,b in values)))
     return result
 
 

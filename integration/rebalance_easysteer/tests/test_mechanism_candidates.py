@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 import tempfile
 import unittest
+import json
 import numpy as np
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
@@ -44,6 +45,7 @@ class MechanismTests(unittest.TestCase):
         # Avoid zero denominator by making the target slightly different.
         rows[0]['logprobs']=np.log([.2,.2,.7,.7,.9,.9]).tolist()
         result=proxy_diagnostic(steps,rows,{0})
+        json.dumps(result,allow_nan=False)
         self.assertGreater(result['short']['ratio'],1)
         self.assertEqual(result['short']['steps'],1)
 
