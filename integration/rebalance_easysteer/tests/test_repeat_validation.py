@@ -1,15 +1,28 @@
 """CPU checks for independent selection and rejecting invalid paired results."""
 import copy
+import contextlib
+import io
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from prepare_repeat_validation import select
-from run_repeat_validation import command, combine, analyze, validate_arm
+from run_repeat_validation import command, combine, analyze, validate_arm, main
 
 
 class ValidationTest(unittest.TestCase):
+    def test_default_preview_never_launches_a_subprocess(self):
+        bundle = Path(__file__).resolve().parents[1]/'configs/repeat_validation100_20260911'
+        argv = ['runner','--bundle',str(bundle),'--output','unused_preview_output']
+        with patch.object(sys,'argv',argv), contextlib.redirect_stdout(io.StringIO()) as captured:
+            with patch('run_repeat_validation.subprocess.run',side_effect=AssertionError('Unexpected process')):
+                with patch('run_repeat_validation.subprocess.check_output',side_effect=AssertionError('Unexpected import or GPU process')):
+                    main()
+        self.assertIn('cpu_preflight_passed_no_generation',captured.getvalue())
+        self.assertFalse(Path('unused_preview_output').exists())
+
     def fixture(self):
         rows = [dict(problem=f'p{i}', answer=str(i)) for i in range(100)]
         plan = dict(runtime=dict(max_tokens=16000, async_scheduling=True),

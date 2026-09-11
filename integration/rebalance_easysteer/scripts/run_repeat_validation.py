@@ -168,6 +168,25 @@ def main():
     require(not subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip(), 'Commit the experimental worktree first')
     for executable in (PYTHON, GRADER):
         require(Path(executable).is_file(), 'Existing runtime missing: '+executable)
+    # Editable installs may still point at another checkout. Verify the code
+    # Python actually imports before loading any model; do not reinstall it.
+    import_check = (
+        "import inspect,json,vllm,torch; "
+        "from easysteer.vectors import from_pt_direction; "
+        "print(json.dumps(dict(vllm_file=vllm.__file__, "
+        "vector_file=inspect.getfile(from_pt_direction), "
+        "vllm_version=vllm.__version__,torch_version=torch.__version__)))"
+    )
+    import_env = dict(os.environ, PYTHONNOUSERSITE='1')
+    receipt = json.loads(subprocess.check_output(
+        [PYTHON, '-c', import_check], cwd=ROOT, env=import_env,
+        text=True).splitlines()[-1])
+    for key, relative in (
+        ('vllm_file','sources/EasySteer/vllm-steer/vllm/__init__.py'),
+        ('vector_file','sources/EasySteer/easysteer/vectors.py'),
+    ):
+        require(Path(receipt[key]).resolve() == (ROOT/relative).resolve(),
+                'Editable runtime points to a different checkout: '+receipt[key])
     for name, expected in plan['model_files_sha256'].items():
         require(sha(Path(plan['model'])/name) == expected, 'Model changed: '+name)
     for name, expected in (('auto_vector.pt',plan['vector_sha256']), ('fit.json',plan['fit_sha256'])):
@@ -177,7 +196,7 @@ def main():
     env['PATH'] = str(Path(PYTHON).parent)+os.pathsep+env['PATH']
     ledger = dict(status='running', started_unix=time.time(), plan_sha256=sha(bundle/'plan.json'),
                   commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-                  commands=commands, arms={})
+                  commands=commands, imported_runtime=receipt, arms={})
     save(output/'run_ledger.json', ledger)
     try:
         for arm in plan['run_order']:

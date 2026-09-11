@@ -818,7 +818,7 @@
     "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
     "integration/rebalance_easysteer/eval/repeat_positive_gate.py": "96115390324dec222d7499ebf9fd76547c4d82e070a036400cbb3826d63c6700",
     "integration/rebalance_easysteer/scripts/prepare_repeat_validation.py": "ea0039a1c96e7758fa6dae6f478a04f4217d7a63f20e6802911e957041064af3",
-    "integration/rebalance_easysteer/scripts/run_repeat_validation.py": "95293debcb4b3fad5e64e573c512b672c7db4190823a6affc43e0297daf4e024"
+    "integration/rebalance_easysteer/scripts/run_repeat_validation.py": "ab59eced236ad36f6f5038c5bf169b2e19a115b8a6c83e9f872d2a121c44499e"
   },
   "source_hash_format": "SHA256 after CRLF to LF normalization",
   "gpu_started": false,
@@ -827,5 +827,6 @@
     "CPU hook contracts passed with a state double, not CUDA acceptance.",
     "Exact text repetition is conservative evidence, not a semantic or correctness label.",
     "The original 500 calibration answers are development data; this fresh 100 is validation, not formal test data."
-  ]
+  ],
+  "runtime_import_check": "Before model loading, require vLLM and EasySteer editable import paths to resolve to the checked experimental checkout; reuse existing environments, never reinstall automatically."
 }
