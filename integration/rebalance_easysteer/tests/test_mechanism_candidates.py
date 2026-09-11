@@ -12,9 +12,19 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from mechanism_candidates import directions, moments, bfloat16, zero_loss_upper, checkpoint_cost, read_vector,sha
 from audit_mechanism_candidates import proxy_diagnostic
 from audit_control_points import map_positions
+from audit_followup_candidates import clip_negative
 
 
 class MechanismTests(unittest.TestCase):
+    def test_latent_clip_preserves_positive_and_never_crosses_negative_center(self):
+        c=np.array([-2.,-2.,-2.,.1,0.])
+        s=np.array([-1.,.5,4.,-1.,3.])
+        result=clip_negative(c,s,0.,1.)
+        np.testing.assert_array_equal(result,[0.,-.5,-2.,.1,0.])
+        self.assertTrue(np.all(s[1:3]+result[1:3]>=0))
+        self.assertTrue(np.all(np.abs(result)<=np.abs(c)))
+        with self.assertRaises(ValueError):clip_negative(c,s,0.,-1.)
+
     def test_control_points_exclude_prompt_and_follow_adjacent_delimiters(self):
         row=dict(prompt_token_ids=[99,98],token_ids=[1,2,9,9,3,4,9])
         steps=[dict(start=0,stop=2),dict(start=4,stop=6)]

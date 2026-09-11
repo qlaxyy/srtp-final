@@ -1,5 +1,5 @@
 {
-  "status": "control_point_generation_screen_preparing",
+  "status": "control_point_screen_engineering_recovery",
   "start_utc": "2026-09-11T17:15:11Z",
   "minimum_finish_utc": "2026-09-12T01:15:11Z",
   "minimum_hours_requested": 8,
@@ -455,6 +455,18 @@
       "bytes": 256744143,
       "sha256": "63354fdad40c56499cd99c0142bed97e6c3bbef91d34dd251acad727e26fbbdb",
       "all_inner_ledger_hashes_verified_locally": true
+    },
+    "engineering_failure": {
+      "commit": "16c551446693ed315182f02f24d51de9aa1016be",
+      "valid_original_outputs": 100,
+      "invalid_matched_first_outputs": 100,
+      "predecessor_outputs": 0,
+      "cause": "Evaluator only reads fitted layer for exact version auto-code-v2. New position-only-v1 fit silently used CLI default layer18. After-arm validator rejected it before predecessor arm.",
+      "fix": "Explicit --layer20 in new recovery runner, plus actual evaluator parse/spec preflight with model constructor replaced by a stopping sentinel. Original evaluator and all listed source files unchanged; verify each against original commit before retaining its valid100 control.",
+      "new_answers_after_fix": 200,
+      "new_output": "/root/autodl-tmp/results/easysteer/control_point_screen100_resumed_20260912",
+      "preservation": "First failed output directory immutable; invalid100 excluded from efficacy comparisons and their cost retained.",
+      "metadata_limitation": "For non-auto-code-v2 versions, evaluator legacy rebalance_source_layer remains19; actual payload/fit hidden_state_index21 and checked EasySteer output layer20 are authoritative. This field is not evidence of extraction layer."
     }
   },
   "literature_queue": [
@@ -483,5 +495,75 @@
     "Fix new screening and reserve data exclusions",
     "Fit matched position assets and run the prespecified screen if CPU gate passes",
     "Continue principled mainline research and bounded comparison work until the requested minimum duration"
-  ]
+  ],
+  "followup_cpu_result": {
+    "status": "completed_cpu_diagnostic",
+    "confidence_only_direction": {
+      "status": "ready_for_fixed_gpu_screen",
+      "gate": {
+        "minimum_class_questions_in_each_original_group": 25,
+        "minimum_train_validation_cosine": 0.5,
+        "minimum_relative_normed_difference_from_original": 0.05,
+        "finite_norm_match": true
+      },
+      "passes_cpu_gate": true,
+      "class_steps": {
+        "over": 10366,
+        "under": 11309,
+        "train_over": 8055,
+        "train_under": 8092,
+        "valid_over": 2311,
+        "valid_under": 3217
+      },
+      "class_questions": {
+        "over": 496,
+        "under": 283,
+        "train_over": 396,
+        "train_under": 227,
+        "valid_over": 100,
+        "valid_under": 56
+      },
+      "train_validation_cosine": 0.94804216078796,
+      "original_cosine": 0.6276856048041125,
+      "relative_normed_difference": 0.8629187286648496,
+      "raw_norm": 88.75465973438256,
+      "saved_norm": 83.61913630727288,
+      "vector_sha256": "ac65988fd5f4a7a0f0ac9289c632a17b6ff46d20ce6d69e829cf976fb50f5ab6",
+      "fit_sha256": "16d7cf7d8dc3c7e919b68b57c52ad540eee0c04120c845504fe926a41f90cca3"
+    },
+    "latent_feedback_clip": {
+      "status": "ready_for_runtime_implementation",
+      "gate": {
+        "minimum_class_questions_in_each_original_group": 25,
+        "minimum_train_validation_readout_cosine": 0.5,
+        "positive_w_dot_original_d": true,
+        "minimum_fraction_negative_events_changed": 0.1
+      },
+      "passes_cpu_gate": true,
+      "class_questions": {
+        "over": 500,
+        "under": 283,
+        "train_over": 400,
+        "train_under": 227,
+        "valid_over": 100,
+        "valid_under": 56
+      },
+      "readout_train_validation_cosine": 0.9040845505792952,
+      "w_dot_original_d": 105.79717122310717,
+      "negative_centroid_score": -91.97807261595716,
+      "valid_incoming_events": 83508,
+      "negative_incoming_events": 59029,
+      "negative_events_changed": 10865,
+      "fraction_negative_changed": 0.18406207118534956,
+      "fully_cancelled_negative_events": 3102,
+      "incoming_mean_absolute_negative": 0.4853537565356799,
+      "adjusted_mean_absolute_negative": 0.39364863058352506,
+      "readout_sha256": "4d278704b4ba314bf332b5f2609fd979c7cf266207c0a1f5931beb0dd0d53a1e",
+      "chronology": "Previous complete step controls current predecessor state; first prompt excluded"
+    },
+    "seconds": 4.007732500002021,
+    "plan_sha256": "88a92eee76027d9da5dc126a59a22c69afc8a6093ff902f3bb707503f9b8944a",
+    "source_sha256": "e9872801703a391f8fdb6161fa84d20087bc2743a4dde581015241900e46300f",
+    "limitation": "All hidden data are unsteered saved calibration trajectories; 400/100 groups were already used for layer selection. Offline intervention opportunities and class readouts do not establish real generation savings or semantic safety."
+  }
 }
