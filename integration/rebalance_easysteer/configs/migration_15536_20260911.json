@@ -703,11 +703,11 @@
   "new_generations": 0,
   "reinstallation": false,
   "frozen_results_changed": false,
-  "next_action": "Migration verification is complete. Keep the fixed 100-question plan and original assets; agree the GPU comparison with the user before starting either arm. The audit did not create the generation output directory.",
+  "next_action": "Migration and the subsequently authorized fixed 100-question pair are complete. Read the no-benefit result; do not rerun the completed pair or expand GPU testing automatically.",
   "migration_pending": [],
   "research_pending": [
-    "Actual CUDA repeat-gate runtime and KV restore behavior",
-    "Fresh 100-question paired generation, grading, compression effect and online overhead"
+    "Actual positive coefficient cancellation effect was not exercised: zero positive events in the completed 100-question pair",
+    "Actual CUDA KV preemption and restore: neither arm preempted"
   ],
   "audit": {
     "scope": "Migration asset integrity and existing environment checks only; no new answers",
@@ -752,5 +752,11 @@
       }
     ],
     "followup_helper_sha256": "d6dd01728e4cec6f194a3663a888be15b5dc3604dde80515bd1a3107f3aefcf9"
+  },
+  "subsequent_experiment": {
+    "status": "completed_no_positive_cancellation_no_benefit",
+    "record": "repeat_validation100_20260911.json",
+    "completed_at": "2026-09-11T13:06:39.414Z",
+    "gpu_after_completion": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB"
   }
 }
