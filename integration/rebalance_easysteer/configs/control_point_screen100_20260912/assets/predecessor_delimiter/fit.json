@@ -1,0 +1,29 @@
+{
+  "version": "position-only-v1",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "1e659ce273e3fd8fb48249a647508824e420edbd696638da92c10023a99cf88e",
+  "vector_norm": 83.61913675921724,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 47975,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "Original mixed labels and fixed original dynamic controller; generated-predecessor support only; predecessor_delimiter states; same original vector norm. No new answers, no layer or parameter search.",
+  "original_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+  "replay_ledger_sha256": "2bb6adcfd7c5f0b4cf912e0c7749ca02fc8e2ea2c4784f1d8cb27629a463f1be"
+}

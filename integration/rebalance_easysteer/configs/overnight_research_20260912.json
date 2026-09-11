@@ -1,5 +1,5 @@
 {
-  "status": "control_point_replay_ready",
+  "status": "control_point_generation_screen_preparing",
   "start_utc": "2026-09-11T17:15:11Z",
   "minimum_finish_utc": "2026-09-12T01:15:11Z",
   "minimum_hours_requested": 8,
@@ -353,7 +353,109 @@
       "path": ".codex_work/overnight_research_20260912/control_point_prepared.tar.gz"
     },
     "replay_plan_sha256": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
-    "cpu_checks": "9 tests passed, including new stale-position and generated-predecessor tests; replay preflight passed without model imports"
+    "cpu_checks": "9 tests passed, including new stale-position and generated-predecessor tests; replay preflight passed without model imports",
+    "replay_result": {
+      "status": "completed",
+      "commit": "12fe6d932aa3ebffd28eb9f4ce6627f2327953dd",
+      "plan_sha256": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
+      "started_unix": 1789147779.9812088,
+      "new_answers": 0,
+      "completed_questions": 500,
+      "script_sha256": "a214a6b9c7b31fdca76d41b258e8aeb4c151f6cd4b1021f70c4f4754fb983188",
+      "torch": "2.1.2+cu121",
+      "startup_seconds": 1.7040869891643524,
+      "completed_steps": 84008,
+      "replay_seconds": 125.54697017371655,
+      "input_tokens": 3202751,
+      "completed_unix": 1789147907.5151598,
+      "gpu_work_finished": true,
+      "files_sha256": {
+        "predecessor_layer21.npy": "fe9055bae58ecf05516e19ccdb82074294e9dc89f1e27aa37d70c4d2876df190",
+        "prompt_mean_layer21.npy": "b051cb6f3d6b9ecf71401942a81ee0bf605b1501a4b985509e7dc55279f86540",
+        "original_feature_checks.json": "7a24132820374ebebfe68e42d45cd56b18e7f7f58a0eb0a494c0173db6618cda"
+      },
+      "max_original_relative_rmse": 0.0,
+      "all_original_elements_exact": true
+    },
+    "cpu_vector_result": {
+      "status": "ready_for_fixed_gpu_screen",
+      "vectors": {
+        "matched_first": {
+          "raw_norm": 83.54723727876816,
+          "saved_norm": 83.6191363961284,
+          "train_validation_cosine": 0.9247497438364546,
+          "original_cosine": 0.9999404461047564,
+          "vector_sha256": "2e445cd2a53ff0a844dbd4100fba6a1022f6b59b2f0b89e305bcde7c5cf5e65e",
+          "fit_sha256": "69e667b222ac56394c5461329b4a672ab3a4015572f57f9c475f5f5ba417b8c4"
+        },
+        "predecessor_delimiter": {
+          "raw_norm": 78.31990120121276,
+          "saved_norm": 83.61913675921724,
+          "train_validation_cosine": 0.9417884060100976,
+          "original_cosine": 0.6381905221490349,
+          "vector_sha256": "1e659ce273e3fd8fb48249a647508824e420edbd696638da92c10023a99cf88e",
+          "fit_sha256": "46d5a5b64c02f9e50e2bf4ff6e8acf113aaf6a0e6035d6e5bc644215a9766533"
+        }
+      },
+      "class_questions": {
+        "over": 500,
+        "under": 283,
+        "train_over": 400,
+        "train_under": 227,
+        "valid_over": 100,
+        "valid_under": 56
+      },
+      "class_steps": {
+        "over": 47975,
+        "under": 11309,
+        "train_over": 37849,
+        "train_under": 8092,
+        "valid_over": 10126,
+        "valid_under": 3217
+      },
+      "relative_position_change": 0.8516629681936472,
+      "position_cosine": 0.6373350620269775,
+      "gate": {
+        "minimum_class_questions": 25,
+        "minimum_train_validation_direction_cosine": 0.5,
+        "minimum_relative_change_from_matched_first": 0.05,
+        "finite_nonzero_and_original_norm_matched": true
+      },
+      "passes_cpu_gate": true,
+      "seconds": 4.472911699995166,
+      "replay_ledger": {
+        "status": "completed",
+        "commit": "12fe6d932aa3ebffd28eb9f4ce6627f2327953dd",
+        "plan_sha256": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
+        "started_unix": 1789147779.9812088,
+        "new_answers": 0,
+        "completed_questions": 500,
+        "script_sha256": "a214a6b9c7b31fdca76d41b258e8aeb4c151f6cd4b1021f70c4f4754fb983188",
+        "torch": "2.1.2+cu121",
+        "startup_seconds": 1.7040869891643524,
+        "completed_steps": 84008,
+        "replay_seconds": 125.54697017371655,
+        "input_tokens": 3202751,
+        "completed_unix": 1789147907.5151598,
+        "gpu_work_finished": true,
+        "files_sha256": {
+          "predecessor_layer21.npy": "fe9055bae58ecf05516e19ccdb82074294e9dc89f1e27aa37d70c4d2876df190",
+          "prompt_mean_layer21.npy": "b051cb6f3d6b9ecf71401942a81ee0bf605b1501a4b985509e7dc55279f86540",
+          "original_feature_checks.json": "7a24132820374ebebfe68e42d45cd56b18e7f7f58a0eb0a494c0173db6618cda"
+        },
+        "max_original_relative_rmse": 0.0,
+        "all_original_elements_exact": true
+      },
+      "source_sha256": "7115cd570c336aee71d6e3921102744ac97fd79a4612d41a6ee9620761f9423b",
+      "prepared_plan_sha256": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
+      "limitation": "The 400/100 groups are original calibration development groups already used for layer selection. Direction stability and position difference are mechanism diagnostics, not independent confirmation or generation gains."
+    },
+    "replay_archive": {
+      "path": ".codex_work/overnight_research_20260912/control_point_replay.tar.gz",
+      "bytes": 256744143,
+      "sha256": "63354fdad40c56499cd99c0142bed97e6c3bbef91d34dd251acad727e26fbbdb",
+      "all_inner_ledger_hashes_verified_locally": true
+    }
   },
   "literature_queue": [
     {
