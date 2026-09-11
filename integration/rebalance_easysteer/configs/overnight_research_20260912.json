@@ -1,0 +1,62 @@
+{
+  "status": "active_local_preparation",
+  "start_utc": "2026-09-11T17:15:11Z",
+  "minimum_finish_utc": "2026-09-12T01:15:11Z",
+  "minimum_hours_requested": 8,
+  "authorization": "User explicitly requests at least eight hours of continued optimization and deficiency research, keeps GPU available throughout, and permits bounded SEAL and AIME/Olympiad comparison work. Each batch must be concretely prepared and bounded before execution. No server power/mode changes by agent.",
+  "base_main": "6d9ed8fe8963d5767b9073445b79a5c8c205308e",
+  "base_experimental_commit": "d5385bcf2a252c0587a19602d93bae041cb832ba",
+  "experimental_branch": "codex/overnight-research-20260912",
+  "frozen_tag": "easysteer-rebalance-v2-final-20260909",
+  "frozen_tag_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "initial_server_check": {
+    "gpu": "RTX 4090 D, 24564 MiB, 1 MiB used, 0 percent",
+    "other_compute_processes": 0,
+    "git_clean": true,
+    "server_commit": "7899489e1b17f0f67c6a48a36ffa6caf98d32e87",
+    "free_disk_bytes": 16958914560,
+    "dependencies_reinstalled": false
+  },
+  "prior_candidates_not_to_repeat": ["repeat_cancel_positive", "question_balanced", "min_displacement", "orthogonal_mean", "paper_reconstruction_v1"],
+  "first_investigation": {
+    "id": "calibration_control_point_alignment",
+    "status": "plan_fixed_before_new_statistics_or_hidden_replay",
+    "observation": "calibrate_auto.prepare selects first+prompt_length, a first-content-token state. Current vLLM ApplySpec matches the preceding paragraph-delimiter input token. This is a verified positional difference; benefit or harm is unproven.",
+    "source_locations": [
+      "integration/rebalance_easysteer/scripts/calibrate_auto.py:80-88",
+      "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py:250-253",
+      "sources/EasySteer/vllm-steer/vllm/steer_vectors/algorithms/clause.py:243-248",
+      "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py:343-354"
+    ],
+    "cpu_audit": "Verify original 500 saved greedy answers, positions, labels and token vocabulary. For each complete step derive the immediately preceding token position and mark whether it is a generated delimiter. Exclude first-prompt positions from a matched-position comparison. Reconstruct original first-token mean difference, report per-class counts and first-token lexical concentration; no generated validation outputs used.",
+    "inputs": {
+      "archive": ".codex_work/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "generations.jsonl",
+      "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+      "backup": ".codex_work/question_balanced_20260911/original_selected_layer",
+      "tokenizer": ".codex_work/label_audit_30_20260910/tokenizer.json"
+    },
+    "replay_scope": "Replay saved answers once for the existing selected decoder layer 20 only; no new calibration answers or layer search. Capture predecessor states and question-prompt means, compare captured first-content states against saved originals in the same forward pass. Save all finite FP32 states and per-question progress; output must be new. The first step's prompt token may be captured for audit but is excluded from matched generated-delimiter fitting.",
+    "replay_estimate": "About 0.5 GiB new state plus small metadata; prior selected-layer-compatible decoder replay took about 124 seconds. Allow up to 15 minutes for this first replay including loading and checks; measured time reported, not assumed. Stop on mismatched input/model, OOM, invalid states or original-feature numerical mismatch and preserve progress.",
+    "candidate_comparison_before_generation": "Three arms on a new fixed 100-question screen: original dynamic; matched-first vector excluding non-generated predecessor rows; predecessor-delimiter vector using exactly those same rows and labels. Both new vectors are scaled to the original raw-vector Euclidean norm to isolate orientation and hold dynamic parameters fixed. Matched-first is a confound control, not an optimization claim. No vectors combined.",
+    "cpu_vector_gate": {
+      "minimum_class_questions": 25,
+      "minimum_train_validation_direction_cosine": 0.5,
+      "minimum_relative_change_from_matched_first": 0.05,
+      "finite_nonzero_and_original_norm_matched": true
+    },
+    "generation_gate": "Candidate must reduce mean thinking AND total tokens by at least 5%, have no fewer correct answers and no more caps than BOTH original dynamic and matched-first control. One run per arm. If passing, freeze candidate and confirm on independent reserved 200 training questions with fresh original dynamic; no parameter search on screen or reserve. Report paired uncertainty, not proven accuracy preservation.",
+    "alternative_hypotheses": [
+      "The first-content hidden state may include token identity signals rather than a pre-generation behavioral commitment.",
+      "A preceding delimiter representation may carry a less separable behavior signal; matching positions may worsen generation.",
+      "Differences in calibration sample support alone may explain apparent benefit; matched-first controls this."
+    ]
+  },
+  "literature_queue": [
+    {"id": "2504.07986v3", "title": "SEAL: Steerable Reasoning Calibration of Large Language Models for Free", "url": "https://arxiv.org/abs/2504.07986v3", "status": "full_text_read", "sentinel": "END-OF-PAPER:7e0a8318aba7", "important_scope": "Section 4.1: 1000 train samples, pooled execution minus pooled union of reflection and transition; section 4.2: delimiter intervention alpha=1. Appendix E sampling differs from current task. EasySteer three-vector example is a distinct approximation."},
+    {"id": "2604.02113v1", "title": "Reliable Control-Point Selection for Steering Reasoning in Large Language Models", "url": "https://arxiv.org/abs/2604.02113v1", "status": "full_text_read", "sentinel": "END-OF-PAPER:f31c500d2300", "important_scope": "Sections 3.1-3.4 motivate boundary stability but describe first-content per-question normalized SEAL, different from SEAL v3. Section 4.4 chooses threshold on MATH-500 at shorter cap; not independent validation. Table 1 Avg Tok is word count, not model tokens. Do not transfer reported accuracy or coefficient -100 to our protocol."}
+  ],
+  "separate_comparison": "SEAL and AIME/Olympiad are permitted supplements. First audit exact source/version/vector construction and existing completed slices. No existing old 8192 greedy SEAL group is directly comparable to the current 16000 sampled author-graded baseline.",
+  "results": [],
+  "next_actions": ["CPU position audit", "Prepare and check bounded selected-layer replay", "Fix new screening and reserve data exclusions", "Fit matched position assets and run the prespecified screen if CPU gate passes", "Continue principled mainline research and bounded comparison work until the requested minimum duration"]
+}
