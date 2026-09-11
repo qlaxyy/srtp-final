@@ -19,8 +19,13 @@ def require(value, message):
 def sha(path, source=False):
     if source:
         return hashlib.sha256(Path(path).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
+    # The existing author-grading environment is Python 3.10, which does not
+    # provide hashlib.file_digest. Keep the runner and grader portable to it.
+    digest = hashlib.sha256()
     with Path(path).open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
+        for part in iter(lambda: stream.read(1024*1024), b''):
+            digest.update(part)
+    return digest.hexdigest()
 
 
 def read(path):

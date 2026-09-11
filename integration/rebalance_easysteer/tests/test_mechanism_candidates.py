@@ -4,10 +4,12 @@ from pathlib import Path
 import tempfile
 import unittest
 import json
+import hashlib
+from unittest.mock import patch
 import numpy as np
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from mechanism_candidates import directions, moments, bfloat16, zero_loss_upper, checkpoint_cost, read_vector
+from mechanism_candidates import directions, moments, bfloat16, zero_loss_upper, checkpoint_cost, read_vector,sha
 from audit_mechanism_candidates import proxy_diagnostic
 
 
@@ -59,6 +61,12 @@ class MechanismTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             p=Path(directory)/'bad.pt'; p.write_bytes(b'not a trusted tensor')
             with self.assertRaises(ValueError): read_vector(p,p)
+
+    def test_hashing_does_not_require_python311_file_digest(self):
+        with tempfile.TemporaryDirectory() as directory:
+            p=Path(directory)/'data';p.write_bytes(b'a'*(1024*1024+19))
+            with patch.object(hashlib,'file_digest',None):
+                self.assertEqual(sha(p),hashlib.sha256(p.read_bytes()).hexdigest())
 
 
 if __name__=='__main__':unittest.main()
