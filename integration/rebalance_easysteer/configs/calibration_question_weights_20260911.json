@@ -1,13 +1,449 @@
 {
-  "status": "planned_cpu_audit",
-  "purpose": "Measure per-question contribution to existing calibration statistics before proposing question-balanced calibration.",
-  "models": ["1.5B", "7B"],
-  "questions_per_model": 500,
-  "data_scope": "Original saved greedy MATH training calibration only; no test outcomes or new validation outputs used for calibration.",
-  "fixed_diagnostics": ["Step and label counts per question", "Capped-question share of steps and each frozen label", "Largest-question and top-50 contribution shares", "Inverse squared question-mass concentration, not independent sample size", "Original type-7 quartiles and a common inverse-CDF comparison of step-uniform versus question-uniform weighting"],
-  "question_weight": "For global statistics, each step in question q gets 1 / number_of_complete_steps_in_q; every nonempty question has total weight 1.",
-  "label_weight_diagnostic": "For a class prototype, each question containing that class would have equal total mass; empty question-class combinations are reported, never fabricated.",
-  "preserve": ["All capped answers", "Frozen lexical rule and existing labels for contribution counts", "Original source hashes", "Incomplete-tail exclusion and boundary definition"],
-  "not_performed": ["No vector fitting", "No layer search", "No label replacement", "No control-parameter export", "No GPU or model forward", "No grid search"],
-  "output": ".codex_work/calibration_question_weights_20260911"
+  "status": "completed_cpu_audit_candidate_proposed_not_fitted",
+  "analysis_commit": "9252747",
+  "plan": {
+    "status": "planned_cpu_audit",
+    "purpose": "Measure per-question contribution to existing calibration statistics before proposing question-balanced calibration.",
+    "models": [
+      "1.5B",
+      "7B"
+    ],
+    "questions_per_model": 500,
+    "data_scope": "Original saved greedy MATH training calibration only; no test outcomes or new validation outputs used for calibration.",
+    "fixed_diagnostics": [
+      "Step and label counts per question",
+      "Capped-question share of steps and each frozen label",
+      "Largest-question and top-50 contribution shares",
+      "Inverse squared question-mass concentration, not independent sample size",
+      "Original type-7 quartiles and a common inverse-CDF comparison of step-uniform versus question-uniform weighting"
+    ],
+    "question_weight": "For global statistics, each step in question q gets 1 / number_of_complete_steps_in_q; every nonempty question has total weight 1.",
+    "label_weight_diagnostic": "For a class prototype, each question containing that class would have equal total mass; empty question-class combinations are reported, never fabricated.",
+    "preserve": [
+      "All capped answers",
+      "Frozen lexical rule and existing labels for contribution counts",
+      "Original source hashes",
+      "Incomplete-tail exclusion and boundary definition"
+    ],
+    "not_performed": [
+      "No vector fitting",
+      "No layer search",
+      "No label replacement",
+      "No control-parameter export",
+      "No GPU or model forward",
+      "No grid search"
+    ],
+    "output": ".codex_work/calibration_question_weights_20260911"
+  },
+  "result": {
+    "status": "completed_cpu_diagnostic",
+    "started_unix": 1789133023.2553332,
+    "plan_sha256": "462372c0280c1bc4a69ea7d09053a27d68a11e7fdf4be929862991f25e527cd5",
+    "models": {
+      "1.5B": {
+        "questions": 500,
+        "capped_questions": 149,
+        "complete_steps": 84008,
+        "source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+        "fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "scope": "Frozen labels used only for counting prototype contributions",
+        "contributions": {
+          "all": {
+            "steps": 84008,
+            "questions_with_class": 500,
+            "questions_without_class": 0,
+            "capped_step_share": 0.7571064660508523,
+            "capped_question_share_if_class_balanced": 0.298,
+            "top50_step_share": 0.40679459099133414,
+            "max_question_step_share": 0.015105704218645844,
+            "inverse_squared_question_mass": 185.56501474087955,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "over": {
+            "steps": 48251,
+            "questions_with_class": 500,
+            "questions_without_class": 0,
+            "capped_step_share": 0.7846884002404095,
+            "capped_question_share_if_class_balanced": 0.298,
+            "top50_step_share": 0.44770056579138257,
+            "max_question_step_share": 0.016517792377360056,
+            "inverse_squared_question_mass": 168.61764778946713,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "under": {
+            "steps": 11309,
+            "questions_with_class": 283,
+            "questions_without_class": 217,
+            "capped_step_share": 0.9106906004067556,
+            "capped_question_share_if_class_balanced": 0.3710247349823322,
+            "top50_step_share": 0.8395967813246087,
+            "max_question_step_share": 0.07825625607922894,
+            "inverse_squared_question_mass": 45.95560404875495,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "unselected": {
+            "steps": 24448,
+            "questions_with_class": 497,
+            "questions_without_class": 3,
+            "capped_step_share": 0.6316263089005235,
+            "capped_question_share_if_class_balanced": 0.2937625754527163,
+            "top50_step_share": 0.48367964659685864,
+            "max_question_step_share": 0.02131053664921466,
+            "inverse_squared_question_mass": 148.81314026866326,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          }
+        },
+        "sensitivity": {
+          "confidence": {
+            "frozen_type7": [
+              0.888148010597869,
+              0.9989141310845991
+            ],
+            "step_uniform_inverse_cdf": [
+              0.8881421172356952,
+              0.9989141093531371
+            ],
+            "question_uniform_inverse_cdf": [
+              0.821875742212377,
+              0.9872608765271708
+            ]
+          },
+          "variance": {
+            "frozen_type7": [
+              2.1830046484335987e-07,
+              0.0014852457558952
+            ],
+            "step_uniform_inverse_cdf": [
+              2.182916614650924e-07,
+              0.001485219601371093
+            ],
+            "question_uniform_inverse_cdf": [
+              1.9629050634452148e-05,
+              0.0038025044972844527
+            ]
+          }
+        },
+        "weighted_quantile_definition": "Infimum x with normalized weighted CDF at least p; same inverse-CDF estimator in both arms; diagnostic only, no fitted parameters exported",
+        "selected_hidden_file_available_locally": false,
+        "top5_by_under_steps": [
+          {
+            "calibration_index": 58,
+            "train_index": 2166,
+            "tokens": 16000,
+            "capped": true,
+            "all": 1269,
+            "over": 103,
+            "under": 885,
+            "unselected": 281
+          },
+          {
+            "calibration_index": 99,
+            "train_index": 5490,
+            "tokens": 16000,
+            "capped": true,
+            "all": 1110,
+            "over": 155,
+            "under": 505,
+            "unselected": 450
+          },
+          {
+            "calibration_index": 104,
+            "train_index": 584,
+            "tokens": 16000,
+            "capped": true,
+            "all": 810,
+            "over": 179,
+            "under": 430,
+            "unselected": 201
+          },
+          {
+            "calibration_index": 77,
+            "train_index": 5771,
+            "tokens": 16000,
+            "capped": true,
+            "all": 1197,
+            "over": 376,
+            "under": 372,
+            "unselected": 449
+          },
+          {
+            "calibration_index": 406,
+            "train_index": 3905,
+            "tokens": 16000,
+            "capped": true,
+            "all": 685,
+            "over": 59,
+            "under": 330,
+            "unselected": 296
+          }
+        ],
+        "per_question_storage": "All 500 count rows retained in the hashed local model JSON and summary.json; regenerate only for a changed audit."
+      },
+      "7B": {
+        "questions": 500,
+        "capped_questions": 45,
+        "complete_steps": 53121,
+        "source_sha256": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362",
+        "fit_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+        "scope": "Frozen labels used only for counting prototype contributions",
+        "contributions": {
+          "all": {
+            "steps": 53121,
+            "questions_with_class": 500,
+            "questions_without_class": 0,
+            "capped_step_share": 0.4363057924361364,
+            "capped_question_share_if_class_balanced": 0.09,
+            "top50_step_share": 0.48210688804804125,
+            "max_question_step_share": 0.020086218256433426,
+            "inverse_squared_question_mass": 159.63189594852074,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "over": {
+            "steps": 22887,
+            "questions_with_class": 499,
+            "questions_without_class": 1,
+            "capped_step_share": 0.5199458207716171,
+            "capped_question_share_if_class_balanced": 0.09018036072144289,
+            "top50_step_share": 0.5727705684449688,
+            "max_question_step_share": 0.033468781404290646,
+            "inverse_squared_question_mass": 115.91179025115947,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "under": {
+            "steps": 8708,
+            "questions_with_class": 391,
+            "questions_without_class": 109,
+            "capped_step_share": 0.6209232889297198,
+            "capped_question_share_if_class_balanced": 0.11253196930946291,
+            "top50_step_share": 0.7187643546164446,
+            "max_question_step_share": 0.07292145153881488,
+            "inverse_squared_question_mass": 48.21646560911155,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          },
+          "unselected": {
+            "steps": 21526,
+            "questions_with_class": 500,
+            "questions_without_class": 0,
+            "capped_step_share": 0.27269348694601875,
+            "capped_question_share_if_class_balanced": 0.09,
+            "top50_step_share": 0.38943603084641826,
+            "max_question_step_share": 0.01997584316640342,
+            "inverse_squared_question_mass": 198.04348361265306,
+            "concentration_note": "Contribution concentration only; not a statistical independent sample count"
+          }
+        },
+        "sensitivity": {
+          "confidence": {
+            "frozen_type7": [
+              0.8317082060541336,
+              0.9945348667431668
+            ],
+            "step_uniform_inverse_cdf": [
+              0.8317082060541336,
+              0.9945348667431668
+            ],
+            "question_uniform_inverse_cdf": [
+              0.8241098723270351,
+              0.9615476158188765
+            ]
+          },
+          "variance": {
+            "frozen_type7": [
+              1.4148273953095856e-05,
+              0.003785505352312093
+            ],
+            "step_uniform_inverse_cdf": [
+              1.4148273953095856e-05,
+              0.003785505352312093
+            ],
+            "question_uniform_inverse_cdf": [
+              0.00010173019694881456,
+              0.004009003692686592
+            ]
+          }
+        },
+        "weighted_quantile_definition": "Infimum x with normalized weighted CDF at least p; same inverse-CDF estimator in both arms; diagnostic only, no fitted parameters exported",
+        "selected_hidden_file_available_locally": false,
+        "top5_by_under_steps": [
+          {
+            "calibration_index": 199,
+            "train_index": 2404,
+            "tokens": 16000,
+            "capped": true,
+            "all": 1010,
+            "over": 279,
+            "under": 635,
+            "unselected": 96
+          },
+          {
+            "calibration_index": 465,
+            "train_index": 563,
+            "tokens": 16000,
+            "capped": true,
+            "all": 706,
+            "over": 130,
+            "under": 487,
+            "unselected": 89
+          },
+          {
+            "calibration_index": 470,
+            "train_index": 1292,
+            "tokens": 16000,
+            "capped": true,
+            "all": 804,
+            "over": 281,
+            "under": 382,
+            "unselected": 141
+          },
+          {
+            "calibration_index": 47,
+            "train_index": 1763,
+            "tokens": 16000,
+            "capped": true,
+            "all": 577,
+            "over": 114,
+            "under": 352,
+            "unselected": 111
+          },
+          {
+            "calibration_index": 66,
+            "train_index": 645,
+            "tokens": 16000,
+            "capped": true,
+            "all": 460,
+            "over": 68,
+            "under": 297,
+            "unselected": 95
+          }
+        ],
+        "per_question_storage": "All 500 count rows retained in the hashed local model JSON and summary.json; regenerate only for a changed audit."
+      }
+    },
+    "protected_before": {
+      "integration\\rebalance_easysteer\\configs\\final_results_20260909.json": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+      "integration\\rebalance_easysteer\\scripts\\calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+      "sources\\ReBalance\\hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641"
+    },
+    "completed_unix": 1789133029.754483,
+    "new_generations": 0,
+    "model_forwards": 0,
+    "server_connections": 0,
+    "protected_after": {
+      "integration\\rebalance_easysteer\\configs\\final_results_20260909.json": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+      "integration\\rebalance_easysteer\\scripts\\calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+      "sources\\ReBalance\\hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641"
+    }
+  },
+  "input_hashes": {
+    "integration\\rebalance_easysteer\\scripts\\audit_calibration_weights.py": "70f26aa5dbdf0ec1c16bf3433fe40715523107e8a876d9b39ed8bed1925e0805",
+    ".codex_work\\label_audit_30_20260910\\tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    ".codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\steps.json": "1b7f80107dd7d35a13c9ea296de7e9f4e393f37a5db7e3925bbafb2cd8459c6a",
+    ".codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\positions.json": "e2ed100cc3c12564bd028ad0fbc68fb2d7ad5177103bec402f30fc00b0ea8d47"
+  },
+  "additional_check": "Independent recount from all 1000 per-question count rows; 7B complete-step counts match all 500 saved position lists",
+  "interpretation": "Capped trajectories have a disproportionate share of pooled step and frozen-class counts. This is counting mass, not measured geometric contribution to the vector or proof that the old calibration is harmful.",
+  "minimum_candidate": {
+    "name": "Question-balanced class prototypes on the existing selected 1.5B layer",
+    "state": "Specified, not fitted or evaluated",
+    "fixed": [
+      "Original 500 calibration answers and step order",
+      "Original selected decoder output layer 20",
+      "Original frozen lexical/confidence labels and quartile thresholds",
+      "Raw difference-vector convention",
+      "Original dynamic function structure, high_val_2=0.1 and initial_coef=-1",
+      "Existing efficient vLLM generation settings"
+    ],
+    "change": "For each original class, first average its hidden states within each question, then average these question means equally across questions that contain that class.",
+    "weights": "Each state in class k and question q has normalized weight 1 / (Q_k * n_qk). Missing question-class combinations have no fabricated state.",
+    "required_recalculation": [
+      "Both weighted class means and diagonal population variances",
+      "Raw difference vector, LDA direction and midpoint",
+      "Negative displacement target from the same original maximum-crossing rule",
+      "Curve feasibility and all old runtime safety checks"
+    ],
+    "unchanged_geometry_identity": "With raw difference vector and the midpoint separator, the class-mean crossing coefficient remains 0.5 by algebra; it is not tuned.",
+    "not_in_first_candidate": [
+      "Reweighting confidence/variance quartiles",
+      "Changing labels",
+      "Reselecting a layer",
+      "Adding online text detection",
+      "Choosing a new first-step strength"
+    ],
+    "why_minimal": "Changes the statistical weight of existing calibration states without introducing per-token detection or a new online classifier.",
+    "future_evaluation": "After fitting and explicit GPU authorization, use untouched training validation questions. Do not retune on the completed 100-question pair or frozen test results; preserve cap16000 and count wrong/capped answers."
+  },
+  "available_now": {
+    "calibration_answers": true,
+    "confidence_steps": true,
+    "selected_layer_features_local": false,
+    "new_vector": false,
+    "new_fit": false
+  },
+  "remaining": "Selected-layer hidden arrays are not present locally. Do not claim a fitted vector or predicted gain; the previous server retention record needs checking when storage access resumes. Do not assume old /dev/shm paths survived.",
+  "source_evidence": [
+    {
+      "path": "papers/Li 等 - 2026 - Efficient Reasoning with Balanced Thinking.pdf",
+      "location": "Appendix B.2, PDF page29",
+      "claim": "Prototypes are averages over labeled step states; the paper then normalizes their difference, unlike this project raw-vector convention."
+    },
+    {
+      "path": "sources/ReBalance/hidden_analysis_auto.py",
+      "lines": [
+        267,
+        285
+      ],
+      "claim": "Released code stacks labeled states and averages them without per-question weights."
+    },
+    {
+      "path": "integration/rebalance_easysteer/scripts/calibrate_auto.py",
+      "lines": [
+        91,
+        92,
+        253,
+        255,
+        260
+      ],
+      "claim": "Current adaptation uses pooled quartiles and unweighted class means/variances; group-isolated layer validation does not equal question-balanced estimation."
+    },
+    {
+      "path": "papers/Xu 等 - 2026 - EasySteer A Unified Framework for High-Performance and Extensible LLM Steering.pdf",
+      "location": "Section3.1, equation1",
+      "claim": "Additive steering uses h plus alpha times v; changing vector or coefficient scale changes the displacement."
+    },
+    {
+      "path": "sources/EasySteer/easysteer/vectors.py",
+      "lines": [
+        48,
+        67
+      ],
+      "claim": "Bare tensor direction loading preserves its supplied values; calibration must manage vector scale."
+    }
+  ],
+  "raw_artifacts": [
+    {
+      "path": ".codex_work\\calibration_question_weights_20260911\\1p5B.json",
+      "sha256": "4d6590d7de5e9f38e0796a3bbf1ef8b280ad617fc633898cbab3301f089aa7c8"
+    },
+    {
+      "path": ".codex_work\\calibration_question_weights_20260911\\7B.json",
+      "sha256": "ca4700d876220afeea7f1477450c6dcde9eb6bd5acbfb45a7866aaa2466bd3e0"
+    },
+    {
+      "path": ".codex_work\\calibration_question_weights_20260911\\plan.json",
+      "sha256": "f9e4b0130f9074d7fa37faeec74edc2be2207ac8486cfa831f6911442f8a9e66"
+    },
+    {
+      "path": ".codex_work\\calibration_question_weights_20260911\\summary.json",
+      "sha256": "672d0f6092229a1e9fb784f59343af442bed71029fcc4decd82d8ecef9a48ab2"
+    }
+  ],
+  "boundaries": {
+    "server_connections": 0,
+    "gpu_runs": 0,
+    "new_generations": 0,
+    "model_forwards": 0,
+    "test_outcomes_used_for_calibration": false,
+    "frozen_results_changed": false,
+    "method_effectiveness_established": false
+  }
 }
