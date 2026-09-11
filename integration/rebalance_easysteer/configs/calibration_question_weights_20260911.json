@@ -1,0 +1,13 @@
+{
+  "status": "planned_cpu_audit",
+  "purpose": "Measure per-question contribution to existing calibration statistics before proposing question-balanced calibration.",
+  "models": ["1.5B", "7B"],
+  "questions_per_model": 500,
+  "data_scope": "Original saved greedy MATH training calibration only; no test outcomes or new validation outputs used for calibration.",
+  "fixed_diagnostics": ["Step and label counts per question", "Capped-question share of steps and each frozen label", "Largest-question and top-50 contribution shares", "Inverse squared question-mass concentration, not independent sample size", "Original type-7 quartiles and a common inverse-CDF comparison of step-uniform versus question-uniform weighting"],
+  "question_weight": "For global statistics, each step in question q gets 1 / number_of_complete_steps_in_q; every nonempty question has total weight 1.",
+  "label_weight_diagnostic": "For a class prototype, each question containing that class would have equal total mass; empty question-class combinations are reported, never fabricated.",
+  "preserve": ["All capped answers", "Frozen lexical rule and existing labels for contribution counts", "Original source hashes", "Incomplete-tail exclusion and boundary definition"],
+  "not_performed": ["No vector fitting", "No layer search", "No label replacement", "No control-parameter export", "No GPU or model forward", "No grid search"],
+  "output": ".codex_work/calibration_question_weights_20260911"
+}
