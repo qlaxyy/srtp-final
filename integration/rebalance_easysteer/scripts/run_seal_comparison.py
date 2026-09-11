@@ -152,7 +152,9 @@ def main():
                     record['thinking_tokens']=ids.index(end) if end in ids else len(ids);record['thinking_ended']=end in ids;record['answer_tokens']=len(ids)-record['thinking_tokens']-int(end in ids)
                 summary=summarize(records,seconds,cap);summary['preemptions']=preemptions['events']-before_preemptions
                 summary['dynamic_kv_replay']={k:v-before[k] for k,v in state.replay_counts.items()}
-                require(not state._suspended and not state._dynamic_params,'Retired request state leaked')
+                require(not state._suspended,'Unrestored suspended request state')
+                # Worker retirement is delivered by the next scheduler batch.
+                summary['states_pending_next_scheduler_cleanup']=len(state._dynamic_params)
                 result=dict(status='completed',purpose='engineering_only' if a.stage=='smoke' else 'comparison',dataset=name,arm=arm,
                     plan_sha256=sha(bundle/'plan.json'),commit=ledger['commit'],dataset_sha256=plan['datasets'][name]['sha256'],max_tokens=cap,records=records,summary=summary)
                 save(out/(key+'.json'),result);results[arm]=result;ledger['groups'][key]=summary;ledger['files_sha256'][key]=sha(out/(key+'.json'));save(out/'ledger.json',ledger)

@@ -2270,7 +2270,7 @@
     "integration/rebalance_easysteer/scripts/run_paper_baseline.sh": "a71ca813943424081ad9d7b2018de6c9ba475a16ff0b2655592ca361bb3e128d",
     "integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm.sh": "8f6ff1d010264b2801bd8f78f522745b0255a619f8f7e48fab71dcd7da6fb18e",
     "integration/rebalance_easysteer/scripts/run_rebalance_static_vllm.sh": "cce679175e8c30252c03ac1a0923878745f007070c922a23e4241a090086dd34",
-    "integration/rebalance_easysteer/scripts/run_seal_comparison.py": "746f03e7e26cd912c83637e0fb48a6e9a82defddd97614b4d28b429c40cf52df",
+    "integration/rebalance_easysteer/scripts/run_seal_comparison.py": "8ba083b6acd85fb34c1b3ab5dbc14cdaa3764e79360c0a069c9a5cfe87977141",
     "integration/rebalance_easysteer/scripts/run_seal_math500.sh": "f6e286c96b52d0f8bd315c4b3a3f50886184a9f8801210853834cfa20b5f7bda",
     "integration/rebalance_easysteer/scripts/run_vector_batch.py": "766ca2d0ec1d05ffb9f173ffaee89df06a16644a9bc6ef9c53ccc647a12f2b20",
     "integration/rebalance_easysteer/scripts/verify_paper_control.py": "9c69272d992bd086322e6594d651e4f9e4f485b88a822141e785e68d6ea37da1",
@@ -2360,5 +2360,10 @@
     "Smoke unsteered vs SEAL alpha0 must have identical8 output token streams; any mismatch stops before comparison.",
     "Any failure/deadline/incomplete group keeps partials and stops; no automatic regeneration.",
     "All6 complete comparison groups are reported, regardless of quality; no post-result parameter selection or expansion."
-  ]
+  ],
+  "pre_execution_revision": {
+    "previous_plan_sha256": "657b8e21e4af948f21069c3686fa8ffb4799a3ea9abc64649f8684b58d14b733",
+    "previous_commit": "c33fa60",
+    "reason": "CPU source review: vLLM worker retirement is delivered in the next scheduler batch. Record pending cleanup count rather than wrongly requiring zero immediately after last output. No data, assets, gating, generation or comparison changes; no GPU run had started."
+  }
 }
