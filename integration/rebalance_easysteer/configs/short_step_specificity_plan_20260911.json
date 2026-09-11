@@ -1,0 +1,11 @@
+{
+  "status": "fixed_after_first_proxy_before_specificity_test",
+  "purpose": "The original half-step proxy passed, but this can reflect generic shrinkage rather than useful previous-step information. One additional CPU diagnostic distinguishes these mechanisms before paying for a controller implementation.",
+  "prior_result": {"short_question_mean_mse_ratio": 0.8624180696821104, "all_question_mean_mse_ratio": 0.8643697563615583},
+  "data": "Same 400/100 calibration development groups; no new independent evidence and no benchmark answers.",
+  "fixed_control": "Estimate one probability mean from all complete-step tokens in the 400 training questions. At each evaluated half-step use exactly the same previous-token count (min(previous complete step length,8)), but replace their probabilities with that fixed mean. The same current first-half tokens and second-half target are retained.",
+  "primary": "Equal-question MSE on steps of 2..8 tokens in the 100 calibration validation questions.",
+  "advance_only_if": "Previous-step pooling MSE is at least 5% lower than this fixed training-mean shrinkage control. Otherwise the claimed temporal-information advantage is unsupported and the temporal candidate is deferred without a GPU test or threshold search.",
+  "interpretation": "This new specificity gate is explicitly a follow-up to the first CPU diagnostic, not a retrospectively claimed preregistration. Neither result estimates generated accuracy or compression.",
+  "new_generations": 0
+}
