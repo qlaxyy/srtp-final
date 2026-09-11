@@ -1,0 +1,42 @@
+{
+  "status": "cpu_branch_opportunity_check_only",
+  "mechanism_plan_sha256": "e8c1d411805bc63534dd5359698cff2f4d3e329ab106939ff0002d35c6839dfc",
+  "script_sha256": "ccb78a1f17327bb450d4b1348f24ef6df842b72a006e077e93355407629ca292",
+  "saved_boundaries": 83508,
+  "positive_fraction": 0.2930976672893615,
+  "summaries": {
+    "positive": {
+      "count": 24476,
+      "questions": 312,
+      "mean_confidence": 0.9994486054746987,
+      "mean_variance": 0.0002205302210760559,
+      "mean_preceding_step_tokens": 31.498120607942475,
+      "median_preceding_step_tokens": 25.0,
+      "coefficient_quantiles": [
+        5.513969765884308e-07,
+        0.036376355419157916,
+        0.09855636766202411,
+        0.09942404840362683,
+        0.09999925919646882
+      ]
+    },
+    "negative": {
+      "count": 59032,
+      "questions": 500,
+      "mean_confidence": 0.8989390980704174,
+      "mean_variance": 0.003798533926454086,
+      "mean_preceding_step_tokens": 35.20985228350725,
+      "median_preceding_step_tokens": 26.0,
+      "coefficient_quantiles": [
+        -1.5353450143175593,
+        -0.5656337027806266,
+        -0.22676102880435067,
+        -0.014623026842561837,
+        -2.7960183565656216e-07
+      ]
+    }
+  },
+  "negative_coefficients_bitwise_preserved": true,
+  "passes_opportunity_gate": true,
+  "limitation": "Unsteered calibration trajectories only. These counts do not predict how often the online dynamic candidate will intervene or whether it will shorten generation."
+}

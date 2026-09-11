@@ -91,7 +91,7 @@ def parse_args() -> argparse.Namespace:
                         help="Fixed readout metadata for negative-displacement clipping")
     parser.add_argument("--feedback-disabled", action="store_true",
                         help="Engineering equivalence check with feedback payload disabled")
-    parser.add_argument("--negative-only", action="store_true",
+    parser.add_argument("--negative-only", action=argparse.BooleanOptionalAction, default=False,
                         help="Ablate positive coefficients after the unchanged dynamic rule")
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a compatible saved baseline; no generation repeat")

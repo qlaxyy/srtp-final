@@ -21,6 +21,13 @@ def validate_bundle(bundle):
         require(plan['run_order']==['original_dynamic','negative_only_dynamic'],'Unexpected positive-branch ablation')
         require(not plan['arms']['original_dynamic'].get('negative_only') and plan['arms']['negative_only_dynamic'].get('negative_only') is True,'Wrong ablation flags')
         require(not any(arm.get('feedback_config') for arm in plan['arms'].values()),'Unplanned combined ablation')
+        require(sha(bundle/'cpu_tests.log',source=True)==plan['cpu_unit_log_sha256'],'CPU unit receipt changed')
+        require(sha(bundle/'cpu_opportunities.json')==plan['cpu_opportunity_sha256'],'CPU opportunity result changed')
+        require(read(bundle/'cpu_opportunities.json')['passes_opportunity_gate'],'No positive-branch opportunities')
+        for key in ['vector_sha256','fit_sha256']:
+            require(plan['arms']['original_dynamic'][key]==plan['arms']['negative_only_dynamic'][key],'Ablation assets differ')
+    else:
+        require(not any(arm.get('negative_only') for arm in plan['arms'].values()),'Unplanned positive-branch change')
     if arms==3:
         require(plan['run_order']==['original_dynamic','feedback_disabled','latent_feedback_clip'],'Unexpected graph-control design')
         off,on=plan['arms']['feedback_disabled'],plan['arms']['latent_feedback_clip']
@@ -60,8 +67,8 @@ def command(plan,bundle,out,name):
         cmd.extend(['--feedback-config',str(bundle/plan['arms'][name]['feedback_config'])])
         if plan['arms'][name].get('feedback_disabled'):
             cmd.append('--feedback-disabled')
-    if plan['arms'][name].get('negative_only'):
-        cmd.append('--negative-only')
+    if 'negative_only' in plan['arms'][name]:
+        cmd.append('--negative-only' if plan['arms'][name]['negative_only'] else '--no-negative-only')
     for key,value in plan['runtime'].items():
         if isinstance(value,bool):
             if value:cmd.append('--'+key.replace('_','-'))
@@ -103,6 +110,9 @@ def validate_arm(saved,plan,rows,name):
     p=saved['protocol'];arm=plan['arms'][name]
     require(p.get('negative_only',False) is arm.get('negative_only',False),'Wrong positive-branch option')
     require(p['dynamic_params'].get('negative_only',False) is arm.get('negative_only',False),'Wrong request positive-branch option')
+    if arm.get('negative_only'):
+        counts=saved['rebalance_dynamic']['summary']['positive_suppression']
+        require(counts['boundary_updates_cancelled']>=0 and counts['positive_coefficient_sum']>=0,'Invalid positive-update counters')
     for key,value in plan['runtime'].items():require(p[key]==value,'Runtime differs: '+key)
     require(p['model']==plan['model'] and p['offset']==0 and p['limit']==len(rows)==plan['count'],'Wrong slice')
     require(p['run_order']==['rebalance_dynamic'] and p['easysteer_output_layer']==20,'Wrong parsed layer/group')
