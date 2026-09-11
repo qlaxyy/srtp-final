@@ -18,6 +18,7 @@ def main():
     require(sha(bundle/item['dataset_file'])==item['dataset_sha256'],'Engineering data changed')
     rows=[json.loads(s) for s in (bundle/item['dataset_file']).read_text(encoding='utf-8').splitlines()]
     import sys
+    os.environ['PATH']=str(Path(sys.executable).parent)+os.pathsep+os.environ.get('PATH','')
     sys.path.insert(0,str(ROOT/BASE/'eval'))
     import numpy as np
     import torch
