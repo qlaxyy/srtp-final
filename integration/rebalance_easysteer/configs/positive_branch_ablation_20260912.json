@@ -1,0 +1,42 @@
+{
+  "status": "mechanism_fixed_before_new_cpu_branch_statistics_or_generation",
+  "purpose": "Diagnose whether the high-confidence positive branch protects accuracy or unnecessarily prolongs the current self-calibrated adaptation; possible optimization is secondary to the causal ablation.",
+  "candidate": "negative_only_dynamic",
+  "mechanism": "Compute the unchanged original coefficient, then use min(coefficient,0) at every active generated step boundary. Preserve negative coefficients, vector, layer, confidence, variance, prompt, sampling, graph family and KV history. No confidence threshold or magnitude sweep.",
+  "evidence": [
+    {
+      "source": "https://arxiv.org/abs/2603.12372v3",
+      "location": "Section4.2 and AppendixB.3 anchors A2/A3",
+      "claim": "The paper motivates positive steering as an underthinking correction, but explicitly notes that normal correct reasoning can also maintain high confidence. Its static-sign ablation is not a controlled removal of this adaptation's positive branch."
+    },
+    {
+      "source": "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py",
+      "location": "compute_rebalance_coefficient",
+      "claim": "Current raw-vector controller assigns positive displacements in the high-confidence region; this is an executable heuristic, not an online correctness test."
+    }
+  ],
+  "difference_from_completed_repeat_gate": "The previous repeat-only positive cancellation applied zero times in its100 paired answers. This ablation removes all positive coefficients regardless of repetition and tests a different causal question; its old100 inputs are excluded.",
+  "cpu_gate": {
+    "minimum_positive_fraction_of_valid_saved_boundaries": 0.01,
+    "minimum_questions_with_positive_boundary": 100,
+    "negative_coefficients_exactly_preserved": true,
+    "default_disabled_control_exactly_preserved": true
+  },
+  "cpu_limit": "Only branch incidence, implementation and statistical mechanism are checked on saved unsteered500 calibration traces; no offline compression claim.",
+  "proposed_generation_scope": {
+    "model": "1.5B only",
+    "new_paired_training_questions": 100,
+    "arms": ["original_dynamic", "negative_only_dynamic"],
+    "engineering_questions": 8,
+    "independent_reserve_questions": 200,
+    "max_tokens": 16000,
+    "screen_gate": "Candidate must reduce BOTH mean thinking and total tokens by at least5%, correct count must not fall, caps must not increase. A failure stops this candidate; no strength/threshold retuning.",
+    "engineering_gate": "Explicitly disabled option vs original8 short token streams must match exactly; effective cancellation must be observed before reporting mechanism execution.",
+    "expected_gpu_minutes": [6, 12]
+  },
+  "next_requirement": "Implement CPU checks and runtime option, then freeze exact data, source/asset hashes and output paths before model generation. This file alone does not start the proposed batch.",
+  "limitations": [
+    "A failed ablation can support retaining the positive branch under this setup, but will not prove every positive event is helpful.",
+    "A pass would still require the separately fixed independent confirmation; no tuning on completed test sets or expanding to7B/AIME."
+  ]
+}
