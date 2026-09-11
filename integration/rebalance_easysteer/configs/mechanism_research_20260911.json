@@ -1,0 +1,593 @@
+{
+  "status": "local_preparation_complete_gpu_not_authorized",
+  "started_date": "2026-09-11",
+  "updated_date": "2026-09-12",
+  "base_main": "13c040b614f84c466fe5c2dde9acb68022f9dd41",
+  "experimental_branch": "codex/mechanism-candidates-20260911",
+  "prepared_code_commit": "167de04771fbcd6856e8af5eadb1b1d377e4d96c",
+  "cpu_plan_commit": "984cbe6",
+  "frozen_tag": "easysteer-rebalance-v2-final-20260909",
+  "frozen_tag_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "server_connections": 0,
+  "new_generations": 0,
+  "model_forwards": 0,
+  "gpu_cost_yuan": 0,
+  "local_backup_live_verified": {
+    "files": 8,
+    "bytes": 531366111,
+    "manifest_sha256": "644105fd421f9dbde31c6f51e2cb888f34e60dfd4c3ba0d22d3261c7c8551d1f"
+  },
+  "literature": [
+    {
+      "id": "2603.12372",
+      "version": "v3",
+      "title": "Efficient Reasoning with Balanced Thinking",
+      "authors": "Yulin Li, Tengyao Tu, Li Ding, Junjie Wang, Huiling Zhen, Yixin Chen, Yong Li, Zhuotao Tian",
+      "date": "2026-04-02",
+      "status": "PDF states ICLR 2026",
+      "locators": [
+        "Section 2.1 equations (1)-(2)",
+        "Section 3.2 equations (3)-(5)",
+        "Section 3.3 equations (6)-(8)",
+        "Table 3 window-size ablation",
+        "Appendix B.2-B.3, PDF pages 30-32"
+      ],
+      "evidence": "Paper confidence is geometric mean of tokenwise maximum probabilities. Its projection explanation uses the unit mean-difference direction. The current project instead follows the public mixed lexical/low-confidence labels, raw vector, arithmetic confidence and diagonal-LDA-derived displacement coefficients. Table 3 reports worse 1.5B MATH results with longer windows; it is contrary evidence to unconditional smoothing.",
+      "implication": "Candidate A is our constrained Euclidean geometry derivation using the current fitted readout, not a paper method or a reproduction. Correlation/decodability and smaller norm do not prove causal usefulness.",
+      "read_ranges": [
+        [
+          0,
+          859
+        ],
+        [
+          860,
+          1289
+        ],
+        [
+          1290,
+          1719
+        ],
+        [
+          1720,
+          2149
+        ],
+        [
+          2150,
+          2579
+        ],
+        [
+          2580,
+          2999
+        ],
+        [
+          3000,
+          3160
+        ]
+      ],
+      "visuals": [
+        ".codex_work/paper-audit/rebalance-p31.png",
+        ".codex_work/paper-audit/rebalance-p32.png"
+      ],
+      "evidence_depth": "Full text",
+      "abstract_url": "https://arxiv.org/abs/2603.12372v3",
+      "fulltext_url": "https://arxiv.org/pdf/2603.12372v3",
+      "raw_sha256": "040e701ca71aeaea5924058745065250993cb94f166fbc536305b65699dcf2bb",
+      "parsed_sha256": "a426b5aa934cb2b8fd6c43b4885fe9aabc4d0e8e100e249253551c3f78eaf7c7",
+      "parsed_lines": 3161,
+      "sentinel": "END-OF-PAPER:0f4f8d1c6988",
+      "local_cache": ".codex_work/mechanism_candidates_20260911/fulltext/arxiv_2603.12372",
+      "reading": "Entire parsed main text, references and appendices read; crucial ReBalance and Reflection equations also visually inspected."
+    },
+    {
+      "id": "2509.25175",
+      "version": "v3",
+      "title": "EasySteer: A Unified Framework for High-Performance and Extensible LLM Steering",
+      "authors": "Haolei Xu, Xinyu Mei, Yuchen Yan, Rui Zhou, Wenqi Zhang, Weiming Lu, Yueting Zhuang, Yongliang Shen",
+      "date": "2026-09-03",
+      "status": "arXiv preprint version read",
+      "locators": [
+        "Section 3.1 equation (1)",
+        "Section 4.2 algorithm interface",
+        "Appendix A.1-A.3"
+      ],
+      "evidence": "Exposes vector extraction and per-layer additive steering within the inference engine. This makes a fixed-layer vector replacement feasible without altering model weights. Reported framework overhead is not a guarantee for this project controller or a shorter-token run.",
+      "implication": "Keep algorithm, runtime, layer and all dynamic coefficients unchanged while replacing the vector through the existing from_pt_direction payload.",
+      "read_ranges": [
+        [
+          0,
+          299
+        ],
+        [
+          300,
+          599
+        ],
+        [
+          600,
+          809
+        ]
+      ],
+      "visuals": [],
+      "evidence_depth": "Full text",
+      "abstract_url": "https://arxiv.org/abs/2509.25175v3",
+      "fulltext_url": "https://arxiv.org/pdf/2509.25175v3",
+      "raw_sha256": "9891a4390468641e6aa111e176bdc460a1dbaa9d5f60f6f1c18d539ce138b143",
+      "parsed_sha256": "b5a523293b155d6f20c8e6f423ab44e40abc47d83aba3579d2b49800db495bd5",
+      "parsed_lines": 810,
+      "sentinel": "END-OF-PAPER:54411c8a36d4",
+      "local_cache": ".codex_work/mechanism_candidates_20260911/fulltext/arxiv_2509.25175",
+      "reading": "Entire parsed main text, references and appendices read; crucial ReBalance and Reflection equations also visually inspected."
+    },
+    {
+      "id": "2506.18831",
+      "version": "v3",
+      "title": "Adaptive Activation Steering for Efficient LLM Reasoning via Closed-Loop PID Control",
+      "authors": "Aryasomayajula Ram Bharadwaj",
+      "date": "2026-06-15",
+      "status": "arXiv preprint",
+      "locators": [
+        "Section 3 redundancy classifier and PID loop",
+        "Experimental setup and limitations"
+      ],
+      "evidence": "Uses short hidden-state chunks and a learned redundancy signal, with PID strengths and temperature adaptation. Its small evaluation and coupled temperature change do not isolate the benefit of smoother control.",
+      "implication": "Do not import PID gains or temperature changes as an established optimization. Candidate C tests one confidence-estimation mechanism on CPU first.",
+      "code": "https://github.com/arbdwj/pid_steering/tree/ae60efc5963da51293b17bd41cdd1ab328771a89",
+      "read_ranges": [
+        [
+          0,
+          294
+        ]
+      ],
+      "visuals": [],
+      "evidence_depth": "Full text",
+      "abstract_url": "https://arxiv.org/abs/2506.18831v3",
+      "fulltext_url": "https://arxiv.org/pdf/2506.18831v3",
+      "raw_sha256": "e6ea2381f0d5ab1a7ac35080192480725f1b9406acbaa9bdd222fb6e0b616a1f",
+      "parsed_sha256": "49e795f5e98e0310c9ef409813371c29e5b723b57c64bbc14eebea41a2355e34",
+      "parsed_lines": 295,
+      "sentinel": "END-OF-PAPER:7473771316d0",
+      "local_cache": ".codex_work/mechanism_candidates_20260911/fulltext/arxiv_2506.18831",
+      "reading": "Entire parsed main text, references and appendices read; crucial ReBalance and Reflection equations also visually inspected."
+    },
+    {
+      "id": "2608.25542",
+      "version": "v1",
+      "title": "Reflection Steering: Disentangling Reflection from Reasoning in Activation Space for Token-Efficient Inference",
+      "authors": "Hu Jiarui, Zhiyuan Wen, Xiaoyun Liu, Jiaxing Shen, Yu Yang",
+      "date": "2026-08-26",
+      "status": "arXiv preprint",
+      "locators": [
+        "Stages 1-2, equations (1)-(5), PDF pages 3-4",
+        "Stage 4 equations (9)-(10)",
+        "Table 3 ablations",
+        "Evaluation protocol and independent training-set pilot"
+      ],
+      "evidence": "Uses labeled full spans, centered PCA, orthogonalization against the pooled activation mean, multilayer selection and bounded projection removal. The pooled mean is explicitly a rank-one proxy, not a complete general-reasoning subspace. Its independent pilot did not establish the stated 1 percentage point accuracy-equivalence margin.",
+      "implication": "Candidate B isolates only pooled-mean removal and preserves our existing readout displacement; it is not a full reproduction. It uses our step-start states and unchanged labels, with no layer/rank/strength search. A local norm bound does not control downstream amplification.",
+      "read_ranges": [
+        [
+          0,
+          229
+        ],
+        [
+          230,
+          439
+        ],
+        [
+          440,
+          594
+        ]
+      ],
+      "visuals": [
+        ".codex_work/mechanism_candidates_20260911/reflection-p3.png"
+      ],
+      "evidence_depth": "Full text",
+      "abstract_url": "https://arxiv.org/abs/2608.25542v1",
+      "fulltext_url": "https://arxiv.org/pdf/2608.25542v1",
+      "raw_sha256": "165b83f0f0fad9e45a3971f1cb0bb608eb2abf647e294cdf0fe12edfd122c28d",
+      "parsed_sha256": "f9548c324723615eab9e12864fa2a5398972676a3c48fec0a6c2f12d0cfb8173",
+      "parsed_lines": 595,
+      "sentinel": "END-OF-PAPER:26ddf34597ea",
+      "local_cache": ".codex_work/mechanism_candidates_20260911/fulltext/arxiv_2608.25542",
+      "reading": "Entire parsed main text, references and appendices read; crucial ReBalance and Reflection equations also visually inspected."
+    },
+    {
+      "id": "2606.30852",
+      "version": "v2",
+      "title": "When Does Learning to Stop Help? A Cost-Aware Study of Early Exits in Reasoning Models",
+      "authors": "Zhe Dong, Fang Qin, Manish Shah",
+      "date": "2026-07-04",
+      "status": "arXiv preprint; PDF cover also displays July 7, 2026",
+      "locators": [
+        "Section 3.1 checkpoint forced answers",
+        "Section 3.2 prefix-only features",
+        "Section 3.4 finite-grid risk control",
+        "Section 4.5 cost regimes"
+      ],
+      "evidence": "Uses forced short answers at checkpoints and prefix-observable confidence/agreement features. Probe decoding and repeated prefix prefill can change the cost conclusion. Its 15% risk allowance is not an accuracy-preservation target for this project.",
+      "implication": "Candidate D needs checkpoint answer labels and a tested KV fork preserving dynamic state; ordinary final-answer occurrences are insufficient. Current integration has checkpointing and eviction replay, not a verified forked-probe path. Defer this larger implementation from the vector batch.",
+      "code": "https://github.com/dongzhe1/llm-think-stop/blob/21efe411bcaf34de884c1120ab7fb0573c193a62/scripts/reason_learnstop_probe.py",
+      "code_read": "gen() tokenizes each input and invokes model.generate; inspected code does not demonstrate the paper cost model of reusable KV forks.",
+      "read_ranges": [
+        [
+          0,
+          309
+        ],
+        [
+          310,
+          659
+        ],
+        [
+          660,
+          999
+        ],
+        [
+          1000,
+          1243
+        ]
+      ],
+      "visuals": [],
+      "evidence_depth": "Full text",
+      "abstract_url": "https://arxiv.org/abs/2606.30852v2",
+      "fulltext_url": "https://arxiv.org/pdf/2606.30852v2",
+      "raw_sha256": "7877c2c338094a966bea3c644ad6f8c6d0fe1128e5a03247dc7f757a75549d4a",
+      "parsed_sha256": "e1b2e1818436c354c342de39d9e2a7dee8556360fbcf0e6a85b8bcfd7a60fc4f",
+      "parsed_lines": 1244,
+      "sentinel": "END-OF-PAPER:e42113302cff",
+      "local_cache": ".codex_work/mechanism_candidates_20260911/fulltext/arxiv_2606.30852",
+      "reading": "Entire parsed main text, references and appendices read; crucial ReBalance and Reflection equations also visually inspected."
+    }
+  ],
+  "reading_receipt_sha256": "f90bb636a5eaadead885b168f4656fa8d14c87fc36bb962de03860780f5b4211",
+  "cpu_audit": {
+    "status": "completed_cpu_diagnostic",
+    "plan_sha256": "4215fee950c192f2f55498750eea01318a8ac302afe5f801383649bb04563989",
+    "inputs_verified": {
+      "fit.json": {
+        "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "bytes": 1186
+      },
+      "auto_vector.pt": {
+        "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+        "bytes": 7344
+      },
+      "steps.json": {
+        "sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+        "bytes": 14142252
+      },
+      "positions.json": {
+        "sha256": "ba719ac3efcc85d912f447f9b9ed783e57c179066df1b70f1c00b380d6367589",
+        "bytes": 1061983
+      },
+      "protocol.json": {
+        "sha256": "1dbc037dd4347637eab3650399f9e99316a7e02956167c1204e25004d6bd0da5",
+        "bytes": 1125
+      },
+      "selected_layer.json": {
+        "sha256": "ffb1ad92b41945579ca49912a2769edce79b6c9c8094ec74a664ac9bb1ab197c",
+        "bytes": 6319
+      },
+      "collection.json": {
+        "sha256": "ed93e6a26abd34f34b7ebef9bed5ca390f945501b837d396351e03d86268a0da",
+        "bytes": 622
+      },
+      "layer_21.npy": {
+        "sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+        "bytes": 516145280
+      }
+    },
+    "source_sha256": {
+      "integration/rebalance_easysteer/scripts/mechanism_candidates.py": "5b784411abea82844ab4bb217e994c36b952cb681a27e18e8f17f210d787acd8",
+      "integration/rebalance_easysteer/scripts/audit_mechanism_candidates.py": "430967fffca81f96394ca6ad23b06748520ca22f6f967b78e12fb40f5d3826a1"
+    },
+    "commit": "ea36806f4b1c74164e3d5263dbaa5ec9a8fcf589",
+    "new_generations": 0,
+    "model_forwards": 0,
+    "server_connections": 0,
+    "protected_before": {
+      "integration/rebalance_easysteer/configs/final_results_20260909.json": "58b7c43a5b8a62fb47afa2833a88e2d86ad47f487d2964a8cbcde56f437ab4f5",
+      "integration/rebalance_easysteer/scripts/calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+      "sources/ReBalance/hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641",
+      "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109"
+    },
+    "limitations": [
+      "All 500 saved traces are development data.",
+      "Local geometry and probability prediction are not generated compression or accuracy.",
+      "The original layer-selection fold is reused and is not an independent confirmation."
+    ],
+    "reproduction": {
+      "raw_float32_bitwise_equal": true,
+      "low_val_2": -1.5353450143175598,
+      "norm": 83.61913616775803,
+      "readout_score": 179.16430872840556,
+      "raw_readout_cosine": 0.6317378933484152,
+      "background_cosine": 0.3021718223462599,
+      "over": 48251,
+      "under": 11309,
+      "selected_features": "First token of each complete step, not mean span or answer-boundary features"
+    },
+    "vectors": {
+      "min_displacement": {
+        "norm": 52.82537692623374,
+        "norm_ratio": 0.6317378933484152,
+        "relative_vector_change": 0.7751820651354793,
+        "cosine_to_original": 0.6317378933484151,
+        "full_train_cosine": 0.9917281885768339,
+        "train_validation_cosine": 0.8906991316683769,
+        "float32_score_relative_error": 5.4435567165000975e-11,
+        "bfloat16_vector_score_relative_error": 1.4933322529775417e-05,
+        "background_projection": 9.306152113500499,
+        "score_denominator_ratio": 0.9157355135449914,
+        "status": "ready_for_fixed_gpu_screen",
+        "checks": {
+          "max_norm_ratio": true,
+          "min_full_train_cosine": true,
+          "min_train_validation_cosine": true,
+          "max_float32_score_relative_error": true,
+          "max_bfloat16_vector_score_relative_error": true
+        },
+        "generation_effect": "UNTESTED",
+        "parameter_change": "vector only; every original controller parameter retained",
+        "assets": {
+          "direction.npy": {
+            "sha256": "50ee0dfebdb5cf3771890b4be74399859550604dd7699ed7dd1d735314a1ae79",
+            "bytes": 6272
+          },
+          "auto_vector.pt": {
+            "sha256": "aac7e0b391ab472d7784367e04dcfb26d92e20bebbe7a4afb8fbc2fb7f26b4b0",
+            "bytes": 6970
+          },
+          "fit.json": {
+            "sha256": "1a32eed3f3feb908b0aba6bbe919342395bd4cc2bb7971409777d9f38fd57043",
+            "bytes": 1385
+          }
+        }
+      },
+      "orthogonal_mean": {
+        "norm": 87.04503761732481,
+        "norm_ratio": 1.040970304245833,
+        "relative_vector_change": 0.314645915518331,
+        "cosine_to_original": 0.9532534761436436,
+        "full_train_cosine": 0.9939994895396267,
+        "train_validation_cosine": 0.9214165466658384,
+        "float32_score_relative_error": 1.302610241893376e-09,
+        "bfloat16_vector_score_relative_error": 2.664906388816224e-05,
+        "background_projection": -7.216449660063518e-15,
+        "score_denominator_ratio": 0.9157355135449914,
+        "status": "ready_for_fixed_gpu_screen",
+        "checks": {
+          "min_score_denominator_ratio": true,
+          "max_norm_ratio": true,
+          "min_relative_vector_change": true,
+          "min_full_train_cosine": true,
+          "min_train_validation_cosine": true,
+          "max_float32_score_relative_error": true,
+          "max_bfloat16_vector_score_relative_error": true
+        },
+        "generation_effect": "UNTESTED",
+        "parameter_change": "vector only; every original controller parameter retained",
+        "assets": {
+          "direction.npy": {
+            "sha256": "4dbbcf4f90c26d3c371fc4bf6f0b33050342e857d614b4447c96f84bc5d529e4",
+            "bytes": 6272
+          },
+          "auto_vector.pt": {
+            "sha256": "e2a16da93fde0d6fdcc29fe7ccbd8278aa67288ef15c1abce0f35f80b321e429",
+            "bytes": 6970
+          },
+          "fit.json": {
+            "sha256": "9736339dc17cb2e481f4a644a76828a68ebe2341497b9a155bf2a257e8b4e0f3",
+            "bytes": 1452
+          }
+        }
+      }
+    },
+    "short_step_pooling": {
+      "short": {
+        "questions": 74,
+        "steps": 2835,
+        "plain_mse": 0.03292127981963413,
+        "pooled_mse": 0.028391906593513483,
+        "ratio": 0.8624180696821104,
+        "per_question_improved": 39
+      },
+      "all": {
+        "questions": 100,
+        "steps": 18907,
+        "plain_mse": 0.010450101508602982,
+        "pooled_mse": 0.009032751694944713,
+        "ratio": 0.8643697563615583,
+        "per_question_improved": 72
+      },
+      "checks": {
+        "enough_questions": true,
+        "short_improves": true,
+        "no_broad_lag": true
+      },
+      "status": "proxy_pass_requires_further_preparation"
+    },
+    "answer_checked_exit": {
+      "status": "deferred_missing_counterfactuals_and_kv_fork",
+      "schema_keys": [
+        "finish_reason",
+        "logprobs",
+        "problem",
+        "prompt_token_ids",
+        "text",
+        "token_ids",
+        "train_index"
+      ],
+      "existing_checkpoint_forced_answers": false,
+      "selected_states_are_answer_boundaries": false,
+      "checkpoint_policy": {
+        "start": 1024,
+        "stride": 1024,
+        "probe_cap": 48
+      },
+      "average_max_probe_tokens": 282.624,
+      "average_repeated_prefill_prefix_tokens": 40114.176,
+      "cost_note": "Accounting on old unsteered calibration lengths only; assumes probes never stop. Prefix replay and probe decode are different work and cannot be added as equivalent elapsed time. KV-fork speedup is not established.",
+      "zero_lost_correct_95percent_upper": {
+        "100": 0.029513049607039935,
+        "200": 0.014867039231272059,
+        "299": 0.00996914679289927,
+        "500": 0.005973551516349559
+      },
+      "bound_note": "One fixed policy with iid questions and zero observed lost-correct events. No multiplicity adjustment; adaptive selection or non-iid samples invalidate this simple interpretation. No such new observations exist yet."
+    },
+    "protected_after": {
+      "integration/rebalance_easysteer/configs/final_results_20260909.json": "58b7c43a5b8a62fb47afa2833a88e2d86ad47f487d2964a8cbcde56f437ab4f5",
+      "integration/rebalance_easysteer/scripts/calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+      "sources/ReBalance/hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641",
+      "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109"
+    },
+    "cpu_seconds": 3.6092474460601807
+  },
+  "cpu_recovery": {
+    "failure": {
+      "status": "incomplete_report_serialization",
+      "code_commit": "98f3d98",
+      "error": "TypeError: Object of type int64 is not JSON serializable",
+      "location": "proxy per_question_improved counter during final summary save",
+      "preserved": "Both candidate tensors, direction.npy and fit.json files; initial summary and CPU plan remain unchanged.",
+      "recovery": "Convert the NumPy count to a Python int, test JSON serialization, repeat the inexpensive CPU diagnostic once in cpu_completed. This does not rerun any generation or modify old results. Compare candidate hashes across attempts.",
+      "gpu_seconds": 0
+    },
+    "failure_sha256": "a986089e06155c4992b622b9f9fe4c6c285b1bcf8b995925d84a7c651864cb2e",
+    "candidate_assets_identical_on_recovery": true,
+    "completed_summary_sha256": "fae502943101e0f953acf63eafb63b99f709e192a87754dd8f55bae6bf85f499"
+  },
+  "short_step_specificity": {
+    "status": "deferred_temporal_specificity_not_supported",
+    "plan": {
+      "status": "fixed_after_first_proxy_before_specificity_test",
+      "purpose": "The original half-step proxy passed, but this can reflect generic shrinkage rather than useful previous-step information. One additional CPU diagnostic distinguishes these mechanisms before paying for a controller implementation.",
+      "prior_result": {
+        "short_question_mean_mse_ratio": 0.8624180696821104,
+        "all_question_mean_mse_ratio": 0.8643697563615583
+      },
+      "data": "Same 400/100 calibration development groups; no new independent evidence and no benchmark answers.",
+      "fixed_control": "Estimate one probability mean from all complete-step tokens in the 400 training questions. At each evaluated half-step use exactly the same previous-token count (min(previous complete step length,8)), but replace their probabilities with that fixed mean. The same current first-half tokens and second-half target are retained.",
+      "primary": "Equal-question MSE on steps of 2..8 tokens in the 100 calibration validation questions.",
+      "advance_only_if": "Previous-step pooling MSE is at least 5% lower than this fixed training-mean shrinkage control. Otherwise the claimed temporal-information advantage is unsupported and the temporal candidate is deferred without a GPU test or threshold search.",
+      "interpretation": "This new specificity gate is explicitly a follow-up to the first CPU diagnostic, not a retrospectively claimed preregistration. Neither result estimates generated accuracy or compression.",
+      "new_generations": 0
+    },
+    "plan_sha256": "e08d607ce04d6cf5704a730d1dc6f27fb0286b4c99d6445e15872ea438ca46d9",
+    "script_sha256": "19460646df56c9585c66ededf7461923056bdbc47c790b743e306dec2d4706e7",
+    "train_prior_probability": 0.931737029818016,
+    "validation_questions": 74,
+    "temporal_mse": 0.028391906593513483,
+    "fixed_mean_mse": 0.027845868556493045,
+    "ratio": 1.0196093016783674,
+    "new_generations": 0,
+    "model_forwards": 0,
+    "server_connections": 0
+  },
+  "candidate_decisions": [
+    {
+      "id": "min_displacement",
+      "rank": 1,
+      "status": "ready_for_fixed_gpu_screen",
+      "scope": "Vector only",
+      "actual_generated_metrics": null
+    },
+    {
+      "id": "orthogonal_mean",
+      "rank": 2,
+      "status": "ready_for_fixed_gpu_screen",
+      "scope": "Vector only",
+      "actual_generated_metrics": null
+    },
+    {
+      "id": "short_step_pooling",
+      "rank": 3,
+      "status": "deferred_temporal_specificity_not_supported",
+      "scope": "Confidence estimator",
+      "actual_generated_metrics": null
+    },
+    {
+      "id": "answer_checked_exit",
+      "rank": 4,
+      "status": "deferred_missing_counterfactuals_and_kv_fork",
+      "scope": "Output termination",
+      "actual_generated_metrics": null
+    }
+  ],
+  "verification": {
+    "cpu_tests_passed": 14,
+    "actual_easysteer_numpy_payload_schema_passed": true,
+    "original_raw_vector_reconstructed_bitwise": true,
+    "committed_bundle_bytes_equal_checked_local_bytes": true,
+    "calibration_indices_equal_across_1p5b_7b_and_prior_exclusion_manifest": true,
+    "plan_source_files": 39,
+    "actual_torch_load_and_cuda_acceptance": "Pending existing server runtime after explicit GPU start; no model loaded on local machine"
+  },
+  "gpu_plan": {
+    "path": "integration/rebalance_easysteer/configs/mechanism_screen100_20260911/plan.json",
+    "sha256": "b65e5c6f05bfbba58d98a5d664b18dca38938d2b98fd89c0d0d443988d67e000",
+    "immutable_link": "https://github.com/qlaxyy/srtp-final/blob/167de04771fbcd6856e8af5eadb1b1d377e4d96c/integration/rebalance_easysteer/configs/mechanism_screen100_20260911/plan.json",
+    "count": 100,
+    "arms": [
+      "original_dynamic",
+      "min_displacement",
+      "orthogonal_mean"
+    ],
+    "new_answers": 300,
+    "screen_dataset_sha256": "169264381d2cc5bb36ebc2f2c28adf51b4872d20a06f0658977ef0ab233d22d7",
+    "reserve_count": 200,
+    "reserve_dataset_sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+    "reserve_authorized": false,
+    "overlap_checks": {
+      "screen_vs_calibration": 0,
+      "screen_vs_first_step": 0,
+      "screen_vs_repeat_gate": 0,
+      "screen_vs_question_balanced": 0,
+      "screen_vs_Math_Math500": 0,
+      "screen_vs_Math_GSM8K": 0,
+      "confirmation_vs_calibration": 0,
+      "confirmation_vs_first_step": 0,
+      "confirmation_vs_repeat_gate": 0,
+      "confirmation_vs_question_balanced": 0,
+      "confirmation_vs_Math_Math500": 0,
+      "confirmation_vs_Math_GSM8K": 0,
+      "screen_vs_confirmation": 0
+    },
+    "runtime": {
+      "max_tokens": 16000,
+      "max_model_len": 32768,
+      "max_num_seqs": 128,
+      "max_num_batched_tokens": 32768,
+      "gpu_memory_utilization": 0.9,
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "seed": 42,
+      "async_scheduling": true,
+      "chunked_prefill": false,
+      "group_timeout_seconds": 600
+    },
+    "advance_rule": "At least 5% lower mean thinking AND total tokens, correct count no lower, cap count no higher. These are exploratory screen criteria; no claim of established accuracy preservation.",
+    "expected_gpu_minutes": [
+      15,
+      25
+    ],
+    "pure_generation_estimate_minutes": [
+      7,
+      10
+    ],
+    "estimate_basis": "Previous fresh 1.5B training groups of 100 used about 127-155 seconds each; new difficulty/caps and hardware can differ. Total estimate includes startup/checks with margin, not a guaranteed upper runtime.",
+    "cost": "Actual hourly GPU price times 0.25-0.42 hours; actual price unknown until user opens the instance.",
+    "stop": "Stop on mismatch/OOM/numerical error/incomplete group; group timeout 600 seconds (including evaluation-loop grading), batch wall limit 1800 seconds. Preserve partials; no retry or 7B/full-test expansion.",
+    "server_output": "/root/autodl-tmp/results/easysteer/mechanism_screen100_20260911",
+    "authorization": "No GPU authorization yet. Do not connect to the stopped instance. User starts/mode-switches the server.",
+    "completion": "All 300 answers complete and paired; CPU author grades and requested metrics saved with hashes. Notify GPU may be shut down immediately after generation processes exit; transfer and hash outputs before server shutdown."
+  },
+  "limitations": [
+    "CPU geometry and prediction errors are not actual CoT compression or accuracy measurements.",
+    "The calibration validation fold has prior layer-selection exposure and is development evidence.",
+    "Both vector candidates preserve a noisy calibration readout displacement, not semantic truth.",
+    "A and B are independent single-factor alternatives, never combined in this screen.",
+    "Screening two candidates uses shared development validation; choose at most one with the fixed rule before separately authorized independent confirmation.",
+    "A 100-question result cannot certify a 1 percentage point accuracy-loss bound.",
+    "Frozen baseline outputs/tag and the two finished negative experiments remain unchanged."
+  ]
+}
