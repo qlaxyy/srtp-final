@@ -1,0 +1,55 @@
+{
+  "status": "fixed_before_cpu_statistics",
+  "date": "2026-09-11",
+  "base_commit": "13c040b614f84c466fe5c2dde9acb68022f9dd41",
+  "scope": "Local CPU development on saved 1.5B calibration data only; zero model forwards, new answers or server connections. This is not a generation-benefit evaluation.",
+  "inputs": {
+    "backup": ".codex_work/question_balanced_20260911/original_selected_layer",
+    "backup_manifest": ".codex_work/question_balanced_20260911/selected_layer_backup.json",
+    "generations_archive": ".codex_work/own_calibration_500_20260908/calibration_assets.tar.gz",
+    "generations_member": "generations.jsonl",
+    "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+  },
+  "unchanged": ["Original 500 calibration answers", "labels and quantiles", "selected decoder layer 20", "all dynamic parameters", "frozen result artifacts and tag"],
+  "development_split": "Reuse original selected_layer.json question groups (400/100) only for direction stability and proxy diagnostics; both groups have previously informed calibration. Neither is independent generation validation. Final candidate vectors use all 500, as does the baseline.",
+  "candidates_in_priority_order": [
+    {
+      "id": "min_displacement",
+      "mechanism": "Replace raw difference d by w*(w dot d)/(w dot w), where frozen diagonal LDA readout w=d/(var_over+var_under+1e-12). This uniquely minimizes Euclidean displacement subject to preserving the old readout-score shift. The controller is unchanged.",
+      "hypothesis": "Removing the component orthogonal to the calibration readout may reduce collateral disruption. Such components are not proven semantically irrelevant, and smaller local norm does not guarantee shorter or more accurate generation.",
+      "cpu_pass": {"max_norm_ratio": 0.95, "min_full_train_cosine": 0.8, "min_train_validation_cosine": 0.5, "max_float32_score_relative_error": 0.00001, "max_bfloat16_vector_score_relative_error": 0.01},
+      "gpu_falsification": "No compression, fewer correct answers or more caps on the fixed new training screen stops this candidate without retuning."
+    },
+    {
+      "id": "orthogonal_mean",
+      "mechanism": "Let u be the normalized pooled mean of over/under labeled states. Remove the shared component r=d-u*(u dot d), then preserve old score displacement with d_new=r*(w dot d)/(w dot r). This isolates a rank-one background-removal hypothesis inspired by Reflection Steering, not its PCA/multilayer/projection method.",
+      "hypothesis": "The shared mean is only a background proxy; it may contain useful reasoning features. Score rescaling may erase the norm benefit.",
+      "cpu_pass": {"min_score_denominator_ratio": 0.25, "max_norm_ratio": 1.05, "min_relative_vector_change": 0.05, "min_full_train_cosine": 0.8, "min_train_validation_cosine": 0.5, "max_float32_score_relative_error": 0.00001, "max_bfloat16_vector_score_relative_error": 0.01},
+      "gpu_falsification": "Same fixed screen rule; no layer, strength or rank search."
+    },
+    {
+      "id": "short_step_pooling",
+      "mechanism": "Only at complete steps of at most 8 tokens, pool the current step probabilities with up to the last 8 probabilities of the previous complete step; recompute confidence and adjacent variance. Longer steps keep the existing estimator. No temperature change, PID integral or lexical gate.",
+      "cpu_test": "For each eligible saved complete step with 2..8 tokens and a preceding step, predict its second-half mean probability from its first half, either alone or pooled with the preceding step's last 8 probabilities. Evaluate mean squared error per question, then equal average across questions in the pre-existing 100-question calibration fold. Also report the same comparison across all step lengths as a lag diagnostic. No token-independence assumption or accuracy claim.",
+      "cpu_pass": {"min_questions_with_short_steps": 25, "max_short_question_mean_mse_ratio": 0.95, "max_all_question_mean_mse_ratio": 1.0},
+      "limitation": "Held-out-half prediction is only a necessary proxy check for useful borrowing. ReBalance Table 3 already gives contrary evidence for broad window smoothing; a passing proxy is not sufficient evidence for generation benefit."
+    },
+    {
+      "id": "answer_checked_exit",
+      "mechanism": "At sparse checkpoints, fork the saved prefix, close thinking and generate a short answer; use prefix-only confidence and answer agreement to decide stopping, with lost-correct-answer risk and all probe costs counted. Inspired by LearnStop; no retrospective future votes.",
+      "cpu_test": "Audit whether saved assets contain checkpoint forced answers, causal prefix features and reusable KV-fork support. Compute fixed sparse-checkpoint token accounting and a one-sided zero-loss binomial upper bound as a sample-size warning; no fitting to final-answer occurrences.",
+      "prerequisite_for_gpu": "Requires a separate justified data-collection/probe implementation plan if counterfactual labels or prefix KV-fork support are absent. It will not be appended to the vector-screen batch.",
+      "risk": "LearnStop's reported 15% risk allowance is unsuitable here. A 100-question screen cannot establish a 1 percentage point loss bound."
+    }
+  ],
+  "screening_rules": "Thresholds above are engineering triage rules fixed before statistics, not statistical proof. Failures and reasons are retained. No parameter search, repeated GPU experiments or use of completed benchmark/validation outputs for fitting.",
+  "planned_generation_screen": {
+    "model": "1.5B only",
+    "new_math_training_questions": 100,
+    "max_new_tokens": 16000,
+    "candidate_arms": "Only vector candidates passing CPU gates; each differs from a newly generated shared original-dynamic control only in vector.",
+    "advance_to_separate_confirmation_if": "At least 5% lower mean thinking AND total tokens, correct count no lower, cap count no higher. These are exploratory screen criteria; no claim of established accuracy preservation.",
+    "confirmation": "Reserve 200 additional disjoint training questions before screen generation; never run automatically. Select at most one passing candidate by greatest thinking-token reduction, tie-break smaller total tokens then earlier priority. No tuning on screen answers.",
+    "gpu_permission": "NOT granted. Server remains off until user explicitly starts GPU for the finalized batch."
+  }
+}
