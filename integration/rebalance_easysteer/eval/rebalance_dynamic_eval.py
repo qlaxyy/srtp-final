@@ -62,6 +62,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-num-seqs", type=int, default=256)
     parser.add_argument("--chunked-prefill", action="store_true")
     parser.add_argument("--max-num-batched-tokens", type=int)
+    parser.add_argument("--async-scheduling", action="store_true",
+                        help="Reuse the verified 1.5B runtime scheduling option")
     parser.add_argument("--profile-steps", type=int, default=0,
                         help="Diagnostic CPU/CUDA trace only; timings include overhead")
     parser.add_argument("--profile-start-step", type=int, default=16)
@@ -276,7 +278,7 @@ def main() -> None:
             "top_p": args.top_p,
             "seed": args.seed,
             "execution_mode": "in_graph",
-            "async_scheduling": False,
+            "async_scheduling": args.async_scheduling,
             "profiling_enabled": args.profile_steps > 0,
             "profile_steps": args.profile_steps,
             "profile_start_step": args.profile_start_step,
@@ -354,8 +356,8 @@ def main() -> None:
             raise ValueError("Incompatible saved baseline concurrency")
         if saved["protocol"].get("gpu_memory_utilization") != args.gpu_memory_utilization:
             raise ValueError("Incompatible saved baseline GPU memory budget")
-        if saved["protocol"].get("async_scheduling", True):
-            raise ValueError("Saved baseline did not use synchronous scheduling")
+        if saved["protocol"].get("async_scheduling", True) != args.async_scheduling:
+            raise ValueError("Saved baseline scheduling differs")
         if (saved["protocol"].get("chunked_prefill", False) != args.chunked_prefill
                 or saved["protocol"].get("max_num_batched_tokens") != args.max_num_batched_tokens):
             raise ValueError("Incompatible saved baseline prefill configuration")
@@ -471,7 +473,7 @@ def main() -> None:
             steer_graph_mode="in_graph",
             enable_chunked_prefill=args.chunked_prefill,
             enable_prefix_caching=False,
-            async_scheduling=False,
+            async_scheduling=args.async_scheduling,
             seed=args.seed,
         )
         result["startup_seconds"] = time.perf_counter() - started
