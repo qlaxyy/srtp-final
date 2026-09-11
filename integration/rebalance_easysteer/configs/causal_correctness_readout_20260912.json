@@ -1,0 +1,41 @@
+{
+  "status": "fixed_before_fitting_or_examining_readout_statistics",
+  "purpose": "CPU-only development screening of a supervised immediate-answer correctness readout, using already acquired causal prefix labels and existing hidden states.",
+  "hypothesis_origin": "A new hypothesis after the fixed three-consistent-answers policy failed its safety gate. Repeated answers alone can remain wrong. This readout is a separate supervised decision mechanism; the failed policy is not relabeled or retuned.",
+  "evidence": [
+    {"url": "https://arxiv.org/abs/2606.30852v2", "location": "Sections3.1-3.4", "use": "Prefix-only features paired with actual forced-answer outcomes support supervised stop decisions; their risk tolerance and costs do not transfer automatically."},
+    {"url": "https://arxiv.org/abs/2512.13979v2", "location": "Section4.2", "use": "Correctness decoding at a completed reasoning boundary does not establish safe prefix stopping. Here labels are the actual saved-prefix trial outcomes."}
+  ],
+  "inputs": {
+    "trial_analysis": ".codex_work/overnight_research_20260912/prefix_probe_all_20260912/prefix_probe32_20260912/analysis.json",
+    "trial_records": ".codex_work/overnight_research_20260912/prefix_probe_all_20260912/prefix_probe32_20260912/probes.json",
+    "hidden": ".codex_work/overnight_research_20260912/control_point_replay/predecessor_layer21.npy",
+    "steps": ".codex_work/question_balanced_20260911/original_selected_layer/steps.json"
+  },
+  "feature_join": "For prefix length k ending in a generated delimiter, use the existing predecessor state at absolute position prompt_length+k-1, matched by the following complete step start=k. Exclude unavailable rows without replacement; require >=95%coverage. Never use the following step's confidence or tokens.",
+  "split": {"seed": 20260919, "training_questions": 24, "development_holdout_questions": 8, "rule": "Random24 of the existing32 question IDs for fit; remaining8 for CPU checks. All steps from one question stay together. No feature, threshold or model choice on the holdout."},
+  "models": {
+    "candidate": "Question-weighted standardized ridge regression on1536 predecessor-state features, divided by sqrt(feature dimension), ridge alpha1. Center/scale and output intercept use training data only; no layer or regularization search.",
+    "controls": ["The same weighted ridge using prefix length only", "The same weighted ridge using the preceding completed step's arithmetic confidence and two-step variance only"],
+    "weight": "Each training question has equal total weight; rescale sample weights to mean1.",
+    "threshold": "Strictly above the maximum fitted training score among incorrect trial answers. Never choose a threshold from holdout labels. Regression scores are not calibrated probabilities."
+  },
+  "cpu_gate": {
+    "minimum_join_coverage": 0.95,
+    "minimum_training_questions_per_label": 10,
+    "minimum_holdout_questions_per_label": 4,
+    "minimum_holdout_auc": 0.75,
+    "minimum_auc_gain_over_best_fixed_control": 0.05,
+    "maximum_holdout_false_acceptances": 0,
+    "minimum_holdout_acceptance_fraction": 0.1,
+    "minimum_holdout_questions_with_acceptance": 2
+  },
+  "cost": "Existing local memmaps plus a matrix solve on at most327 rows. No GPU, new answers, hidden replay or model load.",
+  "decision": "A failed gate stops this readout without fitting other layers, thresholds or regularization values. A pass permits only preparing a stronger independent validation and actual online implementation, not a compression claim.",
+  "limitations": [
+    "Only32 length-selected calibration questions,23 originally capped; the original layer was selected using calibration data. This is development evidence, not independent efficacy confirmation.",
+    "Hidden features came from the existing teacher-forced replay, whereas trial answers used vLLM. Numerical transfer to an online observer is not yet verified.",
+    "Correctness of a forced short answer is the label; future full-trajectory correctness and answer convergence are not input features.",
+    "Zero false acceptances on a small holdout cannot establish a narrow population safety guarantee."
+  ]
+}
