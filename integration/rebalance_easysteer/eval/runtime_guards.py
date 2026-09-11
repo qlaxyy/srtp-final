@@ -10,7 +10,8 @@ def guard_dynamic_preemption(scheduler, replay_state=None):
     def preempt(request, timestamp):
         counts["events"] += 1
         steering = getattr(request, "steer_vector_request", None)
-        if (steering is not None and steering.algorithm == "rebalance"
+        if (steering is not None and steering.algorithm in
+                ("rebalance", "rebalance_feedback", "seal")
                 and request.num_output_tokens > 0
                 and not getattr(replay_state, "supports_kv_replay", False)):
             counts["rejected_dynamic_events"] += 1

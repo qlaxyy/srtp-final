@@ -121,7 +121,9 @@ class SteerVectorState:
             )
         self._requests[req_id] = steer_vector_request
         self._slots[req_id] = manager.acquire_config(req_id, steer_vector_request)
-        if steer_vector_request.algorithm not in ("rebalance", "rebalance_feedback"):
+        if steer_vector_request.algorithm not in (
+            "rebalance", "rebalance_feedback", "seal"
+        ):
             return
         if req_index is None or self._coefs is None:
             raise RuntimeError("rebalance requires initialized request-index state")
@@ -186,6 +188,9 @@ class SteerVectorState:
 
     def has_dynamic(self) -> bool:
         return bool(self._dynamic_params)
+
+    def requires_confidence(self) -> bool:
+        return any(not p.constant_control for p in self._dynamic_params.values())
 
     def _group_batch_positions(
         self, req_ids: list[str]
@@ -288,6 +293,13 @@ class SteerVectorState:
             pos = self._positions_tensor(params, positions, device)
             state_idx = input_batch.idx_mapping.index_select(0, pos).long()
             tokens = sampled.index_select(0, pos)
+            if params.constant_control:
+                in_think = self._in_think.index_select(0, state_idx)
+                in_think |= tokens == params.think_start_token_id
+                in_think &= tokens != params.think_end_token_id
+                self._in_think.index_copy_(0, state_idx, in_think)
+                self._record_scales(input_batch, positions, pos, state_idx)
+                continue
             probabilities = max_probabilities.index_select(0, pos)
             boundaries = self._boundary_tensors.get(params)
             if boundaries is None:
@@ -789,7 +801,9 @@ def fill_graph_steer_buffers(
                 (
                     positions,
                     None
-                    if request.algorithm not in ("rebalance", "rebalance_feedback")
+                    if request.algorithm not in (
+                        "rebalance", "rebalance_feedback", "seal"
+                    )
                     else token_scales.index_select(0, positions),
                 )
             )

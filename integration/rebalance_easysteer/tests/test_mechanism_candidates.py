@@ -13,9 +13,15 @@ from mechanism_candidates import directions, moments, bfloat16, zero_loss_upper,
 from audit_mechanism_candidates import proxy_diagnostic
 from audit_control_points import map_positions
 from audit_followup_candidates import clip_negative
+from fit_seal_saved import pooled_direction
 
 
 class MechanismTests(unittest.TestCase):
+    def test_seal_pools_reflection_transition_examples_before_mean(self):
+        sums=np.array([[[2.,0.],[0.,4.],[0.,18.]]])
+        counts=np.array([[2,1,9]])
+        np.testing.assert_allclose(pooled_direction(sums,counts,[0]),[1.,-2.2])
+
     def test_latent_clip_preserves_positive_and_never_crosses_negative_center(self):
         c=np.array([-2.,-2.,-2.,.1,0.])
         s=np.array([-1.,.5,4.,-1.,3.])

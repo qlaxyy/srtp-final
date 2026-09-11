@@ -97,6 +97,10 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
     ),
 }
 ALGORITHM_PARAMS["rebalance_feedback"] = ALGORITHM_PARAMS["rebalance"]
+ALGORITHM_PARAMS["seal"] = (
+    "boundary_token_ids", "think_start_token_id", "think_end_token_id",
+    "initial_coef",
+)
 
 
 def _require_nonempty(name: str, value: list | None) -> None:
@@ -391,12 +395,14 @@ class VectorSpec(BaseModel):
             )
 
             MoERouterAlgorithm.validate_mode(self.params["mode"])
-        if self.algorithm in ("rebalance", "rebalance_feedback"):
+        if self.algorithm in ("rebalance", "rebalance_feedback", "seal"):
             required = {
                 "boundary_token_ids",
                 "think_start_token_id",
                 "think_end_token_id",
             }
+            if self.algorithm == "seal":
+                required.add("initial_coef")
             missing = required - set(self.params)
             if missing:
                 raise ValueError(
@@ -511,7 +517,8 @@ class SteeringSpec(BaseModel):
                 "use a single-vector spec"
             )
         if len(self.vectors) > 1 and any(
-            v.algorithm in ("rebalance", "rebalance_feedback") for v in self.vectors
+            v.algorithm in ("rebalance", "rebalance_feedback", "seal")
+            for v in self.vectors
         ):
             raise ValueError("rebalance currently requires a single-vector spec")
         return self
@@ -557,7 +564,7 @@ def to_engine_request(
                 "moe_topk": v.params.get("topk", 8),
             }
         rebalance: dict[str, Any] = {}
-        if v.algorithm in ("rebalance", "rebalance_feedback"):
+        if v.algorithm in ("rebalance", "rebalance_feedback", "seal"):
             rebalance = {
                 "rebalance_boundary_token_ids": v.params["boundary_token_ids"],
                 "rebalance_think_start_token_id": v.params[

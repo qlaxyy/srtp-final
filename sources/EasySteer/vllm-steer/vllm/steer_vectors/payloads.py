@@ -267,6 +267,7 @@ PAYLOAD_KINDS: dict[str, type[Payload]] = {
 ALGORITHM_PAYLOADS: dict[str, str] = {
     "direct": "direction",
     "rebalance": "direction",
+    "seal": "direction",
     "rebalance_feedback": "feedback_direction",
     "erase": "direction",
     "replace": "direction",

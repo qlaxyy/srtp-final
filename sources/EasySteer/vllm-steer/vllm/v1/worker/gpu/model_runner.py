@@ -1157,10 +1157,15 @@ class GPUModelRunner(
                 raise RuntimeError(
                     "rebalance requires one logits row per active request"
                 )
-            float_logits = logits.float()
-            max_probabilities = torch.exp(
-                float_logits.amax(dim=-1) - torch.logsumexp(float_logits, dim=-1)
-            )
+            if self.steer_vector_state.requires_confidence():
+                float_logits = logits.float()
+                max_probabilities = torch.exp(
+                    float_logits.amax(dim=-1) - torch.logsumexp(float_logits, dim=-1)
+                )
+            else:
+                max_probabilities = logits.new_zeros(
+                    (input_batch.num_reqs,), dtype=torch.float32
+                )
         if grammar_output is not None:
             # Apply grammar bitmask to the logits in-place.
             assert self.structured_outputs_worker is not None

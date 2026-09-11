@@ -71,3 +71,8 @@ class ReBalanceFeedbackAlgorithm(ReBalanceAlgorithm):
                                params["C"], params["E"], coefficients[:, None])
         hidden_states.index_copy_(0, positions_tensor, selected + delta)
         return hidden_states
+
+
+@register_algorithm("seal")
+class SealAlgorithm(ReBalanceAlgorithm):
+    """Constant additive direction gated by per-request reasoning markers."""

@@ -30,7 +30,7 @@ def _replay_batch(device, tokens, computed, prefill, slot=0):
 
 
 def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
-    algorithm="rebalance",
+    algorithm="rebalance", paper_modes=(False, True),
 ):
     """Eviction must preserve past injections even when current strength is zero."""
     from vllm.v1.worker.gpu.steer_vector_utils import (
@@ -39,7 +39,7 @@ def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
     from vllm.steer_vectors.algorithms.clause import clause_cache_key
 
     for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
-        for paper in (False, True):
+        for paper in paper_modes:
             req = _request()
             req.algorithm = algorithm
             if paper:
@@ -111,6 +111,50 @@ def test_feedback_replays_past_scales_after_think_end_and_slot_reuse():
     test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
         "rebalance_feedback"
     )
+
+
+def test_seal_replays_historical_reasoning_gate_after_end_and_slot_reuse():
+    test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
+        "seal", paper_modes=(False,)
+    )
+
+
+def test_seal_constant_gate_ignores_confidence_and_tracks_each_request():
+    """Static SEAL must not acquire a confidence curve or leak past think end."""
+    from vllm.steer_vectors.api import (
+        ApplySpec, SteeringSpec, VectorSpec, to_engine_request,
+    )
+    from vllm.steer_vectors.graph_support import declared_graph_families
+
+    spec = SteeringSpec(vectors=[VectorSpec(
+        source="/unused.pt", layers=[19], algorithm="seal",
+        apply=ApplySpec(generation_tokens=[99]), params=dict(
+            boundary_token_ids=[99], think_start_token_id=10,
+            think_end_token_id=11, initial_coef=1.,
+        ),
+    )])
+    req = to_engine_request(spec, name="seal", int_id=1)
+    assert ReBalanceParams.from_request(req).constant_control
+    assert declared_graph_families(["seal"]) == frozenset({"additive"})
+    state = SteerVectorState(3, torch.device("cpu"))
+    state.add_request("a", req, _Manager(), req_index=0, prompt_token_ids=[10])
+    state.add_request("b", req, _Manager(), req_index=1, prompt_token_ids=[1])
+    assert not state.requires_confidence()
+    batch = SimpleNamespace(
+        req_ids=["b", "a"], num_reqs=2, num_draft_tokens=0,
+        idx_mapping=torch.tensor([1, 0]),
+    )
+    for tokens, expected in [([10, 99], [1., 1.]),
+                             ([11, 99], [0., 1.]),
+                             ([99, 11], [0., 0.])]:
+        state.observe_sample(batch, torch.tensor(tokens)[:, None],
+                             torch.full((2,), torch.nan))
+        torch.testing.assert_close(state.batch_scales(batch),
+                                   torch.tensor(expected))
+    assert state._step_tok_count.sum() == 0
+    state.add_request("dynamic", _request(), _Manager(), req_index=2,
+                      prompt_token_ids=[10])
+    assert state.requires_confidence()
 
 
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():

@@ -27,8 +27,14 @@ class ReBalanceParams:
     high_val_2: float = 0.1
     paper_parameters: tuple[float, ...] | None = None
     curve_tau: float = 0.01
+    constant_control: bool = False
 
     def __post_init__(self):
+        if self.constant_control:
+            if not math.isfinite(self.initial_coef):
+                raise ValueError("Constant steering coefficient must be finite")
+            if self.paper_parameters is not None:
+                raise ValueError("Constant steering cannot use paper parameters")
         if self.paper_parameters is None:
             return
         p = self.paper_parameters
@@ -69,6 +75,7 @@ class ReBalanceParams:
                 else None
             ),
             curve_tau=getattr(request, "rebalance_curve_tau", 0.01),
+            constant_control=request.algorithm == "seal",
         )
 
 

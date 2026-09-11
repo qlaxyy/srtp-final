@@ -375,7 +375,7 @@ class SteerVectorRequest(
                 )
 
                 MoERouterAlgorithm.validate_mode(self.moe_mode)
-            if self.algorithm in ("rebalance", "rebalance_feedback"):
+            if self.algorithm in ("rebalance", "rebalance_feedback", "seal"):
                 if not self.rebalance_boundary_token_ids:
                     raise ValueError(
                         "rebalance requires rebalance_boundary_token_ids"
