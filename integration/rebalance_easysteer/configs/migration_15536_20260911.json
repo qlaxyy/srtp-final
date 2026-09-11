@@ -1,0 +1,60 @@
+{
+  "status": "partial_verification_connection_unstable",
+  "recorded_at": "2026-09-11T20:32:20.301938+08:00",
+  "ssh": "ssh -p 15536 root@connect.cqa1.seetacloud.com",
+  "previous_ssh_port": 20403,
+  "user_confirmed": "Normal GPU mode; migration completed",
+  "verified": {
+    "authenticated_with_existing_key": true,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "driver": "570.124.04",
+    "gpu_memory_total_mib": 24564,
+    "gpu_memory_used_mib_at_initial_check": 1,
+    "gpu_utilization_percent_at_initial_check": 0,
+    "data_disk_total_gib_display": 50,
+    "data_disk_used_gib_display": 35,
+    "data_disk_available_gib_display": 16,
+    "server_initial_commit": "d558ffc",
+    "server_initial_branch": "main",
+    "initial_working_tree_clean": true,
+    "server_main_fast_forwarded_to": "2769f42",
+    "server_switched_to": "codex/repeat-positive-gate-20260911",
+    "python_generation_environment": "3.12.14",
+    "python_author_grader_environment": "3.10.8",
+    "directories_exist": [
+      "/root/autodl-tmp/venvs/easysteer-vllm026",
+      "/root/autodl-tmp/venvs/rebalance",
+      "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+      "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+      "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908",
+      "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908"
+    ]
+  },
+  "target_experiment_commit": "a61b5900f1e9a06271da3906437c370d5ecbe726",
+  "not_yet_verified": [
+    "Exact final server HEAD after switching",
+    "Model/fit/vector/calibration-answer/full-result hashes on migrated disk",
+    "vLLM/CUDA and author-grader package imports",
+    "19 CPU tests on new server",
+    "Fixed 100-question plan preflight on new server"
+  ],
+  "connectivity": {
+    "observed_errors": [
+      "Connection closed by host during handshake",
+      "Authenticated SSH session closed by remote host"
+    ],
+    "client_checks": [
+      "Windows OpenSSH",
+      "Existing Git-bundled OpenSSH 10.2p1",
+      "Direct currently resolved IP with strict existing host-key verification",
+      "SFTP copy"
+    ],
+    "result": "Intermittent short reads succeeded, sustained verification unavailable. Cause not established; no claim that migration or dependencies are broken."
+  },
+  "verification_helper_sha256": "0a8e63d0d60879bc7bf0800ed108fd59fc6765172a3210c49ec468430fe2d1bf",
+  "model_forwards": 0,
+  "new_generations": 0,
+  "reinstallation": false,
+  "frozen_results_changed": false,
+  "next_action": "Restore reliable SSH or obtain working console terminal, then complete existing helper and plan preflight. Do not regenerate calibration or start the GPU pair during migration diagnosis."
+}
