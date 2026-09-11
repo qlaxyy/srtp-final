@@ -1,0 +1,50 @@
+{
+  "status": "fixed_author_formula_self_calibrated_asset",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "decoder_output_layer": 19,
+  "source_hidden_state_index": 20,
+  "algorithm": "seal",
+  "static_coefficient": 1.0,
+  "normalize": false,
+  "vector_sha256": "1d4a3b5794577b0661cc3996ca6d63a243aa8e16d097ab4e491d2bbd5b38e965",
+  "formula": "pooled execution mean minus pooled union(reflection,transition) mean; all500 saved responses; raw vector, alpha1",
+  "raw_vector_norm": 66.58787386934378,
+  "class_steps": [
+    55713,
+    23538,
+    4416
+  ],
+  "class_questions": [
+    500,
+    496,
+    319
+  ],
+  "original_development_split_direction_cosine": 0.9547635593513761,
+  "new_answers": 0,
+  "new_model_forwards": 0,
+  "original_author_source": {
+    "repo": "VITA-Group/SEAL",
+    "commit": "b2ad6858fc48143021e5df5ce10396f5c693b1ec"
+  },
+  "replay_ledger_sha256": "1d278e3f5829a156543001cb5518c2fcac5490856ace8864963cb4cd649dcf71",
+  "replay_files_sha256": {
+    "class_sums.npy": "bbfeee5fecb01bd6c706e5253ade1655f4acfa8d7ecc063f3750327d25986a00",
+    "class_counts.npy": "b5434f4263dbaae5c16ace82e3b531f9aa9fa0ee684e13909818580888d80ee9",
+    "original_feature_checks.json": "259034c15bdaf7d1b691fc6094ebe013b84db667c27b9201860b5f5834d6304a"
+  },
+  "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "model_files_sha256": {
+    "config.json": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+    "generation_config.json": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+    "model.safetensors": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+    "tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "tokenizer_config.json": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+  },
+  "limitations": [
+    "Self-calibrated adaptation using existing500 greedy answers, not author1000 correct/incorrect selection.",
+    "Original400/100 split was used for layer selection; stability is development evidence only.",
+    "Keep project prompt, sample0.7/0.95/42 and cap16000 for comparison; differs from paper protocol.",
+    "Direction is applied on generated delimiter inputs after decoder19, within think markers only."
+  ],
+  "source_sha256": "d222b0183627ba6f17bd4766d274dca388267ec53437badfd0c7c387fa0b3962"
+}
