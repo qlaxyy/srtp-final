@@ -8,7 +8,7 @@ import shutil
 import importlib.util
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from mechanism_candidates import ROOT,BASE,read,read_vector
+from mechanism_candidates import ROOT,BASE,read,read_vector,sha
 from prepare_mechanism_screen import select,norm
 from run_mechanism_screen import command,validate_arm,validate_bundle
 from grade_mechanism_screen import compare
@@ -18,13 +18,14 @@ from grade_vector_batch import comparison as vector_comparison
 
 class ScreenTests(unittest.TestCase):
     def test_new_vector_command_explicitly_uses_fitted_layer(self):
-        bundle=ROOT/BASE/'configs/confidence_only_screen100_20260912'
+        bundle=ROOT/BASE/'configs/latent_feedback_screen100_20260912'
         plan,_=vector_bundle(bundle)
         for name in plan['run_order']:
             cmd=vector_command(plan,bundle,Path('/out'),name)
             self.assertEqual(cmd[cmd.index('--layer')+1],'20')
             self.assertEqual(cmd[cmd.index('--limit')+1],'100')
             self.assertNotIn('confirmation200.jsonl',' '.join(cmd))
+            self.assertEqual('--feedback-config' in cmd,name=='latent_feedback_clip')
 
     def test_general_pair_metrics_keep_all_200_errors_and_caps(self):
         summary=dict(generation_seconds=1,preemptions=0,dynamic_kv_replay={})
@@ -109,26 +110,30 @@ class ScreenTests(unittest.TestCase):
 
     def test_prepared_assets_pass_actual_easysteer_payload_schema(self):
         bundle=ROOT/BASE/'configs/mechanism_screen100_20260911'
-        plan,_=validate_bundle(bundle)
+        # Historical bundle sources are immutable snapshots; this test checks
+        # asset interchange, not whether today's source equals that old run.
+        plan=read(bundle/'plan.json')
         path=ROOT/'sources/EasySteer/vllm-steer/vllm/steer_vectors/payloads.py'
         spec=importlib.util.spec_from_file_location('cpu_payload_contract',path)
         module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
         original=bundle/'assets/original_dynamic/auto_vector.pt'
         for arm in plan['arms'].values():
-            vector=read_vector(bundle/arm['directory']/'auto_vector.pt',original)
+            source=bundle/arm['directory']/'auto_vector.pt'
+            self.assertEqual(sha(source),arm['vector_sha256'])
+            vector=read_vector(source,original)
             payload=module.DirectionVector({20:vector})
             wire=payload.to_wire()
             np.testing.assert_array_equal(payload.layers[20],vector)
             self.assertEqual(wire['kind'],'direction')
 
     def test_bundle_tampering_is_rejected(self):
-        bundle=ROOT/BASE/'configs/mechanism_screen100_20260911'
+        bundle=ROOT/BASE/'configs/latent_feedback_screen100_20260912'
         with tempfile.TemporaryDirectory() as directory:
             copy_path=Path(directory)/'bundle';shutil.copytree(bundle,copy_path)
-            validate_bundle(copy_path)
-            target=copy_path/'assets/min_displacement/auto_vector.pt'
+            vector_bundle(copy_path)
+            target=copy_path/'assets/latent_feedback_clip/readout.npy'
             raw=bytearray(target.read_bytes());raw[-20]^=1;target.write_bytes(raw)
-            with self.assertRaises(ValueError):validate_bundle(copy_path)
+            with self.assertRaisesRegex(ValueError,'readout changed'):vector_bundle(copy_path)
 
 
 if __name__=='__main__':unittest.main()

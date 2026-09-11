@@ -31,6 +31,11 @@ def validate_bundle(bundle):
         require(fit['parameters']==plan['dynamic_parameters'],'Controller differs')
         require(fit['model']==plan['model'] and fit['decoder_output_layer']==20 and fit['hidden_state_index']==21,'Fit model/layer mismatch')
         read_vector(path/'auto_vector.pt',original)
+        if arm.get('feedback_config'):
+            config=bundle/arm['feedback_config'];feedback=read(config)
+            require(sha(config)==arm['feedback_config_sha256'],'Feedback metadata changed')
+            require(sha(config.parent/feedback['readout_file'])==feedback['readout_sha256'],'Feedback readout changed')
+            require(feedback['vector_sha256']==arm['vector_sha256'] and feedback['decoder_output_layer']==20,'Feedback vector/layer differs')
     for name,digest in plan['source_sha256'].items():require(sha(ROOT/name,source=True)==digest,'Source changed: '+name)
     return plan,rows
 
@@ -41,6 +46,10 @@ def command(plan,bundle,out,name):
         '--dataset',str(bundle/plan['dataset_file']),'--limit',str(plan['count']),'--layer','20',
         '--vector',str(folder/'auto_vector.pt'),'--calibration-fit',str(folder/'fit.json'),
         '--diagnostic-group','rebalance_dynamic','--output',str(out/(name+'.json'))]
+    if plan['arms'][name].get('feedback_config'):
+        cmd.extend(['--feedback-config',str(bundle/plan['arms'][name]['feedback_config'])])
+        if plan['arms'][name].get('feedback_disabled'):
+            cmd.append('--feedback-disabled')
     for key,value in plan['runtime'].items():
         if isinstance(value,bool):
             if value:cmd.append('--'+key.replace('_','-'))
@@ -54,14 +63,16 @@ def actual_parser_check(plan,bundle,out):
     class BeforeModel(Exception): pass
     actual_vector,actual_llm,actual_argv=evaluator.VectorSpec,evaluator.LLM,sys.argv
     seen=[]
+    expected_algorithm='rebalance'
     def vector(*args,**kwargs):
-        require(kwargs['layers']==[20] and kwargs['algorithm']=='rebalance','Wrong parsed layer/algorithm')
+        require(kwargs['layers']==[20] and kwargs['algorithm']==expected_algorithm,'Wrong parsed layer/algorithm')
         for k,v in plan['dynamic_parameters'].items():require(kwargs['params'][k]==v,'Wrong parsed controller: '+k)
         seen.append(kwargs['layers']);return actual_vector(*args,**kwargs)
     def stop(**kwargs):raise BeforeModel()
     evaluator.VectorSpec=vector;evaluator.LLM=stop
     try:
         for name in plan['run_order']:
+            expected_algorithm='rebalance_feedback' if plan['arms'][name].get('feedback_config') else 'rebalance'
             sys.argv=[str(ROOT/BASE/'eval/rebalance_dynamic_eval.py')]+command(plan,bundle,out/'preflight_no_generation',name)[3:]
             old=len(seen)
             try:evaluator.main()
@@ -79,6 +90,15 @@ def validate_arm(saved,plan,rows,name):
     require(p['model']==plan['model'] and p['offset']==0 and p['limit']==len(rows)==plan['count'],'Wrong slice')
     require(p['run_order']==['rebalance_dynamic'] and p['easysteer_output_layer']==20,'Wrong parsed layer/group')
     require(not p.get('profiling_enabled') and not p.get('repeat_gate'),'Unplanned observer')
+    if arm.get('feedback_config'):
+        require(p.get('steering_algorithm')=='rebalance_feedback' and
+                p.get('feedback_enabled') is (not arm.get('feedback_disabled',False)),
+                'Feedback enable flag differs')
+        require(saved['provenance']['feedback_config_sha256']==arm['feedback_config_sha256'],'Wrong feedback config')
+        metrics=saved['rebalance_dynamic']['summary']['feedback_applications']
+        require(0<=metrics['negative_cancelled']<=metrics['coefficient_changed']<=metrics['negative_executions'],'Invalid feedback counters')
+    else:
+        require('feedback' not in saved,'Unexpected feedback')
     for k,v in plan['dynamic_parameters'].items():require(p['dynamic_params'][k]==v,'Controller differs')
     require(not p['dynamic_params'].get('inject_first_step',False),'Unplanned first-step injection')
     for k,v in [('dataset_sha256',plan['dataset_sha256']),('vector_sha256',arm['vector_sha256']),('calibration_fit_sha256',arm['fit_sha256'])]:
