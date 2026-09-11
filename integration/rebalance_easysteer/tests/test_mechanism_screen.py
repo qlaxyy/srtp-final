@@ -12,9 +12,35 @@ from mechanism_candidates import ROOT,BASE,read,read_vector
 from prepare_mechanism_screen import select,norm
 from run_mechanism_screen import command,validate_arm,validate_bundle
 from grade_mechanism_screen import compare
+from run_vector_batch import command as vector_command, validate_bundle as vector_bundle
+from grade_vector_batch import comparison as vector_comparison
 
 
 class ScreenTests(unittest.TestCase):
+    def test_new_vector_command_explicitly_uses_fitted_layer(self):
+        bundle=ROOT/BASE/'configs/confidence_only_screen100_20260912'
+        plan,_=vector_bundle(bundle)
+        for name in plan['run_order']:
+            cmd=vector_command(plan,bundle,Path('/out'),name)
+            self.assertEqual(cmd[cmd.index('--layer')+1],'20')
+            self.assertEqual(cmd[cmd.index('--limit')+1],'100')
+            self.assertNotIn('confirmation200.jsonl',' '.join(cmd))
+
+    def test_general_pair_metrics_keep_all_200_errors_and_caps(self):
+        summary=dict(generation_seconds=1,preemptions=0,dynamic_kv_replay={})
+        x=[dict(tokens=100,thinking_tokens=90,finish_reason='stop') for _ in range(200)]
+        x[0]=dict(tokens=16000,thinking_tokens=16000,finish_reason='length')
+        y=copy.deepcopy(x)
+        for r in y[1:]:r.update(tokens=50,thinking_tokens=40)
+        grades=dict(correct=199,seconds=1,records=[dict(correct=i!=0) for i in range(200)])
+        worse=copy.deepcopy(grades);worse['correct']=198;worse['records'][3]['correct']=False
+        result=vector_comparison({'original_dynamic':dict(records=x,summary=summary),'candidate':dict(records=y,summary=summary)},
+            {'original_dynamic':grades,'candidate':worse},list(range(200)))
+        self.assertEqual(result['groups']['original_dynamic']['mean_total_tokens'],179.5)
+        self.assertEqual(result['groups']['candidate']['capped'],1)
+        self.assertEqual(result['degraded_indices'],[3])
+        self.assertFalse(result['passes_fixed_gate'])
+
     def test_split_excludes_indices_and_whitespace_duplicates(self):
         train=[dict(problem='Question '+str(i)) for i in range(500)]
         train[4]['problem']='Question\n 0'

@@ -1,0 +1,28 @@
+{
+  "version": "confidence-only-v1",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "ac65988fd5f4a7a0f0ac9289c632a17b6ff46d20ce6d69e829cf976fb50f5ab6",
+  "vector_norm": 83.61913630727288,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 10366,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "Restrict both classes to nonlexical steps: positive is confidence below original q25; negative above original q75. Estimate pooled difference at original first-content layer21, normalize to original raw norm. Only class membership/vector orientation changes; same fixed dynamic parameters, layer and injection positions.",
+  "original_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+}

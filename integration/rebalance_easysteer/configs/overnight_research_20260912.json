@@ -485,6 +485,28 @@
       "status": "full_text_read",
       "sentinel": "END-OF-PAPER:f31c500d2300",
       "important_scope": "Sections 3.1-3.4 motivate boundary stability but describe first-content per-question normalized SEAL, different from SEAL v3. Section 4.4 chooses threshold on MATH-500 at shorter cap; not independent validation. Table 1 Avg Tok is word count, not model tokens. Do not transfer reported accuracy or coefficient -100 to our protocol."
+    },
+    {
+      "id": "2512.13979v2",
+      "title": "ReflCtrl: Controlling LLM Reflection Efficiently via Representation Engineering",
+      "url": "https://arxiv.org/abs/2512.13979v2",
+      "status": "full_text_read",
+      "sentinel": "END-OF-PAPER:896c674cb5e7",
+      "parsed_sha256": "5fbab9eb1d4e3ac74dba9e2c4a4036b628e2a2af7afda5207b444354696636b3",
+      "raw_sha256": "78ca4f62a11e9cb8fb5320bc696227a31b3029d92bfce1c8f489a89d54d39f6b",
+      "important_scope": "Fulltext sections3.1-3.2 use attention/MLP first-content positions; equation5 selects token after delimiter, while figure1 caption and project website say end-of-step. Source audit required. Section4.2 correctness probe is at </think>, not an online stopping rule. AppendixD keyword precision64.8%,recall59.0%; paper claims robustness but judge-vector MATH accuracy differs1.59pp. No direct transfer to our1.5B residual single-layer controller.",
+      "figure_numeric_claims": "Not used; figures not yet visually inspected."
+    },
+    {
+      "id": "2506.02536",
+      "title": "Answer Convergence as a Signal for Early Stopping in Reasoning",
+      "url": "https://arxiv.org/abs/2506.02536",
+      "status": "full_text_read",
+      "sentinel": "END-OF-PAPER:73a0a5a2b366",
+      "parsed_sha256": "2299587b118addd59d826c195ea117e07fd359a94809c643c2b23ab29c7d595b",
+      "raw_sha256": "1a44414bc464f4e1bf52dcc804e070d8fab1dd6a5d9868902a32a83c4e926520",
+      "important_scope": "Version2 2025-09-29 read fully. Section4.1 sentence-level forced answers, k10; AppendixA.5 shows severe losses for small k and logit boosting. A.2 uses only100MATH500 test questions with320train80validation; not comparable to our frozen500. Prompt asks direct boxed output. Accounting of all trial-answer work is not resolved by this paper alone; must inspect code and measure our actual costs.",
+      "figure_numeric_claims": "Not used; figures not yet visually inspected."
     }
   ],
   "separate_comparison": "SEAL and AIME/Olympiad are permitted supplements. First audit exact source/version/vector construction and existing completed slices. No existing old 8192 greedy SEAL group is directly comparable to the current 16000 sampled author-graded baseline.",
