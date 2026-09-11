@@ -10,6 +10,29 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "eval"))
 from token_metrics import length_metrics
 from decode_profiler import EngineStepProfiler, ProfileWindowComplete
+from calibration_contract import resolve_calibration_layer
+
+
+def test_calibration_placement_does_not_depend_on_a_version_name():
+    """Prevent the previously observed silent decoder18 fallback for new fits."""
+    fit = dict(version="new-experiment", model="model-a",
+               hidden_state_index=21, decoder_output_layer=20)
+    assert resolve_calibration_layer(fit, "model-a") == (20, 21)
+    assert resolve_calibration_layer(fit, "model-a", 20) == (20, 21)
+    assert resolve_calibration_layer(None, "model-a") == (18, None)
+    assert resolve_calibration_layer({}, "model-a", 20) == (20, None)
+    for changed, model, layer in [
+        (fit, "model-a", 18), (fit, "model-b", None),
+        (dict(fit, hidden_state_index=20), "model-a", None),
+        (dict(fit, hidden_state_index=None), "model-a", None),
+        (dict(fit, decoder_output_layer=True), "model-a", None),
+    ]:
+        try:
+            resolve_calibration_layer(changed, model, layer)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Inconsistent calibration must fail before loading")
 
 
 def test_capped_and_incorrect_answers_stay_in_denominator():
@@ -112,6 +135,7 @@ def test_dataset_budgets_reach_paired_evaluator():
 
 
 if __name__ == "__main__":
+    test_calibration_placement_does_not_depend_on_a_version_name()
     test_capped_and_incorrect_answers_stay_in_denominator()
     test_profiler_only_records_selected_steps_and_closes_once()
     test_dataset_budgets_reach_paired_evaluator()

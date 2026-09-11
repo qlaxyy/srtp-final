@@ -27,6 +27,7 @@ from vllm import LLM, SamplingParams
 from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
 from runtime_guards import guard_dynamic_preemption
 from decode_profiler import ProfileWindowComplete
+from calibration_contract import resolve_calibration_layer
 
 from rebalance_static_eval import (
     DEFAULT_DATASET,
@@ -55,7 +56,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default=DEFAULT_OUTPUT)
     parser.add_argument("--limit", type=int, default=20)
     parser.add_argument("--offset", type=int, default=0)
-    parser.add_argument("--layer", type=int, default=18)
+    parser.add_argument("--layer", type=int,
+                        help="Use calibration placement when available; otherwise decoder18")
     parser.add_argument("--max-tokens", type=int, default=4096)
     parser.add_argument("--max-model-len", type=int, default=8192)
     parser.add_argument("--gpu-memory-utilization", type=float, default=0.90)
@@ -176,7 +178,6 @@ def main() -> None:
     paper = None
     if args.paper_fit:
         paper = json.loads(args.paper_fit.read_text(encoding="utf-8"))
-        args.layer = paper["decoder_output_layer"]
         for key in ("q25c", "q75c", "q25v", "q75v", "initial_coef"):
             setattr(args, key, paper["parameters"][key])
     fitted = None
@@ -190,10 +191,9 @@ def main() -> None:
             if not isinstance(value, (float, int)) or not math.isfinite(value):
                 raise ValueError(f"Invalid fitted parameter: {key}")
             setattr(args, key, value)
-        if fitted.get("version") == "auto-code-v2":
-            if Path(fitted["model"]).resolve() != Path(args.model).resolve():
-                raise ValueError("Automatic calibration model mismatch")
-            args.layer = fitted["decoder_output_layer"]
+    args.layer, calibration_source_layer = resolve_calibration_layer(
+        fitted if fitted is not None else paper, args.model, args.layer
+    )
     if paper is None:
         from vllm.steer_vectors.rebalance import validate_curve_targets
         validate_curve_targets(args.q25c, args.q75c, args.low_val_1, args.curve_tau)
@@ -290,8 +290,10 @@ def main() -> None:
             "vector": str(vector_path),
             "offset": args.offset,
             "limit": args.limit,
-            "rebalance_source_layer": 19,
+            "rebalance_source_layer": calibration_source_layer,
             "easysteer_output_layer": args.layer,
+            "effective_hidden_state_index": args.layer + 1,
+            "calibration_layer_verified": calibration_source_layer is not None,
             "negative_only": args.negative_only,
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
