@@ -4,6 +4,7 @@
 """Configuration for Steer Vectors."""
 
 import hashlib
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Literal
 import torch
 from pydantic import ConfigDict, Field, model_validator
@@ -123,6 +124,18 @@ class SteerVectorConfig:
         factors.append(self.graph_mode)
         factors.append(self.graph_max_rank)
         factors.append(self.steering_config)
+        factors.append(
+            tuple(sorted(self.algorithms))
+            if isinstance(self.algorithms, list) else self.algorithms
+        )
+        factors.append(self.multi_vector)
+        # AOT model caches also contain the external decoder hooks. Their
+        # table families and code can change without changing the model class.
+        directory = Path(__file__).resolve().parents[1] / "steer_vectors"
+        for name in ("graph_kernels.py", "controllers.py", "geometry.py",
+                     "graph_support.py"):
+            content = (directory / name).read_bytes().replace(b"\r\n", b"\n")
+            factors.append(hashlib.sha256(content).hexdigest())
 
         hash_str = hashlib.md5(str(factors).encode(), usedforsecurity=False).hexdigest()
         return hash_str

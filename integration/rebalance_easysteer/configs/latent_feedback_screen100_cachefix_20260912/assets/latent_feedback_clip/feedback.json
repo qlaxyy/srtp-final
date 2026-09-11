@@ -1,0 +1,12 @@
+{
+  "readout_file": "readout.npy",
+  "readout_sha256": "4d278704b4ba314bf332b5f2609fd979c7cf266207c0a1f5931beb0dd0d53a1e",
+  "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "decoder_output_layer": 20,
+  "hidden_state_index": 21,
+  "negative_centroid_score": -91.97807261595716,
+  "formula": "c_eff=c for c>=0; otherwise max(c,-max(0,(w.h-w.mu_under)/(w.d))); FP32 readout uses the actual BF16 injected direction response.",
+  "dtype": "BF16 direction/activation/coefficient and FP32 readout/center; rounding means the linear-state bound is approximate.",
+  "source_cpu_fit_sha256": "60180a0c61d6ea6ae1513f9627c260dc30836da836f37eba9a1405c45e2c0a2f",
+  "counter_scope": "Actual coefficient changes; application executions include any KV replay. FP32 amplitude totals are diagnostic only."
+}

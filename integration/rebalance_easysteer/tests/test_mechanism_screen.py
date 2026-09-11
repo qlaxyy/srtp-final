@@ -18,7 +18,7 @@ from grade_vector_batch import comparison as vector_comparison
 
 class ScreenTests(unittest.TestCase):
     def test_new_vector_command_explicitly_uses_fitted_layer(self):
-        bundle=ROOT/BASE/'configs/latent_feedback_screen100_20260912'
+        bundle=ROOT/BASE/'configs/latent_feedback_screen100_cachefix_20260912'
         plan,_=vector_bundle(bundle)
         for name in plan['run_order']:
             cmd=vector_command(plan,bundle,Path('/out'),name)
@@ -127,7 +127,7 @@ class ScreenTests(unittest.TestCase):
             self.assertEqual(wire['kind'],'direction')
 
     def test_bundle_tampering_is_rejected(self):
-        bundle=ROOT/BASE/'configs/latent_feedback_screen100_20260912'
+        bundle=ROOT/BASE/'configs/latent_feedback_screen100_cachefix_20260912'
         with tempfile.TemporaryDirectory() as directory:
             copy_path=Path(directory)/'bundle';shutil.copytree(bundle,copy_path)
             vector_bundle(copy_path)

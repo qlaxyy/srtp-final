@@ -495,3 +495,27 @@ def test_feedback_payload_preserves_readout_precision_and_dynamic_admission():
         FeedbackDirection([1.], [-1.], 0., layer=20)
     with unittest.TestCase().assertRaises(ValueError):
         SteeringSpec(vectors=[spec, spec])
+
+
+def test_steering_cache_key_separates_compiled_families_and_hook_code():
+    """Switching a family must not load AOT bytecode for another table schema."""
+    from unittest.mock import patch
+    from pathlib import Path
+    from vllm.config import SteerVectorConfig
+    original = SteerVectorConfig(algorithms=["rebalance"])
+    feedback = SteerVectorConfig(algorithms=["rebalance_feedback"])
+    assert original.compute_hash() != feedback.compute_hash()
+    first = SteerVectorConfig(algorithms=["direct", "rebalance"])
+    second = SteerVectorConfig(algorithms=["rebalance", "direct"])
+    assert first.compute_hash() == second.compute_hash()
+    key = original.compute_hash()
+    actual_read = Path.read_bytes
+
+    def changed_kernel(path):
+        content = actual_read(path)
+        return content + b"\n# simulated kernel revision" if (
+            path.name == "graph_kernels.py"
+        ) else content
+
+    with patch.object(Path, "read_bytes", changed_kernel):
+        assert original.compute_hash() != key
