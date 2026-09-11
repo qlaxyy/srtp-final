@@ -1,0 +1,30 @@
+{
+  "version": "auto-code-v2",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "e2a16da93fde0d6fdcc29fe7ccbd8278aa67288ef15c1abce0f35f80b321e429",
+  "vector_norm": 87.04503631591797,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 48251,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "Let u be the normalized pooled mean of over/under labeled states. Remove the shared component r=d-u*(u dot d), then preserve old score displacement with d_new=r*(w dot d)/(w dot r). This isolates a rank-one background-removal hypothesis inspired by Reflection Steering, not its PCA/multilayer/projection method. Original auto-code-v2 controller parameters retained. Experimental, no generation benefit established.",
+  "variant": "orthogonal_mean",
+  "parent_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+  "cpu_plan_sha256": "4215fee950c192f2f55498750eea01318a8ac302afe5f801383649bb04563989"
+}
