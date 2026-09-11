@@ -91,6 +91,8 @@ def parse_args() -> argparse.Namespace:
                         help="Check the intervention arm before spending time on baseline")
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
+    parser.add_argument("--repeat-gate", choices=["off", "shadow", "cancel_positive"],
+                        default="off", help="Experimental CPU complete-step gate; adds device synchronization")
     args = parser.parse_args()
     if args.group_timeout_seconds < 0 or args.resume_elapsed_seconds < 0:
         parser.error("Timeout and previous elapsed seconds must be nonnegative; zero timeout disables it")
@@ -102,6 +104,12 @@ def parse_args() -> argparse.Namespace:
         parser.error("Diagnostic runs cannot reuse formal baselines")
     if args.profile_only and (not args.diagnostic_group or not args.profile_steps):
         parser.error("--profile-only requires --diagnostic-group and positive --profile-steps")
+    if args.repeat_gate != "off" and (
+        args.diagnostic_group != "rebalance_dynamic" or args.max_tokens != 16000
+        or args.calibration_fit is None or args.paper_fit is not None
+        or args.resume_result is not None or args.profile_steps
+    ):
+        parser.error("Repeat gate currently requires a new, unprofiled dynamic-only diagnostic, current calibration fit and max-tokens=16000")
     return args
 
 
@@ -371,6 +379,8 @@ def main() -> None:
         result["provenance"]["resumed_evaluation"] = receipt
 
     def run_group(prompts, sampling, boundary_set, steering, resume_path=None):
+        if repeat_adapter is not None:
+            repeat_adapter.reset_metrics()
         def timeout_handler(signum, frame):
             raise TimeoutError("Evaluation group exceeded its time budget")
         previous = signal.signal(signal.SIGALRM, timeout_handler)
@@ -422,6 +432,8 @@ def main() -> None:
                 key: value - previous_replays[key]
                 for key, value in replay_state.replay_counts.items()
             }
+            if repeat_adapter is not None:
+                summary["repeat_gate"] = repeat_adapter.export()
             if resume_path is not None:
                 summary["resumed_completed_answers"] = sum(1 for _ in resume_path.open())
                 summary["prior_interrupted_seconds"] = args.resume_elapsed_seconds
@@ -442,6 +454,7 @@ def main() -> None:
             signal.signal(signal.SIGALRM, previous)
 
     llm = None
+    repeat_adapter = None
     try:
         started = time.perf_counter()
         llm = LLM(
@@ -465,6 +478,16 @@ def main() -> None:
         core = llm.llm_engine.engine_core.engine_core
         runner = core.model_executor.driver_worker.worker.model_runner
         replay_state = runner.steer_vector_state
+        if args.repeat_gate != "off":
+            from repeat_positive_gate import install_repeat_gate
+            repeat_adapter = install_repeat_gate(
+                replay_state, model_path / "tokenizer.json", args.repeat_gate)
+            result["protocol"]["repeat_gate"] = dict(
+                mode=args.repeat_gate,
+                tokenizer_sha256=repeat_adapter.tokenizer_sha256,
+                adapter_sha256=repeat_adapter.adapter_sha256,
+                overhead="CPU sampled-token inspection synchronizes each observed batch",
+                status="experimental_not_formal_method_comparison")
         if args.profile_steps:
             from decode_profiler import mark_runtime_ranges
             mark_runtime_ranges(runner)
