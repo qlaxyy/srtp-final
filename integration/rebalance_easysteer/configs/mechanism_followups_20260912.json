@@ -1,0 +1,60 @@
+{
+  "status": "fixed_before_followup_cpu_statistics",
+  "scope": "Mainline candidates after position screen; not a promise of positive outcomes",
+  "preserve": [
+    "Original 500 answers and frozen full test outputs",
+    "All previous negative candidates and unused reserves",
+    "No screening-set parameter search"
+  ],
+  "candidates": [
+    {
+      "id": "confidence_only_direction",
+      "priority": 2,
+      "problem": "Original positive class combines lexical reflection markers with low arithmetic confidence, whereas the controller observes confidence and local variance. Lexical onset identity can dominate first-content states.",
+      "mechanism": "Restrict both classes to nonlexical steps: positive is confidence below original q25; negative above original q75. Estimate pooled difference at original first-content layer21, normalize to original raw norm. Only class membership/vector orientation changes; same fixed dynamic parameters, layer and injection positions.",
+      "evidence": [
+        "Original calibrate_auto.py prepare/fit and existing label audits confirm the mixed label definition.",
+        "ReflCtrl 2512.13979v2 section4.2 and appendixD distinguish uncertainty association, keyword onset and imperfect labels; they do not establish that our confidence-only vector improves compression."
+      ],
+      "cpu_gate": {
+        "minimum_class_questions_in_each_original_group": 25,
+        "minimum_train_validation_cosine": 0.5,
+        "minimum_relative_normed_difference_from_original": 0.05,
+        "finite_norm_match": true
+      },
+      "implementation": "CPU-only from original saved first-content states; no new replay/calibration generations; existing vector-only runtime.",
+      "cost": "Seconds locally plus one fresh 2x100 generation screen, estimated6-12GPUminutes including startup.",
+      "supports": "Stable direction and a >=5% decrease in BOTH mean thinking and total tokens, correct count >= fresh original, caps <= fresh original.",
+      "rejects": "Failure of CPU gate or generation gate stops this exact candidate; no strength/label threshold sweep.",
+      "confirmation": "Only after passing, freeze asset then fresh paired 200 separately reserved train questions; single run, no selection on confirmation."
+    },
+    {
+      "id": "latent_feedback_clip",
+      "priority": 3,
+      "problem": "Current controller sets displacement from probability summaries without checking the actual latent state being moved. An already low-positive-score state can be pushed beyond the calibrated negative centroid.",
+      "mechanism": "Fit a fixed diagonal-Fisher readout at the actual predecessor input states; retain original direction d. For original negative c, cap its magnitude at max(0,(w dot h - w dot mean_under)/(w dot d)); positive c unchanged. This bounds movement in the chosen readout only, not semantic damage. No layer/strength search.",
+      "cpu_gate": {
+        "minimum_class_questions_in_each_original_group": 25,
+        "minimum_train_validation_readout_cosine": 0.5,
+        "positive_w_dot_original_d": true,
+        "minimum_fraction_negative_events_changed": 0.1
+      },
+      "implementation": "Needs a batched GPU readout and per-state clipping that works inside the current graph and KV replay; validate disabled identity, finite precision, no sign flip and no readout overshoot before generation.",
+      "cost": "CPU fitting plus small deterministic GPU kernel/graph checks, then fresh2x100 if feasible.",
+      "supports": "Same5%token/accuracy/cap screen gate; also no costly CPU synchronization per token.",
+      "rejects": "Unstable readout, negligible interventions, runtime incompatibility, or failed generation gate.",
+      "status": "mechanism fixed; online implementation design pending"
+    },
+    {
+      "id": "causal_stop_probe",
+      "priority": 4,
+      "problem": "Long tails may continue after an answer becomes usable; saved traces do not show what the model would answer if thinking stopped at that prefix.",
+      "mechanism": "Acquire bounded prefix-only forced-answer probes from saved original calibration answers without regenerating them, then test a fixed sparse online policy only if accurate stopping decisions and real probe/replay costs justify it. Exact token prefixes and intervention history must be preserved.",
+      "evidence": [
+        "Prior When Does Learning to Stop Help fulltext and current Answer Convergence/Entropy Dynamics reading queue."
+      ],
+      "status": "No threshold or generation batch authorized by this provisional mechanism description; first complete paper/code and CPU resource design. User eight-hour research authorization still applies once concretely fixed.",
+      "rejects": "Insufficient counterfactual safety evidence, excessive probe/prefix cost, or no faithful dynamic continuation implementation."
+    }
+  ]
+}
