@@ -1,0 +1,48 @@
+{
+  "purpose": "Explain compiled additive versus disabled-feedback numerical divergence using the preserved fused steering-plus-next-RMSNorm kernel, without selecting an efficacy candidate.",
+  "hypothesis": "The feedback fused kernel reuses a BF16 activation buffer, rounds the injected activation on storage, then reloads it for the next RMSNorm numerator. The additive kernel keeps the combined residual in an FP32 temporary. Retaining an FP32 feedback activation buffer should remove or sharply reduce this discrepancy.",
+  "artifacts": {
+    "additive": {
+      "bytes": 4183693,
+      "sha256": "e368d15f749da393a624dcb288c44909dadff7ca83bff7a70eb071e815087ed5"
+    },
+    "feedback": {
+      "bytes": 10342564,
+      "sha256": "43562a30569e537352bd848e7d11e623b636b1a3d360a617c6734b476e2211aa"
+    }
+  },
+  "reviewed_kernel_source_sha256": {
+    "additive_replay_kernel.py": "7c107b3a6476d2573a8c389806dc67bf915a737fbe7b5426972d2c33f6609f81",
+    "feedback_replay_kernel.py": "acb3332578bb0016ba55cdf673b20271fead74eeeaa58fb27eb0f5ddb6483aff"
+  },
+  "seed": 20260920,
+  "rows": [
+    8,
+    128
+  ],
+  "width": 1536,
+  "masks": [
+    "zero",
+    "linear_minus1p5_to_0p1"
+  ],
+  "arms": [
+    "original_additive_kernel",
+    "disabled_feedback_original_bf16_buffer",
+    "disabled_feedback_counterfactual_fp32_buffer"
+  ],
+  "launch": {
+    "XBLOCK": 1,
+    "R0_BLOCK": 2048,
+    "num_warps": 4
+  },
+  "metrics": [
+    "bitwise_equal_elements",
+    "max_absolute_error",
+    "rms_error",
+    "residual_output_identity",
+    "zero_mask_identity"
+  ],
+  "evidence_rule": "Support this local kernel mechanism if both nonzero-mask shapes differ with BF16 feedback storage and FP32 feedback storage restores exact normalized outputs or reduces RMS discrepancy by at least 99 percent. Otherwise record an incomplete explanation. Never call this a whole-model identity proof.",
+  "scope": "Synthetic tensors only, real original direction/readout assets, no model weights or answers; expected under 2 minutes, hard timeout 300 seconds. No cache deletion, production configuration change or repeated 100-question generation.",
+  "limitations": "Fixed launch geometry is shared across arms but may differ from the original autotuned launch. This tests generated kernel arithmetic, not the exact full-model execution. FP32 storage is a diagnostic counterfactual, not an approved runtime change."
+}
