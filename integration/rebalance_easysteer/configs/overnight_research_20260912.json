@@ -1,5 +1,5 @@
 {
-  "status": "active_local_preparation",
+  "status": "control_point_replay_ready",
   "start_utc": "2026-09-11T17:15:11Z",
   "minimum_finish_utc": "2026-09-12T01:15:11Z",
   "minimum_hours_requested": 8,
@@ -17,7 +17,13 @@
     "free_disk_bytes": 16958914560,
     "dependencies_reinstalled": false
   },
-  "prior_candidates_not_to_repeat": ["repeat_cancel_positive", "question_balanced", "min_displacement", "orthogonal_mean", "paper_reconstruction_v1"],
+  "prior_candidates_not_to_repeat": [
+    "repeat_cancel_positive",
+    "question_balanced",
+    "min_displacement",
+    "orthogonal_mean",
+    "paper_reconstruction_v1"
+  ],
   "first_investigation": {
     "id": "calibration_control_point_alignment",
     "status": "plan_fixed_before_new_statistics_or_hidden_replay",
@@ -50,13 +56,330 @@
       "The first-content hidden state may include token identity signals rather than a pre-generation behavioral commitment.",
       "A preceding delimiter representation may carry a less separable behavior signal; matching positions may worsen generation.",
       "Differences in calibration sample support alone may explain apparent benefit; matched-first controls this."
-    ]
+    ],
+    "cpu_result": {
+      "status": "cpu_position_audit_completed",
+      "count": 500,
+      "steps": 84008,
+      "first_content_positions": 84008,
+      "same_token_as_injected_predecessor": 0,
+      "valid_generated_predecessors": 83508,
+      "excluded_prompt_predecessors": 500,
+      "class_counts": {
+        "over": 48251,
+        "under": 11309,
+        "matched_over": 47975,
+        "matched_under": 11309
+      },
+      "class_questions": {
+        "over": 500,
+        "under": 283,
+        "matched_over": 500,
+        "matched_under": 283
+      },
+      "original_vector_bitwise_reconstructed": true,
+      "matched_first_vs_original_cosine": 0.9999404947659096,
+      "original_norm": 83.61913616775803,
+      "matched_first_norm": 83.54723727876816,
+      "first_token_class_frequencies": {
+        "over": [
+          {
+            "token_id": 14190,
+            "token": "Wait",
+            "count": 21314
+          },
+          {
+            "token_id": 3983,
+            "token": "But",
+            "count": 7951
+          },
+          {
+            "token_id": 4416,
+            "token": "So",
+            "count": 4759
+          },
+          {
+            "token_id": 92014,
+            "token": "Alternatively",
+            "count": 4253
+          },
+          {
+            "token_id": 10061,
+            "token": "Let",
+            "count": 1117
+          },
+          {
+            "token_id": 54815,
+            "token": "Therefore",
+            "count": 835
+          },
+          {
+            "token_id": 7039,
+            "token": "Now",
+            "count": 705
+          },
+          {
+            "token_id": 5338,
+            "token": "First",
+            "count": 639
+          },
+          {
+            "token_id": 80022,
+            "token": "Hmm",
+            "count": 503
+          },
+          {
+            "token_id": 40,
+            "token": "I",
+            "count": 422
+          },
+          {
+            "token_id": 32313,
+            "token": "Okay",
+            "count": 339
+          },
+          {
+            "token_id": 23085,
+            "token": "Which",
+            "count": 266
+          }
+        ],
+        "under": [
+          {
+            "token_id": 4416,
+            "token": "So",
+            "count": 2661
+          },
+          {
+            "token_id": 44292,
+            "token": "\\(",
+            "count": 685
+          },
+          {
+            "token_id": 12,
+            "token": "-",
+            "count": 680
+          },
+          {
+            "token_id": 54815,
+            "token": "Therefore",
+            "count": 608
+          },
+          {
+            "token_id": 16,
+            "token": "1",
+            "count": 484
+          },
+          {
+            "token_id": 17,
+            "token": "2",
+            "count": 385
+          },
+          {
+            "token_id": 785,
+            "token": "The",
+            "count": 376
+          },
+          {
+            "token_id": 18,
+            "token": "3",
+            "count": 329
+          },
+          {
+            "token_id": 12209,
+            "token": "Then",
+            "count": 316
+          },
+          {
+            "token_id": 28,
+            "token": "=",
+            "count": 242
+          },
+          {
+            "token_id": 67691,
+            "token": "Similarly",
+            "count": 221
+          },
+          {
+            "token_id": 1445,
+            "token": "(n",
+            "count": 194
+          }
+        ],
+        "matched_over": [
+          {
+            "token_id": 14190,
+            "token": "Wait",
+            "count": 21314
+          },
+          {
+            "token_id": 3983,
+            "token": "But",
+            "count": 7951
+          },
+          {
+            "token_id": 4416,
+            "token": "So",
+            "count": 4759
+          },
+          {
+            "token_id": 92014,
+            "token": "Alternatively",
+            "count": 4253
+          },
+          {
+            "token_id": 10061,
+            "token": "Let",
+            "count": 1117
+          },
+          {
+            "token_id": 54815,
+            "token": "Therefore",
+            "count": 835
+          },
+          {
+            "token_id": 7039,
+            "token": "Now",
+            "count": 705
+          },
+          {
+            "token_id": 5338,
+            "token": "First",
+            "count": 638
+          },
+          {
+            "token_id": 80022,
+            "token": "Hmm",
+            "count": 503
+          },
+          {
+            "token_id": 40,
+            "token": "I",
+            "count": 422
+          },
+          {
+            "token_id": 23085,
+            "token": "Which",
+            "count": 266
+          },
+          {
+            "token_id": 50,
+            "token": "S",
+            "count": 234
+          }
+        ],
+        "matched_under": [
+          {
+            "token_id": 4416,
+            "token": "So",
+            "count": 2661
+          },
+          {
+            "token_id": 44292,
+            "token": "\\(",
+            "count": 685
+          },
+          {
+            "token_id": 12,
+            "token": "-",
+            "count": 680
+          },
+          {
+            "token_id": 54815,
+            "token": "Therefore",
+            "count": 608
+          },
+          {
+            "token_id": 16,
+            "token": "1",
+            "count": 484
+          },
+          {
+            "token_id": 17,
+            "token": "2",
+            "count": 385
+          },
+          {
+            "token_id": 785,
+            "token": "The",
+            "count": 376
+          },
+          {
+            "token_id": 18,
+            "token": "3",
+            "count": 329
+          },
+          {
+            "token_id": 12209,
+            "token": "Then",
+            "count": 316
+          },
+          {
+            "token_id": 28,
+            "token": "=",
+            "count": 242
+          },
+          {
+            "token_id": 67691,
+            "token": "Similarly",
+            "count": 221
+          },
+          {
+            "token_id": 1445,
+            "token": "(n",
+            "count": 194
+          }
+        ]
+      },
+      "seconds": 5.697497900022427,
+      "new_generations": 0,
+      "model_forwards": 0,
+      "limitation": "Position mismatch is confirmed; no causal generation benefit established. Labels contain future step information only offline. Prompt predecessors are excluded from matched fitting.",
+      "source_sha256": {
+        "integration\\rebalance_easysteer\\scripts\\audit_control_points.py": "8bfe359ea8713b01272cf039293dbea0e2820972819e972939ca217671656e78"
+      },
+      "inputs_sha256": {
+        "steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+        "positions.json": "ba719ac3efcc85d912f447f9b9ed783e57c179066df1b70f1c00b380d6367589",
+        "protocol.json": "1dbc037dd4347637eab3650399f9e99316a7e02956167c1204e25004d6bd0da5",
+        "layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+        "fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+      }
+    },
+    "prepared_archive": {
+      "sha256": "9e3e2b4a196b74433dab9a2ab4d632f23981bcc4d4aad695d3e889967baf7100",
+      "bytes": 455358,
+      "path": ".codex_work/overnight_research_20260912/control_point_prepared.tar.gz"
+    },
+    "replay_plan_sha256": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
+    "cpu_checks": "9 tests passed, including new stale-position and generated-predecessor tests; replay preflight passed without model imports"
   },
   "literature_queue": [
-    {"id": "2504.07986v3", "title": "SEAL: Steerable Reasoning Calibration of Large Language Models for Free", "url": "https://arxiv.org/abs/2504.07986v3", "status": "full_text_read", "sentinel": "END-OF-PAPER:7e0a8318aba7", "important_scope": "Section 4.1: 1000 train samples, pooled execution minus pooled union of reflection and transition; section 4.2: delimiter intervention alpha=1. Appendix E sampling differs from current task. EasySteer three-vector example is a distinct approximation."},
-    {"id": "2604.02113v1", "title": "Reliable Control-Point Selection for Steering Reasoning in Large Language Models", "url": "https://arxiv.org/abs/2604.02113v1", "status": "full_text_read", "sentinel": "END-OF-PAPER:f31c500d2300", "important_scope": "Sections 3.1-3.4 motivate boundary stability but describe first-content per-question normalized SEAL, different from SEAL v3. Section 4.4 chooses threshold on MATH-500 at shorter cap; not independent validation. Table 1 Avg Tok is word count, not model tokens. Do not transfer reported accuracy or coefficient -100 to our protocol."}
+    {
+      "id": "2504.07986v3",
+      "title": "SEAL: Steerable Reasoning Calibration of Large Language Models for Free",
+      "url": "https://arxiv.org/abs/2504.07986v3",
+      "status": "full_text_read",
+      "sentinel": "END-OF-PAPER:7e0a8318aba7",
+      "important_scope": "Section 4.1: 1000 train samples, pooled execution minus pooled union of reflection and transition; section 4.2: delimiter intervention alpha=1. Appendix E sampling differs from current task. EasySteer three-vector example is a distinct approximation."
+    },
+    {
+      "id": "2604.02113v1",
+      "title": "Reliable Control-Point Selection for Steering Reasoning in Large Language Models",
+      "url": "https://arxiv.org/abs/2604.02113v1",
+      "status": "full_text_read",
+      "sentinel": "END-OF-PAPER:f31c500d2300",
+      "important_scope": "Sections 3.1-3.4 motivate boundary stability but describe first-content per-question normalized SEAL, different from SEAL v3. Section 4.4 chooses threshold on MATH-500 at shorter cap; not independent validation. Table 1 Avg Tok is word count, not model tokens. Do not transfer reported accuracy or coefficient -100 to our protocol."
+    }
   ],
   "separate_comparison": "SEAL and AIME/Olympiad are permitted supplements. First audit exact source/version/vector construction and existing completed slices. No existing old 8192 greedy SEAL group is directly comparable to the current 16000 sampled author-graded baseline.",
   "results": [],
-  "next_actions": ["CPU position audit", "Prepare and check bounded selected-layer replay", "Fix new screening and reserve data exclusions", "Fit matched position assets and run the prespecified screen if CPU gate passes", "Continue principled mainline research and bounded comparison work until the requested minimum duration"]
+  "next_actions": [
+    "CPU position audit",
+    "Prepare and check bounded selected-layer replay",
+    "Fix new screening and reserve data exclusions",
+    "Fit matched position assets and run the prespecified screen if CPU gate passes",
+    "Continue principled mainline research and bounded comparison work until the requested minimum duration"
+  ]
 }

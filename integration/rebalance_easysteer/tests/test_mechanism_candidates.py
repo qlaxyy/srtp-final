@@ -11,9 +11,26 @@ import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from mechanism_candidates import directions, moments, bfloat16, zero_loss_upper, checkpoint_cost, read_vector,sha
 from audit_mechanism_candidates import proxy_diagnostic
+from audit_control_points import map_positions
 
 
 class MechanismTests(unittest.TestCase):
+    def test_control_points_exclude_prompt_and_follow_adjacent_delimiters(self):
+        row=dict(prompt_token_ids=[99,98],token_ids=[1,2,9,9,3,4,9])
+        steps=[dict(start=0,stop=2),dict(start=4,stop=6)]
+        saved=dict(question=0,positions=[2,6],think_stop=7)
+        mapped=map_positions(row,steps,saved,{9})
+        self.assertEqual(mapped['predecessor'],[1,5])
+        self.assertEqual(mapped['generated_predecessor'],[False,True])
+
+    def test_control_points_reject_stale_offsets_and_nondelimiter_predecessor(self):
+        row=dict(prompt_token_ids=[99],token_ids=[1,2,3,9])
+        saved=dict(question=0,positions=[2],think_stop=4)
+        with self.assertRaisesRegex(ValueError,'not a delimiter'):
+            map_positions(row,[dict(start=1,stop=3)],saved,{9})
+        with self.assertRaisesRegex(ValueError,'positions differ'):
+            map_positions(row,[dict(start=0,stop=3)],saved,{9})
+
     def test_minimum_displacement_constraint_and_optimality(self):
         a=dict(count=7,mean=np.array([3.,1.,20.]),variance=np.array([2.,8.,1.]))
         b=dict(count=4,mean=np.array([1.,0.,20.]),variance=np.array([3.,1.,2.]))

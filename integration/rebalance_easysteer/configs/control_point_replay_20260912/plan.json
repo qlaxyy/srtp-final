@@ -1,0 +1,40 @@
+{
+  "status": "prepared_replay_saved_answers_only",
+  "questions": 500,
+  "steps": 84008,
+  "width": 1536,
+  "decoder_output_layer": 20,
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_files_sha256": {
+    "config.json": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+    "generation_config.json": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+    "model.safetensors": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+    "tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "tokenizer_config.json": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+  },
+  "generations": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/generations.jsonl",
+  "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "original": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908",
+  "original_files_sha256": {
+    "steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "positions.json": "ba719ac3efcc85d912f447f9b9ed783e57c179066df1b70f1c00b380d6367589",
+    "protocol.json": "1dbc037dd4347637eab3650399f9e99316a7e02956167c1204e25004d6bd0da5",
+    "layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+    "fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+  },
+  "mapping_sha256": "da49c41fc140b36780ef5e3f0879879887eafecb03e1ea6b44960a576a1b9501",
+  "matched_mask_sha256": "6bc309e65ea6104f26f929a196c64e4a3b415ea950a8897def3fcf06e9051e48",
+  "cpu_summary_sha256": "692890c04fe7d2143e732c1452b10524ff2cd2434df2cfa1eab812d045e1e50d",
+  "source_plan_sha256": "52a6ab35b48dde953200babcecb60e1c9348fbf5df537b6db08c095935257cfd",
+  "method": "Causal teacher-forced decoder replay of saved tokens; predecessor input states at original fixed layer. No model.generate or new answers.",
+  "capture": [
+    "predecessor states for all complete steps, with generated-only mask",
+    "mean prompt states at the same layer for possible later nuisance analysis"
+  ],
+  "original_feature_check": "Compare all first-content states in the same forward pass; report exact elements, relative RMSE and cosine. Stop if per-question relative RMSE exceeds 0.02; this tolerates BF16/runtime numerical differences without claiming bitwise equivalence.",
+  "timeout_seconds": 900,
+  "expected_new_bytes": 524217152,
+  "output": "/root/autodl-tmp/results/easysteer/control_point_replay_20260912",
+  "no_generation_benefit_claim": true
+}
