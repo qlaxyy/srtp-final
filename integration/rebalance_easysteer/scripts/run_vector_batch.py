@@ -14,8 +14,14 @@ def validate_bundle(bundle):
     plan=read(bundle/'plan.json');n=plan['count']
     require(plan['status']=='prepared_not_run' and n in (100,200),'Unplanned size or status')
     require(plan['decoder_output_layer']==20 and plan['runtime']['max_tokens']==16000,'Wrong layer or cap')
-    require(plan['run_order'][0]=='original_dynamic' and len(plan['run_order'])==2,'Only fixed paired vector batches')
-    require(set(plan['run_order'])==set(plan['arms']) and plan['new_answers_planned']==2*n,'Wrong scope')
+    arms=3 if plan.get('graph_control_comparison') else 2
+    require(plan['run_order'][0]=='original_dynamic' and len(plan['run_order'])==arms,'Only fixed paired or explicit graph-control batches')
+    require(set(plan['run_order'])==set(plan['arms']) and plan['new_answers_planned']==arms*n,'Wrong scope')
+    if arms==3:
+        require(plan['run_order']==['original_dynamic','feedback_disabled','latent_feedback_clip'],'Unexpected graph-control design')
+        off,on=plan['arms']['feedback_disabled'],plan['arms']['latent_feedback_clip']
+        require(off.get('feedback_disabled') is True and not on.get('feedback_disabled'),'Missing matched off control')
+        require({k:v for k,v in off.items() if k!='feedback_disabled'}==on,'Off/on assets differ')
     dataset=bundle/plan['dataset_file']
     require(sha(dataset)==plan['dataset_sha256'],'Dataset changed')
     rows=[json.loads(line) for line in dataset.read_text(encoding='utf-8').splitlines()]
@@ -128,6 +134,9 @@ def main():
     require(sys.platform=='linux' and not out.exists(),'Fresh Linux server output required')
     require(not subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip(),'Dirty source')
     require(not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip(),'Another GPU process')
+    if plan.get('graph_control_comparison'):
+        receipt=read(Path(plan['engineering_completed_receipt']))
+        require(receipt['status']=='engineering_passed_no_efficacy_claim' and receipt['plan_sha256']==sha(bundle/'plan.json'),'New controlled engineering check incomplete')
     out.mkdir(parents=True)
     env=dict(os.environ,PYTHONNOUSERSITE='1',VLLM_ENABLE_V1_MULTIPROCESSING='0')
     env['PATH']=str(Path(PYTHON).parent)+os.pathsep+env['PATH']

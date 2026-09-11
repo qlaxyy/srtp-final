@@ -13,19 +13,30 @@ from prepare_mechanism_screen import select,norm
 from run_mechanism_screen import command,validate_arm,validate_bundle
 from grade_mechanism_screen import compare
 from run_vector_batch import command as vector_command, validate_bundle as vector_bundle
-from grade_vector_batch import comparison as vector_comparison
+from grade_vector_batch import comparison as vector_comparison,controlled_comparison
 
 
 class ScreenTests(unittest.TestCase):
     def test_new_vector_command_explicitly_uses_fitted_layer(self):
-        bundle=ROOT/BASE/'configs/latent_feedback_screen100_cachefix_20260912'
+        bundle=ROOT/BASE/'configs/feedback_controlled_screen100_20260912'
         plan,_=vector_bundle(bundle)
         for name in plan['run_order']:
             cmd=vector_command(plan,bundle,Path('/out'),name)
             self.assertEqual(cmd[cmd.index('--layer')+1],'20')
             self.assertEqual(cmd[cmd.index('--limit')+1],'100')
             self.assertNotIn('confirmation200.jsonl',' '.join(cmd))
-            self.assertEqual('--feedback-config' in cmd,name=='latent_feedback_clip')
+            self.assertEqual('--feedback-config' in cmd,name!='original_dynamic')
+            self.assertEqual('--feedback-disabled' in cmd,name=='feedback_disabled')
+
+    def test_graph_control_blocks_apparent_gain_against_only_old_graph(self):
+        summary=dict(generation_seconds=1,preemptions=0,dynamic_kv_replay={})
+        groups={name:dict(summary=summary,records=[dict(tokens=n,thinking_tokens=n-10,finish_reason='stop') for _ in range(100)])
+            for name,n in [('original_dynamic',100),('feedback_disabled',70),('latent_feedback_clip',80)]}
+        grades={name:dict(correct=100,seconds=1,records=[dict(correct=True) for _ in range(100)]) for name in groups}
+        result=controlled_comparison(groups,grades,list(range(100)))
+        self.assertTrue(result['comparisons']['original_dynamic']['passes_fixed_gate'])
+        self.assertFalse(result['comparisons']['feedback_disabled']['passes_fixed_gate'])
+        self.assertFalse(result['passes_fixed_gate'])
 
     def test_general_pair_metrics_keep_all_200_errors_and_caps(self):
         summary=dict(generation_seconds=1,preemptions=0,dynamic_kv_replay={})
@@ -127,7 +138,7 @@ class ScreenTests(unittest.TestCase):
             self.assertEqual(wire['kind'],'direction')
 
     def test_bundle_tampering_is_rejected(self):
-        bundle=ROOT/BASE/'configs/latent_feedback_screen100_cachefix_20260912'
+        bundle=ROOT/BASE/'configs/feedback_controlled_screen100_20260912'
         with tempfile.TemporaryDirectory() as directory:
             copy_path=Path(directory)/'bundle';shutil.copytree(bundle,copy_path)
             vector_bundle(copy_path)

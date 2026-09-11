@@ -38,6 +38,14 @@ def comparison(groups,grades,indices):
         per_question=per,passes_fixed_gate=passed)
 
 
+def controlled_comparison(groups,grades,indices):
+    candidate='latent_feedback_clip'
+    comparisons={name:comparison({n:groups[n] for n in [name,candidate]},
+        {n:grades[n] for n in [name,candidate]},indices)
+        for name in ['original_dynamic','feedback_disabled']}
+    return dict(comparisons=comparisons,passes_fixed_gate=all(v['passes_fixed_gate'] for v in comparisons.values()))
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bundle',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
@@ -72,11 +80,16 @@ def main():
         require(grade['status']=='completed' and grade['input_sha256']==digests[name],'Grade mismatch')
         require(grade['dataset_sha256']==plan['dataset_sha256'] and grade['grader_sources']==grader_sha,'Grader/data changed')
         require([r['train_index'] for r in grade['records']]==plan['train_indices'],'Score pairing changed')
-    result=comparison(groups,grades,plan['train_indices'])
+    if plan.get('graph_control_comparison'):
+        result=controlled_comparison(groups,grades,plan['train_indices'])
+        comparisons=result['comparisons']
+    else:
+        result=comparison(groups,grades,plan['train_indices'])
     save(out/'analysis.json',dict(status='completed',scope=plan['scope'],stage=plan['stage'],comparison=result,
-        candidate=plan['run_order'][1],eligible_for_confirmation=plan['stage']=='screen' and result['passes_fixed_gate'],
+        candidate=plan['run_order'][-1],eligible_for_confirmation=plan['stage']=='screen' and result['passes_fixed_gate'],
         new_generations_in_analysis=0,source_sha256={n:sha(out/n) for n in [*(x+'.json' for x in raw),*(x+'.author.json' for x in raw),'run_ledger.json']}))
-    print(json.dumps({k:v for k,v in result.items() if k!='per_question'}))
+    compact=result if not plan.get('graph_control_comparison') else {name:{k:v for k,v in item.items() if k!='per_question'} for name,item in comparisons.items()}
+    print(json.dumps({k:v for k,v in compact.items() if k!='per_question'}))
 
 
 if __name__=='__main__':main()
