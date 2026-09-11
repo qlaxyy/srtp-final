@@ -181,3 +181,37 @@ python integration/rebalance_easysteer/scripts/run_repeat_validation.py --bundle
 - 同一入口`grade --prepared <输入目录> --output <已完成运行目录>`：使用现有ReBalance Python 3.10环境进行作者判分，不调用模型，拒绝覆盖已有摘要。前缀加新增token一起判分／统计，16000是二者合计上限。
 
 接续专用参数为`prefix_mean`、`prefix_variance`、`prefix_apply`，经API与请求结构传入状态管理；不是重新设置首步常数。历史前缀不注入，仅将最后一个已完成边界纳入选择器；两组恢复相同的前一步均值／已计算系数，B只把这一个位置的实际掩码设0。之后沿用原动态更新，KV抢占时恢复历史掩码及状态。实际掩码按BF16精确核对，与控制器保存的float32系数分开记录。缺省不传这些参数时，原prompt起点行为保持不变。
+
+## 本轮向量筛选准备（2026-09-12）
+
+**本轮GPU未获授权，服务器仍按关闭处理。** 当前研究依据与完整边界见00，已结束实验的旧授权不适用于本批。实验代码与3套小型向量资产在`codex/mechanism-candidates-20260911`，准备提交`167de04`；main只保留交接和[CPU／准备结果](../../integration/rebalance_easysteer/configs/mechanism_research_20260911.json)。不得在main运行实验代码，也不要重复CPU拟合／抽题。
+
+本地已完成：8文件哈希、旧向量逐位复现、两候选数值检查、短步骤机制对照、14项测试、100题筛选及200题留出排除、39个运行源文件绑定，以及Git提交内的资产字节核对。张量用已验证原文件的单FP32存储格式生成；没有在本地安装torch，真实`torch.load(weights_only=True)`和EasySteer载入验证属于开机后的**CPU短预检**，在加载模型前执行。向量的`fit.json`兼容格式仍为`auto-code-v2`，`variant`、`method`和父fit哈希明确区分候选，所有原控制参数保持一致。
+
+实验checkout中的默认只读入口，不连接服务器或生成答案：
+
+```text
+python integration/rebalance_easysteer/scripts/run_mechanism_screen.py --bundle integration/rebalance_easysteer/configs/mechanism_screen100_20260911 --output .codex_work/mechanism_candidates_20260911/not_executed
+```
+
+**只有用户确认本批300份答案且明确告知已开GPU后**，才使用其最新SSH信息。先检查其他任务和Git状态；服务器只更新对应实验分支，复用两个既有环境，不能覆盖脏工作区、重装环境或改冻结标签。以下命令在服务器项目根目录执行：
+
+```bash
+/root/autodl-tmp/venvs/easysteer-vllm026/bin/python integration/rebalance_easysteer/scripts/run_mechanism_screen.py \
+  --bundle integration/rebalance_easysteer/configs/mechanism_screen100_20260911 \
+  --output /root/autodl-tmp/results/easysteer/mechanism_screen100_20260911 --execute
+```
+
+包装器先拒绝已有GPU计算进程，核对环境实际导入路径、模型5文件哈希、实际分词长度、三个张量及39个源文件，再按原动态／最小位移／去共同均值顺序执行3个独立进程。只采用先前验证过的异步调度选项，没有安装重复检测器。每组max-new-tokens=16000；组截止600秒、批次墙钟截止1800秒。只终止本包装器创建的进程组，不终止其他任务；错误或未完成保留原文件／partial及日志，禁止自动重跑。范围不含200题留出、7B或任何完整测试集。
+
+生成输出为三份`<arm>.json`、对应日志和逐题partial，以及`runtime_check.log`、`run_ledger.json`。生成子进程全部退出后，包装器标记`generation_completed_grading_pending`并提示GPU工作结束，不等待本地报告整理。作者判分使用既有ReBalance环境，仅处理保存文本，每组只判一次；代码不加载模型：
+
+```bash
+/root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/scripts/grade_mechanism_screen.py \
+  --bundle integration/rebalance_easysteer/configs/mechanism_screen100_20260911 \
+  --output /root/autodl-tmp/results/easysteer/mechanism_screen100_20260911
+```
+
+作者判分保存每组`<arm>.author.json`、判分partial和`analysis.json`；对照明确叫`original_dynamic`，不是无干预。报告两候选的全部逐题差异、正确率、思考／总token、触顶及纯生成时间，错误和触顶不剔除。若仅分析已判分文件，使用同脚本`--analyze-only`，不重新判分；已存在`analysis.json`则直接阅读。异常时保留完整组和partial，只在查明缺项后准备恢复方案，不把部分结果写成完成。
+
+快速CPU判分完成后取回运行目录、核对哈希，立即告知可以关闭实例；耗时较长的离线排查或报告一律移回本地。目前没有任何生成结果，不应填入预测的准确率或节省token。
