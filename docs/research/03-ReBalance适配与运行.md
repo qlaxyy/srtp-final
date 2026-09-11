@@ -21,6 +21,7 @@
 | `scripts/audit_answer_evidence.py` | 本地CPU答案证据索引、查看与审读校验；不调用模型，不自动分三类，不改向量 |
 | `scripts/audit_control_alignment.py` | 把已有30题证据与原函数在前后边界的系数对齐；CPU投影，不是实际干预效果测试 |
 | `scripts/replay_cycle_monitor.py` | CPU逐token回放原500题、记录精确相邻段落块重复；只报警，不截断、不选择答案、不调用模型 |
+| `scripts/replay_atom_cycles.py` | CPU检查段落内相邻片段重复，投影原边界的正向注入机会；只记录证据，不实际干预 |
 
 `run_rebalance_static_vllm.sh`、`run_rebalance_dynamic_vllm.sh`、`run_own_calibration.sh`、`run_paper_baseline.sh`保留历史路径，不能替代当前自动校准基线入口。没有默认先跑20题的要求。
 
@@ -120,6 +121,18 @@ python integration/rebalance_easysteer/scripts/replay_cycle_monitor.py --output 
 默认方案为`configs/cycle_monitor_plan_20260911.json`，运行前已固定并提交。输出目录存在即拒绝覆盖；先落盘方案，再核对输入哈希，逐token记录已闭合段落的重复报警。`summary.json`含500题记录、停止状态交叉统计、首报位置和固定抽查索引；`details.json`另存全文、全部段落和重复块。已完成目录是`.codex_work/cycle_monitor500_20260911/`，其中`review/`保留本次审读窗口及哈希，Git结果摘要记录全部500题位置和18份审读证据。
 
 生成token位置按从1数的数量记录，跨度为从0数的半开区间；审读段号从1数，校准索引／训练索引从0数。这种字节流段落划分用于取证，不替换原校准步骤对齐。它会漏掉未闭合段落内的循环，正常结束也可能报警；报警后剩余token不是实际节省量，停止状态不是思考类别金标准。当前工具没有GPU、自动结束、注入强度或阈值搜索入口。
+
+## 本地CPU段内重复与注入机会工具
+
+500题回放已完成，直接查看[结果摘要](../../integration/rebalance_easysteer/configs/cycle_atoms500_20260911.json)，不必重跑。使用Python 3.11以上与NumPy，本地现有运行时已具备；不需要torch、GPU或服务器。确需核对后续工具改动时，指定**新目录**：
+
+```text
+python integration/rebalance_easysteer/scripts/replay_atom_cycles.py --output <新目录>
+```
+
+方案为`configs/cycle_atoms_plan_20260911.json`，运行前提交为`892f9dc`。输入复用原归档、tokenizer、1.5B参数／冻结源码及已完成的段落回放结果；旧段落规则不重新运行。输出目录存在即拒绝覆盖。完成目录`.codex_work/cycle_atoms500_20260911/`内`summary.json`保存500题统计，`details.json`保存全文、重复记录和正向机会，`review/`保存有范围说明的审读窗口；Git摘要另含审读结论及原始文件哈希。
+
+匹配保留完整单词、数字与符号，仅忽略空白，未闭合元素不在结束时强行补齐。它可以匹配正常公式内部的短重复，因此不是语义思考状态分类器。系数投影沿用原算术置信度／两步方差，仅在原边界且片段仍重复时统计正系数；`1e-6`是近零数值报告容差，不是循环阈值。机会数来自无干预轨迹，尚未实际施加`min(原系数, 0)`，也没有新建注入位置、测量在线开销或证明压缩收益。
 
 ## 单边界配对续写（实验已完成）
 
