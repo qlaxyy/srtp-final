@@ -137,6 +137,20 @@ python integration/rebalance_easysteer/scripts/replay_atom_cycles.py --output <�
 
 匹配保留完整单词、数字与符号，仅忽略空白，未闭合元素不在结束时强行补齐。它可以匹配正常公式内部的短重复，因此不是语义思考状态分类器。系数投影沿用原算术置信度／两步方差，仅在原边界且片段仍重复时统计正系数；`1e-6`是近零数值报告容差，不是循环阈值。机会数来自无干预轨迹，尚未实际施加`min(原系数, 0)`，也没有新建注入位置、测量在线开销或证明压缩收益。
 
+## 完整步骤正向开关（实验分支，尚未GPU验收）
+
+实现位于`codex/repeat-positive-gate-20260911`／`8df7c2a`，main仅保存[CPU检查结果](../../integration/rebalance_easysteer/configs/repeat_gate500_20260911.json)。本地checkout是`.codex_work/repeat_gate_worktree/`。代码入口为该分支的`eval/repeat_positive_gate.py`，由`eval/rebalance_dynamic_eval.py`显式安装；没有修改EasySteer源码、冻结向量或动态函数。
+
+默认`--repeat-gate off`完全不安装桥接；`shadow`只检测并记录原施加强度，`cancel_positive`在完整相邻步骤块重复时裁剪当次实际施加强度为不大于0，保留原控制器状态。两种启用模式都增加CPU读取采样token的同步开销，不能把9.49秒离线回放当作在线开销。当前仅允许`--diagnostic-group rebalance_dynamic`、已有`--calibration-fit`、`--max-tokens 16000`的新工程单组运行，拒绝混入论文重建版、断点续跑或性能剖析；这不是已经完成的100题配对入口，也没有启动GPU。现有工程入口仍为同步调度，后续性能方案需另行明确。
+
+CPU回放已经完成，不必重跑。确需核对新实现时，在**该分支checkout**中运行：
+
+```text
+python integration/rebalance_easysteer/scripts/replay_repeat_gate.py --assets <保存原归档与历史结果的主仓库目录> --output <新目录>
+```
+
+使用现有Python与NumPy即可，无需服务器或torch。`--assets`可以指向主checkout以复用其`.codex_work`原归档；输出必须新建。完成目录`.codex_work/repeat_gate500_20260911/`中保存方案、500题摘要、全部边界／步骤、10个审读窗口及范围说明。线上桥接要求单进程V2 runner与施加强度历史，KV抢占同时保留检测器的未完成片段、完整步骤和观察token数；CUDA及真实抢占行为尚未验收。输出摘要另记tokenizer／桥接源码哈希、原／实际强度、改变位置和复制批次数。
+
 ## 单边界配对续写（实验已完成）
 
 20题／40份完整结果见00与[结果摘要](../../integration/rebalance_easysteer/configs/boundary_ablation20_20260910.json)，无需重跑。代码只在`codex/boundary-ablation-20260910`，当前main保留计划和结果；进入实验代码前检查Git状态和目标提交。正式生成提交`921793f`，判分兼容修正提交`14fe410`。
