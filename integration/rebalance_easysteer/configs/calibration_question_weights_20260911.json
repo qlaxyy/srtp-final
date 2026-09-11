@@ -445,5 +445,10 @@
     "test_outcomes_used_for_calibration": false,
     "frozen_results_changed": false,
     "method_effectiveness_established": false
+  },
+  "subsequent_follow_up": {
+    "record": "question_balanced_validation100_20260911.json",
+    "status": "completed_no_compression_benefit",
+    "note": "The audit above remains its historical CPU-only snapshot. User subsequently reopened SSH20403 and authorized CPU then GPU; selected 1.5B features were recovered and backed up locally."
   }
 }

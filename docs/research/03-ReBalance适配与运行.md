@@ -162,6 +162,16 @@ python integration/rebalance_easysteer/scripts/run_repeat_validation.py --bundle
 
 运行输出为`original_dynamic.json`、`repeat_cancel_positive.json`及各自日志／逐题partial，完整后生成`paired.json`、`author_grading.json`、`analysis.json`和`run_ledger.json`。为了沿用作者判分器，组合文件的`baseline`键明确表示**原动态版**，`rebalance_dynamic`键表示候选，不是无干预对照；协议保留两份原单组信息与对应含义。中途异常标记incomplete，不自动重启／覆盖已有结果；如果只欠判分，使用保存的`paired.json`单独判分，不重跑两组。完整固定方案、题号与判断规则见00及[验证准备记录](../../integration/rebalance_easysteer/configs/repeat_validation100_20260911.json)。
 
+## 按题等权校准（独立实验分支）
+
+代码与固定新100题在`codex/question-balanced-calibration-20260911`／`247e56a`。本次用户已授权CPU拟合后直接GPU，实际状态及结果以00为准，勿重复启动。现有原500题答案、`steps.json`、`positions.json`及`layer_21.npy`足够完成CPU拟合，无须生成或回放答案；所有输出要求新目录。
+
+- `scripts/calibrate_question_balanced.py --original <原auto_code_v2目录> --output <新fit目录>`：使用现有EasySteer Python，先核对源哈希、步骤顺序并逐值复现旧向量，再按题等权计算两类总体均值／方差、raw向量、跨界目标和曲线检查。只用CPU，保存`fit.json`、`auto_vector.pt`、`curve_check.json`、`fit_audit.json`。本次已完成，不再次拟合。
+- `scripts/prepare_question_balanced_validation.py`：本次抽样已完成，固定数据在`configs/question_balanced_validation100_20260911/`；不得因结果重抽。该100题额外排除了此前重复开关100题，不能拿旧100题的原动态输出拼接对照。
+- `scripts/run_question_balanced_validation.py --bundle integration/rebalance_easysteer/configs/question_balanced_validation100_20260911 --output <新结果目录>`：默认CPU只读检查；显式`--execute`才生成。两组分别加载方案中绑定哈希的fit与向量，重复开关均关闭，其他生成配置相同。沿用原两个环境与作者判分，运行前核对实际editable导入路径，拒绝自动重启／覆盖；只欠判分时直接对保存的`paired.json`判分。
+
+本次服务器fit目录为`/root/autodl-tmp/results/easysteer/question_balanced_fit_1p5b_20260911/`，结果目录为同父目录下`question_balanced_validation100_20260911/`，相邻`.launch.json`、`.runner.log`、`.gpu.jsonl`保存独立后台进程状态与采样。实验分支在旧重复开关分支上继承已验证的异步入口，但未安装检测器；fit的兼容格式版本仍为`auto-code-v2`，候选身份另记`method_variant=question-balanced-class-prototypes-v1`。不得把这套新fit覆盖到冻结目录。
+
 ## 单边界配对续写（实验已完成）
 
 20题／40份完整结果见00与[结果摘要](../../integration/rebalance_easysteer/configs/boundary_ablation20_20260910.json)，无需重跑。代码只在`codex/boundary-ablation-20260910`，当前main保留计划和结果；进入实验代码前检查Git状态和目标提交。正式生成提交`921793f`，判分兼容修正提交`14fe410`。
