@@ -1,6 +1,6 @@
 {
-  "status": "partial_verification_connection_unstable",
-  "recorded_at": "2026-09-11T20:32:20.301938+08:00",
+  "status": "migration_verified_via_authenticated_jupyter",
+  "recorded_at": "2026-09-11T12:56:53.721Z",
   "ssh": "ssh -p 15536 root@connect.cqa1.seetacloud.com",
   "previous_ssh_port": 20403,
   "user_confirmed": "Normal GPU mode; migration completed",
@@ -28,16 +28,652 @@
       "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
       "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908",
       "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908"
-    ]
+    ],
+    "current_hostname": "autodl-container-b60c4997bc-0a440a1a",
+    "server_commit": "a61b5900f1e9a06271da3906437c370d5ecbe726",
+    "server_branch": "codex/repeat-positive-gate-20260911",
+    "final_working_tree_clean": true,
+    "frozen_tag_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+    "gpu_after_checks": "NVIDIA GeForce RTX 4090 D, 570.124.04, 24564 MiB, 1 MiB, 0 %",
+    "assets": [
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B/config.json",
+        "kind": "model",
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+        "expected_sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B/generation_config.json",
+        "kind": "model",
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+        "expected_sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B/model.safetensors",
+        "kind": "model",
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+        "expected_sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B/tokenizer.json",
+        "kind": "model",
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+        "expected_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B/tokenizer_config.json",
+        "kind": "model",
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5",
+        "expected_sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/config.json",
+        "kind": "model",
+        "bytes": 680,
+        "sha256": "8290d3c1e385e2616572eb6926f7e2745f901d1c13da95970326a8a73f6c379c",
+        "expected_sha256": "8290d3c1e385e2616572eb6926f7e2745f901d1c13da95970326a8a73f6c379c",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/generation_config.json",
+        "kind": "model",
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+        "expected_sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/configuration.json",
+        "kind": "model",
+        "bytes": 73,
+        "sha256": "f888421726665e8a84b738eed42a64875aed79de8be7daade851ac8bf4c0cef9",
+        "expected_sha256": "f888421726665e8a84b738eed42a64875aed79de8be7daade851ac8bf4c0cef9",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/model.safetensors.index.json",
+        "kind": "model",
+        "bytes": 28090,
+        "sha256": "788266ec033788abcf34b2cb8fe156ce300ae05d94d3d54c60f2ecffd8927a1a",
+        "expected_sha256": "788266ec033788abcf34b2cb8fe156ce300ae05d94d3d54c60f2ecffd8927a1a",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/tokenizer_config.json",
+        "kind": "model",
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5",
+        "expected_sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/tokenizer.json",
+        "kind": "model",
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+        "expected_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/model-00002-of-000002.safetensors",
+        "kind": "model",
+        "bytes": 6624675384,
+        "sha256": "1780a9502f56f592cb4d6262c8c76ca8ad36a86b0257e052c672d87f49707e80",
+        "expected_sha256": "1780a9502f56f592cb4d6262c8c76ca8ad36a86b0257e052c672d87f49707e80",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B/model-00001-of-000002.safetensors",
+        "kind": "model",
+        "bytes": 8606596466,
+        "sha256": "8b27be8d43b81d0cd19b3113ef88caf1a61c2fc602de77e3cce97aedcec184b4",
+        "expected_sha256": "8b27be8d43b81d0cd19b3113ef88caf1a61c2fc602de77e3cce97aedcec184b4",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+        "kind": "calibrated_vector",
+        "bytes": 7344,
+        "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+        "expected_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+        "kind": "calibration_fit",
+        "bytes": 1186,
+        "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "expected_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/auto_vector.pt",
+        "kind": "calibrated_vector",
+        "bytes": 15536,
+        "sha256": "be4d6fd01334e10c81819c1472fcaa04ed169db9a23ab8649d8eaf85ecb94e9e",
+        "expected_sha256": "be4d6fd01334e10c81819c1472fcaa04ed169db9a23ab8649d8eaf85ecb94e9e",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/fit.json",
+        "kind": "calibration_fit",
+        "bytes": 1170,
+        "sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+        "expected_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/math500_eval.json",
+        "kind": "frozen_evaluation",
+        "bytes": 72067038,
+        "sha256": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+        "expected_sha256": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/math500_author_grading.json",
+        "kind": "frozen_grading",
+        "bytes": 120909,
+        "sha256": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483",
+        "expected_sha256": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_eval.json",
+        "kind": "frozen_evaluation",
+        "bytes": 50977372,
+        "sha256": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579",
+        "expected_sha256": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_author_grading.json",
+        "kind": "frozen_grading",
+        "bytes": 322025,
+        "sha256": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9",
+        "expected_sha256": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/formal_kv_replay/gsm8k_eval.json",
+        "kind": "frozen_evaluation",
+        "bytes": 55223326,
+        "sha256": "543b6e21996900ec764e1b4dcb9130f392843dec98d8b389a66667f7264e0f59",
+        "expected_sha256": "543b6e21996900ec764e1b4dcb9130f392843dec98d8b389a66667f7264e0f59",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/formal_kv_replay/gsm8k_author_grading.json",
+        "kind": "frozen_grading",
+        "bytes": 313525,
+        "sha256": "1a22e8f662b9990028832bd51a00583645ed60f68a7c20488d81c3afda6cf89c",
+        "expected_sha256": "1a22e8f662b9990028832bd51a00583645ed60f68a7c20488d81c3afda6cf89c",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_completed_20260909/math500_eval.json",
+        "kind": "frozen_evaluation",
+        "bytes": 63970358,
+        "sha256": "025b483d8b4f8af32f7415d7ec5ccbd04b9c4bd4046539a58d6014f122044dd2",
+        "expected_sha256": "025b483d8b4f8af32f7415d7ec5ccbd04b9c4bd4046539a58d6014f122044dd2",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_completed_20260909/math500_author_grading.json",
+        "kind": "frozen_grading",
+        "bytes": 120268,
+        "sha256": "149b94ded8d286f27a3867d5987cb19ecfb226d3bcdaad105616b25f01ec8047",
+        "expected_sha256": "149b94ded8d286f27a3867d5987cb19ecfb226d3bcdaad105616b25f01ec8047",
+        "matches": true
+      },
+      {
+        "path": "/root/autodl-tmp/projects/srtp-final/integration/rebalance_easysteer/configs/repeat_validation100_20260911/validation100.jsonl",
+        "kind": "fixed_validation_dataset",
+        "bytes": 89927,
+        "sha256": "80d0b89fd303752207641fcc5d414e0b089554bdd9076e0754b2691f5dd9d639",
+        "expected_sha256": "80d0b89fd303752207641fcc5d414e0b089554bdd9076e0754b2691f5dd9d639",
+        "matches": true
+      }
+    ],
+    "calibration_answers": {
+      "1.5B": [
+        {
+          "path": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/generations.jsonl",
+          "sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+        },
+        {
+          "path": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/generations.jsonl",
+          "sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+        }
+      ],
+      "7B": [
+        {
+          "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/calibration/generations.jsonl",
+          "sha256": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362"
+        }
+      ]
+    },
+    "source_files": [
+      {
+        "path": "integration/rebalance_easysteer/eval/decode_profiler.py",
+        "bytes": 3053,
+        "normalized_bytes": 3053,
+        "crlf_count": 0,
+        "sha256_raw": "09133a44875c673b45f38592589e2ef551a2f4a094ff7032f68d5303ab17f17f",
+        "sha256_lf": "09133a44875c673b45f38592589e2ef551a2f4a094ff7032f68d5303ab17f17f",
+        "expected_sha256_lf": "09133a44875c673b45f38592589e2ef551a2f4a094ff7032f68d5303ab17f17f",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/rebalance_boundary_compare.py",
+        "bytes": 6647,
+        "normalized_bytes": 6647,
+        "crlf_count": 0,
+        "sha256_raw": "e7172efd6270fec16527f6b9f3f62c1c9c0334d77f328874f4f60dfff802828c",
+        "sha256_lf": "e7172efd6270fec16527f6b9f3f62c1c9c0334d77f328874f4f60dfff802828c",
+        "expected_sha256_lf": "e7172efd6270fec16527f6b9f3f62c1c9c0334d77f328874f4f60dfff802828c",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/rebalance_diagnostics.py",
+        "bytes": 11545,
+        "normalized_bytes": 11545,
+        "crlf_count": 0,
+        "sha256_raw": "c8d9166aabbc490e9d831822ff160cff068adf8a81a9d675c3d060e8b3686a3c",
+        "sha256_lf": "c8d9166aabbc490e9d831822ff160cff068adf8a81a9d675c3d060e8b3686a3c",
+        "expected_sha256_lf": "c8d9166aabbc490e9d831822ff160cff068adf8a81a9d675c3d060e8b3686a3c",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py",
+        "bytes": 28519,
+        "normalized_bytes": 28519,
+        "crlf_count": 0,
+        "sha256_raw": "20c71ec809cc46d7279b8a40804744dc7a29bc4913936216d7a1b31a0a268c7e",
+        "sha256_lf": "20c71ec809cc46d7279b8a40804744dc7a29bc4913936216d7a1b31a0a268c7e",
+        "expected_sha256_lf": "20c71ec809cc46d7279b8a40804744dc7a29bc4913936216d7a1b31a0a268c7e",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/rebalance_replay_check.py",
+        "bytes": 5581,
+        "normalized_bytes": 5581,
+        "crlf_count": 0,
+        "sha256_raw": "56d7b424ffeca948f60bf69b8cd78f2700ea183ae88e2857ab587fb498eb0780",
+        "sha256_lf": "56d7b424ffeca948f60bf69b8cd78f2700ea183ae88e2857ab587fb498eb0780",
+        "expected_sha256_lf": "56d7b424ffeca948f60bf69b8cd78f2700ea183ae88e2857ab587fb498eb0780",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/rebalance_static_eval.py",
+        "bytes": 15139,
+        "normalized_bytes": 15139,
+        "crlf_count": 0,
+        "sha256_raw": "ec0496b873c1512b8d2301b11dc8c9563ac3dacd6e95217184158a32a370e344",
+        "sha256_lf": "ec0496b873c1512b8d2301b11dc8c9563ac3dacd6e95217184158a32a370e344",
+        "expected_sha256_lf": "ec0496b873c1512b8d2301b11dc8c9563ac3dacd6e95217184158a32a370e344",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/resume_validation.py",
+        "bytes": 3402,
+        "normalized_bytes": 3402,
+        "crlf_count": 0,
+        "sha256_raw": "a1186c830818c2a1def21c47d9cac51b50591a62b6eb4e935fe3ebc9d84ff1e4",
+        "sha256_lf": "a1186c830818c2a1def21c47d9cac51b50591a62b6eb4e935fe3ebc9d84ff1e4",
+        "expected_sha256_lf": "a1186c830818c2a1def21c47d9cac51b50591a62b6eb4e935fe3ebc9d84ff1e4",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/runtime_guards.py",
+        "bytes": 4532,
+        "normalized_bytes": 4532,
+        "crlf_count": 0,
+        "sha256_raw": "fb9abbfc4716b7d93c2d0fbfd5241b8706559d910b04a6645dd3c2db98d5a305",
+        "sha256_lf": "fb9abbfc4716b7d93c2d0fbfd5241b8706559d910b04a6645dd3c2db98d5a305",
+        "expected_sha256_lf": "fb9abbfc4716b7d93c2d0fbfd5241b8706559d910b04a6645dd3c2db98d5a305",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/seal_math500_eval.py",
+        "bytes": 13574,
+        "normalized_bytes": 13574,
+        "crlf_count": 0,
+        "sha256_raw": "22c96c13a886643ea2e0f86085cd7168b751c9ee5d2447b02343c0f351c8f931",
+        "sha256_lf": "22c96c13a886643ea2e0f86085cd7168b751c9ee5d2447b02343c0f351c8f931",
+        "expected_sha256_lf": "22c96c13a886643ea2e0f86085cd7168b751c9ee5d2447b02343c0f351c8f931",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/token_metrics.py",
+        "bytes": 1057,
+        "normalized_bytes": 1057,
+        "crlf_count": 0,
+        "sha256_raw": "d15ae17c816011a7f86efc5a3ace23472e6f1bf69f11c66e591a49db6cfb0e17",
+        "sha256_lf": "d15ae17c816011a7f86efc5a3ace23472e6f1bf69f11c66e591a49db6cfb0e17",
+        "expected_sha256_lf": "d15ae17c816011a7f86efc5a3ace23472e6f1bf69f11c66e591a49db6cfb0e17",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/paper_control.py",
+        "bytes": 4668,
+        "normalized_bytes": 4668,
+        "crlf_count": 0,
+        "sha256_raw": "1e4a9004e8743c9314a272ddc999d002e26a153503ba0d618eb7da2cbebc3224",
+        "sha256_lf": "1e4a9004e8743c9314a272ddc999d002e26a153503ba0d618eb7da2cbebc3224",
+        "expected_sha256_lf": "1e4a9004e8743c9314a272ddc999d002e26a153503ba0d618eb7da2cbebc3224",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/audit_rebalance_controller.py",
+        "bytes": 3140,
+        "normalized_bytes": 3140,
+        "crlf_count": 0,
+        "sha256_raw": "e9854451ef8bf9928e12e35dab38e18b5e75a34bf1a2e41c7619ae6783ad0b29",
+        "sha256_lf": "e9854451ef8bf9928e12e35dab38e18b5e75a34bf1a2e41c7619ae6783ad0b29",
+        "expected_sha256_lf": "e9854451ef8bf9928e12e35dab38e18b5e75a34bf1a2e41c7619ae6783ad0b29",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/benchmark_7b_runtime.py",
+        "bytes": 8273,
+        "normalized_bytes": 8273,
+        "crlf_count": 0,
+        "sha256_raw": "593e2d220324e546e46e9fd8d9c8846702be90184fb7a7fa5000a335e496c02e",
+        "sha256_lf": "593e2d220324e546e46e9fd8d9c8846702be90184fb7a7fa5000a335e496c02e",
+        "expected_sha256_lf": "593e2d220324e546e46e9fd8d9c8846702be90184fb7a7fa5000a335e496c02e",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/calibrate_auto.py",
+        "bytes": 16750,
+        "normalized_bytes": 16750,
+        "crlf_count": 0,
+        "sha256_raw": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+        "sha256_lf": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+        "expected_sha256_lf": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/calibrate_own_vector.py",
+        "bytes": 17231,
+        "normalized_bytes": 17231,
+        "crlf_count": 0,
+        "sha256_raw": "092d36b3c7dae29825f1bf4ef88fd595b3c9a4f3395c422fbd288955f2a0b5f7",
+        "sha256_lf": "092d36b3c7dae29825f1bf4ef88fd595b3c9a4f3395c422fbd288955f2a0b5f7",
+        "expected_sha256_lf": "092d36b3c7dae29825f1bf4ef88fd595b3c9a4f3395c422fbd288955f2a0b5f7",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/calibrate_paper.py",
+        "bytes": 10254,
+        "normalized_bytes": 10254,
+        "crlf_count": 0,
+        "sha256_raw": "073afc2935a5dbb93b619247c6adf6964b9e4e8beefb856db4403e2ff74d4aa7",
+        "sha256_lf": "073afc2935a5dbb93b619247c6adf6964b9e4e8beefb856db4403e2ff74d4aa7",
+        "expected_sha256_lf": "073afc2935a5dbb93b619247c6adf6964b9e4e8beefb856db4403e2ff74d4aa7",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/freeze_final_results.py",
+        "bytes": 7949,
+        "normalized_bytes": 7949,
+        "crlf_count": 0,
+        "sha256_raw": "3e0ae34d689def9fcc587e6b8329f9fcfa6cd2390203cfc7abdbef2b55ee9c90",
+        "sha256_lf": "3e0ae34d689def9fcc587e6b8329f9fcfa6cd2390203cfc7abdbef2b55ee9c90",
+        "expected_sha256_lf": "3e0ae34d689def9fcc587e6b8329f9fcfa6cd2390203cfc7abdbef2b55ee9c90",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/freeze_paper_baseline.py",
+        "bytes": 3282,
+        "normalized_bytes": 3282,
+        "crlf_count": 0,
+        "sha256_raw": "28cfcbb21a60322e2c0a9399e9e169fe0ef591cdb7780e9d956d5fc2e347ffa2",
+        "sha256_lf": "28cfcbb21a60322e2c0a9399e9e169fe0ef591cdb7780e9d956d5fc2e347ffa2",
+        "expected_sha256_lf": "28cfcbb21a60322e2c0a9399e9e169fe0ef591cdb7780e9d956d5fc2e347ffa2",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/regrade_saved_results.py",
+        "bytes": 4302,
+        "normalized_bytes": 4302,
+        "crlf_count": 0,
+        "sha256_raw": "b8f6ac7967915ce236976ba72cef4222fca78d580f9ef79087dac8fa37aa5278",
+        "sha256_lf": "b8f6ac7967915ce236976ba72cef4222fca78d580f9ef79087dac8fa37aa5278",
+        "expected_sha256_lf": "b8f6ac7967915ce236976ba72cef4222fca78d580f9ef79087dac8fa37aa5278",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/verify_paper_control.py",
+        "bytes": 2710,
+        "normalized_bytes": 2710,
+        "crlf_count": 0,
+        "sha256_raw": "9c69272d992bd086322e6594d651e4f9e4f485b88a822141e785e68d6ea37da1",
+        "sha256_lf": "9c69272d992bd086322e6594d651e4f9e4f485b88a822141e785e68d6ea37da1",
+        "expected_sha256_lf": "9c69272d992bd086322e6594d651e4f9e4f485b88a822141e785e68d6ea37da1",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/verify_rebalance_dynamic.py",
+        "bytes": 2587,
+        "normalized_bytes": 2587,
+        "crlf_count": 0,
+        "sha256_raw": "26bd14611f7d092e6e0ae4f95c0be7c9ceff9709ef52f9d3b00afab82b49dd08",
+        "sha256_lf": "26bd14611f7d092e6e0ae4f95c0be7c9ceff9709ef52f9d3b00afab82b49dd08",
+        "expected_sha256_lf": "26bd14611f7d092e6e0ae4f95c0be7c9ceff9709ef52f9d3b00afab82b49dd08",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/tests/test_bounded_evaluation.py",
+        "bytes": 5578,
+        "normalized_bytes": 5578,
+        "crlf_count": 0,
+        "sha256_raw": "84b57e023706f73969e68296a2b8f02f51fe64dabb9c8db3cdad69361be0e4c7",
+        "sha256_lf": "84b57e023706f73969e68296a2b8f02f51fe64dabb9c8db3cdad69361be0e4c7",
+        "expected_sha256_lf": "84b57e023706f73969e68296a2b8f02f51fe64dabb9c8db3cdad69361be0e4c7",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/tests/test_calibration_io.py",
+        "bytes": 5438,
+        "normalized_bytes": 5368,
+        "crlf_count": 70,
+        "sha256_raw": "57b6c6d6d820b77ac021c34a92bd0d656228320ea5f61f713fafe9c3b8130bb0",
+        "sha256_lf": "b82ff54cad35755d20edda907ed2e7244b1c53ea586bf4940aa8f6b32ca581d9",
+        "expected_sha256_lf": "b82ff54cad35755d20edda907ed2e7244b1c53ea586bf4940aa8f6b32ca581d9",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/tests/test_runtime_guards.py",
+        "bytes": 5772,
+        "normalized_bytes": 5772,
+        "crlf_count": 0,
+        "sha256_raw": "00c87e4fd4f9f58f434c3a96c78f94e44aae90412e5ee1a1a2a4931b011cc60c",
+        "sha256_lf": "00c87e4fd4f9f58f434c3a96c78f94e44aae90412e5ee1a1a2a4931b011cc60c",
+        "expected_sha256_lf": "00c87e4fd4f9f58f434c3a96c78f94e44aae90412e5ee1a1a2a4931b011cc60c",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/tests/test_runtime_trial_comparison.py",
+        "bytes": 2187,
+        "normalized_bytes": 2187,
+        "crlf_count": 0,
+        "sha256_raw": "41e360c80a35557b16a92e7e52ca37c101f3c0bce5154216d29dee6e55f92a81",
+        "sha256_lf": "41e360c80a35557b16a92e7e52ca37c101f3c0bce5154216d29dee6e55f92a81",
+        "expected_sha256_lf": "41e360c80a35557b16a92e7e52ca37c101f3c0bce5154216d29dee6e55f92a81",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_auto_baseline.sh",
+        "bytes": 5023,
+        "normalized_bytes": 5023,
+        "crlf_count": 0,
+        "sha256_raw": "83f3580777f150a947c9f45e34f7dca2b88cf530ffd12a2b953037abfcc70f89",
+        "sha256_lf": "83f3580777f150a947c9f45e34f7dca2b88cf530ffd12a2b953037abfcc70f89",
+        "expected_sha256_lf": "83f3580777f150a947c9f45e34f7dca2b88cf530ffd12a2b953037abfcc70f89",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_final_7b_math500.sh",
+        "bytes": 1183,
+        "normalized_bytes": 1183,
+        "crlf_count": 0,
+        "sha256_raw": "e9b7ade615a8ab43f3c02f9d27305c6483ca6e128f232e3200ee64d9ff11b8b5",
+        "sha256_lf": "e9b7ade615a8ab43f3c02f9d27305c6483ca6e128f232e3200ee64d9ff11b8b5",
+        "expected_sha256_lf": "e9b7ade615a8ab43f3c02f9d27305c6483ca6e128f232e3200ee64d9ff11b8b5",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_own_calibration.sh",
+        "bytes": 3617,
+        "normalized_bytes": 3617,
+        "crlf_count": 0,
+        "sha256_raw": "088aaa5c646f6b67fb985d7a1ceb37153e8b580b831b7f023138c1400632324b",
+        "sha256_lf": "088aaa5c646f6b67fb985d7a1ceb37153e8b580b831b7f023138c1400632324b",
+        "expected_sha256_lf": "088aaa5c646f6b67fb985d7a1ceb37153e8b580b831b7f023138c1400632324b",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_paper_baseline.sh",
+        "bytes": 2082,
+        "normalized_bytes": 2082,
+        "crlf_count": 0,
+        "sha256_raw": "a71ca813943424081ad9d7b2018de6c9ba475a16ff0b2655592ca361bb3e128d",
+        "sha256_lf": "a71ca813943424081ad9d7b2018de6c9ba475a16ff0b2655592ca361bb3e128d",
+        "expected_sha256_lf": "a71ca813943424081ad9d7b2018de6c9ba475a16ff0b2655592ca361bb3e128d",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_rebalance_dynamic_vllm.sh",
+        "bytes": 848,
+        "normalized_bytes": 848,
+        "crlf_count": 0,
+        "sha256_raw": "8f6ff1d010264b2801bd8f78f522745b0255a619f8f7e48fab71dcd7da6fb18e",
+        "sha256_lf": "8f6ff1d010264b2801bd8f78f522745b0255a619f8f7e48fab71dcd7da6fb18e",
+        "expected_sha256_lf": "8f6ff1d010264b2801bd8f78f522745b0255a619f8f7e48fab71dcd7da6fb18e",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_rebalance_static_vllm.sh",
+        "bytes": 706,
+        "normalized_bytes": 706,
+        "crlf_count": 0,
+        "sha256_raw": "cce679175e8c30252c03ac1a0923878745f007070c922a23e4241a090086dd34",
+        "sha256_lf": "cce679175e8c30252c03ac1a0923878745f007070c922a23e4241a090086dd34",
+        "expected_sha256_lf": "cce679175e8c30252c03ac1a0923878745f007070c922a23e4241a090086dd34",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_seal_math500.sh",
+        "bytes": 1114,
+        "normalized_bytes": 1114,
+        "crlf_count": 0,
+        "sha256_raw": "f6e286c96b52d0f8bd315c4b3a3f50886184a9f8801210853834cfa20b5f7bda",
+        "sha256_lf": "f6e286c96b52d0f8bd315c4b3a3f50886184a9f8801210853834cfa20b5f7bda",
+        "expected_sha256_lf": "f6e286c96b52d0f8bd315c4b3a3f50886184a9f8801210853834cfa20b5f7bda",
+        "matches": true
+      },
+      {
+        "path": "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py",
+        "bytes": 8022,
+        "normalized_bytes": 8022,
+        "crlf_count": 0,
+        "sha256_raw": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+        "sha256_lf": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+        "expected_sha256_lf": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+        "matches": true
+      },
+      {
+        "path": "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py",
+        "bytes": 78702,
+        "normalized_bytes": 78702,
+        "crlf_count": 0,
+        "sha256_raw": "88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5",
+        "sha256_lf": "88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5",
+        "expected_sha256_lf": "88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5",
+        "matches": true
+      },
+      {
+        "path": "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py",
+        "bytes": 34044,
+        "normalized_bytes": 34044,
+        "crlf_count": 0,
+        "sha256_raw": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
+        "sha256_lf": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
+        "expected_sha256_lf": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/eval/repeat_positive_gate.py",
+        "bytes": 10853,
+        "normalized_bytes": 10853,
+        "crlf_count": 0,
+        "sha256_raw": "96115390324dec222d7499ebf9fd76547c4d82e070a036400cbb3826d63c6700",
+        "sha256_lf": "96115390324dec222d7499ebf9fd76547c4d82e070a036400cbb3826d63c6700",
+        "expected_sha256_lf": "96115390324dec222d7499ebf9fd76547c4d82e070a036400cbb3826d63c6700",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/prepare_repeat_validation.py",
+        "bytes": 7899,
+        "normalized_bytes": 7899,
+        "crlf_count": 0,
+        "sha256_raw": "ea0039a1c96e7758fa6dae6f478a04f4217d7a63f20e6802911e957041064af3",
+        "sha256_lf": "ea0039a1c96e7758fa6dae6f478a04f4217d7a63f20e6802911e957041064af3",
+        "expected_sha256_lf": "ea0039a1c96e7758fa6dae6f478a04f4217d7a63f20e6802911e957041064af3",
+        "matches": true
+      },
+      {
+        "path": "integration/rebalance_easysteer/scripts/run_repeat_validation.py",
+        "bytes": 13585,
+        "normalized_bytes": 13585,
+        "crlf_count": 0,
+        "sha256_raw": "ab59eced236ad36f6f5038c5bf169b2e19a115b8a6c83e9f872d2a121c44499e",
+        "sha256_lf": "ab59eced236ad36f6f5038c5bf169b2e19a115b8a6c83e9f872d2a121c44499e",
+        "expected_sha256_lf": "ab59eced236ad36f6f5038c5bf169b2e19a115b8a6c83e9f872d2a121c44499e",
+        "matches": true
+      }
+    ],
+    "source_hash_policy": "SHA256 after CRLF-to-LF normalization, exactly as the precommitted plan validator; weights, data, vectors, fits and frozen results use raw bytes.",
+    "plan_sha256": "8cbd426f2480ec3597ecc6cfc2fd3184a3485c8dc669b1437796dea5b632c2cb",
+    "environment_checks": {
+      "generation_environment": {
+        "exit_code": 0,
+        "stdout": "GPU: NVIDIA GeForce RTX 4090 D\nvLLM: 0.1.dev18960+g6267ca0cf /root/autodl-tmp/projects/srtp-final/sources/EasySteer/vllm-steer/vllm/__init__.py\nEasySteer: /root/autodl-tmp/projects/srtp-final/sources/EasySteer/easysteer/__init__.py\nEnvironment verification: OK\n",
+        "stderr": "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/pydantic/dataclasses.py:313: UserWarning: `config` is set via both the `dataclass` decorator and `__pydantic_config__` for dataclass SteerVectorConfig. The `config` specification from `dataclass` decorator will take priority.\n  return create_dataclass if _cls is None else create_dataclass(_cls)\n"
+      },
+      "author_grader_environment": {
+        "exit_code": 0,
+        "stdout": "{\"python\": \"3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0]\", \"torch\": \"2.1.2+cu121\", \"transformers\": \"4.46.3\", \"author_grader_import\": true}\n",
+        "stderr": ""
+      },
+      "cpu_contract_tests": {
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": "test_complete_blocks_only_and_mismatch_releases_gate (test_repeat_positive_gate.CompleteStepTests.test_complete_blocks_only_and_mismatch_releases_gate) ... ok\ntest_eof_end_of_thinking_and_unready_boundaries_never_act (test_repeat_positive_gate.CompleteStepTests.test_eof_end_of_thinking_and_unready_boundaries_never_act) ... ok\ntest_formula_fragments_numbers_and_symbols_do_not_match_whole_steps (test_repeat_positive_gate.CompleteStepTests.test_formula_fragments_numbers_and_symbols_do_not_match_whole_steps) ... ok\ntest_repetition_matches_independent_suffix_oracle (test_repeat_positive_gate.CompleteStepTests.test_repetition_matches_independent_suffix_oracle) ... ok\ntest_snapshot_retains_partial_bytes_without_sharing_mutable_state (test_repeat_positive_gate.CompleteStepTests.test_snapshot_retains_partial_bytes_without_sharing_mutable_state) ... ok\ntest_tokenization_can_differ_but_boundary_symbols_are_retained (test_repeat_positive_gate.CompleteStepTests.test_tokenization_can_differ_but_boundary_symbols_are_retained) ... ok\ntest_cancel_changes_only_current_applied_positive_scale (test_repeat_positive_gate.RuntimeContractTests.test_cancel_changes_only_current_applied_positive_scale) ... ok\ntest_disabled_mode_leaves_original_methods_and_no_tokenizer_io (test_repeat_positive_gate.RuntimeContractTests.test_disabled_mode_leaves_original_methods_and_no_tokenizer_io) ... ok\ntest_evaluator_rejects_accidental_pair_or_wrong_token_budget (test_repeat_positive_gate.RuntimeContractTests.test_evaluator_rejects_accidental_pair_or_wrong_token_budget) ... ok\ntest_negative_and_zero_coefficients_remain_unchanged (test_repeat_positive_gate.RuntimeContractTests.test_negative_and_zero_coefficients_remain_unchanged) ... ok\ntest_partial_prefill_is_not_counted_as_generated_text (test_repeat_positive_gate.RuntimeContractTests.test_partial_prefill_is_not_counted_as_generated_text) ... ok\ntest_preemption_restores_monitor_controller_and_applied_history (test_repeat_positive_gate.RuntimeContractTests.test_preemption_restores_monitor_controller_and_applied_history) ... ok\ntest_request_order_and_slot_reuse_do_not_share_repetition (test_repeat_positive_gate.RuntimeContractTests.test_request_order_and_slot_reuse_do_not_share_repetition) ... ok\ntest_wrong_tokenizer_fails_before_request_admission (test_repeat_positive_gate.RuntimeContractTests.test_wrong_tokenizer_fails_before_request_admission) ... ok\ntest_commands_change_only_output_and_gate (test_repeat_validation.ValidationTest.test_commands_change_only_output_and_gate) ... ok\ntest_default_preview_never_launches_a_subprocess (test_repeat_validation.ValidationTest.test_default_preview_never_launches_a_subprocess) ... ok\ntest_pair_rejects_missing_records_wrong_mode_and_sampling (test_repeat_validation.ValidationTest.test_pair_rejects_missing_records_wrong_mode_and_sampling) ... ok\ntest_selection_excludes_indices_and_whitespace_duplicates (test_repeat_validation.ValidationTest.test_selection_excludes_indices_and_whitespace_duplicates) ... ok\ntest_summary_keeps_capped_and_wrong_answers (test_repeat_validation.ValidationTest.test_summary_keeps_capped_and_wrong_answers) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.147s\n\nOK\n"
+      },
+      "fixed_plan_preflight": {
+        "exit_code": 0,
+        "stdout": "{\n  \"status\": \"cpu_preflight_passed_no_generation\",\n  \"count\": 100,\n  \"dataset_sha256\": \"80d0b89fd303752207641fcc5d414e0b089554bdd9076e0754b2691f5dd9d639\",\n  \"commands\": {\n    \"original_dynamic\": [\n      \"/root/autodl-tmp/venvs/easysteer-vllm026/bin/python\",\n      \"-u\",\n      \"integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py\",\n      \"--model\",\n      \"/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B\",\n      \"--dataset\",\n      \"/root/autodl-tmp/projects/srtp-final/integration/rebalance_easysteer/configs/repeat_validation100_20260911/validation100.jsonl\",\n      \"--limit\",\n      \"100\",\n      \"--vector\",\n      \"/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt\",\n      \"--calibration-fit\",\n      \"/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json\",\n      \"--diagnostic-group\",\n      \"rebalance_dynamic\",\n      \"--repeat-gate\",\n      \"off\",\n      \"--output\",\n      \"/root/autodl-tmp/results/easysteer/repeat_validation100_20260911/original_dynamic.json\",\n      \"--max-tokens\",\n      \"16000\",\n      \"--max-model-len\",\n      \"32768\",\n      \"--max-num-seqs\",\n      \"128\",\n      \"--max-num-batched-tokens\",\n      \"32768\",\n      \"--gpu-memory-utilization\",\n      \"0.9\",\n      \"--temperature\",\n      \"0.7\",\n      \"--top-p\",\n      \"0.95\",\n      \"--seed\",\n      \"42\",\n      \"--async-scheduling\",\n      \"--group-timeout-seconds\",\n      \"0\"\n    ],\n    \"repeat_cancel_positive\": [\n      \"/root/autodl-tmp/venvs/easysteer-vllm026/bin/python\",\n      \"-u\",\n      \"integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py\",\n      \"--model\",\n      \"/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B\",\n      \"--dataset\",\n      \"/root/autodl-tmp/projects/srtp-final/integration/rebalance_easysteer/configs/repeat_validation100_20260911/validation100.jsonl\",\n      \"--limit\",\n      \"100\",\n      \"--vector\",\n      \"/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt\",\n      \"--calibration-fit\",\n      \"/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json\",\n      \"--diagnostic-group\",\n      \"rebalance_dynamic\",\n      \"--repeat-gate\",\n      \"cancel_positive\",\n      \"--output\",\n      \"/root/autodl-tmp/results/easysteer/repeat_validation100_20260911/repeat_cancel_positive.json\",\n      \"--max-tokens\",\n      \"16000\",\n      \"--max-model-len\",\n      \"32768\",\n      \"--max-num-seqs\",\n      \"128\",\n      \"--max-num-batched-tokens\",\n      \"32768\",\n      \"--gpu-memory-utilization\",\n      \"0.9\",\n      \"--temperature\",\n      \"0.7\",\n      \"--top-p\",\n      \"0.95\",\n      \"--seed\",\n      \"42\",\n      \"--async-scheduling\",\n      \"--group-timeout-seconds\",\n      \"0\"\n    ]\n  }\n}\n",
+        "stderr": ""
+      }
+    },
+    "cpu_contract_tests_passed": 19,
+    "fixed_validation_questions_checked": 100,
+    "new_validation_output_directory_exists": false
   },
   "target_experiment_commit": "a61b5900f1e9a06271da3906437c370d5ecbe726",
-  "not_yet_verified": [
-    "Exact final server HEAD after switching",
-    "Model/fit/vector/calibration-answer/full-result hashes on migrated disk",
-    "vLLM/CUDA and author-grader package imports",
-    "19 CPU tests on new server",
-    "Fixed 100-question plan preflight on new server"
-  ],
   "connectivity": {
     "observed_errors": [
       "Connection closed by host during handshake",
@@ -49,12 +685,71 @@
       "Direct currently resolved IP with strict existing host-key verification",
       "SFTP copy"
     ],
-    "result": "Intermittent short reads succeeded, sustained verification unavailable. Cause not established; no claim that migration or dependencies are broken."
+    "result": "SSH remains intermittent and its cause is not established. User-supplied token authenticated the matching current Jupyter instance; REST and a separate terminal WebSocket completed verification.",
+    "jupyter": {
+      "hostname_matched": true,
+      "authentication": "Existing user-provided token; credential not recorded",
+      "login_succeeded": true,
+      "frontend_issue": "JupyterLab page had ChunkLoadError for jlab_core; API and terminal remained usable",
+      "own_audit_terminals_closed": true,
+      "user_terminal_untouched": true,
+      "authentication_settings_changed": false,
+      "tls_verification_disabled": false
+    }
   },
   "verification_helper_sha256": "0a8e63d0d60879bc7bf0800ed108fd59fc6765172a3210c49ec468430fe2d1bf",
   "model_forwards": 0,
   "new_generations": 0,
   "reinstallation": false,
   "frozen_results_changed": false,
-  "next_action": "Restore reliable SSH or obtain working console terminal, then complete existing helper and plan preflight. Do not regenerate calibration or start the GPU pair during migration diagnosis."
+  "next_action": "Migration verification is complete. Keep the fixed 100-question plan and original assets; agree the GPU comparison with the user before starting either arm. The audit did not create the generation output directory.",
+  "migration_pending": [],
+  "research_pending": [
+    "Actual CUDA repeat-gate runtime and KV restore behavior",
+    "Fresh 100-question paired generation, grading, compression effect and online overhead"
+  ],
+  "audit": {
+    "scope": "Migration asset integrity and existing environment checks only; no new answers",
+    "initial_check_seconds": 31.21234130859375,
+    "followup_purpose": "Initial helper wrongly compared raw source bytes against the plan LF hashes; checked only source hashes again, without repeating model hashing, environment imports or tests.",
+    "initial_raw_source_mismatch": [
+      "/root/autodl-tmp/projects/srtp-final/integration/rebalance_easysteer/tests/test_calibration_io.py"
+    ],
+    "resolved_difference": [
+      {
+        "path": "integration/rebalance_easysteer/tests/test_calibration_io.py",
+        "bytes": 5438,
+        "normalized_bytes": 5368,
+        "crlf_count": 70,
+        "sha256_raw": "57b6c6d6d820b77ac021c34a92bd0d656228320ea5f61f713fafe9c3b8130bb0",
+        "sha256_lf": "b82ff54cad35755d20edda907ed2e7244b1c53ea586bf4940aa8f6b32ca581d9",
+        "expected_sha256_lf": "b82ff54cad35755d20edda907ed2e7244b1c53ea586bf4940aa8f6b32ca581d9",
+        "matches": true
+      }
+    ],
+    "source_or_result_files_modified_on_server": false,
+    "receipts": [
+      {
+        "local": ".codex_work/migration_15536_20260911/verification_20260911125302.json",
+        "remote": "/root/autodl-tmp/results/easysteer/migration_15536_20260911/verification_20260911125302.json",
+        "sha256": "96fdd633c934891d5447fcb7d9aea851a38e1b9d14ae6eae0a970eab86efc35b"
+      },
+      {
+        "local": ".codex_work/migration_15536_20260911/verification_20260911125302.log",
+        "remote": "/root/autodl-tmp/results/easysteer/migration_15536_20260911/verification_20260911125302.log",
+        "sha256": "98a457167eab46e7c44e7e2aee321df13d202a1a024abd69a0c600b4faa65fb5"
+      },
+      {
+        "local": ".codex_work/migration_15536_20260911/verification_20260911125450.json",
+        "remote": "/root/autodl-tmp/results/easysteer/migration_15536_20260911/verification_20260911125450.json",
+        "sha256": "77d93d6c216b81cc1679e39b04760b689c939ea4103b3a71fcdb1e7785a104d7"
+      },
+      {
+        "local": ".codex_work/migration_15536_20260911/verification_20260911125450.log",
+        "remote": "/root/autodl-tmp/results/easysteer/migration_15536_20260911/verification_20260911125450.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "followup_helper_sha256": "d6dd01728e4cec6f194a3663a888be15b5dc3604dde80515bd1a3107f3aefcf9"
+  }
 }
