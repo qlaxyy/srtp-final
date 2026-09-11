@@ -182,11 +182,11 @@ python integration/rebalance_easysteer/scripts/run_repeat_validation.py --bundle
 
 接续专用参数为`prefix_mean`、`prefix_variance`、`prefix_apply`，经API与请求结构传入状态管理；不是重新设置首步常数。历史前缀不注入，仅将最后一个已完成边界纳入选择器；两组恢复相同的前一步均值／已计算系数，B只把这一个位置的实际掩码设0。之后沿用原动态更新，KV抢占时恢复历史掩码及状态。实际掩码按BF16精确核对，与控制器保存的float32系数分开记录。缺省不传这些参数时，原prompt起点行为保持不变。
 
-## 本轮向量筛选准备（2026-09-12）
+## 本轮向量筛选已完成（2026-09-12）
 
-**本轮GPU未获授权，服务器仍按关闭处理。** 当前研究依据与完整边界见00，已结束实验的旧授权不适用于本批。实验代码与3套小型向量资产在`codex/mechanism-candidates-20260911`，准备提交`167de04`；main只保留交接和[CPU／准备结果](../../integration/rebalance_easysteer/configs/mechanism_research_20260911.json)。不得在main运行实验代码，也不要重复CPU拟合／抽题。
+**本轮固定3×100题已完成，不得重跑。** 用户针对本批提供SSH后，实际执行`7899489`，两候选均未通过事先固定的5%压缩晋级门槛，200题留出不运行。22份归档成员已下载、核对及本地复算，已通知可以关闭实例；当前不需要服务器，也未核验用户是否已关机。实验代码及3套向量资产在`codex/mechanism-candidates-20260911`，准备提交`167de04`、独立结果复核提交`24f2f20`；main只保留交接和[完整研究结果](../../integration/rebalance_easysteer/configs/mechanism_research_20260911.json)。以下保留已执行方法，不能拿本批授权开启新批或重生成。
 
-本地已完成：8文件哈希、旧向量逐位复现、两候选数值检查、短步骤机制对照、14项测试、100题筛选及200题留出排除、39个运行源文件绑定，以及Git提交内的资产字节核对。张量用已验证原文件的单FP32存储格式生成；没有在本地安装torch，真实`torch.load(weights_only=True)`和EasySteer载入验证属于开机后的**CPU短预检**，在加载模型前执行。向量的`fit.json`兼容格式仍为`auto-code-v2`，`variant`、`method`和父fit哈希明确区分候选，所有原控制参数保持一致。
+本地已完成：8文件哈希、旧向量逐位复现、两候选数值检查、短步骤机制对照、14项测试、100题筛选及200题留出排除、39个运行源文件绑定，以及Git提交内的资产字节核对。张量用已验证原文件的单FP32存储格式生成；没有在本地安装torch，真实`torch.load(weights_only=True)`和EasySteer载入已在服务器模型加载前通过，三组CUDA生成也已完成。向量的`fit.json`兼容格式仍为`auto-code-v2`，`variant`、`method`和父fit哈希明确区分候选，所有原控制参数保持一致。
 
 实验checkout中的默认只读入口，不连接服务器或生成答案：
 
@@ -194,7 +194,7 @@ python integration/rebalance_easysteer/scripts/run_repeat_validation.py --bundle
 python integration/rebalance_easysteer/scripts/run_mechanism_screen.py --bundle integration/rebalance_easysteer/configs/mechanism_screen100_20260911 --output .codex_work/mechanism_candidates_20260911/not_executed
 ```
 
-**只有用户确认本批300份答案且明确告知已开GPU后**，才使用其最新SSH信息。先检查其他任务和Git状态；服务器只更新对应实验分支，复用两个既有环境，不能覆盖脏工作区、重装环境或改冻结标签。以下命令在服务器项目根目录执行：
+本批使用用户回复的20403端口，先核对GPU为RTX 4090 D且无其他计算任务、Git工作区干净，再更新对应实验分支。复用两个既有环境，没有覆盖脏工作区、重装依赖或改冻结标签。下面是**已执行命令，仅留作记录，不再次运行**：
 
 ```bash
 /root/autodl-tmp/venvs/easysteer-vllm026/bin/python integration/rebalance_easysteer/scripts/run_mechanism_screen.py \
@@ -204,7 +204,7 @@ python integration/rebalance_easysteer/scripts/run_mechanism_screen.py --bundle 
 
 包装器先拒绝已有GPU计算进程，核对环境实际导入路径、模型5文件哈希、实际分词长度、三个张量及39个源文件，再按原动态／最小位移／去共同均值顺序执行3个独立进程。只采用先前验证过的异步调度选项，没有安装重复检测器。每组max-new-tokens=16000；组截止600秒、批次墙钟截止1800秒。只终止本包装器创建的进程组，不终止其他任务；错误或未完成保留原文件／partial及日志，禁止自动重跑。范围不含200题留出、7B或任何完整测试集。
 
-生成输出为三份`<arm>.json`、对应日志和逐题partial，以及`runtime_check.log`、`run_ledger.json`。生成子进程全部退出后，包装器标记`generation_completed_grading_pending`并提示GPU工作结束，不等待本地报告整理。作者判分使用既有ReBalance环境，仅处理保存文本，每组只判一次；代码不加载模型：
+生成输出为三份`<arm>.json`、对应日志和逐题partial，以及`runtime_check.log`、`run_ledger.json`。生成子进程全部退出后，包装器标记`generation_completed_grading_pending`并提示GPU工作结束，不等待本地报告整理。作者判分已使用既有ReBalance环境完成，仅处理保存文本，每组一次；下面仅是已执行记录，代码不加载模型：
 
 ```bash
 /root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/scripts/grade_mechanism_screen.py \
@@ -214,4 +214,6 @@ python integration/rebalance_easysteer/scripts/run_mechanism_screen.py --bundle 
 
 作者判分保存每组`<arm>.author.json`、判分partial和`analysis.json`；对照明确叫`original_dynamic`，不是无干预。报告两候选的全部逐题差异、正确率、思考／总token、触顶及纯生成时间，错误和触顶不剔除。若仅分析已判分文件，使用同脚本`--analyze-only`，不重新判分；已存在`analysis.json`则直接阅读。异常时保留完整组和partial，只在查明缺项后准备恢复方案，不把部分结果写成完成。
 
-快速CPU判分完成后取回运行目录、核对哈希，立即告知可以关闭实例；耗时较长的离线排查或报告一律移回本地。目前没有任何生成结果，不应填入预测的准确率或节省token。
+本次结果为原动态／最小位移／去共同均值作者正确数80／84／83，平均总token3898.36／3839.64／3765.02，触顶7／4／8；完整指标和停止理由见00。纯生成合计430.80秒，批次墙钟521.03秒；结束时GPU 0%、1MiB、无计算进程。运行数据现存本地`.codex_work/mechanism_candidates_20260911/gpu_run_20260912/`，同父目录保留压缩包与下载／独立复算回执，全部21个清单文件及压缩包哈希通过。
+
+单组输出`status=diagnostic_completed`表示本入口工程单组完成，不是缺测。`run_ledger.json`保留生成阶段的`generation_completed_grading_pending`原快照，最终3份作者判分和`analysis.json`均为`completed`；不改原ledger，也不因该字段再次判分。已完成的本地独立复算入口为实验分支`audit_mechanism_results.py --bundle <固定包> --results <已下载目录> --receipt <新回执路径>`，无需torch、模型或服务器；现有回执直接阅读，禁止覆盖原输出。后续新GPU批次必须重新完成本地准备并取得对应授权。
