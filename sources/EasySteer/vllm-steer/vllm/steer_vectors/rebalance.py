@@ -28,8 +28,16 @@ class ReBalanceParams:
     paper_parameters: tuple[float, ...] | None = None
     curve_tau: float = 0.01
     constant_control: bool = False
+    negative_only: bool = False
 
     def __post_init__(self):
+        if not isinstance(self.negative_only, bool):
+            raise ValueError("negative_only must be a boolean")
+        if self.negative_only and (
+            self.constant_control or self.paper_parameters is not None
+            or self.initial_coef > 0
+        ):
+            raise ValueError("Negative-only ablation requires author-code control")
         if self.constant_control:
             if not math.isfinite(self.initial_coef):
                 raise ValueError("Constant steering coefficient must be finite")
@@ -76,6 +84,7 @@ class ReBalanceParams:
             ),
             curve_tau=getattr(request, "rebalance_curve_tau", 0.01),
             constant_control=request.algorithm == "seal",
+            negative_only=getattr(request, "rebalance_negative_only", False),
         )
 
 

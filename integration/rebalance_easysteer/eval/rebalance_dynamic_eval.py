@@ -91,6 +91,8 @@ def parse_args() -> argparse.Namespace:
                         help="Fixed readout metadata for negative-displacement clipping")
     parser.add_argument("--feedback-disabled", action="store_true",
                         help="Engineering equivalence check with feedback payload disabled")
+    parser.add_argument("--negative-only", action="store_true",
+                        help="Ablate positive coefficients after the unchanged dynamic rule")
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a compatible saved baseline; no generation repeat")
     parser.add_argument("--dynamic-first", action="store_true",
@@ -100,6 +102,8 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.feedback_disabled and not args.feedback_config:
         parser.error("--feedback-disabled requires --feedback-config")
+    if args.negative_only and (args.feedback_config or args.paper_fit or args.resume_result):
+        parser.error("Negative-only ablation requires a fresh author-code run")
     if args.feedback_config and (args.paper_fit or args.resume_result or args.baseline_result):
         parser.error("Feedback prototype requires a fresh author-code run")
     if args.group_timeout_seconds < 0 or args.resume_elapsed_seconds < 0:
@@ -235,6 +239,8 @@ def main() -> None:
         "curve_tau": args.curve_tau,
     }
     payload = from_pt_direction(str(vector_path), layers=[args.layer])
+    if args.negative_only:
+        dynamic_params["negative_only"] = True
     algorithm = "rebalance"
     feedback = None
     if args.feedback_config:
@@ -286,6 +292,7 @@ def main() -> None:
             "limit": args.limit,
             "rebalance_source_layer": 19,
             "easysteer_output_layer": args.layer,
+            "negative_only": args.negative_only,
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
             "max_num_seqs": args.max_num_seqs,
@@ -422,6 +429,7 @@ def main() -> None:
                 raise RuntimeError("Feedback graph family was not installed")
             for table in feedback_tables:
                 table.zero_()
+        replay_state.positive_suppression_counts.zero_()
         # Graders may use SIGALRM internally; keep an independent wall-time cap.
         def enforce_deadline():
             print("Evaluation group exceeded its wall-time budget", file=sys.stderr, flush=True)
@@ -467,6 +475,13 @@ def main() -> None:
                 key: value - previous_replays[key]
                 for key, value in replay_state.replay_counts.items()
             }
+            if args.negative_only:
+                counts = replay_state.positive_suppression_counts.cpu().tolist()
+                summary["positive_suppression"] = dict(
+                    boundary_updates_cancelled=int(counts[0]),
+                    positive_coefficient_sum=counts[1],
+                    scope="Completed in-think boundary updates; a final capped token may not receive a subsequent forward",
+                )
             if feedback_tables:
                 totals = torch.stack([t.sum(0) for t in feedback_tables]).sum(0).cpu().tolist()
                 summary["feedback_applications"] = dict(zip(

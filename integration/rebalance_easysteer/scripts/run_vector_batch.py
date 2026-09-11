@@ -17,6 +17,10 @@ def validate_bundle(bundle):
     arms=3 if plan.get('graph_control_comparison') else 2
     require(plan['run_order'][0]=='original_dynamic' and len(plan['run_order'])==arms,'Only fixed paired or explicit graph-control batches')
     require(set(plan['run_order'])==set(plan['arms']) and plan['new_answers_planned']==arms*n,'Wrong scope')
+    if plan.get('positive_branch_ablation'):
+        require(plan['run_order']==['original_dynamic','negative_only_dynamic'],'Unexpected positive-branch ablation')
+        require(not plan['arms']['original_dynamic'].get('negative_only') and plan['arms']['negative_only_dynamic'].get('negative_only') is True,'Wrong ablation flags')
+        require(not any(arm.get('feedback_config') for arm in plan['arms'].values()),'Unplanned combined ablation')
     if arms==3:
         require(plan['run_order']==['original_dynamic','feedback_disabled','latent_feedback_clip'],'Unexpected graph-control design')
         off,on=plan['arms']['feedback_disabled'],plan['arms']['latent_feedback_clip']
@@ -56,6 +60,8 @@ def command(plan,bundle,out,name):
         cmd.extend(['--feedback-config',str(bundle/plan['arms'][name]['feedback_config'])])
         if plan['arms'][name].get('feedback_disabled'):
             cmd.append('--feedback-disabled')
+    if plan['arms'][name].get('negative_only'):
+        cmd.append('--negative-only')
     for key,value in plan['runtime'].items():
         if isinstance(value,bool):
             if value:cmd.append('--'+key.replace('_','-'))
@@ -70,8 +76,10 @@ def actual_parser_check(plan,bundle,out):
     actual_vector,actual_llm,actual_argv=evaluator.VectorSpec,evaluator.LLM,sys.argv
     seen=[]
     expected_algorithm='rebalance'
+    expected_negative_only=False
     def vector(*args,**kwargs):
         require(kwargs['layers']==[20] and kwargs['algorithm']==expected_algorithm,'Wrong parsed layer/algorithm')
+        require(kwargs['params'].get('negative_only',False) is expected_negative_only,'Wrong parsed positive-branch flag')
         for k,v in plan['dynamic_parameters'].items():require(kwargs['params'][k]==v,'Wrong parsed controller: '+k)
         seen.append(kwargs['layers']);return actual_vector(*args,**kwargs)
     def stop(**kwargs):raise BeforeModel()
@@ -79,6 +87,7 @@ def actual_parser_check(plan,bundle,out):
     try:
         for name in plan['run_order']:
             expected_algorithm='rebalance_feedback' if plan['arms'][name].get('feedback_config') else 'rebalance'
+            expected_negative_only=plan['arms'][name].get('negative_only',False)
             sys.argv=[str(ROOT/BASE/'eval/rebalance_dynamic_eval.py')]+command(plan,bundle,out/'preflight_no_generation',name)[3:]
             old=len(seen)
             try:evaluator.main()
@@ -92,6 +101,8 @@ def actual_parser_check(plan,bundle,out):
 def validate_arm(saved,plan,rows,name):
     require(saved.get('status')=='diagnostic_completed' and 'baseline' not in saved,'Incomplete/unplanned generation')
     p=saved['protocol'];arm=plan['arms'][name]
+    require(p.get('negative_only',False) is arm.get('negative_only',False),'Wrong positive-branch option')
+    require(p['dynamic_params'].get('negative_only',False) is arm.get('negative_only',False),'Wrong request positive-branch option')
     for key,value in plan['runtime'].items():require(p[key]==value,'Runtime differs: '+key)
     require(p['model']==plan['model'] and p['offset']==0 and p['limit']==len(rows)==plan['count'],'Wrong slice')
     require(p['run_order']==['rebalance_dynamic'] and p['easysteer_output_layer']==20,'Wrong parsed layer/group')
@@ -137,6 +148,9 @@ def main():
     if plan.get('graph_control_comparison'):
         receipt=read(Path(plan['engineering_completed_receipt']))
         require(receipt['status']=='engineering_passed_no_efficacy_claim' and receipt['plan_sha256']==sha(bundle/'plan.json'),'New controlled engineering check incomplete')
+    if plan.get('positive_branch_ablation'):
+        receipt=read(Path(plan['engineering_completed_receipt']))
+        require(receipt['status']=='engineering_passed_no_efficacy_claim' and receipt['plan_sha256']==sha(bundle/'plan.json'),'Positive-branch engineering incomplete')
     out.mkdir(parents=True)
     env=dict(os.environ,PYTHONNOUSERSITE='1',VLLM_ENABLE_V1_MULTIPROCESSING='0')
     env['PATH']=str(Path(PYTHON).parent)+os.pathsep+env['PATH']
@@ -157,7 +171,10 @@ def main():
             require(saved['provenance']['commit']==ledger['commit'],'Source changed during generation')
             if first is not None:
                 require(saved['environment']==first['environment'],'Environment changed')
-                require(saved['protocol']['dynamic_params']==first['protocol']['dynamic_params'],'Boundary/controller changed')
+                current=dict(saved['protocol']['dynamic_params']);previous=dict(first['protocol']['dynamic_params'])
+                if plan.get('positive_branch_ablation'):
+                    current.pop('negative_only',None);previous.pop('negative_only',None)
+                require(current==previous,'Boundary/controller changed')
             else:first=saved
             ledger['arms'][name]['raw_sha256']=sha(out/(name+'.json'));save(out/'run_ledger.json',ledger)
         ledger.update(status='generation_completed_grading_pending',completed_unix=time.time(),gpu_work_finished=True)

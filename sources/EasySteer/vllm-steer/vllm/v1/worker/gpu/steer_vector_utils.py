@@ -43,6 +43,7 @@ class SteerVectorState:
         self._prev_step_mean: torch.Tensor | None = None
         self._in_think: torch.Tensor | None = None
         self._history = None
+        self.positive_suppression_counts = None
         self._history_lengths: dict[str, int] = {}
         self._prompt_lengths: dict[str, int] = {}
         self._suspended: dict[str, dict] = {}
@@ -97,6 +98,9 @@ class SteerVectorState:
         )
         self._paper_strength = torch.zeros_like(self._coefs)
         self._paper_pending = torch.zeros_like(self._in_think)
+        self.positive_suppression_counts = torch.zeros(
+            2, dtype=torch.float32, device=device
+        )
 
     def add_request(
         self,
@@ -342,6 +346,13 @@ class SteerVectorState:
             updated = compute_rebalance_coefficient(
                 step_means, variance, params
             )
+            if params.negative_only:
+                cancelled = ready & in_think & (updated > 0)
+                self.positive_suppression_counts[0] += cancelled.sum()
+                self.positive_suppression_counts[1] += (
+                    updated * cancelled
+                ).sum()
+                updated = updated.clamp(max=0)
             current = self._coefs.index_select(0, state_idx)
             self._coefs.index_copy_(0, state_idx, torch.where(ready, updated, current))
             self._step_prob_sum.index_copy_(

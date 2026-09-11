@@ -157,6 +157,52 @@ def test_seal_constant_gate_ignores_confidence_and_tracks_each_request():
     assert state.requires_confidence()
 
 
+def test_negative_only_preserves_negative_updates_and_records_clamped_history():
+    """Remove the positive branch only, without changing observations or replay."""
+    from vllm.steer_vectors.api import (
+        ApplySpec, SteeringSpec, VectorSpec, to_engine_request,
+    )
+    params = dict(boundary_token_ids=[99], think_start_token_id=10,
+                  think_end_token_id=11, negative_only=True)
+    spec = SteeringSpec(vectors=[VectorSpec(
+        source="/unused.pt", layers=[20], algorithm="rebalance",
+        apply=ApplySpec(generation_tokens=[99]), params=params,
+    )])
+    request = to_engine_request(spec, name="negative", int_id=1)
+    assert ReBalanceParams.from_request(request).negative_only
+    states = []
+    for enabled in [False, True]:
+        request.rebalance_negative_only = enabled
+        state = SteerVectorState(1, torch.device("cpu"), max_model_len=32)
+        state.add_request("a", request, _Manager(), req_index=0,
+                          prompt_token_ids=[10])
+        states.append(state)
+    tokens = [10]
+    for token, probability in zip([1, 99, 2, 99, 3, 99, 11],
+                                  [1., .5, 1., .5, .2, .5, .8]):
+        batch = _replay_batch("cpu", tokens[-1:], len(tokens)-1, 1)
+        for state in states:
+            state.observe_sample(batch, torch.tensor([[token]]),
+                                 torch.tensor([probability]))
+        torch.testing.assert_close(states[1]._coefs,
+                                   states[0]._coefs.clamp(max=0))
+        torch.testing.assert_close(states[1]._step_prob_sum,
+                                   states[0]._step_prob_sum)
+        torch.testing.assert_close(states[1]._prev_step_mean,
+                                   states[0]._prev_step_mean, equal_nan=True)
+        tokens.append(token)
+    assert states[1].positive_suppression_counts[0] == 2
+    assert states[0].positive_suppression_counts.sum() == 0
+    assert (states[1]._history <= 0).all()
+    state = states[1]
+    history = state._history.clone()
+    state.suspend_request("a")
+    state.remove_request("a", _Manager())
+    state.add_request("a", request, _Manager(), req_index=0,
+                      prompt_token_ids=[10], num_generated_tokens=len(tokens)-1)
+    torch.testing.assert_close(state._history, history)
+
+
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():
     """Catch the silent k-floor failure missed by final-surface endpoint checks."""
     from vllm.steer_vectors.rebalance import (
