@@ -121,7 +121,7 @@ class SteerVectorState:
             )
         self._requests[req_id] = steer_vector_request
         self._slots[req_id] = manager.acquire_config(req_id, steer_vector_request)
-        if steer_vector_request.algorithm != "rebalance":
+        if steer_vector_request.algorithm not in ("rebalance", "rebalance_feedback"):
             return
         if req_index is None or self._coefs is None:
             raise RuntimeError("rebalance requires initialized request-index state")
@@ -789,7 +789,7 @@ def fill_graph_steer_buffers(
                 (
                     positions,
                     None
-                    if request.algorithm != "rebalance"
+                    if request.algorithm not in ("rebalance", "rebalance_feedback")
                     else token_scales.index_select(0, positions),
                 )
             )

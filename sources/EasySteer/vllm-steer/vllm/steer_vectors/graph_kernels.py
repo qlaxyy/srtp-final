@@ -25,7 +25,11 @@ GRAPH_FAMILIES: dict[str, dict[str, tuple[str, ...]]] = {
     "lowrank": {"A": ("h", "r"), "Rout": ("h", "r"), "b": ("r",)},
     # complete state becomes V[row]: delta = mask * (V[row] - x)
     "replace": {"V": ("h",)},
+    "feedback": {"V": ("h",), "W": ("h",), "C": ("s",), "E": ("s",),
+                 "stats": ("k",)},
 }
+
+GRAPH_FAMILY_FP32 = {"feedback": frozenset({"W", "C", "E", "stats"})}
 
 # Families whose delta is not neutralized by a zero table row carry
 # their own per-token mask; all others share "graph_mask".
@@ -34,6 +38,35 @@ GRAPH_FAMILY_MASKS: dict[str, str] = {"replace": "replace_mask"}
 
 def graph_family_mask_attr(family: str | None) -> str:
     return GRAPH_FAMILY_MASKS.get(family, "graph_mask")
+
+
+def feedback_delta(x, direction, readout, center, enabled, coefficients,
+                   return_metrics=False):
+    """Limit negative movement in a fixed linear coordinate (FP32 readout).
+
+    The coefficient and final activation still undergo model-dtype rounding;
+    the real-valued bound is not an exact bound on quantized activations.
+    """
+    score = (x.float() * readout).sum(dim=-1, keepdim=True)
+    response = (direction.float() * readout).sum(dim=-1, keepdim=True)
+    room = ((score - center) / response.clamp_min(1e-12)).clamp_min(0)
+    incoming = coefficients.float()
+    effective = torch.where(
+        (incoming < 0) & (enabled > 0),
+        torch.maximum(incoming, -room),
+        incoming,
+    )
+    actual = effective.to(direction.dtype)
+    delta = actual * direction
+    if not return_metrics:
+        return delta
+    negative = (incoming < 0) & (enabled > 0)
+    changed = negative & (actual.float() != incoming)
+    cancelled = negative & (actual == 0)
+    metrics = torch.cat((negative.float(), changed.float(), cancelled.float(),
+                         negative * incoming.abs(), negative * actual.float().abs()),
+                        dim=-1)
+    return delta, metrics
 
 
 def apply_decoder_families(
@@ -98,6 +131,15 @@ def apply_decoder_families(
 
     total = None if delta is None else mask * delta
     nf_mask = None if delta is None else mask
+    if "feedback" in tables:
+        feedback = tables["feedback"]
+        term, metrics = feedback_delta(
+            x, feedback["V"][rt], feedback["W"][rt],
+            feedback["C"][rt], feedback["E"][rt], mask, return_metrics=True,
+        )
+        feedback["stats"].index_add_(0, rt, metrics)
+        total = term if total is None else total + term
+        nf_mask = mask if nf_mask is None else nf_mask
     if "replace" in tables:
         repl = replace_mask[:n].unsqueeze(1)
         term = repl * (tables["replace"]["V"][rt] - x)

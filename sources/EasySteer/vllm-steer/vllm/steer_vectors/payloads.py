@@ -131,6 +131,32 @@ class LinearMap(Payload):
         return out
 
 
+class FeedbackDirection(Payload):
+    """One-layer ReBalance direction with a fixed linear feedback readout."""
+
+    kind = "feedback_direction"
+
+    def __init__(self, direction, readout, center, *, layer: int, enabled=True):
+        self.direction = _as_array("direction", direction, ndim=1)
+        self.readout = _as_array("readout", readout, ndim=1)
+        _check_dims({"direction": self.direction, "readout": self.readout},
+                    {"direction": 0, "readout": 0})
+        self.center = _as_array("center", [center], ndim=1)
+        self.enabled = np.asarray([bool(enabled)], dtype=np.float32)
+        self.layer = int(layer)
+        if self.layer < 0 or float(self.readout @ self.direction) <= 0:
+            raise ValueError(
+                "feedback requires a nonnegative layer and positive response"
+            )
+
+    def _tensors(self) -> dict[str, np.ndarray]:
+        return {"direction": self.direction, "readout": self.readout,
+                "center": self.center, "enabled": self.enabled}
+
+    def _extra(self) -> dict[str, Any]:
+        return {"layer": self.layer}
+
+
 class LowRankProjector(Payload):
     """A low-rank update ``h' = h + scale * (h @ P1) @ P2.T``.
 
@@ -233,6 +259,7 @@ PAYLOAD_KINDS: dict[str, type[Payload]] = {
         LowRankProjector,
         ReftIntervention,
         ConceptPair,
+        FeedbackDirection,
     )
 }
 
@@ -240,6 +267,7 @@ PAYLOAD_KINDS: dict[str, type[Payload]] = {
 ALGORITHM_PAYLOADS: dict[str, str] = {
     "direct": "direction",
     "rebalance": "direction",
+    "rebalance_feedback": "feedback_direction",
     "erase": "direction",
     "replace": "direction",
     "linear": "linear",
@@ -303,7 +331,9 @@ def materialize(
     kind = validate_wire(wire)
     tensors = {
         name: torch.from_numpy(_wire_bytes(entry, name).copy()).to(
-            device=device, dtype=dtype
+            device=device,
+            dtype=(torch.float32 if kind == "feedback_direction"
+                   and name != "direction" else dtype),
         )
         for name, entry in wire["tensors"].items()
     }
@@ -317,6 +347,11 @@ def materialize(
 
     if kind == "direction":
         return _layer_keyed("layer.")
+    if kind == "feedback_direction":
+        layer = int(wire["extra"]["layer"])
+        if target_layers and target_layers != [layer]:
+            raise ValueError("feedback payload and target layer differ")
+        return {layer: tensors}
     if kind == "concept_pair":
         h1 = _layer_keyed("h1.layer.")
         h2 = _layer_keyed("h2.layer.")

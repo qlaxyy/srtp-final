@@ -2,6 +2,7 @@ from types import SimpleNamespace
 
 import numpy as np
 import torch
+import unittest
 
 from vllm.steer_vectors.rebalance import (
     ReBalanceParams,
@@ -28,7 +29,9 @@ def _replay_batch(device, tokens, computed, prefill, slot=0):
     )
 
 
-def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse():
+def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
+    algorithm="rebalance",
+):
     """Eviction must preserve past injections even when current strength is zero."""
     from vllm.v1.worker.gpu.steer_vector_utils import (
         build_batch_geometry, resolve_slot_positions,
@@ -38,6 +41,7 @@ def test_rebalance_replays_past_scales_after_think_end_and_slot_reuse():
     for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
         for paper in (False, True):
             req = _request()
+            req.algorithm = algorithm
             if paper:
                 req.rebalance_initial_coef = 0.
                 req.rebalance_paper_parameters = [2., 2., 2., .02, .002]
@@ -101,6 +105,12 @@ def test_rebalance_rejects_generated_prefix_without_history():
         assert "no saved" in str(error)
     else:
         raise AssertionError("A restarted worker cannot invent dynamic history")
+
+
+def test_feedback_replays_past_scales_after_think_end_and_slot_reuse():
+    test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
+        "rebalance_feedback"
+    )
 
 
 def test_auto_calibration_rejects_infeasible_fit_and_hits_all_three_anchors():
@@ -376,3 +386,112 @@ def test_rebalance_cached_positions_follow_changed_batch_membership():
     state.remove_request("a", manager)
     state.remove_request("b", manager)
     assert not state._position_tensors
+
+
+def test_feedback_readout_limits_only_negative_motion_and_uses_complete_state():
+    """A residual-stream readout must limit displacement, not flip its sign."""
+    from vllm.steer_vectors.controllers import DecoderSteerController
+    from vllm.steer_vectors.graph_kernels import apply_decoder_families
+    from vllm.steer_vectors.payloads import FeedbackDirection, materialize
+
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for dtype in (torch.float32, torch.bfloat16):
+            rows = torch.ones(5, dtype=torch.long, device=device)
+            controller = DecoderSteerController()
+            controller.init_graph_table(1, 2, dtype, torch.device(device),
+                                        5, rows, 1, frozenset({"feedback"}))
+            payload = FeedbackDirection([1., 0.], [1., 0.], 0., layer=20)
+            data = materialize(payload.to_wire(), device, dtype, [20])[20]
+            controller.set_graph_row(1, "rebalance_feedback", data, 1.)
+            assert controller.graph_tables["feedback"]["W"].dtype == torch.float32
+            hidden = torch.tensor([[-2., 3.], [-.5, 3.], [3., 3.],
+                                   [-2., 3.], [2., 3.]], dtype=dtype, device=device)
+            residual = torch.tensor([[1., 0.]] * 5, dtype=dtype, device=device)
+            controller.graph_mask.copy_(torch.tensor([-2., -2., -2., .1, 0.],
+                                                     dtype=dtype, device=device))
+            result = apply_decoder_families(
+                controller.graph_tables, controller.graph_mask,
+                controller.replace_mask, controller.normalize_flag, rows,
+                hidden, residual,
+            )
+            expected_delta = torch.tensor(
+                [[0., 0.], [-.5, 0.], [-2., 0.], [.1, 0.], [0., 0.]],
+                dtype=dtype, device=device,
+            )
+            assert torch.equal(result, hidden + expected_delta)
+            torch.testing.assert_close(
+                controller.graph_tables["feedback"]["stats"][1, :3],
+                torch.tensor([3., 2., 1.], device=device),
+            )
+            controller.clear_graph_row(1)
+            cleared = apply_decoder_families(
+                controller.graph_tables, controller.graph_mask,
+                controller.replace_mask, controller.normalize_flag, rows,
+                hidden, residual,
+            )
+            assert torch.equal(cleared, hidden)
+
+
+def test_feedback_disabled_and_positive_motion_match_existing_graph_exactly():
+    """Feedback off must preserve the old arithmetic, including BF16 rounding."""
+    from vllm.steer_vectors.graph_kernels import apply_decoder_families
+    generator = torch.Generator().manual_seed(712)
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for dtype in (torch.float32, torch.bfloat16):
+            hidden = torch.randn(19, 31, generator=generator).to(device, dtype)
+            residual = torch.randn(19, 31, generator=generator).to(device, dtype)
+            vector = torch.randn(3, 31, generator=generator).to(device, dtype)
+            vector[0].zero_()
+            w = vector.float() * .37
+            rows = (torch.arange(19, device=device) % 3).long()
+            mask = torch.linspace(-2, .1, 19, device=device).to(dtype)
+            off = torch.zeros(19, device=device, dtype=dtype)
+            norm = torch.zeros(3, device=device, dtype=dtype)
+            feedback = {"V": vector, "W": w,
+                        "C": torch.zeros(3, 1, device=device),
+                        "E": torch.zeros(3, 1, device=device),
+                        "stats": torch.zeros(3, 5, device=device)}
+            for enabled in (False, True):
+                feedback["E"].fill_(float(enabled))
+                current_mask = mask.abs() if enabled else mask
+                args = (current_mask, off, norm, rows, hidden, residual)
+                expected = apply_decoder_families({"additive": {"V": vector}}, *args)
+                actual = apply_decoder_families({"feedback": feedback}, *args)
+                assert torch.equal(actual, expected)
+                # Replaying chunks may change batch shape; each row's transform
+                # is stateless and must produce the same intervention.
+                split = []
+                for start, end in ((0, 7), (7, 19)):
+                    split.append(apply_decoder_families(
+                        {"feedback": feedback}, current_mask[start:end],
+                        off[start:end], norm, rows[start:end],
+                        hidden[start:end], residual[start:end],
+                    ))
+                assert torch.equal(torch.cat(split), actual)
+
+
+def test_feedback_payload_preserves_readout_precision_and_dynamic_admission():
+    """Payload identity and the dynamic state machine must include feedback."""
+    from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
+    from vllm.steer_vectors.api import to_engine_request
+    from vllm.steer_vectors.graph_support import graph_request_problem
+    from vllm.steer_vectors.payloads import FeedbackDirection, materialize
+    a = FeedbackDirection([1., 2.], [.1234567, .7654321], .1234567, layer=20)
+    b = FeedbackDirection([1., 2.], [.1234567, .7654321], .1234567,
+                          layer=20, enabled=False)
+    assert a.to_wire()["sha256"] != b.to_wire()["sha256"]
+    data = materialize(a.to_wire(), "cpu", torch.bfloat16, [20])[20]
+    assert data["direction"].dtype == torch.bfloat16
+    assert data["readout"].dtype == torch.float32
+    assert data["center"].dtype == torch.float32
+    params = dict(boundary_token_ids=[99], think_start_token_id=10,
+                  think_end_token_id=11)
+    spec = VectorSpec(algorithm="rebalance_feedback", data=a, layers=[20],
+                      apply=ApplySpec(generation_tokens=[99]), params=params)
+    request = to_engine_request(SteeringSpec(vectors=[spec]))
+    assert request.rebalance_boundary_token_ids == [99]
+    assert graph_request_problem(request, 1) is None
+    with unittest.TestCase().assertRaises(ValueError):
+        FeedbackDirection([1.], [-1.], 0., layer=20)
+    with unittest.TestCase().assertRaises(ValueError):
+        SteeringSpec(vectors=[spec, spec])

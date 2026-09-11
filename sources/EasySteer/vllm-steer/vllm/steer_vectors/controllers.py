@@ -13,6 +13,7 @@ from vllm.steer_vectors.geometry import (
 from .algorithms import create_algorithm, get_algorithm
 from .graph_kernels import (
     GRAPH_FAMILIES,
+    GRAPH_FAMILY_FP32,
     apply_decoder_families,
     apply_gate_toggles,
 )
@@ -230,12 +231,15 @@ class DecoderSteerController(SlotRoutedSteerController):
         every allocated table stays zero (the no-steer row): idle rows
         contribute an exact zero delta.
         """
-        dim_of = {"h": hidden_size, "r": max_rank}
+        dim_of = {"h": hidden_size, "r": max_rank, "s": 1, "k": 5}
         rows = num_rows + 1
         self.graph_tables = {
             family: {
                 key: torch.zeros(
-                    rows, *(dim_of[d] for d in dims), dtype=dtype, device=device
+                    rows, *(dim_of[d] for d in dims),
+                    dtype=(torch.float32
+                           if key in GRAPH_FAMILY_FP32.get(family, ()) else dtype),
+                    device=device,
                 )
                 for key, dims in schema.items()
             }
@@ -303,8 +307,11 @@ class DecoderSteerController(SlotRoutedSteerController):
             return
         self.normalize_flag[row] = 0.0
         for tables in self.graph_tables.values():
-            for table in tables.values():
-                table[row].zero_()
+            for key, table in tables.items():
+                # Diagnostic totals survive slot retirement; callers reset
+                # them explicitly between evaluation groups.
+                if key != "stats":
+                    table[row].zero_()
 
     def zero_step_masks(self) -> None:
         self.graph_mask.zero_()

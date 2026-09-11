@@ -87,6 +87,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--curve-tau", type=float, default=0.01)
     parser.add_argument("--calibration-fit", type=Path)
     parser.add_argument("--paper-fit", type=Path)
+    parser.add_argument("--feedback-config", type=Path,
+                        help="Fixed readout metadata for negative-displacement clipping")
+    parser.add_argument("--feedback-disabled", action="store_true",
+                        help="Engineering equivalence check with feedback payload disabled")
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a compatible saved baseline; no generation repeat")
     parser.add_argument("--dynamic-first", action="store_true",
@@ -94,6 +98,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
     args = parser.parse_args()
+    if args.feedback_disabled and not args.feedback_config:
+        parser.error("--feedback-disabled requires --feedback-config")
+    if args.feedback_config and (args.paper_fit or args.resume_result or args.baseline_result):
+        parser.error("Feedback prototype requires a fresh author-code run")
     if args.group_timeout_seconds < 0 or args.resume_elapsed_seconds < 0:
         parser.error("Timeout and previous elapsed seconds must be nonnegative; zero timeout disables it")
     if args.resume_result and (args.baseline_result or args.diagnostic_group or args.profile_steps):
@@ -227,6 +235,25 @@ def main() -> None:
         "curve_tau": args.curve_tau,
     }
     payload = from_pt_direction(str(vector_path), layers=[args.layer])
+    algorithm = "rebalance"
+    feedback = None
+    if args.feedback_config:
+        import numpy as np
+        from vllm.steer_vectors.payloads import FeedbackDirection
+        feedback = json.loads(args.feedback_config.read_text(encoding="utf-8"))
+        readout_path = args.feedback_config.resolve().parent / feedback["readout_file"]
+        if hashlib.sha256(readout_path.read_bytes()).hexdigest() != feedback["readout_sha256"]:
+            raise ValueError("Feedback readout hash mismatch")
+        if hashlib.sha256(vector_path.read_bytes()).hexdigest() != feedback["vector_sha256"]:
+            raise ValueError("Feedback requires its fixed original direction")
+        if feedback["decoder_output_layer"] != args.layer:
+            raise ValueError("Feedback readout layer mismatch")
+        payload = FeedbackDirection(
+            payload.layers[args.layer], np.load(readout_path, allow_pickle=False),
+            feedback["negative_centroid_score"], layer=args.layer,
+            enabled=not args.feedback_disabled,
+        )
+        algorithm = "rebalance_feedback"
     if paper is not None:
         dynamic_params["paper_parameters"] = paper["parameters"]["paper_parameters"]
     steering = SteeringSpec(
@@ -234,7 +261,7 @@ def main() -> None:
             VectorSpec(
                 name="rebalance_dynamic",
                 data=payload,
-                algorithm="rebalance",
+                algorithm=algorithm,
                 scale=1.0,
                 layers=[args.layer],
                 normalize=False,
@@ -298,6 +325,12 @@ def main() -> None:
         "vector_sha256": hashlib.sha256(vector_path.read_bytes()).hexdigest(),
     }
     result["protocol"]["group_timeout_seconds"] = args.group_timeout_seconds
+    if feedback is not None:
+        result["feedback"] = feedback
+        result["protocol"]["steering_algorithm"] = algorithm
+        result["protocol"]["feedback_enabled"] = not args.feedback_disabled
+        result["provenance"]["feedback_config_sha256"] = hashlib.sha256(
+            args.feedback_config.read_bytes()).hexdigest()
     result["protocol"]["preemption_policy"] = "restore controller and replay historical input scales"
     result["protocol"]["run_order"] = (
         ["rebalance_dynamic", "baseline"] if args.dynamic_first
@@ -379,6 +412,16 @@ def main() -> None:
         started = time.perf_counter()
         previous_preemptions = preemptions["events"]
         previous_replays = dict(replay_state.replay_counts)
+        feedback_tables = []
+        if feedback is not None:
+            for module in runner.steer_vector_manager.graph_state.controllers:
+                tables = getattr(module, "graph_tables", None) or {}
+                if "feedback" in tables:
+                    feedback_tables.append(tables["feedback"]["stats"])
+            if not feedback_tables:
+                raise RuntimeError("Feedback graph family was not installed")
+            for table in feedback_tables:
+                table.zero_()
         # Graders may use SIGALRM internally; keep an independent wall-time cap.
         def enforce_deadline():
             print("Evaluation group exceeded its wall-time budget", file=sys.stderr, flush=True)
@@ -424,6 +467,14 @@ def main() -> None:
                 key: value - previous_replays[key]
                 for key, value in replay_state.replay_counts.items()
             }
+            if feedback_tables:
+                totals = torch.stack([t.sum(0) for t in feedback_tables]).sum(0).cpu().tolist()
+                summary["feedback_applications"] = dict(zip(
+                    ["negative_executions", "coefficient_changed", "negative_cancelled",
+                     "requested_absolute_coefficient_sum", "applied_absolute_coefficient_sum"],
+                    totals,
+                ))
+                summary["feedback_counter_scope"] = "All token executions, including any KV replay; coefficient rounding included; amplitude sums are FP32 diagnostics"
             if resume_path is not None:
                 summary["resumed_completed_answers"] = sum(1 for _ in resume_path.open())
                 summary["prior_interrupted_seconds"] = args.resume_elapsed_seconds
@@ -455,7 +506,7 @@ def main() -> None:
             max_num_batched_tokens=args.max_num_batched_tokens,
             gpu_memory_utilization=args.gpu_memory_utilization,
             enable_steer_vector=True,
-            steer_algorithms=["rebalance"],
+            steer_algorithms=[algorithm],
             enforce_eager=False,
             steer_graph_mode="in_graph",
             enable_chunked_prefill=args.chunked_prefill,
