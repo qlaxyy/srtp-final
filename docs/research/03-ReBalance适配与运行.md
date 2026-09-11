@@ -139,9 +139,9 @@ python integration/rebalance_easysteer/scripts/replay_atom_cycles.py --output <�
 
 ## 完整步骤正向开关（实验分支，尚未GPU验收）
 
-实现位于`codex/repeat-positive-gate-20260911`／`8df7c2a`，main仅保存[CPU检查结果](../../integration/rebalance_easysteer/configs/repeat_gate500_20260911.json)。本地checkout是`.codex_work/repeat_gate_worktree/`。代码入口为该分支的`eval/repeat_positive_gate.py`，由`eval/rebalance_dynamic_eval.py`显式安装；没有修改EasySteer源码、冻结向量或动态函数。
+检测实现位于`codex/repeat-positive-gate-20260911`／`8df7c2a`，配对入口与固定100题在`89160b1`，运行前检查修正为`a61b590`，main仅保存[CPU检查结果](../../integration/rebalance_easysteer/configs/repeat_gate500_20260911.json)。本地checkout是`.codex_work/repeat_gate_worktree/`。代码入口为该分支的`eval/repeat_positive_gate.py`，由`eval/rebalance_dynamic_eval.py`显式安装；没有修改EasySteer源码、冻结向量或动态函数。
 
-默认`--repeat-gate off`完全不安装桥接；`shadow`只检测并记录原施加强度，`cancel_positive`在完整相邻步骤块重复时裁剪当次实际施加强度为不大于0，保留原控制器状态。两种启用模式都增加CPU读取采样token的同步开销，不能把9.49秒离线回放当作在线开销。当前仅允许`--diagnostic-group rebalance_dynamic`、已有`--calibration-fit`、`--max-tokens 16000`的新工程单组运行，拒绝混入论文重建版、断点续跑或性能剖析；这不是已经完成的100题配对入口，也没有启动GPU。现有工程入口仍为同步调度，后续性能方案需另行明确。
+默认`--repeat-gate off`完全不安装桥接；`shadow`只检测并记录原施加强度，`cancel_positive`在完整相邻步骤块重复时裁剪当次实际施加强度为不大于0，保留原控制器状态。两种启用模式都增加CPU读取采样token的同步开销，不能把9.49秒离线回放当作在线开销。当前仅允许`--diagnostic-group rebalance_dynamic`、已有`--calibration-fit`、`--max-tokens 16000`的新工程单组运行，拒绝混入论文重建版、断点续跑或性能剖析；单组产物仍标为工程结果，新的配对包装器只有在两组各100份完整、协议一致时才组合为训练验证记录。入口新增`--async-scheduling`，默认仍同步；固定100题方案明确启用异步。尚未启动GPU。
 
 CPU回放已经完成，不必重跑。确需核对新实现时，在**该分支checkout**中运行：
 
@@ -150,6 +150,17 @@ python integration/rebalance_easysteer/scripts/replay_repeat_gate.py --assets <�
 ```
 
 使用现有Python与NumPy即可，无需服务器或torch。`--assets`可以指向主checkout以复用其`.codex_work`原归档；输出必须新建。完成目录`.codex_work/repeat_gate500_20260911/`中保存方案、500题摘要、全部边界／步骤、10个审读窗口及范围说明。线上桥接要求单进程V2 runner与施加强度历史，KV抢占同时保留检测器的未完成片段、完整步骤和观察token数；CUDA及真实抢占行为尚未验收。输出摘要另记tokenizer／桥接源码哈希、原／实际强度、改变位置和复制批次数。
+
+
+固定100题已准备，无需重新运行抽样器。**在实验分支checkout内**执行下面的只读预检，不会导入torch、连接服务器或生成答案：
+
+```text
+python integration/rebalance_easysteer/scripts/run_repeat_validation.py --bundle integration/rebalance_easysteer/configs/repeat_validation100_20260911 --output <未来的新结果目录>
+```
+
+GPU方案经用户确定后，服务器同一命令显式增加`--execute`，输出建议为`/root/autodl-tmp/results/easysteer/repeat_validation100_20260911`。包装器沿用两个现有环境，确认现有环境实际导入路径属于当前实验checkout（否则拒绝），核对干净Git、35个冻结源文件（仅评测入口按实验版哈希替换）及新增实现、模型5文件、向量、fit和题目哈希；源文本统一LF校验，题目文件固定LF并用原始字节哈希。两组以独立进程、同一1.5B异步配置运行，原动态完全关闭检测，候选包含检测同步开销。没有默认额外20题或合成吞吐试验。
+
+运行输出为`original_dynamic.json`、`repeat_cancel_positive.json`及各自日志／逐题partial，完整后生成`paired.json`、`author_grading.json`、`analysis.json`和`run_ledger.json`。为了沿用作者判分器，组合文件的`baseline`键明确表示**原动态版**，`rebalance_dynamic`键表示候选，不是无干预对照；协议保留两份原单组信息与对应含义。中途异常标记incomplete，不自动重启／覆盖已有结果；如果只欠判分，使用保存的`paired.json`单独判分，不重跑两组。完整固定方案、题号与判断规则见00及[验证准备记录](../../integration/rebalance_easysteer/configs/repeat_validation100_20260911.json)。
 
 ## 单边界配对续写（实验已完成）
 
