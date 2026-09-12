@@ -33,7 +33,8 @@ def validate(bundle, raw_path, model_check=False):
 
 def prompt_function(plan):
     text = (ROOT/plan['prompt_builder_source']).read_text(encoding='utf-8')
-    require(hashlib.sha256(prompt_body(text).encode()).hexdigest() == plan['prompt_builder_AST_sha256'], 'Prompt builder changed')
+    require(plan['prompt_fingerprint'] == 'normalized_exact_function_source', 'Unsupported prompt fingerprint')
+    require(hashlib.sha256(prompt_body(text).encode()).hexdigest() == plan['prompt_builder_sha256'], 'Prompt builder changed')
     node = next(n for n in ast.parse(text).body if isinstance(n, ast.FunctionDef) and n.name == 'build_prompt')
     namespace = dict(AutoTokenizer=object)
     exec(compile(ast.Module(body=[node], type_ignores=[]), '<verified_prompt_builder>', 'exec'), namespace)
