@@ -16,14 +16,17 @@
         {
           "path": "integration/rebalance_easysteer/configs/mechanism_screen100_20260911/confirmation200.jsonl",
           "sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
-          "role": "Existing A-line reservation; current independence audit pending; not available for B development"
+          "role": "Consumed A-line independent confirmation: O/M each 200 answers completed. Exclude from future independent validation in both lines.",
+          "status": "used_generation_and_outcome_analysis"
         }
       ],
       "confirmation_subbranch": {
         "branch": "codex/min-displacement-confirm-v1",
         "worktree": "E:\\srtp\\srtp-final\\.codex_work\\min_confirmation_worktree",
         "commit": "f9fb2da5ad0e69f4e27943f76e585c091166e0bc",
-        "reason": "Freeze old generation source, add confirmation orchestration only; remains A-line, not a third research line"
+        "reason": "Freeze old generation source, add confirmation orchestration only; remains A-line, not a third research line",
+        "status": "completed_200_pair_confirmation_no_compression",
+        "result_path": "integration/rebalance_easysteer/configs/min_displacement_confirm_v1/result.json"
       }
     },
     "B": {

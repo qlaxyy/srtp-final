@@ -1,0 +1,142 @@
+{
+  "status": "completed_diagnostic_engineering_unresolved",
+  "runtime_seconds": 10.924077093601227,
+  "new_answers": 0,
+  "input_tokens": 3454,
+  "archive_sha256": "1cbb2fc5b7fb1b98d9d9c967c539bc60db65f1e2c04a5288765243116b7962ed",
+  "ledger_sha256": "7dec84c2607b642f4119d337739db8ad5237df814ba85dd4fede8fc0e328e57a",
+  "all_asset_hashes_verified": true,
+  "all_saved_extension_metrics_recomputed": true,
+  "old_failed_run_short_state_equal": true,
+  "checks": [
+    {
+      "attention": "sdpa",
+      "repeat_all_layers_exact": true,
+      "embedding_extension_exact": true,
+      "layer0": [
+        {
+          "max_absolute": 0.0625,
+          "coordinate": 1421,
+          "first_value": -8.3125,
+          "second_value": -8.25,
+          "first_norm": 33.77530311786449,
+          "second_norm": 33.69193131139977,
+          "relative_l2": 0.005687295700444386,
+          "cosine": 0.999986841414097,
+          "exact": false,
+          "original_tolerance_pass": false
+        },
+        {
+          "max_absolute": 0.0625,
+          "coordinate": 1421,
+          "first_value": -8.75,
+          "second_value": -8.6875,
+          "first_norm": 30.621523821043677,
+          "second_norm": 30.5808940459309,
+          "relative_l2": 0.00468244201062188,
+          "cosine": 0.9999899042213537,
+          "exact": false,
+          "original_tolerance_pass": false
+        }
+      ],
+      "layer20": [
+        {
+          "max_absolute": 0.5,
+          "coordinate": 609,
+          "first_value": 82.5,
+          "second_value": 82.0,
+          "first_norm": 195.47856160352148,
+          "second_norm": 195.63642646093328,
+          "relative_l2": 0.008876699043918976,
+          "cosine": 0.9999609597291274,
+          "exact": false,
+          "original_tolerance_pass": false
+        },
+        {
+          "max_absolute": 0.5,
+          "coordinate": 609,
+          "first_value": 44.25,
+          "second_value": 44.75,
+          "first_norm": 160.82357787902654,
+          "second_norm": 160.90179690349848,
+          "relative_l2": 0.013538985757290728,
+          "cosine": 0.999908510705213,
+          "exact": false,
+          "original_tolerance_pass": false
+        }
+      ],
+      "sdpa_calls": 84,
+      "sdpa_dropout_values": [
+        0.0
+      ],
+      "sdpa_mask_flags": [
+        [
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "attention": "eager",
+      "repeat_all_layers_exact": true,
+      "embedding_extension_exact": true,
+      "layer0": [
+        {
+          "max_absolute": 0.03125,
+          "coordinate": 222,
+          "first_value": 4.90625,
+          "second_value": 4.9375,
+          "first_norm": 29.037731173334134,
+          "second_norm": 29.048897117913565,
+          "relative_l2": 0.0045102636049668314,
+          "cosine": 0.9999899065748864,
+          "exact": false,
+          "original_tolerance_pass": false
+        },
+        {
+          "max_absolute": 0.0625,
+          "coordinate": 609,
+          "first_value": 8.1875,
+          "second_value": 8.125,
+          "first_norm": 25.799498372816366,
+          "second_norm": 25.681623028926783,
+          "relative_l2": 0.014436512241547185,
+          "cosine": 0.999905800595833,
+          "exact": false,
+          "original_tolerance_pass": false
+        }
+      ],
+      "layer20": [
+        {
+          "max_absolute": 0.5,
+          "coordinate": 609,
+          "first_value": 81.5,
+          "second_value": 81.0,
+          "first_norm": 191.0592980364534,
+          "second_norm": 191.24162579758647,
+          "relative_l2": 0.012755907536925152,
+          "cosine": 0.9999191758854641,
+          "exact": false,
+          "original_tolerance_pass": false
+        },
+        {
+          "max_absolute": 0.75,
+          "coordinate": 865,
+          "first_value": -11.1875,
+          "second_value": -11.9375,
+          "first_norm": 152.63280850450874,
+          "second_norm": 152.976421893245,
+          "relative_l2": 0.024433700936009748,
+          "cosine": 0.9997046959753731,
+          "exact": false,
+          "original_tolerance_pass": false
+        }
+      ],
+      "sdpa_calls": 0,
+      "sdpa_dropout_values": [],
+      "sdpa_mask_flags": []
+    }
+  ],
+  "decision": "Both BF16 attention paths fail original per-position tolerance. No full replay/fit or extra forwards; BCC remains engineering unresolved.",
+  "limitation": "Embedding equality and deterministic repeats do not establish mask correctness or prove rounding is the cause. No same-length suffix control/math backend/FP32 forward authorized in this batch."
+}
