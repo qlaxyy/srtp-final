@@ -53,8 +53,9 @@ def save(path, data):
         f.write('\n')
 
 
-def dataset(role):
-    return [json.loads(s) for s in (HERE/'prepared_run1'/f'{role}.jsonl').read_text(encoding='utf-8').splitlines()]
+def dataset(role, expansion=False):
+    folder = 'expanded_20260913' if expansion and role != 'engineering' else 'prepared_run1'
+    return [json.loads(s) for s in (HERE/folder/f'{role}.jsonl').read_text(encoding='utf-8').splitlines()]
 
 
 def prepare(a):
@@ -173,7 +174,7 @@ def run_child(a):
               max_model_len=32768,max_num_seqs=128,max_num_batched_tokens=32768,
               gpu_memory_utilization=.9,enable_steer_vector=True,steer_algorithms=['rebalance'],
               enforce_eager=False,steer_graph_mode='in_graph',enable_chunked_prefill=False,
-              enable_prefix_caching=False,async_scheduling=False,seed=42)
+              enable_prefix_caching=False,async_scheduling=bool(r.get('expansion')),seed=42)
     startup = time.monotonic()-started
     core = llm.llm_engine.engine_core.engine_core
     runner = core.model_executor.driver_worker.worker.model_runner
@@ -199,7 +200,8 @@ def run_child(a):
         history.clear()
         if hasattr(runner,'hybrid_termination'):
             runner.hybrid_termination = None
-        rows = dataset('engineering' if stage=='engineering' else 'screening')
+        role = 'engineering' if stage=='engineering' else stage if r.get('expansion') else 'screening'
+        rows = dataset(role, bool(r.get('expansion')))
         cap = 512 if stage=='engineering' else 16000
         folder = output/stage/name
         folder.mkdir(parents=True,exist_ok=False)
@@ -209,7 +211,7 @@ def run_child(a):
                                   extra_args={'hybrid_syncthink_cgrs_20260912':config} if mode!='absent' else None)
         prompts = [build_prompt(tokenizer,row['problem']) for row in rows]
         actual_prompt_ids = [tokenizer.encode(s) for s in prompts]
-        assert actual_prompt_ids == r['prompts']['engineering' if stage=='engineering' else 'screening']
+        assert actual_prompt_ids == r['prompts'][role]
         began = time.monotonic()
         torch.cuda.synchronize()
         request_ids = llm.enqueue(prompts,sampling_params=sampling,steering=steering if use_r else None)
@@ -219,7 +221,7 @@ def run_child(a):
         checkpoint_io_seconds = 0.0
         with (folder/'partial.jsonl').open('x',encoding='utf-8') as f:
             while llm.llm_engine.has_unfinished_requests():
-                if time.monotonic()-began > (600 if stage=='screening' else 120):
+                if time.monotonic()-began > ((900 if r.get('expansion') else 600) if stage!='engineering' else 120):
                     raise TimeoutError('Per-arm wall budget')
                 for result in llm.llm_engine.step():
                     if result.finished:
@@ -253,6 +255,21 @@ def run_child(a):
             record['R_history']=history.get(rid)
             record['hybrid']=receipt['requests'].get(rid)
             if mode in ('shadow','enforce'):
+                if r.get('expansion'):
+                    h=record['hybrid']
+                    # Two in-flight batches may sample one unused tail token.
+                    # Retain raw counters; published output is the accepted prefix.
+                    h['worker_sampled_tokens']=h['accepted_tokens']
+                    h['discarded_async_tail_tokens']=h['accepted_tokens']-record['tokens']
+                    assert 0 <= h['discarded_async_tail_tokens'] <= core.batch_queue_size-1
+                    h['accepted_tokens']=record['tokens']
+                    h['worker_first_trigger']=h['first_trigger']
+                    if h['first_trigger'] >= record['tokens']:
+                        h['first_trigger']=-1
+                    h['worker_end_position']=h['end_position']
+                    actual_end=record['token_ids'].index(151649) if 151649 in record['token_ids'] else -1
+                    assert h['end_position']==actual_end or (actual_end==-1 and h['end_position']>=record['tokens'])
+                    h['end_position']=actual_end
                 assert record['hybrid']['accepted_tokens']==record['tokens']
                 if mode=='enforce' and record['hybrid']['first_trigger']>=0:
                     assert record['token_ids'][record['hybrid']['first_trigger']]==151649
@@ -285,9 +302,9 @@ def run_child(a):
             assert x['token_ids'][:n]==y['token_ids'][:n], 'Divergence before trigger'
         save(output/'engineering_gate.json',dict(status='pass',token_and_R_history_identity=True,
              pretrigger_identity=True,actual_preemption_tested=False))
-        stage='screening'
-        for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
-            group(stage,name,use_r,mode)
+        for stage in (['math','gsm8k'] if r.get('expansion') else ['screening']):
+            for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
+                group(stage,name,use_r,mode)
     llm.llm_engine.engine_core.shutdown()
 
 
@@ -298,6 +315,7 @@ def execute(a):
     output=Path(r['output']);output.mkdir(parents=True,exist_ok=False)
     save(output/'resolved_plan.json',r)
     prior_seconds = 0.0
+    whole_budget=4200 if r.get('expansion') else 1800
     if r.get('engineering_reuse'):
         prior_seconds = r['engineering_reuse']['previous_wall_seconds']
         for name,meta in r['engineering_reuse']['groups'].items():
@@ -314,7 +332,7 @@ def execute(a):
                 try:
                     while process.poll() is None:
                         elapsed=time.monotonic()-start
-                        if elapsed+prior_seconds>1800 or (elapsed+prior_seconds>300 and not (output/'engineering_gate.json').exists()):
+                        if elapsed+prior_seconds>whole_budget or (elapsed+prior_seconds>300 and not (output/'engineering_gate.json').exists()):
                             raise TimeoutError('Registered whole/engineering budget exhausted')
                         time.sleep(1)
                     if process.returncode:
@@ -325,12 +343,15 @@ def execute(a):
                         os.killpg(process.pid,signal.SIGTERM)
                         try:process.wait(timeout=10)
                         except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL)
-        subprocess.run([GRADE,str(HERE/'grade_screen.py'),'--output',str(output)],check=True,timeout=max(1,1800-prior_seconds-(time.monotonic()-start)))
+        for role in (['math','gsm8k'] if r.get('expansion') else ['screening']):
+            command=[GRADE,str(HERE/'grade_screen.py'),'--output',str(output)]
+            if r.get('expansion'):command += ['--role',role,'--count','200']
+            subprocess.run(command,check=True,timeout=max(1,whole_budget-prior_seconds-(time.monotonic()-start)))
         status='complete'
     finally:
         save(output/'batch_status.json',dict(status=status,wall_seconds=time.monotonic()-start,
                                             prior_attempt_wall_seconds=prior_seconds,
-                                            retries=0,scope='first batch only'))
+                                            retries=0,scope='MATH200 + GSM8K200 x4' if r.get('expansion') else 'first batch only'))
 
 
 def main():

@@ -14,14 +14,17 @@ from utils.grader import check_is_correct
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k'])
+    p.add_argument('--count',type=int,default=64)
     a=p.parse_args()
-    rows=[json.loads(s) for s in (Path(__file__).parent/'prepared_run1/screening.jsonl').read_text(encoding='utf-8').splitlines()]
+    data_dir='prepared_run1' if a.role=='screening' else 'expanded_20260913'
+    rows=[json.loads(s) for s in (Path(__file__).parent/data_dir/(a.role+'.jsonl')).read_text(encoding='utf-8').splitlines()]
     for arm in ('U','R','S','RS'):
-        folder=a.output/'screening'/arm
+        folder=a.output/a.role/arm
         target=folder/'author_grade.json'
         if target.exists():raise FileExistsError(target)
         raw=(folder/'result.json').read_bytes();result=json.loads(raw)
-        assert result['status']=='complete' and len(result['records'])==len(rows)==64
+        assert result['status']=='complete' and len(result['records'])==len(rows)==a.count
         started=time.monotonic();graded=[]
         with (folder/'author_partial.jsonl').open('x',encoding='utf-8') as stream:
             for row,record in zip(rows,result['records']):
