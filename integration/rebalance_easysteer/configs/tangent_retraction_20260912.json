@@ -1,0 +1,28 @@
+{
+  "status": "new_hypothesis_after_radial_screen_before_tangent_statistics_or_generation",
+  "purpose": "Decouple angular movement from the original direction's radial component while retaining a fixed-radius update. The earlier radial screen stays failed because caps increased.",
+  "candidate": "current_state_tangent_projection_then_retraction",
+  "mechanism": "Let x be the complete state and z=c*d the original signed displacement. Remove only its current radial component: z_t=z-x*(x dot z)/(x dot x). Form y=x+z_t and restore norm(x). Both coefficient branches and original raw vector remain unchanged. This changes angular dose, whereas prior radial restoration preserved the original additive angle. It is not the completed global-mean-orthogonal fixed-vector candidate.",
+  "basis": [
+    {"paper": "https://arxiv.org/abs/2606.06735v2", "location": "Section4.2 and Eq6-9", "evidence": "Matched-angle comparisons distinguish radial effects from angular control; norm preservation alone does not ensure quality."},
+    {"paper": "https://arxiv.org/abs/2602.08169v2", "location": "Eq9-11", "evidence": "Sphere geometry provides a basis for bounded angular movement. The present tangent retraction is a separately derived rule, not the paper's SLERP/vMF algorithm."},
+    {"derivation": "With t=c*norm(d)/norm(x), rho=cos(x,d), original CAA-r angle is atan2(abs(t)*sqrt(1-rho^2),1+t*rho). Tangent retraction angle is atan(abs(t)*sqrt(1-rho^2)). The radial term no longer amplifies or attenuates the angular denominator. This can increase or decrease the angle; neither outcome proves safety."}
+  ],
+  "CPU_protocol": "Reuse existing83508 original unsteered predecessor geometry records, not any100-question screen trajectory or answer labels. Compare angles under unchanged c and d. Treat original400/100 groups as development data only. No layer, coefficient, angle target or interpolation-amount fitting.",
+  "CPU_gate": {
+    "minimum_absolute_angle_difference_radians": 0.05,
+    "minimum_affected_fraction_all_boundaries": 0.10,
+    "minimum_affected_questions": 50,
+    "minimum_affected_fraction_each_group": 0.10,
+    "finite_geometry_and_exact_norm_identity": true
+  },
+  "gate_rationale": "Require a change of roughly three degrees at enough boundaries to justify a new runtime path. These opportunity thresholds are practical, not predictions of fewer tokens or fewer caps.",
+  "report": "Angle differences, increases/decreases, relative tangent displacement, and support in each fixed group. Verify formulas independently on explicit2D vectors including parallel/antiparallel and zero-step cases.",
+  "GPU_if_passes": "Prepare a fresh100-question comparison with original dynamic, matched graph disabled, matched graph CAA-r and tangent candidate; same model/assets16000cap. Candidate must meet the unchanged5percent thinking/total, nondecreasing correct and nonincreasing caps against every applicable control. Exact dataset/runtime/budget still require a separate prepared plan; this CPU proposal does not start GPU.",
+  "stop": "Any CPU gate failure closes this candidate without altering the angular threshold or trying another projection amount. Do not reopen the failed radial screen or use its reserved200.",
+  "limitations": [
+    "Projection is an algebraic control rule, not a measured causal explanation of the newly capped radial answers.",
+    "Removing radial components changes the effective concept response and can reduce useful steering or amplify an otherwise attenuated angular shift.",
+    "Saved original states do not reveal the future steered-state distribution."
+  ]
+}
