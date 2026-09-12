@@ -3,7 +3,7 @@
   "scope": "Same six forwards; exact inputs plus embedding/all raw decoder-layer states at two fixed absolute positions; per-position metrics and observed functional SDPA calls",
   "input_tokens": 3454,
   "new_answers": 0,
-  "source_sha256": "a2be589b6e31687e552e4df483478c839bb2c5f66d52593541ac37d12754b69d",
+  "source_sha256": "4799b370cc5a496ee9c1953787e93b650c2c190e3fee5d6bdd804cbe6341730b",
   "parent_plan_sha256": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
   "estimated_GPU_minutes": [
     1,
