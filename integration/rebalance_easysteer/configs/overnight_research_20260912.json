@@ -1,9 +1,9 @@
 {
-  "status": "radial_screen_and_two_followup_CPU_candidates_stopped_verified_continuing_local_audit",
+  "status": "GPU_off_user_requests_four_hours_local_research_and_multiple_candidate_preparation",
   "start_utc": "2026-09-11T17:15:11Z",
   "minimum_finish_utc": "2026-09-12T01:15:11Z",
   "minimum_hours_requested": 8,
-  "authorization": "User explicitly requests at least eight hours of continued optimization and deficiency research, keeps GPU available throughout, and permits bounded SEAL and AIME/Olympiad comparison work. Each batch must be concretely prepared and bounded before execution. No server power/mode changes by agent.",
+  "authorization": "Superseded: GPU is now off by user. No SSH/model forward until user explicitly reopens after local preparation. Four-hour local preparation starts2026-09-12T05:47:48Z; interruptions do not count as active work.",
   "base_main": "6d9ed8fe8963d5767b9073445b79a5c8c205308e",
   "base_experimental_commit": "d5385bcf2a252c0587a19602d93bae041cb832ba",
   "experimental_branch": "codex/overnight-research-20260912",
@@ -18516,5 +18516,281 @@
     ],
     "interpretation": "Posthoc descriptive paired bootstrap with one generation seed; outcome groups are not usable decision rules; no multiple-comparison adjustment and no changed stopping standards.",
     "excluded_cost": "SEAL/AIME, saved-state replays, failed wrong-layer outputs, engineering, prefix probes and startup are deliberately outside this seven-batch generation sum; it is not total GPU billed time."
+  },
+  "local_four_hour_phase": {
+    "start_utc": "2026-09-12T05:47:48Z",
+    "earliest_continuous_finish_utc": "2026-09-12T09:47:48Z",
+    "hours_requested": 4,
+    "server_state": "off_by_user",
+    "GPU_authorized": false,
+    "SSH_attempts_since_phase_start": 0,
+    "objective": "Research substantively different candidates; disconfirm weak mechanisms on existing CPU assets, implement viable variants and fix one bounded unified GPU batch before asking user to reopen.",
+    "no_GPU_started_for_sampled_replay": true
+  },
+  "confidence_surface_CPU_audit": {
+    "result": {
+      "status": "completed_CPU_descriptive_audit_no_controller_change",
+      "commit": "46a049944db507025b7e3e526da09e19d4e04349",
+      "plan_sha256": "372b2de2864a22787513f5958d4636f21dc22305e4133f78dacb94bfd69168ae",
+      "script_sha256": "004ceeec43025f8e9ac97888d0f323e9b0e51677b15b9609df947a1d6f50d670",
+      "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+      "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+      "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+      "split_sha256": "ffb1ad92b41945579ca49912a2769edce79b6c9c8094ec74a664ac9bb1ab197c",
+      "questions": 500,
+      "capped_answers_included": 149,
+      "steps": 84008,
+      "step_tokens": 2863403,
+      "maximum_original_mean_reconstruction_error": 6.661338147750939e-16,
+      "token_class_statistics": {
+        "ascii_digits_only_after_strip": {
+          "count": 528030,
+          "questions": 500,
+          "pooled_mean_probability": 0.9898352111441445,
+          "question_equal_mean_probability": 0.9862906306946102,
+          "question_equal_fraction": 0.18397000537191155
+        },
+        "contains_ascii_letter": {
+          "count": 1436313,
+          "questions": 500,
+          "pooled_mean_probability": 0.8951975146230894,
+          "question_equal_mean_probability": 0.8252761358976722,
+          "question_equal_fraction": 0.49210625952113274
+        },
+        "contains_ascii_digit_other": {
+          "count": 0,
+          "questions": 0,
+          "pooled_mean_probability": null,
+          "question_equal_mean_probability": null,
+          "question_equal_fraction": 0.0
+        },
+        "whitespace_only": {
+          "count": 180426,
+          "questions": 498,
+          "pooled_mean_probability": 0.961669938192307,
+          "question_equal_mean_probability": 0.9410283240448868,
+          "question_equal_fraction": 0.0701676437785049
+        },
+        "contains_nonascii": {
+          "count": 40072,
+          "questions": 236,
+          "pooled_mean_probability": 0.9798525555073077,
+          "question_equal_mean_probability": 0.9305717520650205,
+          "question_equal_fraction": 0.012668500694127473
+        },
+        "punctuation_or_operator_other": {
+          "count": 678562,
+          "questions": 500,
+          "pooled_mean_probability": 0.9542924254211732,
+          "question_equal_mean_probability": 0.9207295985270589,
+          "question_equal_fraction": 0.2410875906343233
+        }
+      },
+      "regressions": {
+        "length_only": {
+          "training_intercept": 0.8857529407337893,
+          "standardized_slopes": [
+            0.004579591939423071
+          ],
+          "training_feature_mean": [
+            3.489846936793197
+          ],
+          "training_feature_scale": [
+            0.87786388574928
+          ],
+          "development_weighted_MSE": 0.01191522231104669,
+          "training_mean_null_MSE": 0.011943213848760474,
+          "development_R2_against_training_mean": 0.0023437190414781206,
+          "development_prediction_range": [
+            0.8711632715737457,
+            0.9052823911486488
+          ]
+        },
+        "length_and_surface": {
+          "training_intercept": 0.8857529407337893,
+          "standardized_slopes": [
+            -0.0017184739185142277,
+            0.015097552337185627,
+            -0.022059248239083333,
+            0.0,
+            0.006699862749653986,
+            0.0046622152131030725,
+            0.021928755263007263
+          ],
+          "training_feature_mean": [
+            3.4898469367931813,
+            0.17573334414944997,
+            0.5179370500578028,
+            0.0,
+            0.06522541471029462,
+            0.011877608870581698,
+            0.22922658221188735
+          ],
+          "training_feature_scale": [
+            0.8778638857492955,
+            0.15732019333258584,
+            0.2714600164496623,
+            1.0,
+            0.06452348207399125,
+            0.04110323618588147,
+            0.1363106745168085
+          ],
+          "development_weighted_MSE": 0.00903095904296628,
+          "training_mean_null_MSE": 0.011943213848760474,
+          "development_R2_against_training_mean": 0.24384180361104757,
+          "development_prediction_range": [
+            0.7851724017128666,
+            1.0038155261787667
+          ]
+        }
+      },
+      "development_MSE_improvement_over_length_only": 0.24206541789878222,
+      "interpretation": "Prediction of confidence from surface form would identify a potential proxy confound; it would not prove harmful steering or justify removing numeric tokens. Low predictability weakens this simple explanation. Current raw max probability is distinct from the paper's top20 entropy.",
+      "cpu_seconds": 5.9992267999914475,
+      "model_loads": 0,
+      "new_answers": 0,
+      "GPU_calls": 0
+    },
+    "result_sha256": "b33accefeb3437fbc5d140adf40a33590e837644f5371b240e213e8d9e67bf5d",
+    "plan_commit": "7620193",
+    "implementation_commit": "1eb2cec",
+    "empty_category_fix_commit": "46a0499",
+    "failure_receipt_sha256": "fa34bb8bd0a542a81ea85eb5c3a8a26c778aa6ed4ff3b2ecef6544baa7003bc5"
+  },
+  "entropy_selection_literature_audit": {
+    "paper": "https://arxiv.org/abs/2607.28707v3",
+    "sentinel": "608012383fe2",
+    "parsed_sha256": "21fdad2ce38d85a8d8657087abfbf5645737d21c82271a338af774cfbe447a8f",
+    "parsed_lines": 2121,
+    "fulltext_coverage_zero_based_inclusive": [
+      [
+        0,
+        599
+      ],
+      [
+        600,
+        1199
+      ],
+      [
+        1200,
+        1999
+      ],
+      [
+        2000,
+        2120
+      ]
+    ],
+    "reread_truncated_spans": [
+      [
+        225,
+        294
+      ],
+      [
+        699,
+        750
+      ]
+    ],
+    "PDF_pages_visually_read": [
+      4,
+      5,
+      15
+    ],
+    "table6_rows": 36,
+    "table6_inconsistent_cells": [
+      {
+        "model": "gemma-4-26B-A4B-it",
+        "dataset": "AIME25",
+        "range": "aggressive",
+        "selector": "low",
+        "random": 0.02,
+        "delta": -0.31,
+        "implied_AUC": -0.29
+      },
+      {
+        "model": "gemma-4-26B-A4B-it",
+        "dataset": "AIME25",
+        "range": "aggressive",
+        "selector": "low_no_numbers",
+        "random": 0.02,
+        "delta": -0.35,
+        "implied_AUC": -0.32999999999999996
+      },
+      {
+        "model": "gemma-4-26B-A4B-it",
+        "dataset": "AIME25",
+        "range": "aggressive",
+        "selector": "high",
+        "random": 0.02,
+        "delta": -0.11,
+        "implied_AUC": -0.09
+      },
+      {
+        "model": "gemma-4-26B-A4B-it",
+        "dataset": "AIME26",
+        "range": "aggressive",
+        "selector": "low",
+        "random": 0.03,
+        "delta": -0.24,
+        "implied_AUC": -0.21
+      },
+      {
+        "model": "gemma-4-26B-A4B-it",
+        "dataset": "AIME26",
+        "range": "aggressive",
+        "selector": "low_no_numbers",
+        "random": 0.03,
+        "delta": -0.26,
+        "implied_AUC": -0.23
+      }
+    ],
+    "interpretation": "An AUC of nonnegative RPR cannot be negative. These five sums remain negative after allowing both rounded cells0.005 error. This identifies table inconsistencies, not the cause or the actual corrected results.",
+    "upstream_commit": "48cc107ae28f87fbab6cecfc61a1b35d7e5619e3",
+    "upstream_note": "Clone LFS data transfer was cancelled; inspected source files were individually matched to Git blobs. No claim of completed dataset checkout."
+  },
+  "sampled_probability_preparation": {
+    "status": "CPU_prepared_no_model_forward_user_closed_GPU",
+    "hypothesis": "configs/sampled_confidence_20260912.json",
+    "hypothesis_commit": "cfd8330",
+    "bundle": "configs/sampled_probability_replay100_promptfix_20260912",
+    "final_preparation_commit": "f17f429",
+    "plan_sha256": "2493be84b5394c5b1fea16b55c8d2e195058ed619a8baceef4553bca848a58af",
+    "prompt_contract_audit": {
+      "questions_checked": 100,
+      "legacy_extra_BOS_count": 100,
+      "all_other_prompt_ids_identical": true,
+      "original500_double_BOS": 0,
+      "original500_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+      "HF_receipt_sha256": "ca548e83329d7d7f3cb04aa5335e2c840a5f9839e3bed6a1e43186d25af34420",
+      "vllm_receipt_sha256": "c3f916a0365f81cbb6c0617d5a14b0e787afb81daa1c4777e7db8332f50f950d",
+      "replay_action": "CPU tokenize using original vLLM environment, then pass explicit IDs to legacy-model replay; do not retokenize in legacy environment.",
+      "interpretation": "The new replay preparation would add a BOS if re-tokenized with legacy HF. All500 saved calibration prompts already contain a single BOS; past replay uses those explicit saved IDs. No calibration/evaluation BOS mismatch has been demonstrated.",
+      "new_answers": 0,
+      "GPU_calls": 0,
+      "original500_single_BOS": 500
+    },
+    "failures": [
+      {
+        "commit": "6a458b8",
+        "plan_sha256": "64f6aa313004c99c84a1693677c3cb13630c2ec01a2a4ab66bb38317fe5b3cd4",
+        "stage": "CPU_tokenizer_preparation_before_CUDA",
+        "error": "Prompt AST fingerprint differed across localPython3.13 and serverPython3.10 because the AST schema changed. Source byte hashes passed; no prompt or model changed.",
+        "model_loads": 0,
+        "GPU_calls": 0,
+        "new_answers": 0,
+        "fix": "Use exact normalized function source segment instead of version-dependent AST dump; preserve original bundle and all100 IDs."
+      },
+      {
+        "commit": "e09e8f6",
+        "plan_sha256": "61d242447defdeb2f049b5719d90e4bdde3001fec8cda5f9c3a8ac23a333d138",
+        "stage": "CPU_input_preparation",
+        "model_loads": 0,
+        "GPU_calls": 0,
+        "new_answers": 0,
+        "error": "Legacy tokenizer prepends a second BOS to an already formatted prompt; current vLLM tokenizer does not. All100 exact comparisons confirm remaining IDs identical. Original500 saved IDs already have only one BOS.",
+        "audit_sha256": "2439611722dbf67ce23d1b480466842529bd44a62f4eb58da9e6c3e5efc5c1d2"
+      }
+    ],
+    "new_answers": 0,
+    "GPU_calls": 0
   }
 }
