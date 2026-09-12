@@ -1,0 +1,31 @@
+{
+  "version": "within-trajectory-progress-v1",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "56877582be85031dc88c7891e885c408b0c0f49fd60da9800cda117d8c59f445",
+  "vector_norm": 83.619140625,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": "early-stage mean per question",
+  "negatives": "late-stage mean per question",
+  "selection": {
+    "hidden_state_index": 21,
+    "decoder_output_layer": 20,
+    "layer_search": false
+  },
+  "method": "Question-equal first-versus-last temporal-quarter contrast; raw direction scaled to original norm; all original dynamic parameters unchanged.",
+  "calibration_questions": 344,
+  "training_questions": 276,
+  "development_questions": 68
+}
