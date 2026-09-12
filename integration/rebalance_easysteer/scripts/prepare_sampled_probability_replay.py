@@ -37,7 +37,8 @@ def main():
         require(record['dataset_index'] == i and n == record['tokens'] <= 16000 and end == record['thinking_tokens'], 'Malformed saved record')
         require((record['finish_reason'] == 'length') == (n == 16000), 'Cap semantics changed')
         questions.append(dict(index=i, train_index=train_index, thinking_tokens=end, total_tokens=n,
-            finish_reason=record['finish_reason'], token_ids_sha256=hashlib.sha256(json.dumps(ids, separators=(',', ':')).encode()).hexdigest()))
+            finish_reason=record['finish_reason'], token_ids_sha256=hashlib.sha256(json.dumps(ids, separators=(',', ':')).encode()).hexdigest(),
+            thinking_token_ids_sha256=hashlib.sha256(np_ids_bytes(ids[:end])).hexdigest()))
     builder = BASE+'eval/rebalance_static_eval.py'
     old = subprocess.check_output(['git', 'show', raw['commit']+':'+builder], cwd=ROOT).decode()
     require(prompt_body(old) == prompt_body((ROOT/builder).read_text(encoding='utf-8')), 'Historical prompt builder changed')
@@ -66,6 +67,11 @@ def main():
     require(sum(q['finish_reason'] == 'length' for q in questions) == 8, 'Wrong cap count')
     save(out/'plan.json', plan)
     print({k: plan[k] for k in ['questions', 'saved_thinking_tokens', 'expected_probability_array_bytes', 'new_answers']})
+
+
+def np_ids_bytes(ids):
+    import numpy as np
+    return np.asarray(ids, dtype='<i4').tobytes()
 
 
 if __name__ == '__main__': main()

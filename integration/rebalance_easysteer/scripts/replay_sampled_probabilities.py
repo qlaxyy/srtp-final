@@ -46,6 +46,7 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--prepare-inputs', type=Path)
     parser.add_argument('--inputs', type=Path)
+    parser.add_argument('--expected-input-sha256')
     parser.add_argument('--execute', action='store_true')
     a = parser.parse_args(); bundle = a.bundle.resolve(); initial = read(bundle/'plan.json')
     raw_path = Path(initial['remote_source_answer']) if os.name != 'nt' else ROOT/initial['local_source_answer']
@@ -66,6 +67,7 @@ def main():
     if not a.execute:
         print(dict(status='local_CPU_preflight_no_model_import', questions=100, plan_sha256=sha(bundle/'plan.json'), new_answers=0)); return
     require(os.name != 'nt' and a.output and not a.output.exists() and a.inputs, 'Fresh Linux replay required')
+    require(a.expected_input_sha256 and sha(a.inputs) == a.expected_input_sha256, 'Prepared input hash changed')
     inputs = read(a.inputs); require(inputs['plan_sha256'] == sha(bundle/'plan.json'), 'Prepared input plan changed')
     require(not subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip(), 'Dirty source')
     require(not subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid', '--format=csv,noheader'], text=True).strip(), 'Other GPU process')

@@ -1,5 +1,6 @@
 """Compare two confidence definitions on the same saved, unsteered prefixes."""
 import argparse
+import hashlib
 from pathlib import Path
 import time
 from types import SimpleNamespace
@@ -60,6 +61,7 @@ def main():
     for q in read(a.bundle/'questions.json'):
         file = f"q{q['index']:03d}.npz"; path = a.replay/file; require(sha(path) == ledger['files_sha256'][file], 'Probability file changed')
         arrays = np.load(path); ids, maximum, selected, argmax = [arrays[k] for k in ['token_ids', 'maximum', 'selected', 'argmax']]
+        require(hashlib.sha256(np.asarray(ids, dtype='<i4').tobytes()).hexdigest() == q['thinking_token_ids_sha256'], 'Replayed token prefix changed')
         require(len(ids) == q['thinking_tokens'] and np.isfinite(maximum).all() and np.isfinite(selected).all(), 'Invalid population')
         require(np.all((selected >= 0)&(selected <= maximum)&(maximum <= 1)), 'Probability order failed')
         require(np.array_equal(selected[ids == argmax], maximum[ids == argmax]), 'Greedy equality failed')
