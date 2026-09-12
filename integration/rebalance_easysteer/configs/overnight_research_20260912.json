@@ -1,9 +1,9 @@
 {
-  "status": "GPU_off_user_requests_four_hours_local_research_and_multiple_candidate_preparation",
+  "status": "four_hour_local_preparation_completed_GPUoff_waiting_explicit_reopening",
   "start_utc": "2026-09-11T17:15:11Z",
   "minimum_finish_utc": "2026-09-12T01:15:11Z",
   "minimum_hours_requested": 8,
-  "authorization": "Superseded: GPU is now off by user. No SSH/model forward until user explicitly reopens after local preparation. Four-hour local preparation starts2026-09-12T05:47:48Z; interruptions do not count as active work.",
+  "authorization": "User closed GPU and requested four hours of local preparation. Local phase completed; no new GPU authorization inferred. Wait for explicit reopening for the fixed v3 batch. No SSH or model forward during the local phase.",
   "base_main": "6d9ed8fe8963d5767b9073445b79a5c8c205308e",
   "base_experimental_commit": "d5385bcf2a252c0587a19602d93bae041cb832ba",
   "experimental_branch": "codex/overnight-research-20260912",
@@ -18525,7 +18525,14 @@
     "GPU_authorized": false,
     "SSH_attempts_since_phase_start": 0,
     "objective": "Research substantively different candidates; disconfirm weak mechanisms on existing CPU assets, implement viable variants and fix one bounded unified GPU batch before asking user to reopen.",
-    "no_GPU_started_for_sampled_replay": true
+    "no_GPU_started_for_sampled_replay": true,
+    "status": "completed_local_preparation_GPU_not_started",
+    "finished_utc": "2026-09-12T09:48:02Z",
+    "elapsed_seconds": 14414.0,
+    "recorded_interruptions_seconds": 0,
+    "GPU_calls": 0,
+    "model_loads": 0,
+    "new_answers": 0
   },
   "confidence_surface_CPU_audit": {
     "result": {
@@ -18794,7 +18801,7 @@
     "GPU_calls": 0
   },
   "local_four_hour_candidate_screen": {
-    "status": "CPU_screen_and_unified_scripts_ready_four_hour_window_continues_GPUoff",
+    "status": "CPU_screen_and_frozen_unified_batch_ready_four_hours_completed_GPUoff",
     "start_utc": "2026-09-12T05:47:48Z",
     "earliest_four_hour_finish_utc": "2026-09-12T09:47:48Z",
     "GPU_status": "User closed instance. No SSH or model forward authorized until explicit reopening after preparation.",
@@ -19119,7 +19126,7 @@
       "robust_q95_aggressive:amplitude reduction18.01786percent below20percent; max was not driven by one question",
       "long_suffix_penalty:3of12 first events supported as redundant below75percent"
     ],
-    "next": "Finish the requested four-hour local window and documentation. Do not connect or execute until the user explicitly reopens GPU and accepts this fixed batch. No repeated old experiments,7B,fulltest,AIME or staticSEAL runs.",
+    "next": "Wait for user explicitly reopening GPU for the fixed v3 two-candidate batch; then briefly verify SSH, source/model/input/environment and other jobs. Run the bounded sequence continuously, preserve failures and partials, notify when our GPU work finishes, and complete remaining report work locally.",
     "additional_CPU_evidence": {
       "lexical_first_token_and_question_composition": {
         "local_path": ".codex_work/overnight_research_20260912/lexical_support_CPU_cross_group.json",
@@ -19701,6 +19708,33 @@
           "GPU_calls": 0,
           "new_answers": 0
         }
+      },
+      "nucleus_complete_step_sufficient_bound": {
+        "local_path": ".codex_work/overnight_research_20260912/nucleus_step_support_CPU.json",
+        "sha256": "fb2ecc87fd4c85dd36949df397e2efa37153f1692c71e95dbbbd6231314beaf6",
+        "result": {
+          "status": "CPU_conditional_step_sufficient_bound_not_online_opportunity",
+          "totals": {
+            "complete_steps": 84008,
+            "certified_same_step_mean": 40564,
+            "certified_same_mean_and_variance": 34305,
+            "complete_step_content_tokens": 2863403,
+            "certified_content_tokens": 2411151
+          },
+          "original_step_statistics_reconstructed": 84008,
+          "bound_audit_sha256": "0395d6261a98241436474b43c2abd2a087359b3a7f7503f886b8582532c71d0d",
+          "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+          "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+          "source_sha256": "b32555b70c2a7cc5b355e6589121fdf6b670587bfacaa1f4514462c23cadb015",
+          "interpretation": "On exactly these saved greedy prefixes, each certified step contains only tokens whose raw modal probability guarantees a singleton nucleus at T0.7/top_p0.95, without other processors. Its mean is unchanged under either confidence definition. If the previous complete step is also certified, the two-step variance is unchanged; the first variance is zero. This sufficient condition says nothing about changes at uncertified steps, nor prefixes reached by stochastic generation.",
+          "limits": "Original calibration development data, including caps. Incomplete tails excluded because this audit uses the original84008complete steps. No conclusion about steering execution at each stored state, generation benefits, or real-kernel numerical identity. Prepared batch unchanged.",
+          "cpu_seconds": 4.655490100005409,
+          "GPU_calls": 0,
+          "model_loads": 0,
+          "new_answers": 0
+        },
+        "implementation_commit": "fd31264f56846b296ad244810774038389d5be47",
+        "implementation_scope": "Supplemental local CPU audit only; not a dependency of the frozen87-source GPU execution bundle. No candidate or gate changed."
       }
     },
     "additional_literature": [
@@ -20143,10 +20177,10 @@
       "The first HTTPS Git push encountered a WindowsTLS handshake error. A command-local OpenSSL backend with certificate verification retained succeeded; no global configuration or server environment changed."
     ],
     "report_consistency": {
-      "local_path": ".codex_work/overnight_research_20260912/local_evidence_report_consistency.json",
-      "sha256": "8a7655482c7f3306e7a780a63ad6ec49c9bce28862233109605bed834bc4eeb5",
-      "receipts_checked": 19,
-      "scalar_values_checked": 780,
+      "local_path": ".codex_work/overnight_research_20260912/local_evidence_report_consistency_v2.json",
+      "sha256": "bffe3954ab7d013279dd02c78ffc66f87801a14ccb552aaf3defcc809fb524eb",
+      "receipts_checked": 20,
+      "scalar_values_checked": 797,
       "explicit_compacted_lists": 3
     }
   }
