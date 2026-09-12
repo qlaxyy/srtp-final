@@ -16,6 +16,8 @@ def comparison(groups,grades,indices):
         require(len(records)==len(grade['records'])==n,'Missing records')
         require(grade['correct']==sum(r['correct'] for r in grade['records']),'Incorrect grade total')
         stats[name]=dict(count=n,correct=grade['correct'],accuracy_percent=100*grade['correct']/n,
+            sum_thinking_tokens=sum(r['thinking_tokens'] for r in records),
+            sum_total_tokens=sum(r['tokens'] for r in records),
             mean_thinking_tokens=sum(r['thinking_tokens'] for r in records)/n,
             mean_total_tokens=sum(r['tokens'] for r in records)/n,
             capped=sum(r['finish_reason']=='length' or r['tokens']==16000 for r in records),
@@ -30,7 +32,10 @@ def comparison(groups,grades,indices):
             thinking_token_delta=y['thinking_tokens']-x['thinking_tokens'],total_token_delta=y['tokens']-x['tokens'],
             original_capped=x['finish_reason']=='length' or x['tokens']==16000,
             candidate_capped=y['finish_reason']=='length' or y['tokens']==16000))
-    passed=thinking<=-5 and total<=-5 and b['correct']>=a['correct'] and b['capped']<=a['capped']
+    # Exact 5% boundary: avoid a floating-point rounding decision at promotion.
+    passed=(20*b['sum_thinking_tokens']<=19*a['sum_thinking_tokens'] and
+            20*b['sum_total_tokens']<=19*a['sum_total_tokens'] and
+            b['correct']>=a['correct'] and b['capped']<=a['capped'])
     return dict(groups=stats,thinking_token_change_percent=thinking,total_token_change_percent=total,
         accuracy_change_percentage_points=b['accuracy_percent']-a['accuracy_percent'],
         improved_indices=[r['index'] for r in per if not r['original_correct'] and r['candidate_correct']],
@@ -51,6 +56,7 @@ def main():
     p.add_argument('--bundle',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p.add_argument('--analyze-only',action='store_true')
     a=p.parse_args();bundle=a.bundle.resolve();out=a.output.resolve();plan,rows=validate_bundle(bundle)
+    require(plan['stage'] in ('screen','confirmation','posthoc_confirmation'),'Engineering outputs cannot be graded as efficacy')
     ledger=read(out/'run_ledger.json')
     require(ledger['status']=='generation_completed_grading_pending' and ledger['plan_sha256']==sha(bundle/'plan.json'),'Incomplete/mismatched generation')
     require(not (out/'analysis.json').exists(),'Analysis already exists')
@@ -87,6 +93,7 @@ def main():
     else:
         result=comparison(groups,grades,plan['train_indices'])
     save(out/'analysis.json',dict(status='completed',scope=plan['scope'],stage=plan['stage'],comparison=result,
+        plan_sha256=sha(bundle/'plan.json'),
         candidate=plan['run_order'][-1],eligible_for_confirmation=plan['stage']=='screen' and result['passes_fixed_gate'],
         new_generations_in_analysis=0,source_sha256={n:sha(out/n) for n in [*(x+'.json' for x in raw),*(x+'.author.json' for x in raw),'run_ledger.json']}))
     compact=result if not plan.get('graph_control_comparison') else {name:{k:v for k,v in item.items() if k!='per_question'} for name,item in comparisons.items()}

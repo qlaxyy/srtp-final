@@ -104,18 +104,60 @@ def runtime_check(bundle,plan,rows):
                 vllm_file=vllm.__file__,vector_file=inspect.getfile(from_pt_direction))
 
 
-def run_child(cmd,log_path,env,timeout):
-    """Bound only this child's process group; keep completed and partial files."""
-    with log_path.open('x',encoding='utf-8') as log:
-        process=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-        try:return process.wait(timeout=timeout)
-        except BaseException:
-            if process.poll() is None:
-                os.killpg(process.pid,signal.SIGTERM)
-                try:process.wait(timeout=10)
-                except subprocess.TimeoutExpired:
-                    os.killpg(process.pid,signal.SIGKILL);process.wait()
-            raise
+def run_child(cmd,log_path,env,timeout,grace_seconds=10):
+    """Stop owned child groups, including when a parent times out this runner.
+
+    Each nested runner creates a separate process group. Converting SIGTERM to
+    SystemExit lets its own cleanup terminate the inner group before it exits.
+    The outer coordinator must allow more grace than an inner runner.
+    """
+    process=None;pending_stop=None;cleaned=False
+    def terminate(signum,frame):
+        nonlocal pending_stop
+        pending_stop=128+signum
+        if process is not None:
+            raise SystemExit(pending_stop)
+    previous=signal.signal(signal.SIGTERM,terminate)
+    def cleanup():
+        nonlocal cleaned
+        if process is None or cleaned:
+            return
+        cleaned=True
+        # Do not let a repeated SIGTERM interrupt cleanup of our own group.
+        signal.signal(signal.SIGTERM,signal.SIG_IGN)
+        try:
+            os.killpg(process.pid,signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        try:
+            process.wait(timeout=grace_seconds)
+        except subprocess.TimeoutExpired:
+            pass
+        # The direct child may exit before its remaining workers do.
+        try:
+            os.killpg(process.pid,signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        process.wait(timeout=5)
+    try:
+        with log_path.open('x',encoding='utf-8') as log:
+            if pending_stop is not None:
+                raise SystemExit(pending_stop)
+            # Defer a stop during Popen until the owned child PID is known.
+            # Do not block SIGTERM: a blocked mask would be inherited by exec.
+            process=subprocess.Popen(cmd,cwd=ROOT,env=env,stdout=log,
+                stderr=subprocess.STDOUT,start_new_session=True)
+            if pending_stop is not None:
+                raise SystemExit(pending_stop)
+            code=process.wait(timeout=timeout)
+            if code!=0:
+                cleanup()
+            return code
+    except BaseException:
+        cleanup()
+        raise
+    finally:
+        signal.signal(signal.SIGTERM,previous)
 
 
 def main():

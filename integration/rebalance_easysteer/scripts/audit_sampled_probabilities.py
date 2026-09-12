@@ -14,6 +14,8 @@ from audit_control_alignment import load_controller, tensor, scalar_reference
 def params_from_plan(plan):
     """Curve-only plans obtain exact markers from the verified frozen tokenizer."""
     path = ROOT/'.codex_work/label_audit_30_20260910/tokenizer.json'
+    if not path.exists():
+        path = Path(plan['model'])/'tokenizer.json'
     require(sha(path) == plan['model_files_sha256']['tokenizer.json'], 'Tokenizer changed')
     tokenizer = read(path); vocab = dict(tokenizer['model']['vocab'])
     vocab.update({t['content']: t['id'] for t in tokenizer['added_tokens']})
@@ -95,7 +97,10 @@ def main():
     selected_c = np.asarray(compute(tensor(data[:, 4], dtype=np.float32), tensor(data[:, 6], dtype=np.float32), params))
     # Independent FP64 scalar decomposition tolerates only single-precision arithmetic differences.
     constants = runtime['_curve_constants'](params.q25c, params.q75c, params.low_val_1, 'cpu', np.dtype('float64'), params.curve_tau)
-    error = max(abs(scalar_reference(float(row[3]), float(row[5]), params, constants)['coefficient']-float(c)) for row, c in zip(data, modal_c, strict=True))
+    errors = {name: max(abs(scalar_reference(float(row[c_index]), float(row[v_index]), params, constants)['coefficient']-float(c))
+        for row, c in zip(data, coefficients, strict=True))
+        for name, c_index, v_index, coefficients in [('modal', 3, 5, modal_c), ('selected', 4, 6, selected_c)]}
+    error = max(errors.values())
     require(error < .001, 'Controller implementation mismatch')
     delta = selected_c-modal_c; gate = plan['CPU_opportunity_gate']; affected = abs(delta) >= gate['minimum_absolute_coefficient_difference']
     for q in per_question:
@@ -110,9 +115,12 @@ def main():
         nonmodal_token_fraction=float(np.concatenate(nonmodal).mean()),
         pooled_mean_modal_probability=float(np.concatenate(all_max).mean()), pooled_mean_selected_probability=float(np.concatenate(all_selected).mean()),
         affected_boundaries=int(affected.sum()), affected_fraction=float(affected.mean()), affected_questions=affected_questions,
+        affected_more_negative_boundaries=int(np.count_nonzero(affected & (delta < 0))),
+        affected_more_positive_boundaries=int(np.count_nonzero(affected & (delta > 0))),
         coefficient_delta_quantiles=np.quantile(delta, [0, .1, .25, .5, .75, .9, .99, 1]).tolist(),
         sign_changed_boundaries=int(np.count_nonzero(np.sign(modal_c) != np.sign(selected_c))),
-        scalar_controller_max_error=error, per_question=per_question, passes_fixed_gate=bool(passed),
+        scalar_controller_max_error=error, scalar_controller_error_by_definition=errors,
+        per_question=per_question, passes_fixed_gate=bool(passed),
         decision='prepare_fresh_generation_screen' if passed else 'stop_no_generation_no_retuning',
         cpu_seconds=time.perf_counter()-started, new_answers=0, GPU_calls=0, limitations=plan['limitations'])
     save(a.output, result)

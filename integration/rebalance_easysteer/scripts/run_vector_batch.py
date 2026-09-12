@@ -10,13 +10,33 @@ from mechanism_candidates import ROOT, BASE, require, read, save, sha, read_vect
 from run_mechanism_screen import PYTHON, runtime_check, run_child
 
 
-def validate_bundle(bundle):
+def validate_bundle(bundle,check_source=True):
     plan=read(bundle/'plan.json');n=plan['count']
-    require(plan['status']=='prepared_not_run' and n in (100,200),'Unplanned size or status')
-    require(plan['decoder_output_layer']==20 and plan['runtime']['max_tokens']==16000,'Wrong layer or cap')
+    local_candidate=plan.get('local_prepared_candidate')
+    engineering=bool(local_candidate and plan['stage']=='engineering')
+    require(plan['status']=='prepared_not_run' and n in ((8,) if engineering else (100,200)),'Unplanned size or status')
+    require(plan['decoder_output_layer']==20 and plan['runtime']['max_tokens']==(512 if engineering else 16000),'Wrong layer or cap')
     arms=3 if plan.get('graph_control_comparison') else 2
     require(plan['run_order'][0]=='original_dynamic' and len(plan['run_order'])==arms,'Only fixed paired or explicit graph-control batches')
     require(set(plan['run_order'])==set(plan['arms']) and plan['new_answers_planned']==arms*n,'Wrong scope')
+    if local_candidate:
+        require(local_candidate in ('sampled_confidence','lexical_direction'),'Unknown local candidate')
+        require(plan['run_order']==['original_dynamic',local_candidate] and arms==2,'Unexpected local pair')
+        require(plan['stage'] in ('engineering','screen','confirmation'),'Unknown local stage')
+        require(not any(a.get('negative_only') or a.get('feedback_config') or a.get('radial_restore')
+                        for a in plan['arms'].values()),'Combined candidate')
+        require(not plan['arms']['original_dynamic'].get('sampled_confidence'),'Changed control')
+        require(plan['arms'][local_candidate].get('sampled_confidence',False) is (local_candidate=='sampled_confidence'),'Wrong confidence mode')
+        if local_candidate=='sampled_confidence':
+            for key in ('vector_sha256','fit_sha256'):
+                require(plan['arms']['original_dynamic'][key]==plan['arms'][local_candidate][key],'Sampled-confidence assets differ')
+        receipt=read(bundle/plan['cpu_receipt']['file'])
+        require(sha(bundle/plan['cpu_receipt']['file'])==plan['cpu_receipt']['sha256'],'CPU receipt changed')
+        require(receipt['status']==('passed_local_numpy_backed_actual_source_checks' if local_candidate=='sampled_confidence'
+                                   else 'completed_CPU_lexical_direction_fit_not_generation'),'Wrong CPU evidence')
+        if local_candidate=='lexical_direction':require(receipt['passes_fixed_gate'],'Lexical CPU gate failed')
+    else:
+        require(not any(a.get('sampled_confidence') for a in plan['arms'].values()),'Unplanned confidence change')
     if plan.get('positive_branch_ablation'):
         require(plan['run_order']==['original_dynamic','negative_only_dynamic'],'Unexpected positive-branch ablation')
         require(not plan['arms']['original_dynamic'].get('negative_only') and plan['arms']['negative_only_dynamic'].get('negative_only') is True,'Wrong ablation flags')
@@ -64,7 +84,8 @@ def validate_bundle(bundle):
             require(sha(config)==arm['feedback_config_sha256'],'Feedback metadata changed')
             require(sha(config.parent/feedback['readout_file'])==feedback['readout_sha256'],'Feedback readout changed')
             require(feedback['vector_sha256']==arm['vector_sha256'] and feedback['decoder_output_layer']==20,'Feedback vector/layer differs')
-    for name,digest in plan['source_sha256'].items():require(sha(ROOT/name,source=True)==digest,'Source changed: '+name)
+    if check_source:
+        for name,digest in plan['source_sha256'].items():require(sha(ROOT/name,source=True)==digest,'Source changed: '+name)
     return plan,rows
 
 
@@ -80,6 +101,8 @@ def command(plan,bundle,out,name):
             cmd.append('--feedback-disabled')
     if 'negative_only' in plan['arms'][name]:
         cmd.append('--negative-only' if plan['arms'][name]['negative_only'] else '--no-negative-only')
+    if plan['arms'][name].get('sampled_confidence'):
+        cmd.append('--sampled-confidence')
     if plan['arms'][name].get('radial_restore'):
         cmd.extend(['--radial-restore',plan['arms'][name]['radial_restore']])
     for key,value in plan['runtime'].items():
@@ -97,9 +120,11 @@ def actual_parser_check(plan,bundle,out):
     seen=[]
     expected_algorithm='rebalance'
     expected_negative_only=False
+    expected_sampled_confidence=False
     def vector(*args,**kwargs):
         require(kwargs['layers']==[20] and kwargs['algorithm']==expected_algorithm,'Wrong parsed layer/algorithm')
         require(kwargs['params'].get('negative_only',False) is expected_negative_only,'Wrong parsed positive-branch flag')
+        require(kwargs['params'].get('sampled_confidence',False) is expected_sampled_confidence,'Wrong parsed sampled-confidence flag')
         for k,v in plan['dynamic_parameters'].items():require(kwargs['params'][k]==v,'Wrong parsed controller: '+k)
         seen.append(kwargs['layers']);return actual_vector(*args,**kwargs)
     def stop(**kwargs):raise BeforeModel()
@@ -110,6 +135,7 @@ def actual_parser_check(plan,bundle,out):
             if plan['arms'][name].get('radial_restore'):
                 expected_algorithm='rebalance_radial' if plan['arms'][name]['radial_restore']=='on' else 'rebalance_radial_disabled'
             expected_negative_only=plan['arms'][name].get('negative_only',False)
+            expected_sampled_confidence=plan['arms'][name].get('sampled_confidence',False)
             sys.argv=[str(ROOT/BASE/'eval/rebalance_dynamic_eval.py')]+command(plan,bundle,out/'preflight_no_generation',name)[3:]
             old=len(seen)
             try:evaluator.main()
@@ -129,6 +155,8 @@ def validate_arm(saved,plan,rows,name):
         require(p.get('steering_algorithm')==expected, 'Wrong radial algorithm')
     require(p.get('negative_only',False) is arm.get('negative_only',False),'Wrong positive-branch option')
     require(p['dynamic_params'].get('negative_only',False) is arm.get('negative_only',False),'Wrong request positive-branch option')
+    require(p.get('sampled_confidence',False) is arm.get('sampled_confidence',False),'Wrong sampled-confidence protocol')
+    require(p['dynamic_params'].get('sampled_confidence',False) is arm.get('sampled_confidence',False),'Wrong sampled-confidence request')
     if arm.get('negative_only'):
         counts=saved['rebalance_dynamic']['summary']['positive_suppression']
         require(counts['boundary_updates_cancelled']>=0 and counts['positive_coefficient_sum']>=0,'Invalid positive-update counters')
@@ -153,7 +181,8 @@ def validate_arm(saved,plan,rows,name):
     records=saved['rebalance_dynamic']['records'];require(len(records)==len(rows),'Missing answers')
     for i,(record,row) in enumerate(zip(records,rows,strict=True)):
         require(record['dataset_index']==i and record['problem']==row['problem'] and record['gold']==row['answer'],'Pairing mismatch')
-        require(record['tokens']==len(record['token_ids'])<=16000,'Invalid cap/count')
+        require(record['tokens']==len(record['token_ids'])<=plan['runtime']['max_tokens'],'Invalid cap/count')
+        require(record['finish_reason']!='length' or record['tokens']==plan['runtime']['max_tokens'], 'Inconsistent cap reason')
         require(0<=record['thinking_tokens']<=record['tokens'],'Invalid thinking count')
         require(record['finish_reason'] in ('stop','length'),'Unfinished answer')
     require(saved['rebalance_dynamic']['summary']['generation_seconds']>0,'Missing timing')
@@ -174,6 +203,23 @@ def main():
     require(sys.platform=='linux' and not out.exists(),'Fresh Linux server output required')
     require(not subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip(),'Dirty source')
     require(not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip(),'Another GPU process')
+    if plan.get('local_prepared_candidate'):
+        if plan['local_prepared_candidate']=='sampled_confidence':
+            gate=read(Path(plan['probability_gate']['path']))
+            require(gate['status']=='completed_offline_probability_opportunity_not_generation' and
+                    gate['plan_sha256']==plan['probability_gate']['replay_plan_sha256'] and
+                    gate['passes_fixed_gate'] and gate['questions']==100 and gate['capped_answers_included']==8,
+                    'Saved-probability opportunity gate incomplete/failed')
+        if plan['stage']!='engineering':
+            receipt=read(Path(plan['engineering_gate']['path']))
+            require(receipt['status']=='engineering_passed_no_efficacy_claim' and
+                    receipt['plan_sha256']==plan['engineering_gate']['plan_sha256'],'Local-candidate engineering incomplete')
+        if plan['stage']=='confirmation':
+            screen=read(Path(plan['screen_gate']['path']))
+            require(screen['status']=='completed' and screen['eligible_for_confirmation'] and
+                    screen['candidate']==plan['local_prepared_candidate'] and
+                    screen['comparison']['passes_fixed_gate'] and
+                    screen.get('plan_sha256')==plan['screen_gate']['plan_sha256'],'Screen did not qualify confirmation')
     if plan.get('graph_control_comparison'):
         receipt=read(Path(plan['engineering_completed_receipt']))
         require(receipt['status']=='engineering_passed_no_efficacy_claim' and receipt['plan_sha256']==sha(bundle/'plan.json'),'New controlled engineering check incomplete')
@@ -203,10 +249,14 @@ def main():
                 current=dict(saved['protocol']['dynamic_params']);previous=dict(first['protocol']['dynamic_params'])
                 if plan.get('positive_branch_ablation'):
                     current.pop('negative_only',None);previous.pop('negative_only',None)
+                if plan.get('local_prepared_candidate')=='sampled_confidence':
+                    current.pop('sampled_confidence',None);previous.pop('sampled_confidence',None)
                 require(current==previous,'Boundary/controller changed')
             else:first=saved
             ledger['arms'][name]['raw_sha256']=sha(out/(name+'.json'));save(out/'run_ledger.json',ledger)
-        ledger.update(status='generation_completed_grading_pending',completed_unix=time.time(),gpu_work_finished=True)
+        status=('engineering_passed_no_efficacy_claim' if plan.get('local_prepared_candidate') and
+                plan['stage']=='engineering' else 'generation_completed_grading_pending')
+        ledger.update(status=status,completed_unix=time.time(),gpu_work_finished=True)
     except BaseException as error:
         ledger.update(status='incomplete',error=repr(error),stopped_unix=time.time());raise
     finally:save(out/'run_ledger.json',ledger)
