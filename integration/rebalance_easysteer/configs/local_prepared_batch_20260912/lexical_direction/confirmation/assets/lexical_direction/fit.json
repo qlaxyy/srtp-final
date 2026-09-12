@@ -1,0 +1,34 @@
+{
+  "version": "auto-code-v2-SEAL-lexical-same-support",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "766b337ef0a6299f91150aea028312594a741ebd9705a1937039b4e5343bd085",
+  "vector_norm": 83.61913299560547,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 27885,
+  "negatives": 56123,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "SEAL lexical RT minusE on original84008 first-content states, matched originalnorm; all original dynamic parameters retained. Hybrid, not staticSEAL.",
+  "candidate_provenance": {
+    "hypothesis_sha256": "95779707d81a500d136f591b9506508f2e53e6001f9f3203e6b09f626125b12b",
+    "original_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "labels_sha256": "1cfd9dc5c14a11243843f43d5652c9bc566d9ec6758a8408c4a3c4a4f0398ab8",
+    "selected_layer_unchanged": true,
+    "support_unchanged": true
+  }
+}

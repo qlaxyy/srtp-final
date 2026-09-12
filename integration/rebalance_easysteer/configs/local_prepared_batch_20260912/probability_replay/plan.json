@@ -1,0 +1,77 @@
+{
+  "status": "prepared_saved100_probability_replay_no_generation",
+  "hypothesis_sha256": "f5353259cc7e861802bc55b4939b0da002daa2ca902ee05e5f969fb9722f95c2",
+  "questions": 100,
+  "capped_answers_included": 8,
+  "saved_thinking_tokens": 464036,
+  "source_answer_commit": "f1ae938e68379026a5daab4c8507cda2b4d243b4",
+  "source_answer_sha256": "238380ad32cbfe84a3dab2cbfd5eed90dcf27889c02014768bc173577d8d1e97",
+  "source_plan_sha256": "0ee617b6cc227574b79a01d3e9868772130d67e7d27e3fb8c78509897a3fd720",
+  "local_source_answer": ".codex_work/overnight_research_20260912/seal_comparison_all_20260912/seal_comparison130_20260912/math_train_unsteered.json",
+  "remote_source_answer": "/root/autodl-tmp/results/easysteer/seal_comparison130_20260912/math_train_unsteered.json",
+  "question_mapping_sha256": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+  "train_sha256": "4bd7f5266f6c5c4fc729da2d9cbefbe2453cf8df7bd6ba93dc02b9e11512cefd",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_files_sha256": {
+    "config.json": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+    "generation_config.json": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+    "model.safetensors": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+    "tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "tokenizer_config.json": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+  },
+  "dynamic_parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "prompt_builder_source": "integration/rebalance_easysteer/eval/rebalance_static_eval.py",
+  "prompt_builder_sha256": "39099d1fc66a66fcbbf58a564222011dac6c5cd44c352465bab4a8be2a9c6687",
+  "prompt_fingerprint": "normalized_exact_function_source",
+  "tokenization_reference": {
+    "remote_path": "/root/autodl-tmp/results/easysteer/probability_prompt_vllm_20260912.json",
+    "sha256": "c3f916a0365f81cbb6c0617d5a14b0e787afb81daa1c4777e7db8332f50f950d",
+    "CPU_environment": "/root/autodl-tmp/venvs/easysteer-vllm026"
+  },
+  "runtime": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "existing_environment": "/root/autodl-tmp/venvs/rebalance",
+    "batch_questions": 1,
+    "LM_head_chunk_tokens": 256,
+    "maximum_seconds_including_loading": 900,
+    "estimated_GPU_minutes": [
+      2,
+      8
+    ]
+  },
+  "CPU_opportunity_gate": {
+    "minimum_absolute_coefficient_difference": 0.1,
+    "minimum_fraction_of_nonempty_step_boundaries": 0.1,
+    "minimum_affected_questions": 50
+  },
+  "output": "/root/autodl-tmp/results/easysteer/local_prepared_batch_20260912/probability_replay",
+  "source_sha256": {
+    "integration/rebalance_easysteer/scripts/prepare_sampled_probability_replay.py": "b36e487cc6b9221ee687c0ba24d90b066f72e1f3d24b1705352a0bd8427cf12d",
+    "integration/rebalance_easysteer/scripts/replay_sampled_probabilities.py": "0c0e1908a68b5c9949bccaf8fdc31646c93d03baf6a8445c06bacec2d62e0af6",
+    "integration/rebalance_easysteer/scripts/audit_sampled_probabilities.py": "c6b1eb90cb66669396f6c8f4d7f724a335bff5a61f7a4d43d417e12f138adbee",
+    "integration/rebalance_easysteer/scripts/mechanism_candidates.py": "47a62b1cb7c50a96df96af8b7ec8f477cf30397659759cad8477b10db35b5ab8",
+    "integration/rebalance_easysteer/scripts/audit_control_alignment.py": "5c60c0ac148fd0a7068434cacac2074437462e16ffe5cf92b3dc20571a86513c",
+    "integration/rebalance_easysteer/eval/rebalance_static_eval.py": "ec0496b873c1512b8d2301b11dc8c9563ac3dacd6e95217184158a32a370e344",
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "07c7e41b1850db0c9992c09322cd8a48f06dd9259a937b861b40d3a98b3fd807"
+  },
+  "source_tokenization": "Exact original prompt builder and frozen tokenizer; CPU prepare stores prompt IDs and roundtrip hashes before CUDA load.",
+  "expected_probability_array_bytes": 5568432,
+  "new_answers": 0,
+  "new_grading": 0,
+  "limitations": [
+    "Teacher-forced HF replay can differ numerically from vLLM incremental generation; opportunity counts are offline diagnostics, not observed online intervention counts. A candidate GPU screen would require separate short compiled checks and fresh controls.",
+    "Previously evaluated comparison questions are development diagnostics only; no candidate efficacy evidence from this replay."
+  ]
+}
