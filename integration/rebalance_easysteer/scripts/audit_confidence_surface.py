@@ -95,8 +95,8 @@ def main():
     for c, name in enumerate(plan['token_classes_order']):
         present = counts[:, c] > 0
         statistics[name] = dict(count=int(counts[:, c].sum()), questions=int(present.sum()),
-            pooled_mean_probability=float(sums[:, c].sum()/counts[:, c].sum()),
-            question_equal_mean_probability=float(np.mean(sums[present, c]/counts[present, c])),
+            pooled_mean_probability=float(sums[:, c].sum()/counts[:, c].sum()) if present.any() else None,
+            question_equal_mean_probability=float(np.mean(sums[present, c]/counts[present, c])) if present.any() else None,
             question_equal_fraction=float(np.mean(counts[:, c]/counts.sum(axis=1))))
     result = dict(status='completed_CPU_descriptive_audit_no_controller_change',
         commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip(),
