@@ -1,0 +1,31 @@
+{
+  "status": "fixed_CPU_followup_after_exploratory_radial_statistics_before_any_radial_screen_result",
+  "purpose": "Assess a distinct opportunity: stabilize displacement relative to the current state size, rather than restore radius after the original addition.",
+  "candidate": "state_norm_scaled_original_displacement",
+  "evidence": [
+    {"paper": "https://arxiv.org/abs/2606.06735v2", "location": "Eq5-7 and Section4.2", "role": "The angular effect of a fixed additive vector depends on current norm and alignment. Angular targeting differs from posthoc norm restoration."},
+    {"local": "radial_restoration_cpu/boundaries.npz", "role": "Exploratory saved-state geometry already showed heterogeneous radial effects. This followup is explicitly hypothesis development on original calibration data, not independently selected evidence."}
+  ],
+  "mechanism": "Use c_eff=c*norm(x)/reference_norm and y=x+c_eff*d, where x is the complete current state, d and signed c are unchanged. Fix reference_norm to the pooled median norm of existing valid calibration predecessor states. Relative displacement norm becomes abs(c)*norm(d)/reference_norm, independent of norm(x), while alignment still affects angle. Do not restore the resulting radius or add a feedback/correctness gate.",
+  "cpu_protocol": "Use the existing83508 scalar geometry records. Compute the reference on original400 training questions, assess the same rule on original100 development questions without fitting there, then use all500 calibration questions for the final single reference only if all gates pass. No threshold, layer or strength search; original groups are development-only.",
+  "cpu_gate": {
+    "minimum_fraction_scale_outside_reciprocal_interval": 0.20,
+    "scale_interval": [0.8, 1.25],
+    "minimum_affected_questions": 50,
+    "minimum_affected_fraction_in_each_group": 0.20,
+    "development_to_training_median_norm_interval": [0.8, 1.25],
+    "finite_geometry": true,
+    "coefficient_sign_preserved": true,
+    "constant_relative_displacement_identity": true
+  },
+  "gate_rationale": "Require appreciable norm-driven dose variation across questions and stable reference scale across the existing groups. These practical opportunity checks cannot predict accuracy or compression.",
+  "report": "Current-state norm and c_eff distributions, fraction outside original coefficient extrema, relative and angular displacement before/after, group support and fixed gate. All such results are offline geometry, not generation gains.",
+  "limitations": [
+    "Large or small state norms need not represent overthinking. The candidate may remove useful state-dependent sensitivity.",
+    "Effective coefficient can exceed original curve extrema; the relative displacement remains bounded by the unchanged coefficient bounds and fixed reference. This algebra does not guarantee model stability.",
+    "Saved unsteered states do not reproduce the distribution after intervention.",
+    "This is not a retuned radial-restoration coefficient; it changes angular dose with state norm and leaves the resulting radius unconstrained."
+  ],
+  "decision": "Any CPU gate failure stops this candidate. A pass only permits later implementation and a separately fixed new paired generation screen, after the current radial experiment is resolved. No GPU execution is authorized by this provisional CPU file alone.",
+  "cost": "Existing local scalar arrays only, no state replay, model load, new answer or GPU call."
+}
