@@ -1,0 +1,76 @@
+{
+  "status": "completed_posthoc_CPU_only",
+  "new_answers": 0,
+  "GPU_calls": 0,
+  "analysis_sha256": "81dbc4dad3faf2a8de6d96c23bc75c7fa462a42a29a40e7759164abbf0dae38c",
+  "source_sha256": {
+    "original_dynamic.json": "4d6bb03aec041edfc93e737f59f7a507135a34571e3d2482f046d93146e074f4",
+    "min_displacement.json": "820161f5f79a1e829dbbd3e6494200fb6218719d901dd6db8b2eed91ffb92dc2",
+    "orthogonal_mean.json": "432afbaab16e19ae60c4f9d23d3c84961b35354b68caf9ac089335381ec354d0",
+    "original_dynamic.author.json": "f197790c33bd368b427c8c326eed095fd24abf1a8b4fd3c0ac3302e33691612e",
+    "min_displacement.author.json": "eb5d3d2ad51ac6d29e9d82d9fe0893921c433d8abb938b470f6b657ed56d0164",
+    "orthogonal_mean.author.json": "deacdd70f5e17e4063b260f1328a2dde0356d65ba5edce1baf6a6ecd04109adb",
+    "run_ledger.json": "56779ebe1d78a2fbf80ac25ce81668d21995731b84d12559c9adc024fd348a6b"
+  },
+  "vector_sha256": "50ee0dfebdb5cf3771890b4be74399859550604dd7699ed7dd1d735314a1ae79",
+  "script_sha256": "118b3ab281eed5e5eaab36755ca8f35dcd2e60e0b81be47713680fdc3739207f",
+  "seed": 20260912,
+  "bootstrap_repetitions": 10000,
+  "comparisons": {
+    "min_displacement": {
+      "total": {
+        "percent_change": -1.5062744333514622,
+        "paired_bootstrap_95_percent_interval": [
+          -12.559822854710646,
+          11.33905115637592
+        ]
+      },
+      "thinking": {
+        "percent_change": -2.3175734940440895,
+        "paired_bootstrap_95_percent_interval": [
+          -14.46575018285333,
+          12.058578333425883
+        ]
+      },
+      "accuracy": {
+        "difference_pp": 4.0,
+        "paired_bootstrap_95_pp_interval": [
+          -1.0,
+          10.0
+        ]
+      }
+    },
+    "orthogonal_mean": {
+      "total": {
+        "percent_change": -3.420412686360419,
+        "paired_bootstrap_95_percent_interval": [
+          -16.830606653335575,
+          11.367543393177414
+        ]
+      },
+      "thinking": {
+        "percent_change": -3.6295730413377525,
+        "paired_bootstrap_95_percent_interval": [
+          -18.627512443487838,
+          13.096517093686773
+        ]
+      },
+      "accuracy": {
+        "difference_pp": 3.0,
+        "paired_bootstrap_95_pp_interval": [
+          -3.0,
+          9.0
+        ]
+      }
+    }
+  },
+  "old_w_projection_collapse_max_error": 2.7344036638395173e-16,
+  "combination_decision": "Do not combine BCC with the old-w minimum-displacement projection: at matched norm it collapses to the old axis up to sign. A BCC-specific discriminator would be a separate calibrated method.",
+  "alternatives": "Fixed minimum-displacement alone deserves independent confirmation under a new prospective small-gain objective. Norm restoration is mechanistically distinct but has cap regressions; vector averaging has unchosen weights and no additive-gain guarantee.",
+  "limitations": [
+    "Existing selected screens, not new independent evidence.",
+    "Question bootstrap conditions on one generation seed; no multiplicity correction.",
+    "Old 5 percent gates and stopped decisions remain unchanged.",
+    "No successful BCC vector exists yet; synthetic algebra is not an efficacy test."
+  ]
+}
