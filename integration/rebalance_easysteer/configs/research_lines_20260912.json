@@ -18,7 +18,13 @@
           "sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
           "role": "Existing A-line reservation; current independence audit pending; not available for B development"
         }
-      ]
+      ],
+      "confirmation_subbranch": {
+        "branch": "codex/min-displacement-confirm-v1",
+        "worktree": "E:\\srtp\\srtp-final\\.codex_work\\min_confirmation_worktree",
+        "commit": "f9fb2da5ad0e69f4e27943f76e585c091166e0bc",
+        "reason": "Freeze old generation source, add confirmation orchestration only; remains A-line, not a third research line"
+      }
     },
     "B": {
       "scope": "SyncThink/CGRS hybrid research",

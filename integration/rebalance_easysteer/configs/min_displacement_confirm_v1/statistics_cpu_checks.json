@@ -1,0 +1,21 @@
+{
+  "status": "CPU_validated_no_generation",
+  "source": "https://raw.githubusercontent.com/cran/PropCIs/master/R/scoreci.mp.R",
+  "reference": "Independent Python evaluation of p21 equation; no R runtime execution. Production uses constrained total-discordance q equation.",
+  "exhaustive_tables_n20": 231,
+  "max_tight_reference_difference": 7.66053886991358e-15,
+  "max_original_stopping_reference_difference": 2.0019347857225256e-07,
+  "first_check_failure": "Original published early stopping yields max 2.0019348e-7 endpoint difference, marginally above the initial 2e-7 check. Same equation evaluated to tight convergence agrees <1e-12; production formula and experiment gates unchanged.",
+  "analytic_boundary_checks": [
+    "all concordant nonzero width",
+    "all improved endpoint",
+    "swap symmetry"
+  ],
+  "synthetic_decisions": [
+    "independent_confirmation_supported",
+    "positive_budget_compatible_replication_not_confirmed",
+    "not_supported_under_fixed_protocol"
+  ],
+  "script_sha256": "1ac116ac484fe9db91d50dc55b99db65832f147b1b63141e550b87e05b99095d",
+  "new_answers": 0
+}
