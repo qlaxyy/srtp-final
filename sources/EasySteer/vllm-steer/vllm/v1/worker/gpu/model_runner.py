@@ -116,6 +116,10 @@ from vllm.v1.worker.gpu.steer_vector_utils import (
     fill_graph_steer_buffers,
     make_steer_vector_forward_kwargs,
 )
+from vllm.steer_vectors.rebalance import (
+    sampled_raw_confidence,
+    snapshot_raw_confidence,
+)
 from vllm.v1.worker.gpu.structured_outputs import StructuredOutputsWorker
 from vllm.v1.worker.lora_model_runner_mixin import LoRAModelRunnerMixin
 from vllm.v1.worker.capture_model_runner_mixin import (
@@ -1148,6 +1152,7 @@ class GPUModelRunner(
         sample_hidden_states = hidden_states[input_batch.logits_indices]
         logits = self.model.compute_logits(sample_hidden_states)
         max_probabilities = None
+        raw_confidence = None
         if self.steer_vector_state.has_dynamic():
             if input_batch.num_draft_tokens != 0:
                 raise RuntimeError(
@@ -1158,10 +1163,16 @@ class GPUModelRunner(
                     "rebalance requires one logits row per active request"
                 )
             if self.steer_vector_state.requires_confidence():
-                float_logits = logits.float()
-                max_probabilities = torch.exp(
-                    float_logits.amax(dim=-1) - torch.logsumexp(float_logits, dim=-1)
-                )
+                if self.steer_vector_state.requires_sampled_confidence():
+                    raw_confidence = snapshot_raw_confidence(logits)
+                    raw, log_normalizer = raw_confidence
+                    max_probabilities = torch.exp(raw.amax(dim=-1) - log_normalizer)
+                else:
+                    float_logits = logits.float()
+                    max_probabilities = torch.exp(
+                        float_logits.amax(dim=-1)
+                        - torch.logsumexp(float_logits, dim=-1)
+                    )
             else:
                 max_probabilities = logits.new_zeros(
                     (input_batch.num_reqs,), dtype=torch.float32
@@ -1191,10 +1202,16 @@ class GPUModelRunner(
             )
 
         if max_probabilities is not None:
+            selected_probabilities = None
+            if raw_confidence is not None:
+                selected_probabilities = sampled_raw_confidence(
+                    *raw_confidence, sampler_output.sampled_token_ids
+                )
             self.steer_vector_state.observe_sample(
                 input_batch,
                 sampler_output.sampled_token_ids,
                 max_probabilities,
+                selected_probabilities,
             )
 
         return sampler_output, sampler_output.num_sampled, sampler_output.num_rejected

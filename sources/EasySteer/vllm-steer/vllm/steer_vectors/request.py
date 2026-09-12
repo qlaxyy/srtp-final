@@ -54,6 +54,7 @@ STEER_REBALANCE_FIELDS: tuple[str, ...] = (
     "rebalance_paper_parameters",
     "rebalance_curve_tau",
     "rebalance_negative_only",
+    "rebalance_sampled_confidence",
 )
 
 
@@ -326,6 +327,7 @@ class SteerVectorRequest(
     rebalance_paper_parameters: list[float] | None = None
     rebalance_curve_tau: float = 0.01
     rebalance_negative_only: bool = False
+    rebalance_sampled_confidence: bool = False
 
     def __post_init__(self):
         """Validate configuration consistency."""

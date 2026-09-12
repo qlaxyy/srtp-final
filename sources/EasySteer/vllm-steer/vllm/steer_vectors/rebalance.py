@@ -29,8 +29,16 @@ class ReBalanceParams:
     curve_tau: float = 0.01
     constant_control: bool = False
     negative_only: bool = False
+    sampled_confidence: bool = False
 
     def __post_init__(self):
+        if not isinstance(self.sampled_confidence, bool):
+            raise ValueError("sampled_confidence must be a boolean")
+        if self.sampled_confidence and (
+            self.constant_control or self.paper_parameters is not None
+            or self.negative_only
+        ):
+            raise ValueError("Sampled confidence requires original author-code control")
         if not isinstance(self.negative_only, bool):
             raise ValueError("negative_only must be a boolean")
         if self.negative_only and (
@@ -60,6 +68,9 @@ class ReBalanceParams:
     @classmethod
     def from_request(cls, request) -> "ReBalanceParams":
         """Create parameters from an engine-side steering request."""
+        if (getattr(request, "rebalance_sampled_confidence", False)
+                and request.algorithm != "rebalance"):
+            raise ValueError("Sampled confidence requires algorithm=rebalance")
         boundary_ids = request.rebalance_boundary_token_ids
         start_id = request.rebalance_think_start_token_id
         end_id = request.rebalance_think_end_token_id
@@ -85,7 +96,27 @@ class ReBalanceParams:
             curve_tau=getattr(request, "rebalance_curve_tau", 0.01),
             constant_control=request.algorithm == "seal",
             negative_only=getattr(request, "rebalance_negative_only", False),
+            sampled_confidence=getattr(request, "rebalance_sampled_confidence", False),
         )
+
+
+def snapshot_raw_confidence(logits):
+    """Own raw logits before the sampler can mutate even an FP32 input."""
+    raw = logits.to(dtype=torch.float32, copy=True)
+    return raw, torch.logsumexp(raw, dim=-1)
+
+
+def sampled_raw_confidence(raw, log_normalizer, sampled_token_ids):
+    """Gather raw selected-token probability; masked dummy IDs return zero."""
+    if sampled_token_ids.shape != (raw.shape[0], 1):
+        raise RuntimeError("Sampled confidence requires one token per logits row")
+    ids = sampled_token_ids.long()
+    valid = (ids >= 0) & (ids < raw.shape[1])
+    safe_ids = ids.clamp(0, raw.shape[1] - 1)
+    selected = raw.gather(1, safe_ids).squeeze(1)
+    return torch.where(
+        valid.squeeze(1), torch.exp(selected - log_normalizer), 0.0
+    )
 
 
 def compute_paper_coefficient(confidence, variance, params: ReBalanceParams):

@@ -100,6 +100,8 @@ def parse_args() -> argparse.Namespace:
                         help="Same-graph norm restoration control or candidate")
     parser.add_argument("--negative-only", action=argparse.BooleanOptionalAction, default=False,
                         help="Ablate positive coefficients after the unchanged dynamic rule")
+    parser.add_argument("--sampled-confidence", action="store_true",
+                        help="Use raw probability of the actually sampled token")
     parser.add_argument("--baseline-result", type=Path,
                         help="Reuse a complete control with verified code/model content identity")
     parser.add_argument("--dynamic-first", action="store_true",
@@ -107,6 +109,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
                         help="Engineering-only single arm; never a formal method comparison")
     args = parser.parse_args()
+    if args.sampled_confidence and (args.feedback_config or args.paper_fit or
+                                   args.radial_restore or args.negative_only or
+                                   args.resume_result or args.baseline_result):
+        parser.error("Sampled confidence requires a separate fresh author-code run")
     if args.feedback_disabled and not args.feedback_config:
         parser.error("--feedback-disabled requires --feedback-config")
     if args.radial_restore and (args.feedback_config or args.paper_fit or
@@ -250,6 +256,8 @@ def main() -> None:
     payload = from_pt_direction(str(vector_path), layers=[args.layer])
     if args.negative_only:
         dynamic_params["negative_only"] = True
+    if args.sampled_confidence:
+        dynamic_params["sampled_confidence"] = True
     algorithm = "rebalance"
     if args.radial_restore:
         algorithm = ("rebalance_radial" if args.radial_restore == "on" else
@@ -307,6 +315,7 @@ def main() -> None:
             "effective_hidden_state_index": args.layer + 1,
             "calibration_layer_verified": calibration_source_layer is not None,
             "negative_only": args.negative_only,
+            "sampled_confidence": args.sampled_confidence,
             "max_tokens": args.max_tokens,
             "max_model_len": args.max_model_len,
             "max_num_seqs": args.max_num_seqs,

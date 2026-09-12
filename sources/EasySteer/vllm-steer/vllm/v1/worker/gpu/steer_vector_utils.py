@@ -197,6 +197,9 @@ class SteerVectorState:
     def requires_confidence(self) -> bool:
         return any(not p.constant_control for p in self._dynamic_params.values())
 
+    def requires_sampled_confidence(self) -> bool:
+        return any(p.sampled_confidence for p in self._dynamic_params.values())
+
     def _group_batch_positions(
         self, req_ids: list[str]
     ) -> dict[ReBalanceParams, list[int]]:
@@ -263,6 +266,7 @@ class SteerVectorState:
         input_batch: InputBatch,
         sampled_token_ids: torch.Tensor,
         max_probabilities: torch.Tensor,
+        sampled_probabilities: torch.Tensor | None = None,
     ) -> None:
         """Update each request after sampling using device-resident state."""
         if not self.has_dynamic():
@@ -275,6 +279,11 @@ class SteerVectorState:
             )
         if max_probabilities.shape != (input_batch.num_reqs,):
             raise RuntimeError("rebalance confidence rows do not match the batch")
+        if self.requires_sampled_confidence() and (
+            sampled_probabilities is None
+            or sampled_probabilities.shape != (input_batch.num_reqs,)
+        ):
+            raise RuntimeError("Missing or misaligned raw sampled probabilities")
 
         assert self._coefs is not None
         assert self._step_prob_sum is not None
@@ -305,7 +314,9 @@ class SteerVectorState:
                 self._in_think.index_copy_(0, state_idx, in_think)
                 self._record_scales(input_batch, positions, pos, state_idx)
                 continue
-            probabilities = max_probabilities.index_select(0, pos)
+            source = (sampled_probabilities if params.sampled_confidence
+                      else max_probabilities)
+            probabilities = source.index_select(0, pos)
             boundaries = self._boundary_tensors.get(params)
             if boundaries is None:
                 boundaries = torch.tensor(

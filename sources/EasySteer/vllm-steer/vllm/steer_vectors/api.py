@@ -95,6 +95,7 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
         "paper_parameters",
         "curve_tau",
         "negative_only",
+        "sampled_confidence",
     ),
 }
 ALGORITHM_PARAMS["rebalance_feedback"] = ALGORITHM_PARAMS["rebalance"]
@@ -588,6 +589,9 @@ def to_engine_request(
                 "rebalance_paper_parameters": v.params.get("paper_parameters"),
                 "rebalance_curve_tau": v.params.get("curve_tau", 0.01),
                 "rebalance_negative_only": v.params.get("negative_only", False),
+                "rebalance_sampled_confidence": v.params.get(
+                    "sampled_confidence", False
+                ),
             }
         wire = _payload_wire(v)
         return SteerVectorRequest(

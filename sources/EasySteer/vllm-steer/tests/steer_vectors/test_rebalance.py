@@ -447,6 +447,112 @@ def _request():
     )
 
 
+def test_sampled_confidence_owns_raw_logits_before_sampler_mutation():
+    """Selected confidence is raw likelihood, independent of sampler transforms."""
+    from vllm.steer_vectors.rebalance import (
+        snapshot_raw_confidence, sampled_raw_confidence,
+    )
+    for device in ["cpu"] + (["cuda"] if torch.cuda.is_available() else []):
+        for dtype in (torch.float32, torch.bfloat16):
+            logits = torch.tensor([[2., 0., -1.], [-3., 1., 2.]],
+                                  dtype=dtype, device=device)
+            original = logits.float().clone()
+            snapshot = snapshot_raw_confidence(logits)
+            logits.mul_(2).add_(13)
+            logits[:, 0] = -torch.inf
+            ids = torch.tensor([[1], [0]], device=device)
+            actual = sampled_raw_confidence(*snapshot, ids)
+            expected = original.softmax(-1).gather(1, ids).squeeze(1)
+            torch.testing.assert_close(actual, expected)
+            assert snapshot[0].data_ptr() != logits.data_ptr()
+            assert snapshot[0].dtype == torch.float32
+            torch.testing.assert_close(snapshot[0], original, rtol=0, atol=0)
+            dummy = sampled_raw_confidence(
+                *snapshot, torch.tensor([[-1], [3]], device=device)
+            )
+            assert torch.equal(dummy, torch.zeros_like(dummy))
+            with unittest.TestCase().assertRaises(RuntimeError):
+                sampled_raw_confidence(*snapshot, ids[:, 0])
+
+
+def test_sampled_confidence_survives_request_serialization_and_rejects_mixing():
+    import msgspec
+    from vllm.steer_vectors.api import (
+        ApplySpec, SteeringSpec, VectorSpec, to_engine_request,
+    )
+    from vllm.steer_vectors.request import SteerVectorRequest
+    params = dict(boundary_token_ids=[99], think_start_token_id=10,
+                  think_end_token_id=11, sampled_confidence=True)
+    spec = SteeringSpec(vectors=[VectorSpec(
+        source="/unused.pt", layers=[20], algorithm="rebalance",
+        apply=ApplySpec(generation_tokens=[99]), params=params,
+    )])
+    request = to_engine_request(spec, name="selected", int_id=1)
+    restored = msgspec.msgpack.decode(msgspec.msgpack.encode(request),
+                                     type=SteerVectorRequest)
+    assert ReBalanceParams.from_request(restored).sampled_confidence
+    for field, value in [("rebalance_sampled_confidence", "true"),
+                         ("rebalance_negative_only", True),
+                         ("algorithm", "seal"),
+                         ("algorithm", "rebalance_feedback"),
+                         ("rebalance_paper_parameters", [2., 2., 2., .02, .002])]:
+        original = getattr(restored, field)
+        setattr(restored, field, value)
+        with unittest.TestCase().assertRaises(ValueError):
+            ReBalanceParams.from_request(restored)
+        setattr(restored, field, original)
+
+
+def test_sampled_confidence_is_request_local_across_reordering_and_replay():
+    """A mixed batch keeps default means, skips prefill, and restores chosen means."""
+    state = SteerVectorState(3, torch.device("cpu"), max_model_len=32)
+    default, selected = _request(), _request()
+    selected.rebalance_sampled_confidence = True
+    manager = _Manager()
+    state.add_request("default", default, manager, req_index=0,
+                      prompt_token_ids=[10])
+    state.add_request("selected", selected, manager, req_index=1,
+                      prompt_token_ids=[10])
+    assert state.requires_sampled_confidence()
+    batch = SimpleNamespace(
+        req_ids=["selected", "default"], num_reqs=2, num_draft_tokens=0,
+        idx_mapping=torch.tensor([1, 0]), seq_lens=torch.tensor([1, 1]),
+        num_computed_tokens_np=np.array([0, 0]),
+        num_scheduled_tokens=np.array([1, 1]), prefill_len_np=np.array([1, 1]),
+    )
+    with unittest.TestCase().assertRaises(RuntimeError):
+        state.observe_sample(batch, torch.tensor([[1], [1]]), torch.ones(2))
+    for position, tokens, maxima, chosen in [
+        (1, [1, 1], [.9, .8], [.2, .3]),
+        (2, [2, 2], [.7, .6], [.4, .1]),
+        (3, [99, 99], [.99, .99], [.01, .01]),
+    ]:
+        batch.seq_lens.fill_(position)
+        batch.num_computed_tokens_np[:] = position - 1
+        state.observe_sample(batch, torch.tensor(tokens)[:, None],
+                             torch.tensor(maxima), torch.tensor(chosen))
+    torch.testing.assert_close(state._prev_step_mean[:2], torch.tensor([.7, .3]))
+    expected = compute_rebalance_coefficient(
+        torch.tensor([.7, .3]), torch.zeros(2), ReBalanceParams.from_request(default)
+    )
+    torch.testing.assert_close(state._coefs[:2], expected)
+    history = state._history[1, :4].clone()
+    fields = [f[1].clone() for f in state._state_fields()]
+    state.suspend_request("selected")
+    state.remove_request("selected", manager)
+    state.add_request("selected", selected, manager, req_index=2,
+                      prompt_token_ids=[10], num_generated_tokens=3)
+    replay = _replay_batch("cpu", [10, 1], 0, 4, slot=2)
+    replay.req_ids = ["selected"]
+    state.observe_sample(replay, torch.tensor([[-1]]), torch.ones(1),
+                         torch.zeros(1))
+    for field, saved in zip(state._state_fields(), fields):
+        torch.testing.assert_close(field[2], saved, equal_nan=True)
+    torch.testing.assert_close(state._history[2, :4], history)
+    state.remove_request("selected", manager)
+    assert not state.requires_sampled_confidence()
+
+
 def test_rebalance_state_is_request_local_and_uses_arithmetic_mean():
     state = SteerVectorState(max_num_reqs=2, device=torch.device("cpu"))
     manager = _Manager()
