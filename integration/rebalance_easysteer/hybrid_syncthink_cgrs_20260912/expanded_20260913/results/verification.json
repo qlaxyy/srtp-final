@@ -1,0 +1,112 @@
+{
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_expanded1_complete_20260913.tar.gz",
+    "sha256": "69e6fffc265fa4278707943b2f6e6ccabf86a1e5ce4b7d4dbf2c7d5acf866cd5",
+    "files": 53,
+    "bytes": 13677726
+  },
+  "runtime_commit": "ed0ecbe22527e65e58a65ebe6131332465834820",
+  "source_files_verified": 2796,
+  "generated_version_file_not_locally_compared": [
+    "sources/EasySteer/vllm-steer/vllm/_version.py"
+  ],
+  "source_hash_method": "Exact local bytes or CRLF-to-LF canonical bytes",
+  "resolved_sha256": "e387f63206b063b623f07c43b0abf22c76fd15c730fefc9bf2a8cbc3dac64db9",
+  "local_audit_sha256": "235ac10b5fe3b9aeadff002672af8e725e71ef3126f2e862f6add027455b7ae0",
+  "remote_audit_sha256": "c28a3ab280bc1eb7c539b290852707fcb60fc73b5529d96076380e0461dec987",
+  "formal_records_verified": 1600,
+  "grading": "Existing author labels checked against original raw hashes, no regrading",
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 1348.3422219604254,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "MATH200 + GSM8K200 x4"
+  },
+  "engineering_gate": {
+    "status": "pass",
+    "token_and_R_history_identity": true,
+    "pretrigger_identity": true,
+    "actual_preemption_tested": false
+  },
+  "limitations": [
+    "Exact-normalized question de-duplication is not a semantic paraphrase audit",
+    "No claim of unknown model pretraining contamination absence",
+    "Async tail token remains in worker counters, excluded from accepted output metrics"
+  ],
+  "bootstrap_computed_locally_from_raw": true,
+  "model_and_calibration_assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "environment": {
+    "build_tools": {
+      "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6"
+    },
+    "torch": "2.11.0+cu129",
+    "vllm": "0.1.dev18960+g6267ca0cf"
+  },
+  "source_unchanged_production_files": [
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py"
+  ],
+  "closure_observation": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "utilization_percent": 0,
+    "memory_mib": 1,
+    "compute_apps": [],
+    "shared_git_status": "clean",
+    "shared_head": "82c570e5e3d49971605268c30a59fe856d5d1f01",
+    "freeze_tag_object": "21e366b6d9a76ebb112e24e3e110942ef405bab9",
+    "freeze_tag_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e"
+  }
+}
