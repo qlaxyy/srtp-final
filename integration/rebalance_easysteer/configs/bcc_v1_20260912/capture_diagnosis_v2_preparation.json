@@ -1,0 +1,33 @@
+{
+  "status": "v2_CPU_ready_not_executed",
+  "scope": "Same six forwards; exact inputs plus embedding/all raw decoder-layer states at two fixed absolute positions; per-position metrics and observed functional SDPA calls",
+  "input_tokens": 3454,
+  "new_answers": 0,
+  "source_sha256": "4799b370cc5a496ee9c1953787e93b650c2c190e3fee5d6bdd804cbe6341730b",
+  "parent_plan_sha256": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+  "estimated_GPU_minutes": [
+    1,
+    2
+  ],
+  "hard_timeout_seconds": 600,
+  "output": "/root/autodl-tmp/results/easysteer/bcc_v1_20260912_capture_diagnosis2",
+  "needs_new_batch_authorization": true,
+  "completion": "Six finite raw capture arrays and numerical comparison ledger downloaded and hash-verified. Numerical mismatch is recorded, not accepted as passing BCC.",
+  "stops": [
+    "Other GPU process",
+    "Model/input mismatch",
+    "OOM/nonfinite",
+    "600s deadline"
+  ],
+  "not_authorized_actions": [
+    "Full 76-pair replay",
+    "New answer generation",
+    "Tolerance changes",
+    "Direction fitting from partial data",
+    "Additional eight diagnostic forwards proposed by report",
+    "40-fit-pair shadow replay"
+  ],
+  "command": "timeout --signal=TERM --kill-after=5s 600s /root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/scripts/diagnose_bcc_capture_v2.py --prepared /root/autodl-tmp/results/easysteer/bcc_v1_20260912_prepared --output /root/autodl-tmp/results/easysteer/bcc_v1_20260912_capture_diagnosis2 --execute --expected-plan-sha256 c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+  "logging": "Save stdout/stderr to adjacent capture_diagnosis2.log; preserve every capture before numerical checks",
+  "revision": "Original aggregate relative L2 retained as historical gate; v2 uses per-position L2 with same numeric thresholds. No retroactive reclassification."
+}
