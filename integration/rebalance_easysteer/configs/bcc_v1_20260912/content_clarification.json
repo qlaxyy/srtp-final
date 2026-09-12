@@ -1,0 +1,11 @@
+{
+  "status": "passed_under_user_clarified_standard",
+  "user_selected_standard": "core_derivation_valid_local_errors_retained",
+  "user_reply": "以主要推导有效为准，保留局部错误记录（推荐）",
+  "core_valid_pairs": 10,
+  "review_pairs": 12,
+  "replaced_pairs": 0,
+  "excluded_from_positive_review_count": [3, 12],
+  "limits": "This is a post-review clarification, not the original gate being retroactively passed. Same single Codex review, not independent human adjudication. All 76 originally fixed pairs remain in the proposed calibration, including review failures; no label editing or replacement.",
+  "GPU_authorized": false
+}

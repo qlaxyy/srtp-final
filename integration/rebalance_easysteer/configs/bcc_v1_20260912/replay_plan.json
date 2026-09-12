@@ -1,0 +1,52 @@
+{
+  "method": "bcc-v1-fixed-controller",
+  "status": "prepared_CPU_only",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_files_sha256": {
+    "config.json": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41",
+    "generation_config.json": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126",
+    "model.safetensors": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945",
+    "tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "tokenizer_config.json": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+  },
+  "decoder_output_layer": 20,
+  "hidden_size": 1536,
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "batch_size": 1,
+  "timeout_seconds": 600,
+  "new_answers": 0,
+  "pairs": 76,
+  "hidden_vectors": 304,
+  "input_tokens": 66159,
+  "engineering_pair_ids": [
+    "lexical_direction:4635",
+    "lexical_direction:4161"
+  ],
+  "max_absolute_difference": 0.125,
+  "max_relative_l2": 0.002,
+  "parent_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+  "parent_vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "parent_vector_norm": 83.61913299560547,
+  "prefixes_sha256": "4e20ff8504fa147e4599dcd9d508401e4ccf644b1e7307ac7d770fa26c17dfee",
+  "manifest_sha256": "38c9923e5057c23f5658876bb84a13901f38716ff8ebd3f720eb84008c773864",
+  "source_inputs_sha256": {
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\prompt_audit.json": "fb11977f2bc0efd2dc60d7b40c187f12b8cea05cd24d2451443fb45df82dfb6f",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\lexical_direction\\screen\\original_dynamic.json": "618cba2faac212912697fdb781677df921c32a6d32a84284756a3cd39276a9f0",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\lexical_direction\\screen\\original_dynamic.author.json": "b9d4cdfdb1b2be148632cced16d570502bf2cfd07c81a9a02bcc539fe3a011f7",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\lexical_direction\\screen\\lexical_direction.json": "a72c07a71e582951fce3297bd0ff6b5549db0a50d8526725f9e4f8c34191e6d9",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\lexical_direction\\screen\\lexical_direction.author.json": "b2bf8f43b9059bfe21f7087ec7994b2a3d56de5f097899cca46a4d48d4241a8d",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\sampled_confidence\\screen\\original_dynamic.json": "1ec2821a2e99eb876456839f981661286aee97c8ef7171bd28668e9a8adf0e70",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\sampled_confidence\\screen\\original_dynamic.author.json": "0a5e23fdd7d0f06637d849c763d262153908ca7185d2a96e11273a89415c5de7",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\sampled_confidence\\screen\\sampled_confidence.json": "5d969a56d7e0c2d347d13faf7dc25f8563f478a50597534a7ba7b14eba3ae993",
+    "E:\\srtp\\srtp-final\\.codex_work\\overnight_research_20260912\\prepared_gpu_execution_20260912\\unpacked\\local_prepared_batch_20260912\\sampled_confidence\\screen\\sampled_confidence.author.json": "19ed7b38ab105ec79a02a15136992b8806544f589e21b736300b6c0292673609"
+  },
+  "runtime_source_sha256": {
+    "prepare_bcc.py": "8e3f16c46f206d478f1d108c446f45423812f33ff8874621d106165b3c807bdf",
+    "replay_bcc_prefixes.py": "775bdbbc149710c3fbf6e05687cb19dfdd35b5053e4aead1a95f711ba4cbc510",
+    "fit_bcc.py": "0e1af3e716e841b273929030aaa9354d9668f12ecb7273c93910a65eba00889f"
+  },
+  "content_gate": "passed_under_user_clarified_standard",
+  "content_clarification_sha256": "16fa65dc61db70fee39b423f42fc91ca7900ef0fd4c58d52498720b3f9b4c13c",
+  "authorization": "GPU requires current user authorization; preparation is not authorization"
+}
