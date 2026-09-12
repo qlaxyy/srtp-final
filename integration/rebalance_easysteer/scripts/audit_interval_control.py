@@ -29,7 +29,7 @@ def events(ids, probabilities, boundaries, end_id, interval):
             if not count: continue
             if probabilities is not None:
                 mean = sums / np.float32(count)
-                variance = np.float32(0) if previous is None else (mean-previous)**np.float32(2)/np.float32(4)
+                variance = np.float32(0) if previous is None else np.square(mean-previous)/np.float32(4)
                 natural.append((position, count, float(mean), float(variance)))
                 previous = mean
             count = 0; sums = np.float32(0)
@@ -42,7 +42,7 @@ def events(ids, probabilities, boundaries, end_id, interval):
                 virtual.append((position, count, None, None))
             else:
                 mean = sums / np.float32(count)
-                variance = np.float32(0) if previous is None else (mean-previous)**np.float32(2)/np.float32(4)
+                variance = np.float32(0) if previous is None else np.square(mean-previous)/np.float32(4)
                 virtual.append((position, count, float(mean), float(variance)))
     return dict(thinking_tokens=total, maximum_content_gap=max_gap,
                 tokens_after_interval=after, natural=natural, virtual=virtual)
