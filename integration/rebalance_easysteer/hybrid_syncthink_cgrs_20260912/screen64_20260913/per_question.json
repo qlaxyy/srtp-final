@@ -1,0 +1,3842 @@
+[
+  {
+    "train_index": 2294,
+    "problem_sha256": "9fc1d1a305e956203a3dd70ca8acdae1729819621fd69e405e0cc30e098a6ead",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1931,
+        "total_tokens": 2115,
+        "answer_tokens": 183,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 524,
+        "total_tokens": 635,
+        "answer_tokens": 110,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 131,
+        "total_tokens": 292,
+        "answer_tokens": 160,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 292,
+          "first_trigger": 131,
+          "end_position": 131,
+          "trigger_count": 1,
+          "first_rank": 35,
+          "first_entropy": 0.0004024505615234375,
+          "prompt_length": 35,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 131,
+        "total_tokens": 283,
+        "answer_tokens": 151,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 283,
+          "first_trigger": 131,
+          "end_position": 131,
+          "trigger_count": 1,
+          "first_rank": 33,
+          "first_entropy": 0.000415802001953125,
+          "prompt_length": 35,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 245,
+    "problem_sha256": "3bac3305f8d3b8d81fd3ef3f0ec6583ac4afc5dc996bf6f5512ade114bfd306c",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 12392,
+        "total_tokens": 12800,
+        "answer_tokens": 407,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1413,
+        "total_tokens": 1903,
+        "answer_tokens": 489,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 172,
+        "total_tokens": 708,
+        "answer_tokens": 535,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 708,
+          "first_trigger": 172,
+          "end_position": 172,
+          "trigger_count": 1,
+          "first_rank": 26,
+          "first_entropy": 0.0005054473876953125,
+          "prompt_length": 72,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 3333,
+        "total_tokens": 3692,
+        "answer_tokens": 358,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3692,
+          "first_trigger": 3333,
+          "end_position": 3333,
+          "trigger_count": 1,
+          "first_rank": 58,
+          "first_entropy": 0.0054531097412109375,
+          "prompt_length": 72,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2311,
+    "problem_sha256": "9a2da313b0491eb4fdbb423f963d83cb78f6d3ed3ff7d47891e64ab3d31e8f97",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1079,
+        "total_tokens": 1277,
+        "answer_tokens": 197,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1404,
+        "total_tokens": 1619,
+        "answer_tokens": 214,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1151,
+        "total_tokens": 1352,
+        "answer_tokens": 200,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1352,
+          "first_trigger": 1151,
+          "end_position": 1151,
+          "trigger_count": 1,
+          "first_rank": 3,
+          "first_entropy": 0.08177947998046875,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1382,
+        "total_tokens": 1589,
+        "answer_tokens": 206,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1589,
+          "first_trigger": 1382,
+          "end_position": 1382,
+          "trigger_count": 1,
+          "first_rank": 4,
+          "first_entropy": 0.060577392578125,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 7221,
+    "problem_sha256": "616ee4db3d133a636b487617da5e26fe5b639d489e31d39dc913a0a8a2aef784",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1425,
+        "total_tokens": 1691,
+        "answer_tokens": 265,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 879,
+        "total_tokens": 1194,
+        "answer_tokens": 314,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1348,
+        "total_tokens": 1638,
+        "answer_tokens": 289,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1638,
+          "first_trigger": 1348,
+          "end_position": 1348,
+          "trigger_count": 1,
+          "first_rank": 10,
+          "first_entropy": 0.2687053680419922,
+          "prompt_length": 39,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 861,
+        "total_tokens": 1225,
+        "answer_tokens": 363,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1225,
+          "first_trigger": 861,
+          "end_position": 861,
+          "trigger_count": 1,
+          "first_rank": 55,
+          "first_entropy": 0.029209136962890625,
+          "prompt_length": 39,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5848,
+    "problem_sha256": "8408fafa1c343505ba2742ce066d6b8743d37632c4e4cd21c5f85be149814661",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 3172,
+        "total_tokens": 3610,
+        "answer_tokens": 437,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 4844,
+        "total_tokens": 5264,
+        "answer_tokens": 419,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 667,
+        "total_tokens": 1275,
+        "answer_tokens": 607,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1275,
+          "first_trigger": 667,
+          "end_position": 667,
+          "trigger_count": 1,
+          "first_rank": 11,
+          "first_entropy": 0.009943008422851562,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1858,
+        "total_tokens": 2290,
+        "answer_tokens": 431,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2290,
+          "first_trigger": 1858,
+          "end_position": 1858,
+          "trigger_count": 1,
+          "first_rank": 30,
+          "first_entropy": 0.1750164031982422,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1830,
+    "problem_sha256": "e19d831e897b1b8dd2f4e44ce0e2b8bd8efe7f1dbcd6f6db8ebf4c2e543565ad",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1579,
+        "total_tokens": 1925,
+        "answer_tokens": 345,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2520,
+        "total_tokens": 2844,
+        "answer_tokens": 323,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 82,
+        "total_tokens": 455,
+        "answer_tokens": 372,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 455,
+          "first_trigger": 82,
+          "end_position": 82,
+          "trigger_count": 1,
+          "first_rank": 16,
+          "first_entropy": 0.7080001831054688,
+          "prompt_length": 59,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 82,
+        "total_tokens": 455,
+        "answer_tokens": 372,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 455,
+          "first_trigger": 82,
+          "end_position": 82,
+          "trigger_count": 1,
+          "first_rank": 16,
+          "first_entropy": 0.7080364227294922,
+          "prompt_length": 59,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2267,
+    "problem_sha256": "09179ff7b634bfe436160009ef0dc2cdc0fb27ba43c0a53cef42b0600874031b",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1576,
+        "total_tokens": 1969,
+        "answer_tokens": 392,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 726,
+        "total_tokens": 1096,
+        "answer_tokens": 369,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 1010,
+        "total_tokens": 1146,
+        "answer_tokens": 135,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1146,
+          "first_trigger": 1010,
+          "end_position": 1010,
+          "trigger_count": 1,
+          "first_rank": 17,
+          "first_entropy": 0.000518798828125,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 705,
+        "total_tokens": 1077,
+        "answer_tokens": 371,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1077,
+          "first_trigger": 705,
+          "end_position": 705,
+          "trigger_count": 1,
+          "first_rank": 2,
+          "first_entropy": 0.0547943115234375,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5182,
+    "problem_sha256": "7f9062f3508008172a2054fd78f1aabc3748b1a80e3611de69453b6217caec2a",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 5138,
+        "total_tokens": 5637,
+        "answer_tokens": 498,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 7195,
+        "total_tokens": 7686,
+        "answer_tokens": 490,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 15050,
+        "total_tokens": 15755,
+        "answer_tokens": 704,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 15755,
+          "first_trigger": 15050,
+          "end_position": 15050,
+          "trigger_count": 1,
+          "first_rank": 15,
+          "first_entropy": 0.3398933410644531,
+          "prompt_length": 59,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 507,
+        "total_tokens": 804,
+        "answer_tokens": 296,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 804,
+          "first_trigger": 507,
+          "end_position": 507,
+          "trigger_count": 1,
+          "first_rank": 34,
+          "first_entropy": 0.0002002716064453125,
+          "prompt_length": 59,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 3570,
+    "problem_sha256": "2c1555af890413a97ffb478326ff392767fa78a84b6e99b2f9cf20563475d203",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 812,
+        "total_tokens": 1027,
+        "answer_tokens": 214,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 707,
+        "total_tokens": 967,
+        "answer_tokens": 259,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 795,
+        "total_tokens": 993,
+        "answer_tokens": 197,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 993,
+          "first_trigger": 795,
+          "end_position": 795,
+          "trigger_count": 1,
+          "first_rank": 18,
+          "first_entropy": 0.3921394348144531,
+          "prompt_length": 86,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 138,
+        "total_tokens": 342,
+        "answer_tokens": 203,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 342,
+          "first_trigger": 138,
+          "end_position": 138,
+          "trigger_count": 1,
+          "first_rank": 45,
+          "first_entropy": 0.05579185485839844,
+          "prompt_length": 86,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 467,
+    "problem_sha256": "71834702993364bce58bbcc1272dfe75ca4eda73b3977e2e9d3db6e9fa976100",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 14506,
+        "total_tokens": 14968,
+        "answer_tokens": 461,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 9199,
+        "total_tokens": 9781,
+        "answer_tokens": 581,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 142,
+        "total_tokens": 996,
+        "answer_tokens": 853,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 996,
+          "first_trigger": 142,
+          "end_position": 142,
+          "trigger_count": 1,
+          "first_rank": 36,
+          "first_entropy": 0.000530242919921875,
+          "prompt_length": 255,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": {
+          "accepted_tokens": 16000,
+          "first_trigger": -1,
+          "end_position": -1,
+          "trigger_count": 0,
+          "first_rank": -1,
+          "first_entropy": 0.0,
+          "prompt_length": 255,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 3399,
+    "problem_sha256": "b75a689d69b4bb71ea9f62809a438b01d7e70b5400280b8dc7439c5bce16a9d6",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2390,
+        "total_tokens": 2783,
+        "answer_tokens": 392,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1216,
+        "total_tokens": 1588,
+        "answer_tokens": 371,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 2993,
+        "total_tokens": 3417,
+        "answer_tokens": 423,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3417,
+          "first_trigger": 2993,
+          "end_position": 2993,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 4.00543212890625e-05,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 563,
+        "total_tokens": 897,
+        "answer_tokens": 333,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 897,
+          "first_trigger": 563,
+          "end_position": 563,
+          "trigger_count": 1,
+          "first_rank": 10,
+          "first_entropy": 0.0046596527099609375,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2621,
+    "problem_sha256": "e6b947d4abe8308e8ccc9dc312671407bb923085a17f09fee47548ab820eafdd",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 733,
+        "total_tokens": 1014,
+        "answer_tokens": 280,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1223,
+        "total_tokens": 1579,
+        "answer_tokens": 355,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 715,
+        "total_tokens": 1004,
+        "answer_tokens": 288,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1004,
+          "first_trigger": 715,
+          "end_position": 715,
+          "trigger_count": 1,
+          "first_rank": 8,
+          "first_entropy": 0.04121208190917969,
+          "prompt_length": 60,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 2327,
+        "total_tokens": 2641,
+        "answer_tokens": 313,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2641,
+          "first_trigger": 2327,
+          "end_position": 2327,
+          "trigger_count": 1,
+          "first_rank": 10,
+          "first_entropy": 0.06309127807617188,
+          "prompt_length": 60,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6366,
+    "problem_sha256": "d1ccd9a0f541c55e8bea830b77fbd2daa43d88fc653707cf7e9019ef2f0abead",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1712,
+        "total_tokens": 1988,
+        "answer_tokens": 275,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 7383,
+        "total_tokens": 7637,
+        "answer_tokens": 253,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 811,
+        "total_tokens": 1193,
+        "answer_tokens": 381,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1193,
+          "first_trigger": 811,
+          "end_position": 811,
+          "trigger_count": 1,
+          "first_rank": 23,
+          "first_entropy": 0.016330718994140625,
+          "prompt_length": 49,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1888,
+        "total_tokens": 2134,
+        "answer_tokens": 245,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2134,
+          "first_trigger": 1888,
+          "end_position": 1888,
+          "trigger_count": 1,
+          "first_rank": 9,
+          "first_entropy": 0.026556015014648438,
+          "prompt_length": 49,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 276,
+    "problem_sha256": "d05dbc7409cab2e042a396bde05f2c7bd2f7c08e28b7b324a46090505e4fdc0e",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 955,
+        "total_tokens": 1185,
+        "answer_tokens": 229,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 816,
+        "total_tokens": 1152,
+        "answer_tokens": 335,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 996,
+        "total_tokens": 1234,
+        "answer_tokens": 237,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1234,
+          "first_trigger": 996,
+          "end_position": 996,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 4.38690185546875e-05,
+          "prompt_length": 37,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 812,
+        "total_tokens": 1094,
+        "answer_tokens": 281,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1094,
+          "first_trigger": 812,
+          "end_position": 812,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 4.76837158203125e-05,
+          "prompt_length": 37,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1709,
+    "problem_sha256": "7309f04d47c1d936d5dc8f5c5e57f3b20e3c2543ccc2cef808862f954bff3158",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 11989,
+        "total_tokens": 12832,
+        "answer_tokens": 842,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 313,
+        "total_tokens": 14343,
+        "answer_tokens": 14029,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 14343,
+          "first_trigger": 313,
+          "end_position": 313,
+          "trigger_count": 1,
+          "first_rank": 63,
+          "first_entropy": 0.000118255615234375,
+          "prompt_length": 56,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 274,
+        "total_tokens": 1913,
+        "answer_tokens": 1638,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1913,
+          "first_trigger": 274,
+          "end_position": 274,
+          "trigger_count": 1,
+          "first_rank": 57,
+          "first_entropy": 8.392333984375e-05,
+          "prompt_length": 56,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6786,
+    "problem_sha256": "b3a193301bd9169727a449178fd1036104fe7cefa26d46d6099f4b0b58499650",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 931,
+        "total_tokens": 1248,
+        "answer_tokens": 316,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 927,
+        "total_tokens": 1266,
+        "answer_tokens": 338,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 902,
+        "total_tokens": 1207,
+        "answer_tokens": 304,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1207,
+          "first_trigger": 902,
+          "end_position": 902,
+          "trigger_count": 1,
+          "first_rank": 24,
+          "first_entropy": 0.558013916015625,
+          "prompt_length": 85,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 456,
+        "total_tokens": 750,
+        "answer_tokens": 293,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 750,
+          "first_trigger": 456,
+          "end_position": 456,
+          "trigger_count": 1,
+          "first_rank": 33,
+          "first_entropy": 0.0002498626708984375,
+          "prompt_length": 85,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5087,
+    "problem_sha256": "552c7c4a52475e42c2e9715636b3dd64d98e463ed61dfb14d68c3d8dddaa6e92",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 8721,
+        "total_tokens": 9352,
+        "answer_tokens": 630,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 7710,
+        "total_tokens": 8398,
+        "answer_tokens": 687,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 8398,
+          "first_trigger": 7710,
+          "end_position": 7710,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 0.000148773193359375,
+          "prompt_length": 129,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 5306,
+        "total_tokens": 5582,
+        "answer_tokens": 275,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 5582,
+          "first_trigger": 5306,
+          "end_position": 5306,
+          "trigger_count": 1,
+          "first_rank": 34,
+          "first_entropy": 0.6894683837890625,
+          "prompt_length": 129,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2309,
+    "problem_sha256": "dbbea997f3cbc18bb736c5123c791c9a9643ba7e7b3eec0c20ea1b40fd298941",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 4932,
+        "total_tokens": 5298,
+        "answer_tokens": 365,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1670,
+        "total_tokens": 2046,
+        "answer_tokens": 375,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 2893,
+        "total_tokens": 3144,
+        "answer_tokens": 250,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3144,
+          "first_trigger": 2893,
+          "end_position": 2893,
+          "trigger_count": 1,
+          "first_rank": 25,
+          "first_entropy": 0.090728759765625,
+          "prompt_length": 44,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 745,
+        "total_tokens": 883,
+        "answer_tokens": 137,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 883,
+          "first_trigger": 745,
+          "end_position": 745,
+          "trigger_count": 1,
+          "first_rank": 45,
+          "first_entropy": 0.026994705200195312,
+          "prompt_length": 44,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6933,
+    "problem_sha256": "9633c2c3536900f6136f7812fe0aee198679538603808f04936057dce34da58c",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1083,
+        "total_tokens": 1412,
+        "answer_tokens": 328,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1524,
+        "total_tokens": 1699,
+        "answer_tokens": 174,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 908,
+        "total_tokens": 1101,
+        "answer_tokens": 192,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1101,
+          "first_trigger": 908,
+          "end_position": 908,
+          "trigger_count": 1,
+          "first_rank": 8,
+          "first_entropy": 0.19289016723632812,
+          "prompt_length": 36,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1181,
+        "total_tokens": 1364,
+        "answer_tokens": 182,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1364,
+          "first_trigger": 1181,
+          "end_position": 1181,
+          "trigger_count": 1,
+          "first_rank": 7,
+          "first_entropy": 0.24832916259765625,
+          "prompt_length": 36,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5174,
+    "problem_sha256": "84cbd46b5d589452b8a60eea47eec141956dc05f09efcb0ecb2e23f4d4c2dd99",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2572,
+        "total_tokens": 2992,
+        "answer_tokens": 419,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1552,
+        "total_tokens": 1951,
+        "answer_tokens": 398,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 3315,
+        "total_tokens": 3837,
+        "answer_tokens": 521,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3837,
+          "first_trigger": 3315,
+          "end_position": 3315,
+          "trigger_count": 1,
+          "first_rank": 12,
+          "first_entropy": 0.036281585693359375,
+          "prompt_length": 73,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 927,
+        "total_tokens": 1462,
+        "answer_tokens": 534,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1462,
+          "first_trigger": 927,
+          "end_position": 927,
+          "trigger_count": 1,
+          "first_rank": 53,
+          "first_entropy": 0.0009555816650390625,
+          "prompt_length": 73,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 7364,
+    "problem_sha256": "48ef291a3138afc1661cbed497174ed31dbe531ef8218499cd2b6178f8ddc270",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 183,
+        "total_tokens": 484,
+        "answer_tokens": 300,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 153,
+        "total_tokens": 432,
+        "answer_tokens": 278,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 183,
+        "total_tokens": 484,
+        "answer_tokens": 300,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 484,
+          "first_trigger": 183,
+          "end_position": 183,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 4.57763671875e-05,
+          "prompt_length": 62,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 153,
+        "total_tokens": 432,
+        "answer_tokens": 278,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 432,
+          "first_trigger": 153,
+          "end_position": 153,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 4.57763671875e-05,
+          "prompt_length": 62,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 665,
+    "problem_sha256": "4f13fceed6037427d98b0743df9dcbdf26f6ef3160fae0f4a85dc325162f87ad",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 2249,
+        "total_tokens": 2781,
+        "answer_tokens": 531,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 7166,
+        "total_tokens": 7837,
+        "answer_tokens": 670,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": {
+          "accepted_tokens": 16000,
+          "first_trigger": -1,
+          "end_position": -1,
+          "trigger_count": 0,
+          "first_rank": -1,
+          "first_entropy": 0.0,
+          "prompt_length": 170,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 601,
+        "total_tokens": 989,
+        "answer_tokens": 387,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 989,
+          "first_trigger": 601,
+          "end_position": 601,
+          "trigger_count": 1,
+          "first_rank": 27,
+          "first_entropy": 0.0153656005859375,
+          "prompt_length": 170,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5364,
+    "problem_sha256": "99388cfb1368b0927cdbed8bbe561c1fc273dec6e6c583c7c57121861252dbf7",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1201,
+        "total_tokens": 1685,
+        "answer_tokens": 483,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1091,
+        "total_tokens": 1519,
+        "answer_tokens": 427,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 2762,
+        "total_tokens": 3237,
+        "answer_tokens": 474,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3237,
+          "first_trigger": 2762,
+          "end_position": 2762,
+          "trigger_count": 1,
+          "first_rank": 9,
+          "first_entropy": 0.06062126159667969,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1028,
+        "total_tokens": 1406,
+        "answer_tokens": 377,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1406,
+          "first_trigger": 1028,
+          "end_position": 1028,
+          "trigger_count": 1,
+          "first_rank": 3,
+          "first_entropy": 0.04958152770996094,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 3167,
+    "problem_sha256": "d8dfb570a516ab56b49d3552f40273d055d673b6ed3e9a031ed0d0577d9f2792",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 7405,
+        "total_tokens": 8277,
+        "answer_tokens": 871,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 3862,
+        "total_tokens": 4622,
+        "answer_tokens": 759,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 5487,
+        "total_tokens": 6178,
+        "answer_tokens": 690,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 6178,
+          "first_trigger": 5487,
+          "end_position": 5487,
+          "trigger_count": 1,
+          "first_rank": 26,
+          "first_entropy": 0.08188819885253906,
+          "prompt_length": 105,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 7507,
+        "total_tokens": 8193,
+        "answer_tokens": 685,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 8193,
+          "first_trigger": 7507,
+          "end_position": 7507,
+          "trigger_count": 1,
+          "first_rank": 18,
+          "first_entropy": 0.34021949768066406,
+          "prompt_length": 105,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6859,
+    "problem_sha256": "5d52fbb99f45a1ef63274c7f290b504f2bccc66762551c8d40d1fd55678b86f1",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2329,
+        "total_tokens": 2536,
+        "answer_tokens": 206,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1579,
+        "total_tokens": 1804,
+        "answer_tokens": 224,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 2613,
+        "total_tokens": 2778,
+        "answer_tokens": 164,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2778,
+          "first_trigger": 2613,
+          "end_position": 2613,
+          "trigger_count": 1,
+          "first_rank": 29,
+          "first_entropy": 0.1342926025390625,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1576,
+        "total_tokens": 1798,
+        "answer_tokens": 221,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1798,
+          "first_trigger": 1576,
+          "end_position": 1576,
+          "trigger_count": 1,
+          "first_rank": 31,
+          "first_entropy": 0.1461505889892578,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5828,
+    "problem_sha256": "16625655a0e70ddc8c38643424ec4932ff4ed7d77d2bf6c37534208da4008ee5",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2216,
+        "total_tokens": 2798,
+        "answer_tokens": 581,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1653,
+        "total_tokens": 2331,
+        "answer_tokens": 677,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 290,
+        "total_tokens": 633,
+        "answer_tokens": 342,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 633,
+          "first_trigger": 290,
+          "end_position": 290,
+          "trigger_count": 1,
+          "first_rank": 62,
+          "first_entropy": 0.0009632110595703125,
+          "prompt_length": 133,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 290,
+        "total_tokens": 633,
+        "answer_tokens": 342,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 633,
+          "first_trigger": 290,
+          "end_position": 290,
+          "trigger_count": 1,
+          "first_rank": 55,
+          "first_entropy": 0.0009307861328125,
+          "prompt_length": 133,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 954,
+    "problem_sha256": "5a012069cd458883afc8dbe2a90f122b81c22e6ea4ff25e33f70f481e868f07a",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 7636,
+        "total_tokens": 7892,
+        "answer_tokens": 255,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1585,
+        "total_tokens": 2268,
+        "answer_tokens": 682,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 3654,
+        "total_tokens": 4848,
+        "answer_tokens": 1193,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 4848,
+          "first_trigger": 3654,
+          "end_position": 3654,
+          "trigger_count": 1,
+          "first_rank": 38,
+          "first_entropy": 0.0,
+          "prompt_length": 73,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 988,
+        "total_tokens": 1625,
+        "answer_tokens": 636,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1625,
+          "first_trigger": 988,
+          "end_position": 988,
+          "trigger_count": 1,
+          "first_rank": 46,
+          "first_entropy": 0.01198577880859375,
+          "prompt_length": 73,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6245,
+    "problem_sha256": "e89146c5e7e23d5cebeaf116b544f708381d42fb62033142c2ba248bac6637fa",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1926,
+        "total_tokens": 2269,
+        "answer_tokens": 342,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1074,
+        "total_tokens": 1396,
+        "answer_tokens": 321,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1212,
+        "total_tokens": 1454,
+        "answer_tokens": 241,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1454,
+          "first_trigger": 1212,
+          "end_position": 1212,
+          "trigger_count": 1,
+          "first_rank": 20,
+          "first_entropy": 0.07592010498046875,
+          "prompt_length": 53,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 867,
+        "total_tokens": 1177,
+        "answer_tokens": 309,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1177,
+          "first_trigger": 867,
+          "end_position": 867,
+          "trigger_count": 1,
+          "first_rank": 11,
+          "first_entropy": 0.0050640106201171875,
+          "prompt_length": 53,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6702,
+    "problem_sha256": "021270b418eff7621072f0a1541ae269ba0aae2cc5273911b8e1784afde2fec8",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2558,
+        "total_tokens": 2886,
+        "answer_tokens": 327,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2179,
+        "total_tokens": 2612,
+        "answer_tokens": 432,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 2717,
+        "total_tokens": 3083,
+        "answer_tokens": 365,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3083,
+          "first_trigger": 2717,
+          "end_position": 2717,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 0.6629695892333984,
+          "prompt_length": 83,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1778,
+        "total_tokens": 2166,
+        "answer_tokens": 387,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2166,
+          "first_trigger": 1778,
+          "end_position": 1778,
+          "trigger_count": 1,
+          "first_rank": 10,
+          "first_entropy": 0.4474048614501953,
+          "prompt_length": 83,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 7007,
+    "problem_sha256": "8da72d12b600dcf5a6a40fe9b025c2882c3f4aba7dd2d3c637aa381e3e0cbfe2",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 832,
+        "total_tokens": 1066,
+        "answer_tokens": 233,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1766,
+        "total_tokens": 2029,
+        "answer_tokens": 262,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 98,
+        "total_tokens": 326,
+        "answer_tokens": 227,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 326,
+          "first_trigger": 98,
+          "end_position": 98,
+          "trigger_count": 1,
+          "first_rank": 15,
+          "first_entropy": 0.0,
+          "prompt_length": 48,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 98,
+        "total_tokens": 326,
+        "answer_tokens": 227,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 326,
+          "first_trigger": 98,
+          "end_position": 98,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 0.0,
+          "prompt_length": 48,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6964,
+    "problem_sha256": "838c710e90288ee3885c015257430bc51c9c878d5c9b67c7d61a15d6539aae24",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1129,
+        "total_tokens": 1384,
+        "answer_tokens": 254,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1145,
+        "total_tokens": 1436,
+        "answer_tokens": 290,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 112,
+        "total_tokens": 474,
+        "answer_tokens": 361,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 474,
+          "first_trigger": 112,
+          "end_position": 112,
+          "trigger_count": 1,
+          "first_rank": 48,
+          "first_entropy": 0.00818634033203125,
+          "prompt_length": 42,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1133,
+        "total_tokens": 1432,
+        "answer_tokens": 298,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1432,
+          "first_trigger": 1133,
+          "end_position": 1133,
+          "trigger_count": 1,
+          "first_rank": 6,
+          "first_entropy": 0.10959815979003906,
+          "prompt_length": 42,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2895,
+    "problem_sha256": "41835168d396f14dda9eb86f7dad6db913b3ad5f5cdefeed34d212d344dbc06f",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1862,
+        "total_tokens": 2413,
+        "answer_tokens": 550,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1668,
+        "total_tokens": 2001,
+        "answer_tokens": 332,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1865,
+        "total_tokens": 2105,
+        "answer_tokens": 239,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2105,
+          "first_trigger": 1865,
+          "end_position": 1865,
+          "trigger_count": 1,
+          "first_rank": 4,
+          "first_entropy": 0.019536972045898438,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1870,
+        "total_tokens": 2213,
+        "answer_tokens": 342,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2213,
+          "first_trigger": 1870,
+          "end_position": 1870,
+          "trigger_count": 1,
+          "first_rank": 5,
+          "first_entropy": 0.021604537963867188,
+          "prompt_length": 38,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 502,
+    "problem_sha256": "fb2cd8f55693d31a0f3c393c654a5b356fac35a589c433099da5b4a34ea24645",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 5631,
+        "total_tokens": 6075,
+        "answer_tokens": 443,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2036,
+        "total_tokens": 2584,
+        "answer_tokens": 547,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 474,
+        "total_tokens": 1172,
+        "answer_tokens": 697,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1172,
+          "first_trigger": 474,
+          "end_position": 474,
+          "trigger_count": 1,
+          "first_rank": 30,
+          "first_entropy": 0.0013332366943359375,
+          "prompt_length": 76,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 3600,
+        "total_tokens": 4076,
+        "answer_tokens": 475,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 4076,
+          "first_trigger": 3600,
+          "end_position": 3600,
+          "trigger_count": 1,
+          "first_rank": 26,
+          "first_entropy": 0.31502723693847656,
+          "prompt_length": 76,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6055,
+    "problem_sha256": "bb1e07961b38f55f5e30e851070bc3e86dc0cf843e553c350d5ffaca3bc736cf",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1643,
+        "total_tokens": 1925,
+        "answer_tokens": 281,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1768,
+        "total_tokens": 2079,
+        "answer_tokens": 310,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1640,
+        "total_tokens": 2297,
+        "answer_tokens": 656,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2297,
+          "first_trigger": 1640,
+          "end_position": 1640,
+          "trigger_count": 1,
+          "first_rank": 5,
+          "first_entropy": 0.09952163696289062,
+          "prompt_length": 88,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1275,
+        "total_tokens": 1873,
+        "answer_tokens": 597,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1873,
+          "first_trigger": 1275,
+          "end_position": 1275,
+          "trigger_count": 1,
+          "first_rank": 2,
+          "first_entropy": 0.06724929809570312,
+          "prompt_length": 88,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 961,
+    "problem_sha256": "c5d0e950b1c2474a17221a7fd9841f574276378d81468e517dc7ee340a7bb9bb",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 15239,
+        "total_tokens": 15759,
+        "answer_tokens": 519,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": {
+          "accepted_tokens": 16000,
+          "first_trigger": -1,
+          "end_position": -1,
+          "trigger_count": 0,
+          "first_rank": -1,
+          "first_entropy": 0.0,
+          "prompt_length": 175,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 83,
+        "total_tokens": 16000,
+        "answer_tokens": 15916,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": {
+          "accepted_tokens": 16000,
+          "first_trigger": 83,
+          "end_position": 83,
+          "trigger_count": 1,
+          "first_rank": 29,
+          "first_entropy": 0.016153335571289062,
+          "prompt_length": 175,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 195,
+    "problem_sha256": "3dce89a46691a62f798b43696b3321acaddeb56b563c7d81ee06fa8919e0db3c",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 3655,
+        "total_tokens": 3934,
+        "answer_tokens": 278,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1645,
+        "total_tokens": 1934,
+        "answer_tokens": 288,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 3359,
+        "total_tokens": 3592,
+        "answer_tokens": 232,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3592,
+          "first_trigger": 3359,
+          "end_position": 3359,
+          "trigger_count": 1,
+          "first_rank": 21,
+          "first_entropy": 0.09327125549316406,
+          "prompt_length": 44,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1105,
+        "total_tokens": 1257,
+        "answer_tokens": 151,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1257,
+          "first_trigger": 1105,
+          "end_position": 1105,
+          "trigger_count": 1,
+          "first_rank": 11,
+          "first_entropy": 0.06126213073730469,
+          "prompt_length": 44,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1545,
+    "problem_sha256": "1ebfc10c8732083487671c5d25c8730942077a0bc735539851b1bd4287ea4338",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2442,
+        "total_tokens": 2931,
+        "answer_tokens": 488,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 404,
+        "total_tokens": 1205,
+        "answer_tokens": 800,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1205,
+          "first_trigger": 404,
+          "end_position": 404,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 7.62939453125e-05,
+          "prompt_length": 47,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 409,
+        "total_tokens": 991,
+        "answer_tokens": 581,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 991,
+          "first_trigger": 409,
+          "end_position": 409,
+          "trigger_count": 1,
+          "first_rank": 12,
+          "first_entropy": 0.000102996826171875,
+          "prompt_length": 47,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5078,
+    "problem_sha256": "d6c2bb5fe6b789057ced10e73915654427d70709088f459fca946c32c0816a27",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 3593,
+        "total_tokens": 4017,
+        "answer_tokens": 423,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1736,
+        "total_tokens": 2216,
+        "answer_tokens": 479,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1241,
+        "total_tokens": 1698,
+        "answer_tokens": 456,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1698,
+          "first_trigger": 1241,
+          "end_position": 1241,
+          "trigger_count": 1,
+          "first_rank": 7,
+          "first_entropy": 0.10012054443359375,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 3443,
+        "total_tokens": 3903,
+        "answer_tokens": 459,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3903,
+          "first_trigger": 3443,
+          "end_position": 3443,
+          "trigger_count": 1,
+          "first_rank": 8,
+          "first_entropy": 0.14617919921875,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1274,
+    "problem_sha256": "204e8c6e72ca8e77a65d718ebdd4830b6093824fb33a58998104b5e13b9bb3c7",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1363,
+        "total_tokens": 1667,
+        "answer_tokens": 303,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1495,
+        "total_tokens": 1783,
+        "answer_tokens": 287,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1338,
+        "total_tokens": 1646,
+        "answer_tokens": 307,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1646,
+          "first_trigger": 1338,
+          "end_position": 1338,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 0.12267875671386719,
+          "prompt_length": 67,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 2201,
+        "total_tokens": 2515,
+        "answer_tokens": 313,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2515,
+          "first_trigger": 2201,
+          "end_position": 2201,
+          "trigger_count": 1,
+          "first_rank": 18,
+          "first_entropy": 0.123321533203125,
+          "prompt_length": 67,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2600,
+    "problem_sha256": "562c9c20b36a207e33e5f1fab40d22f90c7ccc394b422338c245fdde3f530333",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 15107,
+        "total_tokens": 15533,
+        "answer_tokens": 425,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2140,
+        "total_tokens": 2580,
+        "answer_tokens": 439,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 3347,
+        "total_tokens": 3607,
+        "answer_tokens": 259,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3607,
+          "first_trigger": 3347,
+          "end_position": 3347,
+          "trigger_count": 1,
+          "first_rank": 20,
+          "first_entropy": 0.018384933471679688,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 1678,
+        "total_tokens": 2236,
+        "answer_tokens": 557,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2236,
+          "first_trigger": 1678,
+          "end_position": 1678,
+          "trigger_count": 1,
+          "first_rank": 24,
+          "first_entropy": 0.2321147918701172,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6896,
+    "problem_sha256": "b334f73e9885c959d9c91a97e5e63575973a3138176589ccfcca3738f347f84e",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 1564,
+        "total_tokens": 2039,
+        "answer_tokens": 474,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 3674,
+        "total_tokens": 4150,
+        "answer_tokens": 475,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 1647,
+        "total_tokens": 2074,
+        "answer_tokens": 426,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2074,
+          "first_trigger": 1647,
+          "end_position": 1647,
+          "trigger_count": 1,
+          "first_rank": 8,
+          "first_entropy": 0.04471397399902344,
+          "prompt_length": 71,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 1170,
+        "total_tokens": 1557,
+        "answer_tokens": 386,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1557,
+          "first_trigger": 1170,
+          "end_position": 1170,
+          "trigger_count": 1,
+          "first_rank": 6,
+          "first_entropy": 0.04035186767578125,
+          "prompt_length": 71,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4106,
+    "problem_sha256": "bea9b5ce3209dde7af7fb4d5526b99f0b28aadeeb9a88530bf18b6fc83d582bb",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2442,
+        "total_tokens": 2806,
+        "answer_tokens": 363,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1290,
+        "total_tokens": 1653,
+        "answer_tokens": 362,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1985,
+        "total_tokens": 2313,
+        "answer_tokens": 327,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2313,
+          "first_trigger": 1985,
+          "end_position": 1985,
+          "trigger_count": 1,
+          "first_rank": 10,
+          "first_entropy": 0.08556556701660156,
+          "prompt_length": 37,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1243,
+        "total_tokens": 1601,
+        "answer_tokens": 357,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1601,
+          "first_trigger": 1243,
+          "end_position": 1243,
+          "trigger_count": 1,
+          "first_rank": 18,
+          "first_entropy": 0.0007801055908203125,
+          "prompt_length": 37,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 7177,
+    "problem_sha256": "d50c7daaf4045890edff155586fd5749ea04970870c113a15c5b7d39d6df920b",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1025,
+        "total_tokens": 1245,
+        "answer_tokens": 219,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 977,
+        "total_tokens": 1218,
+        "answer_tokens": 240,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1018,
+        "total_tokens": 1234,
+        "answer_tokens": 215,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1234,
+          "first_trigger": 1018,
+          "end_position": 1018,
+          "trigger_count": 1,
+          "first_rank": 19,
+          "first_entropy": 0.2914314270019531,
+          "prompt_length": 67,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1129,
+        "total_tokens": 1285,
+        "answer_tokens": 155,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1285,
+          "first_trigger": 1129,
+          "end_position": 1129,
+          "trigger_count": 1,
+          "first_rank": 56,
+          "first_entropy": 0.022497177124023438,
+          "prompt_length": 67,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 765,
+    "problem_sha256": "29aa7c9c8c9cd68c231ae290a6eb26c564facec13ac118e8a8d90ea0f01712a4",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 4222,
+        "total_tokens": 4599,
+        "answer_tokens": 376,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 8373,
+        "total_tokens": 8837,
+        "answer_tokens": 463,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 5712,
+        "total_tokens": 6106,
+        "answer_tokens": 393,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 6106,
+          "first_trigger": 5712,
+          "end_position": 5712,
+          "trigger_count": 1,
+          "first_rank": 55,
+          "first_entropy": 4.9591064453125e-05,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 4264,
+        "total_tokens": 4597,
+        "answer_tokens": 332,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 4597,
+          "first_trigger": 4264,
+          "end_position": 4264,
+          "trigger_count": 1,
+          "first_rank": 43,
+          "first_entropy": 0.2654075622558594,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 6344,
+    "problem_sha256": "d9f4c6067e4e6d747893239ed7be2e38c6d8981504f54853ebcc1d54a4159d47",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1704,
+        "total_tokens": 1884,
+        "answer_tokens": 179,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1018,
+        "total_tokens": 1200,
+        "answer_tokens": 181,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1231,
+        "total_tokens": 1415,
+        "answer_tokens": 183,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1415,
+          "first_trigger": 1231,
+          "end_position": 1231,
+          "trigger_count": 1,
+          "first_rank": 18,
+          "first_entropy": 0.000560760498046875,
+          "prompt_length": 48,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1250,
+        "total_tokens": 1432,
+        "answer_tokens": 181,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1432,
+          "first_trigger": 1250,
+          "end_position": 1250,
+          "trigger_count": 1,
+          "first_rank": 17,
+          "first_entropy": 0.029430389404296875,
+          "prompt_length": 48,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5344,
+    "problem_sha256": "79c63914e923620a012356974227d45cfe0966efe9ffff72317e4222d0cd66f0",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1441,
+        "total_tokens": 1752,
+        "answer_tokens": 310,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2902,
+        "total_tokens": 3234,
+        "answer_tokens": 331,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1818,
+        "total_tokens": 2146,
+        "answer_tokens": 327,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2146,
+          "first_trigger": 1818,
+          "end_position": 1818,
+          "trigger_count": 1,
+          "first_rank": 15,
+          "first_entropy": 0.3655071258544922,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 2360,
+        "total_tokens": 2693,
+        "answer_tokens": 332,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2693,
+          "first_trigger": 2360,
+          "end_position": 2360,
+          "trigger_count": 1,
+          "first_rank": 13,
+          "first_entropy": 0.2686748504638672,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2604,
+    "problem_sha256": "2b60fd13979b5e2f971162b7aecc9f48c818e2f6ecc14e7529263a0a891898c2",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 418,
+        "total_tokens": 1084,
+        "answer_tokens": 665,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 475,
+        "total_tokens": 1107,
+        "answer_tokens": 631,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 177,
+        "total_tokens": 870,
+        "answer_tokens": 692,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 870,
+          "first_trigger": 177,
+          "end_position": 177,
+          "trigger_count": 1,
+          "first_rank": 28,
+          "first_entropy": 0.03140449523925781,
+          "prompt_length": 88,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 110,
+        "total_tokens": 898,
+        "answer_tokens": 787,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 898,
+          "first_trigger": 110,
+          "end_position": 110,
+          "trigger_count": 1,
+          "first_rank": 22,
+          "first_entropy": 0.028820037841796875,
+          "prompt_length": 88,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 7271,
+    "problem_sha256": "b79976322bc252d13b45016f4b5dbc5ef1b1b9f315ee49beb8e67d9dec973175",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1605,
+        "total_tokens": 1994,
+        "answer_tokens": 388,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1440,
+        "total_tokens": 1825,
+        "answer_tokens": 384,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 259,
+        "total_tokens": 820,
+        "answer_tokens": 560,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 820,
+          "first_trigger": 259,
+          "end_position": 259,
+          "trigger_count": 1,
+          "first_rank": 21,
+          "first_entropy": 4.76837158203125e-05,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 259,
+        "total_tokens": 857,
+        "answer_tokens": 597,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 857,
+          "first_trigger": 259,
+          "end_position": 259,
+          "trigger_count": 1,
+          "first_rank": 20,
+          "first_entropy": 0.0,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2660,
+    "problem_sha256": "3d3b50291c1afe01051ce9367bb88d05578c1308cf3468c3b362db7ac0327140",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 15910,
+        "total_tokens": 16000,
+        "answer_tokens": 89,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 3086,
+        "total_tokens": 3193,
+        "answer_tokens": 106,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3193,
+          "first_trigger": 3086,
+          "end_position": 3086,
+          "trigger_count": 1,
+          "first_rank": 36,
+          "first_entropy": 0.046176910400390625,
+          "prompt_length": 71,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 1083,
+        "total_tokens": 1245,
+        "answer_tokens": 161,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1245,
+          "first_trigger": 1083,
+          "end_position": 1083,
+          "trigger_count": 1,
+          "first_rank": 35,
+          "first_entropy": 0.1574859619140625,
+          "prompt_length": 71,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 5216,
+    "problem_sha256": "0750ea4d25a74d206a1eba19177f5710b6b7bfaef6a48543851cdd22e5114735",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 960,
+        "total_tokens": 1345,
+        "answer_tokens": 384,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1050,
+        "total_tokens": 1477,
+        "answer_tokens": 426,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 956,
+        "total_tokens": 1396,
+        "answer_tokens": 439,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1396,
+          "first_trigger": 956,
+          "end_position": 956,
+          "trigger_count": 1,
+          "first_rank": 20,
+          "first_entropy": 0.5319175720214844,
+          "prompt_length": 61,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1034,
+        "total_tokens": 1400,
+        "answer_tokens": 365,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1400,
+          "first_trigger": 1034,
+          "end_position": 1034,
+          "trigger_count": 1,
+          "first_rank": 21,
+          "first_entropy": 0.5333213806152344,
+          "prompt_length": 61,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1433,
+    "problem_sha256": "bf4fc38c7a552ea44122ec3f367715ff0d615ff528112e15c074dbf4caa2ddfc",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 2591,
+        "total_tokens": 2948,
+        "answer_tokens": 356,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 4972,
+        "total_tokens": 5327,
+        "answer_tokens": 354,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 241,
+        "total_tokens": 572,
+        "answer_tokens": 330,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 572,
+          "first_trigger": 241,
+          "end_position": 241,
+          "trigger_count": 1,
+          "first_rank": 59,
+          "first_entropy": 5.53131103515625e-05,
+          "prompt_length": 46,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 2675,
+        "total_tokens": 3012,
+        "answer_tokens": 336,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3012,
+          "first_trigger": 2675,
+          "end_position": 2675,
+          "trigger_count": 1,
+          "first_rank": 23,
+          "first_entropy": 0.0046138763427734375,
+          "prompt_length": 46,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4331,
+    "problem_sha256": "0466a34b371b697cf49321fd536211b12f3bbcfee10a1efa233e8f50d156c4fd",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1920,
+        "total_tokens": 2111,
+        "answer_tokens": 190,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1285,
+        "total_tokens": 1575,
+        "answer_tokens": 289,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 914,
+        "total_tokens": 1227,
+        "answer_tokens": 312,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1227,
+          "first_trigger": 914,
+          "end_position": 914,
+          "trigger_count": 1,
+          "first_rank": 22,
+          "first_entropy": 0.00121307373046875,
+          "prompt_length": 41,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1401,
+        "total_tokens": 1695,
+        "answer_tokens": 293,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1695,
+          "first_trigger": 1401,
+          "end_position": 1401,
+          "trigger_count": 1,
+          "first_rank": 6,
+          "first_entropy": 0.030986785888671875,
+          "prompt_length": 41,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1656,
+    "problem_sha256": "27f1b40ae1cc0de8410bb1e7088a65a3a1f2b3e19d08a4a51a47e1a498a8c0dd",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1357,
+        "total_tokens": 1770,
+        "answer_tokens": 412,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1229,
+        "total_tokens": 1603,
+        "answer_tokens": 373,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1525,
+        "total_tokens": 2062,
+        "answer_tokens": 536,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2062,
+          "first_trigger": 1525,
+          "end_position": 1525,
+          "trigger_count": 1,
+          "first_rank": 39,
+          "first_entropy": 0.22762298583984375,
+          "prompt_length": 89,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 583,
+        "total_tokens": 1149,
+        "answer_tokens": 565,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1149,
+          "first_trigger": 583,
+          "end_position": 583,
+          "trigger_count": 1,
+          "first_rank": 38,
+          "first_entropy": 0.0017642974853515625,
+          "prompt_length": 89,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2502,
+    "problem_sha256": "647b21684b99493329715aa99660c88f0a95ddc1800763aa794997a989e61925",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": {
+          "accepted_tokens": 16000,
+          "first_trigger": -1,
+          "end_position": -1,
+          "trigger_count": 0,
+          "first_rank": -1,
+          "first_entropy": 0.0,
+          "prompt_length": 70,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1538,
+        "total_tokens": 1880,
+        "answer_tokens": 341,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1880,
+          "first_trigger": 1538,
+          "end_position": 1538,
+          "trigger_count": 1,
+          "first_rank": 28,
+          "first_entropy": 2.288818359375e-05,
+          "prompt_length": 70,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2406,
+    "problem_sha256": "0ae5ba02399544737153951a9e0d96a364dab6789888bf114fa3981d63c62940",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 10438,
+        "total_tokens": 10886,
+        "answer_tokens": 447,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 4952,
+        "total_tokens": 5387,
+        "answer_tokens": 434,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 5387,
+          "first_trigger": 4952,
+          "end_position": 4952,
+          "trigger_count": 1,
+          "first_rank": 45,
+          "first_entropy": 0.3655242919921875,
+          "prompt_length": 125,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": false,
+        "thinking_tokens": 14037,
+        "total_tokens": 14421,
+        "answer_tokens": 383,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 14421,
+          "first_trigger": 14037,
+          "end_position": 14037,
+          "trigger_count": 1,
+          "first_rank": 28,
+          "first_entropy": 0.1869354248046875,
+          "prompt_length": 125,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4852,
+    "problem_sha256": "35194f187d7ce7418257bb9489d481e298f6ea446c06172fe894a521f4f96e09",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 936,
+        "total_tokens": 1174,
+        "answer_tokens": 237,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 795,
+        "total_tokens": 975,
+        "answer_tokens": 179,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1077,
+        "total_tokens": 1343,
+        "answer_tokens": 265,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1343,
+          "first_trigger": 1077,
+          "end_position": 1077,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 0.000102996826171875,
+          "prompt_length": 391,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 795,
+        "total_tokens": 971,
+        "answer_tokens": 175,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 971,
+          "first_trigger": 795,
+          "end_position": 795,
+          "trigger_count": 1,
+          "first_rank": 0,
+          "first_entropy": 0.00077056884765625,
+          "prompt_length": 391,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4068,
+    "problem_sha256": "2cb7b5c0365158a1615c77f9a374b00ccc1dc2e6ebcb701776acee2e30b6e369",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 3145,
+        "total_tokens": 3649,
+        "answer_tokens": 503,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 2767,
+        "total_tokens": 3374,
+        "answer_tokens": 606,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 4119,
+        "total_tokens": 4726,
+        "answer_tokens": 606,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 4726,
+          "first_trigger": 4119,
+          "end_position": 4119,
+          "trigger_count": 1,
+          "first_rank": 27,
+          "first_entropy": 0.6915988922119141,
+          "prompt_length": 245,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 2947,
+        "total_tokens": 3457,
+        "answer_tokens": 509,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 3457,
+          "first_trigger": 2947,
+          "end_position": 2947,
+          "trigger_count": 1,
+          "first_rank": 16,
+          "first_entropy": 0.6065635681152344,
+          "prompt_length": 245,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1551,
+    "problem_sha256": "8bbca48f2c6fdf25cccc884105d1840d63b2a3eb096a90eea386f1380c94b3de",
+    "arms": {
+      "U": {
+        "author_correct": false,
+        "thinking_tokens": 16000,
+        "total_tokens": 16000,
+        "answer_tokens": 0,
+        "capped": true,
+        "finish_reason": "length",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": false,
+        "thinking_tokens": 3735,
+        "total_tokens": 4479,
+        "answer_tokens": 743,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 7832,
+        "total_tokens": 8538,
+        "answer_tokens": 705,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 8538,
+          "first_trigger": 7832,
+          "end_position": 7832,
+          "trigger_count": 1,
+          "first_rank": 16,
+          "first_entropy": 0.4477653503417969,
+          "prompt_length": 63,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 7118,
+        "total_tokens": 7377,
+        "answer_tokens": 258,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 7377,
+          "first_trigger": 7118,
+          "end_position": 7118,
+          "trigger_count": 1,
+          "first_rank": 35,
+          "first_entropy": 0.00260162353515625,
+          "prompt_length": 63,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 3348,
+    "problem_sha256": "f46fa6e24c5df6db905abbdbf9e77e17ea5bbec1613fdd176f1f2e0ff0f5e16b",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 832,
+        "total_tokens": 1411,
+        "answer_tokens": 578,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 776,
+        "total_tokens": 1375,
+        "answer_tokens": 598,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": false,
+        "thinking_tokens": 604,
+        "total_tokens": 1110,
+        "answer_tokens": 505,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1110,
+          "first_trigger": 604,
+          "end_position": 604,
+          "trigger_count": 1,
+          "first_rank": 38,
+          "first_entropy": 0.023344039916992188,
+          "prompt_length": 95,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 761,
+        "total_tokens": 1387,
+        "answer_tokens": 625,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1387,
+          "first_trigger": 761,
+          "end_position": 761,
+          "trigger_count": 1,
+          "first_rank": 9,
+          "first_entropy": 0.3149242401123047,
+          "prompt_length": 95,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 1239,
+    "problem_sha256": "40cd1f7b71945e3fec0a2e69bf0f327ee927f7fa62eeefdef33328a6a37a2c72",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1757,
+        "total_tokens": 2542,
+        "answer_tokens": 784,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1913,
+        "total_tokens": 2581,
+        "answer_tokens": 667,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 182,
+        "total_tokens": 1069,
+        "answer_tokens": 886,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1069,
+          "first_trigger": 182,
+          "end_position": 182,
+          "trigger_count": 1,
+          "first_rank": 6,
+          "first_entropy": 0.03279876708984375,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 181,
+        "total_tokens": 1225,
+        "answer_tokens": 1043,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1225,
+          "first_trigger": 181,
+          "end_position": 181,
+          "trigger_count": 1,
+          "first_rank": 5,
+          "first_entropy": 0.06543350219726562,
+          "prompt_length": 68,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 2268,
+    "problem_sha256": "a318a1420971e594a0834453dde338d4aa2cc90bf11fbdaef02bdd3cbd2e337d",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1635,
+        "total_tokens": 2056,
+        "answer_tokens": 420,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1331,
+        "total_tokens": 1801,
+        "answer_tokens": 469,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1137,
+        "total_tokens": 1513,
+        "answer_tokens": 375,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1513,
+          "first_trigger": 1137,
+          "end_position": 1137,
+          "trigger_count": 1,
+          "first_rank": 4,
+          "first_entropy": 0.17473220825195312,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1545,
+        "total_tokens": 1919,
+        "answer_tokens": 373,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1919,
+          "first_trigger": 1545,
+          "end_position": 1545,
+          "trigger_count": 1,
+          "first_rank": 5,
+          "first_entropy": 0.19112396240234375,
+          "prompt_length": 64,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4904,
+    "problem_sha256": "4b8c050f950c5bfd1519e2dcbd3afedf98106aa7d9dd97a04303606696b0d2e9",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 3378,
+        "total_tokens": 3947,
+        "answer_tokens": 568,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1732,
+        "total_tokens": 2388,
+        "answer_tokens": 655,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 364,
+        "total_tokens": 1400,
+        "answer_tokens": 1035,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1400,
+          "first_trigger": 364,
+          "end_position": 364,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 0.6634006500244141,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 364,
+        "total_tokens": 1451,
+        "answer_tokens": 1086,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1451,
+          "first_trigger": 364,
+          "end_position": 364,
+          "trigger_count": 1,
+          "first_rank": 14,
+          "first_entropy": 0.6431350708007812,
+          "prompt_length": 52,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 605,
+    "problem_sha256": "2db0d5f7ed9f8150a4ab1bbb6bcb7a52470e381ba163eb3f2a6c32e99d39d300",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1361,
+        "total_tokens": 1673,
+        "answer_tokens": 311,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 1273,
+        "total_tokens": 1594,
+        "answer_tokens": 320,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1684,
+        "total_tokens": 2019,
+        "answer_tokens": 334,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 2019,
+          "first_trigger": 1684,
+          "end_position": 1684,
+          "trigger_count": 1,
+          "first_rank": 26,
+          "first_entropy": 0.11041831970214844,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 1227,
+        "total_tokens": 1486,
+        "answer_tokens": 258,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1486,
+          "first_trigger": 1227,
+          "end_position": 1227,
+          "trigger_count": 1,
+          "first_rank": 20,
+          "first_entropy": 0.08226394653320312,
+          "prompt_length": 51,
+          "mode": "enforce"
+        }
+      }
+    }
+  },
+  {
+    "train_index": 4227,
+    "problem_sha256": "9b906c30530c82e902be0c12186bfe6d0a2ccf234a1e78c37c76fa2cd21cc6e3",
+    "arms": {
+      "U": {
+        "author_correct": true,
+        "thinking_tokens": 1673,
+        "total_tokens": 1892,
+        "answer_tokens": 218,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "R": {
+        "author_correct": true,
+        "thinking_tokens": 507,
+        "total_tokens": 652,
+        "answer_tokens": 144,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": null
+      },
+      "S": {
+        "author_correct": true,
+        "thinking_tokens": 1566,
+        "total_tokens": 1733,
+        "answer_tokens": 166,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 1733,
+          "first_trigger": 1566,
+          "end_position": 1566,
+          "trigger_count": 1,
+          "first_rank": 7,
+          "first_entropy": 0.010393142700195312,
+          "prompt_length": 41,
+          "mode": "enforce"
+        }
+      },
+      "RS": {
+        "author_correct": true,
+        "thinking_tokens": 476,
+        "total_tokens": 609,
+        "answer_tokens": 132,
+        "capped": false,
+        "finish_reason": "stop",
+        "hybrid": {
+          "accepted_tokens": 609,
+          "first_trigger": 476,
+          "end_position": 476,
+          "trigger_count": 1,
+          "first_rank": 3,
+          "first_entropy": 0.019929885864257812,
+          "prompt_length": 41,
+          "mode": "enforce"
+        }
+      }
+    }
+  }
+]
