@@ -300,6 +300,11 @@ def main() -> None:
     result: dict[str, Any] = {
         "scope": "ReBalance-official-code-vllm",
         "confidence_definition": (
+            "Arithmetic mean of raw probabilities of the actually sampled "
+            "tokens, before temperature, top-p, penalties or grammar; "
+            "two-step variance uses these means. Experimental sampled-confidence "
+            "variant of the self-calibrated public-code adaptation."
+            if args.sampled_confidence else
             "Arithmetic mean of raw tokenwise maximum probabilities, matching "
             "the released Qwen2 dynamic implementation. The paper's geometric "
             "mean is reserved for ReBalance-paper-faithful-vllm."

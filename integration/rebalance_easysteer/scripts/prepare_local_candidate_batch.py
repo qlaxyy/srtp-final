@@ -78,7 +78,8 @@ def main():
     source_names.update(BASE+'scripts/'+name for name in [
         'audit_lexical_direction_support.py','audit_rebalance_fingerprint.py',
         'audit_prepared_question_similarity.py','audit_accuracy_gate_resolution.py',
-        'audit_sampled_curve_coupling.py'])
+        'audit_sampled_curve_coupling.py','audit_sampled_nucleus_bound.py',
+        'audit_prepared_parameter_branch.py'])
     source_names.add(BASE+'tests/test_mechanism_screen.py')
     source_names.add('sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py')
     source_hashes={name:sha(ROOT/name,source=True) for name in sorted(source_names)}
@@ -144,7 +145,7 @@ def main():
         execution_policy='One probability replay of saved answers; gate failure skips sampled candidate. For each eligible candidate run8x2 short engineering,100x2 fresh screen, author-grade, and only a passing screen proceeds unchanged to200x2 fixed independent confirmation. Any runtime/input/grade failure stops entire batch with partials retained. No retries,7B,fulltest,AIME orSEAL comparison reruns.',
         stop_policy='90-minute whole-batch ceiling. Do not begin a generation stage with<300seconds remaining for engineering/screen or<600seconds for confirmation. Mark unstarted stages as budget-limited, not efficacy failures. Parent bounds and kills only its own child process groups on timeouts.',
         GPU_authorization='NOT YET PROVIDED FOR THIS NEW BATCH. User has closed GPU and requested four-hour local preparation; wait for explicit reopening.',
-        preparation_revision='v2: sampled-confidence8-question engineering uses greedy decoding and requires exact paired token identity. Formal stochastic100/200 stages, all splits, vectors, counts and promotion gates unchanged. Earlier4a01bd7 bundle was never executed and remains preserved.',
+        preparation_revision='v3: sampled-confidence output description now matches its actual raw-selected-token definition; added CPU parameter-branch and nucleus-bound audits. Retains v2 greedy8-pair identity gate. All formal100/200 inputs, vectors, runtime and promotion gates unchanged. Earlier v1/v2 bundles were never executed and remain preserved.',
         provenance='All fits, input splits, candidate rules and judgments fixed before any new model forward. CPU saved-path statistics are not generation benefits.')
     save(out/'plan.json',parent)
     subprocess.run([sys.executable,str(ROOT/BASE/'scripts/check_prepared_prompts.py'),
