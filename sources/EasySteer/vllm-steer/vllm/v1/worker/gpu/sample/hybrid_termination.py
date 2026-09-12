@@ -123,7 +123,9 @@ class HybridTerminationState:
         enforce = torch.tensor([self.requests[batch.req_ids[p]][2] == "enforce"
                                 for p in positions], device=f.device)
         force = trigger & enforce
-        replacement = torch.where(ids == 151649, 0.0, -torch.inf)
+        replacement = torch.full((f.shape[1],), -torch.inf,
+                                 device=logits.device, dtype=logits.dtype)
+        replacement[151649] = 0
         # Shadow returns the original logits without any copy/rounding.
         if any(self.requests[batch.req_ids[p]][2] == "enforce" for p in positions):
             logits[pos] = torch.where(force[:, None], replacement, logits[pos])

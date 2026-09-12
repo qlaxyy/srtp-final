@@ -21,15 +21,16 @@ def batch(ids, slots, lengths, prefill=None):
                            prefill_len_np=np.array(prefill if prefill else [1]*len(ids)))
 
 
-def main():
+def check_dtype(dtype):
     config = dict(mode='enforce', entropy_weight=.8, pacing_cap=64, end_token_id=151649)
     state = module.HybridTerminationState(3, 'cpu')
     state.add_request('a', 2, [151648], 1, config)
-    logits = torch.full((1,151650), -40.)
+    logits = torch.full((1,151650), -40., dtype=dtype)
     logits[0,151649] = 5
     before = logits.clone()
     ticket = state.read_apply(logits, batch(['a'],[2],[1]))
     assert torch.isfinite(logits).sum() == 1 and logits[0,151649] == 0
+    assert logits.dtype == dtype
     state.observe(ticket, torch.tensor([[151649]]))
     assert state.count[2] == 1 and state.closed[2]
     next_logits = before.clone()
@@ -71,11 +72,12 @@ def main():
     result = state.finish_all()
     assert result['requests']['a']['end_position'] == 0
     assert result['requests']['b']['accepted_tokens'] == 1
-    print(json.dumps(dict(status='pass',device='cpu',model_forwards=0,
+    print(json.dumps(dict(status='pass',device='cpu',dtype=str(dtype),model_forwards=0,
                          checks=['forced support','sticky close','slot reset','shadow identity',
                                  'partial prefill ignored','duplicate clock rejected','resume rejected',
                                  'NaN rejected','off no allocation','request receipts'])))
 
 
 if __name__ == '__main__':
-    main()
+    for dtype in (torch.float32, torch.bfloat16):
+        check_dtype(dtype)

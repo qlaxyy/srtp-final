@@ -104,6 +104,32 @@ def prepare(a):
                     authorization='User: 请继续，进行测试; first batch only',
                     preemption_policy='Reject any actual preemption; restore not implemented in first batch',
                     prepared_unix=time.time())
+    if a.reuse_engineering:
+        previous = read(a.reuse_engineering/'resolved_plan.json')
+        previous_status = read(a.reuse_engineering/'batch_status.json')
+        assert previous_status['status'] == 'failed'
+        assert previous['plan_sha256'] == resolved['plan_sha256']
+        assert previous['prompts'] == resolved['prompts']
+        for name, h in previous['source_sha256'].items():
+            if name.startswith('sources/') and not name.endswith('/hybrid_termination.py'):
+                assert resolved['source_sha256'][name] == h, name
+        old_groups = {}
+        for name in ('pre_R','off_R','shadow_R'):
+            path = a.reuse_engineering/'engineering'/name/'result.json'
+            value = read(path)
+            assert value['status'] == 'complete' and value['cap'] == 512
+            assert len(value['records']) == 8
+            old_groups[name] = dict(path=str(path),sha256=sha(path))
+        base = read(old_groups['pre_R']['path'])['records']
+        for name in ('off_R','shadow_R'):
+            for x,y in zip(base,read(old_groups[name]['path'])['records']):
+                assert x['token_ids'] == y['token_ids']
+                assert x['R_history']['sha256'] == y['R_history']['sha256']
+        assert (a.reuse_engineering/'engineering/S/partial.jsonl').stat().st_size == 0
+        assert not (a.reuse_engineering/'screening').exists()
+        resolved['engineering_reuse'] = dict(groups=old_groups,
+            previous_run=str(a.reuse_engineering),previous_wall_seconds=previous_status['wall_seconds'],
+            reason='BF16 mask write correction; completed off/shadow evidence unchanged, no S or formal answers existed')
     assert resolved['remote_inventory']['new_unreported_result_files'] == []
     save(a.resolved_plan,resolved)
     print('PREPARED',sha(a.resolved_plan),flush=True)
@@ -241,7 +267,10 @@ def run_child(a):
     if a.child=='pre':
         group(stage,'pre_R',True,'absent')
     else:
-        for name,use_r,mode in [('off_R',True,'off'),('shadow_R',True,'shadow'),('S',False,'enforce'),('RS',True,'enforce')]:
+        groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),('S',False,'enforce'),('RS',True,'enforce')]
+        if r.get('engineering_reuse'):
+            groups = groups[2:]
+        for name,use_r,mode in groups:
             group(stage,name,use_r,mode)
         base=read(output/'engineering/pre_R/result.json')['records']
         for name in ('off_R','shadow_R'):
@@ -268,18 +297,24 @@ def execute(a):
     assert a.run_id==r['run_id'] and a.phase=='screen'
     output=Path(r['output']);output.mkdir(parents=True,exist_ok=False)
     save(output/'resolved_plan.json',r)
+    prior_seconds = 0.0
+    if r.get('engineering_reuse'):
+        prior_seconds = r['engineering_reuse']['previous_wall_seconds']
+        for name,meta in r['engineering_reuse']['groups'].items():
+            assert sha(meta['path']) == meta['sha256']
+            shutil.copytree(Path(meta['path']).parent,output/'engineering'/name)
     start=time.monotonic()
     env=child_environment()
     status='failed'
     try:
-        for child in ('pre','integrated'):
+        for child in (('integrated',) if r.get('engineering_reuse') else ('pre','integrated')):
             command=[GEN,'-u',str(__file__),'--resolved-plan',str(a.resolved_plan),'--child',child]
             with (output/(child+'.log')).open('x') as log:
                 process=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,env=env,start_new_session=True)
                 try:
                     while process.poll() is None:
                         elapsed=time.monotonic()-start
-                        if elapsed>1800 or (elapsed>300 and not (output/'engineering_gate.json').exists()):
+                        if elapsed+prior_seconds>1800 or (elapsed+prior_seconds>300 and not (output/'engineering_gate.json').exists()):
                             raise TimeoutError('Registered whole/engineering budget exhausted')
                         time.sleep(1)
                     if process.returncode:
@@ -290,10 +325,11 @@ def execute(a):
                         os.killpg(process.pid,signal.SIGTERM)
                         try:process.wait(timeout=10)
                         except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL)
-        subprocess.run([GRADE,str(HERE/'grade_screen.py'),'--output',str(output)],check=True,timeout=max(1,1800-(time.monotonic()-start)))
+        subprocess.run([GRADE,str(HERE/'grade_screen.py'),'--output',str(output)],check=True,timeout=max(1,1800-prior_seconds-(time.monotonic()-start)))
         status='complete'
     finally:
         save(output/'batch_status.json',dict(status=status,wall_seconds=time.monotonic()-start,
+                                            prior_attempt_wall_seconds=prior_seconds,
                                             retries=0,scope='first batch only'))
 
 
@@ -303,6 +339,7 @@ def main():
     p.add_argument('--execute',action='store_true')
     p.add_argument('--resolved-plan',type=Path,required=True)
     p.add_argument('--run-id')
+    p.add_argument('--reuse-engineering',type=Path)
     p.add_argument('--phase',default='screen',choices=['screen'])
     p.add_argument('--child',choices=['pre','integrated'])
     a=p.parse_args()
