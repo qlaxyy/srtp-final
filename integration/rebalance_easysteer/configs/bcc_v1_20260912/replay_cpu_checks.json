@@ -1,0 +1,813 @@
+{
+  "status": "passed_synthetic_CPU_only",
+  "plan_sha256": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+  "synthetic_positive": {
+    "status": "completed_CPU_development_not_generation",
+    "development_positive": 36,
+    "per_source_positive": {
+      "lexical_direction": 18,
+      "sampled_confidence": 18
+    },
+    "permutations": 10000,
+    "permutation_seed": 20260912,
+    "permutation_pvalue": 9.999000099990002e-05,
+    "raw_norm": 4.011708542914405,
+    "null_raw_norm": 0.30529268967061385,
+    "near_zero_threshold": 4.452076663073404e-06,
+    "min_leave_one_out_cosine": 0.9999134037816995,
+    "fixed_numeric_gate": true,
+    "projections": [
+      {
+        "pair_id": "lexical_direction:4635",
+        "split": "fit",
+        "projection": 335.30630199414793
+      },
+      {
+        "pair_id": "lexical_direction:4161",
+        "split": "fit",
+        "projection": 335.31333192536346
+      },
+      {
+        "pair_id": "lexical_direction:1300",
+        "split": "fit",
+        "projection": 335.7141261990586
+      },
+      {
+        "pair_id": "lexical_direction:278",
+        "split": "fit",
+        "projection": 335.58518934602984
+      },
+      {
+        "pair_id": "lexical_direction:6455",
+        "split": "fit",
+        "projection": 335.62271674012254
+      },
+      {
+        "pair_id": "lexical_direction:7488",
+        "split": "fit",
+        "projection": 335.16964817916164
+      },
+      {
+        "pair_id": "lexical_direction:6628",
+        "split": "fit",
+        "projection": 335.23751209386984
+      },
+      {
+        "pair_id": "lexical_direction:4434",
+        "split": "fit",
+        "projection": 335.4499822898414
+      },
+      {
+        "pair_id": "lexical_direction:1354",
+        "split": "fit",
+        "projection": 335.11460138201
+      },
+      {
+        "pair_id": "lexical_direction:332",
+        "split": "fit",
+        "projection": 335.88554453865106
+      },
+      {
+        "pair_id": "lexical_direction:4765",
+        "split": "fit",
+        "projection": 335.8070530740592
+      },
+      {
+        "pair_id": "lexical_direction:6554",
+        "split": "fit",
+        "projection": 335.4047359531964
+      },
+      {
+        "pair_id": "lexical_direction:4638",
+        "split": "fit",
+        "projection": 335.90817942366914
+      },
+      {
+        "pair_id": "lexical_direction:3762",
+        "split": "fit",
+        "projection": 335.9824594702577
+      },
+      {
+        "pair_id": "lexical_direction:5148",
+        "split": "fit",
+        "projection": 335.7157085532915
+      },
+      {
+        "pair_id": "lexical_direction:4871",
+        "split": "fit",
+        "projection": 335.7209689781863
+      },
+      {
+        "pair_id": "lexical_direction:228",
+        "split": "fit",
+        "projection": 335.42168040299356
+      },
+      {
+        "pair_id": "lexical_direction:6013",
+        "split": "fit",
+        "projection": 334.9639661455642
+      },
+      {
+        "pair_id": "lexical_direction:5914",
+        "split": "development",
+        "projection": 333.2300767336657
+      },
+      {
+        "pair_id": "lexical_direction:3046",
+        "split": "development",
+        "projection": 332.99241731075057
+      },
+      {
+        "pair_id": "lexical_direction:3473",
+        "split": "fit",
+        "projection": 335.3465647690846
+      },
+      {
+        "pair_id": "lexical_direction:4453",
+        "split": "development",
+        "projection": 333.40829973419454
+      },
+      {
+        "pair_id": "lexical_direction:7341",
+        "split": "development",
+        "projection": 332.91471234562306
+      },
+      {
+        "pair_id": "lexical_direction:2390",
+        "split": "development",
+        "projection": 333.7922395148901
+      },
+      {
+        "pair_id": "lexical_direction:3549",
+        "split": "development",
+        "projection": 333.3623245863718
+      },
+      {
+        "pair_id": "lexical_direction:3450",
+        "split": "fit",
+        "projection": 335.4955255804827
+      },
+      {
+        "pair_id": "lexical_direction:661",
+        "split": "development",
+        "projection": 333.6056305244589
+      },
+      {
+        "pair_id": "lexical_direction:2982",
+        "split": "development",
+        "projection": 333.2875458569599
+      },
+      {
+        "pair_id": "lexical_direction:3725",
+        "split": "development",
+        "projection": 332.9099387403242
+      },
+      {
+        "pair_id": "lexical_direction:4473",
+        "split": "development",
+        "projection": 332.7685089853148
+      },
+      {
+        "pair_id": "lexical_direction:2908",
+        "split": "development",
+        "projection": 333.02917284020987
+      },
+      {
+        "pair_id": "lexical_direction:4823",
+        "split": "development",
+        "projection": 333.4483362353122
+      },
+      {
+        "pair_id": "lexical_direction:5920",
+        "split": "development",
+        "projection": 333.5635158585306
+      },
+      {
+        "pair_id": "lexical_direction:3205",
+        "split": "development",
+        "projection": 333.60159139974826
+      },
+      {
+        "pair_id": "lexical_direction:6804",
+        "split": "development",
+        "projection": 333.8903809691089
+      },
+      {
+        "pair_id": "lexical_direction:7108",
+        "split": "development",
+        "projection": 333.631208957314
+      },
+      {
+        "pair_id": "lexical_direction:2070",
+        "split": "development",
+        "projection": 333.77791181077623
+      },
+      {
+        "pair_id": "lexical_direction:1904",
+        "split": "development",
+        "projection": 333.20203661374404
+      },
+      {
+        "pair_id": "sampled_confidence:366",
+        "split": "fit",
+        "projection": 335.46763156599536
+      },
+      {
+        "pair_id": "sampled_confidence:81",
+        "split": "fit",
+        "projection": 335.5403716466623
+      },
+      {
+        "pair_id": "sampled_confidence:1071",
+        "split": "fit",
+        "projection": 334.9839630935074
+      },
+      {
+        "pair_id": "sampled_confidence:3706",
+        "split": "fit",
+        "projection": 335.4775535079335
+      },
+      {
+        "pair_id": "sampled_confidence:6784",
+        "split": "fit",
+        "projection": 335.2627761095862
+      },
+      {
+        "pair_id": "sampled_confidence:3544",
+        "split": "fit",
+        "projection": 335.8801646983846
+      },
+      {
+        "pair_id": "sampled_confidence:968",
+        "split": "fit",
+        "projection": 335.5608816454127
+      },
+      {
+        "pair_id": "sampled_confidence:6203",
+        "split": "fit",
+        "projection": 335.3716108720472
+      },
+      {
+        "pair_id": "sampled_confidence:2551",
+        "split": "fit",
+        "projection": 335.38751974291694
+      },
+      {
+        "pair_id": "sampled_confidence:7276",
+        "split": "fit",
+        "projection": 335.19052450596786
+      },
+      {
+        "pair_id": "sampled_confidence:431",
+        "split": "fit",
+        "projection": 334.77703589246477
+      },
+      {
+        "pair_id": "sampled_confidence:4942",
+        "split": "fit",
+        "projection": 334.81210488628113
+      },
+      {
+        "pair_id": "sampled_confidence:7412",
+        "split": "fit",
+        "projection": 335.03988201795397
+      },
+      {
+        "pair_id": "sampled_confidence:7374",
+        "split": "fit",
+        "projection": 335.1249212721578
+      },
+      {
+        "pair_id": "sampled_confidence:6139",
+        "split": "fit",
+        "projection": 335.5830975271963
+      },
+      {
+        "pair_id": "sampled_confidence:6793",
+        "split": "fit",
+        "projection": 335.83200813331683
+      },
+      {
+        "pair_id": "sampled_confidence:1343",
+        "split": "fit",
+        "projection": 335.59063902875477
+      },
+      {
+        "pair_id": "sampled_confidence:151",
+        "split": "fit",
+        "projection": 335.7329840496377
+      },
+      {
+        "pair_id": "sampled_confidence:5872",
+        "split": "development",
+        "projection": 333.3325841515207
+      },
+      {
+        "pair_id": "sampled_confidence:2581",
+        "split": "fit",
+        "projection": 335.6578791198813
+      },
+      {
+        "pair_id": "sampled_confidence:6353",
+        "split": "fit",
+        "projection": 335.78426122754564
+      },
+      {
+        "pair_id": "sampled_confidence:6228",
+        "split": "development",
+        "projection": 333.3764380270847
+      },
+      {
+        "pair_id": "sampled_confidence:6369",
+        "split": "development",
+        "projection": 333.25771148490725
+      },
+      {
+        "pair_id": "sampled_confidence:2093",
+        "split": "development",
+        "projection": 333.0427946153669
+      },
+      {
+        "pair_id": "sampled_confidence:6038",
+        "split": "development",
+        "projection": 333.66262756399
+      },
+      {
+        "pair_id": "sampled_confidence:4777",
+        "split": "development",
+        "projection": 333.5129219778662
+      },
+      {
+        "pair_id": "sampled_confidence:5827",
+        "split": "development",
+        "projection": 333.72017277305787
+      },
+      {
+        "pair_id": "sampled_confidence:422",
+        "split": "development",
+        "projection": 333.8667499751254
+      },
+      {
+        "pair_id": "sampled_confidence:1544",
+        "split": "development",
+        "projection": 333.6680043063427
+      },
+      {
+        "pair_id": "sampled_confidence:1474",
+        "split": "development",
+        "projection": 333.5396468563671
+      },
+      {
+        "pair_id": "sampled_confidence:6877",
+        "split": "development",
+        "projection": 333.89500898497585
+      },
+      {
+        "pair_id": "sampled_confidence:2509",
+        "split": "development",
+        "projection": 333.59828762062807
+      },
+      {
+        "pair_id": "sampled_confidence:5552",
+        "split": "development",
+        "projection": 333.8139963264201
+      },
+      {
+        "pair_id": "sampled_confidence:4210",
+        "split": "development",
+        "projection": 333.2687963074089
+      },
+      {
+        "pair_id": "sampled_confidence:2710",
+        "split": "development",
+        "projection": 333.5718418204731
+      },
+      {
+        "pair_id": "sampled_confidence:7190",
+        "split": "development",
+        "projection": 333.60456453607236
+      },
+      {
+        "pair_id": "sampled_confidence:6407",
+        "split": "development",
+        "projection": 333.5185719422878
+      },
+      {
+        "pair_id": "sampled_confidence:1906",
+        "split": "development",
+        "projection": 333.74385168929376
+      }
+    ],
+    "limitation": "Numeric gate only; source/position/termination diagnostics still require review. Not independent efficacy evidence."
+  },
+  "synthetic_negative": {
+    "status": "completed_CPU_development_not_generation",
+    "development_positive": 0,
+    "per_source_positive": {
+      "lexical_direction": 0,
+      "sampled_confidence": 0
+    },
+    "permutations": 10000,
+    "permutation_seed": 20260912,
+    "permutation_pvalue": 1.0,
+    "raw_norm": 4.011708542914405,
+    "null_raw_norm": 0.30529268967061385,
+    "near_zero_threshold": 4.452076663073404e-06,
+    "min_leave_one_out_cosine": 0.9999134037816995,
+    "fixed_numeric_gate": false,
+    "projections": [
+      {
+        "pair_id": "lexical_direction:4635",
+        "split": "fit",
+        "projection": 335.30630199414793
+      },
+      {
+        "pair_id": "lexical_direction:4161",
+        "split": "fit",
+        "projection": 335.31333192536346
+      },
+      {
+        "pair_id": "lexical_direction:1300",
+        "split": "fit",
+        "projection": 335.7141261990586
+      },
+      {
+        "pair_id": "lexical_direction:278",
+        "split": "fit",
+        "projection": 335.58518934602984
+      },
+      {
+        "pair_id": "lexical_direction:6455",
+        "split": "fit",
+        "projection": 335.62271674012254
+      },
+      {
+        "pair_id": "lexical_direction:7488",
+        "split": "fit",
+        "projection": 335.16964817916164
+      },
+      {
+        "pair_id": "lexical_direction:6628",
+        "split": "fit",
+        "projection": 335.23751209386984
+      },
+      {
+        "pair_id": "lexical_direction:4434",
+        "split": "fit",
+        "projection": 335.4499822898414
+      },
+      {
+        "pair_id": "lexical_direction:1354",
+        "split": "fit",
+        "projection": 335.11460138201
+      },
+      {
+        "pair_id": "lexical_direction:332",
+        "split": "fit",
+        "projection": 335.88554453865106
+      },
+      {
+        "pair_id": "lexical_direction:4765",
+        "split": "fit",
+        "projection": 335.8070530740592
+      },
+      {
+        "pair_id": "lexical_direction:6554",
+        "split": "fit",
+        "projection": 335.4047359531964
+      },
+      {
+        "pair_id": "lexical_direction:4638",
+        "split": "fit",
+        "projection": 335.90817942366914
+      },
+      {
+        "pair_id": "lexical_direction:3762",
+        "split": "fit",
+        "projection": 335.9824594702577
+      },
+      {
+        "pair_id": "lexical_direction:5148",
+        "split": "fit",
+        "projection": 335.7157085532915
+      },
+      {
+        "pair_id": "lexical_direction:4871",
+        "split": "fit",
+        "projection": 335.7209689781863
+      },
+      {
+        "pair_id": "lexical_direction:228",
+        "split": "fit",
+        "projection": 335.42168040299356
+      },
+      {
+        "pair_id": "lexical_direction:6013",
+        "split": "fit",
+        "projection": 334.9639661455642
+      },
+      {
+        "pair_id": "lexical_direction:5914",
+        "split": "development",
+        "projection": -333.2300767336657
+      },
+      {
+        "pair_id": "lexical_direction:3046",
+        "split": "development",
+        "projection": -332.99241731075057
+      },
+      {
+        "pair_id": "lexical_direction:3473",
+        "split": "fit",
+        "projection": 335.3465647690846
+      },
+      {
+        "pair_id": "lexical_direction:4453",
+        "split": "development",
+        "projection": -333.40829973419454
+      },
+      {
+        "pair_id": "lexical_direction:7341",
+        "split": "development",
+        "projection": -332.91471234562306
+      },
+      {
+        "pair_id": "lexical_direction:2390",
+        "split": "development",
+        "projection": -333.7922395148901
+      },
+      {
+        "pair_id": "lexical_direction:3549",
+        "split": "development",
+        "projection": -333.3623245863718
+      },
+      {
+        "pair_id": "lexical_direction:3450",
+        "split": "fit",
+        "projection": 335.4955255804827
+      },
+      {
+        "pair_id": "lexical_direction:661",
+        "split": "development",
+        "projection": -333.6056305244589
+      },
+      {
+        "pair_id": "lexical_direction:2982",
+        "split": "development",
+        "projection": -333.2875458569599
+      },
+      {
+        "pair_id": "lexical_direction:3725",
+        "split": "development",
+        "projection": -332.9099387403242
+      },
+      {
+        "pair_id": "lexical_direction:4473",
+        "split": "development",
+        "projection": -332.7685089853148
+      },
+      {
+        "pair_id": "lexical_direction:2908",
+        "split": "development",
+        "projection": -333.02917284020987
+      },
+      {
+        "pair_id": "lexical_direction:4823",
+        "split": "development",
+        "projection": -333.4483362353122
+      },
+      {
+        "pair_id": "lexical_direction:5920",
+        "split": "development",
+        "projection": -333.5635158585306
+      },
+      {
+        "pair_id": "lexical_direction:3205",
+        "split": "development",
+        "projection": -333.60159139974826
+      },
+      {
+        "pair_id": "lexical_direction:6804",
+        "split": "development",
+        "projection": -333.8903809691089
+      },
+      {
+        "pair_id": "lexical_direction:7108",
+        "split": "development",
+        "projection": -333.631208957314
+      },
+      {
+        "pair_id": "lexical_direction:2070",
+        "split": "development",
+        "projection": -333.77791181077623
+      },
+      {
+        "pair_id": "lexical_direction:1904",
+        "split": "development",
+        "projection": -333.20203661374404
+      },
+      {
+        "pair_id": "sampled_confidence:366",
+        "split": "fit",
+        "projection": 335.46763156599536
+      },
+      {
+        "pair_id": "sampled_confidence:81",
+        "split": "fit",
+        "projection": 335.5403716466623
+      },
+      {
+        "pair_id": "sampled_confidence:1071",
+        "split": "fit",
+        "projection": 334.9839630935074
+      },
+      {
+        "pair_id": "sampled_confidence:3706",
+        "split": "fit",
+        "projection": 335.4775535079335
+      },
+      {
+        "pair_id": "sampled_confidence:6784",
+        "split": "fit",
+        "projection": 335.2627761095862
+      },
+      {
+        "pair_id": "sampled_confidence:3544",
+        "split": "fit",
+        "projection": 335.8801646983846
+      },
+      {
+        "pair_id": "sampled_confidence:968",
+        "split": "fit",
+        "projection": 335.5608816454127
+      },
+      {
+        "pair_id": "sampled_confidence:6203",
+        "split": "fit",
+        "projection": 335.3716108720472
+      },
+      {
+        "pair_id": "sampled_confidence:2551",
+        "split": "fit",
+        "projection": 335.38751974291694
+      },
+      {
+        "pair_id": "sampled_confidence:7276",
+        "split": "fit",
+        "projection": 335.19052450596786
+      },
+      {
+        "pair_id": "sampled_confidence:431",
+        "split": "fit",
+        "projection": 334.77703589246477
+      },
+      {
+        "pair_id": "sampled_confidence:4942",
+        "split": "fit",
+        "projection": 334.81210488628113
+      },
+      {
+        "pair_id": "sampled_confidence:7412",
+        "split": "fit",
+        "projection": 335.03988201795397
+      },
+      {
+        "pair_id": "sampled_confidence:7374",
+        "split": "fit",
+        "projection": 335.1249212721578
+      },
+      {
+        "pair_id": "sampled_confidence:6139",
+        "split": "fit",
+        "projection": 335.5830975271963
+      },
+      {
+        "pair_id": "sampled_confidence:6793",
+        "split": "fit",
+        "projection": 335.83200813331683
+      },
+      {
+        "pair_id": "sampled_confidence:1343",
+        "split": "fit",
+        "projection": 335.59063902875477
+      },
+      {
+        "pair_id": "sampled_confidence:151",
+        "split": "fit",
+        "projection": 335.7329840496377
+      },
+      {
+        "pair_id": "sampled_confidence:5872",
+        "split": "development",
+        "projection": -333.3325841515207
+      },
+      {
+        "pair_id": "sampled_confidence:2581",
+        "split": "fit",
+        "projection": 335.6578791198813
+      },
+      {
+        "pair_id": "sampled_confidence:6353",
+        "split": "fit",
+        "projection": 335.78426122754564
+      },
+      {
+        "pair_id": "sampled_confidence:6228",
+        "split": "development",
+        "projection": -333.3764380270847
+      },
+      {
+        "pair_id": "sampled_confidence:6369",
+        "split": "development",
+        "projection": -333.25771148490725
+      },
+      {
+        "pair_id": "sampled_confidence:2093",
+        "split": "development",
+        "projection": -333.0427946153669
+      },
+      {
+        "pair_id": "sampled_confidence:6038",
+        "split": "development",
+        "projection": -333.66262756399
+      },
+      {
+        "pair_id": "sampled_confidence:4777",
+        "split": "development",
+        "projection": -333.5129219778662
+      },
+      {
+        "pair_id": "sampled_confidence:5827",
+        "split": "development",
+        "projection": -333.72017277305787
+      },
+      {
+        "pair_id": "sampled_confidence:422",
+        "split": "development",
+        "projection": -333.8667499751254
+      },
+      {
+        "pair_id": "sampled_confidence:1544",
+        "split": "development",
+        "projection": -333.6680043063427
+      },
+      {
+        "pair_id": "sampled_confidence:1474",
+        "split": "development",
+        "projection": -333.5396468563671
+      },
+      {
+        "pair_id": "sampled_confidence:6877",
+        "split": "development",
+        "projection": -333.89500898497585
+      },
+      {
+        "pair_id": "sampled_confidence:2509",
+        "split": "development",
+        "projection": -333.59828762062807
+      },
+      {
+        "pair_id": "sampled_confidence:5552",
+        "split": "development",
+        "projection": -333.8139963264201
+      },
+      {
+        "pair_id": "sampled_confidence:4210",
+        "split": "development",
+        "projection": -333.2687963074089
+      },
+      {
+        "pair_id": "sampled_confidence:2710",
+        "split": "development",
+        "projection": -333.5718418204731
+      },
+      {
+        "pair_id": "sampled_confidence:7190",
+        "split": "development",
+        "projection": -333.60456453607236
+      },
+      {
+        "pair_id": "sampled_confidence:6407",
+        "split": "development",
+        "projection": -333.5185719422878
+      },
+      {
+        "pair_id": "sampled_confidence:1906",
+        "split": "development",
+        "projection": -333.74385168929376
+      }
+    ],
+    "limitation": "Numeric gate only; source/position/termination diagnostics still require review. Not independent efficacy evidence."
+  },
+  "expected_rejections": [
+    "zero",
+    "nonfinite",
+    "absolute_tolerance"
+  ],
+  "gram_checks": 100,
+  "seconds": 0.9247837000002619,
+  "new_answers": 0,
+  "model_forwards": 0,
+  "GPU_calls": 0,
+  "limitation": "Synthetic implementation checks; no real hidden states or compression benefit measured"
+}

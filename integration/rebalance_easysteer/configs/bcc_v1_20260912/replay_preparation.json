@@ -1,0 +1,44 @@
+{
+  "status": "ready_for_authorized_sparse_replay_only",
+  "source_branch": "codex/bcc-v1-audit-20260912",
+  "input_bundle": ".codex_work/bcc_replay_inputs_20260912.zip",
+  "bundle_sha256": "a93e614f8855ec11c65f215a96de5fc6300bf8676ea2cf6835f198b34fe13c9b",
+  "bundle_bytes": 112379,
+  "plan_sha256": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+  "input_tokens": 66159,
+  "engineering_extra_input_tokens": 3384,
+  "max_prefix_tokens": 1254,
+  "new_generations": 0,
+  "expected_GPU_minutes": [
+    1,
+    5
+  ],
+  "hard_timeout_seconds": 600,
+  "cost": "current hourly GPU rate times <=1/6 hour for replay process, setup/transfer billing separately; rate unknown",
+  "server_prepared": "/root/autodl-tmp/results/easysteer/bcc_v1_20260912_prepared",
+  "server_output": "/root/autodl-tmp/results/easysteer/bcc_v1_20260912_replay_run1",
+  "execution_command": "timeout --signal=TERM --kill-after=5s 600s /root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/scripts/replay_bcc_prefixes.py --prepared /root/autodl-tmp/results/easysteer/bcc_v1_20260912_prepared --output /root/autodl-tmp/results/easysteer/bcc_v1_20260912_replay_run1 --execute --expected-plan-sha256 c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+  "logging": "capture stdout/stderr in adjacent replay_run1.log; preserve ledger and partial states on failure",
+  "completion": "76 pairs,304 finite raw states;4 exact repeat and causal-extension checks;hashes+ledger downloaded and locally matched",
+  "stop_conditions": [
+    "other GPU process",
+    "input/model/source hash mismatch",
+    "OOM/nonfinite",
+    "shape/layer mismatch",
+    "repeat not bitwise equal",
+    "causal extension max abs >.125 or relative L2 >.002",
+    "600s timeout"
+  ],
+  "after_GPU": "download <=2 MB states plus records and verify hashes, notify user GPU can close; local CPU fitting only",
+  "not_in_this_GPU_batch": [
+    "new 100x3 generation",
+    "200x2 confirmation",
+    "7B",
+    "new datasets"
+  ],
+  "engineering_notes": [
+    "first synthetic test added random perturbations on common signal axis; balanced null can retain that signal, so test assumption was invalid; changed synthetic fixture to exact shared axis, production gate unchanged",
+    "first lexical position audit included prompt boxed instruction; corrected to generated prefixes only; 0/152 explicit answer markers, not proof answers never appear",
+    "same-model second review is not independent human adjudication"
+  ]
+}
