@@ -52,7 +52,7 @@
   "output": "/root/autodl-tmp/results/easysteer/sampled_probability_replay100_promptfix_20260912",
   "source_sha256": {
     "integration/rebalance_easysteer/scripts/prepare_sampled_probability_replay.py": "9fed43d4efed09b452a01cfbe7854d0e4f7a6b96ff8cbc5878ed788fc5e973d5",
-    "integration/rebalance_easysteer/scripts/replay_sampled_probabilities.py": "8dc3bdc58584ec8e301adf607d3b4a02d46db2f12e43894bbd74a55eb8260103",
+    "integration/rebalance_easysteer/scripts/replay_sampled_probabilities.py": "0c0e1908a68b5c9949bccaf8fdc31646c93d03baf6a8445c06bacec2d62e0af6",
     "integration/rebalance_easysteer/scripts/audit_sampled_probabilities.py": "923ee3679bf2ccbd22d66678d07da2a734e6dc1f17ba0eee0b270c1db15a93ae",
     "integration/rebalance_easysteer/scripts/mechanism_candidates.py": "47a62b1cb7c50a96df96af8b7ec8f477cf30397659759cad8477b10db35b5ab8",
     "integration/rebalance_easysteer/scripts/audit_control_alignment.py": "5c60c0ac148fd0a7068434cacac2074437462e16ffe5cf92b3dc20571a86513c",
@@ -69,5 +69,15 @@
   ],
   "prompt_builder_sha256": "39099d1fc66a66fcbbf58a564222011dac6c5cd44c352465bab4a8be2a9c6687",
   "prompt_fingerprint": "normalized_exact_function_source",
-  "recovery_note": "Original6a458b8 plan failed only cross-version AST fingerprint check before any CUDA model load; exact same100 source answers and fixed CPU opportunity gate."
+  "recovery_note": "Original6a458b8 plan failed only cross-version AST fingerprint check before any CUDA model load; exact same100 source answers and fixed CPU opportunity gate.",
+  "tokenization_reference": {
+    "remote_path": "/root/autodl-tmp/results/easysteer/probability_prompt_vllm_20260912.json",
+    "sha256": "c3f916a0365f81cbb6c0617d5a14b0e787afb81daa1c4777e7db8332f50f950d",
+    "CPU_environment": "/root/autodl-tmp/venvs/easysteer-vllm026"
+  },
+  "pre_execution_revision": {
+    "prior_commit": "e09e8f6",
+    "prior_plan_sha256": "61d242447defdeb2f049b5719d90e4bdde3001fec8cda5f9c3a8ac23a333d138",
+    "cause": "CPU prompt roundtrip caught a duplicated BOS before any model load; use verified original vLLM tokenizer for100 prompt IDs. No source answers or opportunity gates changed."
+  }
 }

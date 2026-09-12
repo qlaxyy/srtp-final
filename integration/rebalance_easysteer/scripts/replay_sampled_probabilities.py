@@ -54,12 +54,17 @@ def main():
     plan, rows, questions = validate(bundle, raw_path, model_check=bool(a.prepare_inputs or a.execute))
     if a.prepare_inputs:
         require(not a.execute and not a.prepare_inputs.exists(), 'Fresh CPU input preparation required')
-        from transformers import AutoTokenizer
-        tokenizer = AutoTokenizer.from_pretrained(plan['model'], local_files_only=True)
+        # Use the original generation environment: legacy HF adds another BOS.
+        from vllm.tokenizers.registry import get_tokenizer
+        tokenizer = get_tokenizer(plan['model'], local_files_only=True)
+        reference_path = Path(plan['tokenization_reference']['remote_path'])
+        require(sha(reference_path) == plan['tokenization_reference']['sha256'], 'Tokenizer reference changed')
+        reference = read(reference_path)['records']
         build_prompt = prompt_function(plan); prompts = []
-        for row, q in zip(rows, questions, strict=True):
+        for row, q, expected in zip(rows, questions, reference, strict=True):
             text = build_prompt(tokenizer, row['problem']); ids = tokenizer.encode(text)
             require(tokenizer.decode(ids, skip_special_tokens=False) == text, 'Prompt roundtrip changed')
+            require(ids == expected['prompt_token_ids'] and q['index'] == expected['index'], 'Original vLLM prompt IDs changed')
             require(ids and len(ids)+q['thinking_tokens'] <= 32768, 'Prompt length overflow')
             prompts.append(dict(index=q['index'], prompt_token_ids=ids, prompt_text_sha256=hashlib.sha256(text.encode()).hexdigest()))
         save(a.prepare_inputs, dict(plan_sha256=sha(bundle/'plan.json'), tokenizer_sha256=plan['model_files_sha256']['tokenizer.json'], prompts=prompts, model_loads=0, CUDA_calls=0))
