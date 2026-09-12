@@ -12,7 +12,9 @@ from mechanism_candidates import ROOT, BASE, read, save, sha, require
 def prompt_body(source):
     module = ast.parse(source)
     node = next(n for n in module.body if isinstance(n, ast.FunctionDef) and n.name == 'build_prompt')
-    return ast.dump(node, include_attributes=False)
+    # AST dump fields vary across Python3.10/3.13 (e.g. type_params).
+    # The exact source segment is stable across the existing two runtimes.
+    return ast.get_source_segment(source, node).replace('\r\n', '\n')
 
 
 def main():
