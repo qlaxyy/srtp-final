@@ -24,6 +24,8 @@ def main():
     hypothesis = ROOT/BASE/'configs/sampled_confidence_20260912.json'
     previous_path = ROOT/BASE/'configs/seal_comparison130_20260912/plan.json'
     previous = read(previous_path)
+    tokenizer_reference = ROOT/'.codex_work/overnight_research_20260912/probability_prompt_vllm_20260912.json'
+    require(sha(tokenizer_reference) == 'c3f916a0365f81cbb6c0617d5a14b0e787afb81daa1c4777e7db8332f50f950d', 'Verified tokenizer reference changed')
     relative = '.codex_work/overnight_research_20260912/seal_comparison_all_20260912/seal_comparison130_20260912/math_train_unsteered.json'
     raw_path = ROOT/relative; raw = read(raw_path); ledger = read(raw_path.parent/'ledger.json')
     require(sha(raw_path) == ledger['files_sha256']['math_train_unsteered'], 'Saved unsteered answers changed')
@@ -60,6 +62,8 @@ def main():
         dynamic_parameters=previous['dynamic_parameters'],
         prompt_builder_source=builder, prompt_builder_sha256=hashlib.sha256(prompt_body(old).encode()).hexdigest(),
         prompt_fingerprint='normalized_exact_function_source',
+        tokenization_reference=dict(remote_path='/root/autodl-tmp/results/easysteer/probability_prompt_vllm_20260912.json',
+            sha256=sha(tokenizer_reference), CPU_environment='/root/autodl-tmp/venvs/easysteer-vllm026'),
         runtime=hypotheses['replay_runtime'], CPU_opportunity_gate=hypotheses['CPU_opportunity_gate'],
         output='/root/autodl-tmp/results/easysteer/'+out.name,
         source_sha256={p: sha(ROOT/p, source=True) for p in sources},
