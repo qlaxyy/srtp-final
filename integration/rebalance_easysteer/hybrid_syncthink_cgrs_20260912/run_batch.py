@@ -172,6 +172,7 @@ def run_child(a):
         states = llm.llm_engine.output_processor.request_states
         indices = {states[rid].external_req_id:i for i,rid in enumerate(request_ids)}
         completed = {}
+        checkpoint_io_seconds = 0.0
         with (folder/'partial.jsonl').open('x',encoding='utf-8') as f:
             while llm.llm_engine.has_unfinished_requests():
                 if time.monotonic()-began > (600 if stage=='screening' else 120):
@@ -189,7 +190,9 @@ def run_child(a):
                             tokens=len(ids),thinking_tokens=count,answer_tokens=len(ids)-count-int(151649 in ids),
                             finish_reason=generated.finish_reason,request_id=request_ids[i])
                         completed[i]=record
+                        io_start = time.monotonic()
                         f.write(json.dumps(record,ensure_ascii=False)+'\n'); f.flush()
+                        checkpoint_io_seconds += time.monotonic()-io_start
         torch.cuda.synchronize()
         seconds = time.monotonic()-began
         assert len(completed)==len(rows)
@@ -210,7 +213,9 @@ def run_child(a):
                 if mode=='enforce' and record['hybrid']['first_trigger']>=0:
                     assert record['token_ids'][record['hybrid']['first_trigger']]==151649
         save(folder/'result.json',dict(status='complete',stage=stage,arm=name,cap=cap,
-             generation_seconds=seconds,startup_seconds=startup,control=receipt,
+             generation_seconds=seconds-checkpoint_io_seconds,
+             generation_loop_wall_seconds=seconds,checkpoint_io_seconds=checkpoint_io_seconds,
+             startup_seconds=startup,control=receipt,
              records=[completed[i] for i in range(len(rows))],preemptions=0))
         print('COMPLETE',stage,name,len(rows),round(seconds,3),flush=True)
 
