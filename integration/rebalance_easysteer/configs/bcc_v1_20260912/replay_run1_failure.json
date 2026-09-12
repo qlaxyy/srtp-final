@@ -1,0 +1,41 @@
+{
+  "status": "stopped_engineering_gate_failed_not_method_failure",
+  "user_authorization": "User supplied SSH in response to the fixed 152-prefix replay request on 2026-09-12",
+  "source_commit": "b3b1d97ee436c173246b6bf4a1871da5dd605233",
+  "deployment": "Isolated archived Git files; existing server checkout 82c570e left unchanged",
+  "runtime_archive_sha256": "89493a5b97b1dded83a92c8949c237178b5506c2d925969f57aefdc7c6e7c575",
+  "GPU": "RTX 4090 D",
+  "ledger": {
+    "status": "incomplete",
+    "plan_sha256": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+    "script_sha256": "775bdbbc149710c3fbf6e05687cb19dfdd35b5053e4aead1a95f711ba4cbc510",
+    "completed_pairs": 1,
+    "new_answers": 0,
+    "input_tokens": 1097,
+    "engineering_input_tokens": 1128,
+    "torch": "2.1.2+cu121",
+    "transformers": "4.46.3",
+    "load_and_precheck_seconds": 10.627396821975708,
+    "forward_seconds": 0.3907908648252487,
+    "total_seconds": 11.10338906943798,
+    "error": "ValueError('Causal-prefix consistency failed')"
+  },
+  "archive_sha256": "aa92320f83ecc4a0f6e5485f1faf2f79f7994368e3c990ce7f408b785a780f58",
+  "downloaded_file_sha256": {
+    "bcc_v1_20260912_replay_run1.log": "b281d4715cf59e82c71c956f8961a1f8e0e97a03845df0d5eb740487985819b5",
+    "bcc_v1_20260912_replay_run1.sha256": "19d23c05b94ef0126efcd52730a2d8c3f0eaad83294cd84530c666b263210945",
+    "bcc_v1_20260912_replay_run1\\ledger.json": "92c722144c97af53360e9d31b26d1bd268fa3f1687853d2d5d9680253bdba07e",
+    "bcc_v1_20260912_replay_run1\\plan.json": "64ff010a1b95e58f3bef3896eb6502df48e85563c3089fc0628c23f98e9899d0",
+    "bcc_v1_20260912_replay_run1\\states.npy": "288f4672cb3963be83f625ee0e4b97d98fcd428b8035de00c76029a87c8928f7"
+  },
+  "download_verified": true,
+  "final_GPU_memory_MiB": 1,
+  "final_GPU_utilization_percent": 0,
+  "other_compute_processes_at_start": 0,
+  "new_answers": 0,
+  "fit_run": false,
+  "automatic_retry": false,
+  "failure_location": "Inferred from completed_pairs=1 and input_tokens=1097: lexical_direction:4161, lexical_direction arm, 565-token input vs 597-token extension",
+  "limitation": "Original exception did not retain discrepancy values or extension captures. Cause unresolved; no evidence yet for a specific attention backend or rounding explanation. Do not fit zero-padded partial states.",
+  "user_notified_GPU_can_close": true
+}
