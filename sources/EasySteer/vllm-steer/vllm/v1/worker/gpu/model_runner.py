@@ -790,6 +790,9 @@ class GPUModelRunner(
         if self.prompt_logprobs_worker is not None:
             self.prompt_logprobs_worker.remove_request(req_id)
         self.lora_state.remove_request(req_id)
+        hybrid = getattr(self, "hybrid_termination", None)
+        if hybrid is not None:
+            hybrid.remove_request(req_id)
         self.steer_vector_state.remove_request(
             req_id, self.steer_vector_manager
         )
@@ -801,6 +804,9 @@ class GPUModelRunner(
     def finish_requests(self, scheduler_output: SchedulerOutput) -> None:
         finished_req_ids = scheduler_output.finished_req_ids
         preempted_req_ids = scheduler_output.preempted_req_ids
+        hybrid = getattr(self, "hybrid_termination", None)
+        if preempted_req_ids and hybrid is not None and hybrid.requests:
+            raise RuntimeError("S64 batch stops before unvalidated KV preemption")
         if preempted_req_ids:
             for req_id in preempted_req_ids - finished_req_ids:
                 self.steer_vector_state.suspend_request(req_id)
@@ -868,6 +874,12 @@ class GPUModelRunner(
                 self._capture_session().add_request(
                     req_id, new_req_data.capture_select
                 )
+            if sampling_params and (sampling_params.extra_args or {}).get(
+                "hybrid_syncthink_cgrs_20260912"
+            ):
+                from vllm.v1.worker.gpu.sample.hybrid_termination import admit
+
+                admit(self, new_req_data, req_index)
             if not known_req and new_req_data.num_computed_tokens > 0:
                 capture_session = getattr(self, "capture_session", None)
                 if capture_session is not None and capture_session.any_enabled():
@@ -1161,6 +1173,12 @@ class GPUModelRunner(
             max_probabilities = torch.exp(
                 float_logits.amax(dim=-1) - torch.logsumexp(float_logits, dim=-1)
             )
+        hybrid = getattr(self, "hybrid_termination", None)
+        hybrid_ticket = None
+        if hybrid is not None and hybrid.requests:
+            if grammar_output is not None:
+                raise RuntimeError("S64 does not support grammar masks")
+            hybrid_ticket = hybrid.read_apply(logits, input_batch)
         if grammar_output is not None:
             # Apply grammar bitmask to the logits in-place.
             assert self.structured_outputs_worker is not None
@@ -1192,6 +1210,8 @@ class GPUModelRunner(
                 max_probabilities,
             )
 
+        if hybrid_ticket is not None:
+            hybrid.observe(hybrid_ticket, sampler_output.sampled_token_ids)
         return sampler_output, sampler_output.num_sampled, sampler_output.num_rejected
 
     def postprocess_sampled(
