@@ -1,0 +1,39 @@
+{
+  "status": "hypothesis_fixed_before_new_interval_coverage_audit",
+  "candidate": "periodic_control_inside_long_paragraphs",
+  "purpose": "Test the verified open-loop gap when long reasoning passages contain no original paragraph delimiter.",
+  "basis": [
+    "Existing cycle_atoms500_20260911 audit found13 long repetitive tails among15 paragraph-monitor misses, with10257-15728 consecutive tokens lacking original control boundary IDs. These are saved unsteered calibration paths, not observed failures of the active candidate.",
+    "Current observe_sample already computes a candidate coefficient at each token but commits it only on a nonempty natural boundary. The direction is applied only on original boundary input tokens.",
+    "Our inference: adding occasional actuation can address missing control opportunities without altering the coefficient rule or resetting its natural paragraph statistics. Compression benefit and semantic safety remain unproven."
+  ],
+  "intervention": {
+    "content_tokens_between_opportunities": 128,
+    "natural_boundaries": "Use the original coefficient and original complete-step updates, including last-nonempty-step behavior.",
+    "virtual_points": "At every positive multiple of128 non-boundary tokens since the last nonempty natural boundary, apply one original raw-direction displacement on the just-sampled token when it becomes the next model input. Use the existing coefficient formula on the current accumulated paragraph mean and the previous completed paragraph mean.",
+    "history": "Virtual points do not reset sums/counts, replace the previous complete mean, or change the retained natural coefficient. On the identical saved prefix, all original natural-boundary coefficients remain unchanged.",
+    "markers": "Never inject on the think-end marker or after reasoning ends; prompts and partial-prefill dummy samples do not create virtual points. No forced stopping or extra token generation.",
+    "unchanged": "Original1.5B model, output layer20, raw direction, arithmetic raw-maximum confidence, two-mean variance, fit constants, sampling and16000 cap.",
+    "disabled_control": "Same all-generation-position routing with virtual points disabled and zero scales at every non-boundary position; keep a separate original boundary-routing arm until short compiled checks establish equivalence."
+  },
+  "CPU_inputs": {
+    "calibration": "All original500 saved greedy answers including149 caps, descriptive only.",
+    "dynamic_development": ".codex_work/overnight_research_20260912/seal_comparison_all_20260912/seal_comparison130_20260912/math_train_original_dynamic.json",
+    "dynamic_scope": "All100 previously completed training answers, including errors and caps, with source/plan/ID/count hashes verified. These are development diagnostics, never fresh efficacy validation."
+  },
+  "CPU_gate": {
+    "minimum_dynamic_questions_with_virtual_point": 10,
+    "minimum_dynamic_thinking_token_fraction_after_128_content_tokens_in_current_paragraph": 0.05,
+    "exact_original_natural_boundary_state_on_saved_calibration_prefixes": true,
+    "no_threshold_search": true,
+    "interpretation": "Coverage is only a reason to pay for a generation test. Tokens after a virtual point are not counted as saved tokens. Dynamic answers have no saved raw probabilities, so their coefficient magnitudes cannot be inferred from text."
+  },
+  "implementation_risks": [
+    "The original direction was calibrated around paragraph starts; application inside an equation can damage useful reasoning.",
+    "An incomplete paragraph confidence is a noisier statistic than a completed one.",
+    "Extra pulses may lengthen reasoning or cause caps; maintain original plus matched disabled controls if compiled routing differs.",
+    "History and KV replay must retain exactly the actual per-input pulse scale without applying it twice."
+  ],
+  "GPU_scope_if_CPU_passes": "Prepare short original/matched-off/on checks and a new fixed100-question screen. One run per arm,16000 max new tokens. Require at least5percent reduction in both thinking and total tokens, no fewer correct and no more caps against both controls. Do not combine with sampled confidence or loop penalties. Stop on failure, preserve outputs, do not retune128 or rerun closed candidates. A separate reserved200-question confirmation is prepared but only run after the screen passes and its budget is explicitly included in the user-approved batch.",
+  "current_resources": "GPUoff. Local implementation and validation only until user reopens."
+}
