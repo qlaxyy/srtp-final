@@ -74,12 +74,13 @@ def feedback_delta(x, direction, readout, center, enabled, coefficients,
 def radial_delta(x, direction, enabled, coefficients):
     """Restore complete-state norm after signed addition, in FP32 geometry."""
     raw = coefficients * direction
-    y = x.float() + raw.float()
+    raw32 = coefficients.float() * direction.float()
+    y = x.float() + raw32
     nx = torch.linalg.vector_norm(x.float(), dim=-1, keepdim=True)
     ny = torch.linalg.vector_norm(y, dim=-1, keepdim=True)
     valid = (nx > 1e-12) & (ny > 1e-12)
     correction = y * (nx / ny.clamp_min(1e-12) - 1)
-    changed = torch.where(valid, raw.float() + correction,
+    changed = torch.where(valid, raw32 + correction,
                           torch.zeros_like(y)).to(raw.dtype)
     active = (enabled > 0) & (coefficients != 0)
     return torch.where(active, changed, raw)
@@ -149,7 +150,10 @@ def apply_decoder_families(
     nf_mask = None if delta is None else mask
     if "radial" in tables:
         radial = tables["radial"]
-        term = radial_delta(x, radial["V"][rt], radial["E"][rt], mask)
+        radial_x = hidden_states.float()
+        if residual is not None:
+            radial_x = radial_x + residual.float()
+        term = radial_delta(radial_x, radial["V"][rt], radial["E"][rt], mask)
         total = term if total is None else total + term
         nf_mask = mask if nf_mask is None else nf_mask
     if "feedback" in tables:

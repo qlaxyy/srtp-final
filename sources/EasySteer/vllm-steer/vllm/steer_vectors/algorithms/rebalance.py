@@ -98,8 +98,8 @@ class ReBalanceRadialAlgorithm(ReBalanceAlgorithm):
         if scales is None:
             raise RuntimeError("radial steering requires ReBalance scales")
         selected = hidden_states.index_select(0, positions_tensor)
-        x = selected if residual is None else (
-            selected + residual.index_select(0, positions_tensor)
+        x = selected.float() if residual is None else (
+            selected.float() + residual.index_select(0, positions_tensor).float()
         )
         coefficients = scales.index_select(0, positions_tensor).to(selected.dtype)
         enabled = torch.tensor(float(self.radial_enabled), device=selected.device)

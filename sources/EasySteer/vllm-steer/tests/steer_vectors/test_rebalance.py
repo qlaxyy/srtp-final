@@ -144,6 +144,21 @@ def test_radial_complete_state_norm_direction_and_singular_noop():
                        c*direction)
 
 
+def test_radial_bf16_displacement_uses_explicit_fp32_geometry():
+    """Intermediate BF16 casts must not define the enabled geometry."""
+    from vllm.steer_vectors.graph_kernels import radial_delta
+    h = torch.tensor([[1.0078125, 4.03125]], dtype=torch.bfloat16)
+    residual = torch.tensor([[2., 2.015625]], dtype=torch.bfloat16)
+    x = h.float() + residual.float()
+    direction = torch.tensor([[1.31, .49]], dtype=torch.bfloat16)
+    c = torch.tensor([[-1.5]], dtype=torch.bfloat16)
+    y = x.double() + c.double()*direction.double()
+    target = y * (x.double().norm()/y.norm())
+    expected = (target-x.double()).bfloat16()
+    actual = radial_delta(x, direction, torch.ones(1, 1), c)
+    assert torch.equal(actual, expected)
+
+
 def test_radial_request_and_graph_use_same_complete_state_and_disable_table():
     from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
     from vllm.steer_vectors.api import to_engine_request
