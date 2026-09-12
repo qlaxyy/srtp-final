@@ -18792,5 +18792,333 @@
     ],
     "new_answers": 0,
     "GPU_calls": 0
+  },
+  "local_four_hour_candidate_screen": {
+    "status": "in_progress_no_GPU_no_new_answers",
+    "start_utc": "2026-09-12T05:47:48Z",
+    "earliest_four_hour_finish_utc": "2026-09-12T09:47:48Z",
+    "GPU_status": "User closed instance. No SSH or model forward authorized until explicit reopening after preparation.",
+    "completed_CPU": {
+      "interval": {
+        "local_path": ".codex_work/overnight_research_20260912/interval_control_CPU.json",
+        "sha256": "a54ab9f1813ea410f3503533a33297a374a268e1fafabb2c09c20b5c90e5a989",
+        "result": {
+          "status": "completed_CPU_interval_coverage_not_generation",
+          "commit": "b2ac43031a8224237d180b67bdef9e578b5b7c6b",
+          "plan_sha256": "6d008883a24b92d922f8ab8c2a74c6ac9a634890bdf0a1083e0a3078220d089c",
+          "script_sha256": "09e226e17f794a5e586c73582e399c57258103b053efa6486e0a06245b2dc9fb",
+          "dynamic_answer_sha256": "de6dace874d95e51244dbee63179cd90dc67fe259f5debf3a4ad0d2fad29b1ab",
+          "dynamic_answer_commit": "f1ae938e68379026a5daab4c8507cda2b4d243b4",
+          "calibration_answer_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+          "source_plan_sha256": "0ee617b6cc227574b79a01d3e9868772130d67e7d27e3fb8c78509897a3fd720",
+          "CPU_checks": 5,
+          "original_natural_boundary_statistics_exactly_checked": 83657,
+          "interval": 128,
+          "dynamic": {
+            "questions": 100,
+            "caps": 1,
+            "thinking_tokens": 317436,
+            "virtual_points": 195,
+            "affected_questions": 52,
+            "tokens_after_interval": 7731,
+            "fraction_after_interval": 0.024354515555891583
+          },
+          "calibration": {
+            "questions": 500,
+            "caps": 149,
+            "thinking_tokens": 3153570,
+            "virtual_points": 3149,
+            "affected_questions": 294,
+            "tokens_after_interval": 272444,
+            "fraction_after_interval": 0.08639224751630692
+          },
+          "calibration_virtual_coefficient_quantiles": [
+            -1.5353449583053589,
+            -0.5614296197891235,
+            -0.31023910641670227,
+            -0.03394818305969238,
+            -0.011418238282203674,
+            -0.002016295865178072,
+            0.09998003393411636
+          ],
+          "calibration_virtual_positive": 284,
+          "calibration_virtual_abs_ge_point1": 1137,
+          "passes_fixed_gate": false,
+          "decision": "stop_no_GPU_no_interval_search",
+          "cpu_seconds": 9.3305190000101,
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0,
+          "interpretation": "Coverage is only a reason to pay for a generation test. Tokens after a virtual point are not counted as saved tokens. Dynamic answers have no saved raw probabilities, so their coefficient magnitudes cannot be inferred from text."
+        }
+      },
+      "robust_amplitude": {
+        "local_path": ".codex_work/overnight_research_20260912/robust_aggressive_CPU/audit.json",
+        "sha256": "1ae516b58ac62306a470d2b8fcc6fd80e349071d30a060f35e993fa153c23ec0",
+        "result": {
+          "status": "completed_CPU_robust_amplitude_calibration_not_generation",
+          "commit": "eb0ed08b9589db233d1e671341fcdbc1d3f1d07f",
+          "plan_sha256": "4b0d4f267e5f036b15e9bd17a8abda994618d7c961be948f3df45f93f4869d4c",
+          "script_sha256": "1bc636764214385fb64aede174747a345e875aa86e63da0a32f86225e1cd9aec",
+          "source_sha256": {
+            "steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+            "fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+            "auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+            "layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66"
+          },
+          "original_vector_reproduced_bitwise": true,
+          "original_amplitude": 1.5353450143175598,
+          "candidate_amplitude": 1.258708762410475,
+          "aggressive_amplitude_reduction": 0.18017855877823397,
+          "quantile": 0.95,
+          "quantile_method": "higher",
+          "over_states": 48251,
+          "empirical_crossed_over_fraction": 0.9500113987274875,
+          "group_quantiles": {
+            "training_questions": 1.2593179643062622,
+            "validation_questions": 1.2567616121424712
+          },
+          "group_stability_ratio": 0.9979700502682821,
+          "maximum_leave_one_question_out_relative_change": 0.0035815857664319717,
+          "nonempty_boundaries": 83657,
+          "affected_boundaries": 12805,
+          "affected_fraction": 0.15306549362276917,
+          "affected_questions": 496,
+          "original_positive_branch_unchanged": true,
+          "passes_fixed_gate": false,
+          "decision": "stop_no_GPU_no_quantile_search",
+          "arrays_sha256": "da57ab7765271ba20044d2f65bfeefd15034f6ad576f569640da88f8e5792060",
+          "CPU_checks": 4,
+          "cpu_seconds": 9.271040099993115,
+          "GPU_calls": 0,
+          "new_answers": 0,
+          "limitations": [
+            "Empirical separator coverage is not correctness or compression.",
+            "Original400/100 groups and fitted separator are development data; no conformal or independent-validation guarantee."
+          ]
+        }
+      },
+      "lexical_direction": {
+        "local_path": ".codex_work/overnight_research_20260912/lexical_direction_CPU/audit.json",
+        "sha256": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+        "result": {
+          "status": "completed_CPU_lexical_direction_fit_not_generation",
+          "commit": "d76ca0eb9a872ab0562fadb8d9c5fbfd30a4ea3d",
+          "plan_sha256": "95779707d81a500d136f591b9506508f2e53e6001f9f3203e6b09f626125b12b",
+          "script_sha256": "753d238144668379e351a96278b521c1589caa91b6766d0ad9fcda11c2a43eb4",
+          "source_sha256": {
+            "steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+            "fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+            "auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+            "layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66"
+          },
+          "author_source_sha256": "43051ee66bc4d1f52bc09a67ac183ea2bcd2574961f5902e876b9e47947ffc34",
+          "official_source": {
+            "repo": "VITA-Group/SEAL",
+            "commit": "b2ad6858fc48143021e5df5ce10396f5c693b1ec"
+          },
+          "official_label_constants": {
+            "check_words": [
+              "verify",
+              "make sure",
+              "hold on",
+              "think again",
+              "'s correct",
+              "'s incorrect",
+              "Let me check",
+              "seems right"
+            ],
+            "check_prefix": [
+              "Wait"
+            ],
+            "swicth_words": [
+              "think differenly",
+              "another way",
+              "another approach",
+              "another method",
+              "another solution",
+              "another strategy",
+              "another technique"
+            ],
+            "switch_prefix": [
+              "Alternatively"
+            ]
+          },
+          "exact_step_support": 84008,
+          "exact_official_shared_labels_checked": 83508,
+          "first_steps_labeled_with_same_rule": 500,
+          "class_counts": {
+            "execution": 56123,
+            "reflection": 23480,
+            "transition": 4405
+          },
+          "class_questions": {
+            "RT": 498,
+            "E": 500
+          },
+          "original_binary_label_overlaps": {
+            "over": {
+              "RT": 27479,
+              "E": 20772
+            },
+            "under": {
+              "RT": 39,
+              "E": 11270
+            },
+            "unselected": {
+              "RT": 367,
+              "E": 24081
+            }
+          },
+          "raw_contrast_norm": 100.17876093992808,
+          "matched_vector_norm": 83.6191365562794,
+          "original_vector_cosine": 0.6994066577098519,
+          "relative_vector_change": 0.7753622924673964,
+          "group_direction_cosine": 0.971809376234198,
+          "content_judgment_source_sha256": "de854bda323df7625d0b05817652d748b763581b8b4f4be979f89a6bbb65fa18",
+          "passes_fixed_gate": true,
+          "decision": "prepare_fresh_GPU_screen",
+          "label_array_sha256": "1cfd9dc5c14a11243843f43d5652c9bc566d9ec6758a8408c4a3c4a4f0398ab8",
+          "CPU_rule_checks": 7,
+          "cpu_seconds": 7.622456799988868,
+          "model_loads": 0,
+          "new_answers": 0,
+          "GPU_calls": 0,
+          "limitations": [
+            "Lexical reflection markers also occur in useful checking and correction; their removal is not automatically safe.",
+            "Execution labels include unlabeled redundant prose and wrong calculations.",
+            "The original curve was calibrated for its original contrast. Matching vector norm controls scale but does not preserve its fitted linear-separator meaning.",
+            "The completed static SEAL comparison had an accuracy loss against dynamic ReBalance on its100 training questions; a hybrid has no demonstrated advantage. Fresh evaluation is required."
+          ],
+          "candidate_files_sha256": {
+            "auto_vector.pt": "766b337ef0a6299f91150aea028312594a741ebd9705a1937039b4e5343bd085",
+            "fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5"
+          }
+        }
+      },
+      "long_suffix": {
+        "local_path": ".codex_work/overnight_research_20260912/suffix_penalty_CPU/audit.json",
+        "sha256": "5bb39baabdbc345a7d38f2999acb2c129e9fc6450f8fbbfef1f85fe5e18e9788",
+        "result": {
+          "status": "completed_CPU_saved_prefix_eligibility_pending_content_review",
+          "commit": "ddb3cd2fc415bbf25e215031d1b9e6d40d391395",
+          "plan_sha256": "ecd44e2b30440aa29b53bb6f86b0c41ac7386a3d3e9fd2100d094a035f84c9d2",
+          "script_sha256": "f1c0c73c75a3cd6cf6093bc684321a5d8669355d2a6421dc7352bde4e07cb5f8",
+          "monitor_sha256": "c029c4ab6533322f1b349ac21defe2a581928d51b8a3dd203207364df8d09d29",
+          "source_answer_sha256": {
+            "dynamic": "de6dace874d95e51244dbee63179cd90dc67fe259f5debf3a4ad0d2fad29b1ab",
+            "calibration": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+          },
+          "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+          "breaker_count": 3778,
+          "CPU_checks": {
+            "scalar_reference_prefixes": 16233,
+            "bounded_buffers": true,
+            "finite_penalties": true,
+            "overlapping_matches": true,
+            "breakers": true,
+            "expired_history": true
+          },
+          "populations": {
+            "dynamic": {
+              "questions": 100,
+              "caps": 1,
+              "thinking_tokens": 317436,
+              "eligible_saved_next_tokens": 7289,
+              "eligible_fraction": 0.022962108897541553,
+              "affected_questions": 67
+            },
+            "calibration": {
+              "questions": 500,
+              "caps": 149,
+              "thinking_tokens": 3153570,
+              "eligible_saved_next_tokens": 917339,
+              "eligible_fraction": 0.29088905589538205,
+              "affected_questions": 399
+            }
+          },
+          "objective_gate_passed": true,
+          "manual_questions": 12,
+          "passes_fixed_gate": null,
+          "decision": "finish_fixed_manual_screen",
+          "files_sha256": {
+            "calibration_progress.jsonl": "de6cf12bd402c42f3ab706c4d763959ca2278165ed61fcac6dabc054c4bee9ff",
+            "dynamic_progress.jsonl": "29bf9d72fe042cba83e9228facb224a946f161e9ae24696f640cbc6d6ad68348",
+            "eligible_events.npz": "f1086ca4e88286f2525ee1236c6ecf4a9ce3a94b1e666dda266f6a1d114356d9",
+            "manual_key.json": "15a79ba40a5e43298dd28c03cfcfc7c55f6451daf5726ff270f5dd6b89c09dec",
+            "manual_packets.json": "dd4fdbbc1b3f95db28d369b1240bbf69f7c67a4a65fea755b3be154541851a88"
+          },
+          "cpu_seconds": 107.81195090000983,
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0,
+          "interpretation": "All counts are eligibility on saved original prefixes. No penalties were used to generate them; counts and future remaining tokens are not compression or online effect."
+        }
+      },
+      "long_suffix_content": {
+        "local_path": ".codex_work/overnight_research_20260912/suffix_penalty_CPU/manual_review.json",
+        "sha256": "d0ff012f276ec603b492a60c536ec4a7c60d5808a7ef1088ba651bdb5772286c",
+        "result": {
+          "status": "completed_CPU_content_screen",
+          "packet_sha256": "dd4fdbbc1b3f95db28d369b1240bbf69f7c67a4a65fea755b3be154541851a88",
+          "scope": "Single Codex reviewer; causal prefixes and earlier witnesses only. Final answers, grades and manual_key not opened for this review. Not a semantic gold set or population false-positive estimate.",
+          "supported": 3,
+          "reviewed": 12,
+          "supported_fraction": 0.25,
+          "required_fraction": 0.75,
+          "objective_gate_passed": true,
+          "passes_fixed_gate": false,
+          "decision": "stop_no_GPU_no_setting_search",
+          "interpretation": "The detector can target useful mathematical reuse. Saved-prefix eligibility is not measured compression. No online penalty implemented or generation attempted.",
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "sampled_runtime": {
+        "local_path": ".codex_work/overnight_research_20260912/sampled_runtime_CPU_committed.json",
+        "sha256": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+        "result": {
+          "status": "passed_local_numpy_backed_actual_source_checks",
+          "checks": [
+            "test_rebalance_state_is_request_local_and_uses_arithmetic_mean",
+            "test_sampled_confidence_is_request_local_across_reordering_and_replay",
+            "actual_runner_16_mutating_sampler_cases",
+            "default_and_constant_runner_exact_prechange_equivalence",
+            "snapshot_ownership_dummy_rows_shape_rejection",
+            "greedy_selected_equals_raw_max_exactly",
+            "six_unsupported_configuration_rejections"
+          ],
+          "runner_rows": 552,
+          "source_sha256": {
+            "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "07c7e41b1850db0c9992c09322cd8a48f06dd9259a937b861b40d3a98b3fd807",
+            "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": "baa61abe6fa5d0c1fbf1eb616dd92054d320cb7297a51d7af164596c41c26e56",
+            "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": "408ac2d2fbaa353189033b095d84b7d48da51d51d17d59d35a004e27e271b54b",
+            "sources/EasySteer/vllm-steer/tests/steer_vectors/test_rebalance.py": "c7bd8e9d2fc0ac103b910963eeed8f99e3432cd1374215ec258a62d179c81a07"
+          },
+          "checker_sha256": "4eeebf2f0b35374b3596ec6bc470978556fccb6ed94872b487542a25be688814",
+          "cpu_seconds": 0.23485929999151267,
+          "code_commit": "9b466ee69f07d2b9f998df88a65508a07597c731",
+          "tracked_worktree_dirty": false,
+          "GPU_calls": 0,
+          "model_loads": 0,
+          "new_answers": 0,
+          "limits": "NumPy emulates the listed operations only. These are not Torch/CUDA or msgspec integration checks, throughput measurements, or generation benefit. Vendor tests and short real compiled checks are pending the next explicitly authorized GPU session."
+        }
+      }
+    },
+    "literature_receipt": {
+      "path": ".codex_work/overnight_research_20260912/literature/loop_methods/reading_receipt.json",
+      "sha256": "1f5d9f58d0b3d771744802b8ddc894fbf3fdfa744f4384bb8942656c7e81a401"
+    },
+    "ranked_pending": [
+      "raw_sampled_confidence: runtime locally checked; saved100 probability replay must pass before generation",
+      "SEAL_lexical_direction_with_original_dynamic_controller: CPU gate passed; prepare fresh pairing"
+    ],
+    "stopped": [
+      "interval128:dynamic saved-path fraction2.43545percent below5percent",
+      "robust_q95_aggressive:amplitude reduction18.01786percent below20percent; max was not driven by one question",
+      "long_suffix_penalty:3of12 first events supported as redundant below75percent"
+    ],
+    "next": "Freeze common bounded GPU batch with fresh train screen/reserve, exact inputs/assets/sources, short engineering checks, replay gate, grade/checkpoint/recovery and cost ceiling; do not execute until user reopens."
   }
 }
