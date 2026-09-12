@@ -7182,11 +7182,10 @@
     }
   ],
   "next_actions": [
-    "Harden generic baseline reuse against incomplete records, changed source and changed model contents; CPU checks before deployment.",
-    "Investigate causal controller opportunities in saved calibration trajectories; fix any new candidate plan before inspecting new generation results.",
-    "Do not rerun closed directions or open their conditional reserves. Keep SEAL/AIME as limited self-calibrated comparison evidence.",
-    "Maintain actual active-work time separately from elapsed wall time; SSH interruptions do not establish eight hours of continuous work.",
-    "After each bounded GPU batch, retrieve and verify raw outputs locally and tell the user when GPU work has finished."
+    "Explain the radial compiled/eager failure using its bounded synthetic diagnostic; do not start100-screen without a separately recorded implementation correction and unchanged gate.",
+    "Keep completed progression, positive-branch, prefix-safety, correctness-readout, position, confidence-only and feedback negatives closed; retain all unused reserves.",
+    "SEAL/AIME comparison is complete and should not be expanded automatically.",
+    "Distinguish actual active research from elapsed wall time; do not claim the eight-hour request fulfilled merely because09:15 passed."
   ],
   "followup_cpu_result": {
     "status": "completed_cpu_diagnostic",
@@ -16642,5 +16641,130 @@
       "invalid_artifact_cases": 33,
       "existing_bounded_evaluation_checks": "passed"
     }
+  },
+  "radial_geometry_literature_audit": {
+    "status": "both_fulltexts_and_selected_PDF_figures_read",
+    "papers": [
+      {
+        "paper": "https://arxiv.org/abs/2606.06735v2",
+        "version_date": "2026-06-08",
+        "sentinel": "END-OF-PAPER:e80946bff09f",
+        "full_read": "All1941 parsed lines; missing middle of an initially truncated tool output reread explicitly, including appendices.",
+        "parsed_sha256": "9c66485d090a8186828c59bccac058b76fd5d6b6378837d09f66f03a73a11947",
+        "evidence": [
+          "Eq6 defines CAA-r as posthoc restoration of the original norm after addition, retaining output direction. Section4.2/AppendixE Figure17 finds CAA-r and CAA generally close: norm restoration alone is not a reliable improvement.",
+          "Figure6 compares matched angular targets: norm-preserving S suffers more at large angles than CAA-m. Stronger norm preservation is not a safety guarantee.",
+          "Section6 limits conclusions to tested concepts and positions. Evaluations use sentiment, toxicity, truthfulness and language-quality checks, not mathematical reasoning compression.",
+          "Seven models times four datasets times two folds yields56 cells, whereas AppendixH reports win totals out of70. Without author experiment artifacts, this denominator is unresolved."
+        ],
+        "visual_checks": [
+          "PDF page7 Figures4-6",
+          "PDF page19 Figure17"
+        ]
+      },
+      {
+        "paper": "https://arxiv.org/abs/2602.08169v2",
+        "version_date": "2026-05-16",
+        "sentinel": "END-OF-PAPER:2e473f51f1ef",
+        "full_read": "All1760 parsed lines including references and appendices.",
+        "parsed_sha256": "e3afaddc0a8e1565a05ff9f792fa55b8a347c4544cd5055ec7f1f535efa15741",
+        "upstream": "https://github.com/chili-lab/Spherical-Steering/tree/198cb2e2131c93340b3af2678b203cb77f30f740",
+        "upstream_commit": "198cb2e2131c93340b3af2678b203cb77f30f740",
+        "source_sha256": {
+          "spherical_steering.py": "dbd6b53ccbd9c60406fd887b4a119457d3749f909007fdc9461ce06df753c361",
+          "get_prototypes.py": "f2af6fa4f3791080d5b7c00bb01030f7e8fa5674cbb0cc04e62210bb68d78170",
+          "quickstart_llama.sh": "af200f710c998fd747221b23711253d57c04a2562400917157be0166f517ee91"
+        },
+        "evidence": [
+          "Eq10-11 rotates toward a learned prototype while preserving norm. Eq13-15 uses an angular vMF score, not calibrated answer correctness. This differs from CAA-r.",
+          "AppendixC.3 calls beta=+0.999 ungated, but Eq15 and spherical_steering.py:57-65 trigger only above beta. This is inconsistent; no undocumented correction is assumed.",
+          "Section5.5 shows strong steering can harm free generation despite preserved norms. Most main metrics are multiple-choice likelihoods, not math accuracy or thinking length.",
+          "Released code handles theta near zero but has no explicit antipodal fallback. Its Python loops and batch1 HF timing do not establish vLLM batch128 overhead.",
+          "Prototype construction has question-disjoint KFold splits. The quickstart does not visibly implement the additional training/validation split described in the text; do not copy its hyperparameters as independently selected."
+        ],
+        "visual_checks": [
+          "PDF page4 method",
+          "PDF page7 Figure4",
+          "PDF page18 AppendixC.3"
+        ]
+      }
+    ],
+    "decision": "Only test fixed CAA-r geometry with existing assets; do not claim Spherical Steering reproduction or import its prototype/gating thresholds."
+  },
+  "radial_restoration_cpu": {
+    "status": "CPU_opportunity_gate_passed_not_generation_evidence",
+    "plan_commit": "bf7cbdf",
+    "implementation_commit": "d304e1dd7aaef1e8ba88ae9125a04eabbc62406a",
+    "plan_sha256": "e4c81b5133992fa26d61788b2f9912ddf4b43a3a537b982967e1a9087d8250f9",
+    "summary_path": ".codex_work\\overnight_research_20260912\\radial_restoration_cpu\\summary.json",
+    "summary_sha256": "b032c5dd46168696ed7d54a137994f9c2cb5450f90a9ca04ac8fdd42295bdca4",
+    "boundaries_sha256": "9d5cb89247411f0b9f0b8c56fa5d03570fbb57b6ce4fef0a14b52c0296adb8c9",
+    "cpu_seconds": 22.813862500013784,
+    "rows": 83508,
+    "affected": 25546,
+    "affected_fraction": 0.3059108109402692,
+    "affected_questions": 500,
+    "train_fraction": 0.30743478867345514,
+    "development_fraction": 0.3007320798441039,
+    "negative_mean_norm_ratio": 1.0291666318157366,
+    "joint_check": "10 consecutive-delimiter gaps verified from saved tokens; runtime counts>0 guard holds previous nonempty coefficient. No threshold changed.",
+    "unit_checks": 21,
+    "unit_runtime_seconds": 6.479290783405304,
+    "new_answers": 0,
+    "new_hidden_replay": 0
+  },
+  "radial_engineering_failure": {
+    "status": "stopped_at_first_compiled_kernel_gate_before_any_model_generation",
+    "commit": "4cad441e25085ffcc8447890393e7041f13ffdc4",
+    "plan_sha256": "27446f6b211f3452cfab7fea2c432dfa4b3523ae950acf7575fc77315a1382cf",
+    "error": "Compiled/eager outside fixed BF16 envelope",
+    "archive_sha256": "5b72c6cef9a0077457aa81c846ad2decce5338aec5ec5ad54adc489d9c770053",
+    "archive_bytes": 9238,
+    "archive_members": 10,
+    "hashed_members_verified": 9,
+    "engineering_wall_seconds": 34.36593174934387,
+    "model_loads": 0,
+    "new_answers": 0,
+    "screen100": "not_run",
+    "reserve200": "untouched",
+    "GPU_at_stop": "0percent,1MiB",
+    "interpretation": "Implementation precision gate failed; not evidence for or against generation compression.",
+    "next": "Fixed single synthetic diagnostic captures actual arrays for local analysis. Preserve original failure and thresholds; no automatic screen retry."
+  },
+  "radial_numeric_diagnostic": {
+    "receipt": {
+      "status": "diagnostic_capture_not_a_passing_engineering_check",
+      "seconds": 10.195101886987686,
+      "violations": 43,
+      "max_error": 0.25,
+      "max_envelope_fraction": 1.523809552192688,
+      "arrays_sha256": "944fbc420d695aa981673c3dde9fde181baa485923c9fed063047ea4caee5bb2",
+      "plan_sha256": "4d1e9b3eb89f1bdbe88af71267a9c6b54d73f60d623aa14e320a2bc5f93e8c75",
+      "historical_check_sha256": "43c7d6efdcafdabac586c06eb17b4b1cb69634b01f8a2aeb99eaf64f830a864b",
+      "source_kernel_sha256": "ac181fb9eaeb00fa7182055ca7f7749dc79e9534e988b9bae0c594d2638ac4b6",
+      "model_loads": 0,
+      "new_answers": 0
+    },
+    "CPU_analysis": {
+      "status": "CPU_reconstruction_of_saved_actual_kernel_inputs",
+      "arrays_sha256": "944fbc420d695aa981673c3dde9fde181baa485923c9fed063047ea4caee5bb2",
+      "measured_violations": 43,
+      "measured_max_error": 0.25,
+      "rounded_reference_vs_actual_eager": {
+        "different_elements": 2,
+        "max_error": 0.03125
+      },
+      "fused_reference_vs_actual_compiled": {
+        "different_elements": 4,
+        "max_error": 0.03125
+      },
+      "predicted_violations": 43,
+      "violation_mask_matches": true,
+      "limitation": "Independent CPU norms use FP64 reductions then FP32 scaling. Residual differences near rounding ties can remain; this is not a bitwise GPU emulation.",
+      "decision": "The missed BF16 casts are sufficient to explain the gate violations if the violation mask matches. An explicit FP32 geometry contract can be tested with the original tolerance unchanged."
+    },
+    "receipt_sha256": "ba9de1e9fdcef288fd51a516eae329386c7bc7f9e8d3f805b899eeef3ada5c3a",
+    "CPU_analysis_sha256": "434dc23c299d93aa74e54ae8edefbdc3c4d8699ddfc95cd38c1a342d151a56f0",
+    "decision": "Prepare explicitly FP32 complete-state sum and displacement inside radial geometry, while preserving original/additive and matched-off behavior. Retry only in a new named bundle with same data and fixed tolerances; original engineering remains failed."
   }
 }
