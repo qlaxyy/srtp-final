@@ -23,12 +23,17 @@ def main():
     reg=json.loads((HERE/'cpu_run1/data_registry.json').read_text())
     hashes={r['problem_sha256'] for r in reg['proposed_reservations']}
     ids={r['train_index'] for r in reg['proposed_reservations']}
-    files={};hits=[];errors=[]
+    engineering_ids={r['train_index'] for r in reg['proposed_reservations'] if r['purpose']=='engineering'}
+    engineering_hashes={r['problem_sha256'] for r in reg['proposed_reservations'] if r['purpose']=='engineering'}
+    files={};hits=[];errors=[];owned_engineering=[]
     def phash(s):return hashlib.sha256(''.join(unicodedata.normalize('NFKC',s).split()).encode()).hexdigest()
     def inspect(obj,path):
         if isinstance(obj,dict):
             if obj.get('train_index') in ids or any(isinstance(obj.get(k),str) and phash(obj[k]) in hashes for k in ('problem','question')):
-                hits.append(dict(path=str(path),train_index=obj.get('train_index'),keys=sorted(obj)))
+                record=dict(path=str(path),train_index=obj.get('train_index'),keys=sorted(obj))
+                own_path='/hybrid_syncthink_cgrs_20260912/s64_screen_run2_20260913/engineering/' in str(path)
+                own_question=obj.get('train_index') in engineering_ids or any(isinstance(obj.get(k),str) and phash(obj[k]) in engineering_hashes for k in ('problem','question'))
+                (owned_engineering if own_path and own_question else hits).append(record)
             for v in obj.values():
                 if isinstance(v,(dict,list)):inspect(v,path)
         elif isinstance(obj,list):
@@ -46,7 +51,7 @@ def main():
                     if s.strip():inspect(json.loads(s),p)
             else:inspect(json.loads(text),p)
         except (ValueError,UnicodeError) as e:errors.append(dict(path=str(p),error=str(e)))
-    report=dict(new_unreported_result_files=hits,parse_errors=errors,
+    report=dict(new_unreported_result_files=hits,parse_errors=errors,owned_engineering_exposure=owned_engineering,
                 scanned_files=len(files),source_sha256=files,binary_links=binaries,
                 shared_git_status=subprocess.check_output(['git','-C',str(original),'status','--porcelain'],text=True),
                 shared_head=subprocess.check_output(['git','-C',str(original),'rev-parse','HEAD'],text=True).strip(),
