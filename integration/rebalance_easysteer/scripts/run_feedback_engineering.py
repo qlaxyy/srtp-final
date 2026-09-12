@@ -1,4 +1,4 @@
-"""Fixed engineering checks before feedback or positive-branch screens."""
+"""Fixed engineering checks before feedback, radial or branch screens."""
 import argparse
 import copy
 import json
@@ -16,7 +16,9 @@ def smoke_plan(plan,bundle):
     item=plan['engineering'];p=copy.deepcopy(plan)
     p.update(count=item['count'],dataset_file=item['dataset_file'],dataset_sha256=item['dataset_sha256'],train_indices=item['train_indices'])
     p['runtime']=dict(plan['runtime'],max_tokens=item['max_tokens'],group_timeout_seconds=item['group_timeout_seconds'])
-    if plan.get('positive_branch_ablation'):
+    if plan.get('radial_restoration'):
+        pass  # The original/off/on arms are already in the fixed plan.
+    elif plan.get('positive_branch_ablation'):
         candidate=copy.deepcopy(p['arms']['negative_only_dynamic'])
         p['arms']={'original_dynamic':p['arms']['original_dynamic'],'ablation_disabled':dict(candidate,negative_only=False),'negative_only_dynamic':candidate}
     else:
@@ -49,7 +51,11 @@ def main():
     try:
         preflight=[PYTHON,'-u',str(Path(__file__)),'--bundle',str(bundle),'--output',str(out),'--runtime-check']
         require(run_child(preflight,out/'runtime_check.log',env,180)==0,'Runtime parser check failed')
-        if not plan.get('positive_branch_ablation'):
+        if plan.get('radial_restoration'):
+            kernel=[PYTHON,'-u',str(ROOT/BASE/'scripts/check_radial_graph.py'),'--vector',str(bundle/'assets/original_dynamic/auto_vector.pt'),'--output',str(out/'kernel_check.json')]
+            require(run_child(kernel,out/'kernel_check.log',env,600)==0,'Radial compiled kernel check failed')
+            ledger['kernel_check']=read(out/'kernel_check.json');save(out/'ledger.json',ledger)
+        elif not plan.get('positive_branch_ablation'):
             kernel=[PYTHON,'-u',str(ROOT/BASE/'scripts/check_feedback_graph.py'),'--assets',str(bundle/'assets/latent_feedback_clip'),'--output',str(out/'kernel_check.json')]
             require(run_child(kernel,out/'kernel_check.log',env,600)==0,'Compiled kernel check failed')
             ledger['kernel_check']=read(out/'kernel_check.json');save(out/'ledger.json',ledger)
@@ -63,17 +69,28 @@ def main():
             require(raw['provenance']['commit']==ledger['commit'],'Source changed')
             require(all(len(r['token_ids'])<=smoke['runtime']['max_tokens'] for r in group['records']),'Engineering cap changed')
             results[name]=raw;ledger['arms'][name]['raw_sha256']=sha(out/(name+'.json'));save(out/'ledger.json',ledger)
+            require(raw['environment']==results['original_dynamic']['environment'],'Engineering environment changed')
             if name in ('feedback_disabled','ablation_disabled'):
                 left=results['original_dynamic'];require(raw['environment']==left['environment'],'Environment changed')
                 require(all(x['token_ids']==y['token_ids'] for x,y in zip(left['rebalance_dynamic']['records'],group['records'],strict=True)),
                         'Disabled option token output is not bitwise identical; stop before enabled/screen')
-        if plan.get('positive_branch_ablation'):
+        disabled_identical=8
+        if plan.get('radial_restoration'):
+            originals=results['original_dynamic']['rebalance_dynamic']['records']
+            off=results['radial_disabled']['rebalance_dynamic']['records']
+            on=results['radial_restore']['rebalance_dynamic']['records']
+            disabled_identical=sum(x['token_ids']==y['token_ids'] for x,y in zip(originals,off))
+            changed=sum(x['token_ids']!=y['token_ids'] for x,y in zip(off,on))
+            require(changed>0,'No enabled radial token change observed; stop before screen')
+            enabled_stats=dict(enabled_vs_disabled_changed_pairs=changed,
+                note='Short engineering outputs only; not graded or used to select a coefficient.')
+        elif plan.get('positive_branch_ablation'):
             enabled_stats=results['negative_only_dynamic']['rebalance_dynamic']['summary']['positive_suppression']
             require(enabled_stats['boundary_updates_cancelled']>0,'No positive cancellation observed; stop before screen')
         else:
             enabled_stats=results['feedback_enabled']['rebalance_dynamic']['summary']['feedback_applications']
         ledger.update(status='engineering_passed_no_efficacy_claim',completed_unix=time.time(),gpu_work_finished=True,
-            disabled_token_pairs_identical=8,enabled_stats=enabled_stats,
+            disabled_token_pairs_identical=disabled_identical,enabled_stats=enabled_stats,
             new_short_outputs=24,total_generated_tokens=sum(r['tokens'] for x in results.values() for r in x['rebalance_dynamic']['records']),
             pure_generation_seconds=sum(x['rebalance_dynamic']['summary']['generation_seconds'] for x in results.values()))
     except BaseException as error:

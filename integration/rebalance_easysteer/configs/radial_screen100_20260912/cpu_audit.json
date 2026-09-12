@@ -1,0 +1,13 @@
+{
+  "status": "independent_law_of_cosines_and_gate_verified",
+  "max_norm_ratio_error": 1.9051427102567686e-12,
+  "rows": 83508,
+  "affected": 25546,
+  "max_bf16_norm_error": 0.001379075510908434,
+  "first_attempt": {
+    "commit": "f9e2d61",
+    "status": "stopped_before_geometry_statistics",
+    "error": "Preceding evidence is not adjacent to current boundary",
+    "reason": "Overly strict adjacency assertion rejected10 consecutive-delimiter locations. Original controller retains previous nonempty coefficient at empty boundaries; saved IDs verified, no fixed gate changed."
+  }
+}

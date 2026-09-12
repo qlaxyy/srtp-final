@@ -28,7 +28,17 @@ def validate_bundle(bundle):
             require(plan['arms']['original_dynamic'][key]==plan['arms']['negative_only_dynamic'][key],'Ablation assets differ')
     else:
         require(not any(arm.get('negative_only') for arm in plan['arms'].values()),'Unplanned positive-branch change')
-    if arms==3:
+    if plan.get('radial_restoration'):
+        require(arms==3 and plan['run_order']==['original_dynamic','radial_disabled','radial_restore'], 'Unexpected radial design')
+        require(plan['arms']['radial_disabled'].get('radial_restore')=='off' and plan['arms']['radial_restore'].get('radial_restore')=='on', 'Wrong radial controls')
+        require(not plan['arms']['original_dynamic'].get('radial_restore'), 'Original must use additive family')
+        require(not any(arm.get('feedback_config') or arm.get('negative_only') for arm in plan['arms'].values()), 'Combined intervention')
+        require(read(bundle/'cpu_summary.json')['passes_fixed_cpu_gate'], 'Radial CPU gate failed')
+        require(sha(bundle/'cpu_summary.json')==plan['cpu_summary_sha256'], 'CPU receipt changed')
+        require(sha(bundle/'cpu_tests.log',source=True)==plan['cpu_unit_log_sha256'], 'CPU unit receipt changed')
+        require(len({arm[key] for arm in plan['arms'].values() for key in ['vector_sha256']})==1, 'Radial vectors differ')
+        require(len({arm['fit_sha256'] for arm in plan['arms'].values()})==1, 'Radial fits differ')
+    elif arms==3:
         require(plan['run_order']==['original_dynamic','feedback_disabled','latent_feedback_clip'],'Unexpected graph-control design')
         off,on=plan['arms']['feedback_disabled'],plan['arms']['latent_feedback_clip']
         require(off.get('feedback_disabled') is True and not on.get('feedback_disabled'),'Missing matched off control')
@@ -69,6 +79,8 @@ def command(plan,bundle,out,name):
             cmd.append('--feedback-disabled')
     if 'negative_only' in plan['arms'][name]:
         cmd.append('--negative-only' if plan['arms'][name]['negative_only'] else '--no-negative-only')
+    if plan['arms'][name].get('radial_restore'):
+        cmd.extend(['--radial-restore',plan['arms'][name]['radial_restore']])
     for key,value in plan['runtime'].items():
         if isinstance(value,bool):
             if value:cmd.append('--'+key.replace('_','-'))
@@ -94,6 +106,8 @@ def actual_parser_check(plan,bundle,out):
     try:
         for name in plan['run_order']:
             expected_algorithm='rebalance_feedback' if plan['arms'][name].get('feedback_config') else 'rebalance'
+            if plan['arms'][name].get('radial_restore'):
+                expected_algorithm='rebalance_radial' if plan['arms'][name]['radial_restore']=='on' else 'rebalance_radial_disabled'
             expected_negative_only=plan['arms'][name].get('negative_only',False)
             sys.argv=[str(ROOT/BASE/'eval/rebalance_dynamic_eval.py')]+command(plan,bundle,out/'preflight_no_generation',name)[3:]
             old=len(seen)
@@ -108,6 +122,10 @@ def actual_parser_check(plan,bundle,out):
 def validate_arm(saved,plan,rows,name):
     require(saved.get('status')=='diagnostic_completed' and 'baseline' not in saved,'Incomplete/unplanned generation')
     p=saved['protocol'];arm=plan['arms'][name]
+    require(p.get('radial_restore')==arm.get('radial_restore'), 'Wrong radial mode')
+    if plan.get('radial_restoration'):
+        expected={'original_dynamic':'rebalance','radial_disabled':'rebalance_radial_disabled','radial_restore':'rebalance_radial'}[name]
+        require(p.get('steering_algorithm')==expected, 'Wrong radial algorithm')
     require(p.get('negative_only',False) is arm.get('negative_only',False),'Wrong positive-branch option')
     require(p['dynamic_params'].get('negative_only',False) is arm.get('negative_only',False),'Wrong request positive-branch option')
     if arm.get('negative_only'):

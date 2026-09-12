@@ -38,11 +38,11 @@ def comparison(groups,grades,indices):
         per_question=per,passes_fixed_gate=passed)
 
 
-def controlled_comparison(groups,grades,indices):
-    candidate='latent_feedback_clip'
+def controlled_comparison(groups,grades,indices,candidate='latent_feedback_clip',controls=None):
+    controls = ['original_dynamic','feedback_disabled'] if controls is None else controls
     comparisons={name:comparison({n:groups[n] for n in [name,candidate]},
         {n:grades[n] for n in [name,candidate]},indices)
-        for name in ['original_dynamic','feedback_disabled']}
+        for name in controls}
     return dict(comparisons=comparisons,passes_fixed_gate=all(v['passes_fixed_gate'] for v in comparisons.values()))
 
 
@@ -81,7 +81,8 @@ def main():
         require(grade['dataset_sha256']==plan['dataset_sha256'] and grade['grader_sources']==grader_sha,'Grader/data changed')
         require([r['train_index'] for r in grade['records']]==plan['train_indices'],'Score pairing changed')
     if plan.get('graph_control_comparison'):
-        result=controlled_comparison(groups,grades,plan['train_indices'])
+        result=controlled_comparison(groups,grades,plan['train_indices'],
+            candidate=plan['run_order'][-1],controls=plan['run_order'][:-1])
         comparisons=result['comparisons']
     else:
         result=comparison(groups,grades,plan['train_indices'])
