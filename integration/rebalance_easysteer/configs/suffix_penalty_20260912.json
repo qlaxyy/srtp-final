@@ -1,0 +1,36 @@
+{
+  "status": "hypothesis_fixed_before_local_suffix_audit",
+  "candidate": "long_suffix_continuation_penalty",
+  "purpose": "Interrupt exact continuation loops directly at sampling time, including loops without ReBalance paragraph boundaries.",
+  "basis": [
+    {"paper":"https://arxiv.org/abs/2608.22761v1","fulltext_sentinel":"9b5b058e0273","location":"section3 and AppendixA equation1","evidence":"DRY subtracts a length-dependent logit penalty only from candidate tokens that extend a previously seen suffix. Sequence breakers delimit matching. The paper's main256-token general-text experiments do not demonstrate16000-token reasoning compression."},
+    {"source":"https://github.com/oobabooga/textgen/blob/617767630208cc701468df42806268f3247535ad/modules/sampler_hijack.py","location":"DRYLogitsProcessor","evidence":"Official original PR implementation has the same backward-suffix/max-per-next-token rule. We independently implement bounded dynamic programming and verify it against a scalar reference; no author performance numbers are assumed."}
+  ],
+  "fixed_adaptation": {
+    "allowed_length": 16,
+    "multiplier": 0.8,
+    "base": 1.75,
+    "history_tokens": 1024,
+    "maximum_logit_penalty": 20.0,
+    "breaker_bytes": ["\n", ":", "\"", "*"],
+    "breakers": "Every frozen-tokenizer token containing any breaker byte, plus all special tokens. This deliberately protects merged tokens containing structure; it is an explicit adaptation of the paper's tokenizer-dependent breakers.",
+    "scope": "Generated thinking tokens only; exclude prompt and stop processing at the first think-end marker. No forced stop, extra answer probe, or new text insertion.",
+    "rule": "For each next-token candidate, find the longest backward match ending at an earlier position within the last1024 generated thinking tokens. Penalize only if that length>=16 and the candidate is not a breaker. Subtract min(20,0.8*1.75**(length-16)) before temperature/top-p. Multiple witnesses for one token use their maximum length, never sum penalties.",
+    "confidence": "Keep ReBalance's raw-model maximum probability computed before this penalty. Do not combine sampled-confidence or other candidate variants.",
+    "differences_from_paper": "L16 protects short algebraic/formula reuse rather than paperL2; generated-think-only history and explicit finite20 cap. No search over these settings after the CPU audit.",
+    "difference_from_closed_repeat_experiment": "The closed experiment cancelled positive boundary injections after repetition. This candidate changes next-token competition directly; it neither cancels positive ReBalance actions nor depends on complete-step matching."
+  },
+  "CPU_inputs": "All500 original saved calibration answers and all100 saved original_dynamic training answers from the completed SEAL comparison, including errors/caps. These are development only; exclude frozen testsets and fresh validation output.",
+  "CPU_gate": {
+    "minimum_dynamic_questions_with_actual_next_token_penalized": 10,
+    "minimum_dynamic_thinking_token_fraction_of_actual_next_tokens_penalized": 0.01,
+    "manual_audit_seed": 20260925,
+    "manual_audit_max_questions": 12,
+    "minimum_fraction_first_events_supported_as_redundant_continuation": 0.75,
+    "manual_protocol": "After objective counts, sample up to12 affected dynamic questions uniformly once. Read causal prefix plus the earlier matching-span witness at the first actual-token penalty. Label redundant_continuation, useful_reuse, or uncertain before viewing final grades; uncertain counts as unsupported. No semantic gold or population false-positive claim from this small single-reviewer check.",
+    "implementation": "Exact agreement with brute-force suffix matching on random/adversarial streams, breaker/overlap/window-expiry cases; no future-token access; bounded buffers; finite penalties. If any gate fails, stop without loweringL, increasingstrength, droppingbreakers or rerunning old GPU outputs."
+  },
+  "GPU_if_CPU_passes": "Prepare fresh100-question original/candidate paired generation, same16000 cap, model, assets and ReBalance curve. Short disabled-equivalence, batched-state, request-reordering and logits checks first. Require5percent reduction of both thinking and total tokens, no fewer correct and no more caps; count time overhead. No7B or testset expansion. Independent200 confirmation is conditional on a passing frozen screen and a fixed authorized budget.",
+  "risks": ["Exact repetition can be necessary in algebra, verification or requested copying.","The model may replace exact loops with paraphrased loops, leaving token cost unchanged.","GPU scatter/CPU synchronization overhead can erase generation savings; benchmark the actual batch path.","Unseen loop forms and paths created by the penalty cannot be inferred from saved-prefix replay."],
+  "resources": "GPUoff; all present work is localCPU."
+}
