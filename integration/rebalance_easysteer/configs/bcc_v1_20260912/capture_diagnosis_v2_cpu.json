@@ -1,0 +1,16 @@
+{
+  "status": "CPU_checks_passed_GPU_not_run",
+  "script_sha256": "a2be589b6e31687e552e4df483478c839bb2c5f66d52593541ac37d12754b69d",
+  "checks": [
+    "absolute boundary accepted and exceeded rejected",
+    "coordinate reported",
+    "per-position detects failure hidden by aggregate norm",
+    "zero/nonfinite rejected",
+    "Python3.10 syntax",
+    "exact saved-input preflight"
+  ],
+  "input_tokens": 3454,
+  "forwards": 6,
+  "accuracy_margin_1pp": "Proposed by external report, not accepted as project policy",
+  "limitation": "No local torch; actual hooks, SDPA path and GPU memory behavior await authorized diagnostic."
+}
