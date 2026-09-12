@@ -1,0 +1,12 @@
+{
+  "status": "fixed_before_diagnostic",
+  "purpose": "Explain the stopped radial engineering check, without weakening its gate or starting model generation.",
+  "failed_commit": "4cad441e25085ffcc8447890393e7041f13ffdc4",
+  "failed_plan_sha256": "27446f6b211f3452cfab7fea2c432dfa4b3523ae950acf7575fc77315a1382cf",
+  "failed_archive_sha256": "5b72c6cef9a0077457aa81c846ad2decce5338aec5ec5ad54adc489d9c770053",
+  "scope": "Recreate exactly the failed128x1536 synthetic BF16 rows, residual, original vector and seed20260922 once. Capture inputs and eager/compiled outputs at the first failed assertion only. Do not continue its later gates, mutate the graph, load a model, produce answers, or alter the100/200 datasets.",
+  "hypothesis": "Generated Triton source omits intermediate BF16 casts in hidden+residual and coefficient*direction before FP32 norm math, but stores the final displacement in BF16. This mixed rounding can explain the eager/compiled difference; saved inputs permit local NumPy counterfactual calculations.",
+  "CPU_followup": "Compare saved actual outputs against independent fully rounded and fused-FP32 intermediate calculations. Use this to decide whether an explicit-precision implementation correction is justified. Record mismatches, including any unexplained residuals.",
+  "cost": "One cached synthetic-kernel call plus eager reference and small tensor download; expected less than1minute, hard120seconds. Zero model loads and zero generated answers.",
+  "stop": "Preserve all arrays and measured failures. Original engineering gate remains failed; no automatic100-question run. Any corrected implementation needs a new named bundle retaining the same data and thresholds."
+}
