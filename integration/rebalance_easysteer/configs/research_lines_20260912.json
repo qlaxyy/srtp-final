@@ -1,0 +1,42 @@
+{
+  "status": "coordination_record_not_automatic_lock",
+  "date": "2026-09-12",
+  "lines": {
+    "A": {
+      "scope": "BCC engineering and fixed minimum-displacement confirmation preparation",
+      "branch": "codex/bcc-v1-audit-20260912",
+      "worktree": "E:/srtp/srtp-final",
+      "observed_commit": "2f4d540d8965d15d448e9b115d7e1d20675ba20a",
+      "config_namespace": "bcc_v1_20260912; future min_displacement_confirm_v1",
+      "data_claims": [
+        {
+          "path": "integration/rebalance_easysteer/configs/bcc_v1_20260912/candidate_manifest.json",
+          "role": "76 development pairs, never independent validation"
+        },
+        {
+          "path": "integration/rebalance_easysteer/configs/mechanism_screen100_20260911/confirmation200.jsonl",
+          "sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+          "role": "Existing A-line reservation; current independence audit pending; not available for B development"
+        }
+      ]
+    },
+    "B": {
+      "scope": "SyncThink/CGRS hybrid research",
+      "branch": "codex/hybrid-syncthink-cgrs-20260912",
+      "worktree": "E:/srtp/hybrid-syncthink-cgrs-20260912",
+      "observed_commit": "f7041d8ede196808d953595d855ea94d6dc289fd",
+      "config_namespace": "hybrid_syncthink_cgrs_20260912",
+      "data_claims_status": "No claim receipt obtained by A; must reconcile before new splits; not assumed empty"
+    }
+  },
+  "rules": [
+    "Edit only own worktree; no branch switching in peer worktree",
+    "No copying full old handoff over main: apply incremental documentation changes after fetching and checking clean main; preserve conflicts for deliberate integration",
+    "Shared controller changes require an explicit integration commit and default-off flags; no live mutation of shared environment during peer experiment",
+    "Experimental code remains on its branch; main receives verified records only",
+    "Before new data selection reconcile IDs and normalized question hashes for both lines; historical reservations stay owned",
+    "Every GPU batch binds one code/asset/config identity and unique output directory; server is shared, inspect other tasks and do not run competing batches",
+    "No force push, tag moves, automatic peer merges or overwriting partial outputs"
+  ],
+  "limitation": "Read-only B worktree inspection; no message sent to other dialogue and no assertion that peer has adopted these rules"
+}
