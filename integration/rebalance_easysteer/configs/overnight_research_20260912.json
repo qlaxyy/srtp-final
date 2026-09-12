@@ -15270,5 +15270,191 @@
     ],
     "model_calls": 0,
     "new_answers": 0
+  },
+  "compiler_buffer_diagnostic": {
+    "result": {
+      "plan_sha256": "3e90265923ff379ae5ee7c0a0afc0c954eb2ddb06160138c782b72f154687ddf",
+      "script_sha256": "876c8213e8b16bc47958c7ed064175381694eb3ed0291caf07780b838c0766ba",
+      "commit": "ec5f733380324a4093f6fd95dab8838e2857bfee",
+      "torch_version": "2.11.0+cu129",
+      "records": [
+        {
+          "rows": 8,
+          "mask": "zero",
+          "arms": {
+            "bf16": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            },
+            "fp32": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            }
+          }
+        },
+        {
+          "rows": 8,
+          "mask": "linear_minus1p5_to_0p1",
+          "arms": {
+            "bf16": {
+              "normalized": {
+                "equal": false,
+                "different_elements": 3261,
+                "max_abs": 0.015625,
+                "rms": 0.002123223850503564
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            },
+            "fp32": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            }
+          }
+        },
+        {
+          "rows": 128,
+          "mask": "zero",
+          "arms": {
+            "bf16": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            },
+            "fp32": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            }
+          }
+        },
+        {
+          "rows": 128,
+          "mask": "linear_minus1p5_to_0p1",
+          "arms": {
+            "bf16": {
+              "normalized": {
+                "equal": false,
+                "different_elements": 52463,
+                "max_abs": 0.03125,
+                "rms": 0.002189750550314784
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            },
+            "fp32": {
+              "normalized": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              },
+              "residual": {
+                "equal": true,
+                "different_elements": 0,
+                "max_abs": 0.0,
+                "rms": 0.0
+              }
+            }
+          }
+        }
+      ],
+      "supports_local_kernel_mechanism": true,
+      "seconds": 5.101821675896645,
+      "model_calls": 0,
+      "new_answers": 0,
+      "limitations": "Fixed launch geometry is shared across arms but may differ from the original autotuned launch. This tests generated kernel arithmetic, not the exact full-model execution. FP32 storage is a diagnostic counterfactual, not an approved runtime change."
+    },
+    "local_result": ".codex_work/overnight_research_20260912/compiler_identity/compiler_buffer_diagnostic_20260912/result.json",
+    "result_sha256": "93bae2c45fdc58264ed1fddc7670c2644c1a63d611f51131f026a7f68deddd0e",
+    "log_sha256": "4a0e88e2a229beb86c69ba067c4926787edbc16b144cf4b2908ba1886d1a538d",
+    "all_downloaded_source_sha256": {
+      "additive_replay_kernel.py": "7c107b3a6476d2573a8c389806dc67bf915a737fbe7b5426972d2c33f6609f81",
+      "feedback_replay_kernel.py": "acb3332578bb0016ba55cdf673b20271fead74eeeaa58fb27eb0f5ddb6483aff"
+    },
+    "evidence": "Preserved generated fusion kernel: BF16 in-place feedback activation is reloaded for the next RMSNorm numerator; additive uses an FP32 combined-residual temporary. Replacing only the feedback input/output buffer dtype with FP32 restores exact outputs in both nonzero-mask synthetic shapes. No whole-model fix or efficacy claim.",
+    "runtime_reference": "Installed torch/_inductor/config.py:2515-2523 explicitly describes fused low-precision cast elision; emulate_precision_casts default false. No setting changed.",
+    "decision": "Retain graph-family-matched controls; the failed feedback candidate remains stopped. No 100-question rerun."
+  },
+  "halt_vector_literature_audit": {
+    "paper": "https://arxiv.org/abs/2608.28859v1",
+    "publication": "COLM2026 Efficient Reasoning workshop, non-archival; not the main conference",
+    "full_read": "All1914 parsed lines, including references and appendices A-D; the initially truncated section5 was reread explicitly.",
+    "sentinel": "END-OF-PAPER:f747dcf482d4",
+    "parsed_sha256": "953a921b83f0efc4a38f1a95f648ed6a64c581d6571e66abfcd2a7904ed920bb",
+    "upstream_commit": "dca2186c034b285170172e50512625526c5ec6ac",
+    "evidence": [
+      "Eq1/C constructs a within-rollout late-minus-early mean direction; the landmark uses future gold-first-token probability stabilization, not a deployable correctness signal. The paper discloses same problems on both readout splits.",
+      "Section4/Table17 shows strong steering alone can greatly reduce accuracy. Successful headline results require per-problem gold-answerable training targets and full-vector LoRA reconstruction (Eq4-5), not simple addition of the published halt direction.",
+      "Section5/Table7 held steering beats tent schedule in the trained adapter. This is not evidence that holding the existing ReBalance reflection vector throughout each step will preserve accuracy.",
+      "Section6.6/Table3 compares sampled self-halt with greedy DEER against separate anchors; these are not identical-decoding head-to-head results.",
+      "AppendixD says all rows16k but Table18 explicitly labels12288 as the cap; Table17 has8192-valued cells and the official steer_scan default is12288. Do not copy its cap into current experiments.",
+      "AppendixC calls layer0 embedding, but value_axis_core.py:27-33 drops hidden_states[0] and uses hidden_states[1:], making returned index0 decoder0 output. The layer0-as-embedding argument does not match this public implementation.",
+      "Eq3 prose describes reference mean norm; steer_scan.py:157-169 recalculates current-call h.norm().mean(), while train_reptarget.py:239-257 computes a frozen dataset reference. Record the difference when translating actuation.",
+      "AppendixC says457 usable contrasts and also457 held-out rollouts; build_value_axis.py:199-204 allocates each item to construct/heldout by a mod3 rule. Without released raw volume data the actual held-out count is unverified."
+    ],
+    "source_sha256": {
+      "src/selfhalt/value_axis_core.py": "e036945c73cbf21a15486f9075258cc58d924b661ec099f23de86ee3f53f5b70",
+      "src/selfhalt/build_value_axis.py": "7be2003212430370292f8fc9066fd576e7858c1b870dca8c0a6da49c06740504",
+      "src/selfhalt/steer_scan.py": "5ec41e8d273ccfa05b2e3b5102c1c8c197615ddf66d1f34b52551e5bc8505e99",
+      "src/selfhalt/train_reptarget.py": "bae4c02f126f92b39048abdda8140a5d9e7d74719ec637cd0113414abd9bf19c"
+    },
+    "decision": "Do not train7B or copy public vector. Consider only a separately named within-trajectory progress calibration using existing1.5B states, subject to CPU discrimination and fixed independent generation gates."
   }
 }
