@@ -27,9 +27,11 @@ GRAPH_FAMILIES: dict[str, dict[str, tuple[str, ...]]] = {
     "replace": {"V": ("h",)},
     "feedback": {"V": ("h",), "W": ("h",), "C": ("s",), "E": ("s",),
                  "stats": ("k",)},
+    "radial": {"V": ("h",), "E": ("s",)},
 }
 
-GRAPH_FAMILY_FP32 = {"feedback": frozenset({"W", "C", "E", "stats"})}
+GRAPH_FAMILY_FP32 = {"feedback": frozenset({"W", "C", "E", "stats"}),
+                     "radial": frozenset({"E"})}
 
 # Families whose delta is not neutralized by a zero table row carry
 # their own per-token mask; all others share "graph_mask".
@@ -67,6 +69,20 @@ def feedback_delta(x, direction, readout, center, enabled, coefficients,
                          negative * incoming.abs(), negative * actual.float().abs()),
                         dim=-1)
     return delta, metrics
+
+
+def radial_delta(x, direction, enabled, coefficients):
+    """Restore complete-state norm after signed addition, in FP32 geometry."""
+    raw = coefficients * direction
+    y = x.float() + raw.float()
+    nx = torch.linalg.vector_norm(x.float(), dim=-1, keepdim=True)
+    ny = torch.linalg.vector_norm(y, dim=-1, keepdim=True)
+    valid = (nx > 1e-12) & (ny > 1e-12)
+    correction = y * (nx / ny.clamp_min(1e-12) - 1)
+    changed = torch.where(valid, raw.float() + correction,
+                          torch.zeros_like(y)).to(raw.dtype)
+    active = (enabled > 0) & (coefficients != 0)
+    return torch.where(active, changed, raw)
 
 
 def apply_decoder_families(
@@ -131,6 +147,11 @@ def apply_decoder_families(
 
     total = None if delta is None else mask * delta
     nf_mask = None if delta is None else mask
+    if "radial" in tables:
+        radial = tables["radial"]
+        term = radial_delta(x, radial["V"][rt], radial["E"][rt], mask)
+        total = term if total is None else total + term
+        nf_mask = mask if nf_mask is None else nf_mask
     if "feedback" in tables:
         feedback = tables["feedback"]
         term, metrics = feedback_delta(

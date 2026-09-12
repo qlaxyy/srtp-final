@@ -96,6 +96,8 @@ def parse_args() -> argparse.Namespace:
                         help="Fixed readout metadata for negative-displacement clipping")
     parser.add_argument("--feedback-disabled", action="store_true",
                         help="Engineering equivalence check with feedback payload disabled")
+    parser.add_argument("--radial-restore", choices=["off", "on"],
+                        help="Same-graph norm restoration control or candidate")
     parser.add_argument("--negative-only", action=argparse.BooleanOptionalAction, default=False,
                         help="Ablate positive coefficients after the unchanged dynamic rule")
     parser.add_argument("--baseline-result", type=Path,
@@ -107,6 +109,10 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.feedback_disabled and not args.feedback_config:
         parser.error("--feedback-disabled requires --feedback-config")
+    if args.radial_restore and (args.feedback_config or args.paper_fit or
+                               args.resume_result or args.negative_only or
+                               args.baseline_result):
+        parser.error("Radial geometry must be tested as a separate intervention")
     if args.negative_only and (args.feedback_config or args.paper_fit or args.resume_result):
         parser.error("Negative-only ablation requires a fresh author-code run")
     if args.feedback_config and (args.paper_fit or args.resume_result or args.baseline_result):
@@ -245,6 +251,9 @@ def main() -> None:
     if args.negative_only:
         dynamic_params["negative_only"] = True
     algorithm = "rebalance"
+    if args.radial_restore:
+        algorithm = ("rebalance_radial" if args.radial_restore == "on" else
+                     "rebalance_radial_disabled")
     feedback = None
     if args.feedback_config:
         import numpy as np
@@ -310,6 +319,7 @@ def main() -> None:
             "seed": args.seed,
             "execution_mode": "in_graph",
             "steering_algorithm": algorithm,
+            "radial_restore": args.radial_restore,
             "async_scheduling": args.async_scheduling,
             "profiling_enabled": args.profile_steps > 0,
             "profile_steps": args.profile_steps,
@@ -529,7 +539,8 @@ def main() -> None:
             max_num_batched_tokens=args.max_num_batched_tokens,
             gpu_memory_utilization=args.gpu_memory_utilization,
             enable_steer_vector=True,
-            steer_algorithms=[algorithm],
+            steer_algorithms=(["rebalance_radial", "rebalance_radial_disabled"]
+                              if args.radial_restore else [algorithm]),
             enforce_eager=False,
             steer_graph_mode="in_graph",
             enable_chunked_prefill=args.chunked_prefill,

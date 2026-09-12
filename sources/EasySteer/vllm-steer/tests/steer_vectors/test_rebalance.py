@@ -119,6 +119,69 @@ def test_seal_replays_historical_reasoning_gate_after_end_and_slot_reuse():
     )
 
 
+def test_radial_variants_preserve_dynamic_history_across_slot_reuse():
+    for algorithm in ("rebalance_radial", "rebalance_radial_disabled"):
+        test_rebalance_replays_past_scales_after_think_end_and_slot_reuse(
+            algorithm, paper_modes=(False,)
+        )
+
+
+def test_radial_complete_state_norm_direction_and_singular_noop():
+    """Signed masks must not scale the radial correction a second time."""
+    from vllm.steer_vectors.graph_kernels import radial_delta
+    x = torch.tensor([[3., 4.], [3., 4.], [0., 0.], [3., 4.], [3., 4.]])
+    direction = torch.tensor([[1., 2.], [1., 2.], [1., 2.],
+                              [-3., -4.], [1., 2.]])
+    c = torch.tensor([[-1.5], [.1], [1.], [1.], [0.]])
+    delta = radial_delta(x, direction, torch.ones(5, 1), c)
+    y = x + delta
+    torch.testing.assert_close(y.norm(dim=-1), x.norm(dim=-1))
+    a = (x+c*direction)[:2].double()
+    expected = a * (5/a.norm(dim=-1, keepdim=True))
+    torch.testing.assert_close(y[:2].double(), expected, atol=1e-6, rtol=1e-6)
+    assert torch.equal(y[2:], x[2:])
+    assert torch.equal(radial_delta(x, direction, torch.zeros(5, 1), c),
+                       c*direction)
+
+
+def test_radial_request_and_graph_use_same_complete_state_and_disable_table():
+    from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
+    from vllm.steer_vectors.api import to_engine_request
+    from vllm.steer_vectors.controllers import DecoderSteerController
+    from vllm.steer_vectors.graph_kernels import apply_decoder_families
+    from vllm.steer_vectors.graph_support import graph_request_problem
+    from vllm.steer_vectors.payloads import DirectionVector, materialize
+    payload = DirectionVector({20: [1., 2.]})
+    params = dict(boundary_token_ids=[99], think_start_token_id=10,
+                  think_end_token_id=11)
+    rows = torch.ones(2, dtype=torch.long)
+    h = torch.tensor([[1., 2.], [2., 3.]])
+    residual = torch.tensor([[2., 2.], [1., 1.]])
+    for algorithm in ("rebalance_radial", "rebalance_radial_disabled"):
+        spec = VectorSpec(algorithm=algorithm, data=payload, layers=[20],
+                          apply=ApplySpec(generation_tokens=[99]), params=params)
+        request = to_engine_request(SteeringSpec(vectors=[spec]))
+        assert request.rebalance_boundary_token_ids == [99]
+        assert graph_request_problem(request, 1) is None
+        controller = DecoderSteerController()
+        controller.init_graph_table(1, 2, torch.float32, torch.device('cpu'),
+                                    2, rows, 1, frozenset({'radial'}))
+        data = materialize(payload.to_wire(), 'cpu', torch.float32, [20])[20]
+        controller.set_graph_row(1, algorithm, data, 1.)
+        controller.graph_mask.copy_(torch.tensor([-1.5, .1]))
+        args = (controller.graph_mask, controller.replace_mask,
+                controller.normalize_flag, rows, h, residual)
+        result = apply_decoder_families(controller.graph_tables, *args)
+        if algorithm == 'rebalance_radial':
+            torch.testing.assert_close((result+residual).norm(dim=-1),
+                                       (h+residual).norm(dim=-1))
+        else:
+            original = {'additive': {'V': controller.graph_tables['radial']['V']}}
+            assert torch.equal(result, apply_decoder_families(original, *args))
+        controller.clear_graph_row(1)
+        assert torch.equal(apply_decoder_families(controller.graph_tables, *args), h)
+
+
 def test_seal_constant_gate_ignores_confidence_and_tracks_each_request():
     """Static SEAL must not acquire a confidence curve or leak past think end."""
     from vllm.steer_vectors.api import (

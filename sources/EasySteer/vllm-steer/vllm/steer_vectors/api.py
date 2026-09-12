@@ -98,6 +98,8 @@ ALGORITHM_PARAMS: dict[str, tuple[str, ...]] = {
     ),
 }
 ALGORITHM_PARAMS["rebalance_feedback"] = ALGORITHM_PARAMS["rebalance"]
+ALGORITHM_PARAMS["rebalance_radial"] = ALGORITHM_PARAMS["rebalance"]
+ALGORITHM_PARAMS["rebalance_radial_disabled"] = ALGORITHM_PARAMS["rebalance"]
 ALGORITHM_PARAMS["seal"] = (
     "boundary_token_ids", "think_start_token_id", "think_end_token_id",
     "initial_coef",
@@ -396,7 +398,8 @@ class VectorSpec(BaseModel):
             )
 
             MoERouterAlgorithm.validate_mode(self.params["mode"])
-        if self.algorithm in ("rebalance", "rebalance_feedback", "seal"):
+        if self.algorithm in ("rebalance", "rebalance_feedback", "seal",
+        "rebalance_radial", "rebalance_radial_disabled"):
             required = {
                 "boundary_token_ids",
                 "think_start_token_id",
@@ -518,7 +521,8 @@ class SteeringSpec(BaseModel):
                 "use a single-vector spec"
             )
         if len(self.vectors) > 1 and any(
-            v.algorithm in ("rebalance", "rebalance_feedback", "seal")
+            v.algorithm in ("rebalance", "rebalance_feedback", "seal",
+            "rebalance_radial", "rebalance_radial_disabled")
             for v in self.vectors
         ):
             raise ValueError("rebalance currently requires a single-vector spec")
@@ -565,7 +569,8 @@ def to_engine_request(
                 "moe_topk": v.params.get("topk", 8),
             }
         rebalance: dict[str, Any] = {}
-        if v.algorithm in ("rebalance", "rebalance_feedback", "seal"):
+        if v.algorithm in ("rebalance", "rebalance_feedback", "seal",
+        "rebalance_radial", "rebalance_radial_disabled"):
             rebalance = {
                 "rebalance_boundary_token_ids": v.params["boundary_token_ids"],
                 "rebalance_think_start_token_id": v.params[

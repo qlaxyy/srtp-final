@@ -126,7 +126,8 @@ class SteerVectorState:
         self._requests[req_id] = steer_vector_request
         self._slots[req_id] = manager.acquire_config(req_id, steer_vector_request)
         if steer_vector_request.algorithm not in (
-            "rebalance", "rebalance_feedback", "seal"
+            "rebalance", "rebalance_feedback", "seal",
+            "rebalance_radial", "rebalance_radial_disabled"
         ):
             return
         if req_index is None or self._coefs is None:
@@ -813,7 +814,8 @@ def fill_graph_steer_buffers(
                     positions,
                     None
                     if request.algorithm not in (
-                        "rebalance", "rebalance_feedback", "seal"
+                        "rebalance", "rebalance_feedback", "seal",
+                        "rebalance_radial", "rebalance_radial_disabled"
                     )
                     else token_scales.index_select(0, positions),
                 )

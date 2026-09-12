@@ -18,7 +18,10 @@ from .lm_steer import LMSteerAlgorithm
 from .loreft import LoReFTAlgorithm
 from .moe_router import MoERouterAlgorithm
 from .replace import ReplaceAlgorithm
-from .rebalance import ReBalanceAlgorithm, ReBalanceFeedbackAlgorithm, SealAlgorithm
+from .rebalance import (
+    ReBalanceAlgorithm, ReBalanceFeedbackAlgorithm, SealAlgorithm,
+    ReBalanceRadialAlgorithm, ReBalanceRadialDisabledAlgorithm,
+)
 
 __all__ = [
     "BaseSteerVectorAlgorithm",
@@ -33,6 +36,8 @@ __all__ = [
     "ReBalanceAlgorithm",
     "ReBalanceFeedbackAlgorithm",
     "SealAlgorithm",
+    "ReBalanceRadialAlgorithm",
+    "ReBalanceRadialDisabledAlgorithm",
     "create_algorithm",
     "get_algorithm",
     "graph_condition",
