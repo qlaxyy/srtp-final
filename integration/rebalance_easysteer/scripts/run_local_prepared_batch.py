@@ -165,7 +165,11 @@ def execute(bundle,out,plan):
                 run=read(destination/'run_ledger.json')
                 require(run['plan_sha256']==item['plan_sha256'],'Generation used another plan')
                 outcome['stages'][stage]=dict(run_ledger_sha256=sha(destination/'run_ledger.json'),status=run['status'])
-                if stage=='engineering':require(run['status']=='engineering_passed_no_efficacy_claim','Engineering failed')
+                if stage=='engineering':
+                    require(run['status']=='engineering_passed_no_efficacy_claim','Engineering failed')
+                    if candidate=='sampled_confidence':
+                        require(run.get('engineering_checks',{}).get('status')=='greedy_token_identity_passed',
+                                'Sampled greedy identity was not verified')
                 else:
                     child(label+'_grade',command('grade_vector_batch.py','--bundle',pair,
                         '--output',destination,python=GRADER),plan['CPU_analysis_timeout_seconds'])

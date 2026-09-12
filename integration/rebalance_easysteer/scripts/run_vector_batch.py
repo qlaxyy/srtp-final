@@ -30,6 +30,12 @@ def validate_bundle(bundle,check_source=True):
         if local_candidate=='sampled_confidence':
             for key in ('vector_sha256','fit_sha256'):
                 require(plan['arms']['original_dynamic'][key]==plan['arms'][local_candidate][key],'Sampled-confidence assets differ')
+        if engineering and local_candidate=='sampled_confidence':
+            require(plan.get('greedy_identity_engineering') is True and plan['runtime']['temperature']==0.0,
+                    'Sampled engineering must verify greedy identity')
+        elif local_candidate:
+            require(plan['runtime']['temperature']==0.7 and not plan.get('greedy_identity_engineering'),
+                    'Unplanned generation temperature')
         receipt=read(bundle/plan['cpu_receipt']['file'])
         require(sha(bundle/plan['cpu_receipt']['file'])==plan['cpu_receipt']['sha256'],'CPU receipt changed')
         require(receipt['status']==('passed_local_numpy_backed_actual_source_checks' if local_candidate=='sampled_confidence'
@@ -189,6 +195,19 @@ def validate_arm(saved,plan,rows,name):
     return saved['rebalance_dynamic']
 
 
+def engineering_pair_check(plan,first,second):
+    if not plan.get('greedy_identity_engineering'):
+        return None
+    require(plan['stage']=='engineering' and plan['local_prepared_candidate']=='sampled_confidence'
+            and plan['runtime']['temperature']==0.0,'Unplanned greedy comparison')
+    original=first['rebalance_dynamic']['records'];candidate=second['rebalance_dynamic']['records']
+    require(len(original)==len(candidate)==8,'Greedy check requires exactly8pairs')
+    require(all(x['token_ids']==y['token_ids'] for x,y in zip(original,candidate,strict=True)),
+            'Greedy identity failed; retain both arms and stop before stochastic efficacy testing')
+    return dict(status='greedy_token_identity_passed',pairs=8,temperature=0.0,
+                accuracy_or_compression_claim=False)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bundle',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
@@ -214,6 +233,9 @@ def main():
             receipt=read(Path(plan['engineering_gate']['path']))
             require(receipt['status']=='engineering_passed_no_efficacy_claim' and
                     receipt['plan_sha256']==plan['engineering_gate']['plan_sha256'],'Local-candidate engineering incomplete')
+            if plan['local_prepared_candidate']=='sampled_confidence':
+                require(receipt.get('engineering_checks',{}).get('status')=='greedy_token_identity_passed',
+                        'Greedy identity was not verified')
         if plan['stage']=='confirmation':
             screen=read(Path(plan['screen_gate']['path']))
             require(screen['status']=='completed' and screen['eligible_for_confirmation'] and
@@ -252,6 +274,8 @@ def main():
                 if plan.get('local_prepared_candidate')=='sampled_confidence':
                     current.pop('sampled_confidence',None);previous.pop('sampled_confidence',None)
                 require(current==previous,'Boundary/controller changed')
+                check=engineering_pair_check(plan,first,saved)
+                if check is not None:ledger['engineering_checks']=check
             else:first=saved
             ledger['arms'][name]['raw_sha256']=sha(out/(name+'.json'));save(out/'run_ledger.json',ledger)
         status=('engineering_passed_no_efficacy_claim' if plan.get('local_prepared_candidate') and

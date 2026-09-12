@@ -35,6 +35,7 @@ def summarize(bundle, results):
             require(run['plan_sha256'] == entry['plan_sha256'], 'Stage used another plan')
             outcome.update(status=run['status'], run_ledger_sha256=sha(run_path))
             if stage == 'engineering':
+                outcome['checks'] = run.get('engineering_checks')
                 outcome['interpretation'] = 'Short implementation check only; never an accuracy or compression result.'
                 require(not analysis_path.exists(), 'Engineering outputs should not be graded')
                 continue

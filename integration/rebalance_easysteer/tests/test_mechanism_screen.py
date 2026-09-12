@@ -22,6 +22,18 @@ from grade_vector_batch import comparison as vector_comparison,controlled_compar
 
 
 class ScreenTests(unittest.TestCase):
+    def test_greedy_engineering_requires_identical_tokens_including_capped_tails(self):
+        from run_vector_batch import engineering_pair_check
+        plan=dict(greedy_identity_engineering=True,stage='engineering',
+            local_prepared_candidate='sampled_confidence',runtime=dict(temperature=0.0))
+        original=dict(rebalance_dynamic=dict(records=[dict(token_ids=[1]*512) for _ in range(8)]))
+        candidate=copy.deepcopy(original)
+        self.assertEqual(engineering_pair_check(plan,original,candidate)['status'],'greedy_token_identity_passed')
+        candidate['rebalance_dynamic']['records'][-1]['token_ids'][-1]=2
+        with self.assertRaisesRegex(ValueError,'Greedy identity failed'):
+            engineering_pair_check(plan,original,candidate)
+        self.assertIsNone(engineering_pair_check({},original,candidate))
+
     def test_local_summary_keeps_failed_and_partial_candidates_and_rejects_changed_files(self):
         from summarize_local_prepared_batch import summarize
         from mechanism_candidates import save
@@ -337,8 +349,12 @@ class ScreenTests(unittest.TestCase):
                             save(destination/'analysis.json',dict(status='completed',stage=stage,candidate=candidate,
                                 plan_sha256=candidate+'-'+stage,eligible_for_confirmation=screen_pass,
                                 comparison=dict(passes_fixed_gate=screen_pass)))
-                        else:save(destination/'run_ledger.json',dict(plan_sha256=candidate+'-'+stage,
-                            status='engineering_passed_no_efficacy_claim' if stage=='engineering' else 'generation_completed_grading_pending'))
+                        else:
+                            run=dict(plan_sha256=candidate+'-'+stage,
+                                status='engineering_passed_no_efficacy_claim' if stage=='engineering' else 'generation_completed_grading_pending')
+                            if stage=='engineering' and candidate=='sampled_confidence':
+                                run['engineering_checks']=dict(status='greedy_token_identity_passed')
+                            save(destination/'run_ledger.json',run)
                     return 0
                 def fake_query(cmd,**kwargs):return 'fixed-code' if cmd[:2]==['git','rev-parse'] else ''
                 with patch.object(runner.sys,'platform','linux'),patch.object(runner.subprocess,'check_output',fake_query),\

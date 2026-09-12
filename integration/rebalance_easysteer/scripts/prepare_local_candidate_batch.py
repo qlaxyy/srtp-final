@@ -57,7 +57,7 @@ def main():
     for path,digest in sampled_receipt['source_sha256'].items():require(sha(ROOT/path,source=True)==digest,'Sampled runtime changed after CPU check')
     require(sha(ROOT/BASE/'scripts/check_sampled_confidence_cpu.py',source=True)==sampled_receipt['checker_sha256'],'Sampled CPU checker changed')
     out.mkdir(parents=True)
-    (out/'.gitattributes').write_text('*.json text eol=lf\n*.jsonl text eol=lf\n*.pt binary\n',encoding='utf-8',newline='\n')
+    (out/'.gitattributes').write_text('.gitattributes text eol=lf\n*.json text eol=lf\n*.jsonl text eol=lf\n*.pt binary\n',encoding='utf-8',newline='\n')
     replay=out/'probability_replay'
     subprocess.run([sys.executable,str(ROOT/BASE/'scripts/prepare_sampled_probability_replay.py'),
         '--output',str(replay)],check=True,cwd=ROOT)
@@ -102,6 +102,7 @@ def main():
             shutil.copyfile(receipt,folder/'cpu_receipt.json')
             runtime=dict(prior['runtime'],group_timeout_seconds=300 if stage=='engineering' else (900 if stage=='confirmation' else 600))
             if stage=='engineering':runtime['max_tokens']=512
+            if stage=='engineering' and candidate=='sampled_confidence':runtime['temperature']=0.0
             plan=dict(status='prepared_not_run',stage=stage,local_prepared_candidate=candidate,
                 scope=f'{candidate}: fixed {stage} on {n} disjoint MATH training questions',
                 count=n,new_answers_planned=2*n,dataset_file='questions.jsonl',dataset_sha256=sha(dataset),train_indices=indices,
@@ -115,6 +116,9 @@ def main():
                 assessment='Engineering: implementation only, no grading. Screen/confirmation: mean thinking AND total tokens each fall>=5percent, correct count not lower, caps not higher. All errors and capped outputs included. No tuning or replacement subsets.',
                 authorization='Prepared locally while GPUoff. Execution requires user explicitly reopening GPU and authorizing this bounded batch. No inherited overnight GPU authorization.',
                 limitations=['Training screening selects candidates; independent reserve confirms unchanged settings. Neither proves narrow accuracy non-inferiority.','Original and candidate are new paired runs; no historical control reuse.','Lexical fit inherits original selected-layer metadata and original curve; inherited selection.r2 describes original selection, not new lexical-label prediction.'])
+            if stage=='engineering' and candidate=='sampled_confidence':
+                plan['greedy_identity_engineering']=True
+                plan['assessment']='Greedy engineering only: all8paired token sequences must be identical. No accuracy or compression claim; formal stages retain temperature0.7.'
             if candidate=='sampled_confidence':plan['probability_gate']=dict(path=REMOTE+'/probability_opportunity.json',replay_plan_sha256=sha(replay/'plan.json'))
             if stage!='engineering':plan['engineering_gate']=dict(path=REMOTE+'/'+candidate+'/engineering/run_ledger.json',
                 plan_sha256=manifests[candidate]['engineering']['plan_sha256'])
@@ -140,6 +144,7 @@ def main():
         execution_policy='One probability replay of saved answers; gate failure skips sampled candidate. For each eligible candidate run8x2 short engineering,100x2 fresh screen, author-grade, and only a passing screen proceeds unchanged to200x2 fixed independent confirmation. Any runtime/input/grade failure stops entire batch with partials retained. No retries,7B,fulltest,AIME orSEAL comparison reruns.',
         stop_policy='90-minute whole-batch ceiling. Do not begin a generation stage with<300seconds remaining for engineering/screen or<600seconds for confirmation. Mark unstarted stages as budget-limited, not efficacy failures. Parent bounds and kills only its own child process groups on timeouts.',
         GPU_authorization='NOT YET PROVIDED FOR THIS NEW BATCH. User has closed GPU and requested four-hour local preparation; wait for explicit reopening.',
+        preparation_revision='v2: sampled-confidence8-question engineering uses greedy decoding and requires exact paired token identity. Formal stochastic100/200 stages, all splits, vectors, counts and promotion gates unchanged. Earlier4a01bd7 bundle was never executed and remains preserved.',
         provenance='All fits, input splits, candidate rules and judgments fixed before any new model forward. CPU saved-path statistics are not generation benefits.')
     save(out/'plan.json',parent)
     subprocess.run([sys.executable,str(ROOT/BASE/'scripts/check_prepared_prompts.py'),
