@@ -1,0 +1,33 @@
+{
+  "status": "hypothesis_fixed_before_crossing_quantile_audit",
+  "candidate": "robust_calibration_of_aggressive_displacement",
+  "purpose": "Test whether setting the strongest negative displacement by one maximum calibration crossing overreacts to rare, extreme states.",
+  "basis": [
+    {"source":"integration/rebalance_easysteer/scripts/calibrate_auto.py:fit","evidence":"Current aggressive amplitude is max_i(w.x_i-threshold)/(w.direction) over all over-labeled calibration states. It guarantees crossing of the fitted linear separator for every selected training state, not correctness or optimal compression."},
+    {"source":"https://arxiv.org/abs/2602.08169v2","location":"section5.5 and limitations","evidence":"Strong activation perturbations can degrade quality in that paper's other behaviors. This motivates checking intensity but provides no mathematical-reasoning benefit guarantee."},
+    {"derivation":"An empirical upper0.95 quantile limits the influence of the most extreme5percent of selected states. It trades the original all-calibration-state crossing target for a95percent empirical crossing target. This is our adaptation choice, not a paper reproduction or conformal safety guarantee."}
+  ],
+  "exact_change": {
+    "score": "s_i=(w.x_i-threshold)/(w.direction), using original mixed labels, original layer21 states, original FP64 means/diagonal variances and separator.",
+    "amplitude": "max(0.5, empirical_quantile(s_over,0.95,method='higher'))",
+    "changed_runtime_parameter": "low_val_2=-amplitude",
+    "unchanged": "All other controller constants, originalraw vector bytes/norm, selected outputlayer20, arithmetic max-probability confidence, paragraph boundaries and sampling.",
+    "no_search": "One fixed0.95 quantile; no alternate quantile, shrinkage factor or combined direction candidate after seeing results."
+  },
+  "CPU_gate": {
+    "minimum_reduction_in_aggressive_amplitude": 0.20,
+    "minimum_max_over_min_quantile_stability_inverse": 0.90,
+    "minimum_fraction_of_original_nonempty_boundary_coefficients_changed_by_at_least_point1": 0.10,
+    "minimum_affected_questions": 50,
+    "requires_original_raw_vector_and_max_amplitude_reconstruction": true
+  },
+  "CPU_checks": "Compute full-score distribution, per-question maximum, leave-one-question-out maximum sensitivity and the fixed0.95 quantile on original400/100 groups. Readout/labels already use500, so group agreement is only descriptive development stability. The ratio smaller/larger quantile must be>=0.90. Apply both coefficient curves to original saved greedy boundary statistics and require finite values and unchanged non-aggressive branches. The95percent crossing fraction is a definition check, not a predictive success metric.",
+  "risks": [
+    "Large displacement may be necessary for difficult reasoning; reducing it can make output longer or less accurate.",
+    "The linear separator itself is only a behavior proxy, not a correctness boundary.",
+    "The original maximum might be stable across many questions rather than an isolated outlier; report that even if other gates pass.",
+    "Offline coefficient differences do not establish online compression."
+  ],
+  "if_CPU_passes": "Create a separate versioned fit referencing the unchanged original vector. Prepare a fresh100-question original/candidate paired screen with fixed16000 cap, same code/model/assets and generation settings. Require5percent reduction of both thinking and total tokens, no correct-count loss and no cap increase. Stop on failure; reserve200 independent questions only for a passing frozen candidate. No expansion to7B or final test sets.",
+  "resources": "CPU fitting uses local selected-layer backup. No new model forward, hidden replay, answers or environment installation. GPU remains off until user reopens for the prepared batch."
+}
