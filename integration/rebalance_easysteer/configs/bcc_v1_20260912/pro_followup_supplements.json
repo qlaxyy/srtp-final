@@ -1,0 +1,24 @@
+{
+  "status": "supplement_received_and_historical_assets_verified",
+  "source_files_sha256": {
+    "只读核对与规划计算.json": "42d85d85b45d93a681889608014a619222f650984edd48f97ca03a846decec88",
+    "BCC与最小位移_后续评估与执行规格.md": "0f59074170086c516d9c20f0a3a7dc6aa4ee3b7b5cf24649a98f95a665f5fa05"
+  },
+  "shadow_replay_proposal": {
+    "fit_pairs": 40,
+    "extra_prefixes": 80,
+    "extension_tokens_max": 32,
+    "raw_relative_l2_max": 0.05,
+    "direction_cosine_min": 0.99,
+    "also_apply_to_fixed_null": true,
+    "status": "conditional proposal; not GPU authorized; must freeze protocol before any shadow output"
+  },
+  "confirmation_proposal": {
+    "bootstrap_repetitions": 20000,
+    "seed": 20260912,
+    "accuracy_interval": "Tango paired-score, implementation validation pending",
+    "accuracy_margin": 0.01,
+    "status": "risk margin proposed not user confirmed"
+  },
+  "new_GPU_calls": 0
+}
