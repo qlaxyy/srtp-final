@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import gc
+from importlib.metadata import version as package_version
+import inspect
 import json
 import math
 import os
@@ -28,6 +30,7 @@ from vllm.steer_vectors import ApplySpec, SteeringSpec, VectorSpec
 from runtime_guards import guard_dynamic_preemption
 from decode_profiler import ProfileWindowComplete
 from calibration_contract import resolve_calibration_layer
+from baseline_reuse import execution_identity, validate_saved_baseline
 
 from rebalance_static_eval import (
     DEFAULT_DATASET,
@@ -96,7 +99,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--negative-only", action=argparse.BooleanOptionalAction, default=False,
                         help="Ablate positive coefficients after the unchanged dynamic rule")
     parser.add_argument("--baseline-result", type=Path,
-                        help="Reuse a compatible saved baseline; no generation repeat")
+                        help="Reuse a complete control with verified code/model content identity")
     parser.add_argument("--dynamic-first", action="store_true",
                         help="Check the intervention arm before spending time on baseline")
     parser.add_argument("--diagnostic-group", choices=["baseline", "rebalance_dynamic"],
@@ -306,6 +309,7 @@ def main() -> None:
             "top_p": args.top_p,
             "seed": args.seed,
             "execution_mode": "in_graph",
+            "steering_algorithm": algorithm,
             "async_scheduling": args.async_scheduling,
             "profiling_enabled": args.profile_steps > 0,
             "profile_steps": args.profile_steps,
@@ -320,6 +324,24 @@ def main() -> None:
             "torch": torch.__version__,
             "cuda": torch.version.cuda,
             "vllm": vllm.__version__,
+            "transformers": package_version("transformers"),
+            "tokenizers": package_version("tokenizers"),
+            "triton": package_version("triton"),
+            "gpu": torch.cuda.get_device_name(0),
+            "cuda_driver": subprocess.check_output(
+                ["nvidia-smi", "--query-gpu=driver_version", "--format=csv,noheader"],
+                text=True,
+            ).strip(),
+            "numeric_environment": {
+                "float32_matmul_precision": torch.get_float32_matmul_precision(),
+                "allow_tf32": torch.backends.cuda.matmul.allow_tf32,
+                "compile_environment": {
+                    key: os.environ.get(key) for key in (
+                        "TORCHINDUCTOR_EMULATE_PRECISION_CASTS", "VLLM_USE_AOT_COMPILE",
+                        "VLLM_USE_STANDALONE_COMPILE", "CUDA_VISIBLE_DEVICES",
+                    )
+                },
+            },
         },
     }
     root = Path(__file__).resolve().parents[3]
@@ -370,40 +392,24 @@ def main() -> None:
         result["provenance"]["calibration_fit_sha256"] = hashlib.sha256(
             args.calibration_fit.read_bytes()).hexdigest()
 
+    identity_started = time.perf_counter()
+    if Path(vllm.__file__).resolve() != (
+        root / "sources/EasySteer/vllm-steer/vllm/__init__.py"
+    ).resolve() or Path(inspect.getfile(from_pt_direction)).resolve() != (
+        root / "sources/EasySteer/easysteer/vectors.py"
+    ).resolve():
+        raise ValueError("Imported runtime differs from the source being fingerprinted")
+    result["provenance"]["execution_identity"] = execution_identity(root, model_path)
+    result["execution_identity_seconds"] = time.perf_counter() - identity_started
+
     reused_baseline = None
     if args.baseline_result:
-        saved = json.loads(args.baseline_result.read_text(encoding="utf-8"))
-        if saved["protocol"].get("profiling_enabled", False):
-            raise ValueError("A diagnostic profiling run is not a formal baseline")
-        if saved["protocol"].get("diagnostic_only", False):
-            raise ValueError("An engineering diagnostic is not a formal baseline")
-        for key in ("model", "dataset", "offset", "limit", "max_tokens",
-                    "max_model_len", "temperature", "top_p", "seed", "execution_mode"):
-            if saved["protocol"][key] != result["protocol"][key]:
-                raise ValueError(f"Incompatible saved baseline protocol: {key}")
-        if saved["provenance"]["dataset_sha256"] != result["provenance"]["dataset_sha256"]:
-            raise ValueError("Incompatible saved baseline dataset contents")
-        for key in ("torch", "vllm"):
-            if saved["environment"][key] != result["environment"][key]:
-                raise ValueError(f"Incompatible saved baseline environment: {key}")
-        if saved["protocol"].get("max_num_seqs", 256) != args.max_num_seqs:
-            raise ValueError("Incompatible saved baseline concurrency")
-        if saved["protocol"].get("gpu_memory_utilization") != args.gpu_memory_utilization:
-            raise ValueError("Incompatible saved baseline GPU memory budget")
-        if saved["protocol"].get("async_scheduling", True) != args.async_scheduling:
-            raise ValueError("Saved baseline scheduling differs")
-        if (saved["protocol"].get("chunked_prefill", False) != args.chunked_prefill
-                or saved["protocol"].get("max_num_batched_tokens") != args.max_num_batched_tokens):
-            raise ValueError("Incompatible saved baseline prefill configuration")
-        reused_baseline = saved["baseline"]
-        if len(reused_baseline["records"]) != len(examples):
-            raise ValueError("Saved baseline record count mismatch")
-        if any(a["problem"] != b["problem"] for a, b in
-               zip(reused_baseline["records"], examples, strict=True)):
-            raise ValueError("Saved baseline problem order mismatch")
+        saved_bytes = args.baseline_result.read_bytes()
+        saved = json.loads(saved_bytes)
+        reused_baseline = validate_saved_baseline(saved, result, examples, think_end_id)
         result["provenance"]["reused_baseline"] = {
             "path": str(args.baseline_result),
-            "sha256": hashlib.sha256(args.baseline_result.read_bytes()).hexdigest(),
+            "sha256": hashlib.sha256(saved_bytes).hexdigest(),
             "provenance": saved["provenance"],
             "timing_is_historical": True,
         }
