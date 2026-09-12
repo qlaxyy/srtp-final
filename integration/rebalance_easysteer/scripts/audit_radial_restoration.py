@@ -1,6 +1,9 @@
 """One fixed CPU opportunity check on saved states; never loads a model."""
 import argparse
+import hashlib
+import json
 import subprocess
+import tarfile
 import time
 from pathlib import Path
 from types import SimpleNamespace
@@ -73,8 +76,26 @@ def main():
     require(len(current) == 83508 and len(steps) == 84008, 'Unexpected support')
     require(np.array_equal(q_all[current], q_all[previous]), 'Cross-question shift')
     require(all(steps[i]['start'] > 0 and
-                steps[i-1]['stop'] == steps[i]['start']-1 for i in current),
-            'Preceding evidence is not adjacent to current boundary')
+                steps[i-1]['stop'] <= steps[i]['start']-1 for i in current),
+            'Preceding evidence overlaps current boundary')
+    gaps = [int(i) for i in current if steps[i-1]['stop'] < steps[i]['start']-1]
+    gap_q = {steps[i]['question'] for i in gaps}
+    frozen = read(ROOT/BASE/'configs/final_results_20260909.json')
+    boundaries = set(frozen['benchmarks'][0]['protocol']['dynamic_params']['boundary_token_ids'])
+    # The online ready mask requires counts>0, so empty steps retain the most
+    # recent nonempty step's coefficient. Check the actual skipped token IDs.
+    gap_tokens = {}
+    digest = hashlib.sha256()
+    with tarfile.open(ROOT/'.codex_work/own_calibration_500_20260908/calibration_assets.tar.gz') as archive:
+        for question, line in enumerate(archive.extractfile('generations.jsonl')):
+            digest.update(line)
+            if question in gap_q:
+                gap_tokens[question] = json.loads(line)['token_ids']
+    require(digest.hexdigest() == replay_plan['generations_sha256'], 'Saved answers changed')
+    for i in gaps:
+        ids = gap_tokens[steps[i]['question']]
+        require(all(t in boundaries for t in ids[steps[i-1]['stop']:steps[i]['start']]),
+                'Gap includes unaccounted content')
     groups = read(backup/'selected_layer.json')
     group_masks = {key: np.isin(q_all[current], groups[key])
                    for key in ['training_questions', 'validation_questions']}
@@ -146,6 +167,7 @@ def main():
         plan_sha256=sha(plan_path, source=True), script_sha256=sha(Path(__file__), source=True),
         input_sha256={str(path.relative_to(ROOT)): sha(path) for path in paths.values()},
         support_sha256=sha(mask_path), split_sha256=sha(backup/'selected_layer.json'),
+        consecutive_boundary_rows=gaps, saved_answers_sha256=digest.hexdigest(),
         checks=nchecks, max_direction_error=max_direction_error,
         max_relative_restored_norm_error=max_norm_error, summary=summary,
         passes_fixed_cpu_gate=bool(passed),
