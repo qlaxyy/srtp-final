@@ -1,0 +1,37 @@
+{
+  "status": "fixed_before_CPU_direction_construction",
+  "purpose": "Screen a new supervision target for the existing dynamic controller: within-question progress toward completion, instead of lexical/confidence reflection classes.",
+  "basis": {"paper": "https://arxiv.org/abs/2608.28859v1", "location": "Eq1, Section4 and AppendixC", "inference": "A within-trajectory temporal contrast controls question content across its two sides. A late direction may act on completion behavior even when it is not a correctness readout. This is a separately named adaptation, not a reproduction of the paper's gold lock-on vector or trained self-halt."},
+  "inputs": {
+    "backup": ".codex_work/question_balanced_20260911/original_selected_layer",
+    "saved_answers": ".codex_work/own_calibration_500_20260908/calibration_assets.tar.gz",
+    "generations_member": "generations.jsonl",
+    "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+    "hidden_sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+    "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93"
+  },
+  "construction": {
+    "eligibility": "Original saved calibration answer must finish with stop and contain </think>. Require at least two stored complete steps in each temporal quarter. Do not select by answer correctness. Report excluded counts and reasons.",
+    "temporal_contrast": "For each eligible question, use existing selected-layer first-content states whose original generated start positions lie in (0,0.25*thinking_length) versus [0.75*thinking_length,thinking_length). Remove the prompt-first state. Average states within each side, then average late-minus-early differences equally across questions.",
+    "cpu_split": "Reuse the original400/100 question groups, already used for layer selection. Fit the direction on eligible training questions only for CPU readout checks; no layer, window or threshold sweep. This is development evidence.",
+    "proposed_asset": "If CPU checks pass, refit the same formula on all eligible original calibration questions. Negate the late-minus-early direction and scale it to the original vector's Euclidean norm, so unchanged negative dynamic coefficients push toward late states. Only the vector changes in any subsequent generation comparison.",
+    "unchanged": "Model1.5B, HF hidden21/decoder output20, first-content extraction, runtime delimiter placement, all original dynamic parameters, arithmetic confidence and both coefficient signs. No extra forward, runtime classifier, forced stop or weight training."
+  },
+  "cpu_gate": {
+    "minimum_training_questions": 80,
+    "minimum_development_questions": 20,
+    "minimum_train_development_direction_cosine": 0.8,
+    "minimum_development_question_mean_pair_auc": 0.70,
+    "minimum_development_pair_auc_gain_over_original_compression_axis": 0.05,
+    "minimum_development_late_higher_question_fraction": 0.75,
+    "maximum_absolute_candidate_original_cosine": 0.98
+  },
+  "decision": "Any failed CPU criterion stops this candidate without changing temporal windows or using GPU. A pass permits preparing a new100-question paired screen with5percent thinking AND total reduction, no fewer correct answers and no more caps; only a passing screen may use independently reserved200 questions.",
+  "cost": "Local memmapped selected states and saved token IDs. No model load, new answer generation or hidden replay.",
+  "limitations": [
+    "Temporal labels are constructed with the completed calibration trace. They are training supervision, never an inference-time signal or a correctness guarantee.",
+    "The original first-content versus runtime-delimiter mismatch is retained to isolate the vector replacement; this candidate does not fix that mismatch.",
+    "The pool excludes incomplete calibration traces for defining the terminal quarter, but all errors and capped outputs must remain in any generation evaluation.",
+    "A direction can separate stages while being a bad causal intervention. CPU success establishes only the intended progression signal and its stability."
+  ]
+}
