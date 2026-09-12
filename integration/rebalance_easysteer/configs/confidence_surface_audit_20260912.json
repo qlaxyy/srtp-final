@@ -1,0 +1,12 @@
+{
+  "status": "fixed_before_surface_feature_statistics",
+  "purpose": "Describe how much of original step confidence is predictable from token surface composition and step length. This is an audit, not a new controller or a causal compression claim.",
+  "inputs": "All original500 saved greedy calibration answers and84008 complete nonempty steps; retain capped answers. Original400/100 question groups remain development groups because they already informed layer selection.",
+  "token_classes_order": ["ascii_digits_only_after_strip", "contains_ascii_letter", "contains_ascii_digit_other", "whitespace_only", "contains_nonascii", "punctuation_or_operator_other"],
+  "definitions": "Classify decoded token byte pieces independently, using replacement for incomplete UTF8 solely in this descriptive surface classification. First matching category wins. These classes are not semantic reasoning labels.",
+  "statistics": "Per-class token count and probability means, pooled and question-equal. Per-step class fractions and log1p(number of tokens). Recompute every step arithmetic mean from original max-token logprobs and require alignment with saved step confidence before analysis.",
+  "regression": "Two fixed question-equal ridge regressions on400 questions: log length alone, and log length plus all six class fractions. Standardize using weighted training statistics, unpenalized intercept, penalty1 on standardized slopes with weights summing to the number of training steps. Evaluate heldout100 weighted MSE versus the training weighted mean, and versus the length-only model. No thresholds, category revisions, alpha sweep, output clipping or new label selection.",
+  "interpretation": "Prediction of confidence from surface form would identify a potential proxy confound; it would not prove harmful steering or justify removing numeric tokens. Low predictability weakens this simple explanation. Current raw max probability is distinct from the paper's top20 entropy.",
+  "basis": [{"paper":"https://arxiv.org/abs/2607.28707v3","location":"Sections3-5 and limitations","scope":"Numeric-token overlap is examined in offline pruning and activation patching; not our online control. The paper excludes non-ending traces and its Table6 has arithmetic inconsistencies, so its headline claims are not adopted as a guarantee."}],
+  "resources": "Local NumPy and verified saved tokenizer only. No model loading, hidden-state replay, new answers, new grading, GPU, or server dependency."
+}
