@@ -1,0 +1,140 @@
+{
+  "status": "v2_actual12commands_checked_greedy_engineering_only_revision",
+  "parent_plan_sha256": "c87de6f28dacade1cba740b015f801003ee65b1c3810e28b3fa6c7db55dd1339",
+  "source_commit": "1538c88c18a9adf065095aff434b86f92e3934cb",
+  "CPU_check_receipt_sha256": "ee62fcf8be41ff3db2481efd9272e589815adcbc3c0aae4e04aa3a5be410135e",
+  "preserved_unrun_v1_plan_sha256": "b9b099dcaaadf5433a12c53fb2f7df1a1ea8e2dce3d583e7c6b8c9167bc2d053",
+  "all_splits_assets_and_formal_runtime_unchanged": true,
+  "commands": [
+    {
+      "candidate": "sampled_confidence",
+      "stage": "engineering",
+      "arm": "original_dynamic",
+      "count": 8,
+      "layer": 20,
+      "max_tokens": 512,
+      "temperature": 0.0,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "sampled_confidence",
+      "stage": "engineering",
+      "arm": "sampled_confidence",
+      "count": 8,
+      "layer": 20,
+      "max_tokens": 512,
+      "temperature": 0.0,
+      "sampled_confidence": true
+    },
+    {
+      "candidate": "sampled_confidence",
+      "stage": "screen",
+      "arm": "original_dynamic",
+      "count": 100,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "sampled_confidence",
+      "stage": "screen",
+      "arm": "sampled_confidence",
+      "count": 100,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": true
+    },
+    {
+      "candidate": "sampled_confidence",
+      "stage": "confirmation",
+      "arm": "original_dynamic",
+      "count": 200,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "sampled_confidence",
+      "stage": "confirmation",
+      "arm": "sampled_confidence",
+      "count": 200,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": true
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "engineering",
+      "arm": "original_dynamic",
+      "count": 8,
+      "layer": 20,
+      "max_tokens": 512,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "engineering",
+      "arm": "lexical_direction",
+      "count": 8,
+      "layer": 20,
+      "max_tokens": 512,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "screen",
+      "arm": "original_dynamic",
+      "count": 100,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "screen",
+      "arm": "lexical_direction",
+      "count": 100,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "confirmation",
+      "arm": "original_dynamic",
+      "count": 200,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    },
+    {
+      "candidate": "lexical_direction",
+      "stage": "confirmation",
+      "arm": "lexical_direction",
+      "count": 200,
+      "layer": 20,
+      "max_tokens": 16000,
+      "temperature": 0.7,
+      "sampled_confidence": false
+    }
+  ],
+  "native_pending": [
+    "RealLinuxprocesscleanup",
+    "RealTorchCUDA",
+    "Native608promptencoding",
+    "Saved100probabilityreplay",
+    "Generation"
+  ],
+  "GPU_calls": 0,
+  "model_loads": 0,
+  "new_answers": 0
+}

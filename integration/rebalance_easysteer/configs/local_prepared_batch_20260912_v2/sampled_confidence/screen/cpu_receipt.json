@@ -1,0 +1,27 @@
+{
+  "status": "passed_local_numpy_backed_actual_source_checks",
+  "checks": [
+    "test_rebalance_state_is_request_local_and_uses_arithmetic_mean",
+    "test_sampled_confidence_is_request_local_across_reordering_and_replay",
+    "actual_runner_16_mutating_sampler_cases",
+    "default_and_constant_runner_exact_prechange_equivalence",
+    "snapshot_ownership_dummy_rows_shape_rejection",
+    "greedy_selected_equals_raw_max_exactly",
+    "six_unsupported_configuration_rejections"
+  ],
+  "runner_rows": 552,
+  "source_sha256": {
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "07c7e41b1850db0c9992c09322cd8a48f06dd9259a937b861b40d3a98b3fd807",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": "baa61abe6fa5d0c1fbf1eb616dd92054d320cb7297a51d7af164596c41c26e56",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": "408ac2d2fbaa353189033b095d84b7d48da51d51d17d59d35a004e27e271b54b",
+    "sources/EasySteer/vllm-steer/tests/steer_vectors/test_rebalance.py": "c7bd8e9d2fc0ac103b910963eeed8f99e3432cd1374215ec258a62d179c81a07"
+  },
+  "checker_sha256": "4eeebf2f0b35374b3596ec6bc470978556fccb6ed94872b487542a25be688814",
+  "cpu_seconds": 0.23485929999151267,
+  "code_commit": "9b466ee69f07d2b9f998df88a65508a07597c731",
+  "tracked_worktree_dirty": false,
+  "GPU_calls": 0,
+  "model_loads": 0,
+  "new_answers": 0,
+  "limits": "NumPy emulates the listed operations only. These are not Torch/CUDA or msgspec integration checks, throughput measurements, or generation benefit. Vendor tests and short real compiled checks are pending the next explicitly authorized GPU session."
+}
