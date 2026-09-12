@@ -1,0 +1,37 @@
+{
+  "status": "fixed_before_saved_state_geometry_statistics",
+  "purpose": "Test whether original additive steering creates appreciable radial changes at actual control positions before considering a radial-only intervention.",
+  "candidate": "restore_current_complete_hidden_norm_after_original_addition",
+  "mechanism": "For complete current decoder state x and unchanged signed original displacement c*d, form y=x+c*d and y_restore=norm(x)*y/norm(y). Preserve the additive output direction, both coefficient branches, original vector, layer and boundary rules. A zero original or resulting norm must use an explicit no-op guard. This is CAA-r geometry, not Spherical Steering's angular targeting or vMF gate.",
+  "evidence": [
+    {"paper": "https://arxiv.org/abs/2606.06735v2", "location": "Eq6; Section4.2; AppendixE Figure17", "role": "Formula and counterevidence: posthoc norm restoration alone generally behaves close to ordinary addition and is not a reliable stability improvement. The paper does not test reasoning compression."},
+    {"paper": "https://arxiv.org/abs/2602.08169v2", "location": "Eq6-11; Section5.5; AppendixC.3", "role": "Motivates separating angular and radial effects, but its rotation/gating differs from this candidate. Strong steering can degrade free generation; the appendix beta=0.999 ungated description conflicts with Eq15 and released code."}
+  ],
+  "inputs": {
+    "backup": ".codex_work/question_balanced_20260911/original_selected_layer",
+    "hidden_path": ".codex_work/overnight_research_20260912/control_point_replay/predecessor_layer21.npy",
+    "hidden_sha256": "fe9055bae58ecf05516e19ccdb82074294e9dc89f1e27aa37d70c4d2876df190",
+    "support_path": ".codex_work/overnight_research_20260912/control_point_prepared/matched_mask.npy",
+    "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+    "fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+  },
+  "cpu_protocol": "Use all83508 saved generated predecessor states, excluding each prompt-first state. Pair state row i with the unchanged controller coefficient computed from the preceding complete step i-1. Report pooled, positive/negative and original400/100 question-group statistics. No layer, coefficient, gate or norm-factor fitting. Use bounded-memory chunks and retain per-boundary geometry for independent audit.",
+  "cpu_gate": {
+    "minimum_absolute_norm_ratio_change": 0.01,
+    "minimum_affected_fraction": 0.10,
+    "minimum_affected_questions": 50,
+    "minimum_affected_fraction_in_each_original_question_group": 0.10,
+    "finite_inputs_and_outputs": true,
+    "exact_formula_direction_and_norm_checks": true
+  },
+  "gate_rationale": "One-percent radial change exceeds one BF16 relative rounding interval and must occur broadly rather than in a few extreme questions. These are fixed practical opportunity thresholds, not a theorem or a prediction of improved accuracy/compression. Given counterevidence, small or localized radial change stops this candidate before GPU.",
+  "runtime_risks": [
+    "Complete state means hidden plus residual at the EasySteer hook; normalizing only the branch output would test a different intervention.",
+    "Existing ReBalance rejects normalize=True. The shared generic normalization mask contains the signed coefficient, so merely enabling it would not implement this formula.",
+    "A new compiled graph may change BF16 intermediate rounding even with the candidate disabled. Any eventual GPU design needs engineering checks and an explicit matched-graph disabled control plus the unchanged original control.",
+    "Immediate RMS normalization nearly cancels a positive radial rescale, but the carried residual still changes. CPU geometry is not a model-forward result."
+  ],
+  "decision": "A failed CPU gate ends this exact radial-restoration candidate without strength changes or GPU. A pass permits implementation and a separately fixed small generation protocol, not immediate model execution. Any screen must reduce both thinking and total tokens at least5percent with no fewer correct and no more capped answers against each applicable control; no completed test set parameter search.",
+  "cost": "Local NumPy only on existing states; zero model loads, new answers, hidden replays or GPU calls. Original400/100 groups are development data, not independent confirmation."
+}
