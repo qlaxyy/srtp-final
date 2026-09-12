@@ -16621,5 +16621,26 @@
     "action": "Retain fixed paired fresh baselines for the pending progression-vector screen. Before future generic reuse, add a verified execution manifest and complete-record validation; do not regenerate frozen controls merely because this entry point is permissive.",
     "model_calls": 0,
     "new_answers": 0
+  },
+  "baseline_reuse_entry_fix": {
+    "status": "existing_runtime_imports_and_actual_model_identity_verified_no_model_load",
+    "commit": "42eaff5e2eb61fdf9980f074b34a7f0541fc19fc",
+    "identity_seconds": 3.813425451517105,
+    "source_files": 2480,
+    "model_files": 5,
+    "model_bytes": 3561250212,
+    "frozen_model_hashes_matched": 5,
+    "model_calls": 0,
+    "new_answers": 0,
+    "local_path": ".codex_work/overnight_research_20260912/baseline_reuse_identity_20260912.json",
+    "sha256": "950e3fe09584869b1a76bd073706e7f80ce14b93e616179c90e3d19a7a6164ce",
+    "cpu_checks": {
+      "local_test_groups": 6,
+      "local_seconds": 0.504,
+      "server_test_groups": 6,
+      "server_seconds": 0.043,
+      "invalid_artifact_cases": 33,
+      "existing_bounded_evaluation_checks": "passed"
+    }
   }
 }
