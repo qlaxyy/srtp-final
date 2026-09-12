@@ -1,0 +1,704 @@
+{
+  "status": "completed_CPU_lexical_direction_fit_not_generation",
+  "commit": "d76ca0eb9a872ab0562fadb8d9c5fbfd30a4ea3d",
+  "plan_sha256": "95779707d81a500d136f591b9506508f2e53e6001f9f3203e6b09f626125b12b",
+  "script_sha256": "753d238144668379e351a96278b521c1589caa91b6766d0ad9fcda11c2a43eb4",
+  "source_sha256": {
+    "steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+    "layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66"
+  },
+  "author_source_sha256": "43051ee66bc4d1f52bc09a67ac183ea2bcd2574961f5902e876b9e47947ffc34",
+  "official_source": {
+    "repo": "VITA-Group/SEAL",
+    "commit": "b2ad6858fc48143021e5df5ce10396f5c693b1ec"
+  },
+  "official_label_constants": {
+    "check_words": [
+      "verify",
+      "make sure",
+      "hold on",
+      "think again",
+      "'s correct",
+      "'s incorrect",
+      "Let me check",
+      "seems right"
+    ],
+    "check_prefix": [
+      "Wait"
+    ],
+    "swicth_words": [
+      "think differenly",
+      "another way",
+      "another approach",
+      "another method",
+      "another solution",
+      "another strategy",
+      "another technique"
+    ],
+    "switch_prefix": [
+      "Alternatively"
+    ]
+  },
+  "exact_step_support": 84008,
+  "exact_official_shared_labels_checked": 83508,
+  "first_steps_labeled_with_same_rule": 500,
+  "class_counts": {
+    "execution": 56123,
+    "reflection": 23480,
+    "transition": 4405
+  },
+  "class_questions": {
+    "RT": 498,
+    "E": 500
+  },
+  "original_binary_label_overlaps": {
+    "over": {
+      "RT": 27479,
+      "E": 20772
+    },
+    "under": {
+      "RT": 39,
+      "E": 11270
+    },
+    "unselected": {
+      "RT": 367,
+      "E": 24081
+    }
+  },
+  "raw_contrast_norm": 100.17876093992808,
+  "matched_vector_norm": 83.6191365562794,
+  "original_vector_cosine": 0.6994066577098519,
+  "relative_vector_change": 0.7753622924673964,
+  "group_direction_cosine": 0.971809376234198,
+  "content_judgment_source_sha256": "de854bda323df7625d0b05817652d748b763581b8b4f4be979f89a6bbb65fa18",
+  "joined_content_diagnostics": [
+    {
+      "case_id": "Sa81dfed5",
+      "question": 7,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S9bf02158",
+      "question": 7,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S0c67831b",
+      "question": 7,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa938fd0e",
+      "question": 39,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Se8958dc5",
+      "question": 39,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S4de4b7f7",
+      "question": 46,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S6c6fb755",
+      "question": 46,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S58984e7f",
+      "question": 47,
+      "original_label": "over",
+      "new_class": "transition",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S0c37aacf",
+      "question": 47,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S976b3d26",
+      "question": 47,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa869081d",
+      "question": 60,
+      "original_label": "over",
+      "new_class": "transition",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S199296c5",
+      "question": 60,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S51734870",
+      "question": 66,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "S6548fd66",
+      "question": 66,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sdeb551b4",
+      "question": 83,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "uncertain",
+      "math_validity": "not_applicable"
+    },
+    {
+      "case_id": "S69ec1de8",
+      "question": 83,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S11f8e07e",
+      "question": 83,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "uncertain"
+    },
+    {
+      "case_id": "S578f06b3",
+      "question": 89,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S5c2bf63d",
+      "question": 89,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S25f72a00",
+      "question": 95,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "repeat",
+      "math_validity": "uncertain"
+    },
+    {
+      "case_id": "Sb493903e",
+      "question": 95,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S6a6f3722",
+      "question": 95,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S294ecda3",
+      "question": 129,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "repeat",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "Se774d5ee",
+      "question": 129,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S0d5bd91c",
+      "question": 129,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sb0aded73",
+      "question": 130,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "not_applicable"
+    },
+    {
+      "case_id": "Sa6efe0c9",
+      "question": 130,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sbf5d5d2e",
+      "question": 130,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S7267ec8e",
+      "question": 176,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa40219af",
+      "question": 176,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S73dfa83d",
+      "question": 176,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S46900ec4",
+      "question": 186,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa1de2388",
+      "question": 186,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sc9feee06",
+      "question": 187,
+      "original_label": "over",
+      "new_class": "transition",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S9a19ca69",
+      "question": 187,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S2d9bac2d",
+      "question": 203,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S5d98dd97",
+      "question": 203,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S740850f2",
+      "question": 203,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sfaf9db77",
+      "question": 249,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "repeat",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "S0256f06b",
+      "question": 249,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "S0f81af27",
+      "question": 249,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "Sefe813dc",
+      "question": 264,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "not_applicable"
+    },
+    {
+      "case_id": "S45b891e6",
+      "question": 264,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S2d0acdaa",
+      "question": 264,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sfd5db805",
+      "question": 275,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S40ad310e",
+      "question": 275,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "not_applicable"
+    },
+    {
+      "case_id": "S57c409ec",
+      "question": 290,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S313fdded",
+      "question": 290,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sad3bbe1f",
+      "question": 321,
+      "original_label": "over",
+      "new_class": "transition",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S1b32af35",
+      "question": 321,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "not_applicable"
+    },
+    {
+      "case_id": "S6dfef437",
+      "question": 321,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S83e3c257",
+      "question": 347,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S9243f770",
+      "question": 347,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S42ef7399",
+      "question": 355,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S72773bc0",
+      "question": 355,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S7cc69df2",
+      "question": 355,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S5885ca13",
+      "question": 366,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "S3192d43c",
+      "question": 366,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S33a4048f",
+      "question": 366,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "Se62c150d",
+      "question": 367,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S0bb1d2d9",
+      "question": 367,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S80de8092",
+      "question": 367,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S020de7c5",
+      "question": 380,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "uncertain",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S98d1277c",
+      "question": 380,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sfe66b8a9",
+      "question": 380,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S274d484a",
+      "question": 405,
+      "original_label": "over",
+      "new_class": "transition",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa580ae8e",
+      "question": 405,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "repeat",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sf8f01f31",
+      "question": 423,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S10f6328a",
+      "question": 423,
+      "original_label": "under",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S30dea7dd",
+      "question": 423,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S4407a34e",
+      "question": 449,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "S8ce18e4c",
+      "question": 449,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Sa351dcbd",
+      "question": 451,
+      "original_label": "over",
+      "new_class": "reflection",
+      "content_category": "new",
+      "math_validity": "error"
+    },
+    {
+      "case_id": "S5c43cbb1",
+      "question": 451,
+      "original_label": "unselected",
+      "new_class": "reflection",
+      "content_category": "new",
+      "math_validity": "supported"
+    },
+    {
+      "case_id": "Se1217a90",
+      "question": 456,
+      "original_label": "over",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "uncertain"
+    },
+    {
+      "case_id": "Se708c598",
+      "question": 456,
+      "original_label": "unselected",
+      "new_class": "execution",
+      "content_category": "new",
+      "math_validity": "supported"
+    }
+  ],
+  "passes_fixed_gate": true,
+  "decision": "prepare_fresh_GPU_screen",
+  "label_array_sha256": "1cfd9dc5c14a11243843f43d5652c9bc566d9ec6758a8408c4a3c4a4f0398ab8",
+  "CPU_rule_checks": 7,
+  "cpu_seconds": 7.622456799988868,
+  "model_loads": 0,
+  "new_answers": 0,
+  "GPU_calls": 0,
+  "limitations": [
+    "Lexical reflection markers also occur in useful checking and correction; their removal is not automatically safe.",
+    "Execution labels include unlabeled redundant prose and wrong calculations.",
+    "The original curve was calibrated for its original contrast. Matching vector norm controls scale but does not preserve its fitted linear-separator meaning.",
+    "The completed static SEAL comparison had an accuracy loss against dynamic ReBalance on its100 training questions; a hybrid has no demonstrated advantage. Fresh evaluation is required."
+  ],
+  "candidate_files_sha256": {
+    "auto_vector.pt": "766b337ef0a6299f91150aea028312594a741ebd9705a1937039b4e5343bd085",
+    "fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5"
+  }
+}

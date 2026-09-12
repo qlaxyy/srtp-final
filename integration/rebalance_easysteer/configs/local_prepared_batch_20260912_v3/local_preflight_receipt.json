@@ -1,0 +1,13 @@
+{
+  "status": "v3_parent_all_stages_and_actual12_parameter_branches_passed",
+  "parent_plan_sha256": "d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+  "source_commit": "2ef78d49fdd3c77afb93d160a4f8542c6b42765c",
+  "all_v2_splits_assets_and_runtime_unchanged": true,
+  "preserved_unrun_v2_sha256": "c87de6f28dacade1cba740b015f801003ee65b1c3810e28b3fa6c7db55dd1339",
+  "old_preparation_rejection": "Source changed: integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py",
+  "CPU_check_receipt_sha256": "9a045ba65870477784edfc8f7d88d4779be8816cb7fb9d5dfad88330f6267502",
+  "actual_parameter_branch_receipt_sha256": "183686c0ce7064052eb766a7f5ef9cc3626a050a003a0eff46e69d4452f6ad4a",
+  "model_loads": 0,
+  "GPU_calls": 0,
+  "new_answers": 0
+}
