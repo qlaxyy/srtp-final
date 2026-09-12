@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import time
@@ -16,6 +17,22 @@ GRADE = '/root/autodl-tmp/venvs/rebalance/bin/python'
 sys.path.insert(0, str(ROOT/'integration/rebalance_easysteer/eval'))
 os.environ['VLLM_ENABLE_V1_MULTIPROCESSING'] = '0'
 os.environ['PYTHONNOUSERSITE'] = '1'
+
+
+def child_environment():
+    env = dict(os.environ)
+    env['PATH'] = str(Path(GEN).parent) + os.pathsep + env.get('PATH', '')
+    env['PYTHONPATH'] = str(ROOT/'sources/EasySteer/vllm-steer') + os.pathsep + str(ROOT/'sources/EasySteer')
+    return env
+
+
+def check_build_tools():
+    env = child_environment()
+    ninja = shutil.which('ninja', path=env['PATH'])
+    if ninja is None:
+        raise RuntimeError('Existing environment ninja is not on child PATH')
+    version = subprocess.check_output([ninja, '--version'], env=env, text=True).strip()
+    return dict(ninja=ninja, version=version, sha256=sha(ninja))
 
 
 def read(path):
@@ -41,6 +58,7 @@ def dataset(role):
 
 
 def prepare(a):
+    build_tools = check_build_tools()
     from transformers import AutoTokenizer
     from rebalance_static_eval import build_prompt
     plan = read(HERE/'experiment_plan.json')
@@ -80,7 +98,7 @@ def prepare(a):
                     plan_sha256=sha(HERE/'experiment_plan.json'), prompts=prompts,
                     model_files=plan['assets']['model_files'], assets=plan['assets'],
                     environment=dict(python=sys.version,torch=torch.__version__,vllm=vllm.__version__,
-                                     vllm_path=vllm.__file__),
+                                     vllm_path=vllm.__file__,build_tools=build_tools),
                     output='/root/autodl-tmp/results/easysteer/'+plan['namespace']+'/'+a.run_id,
                     scope='8 engineering x 5, then only 64 x 4 if engineering passes',
                     authorization='User: 请继续，进行测试; first batch only',
@@ -246,12 +264,12 @@ def run_child(a):
 
 def execute(a):
     r=read(a.resolved_plan); validate(r)
+    assert check_build_tools() == r['environment']['build_tools']
     assert a.run_id==r['run_id'] and a.phase=='screen'
     output=Path(r['output']);output.mkdir(parents=True,exist_ok=False)
     save(output/'resolved_plan.json',r)
     start=time.monotonic()
-    env=dict(os.environ)
-    env['PYTHONPATH']=str(ROOT/'sources/EasySteer/vllm-steer')+':'+str(ROOT/'sources/EasySteer')
+    env=child_environment()
     status='failed'
     try:
         for child in ('pre','integrated'):

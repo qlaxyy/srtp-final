@@ -1,0 +1,43 @@
+{
+  "status": "engineering_startup_failed_no_answers",
+  "run_id": "s64_screen_run1_20260912",
+  "execution_commit": "5b488dcd1069289708452ec7dc501f5889adddd5",
+  "wall_seconds": 31.064080387353897,
+  "new_answers": 0,
+  "formal_screen_answers": 0,
+  "pure_question_generation_seconds": 0,
+  "model_initialization_and_warmup_occurred": true,
+  "warmup_forward_count": "Not instrumented; do not report zero",
+  "engineering_gate_pass": false,
+  "reason": "Child PATH omitted existing environment bin; FlashInfer warmup subprocess could not locate ninja",
+  "automatic_retries": 0,
+  "archive_sha256": "57cf6b965a1b0efd5fbab9b2ca7ea0c3efa0ea54a42bf2309244698b72954599",
+  "CPU_runtime_checks": "10 behavior checks passed on server CPU using torch, no CUDA tensors",
+  "path_fix_cpu": {
+    "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+    "version": "1.13.2.git.kitware.jobserver-pipe-1",
+    "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6",
+    "real_check_build_tools_function_passed": true,
+    "GPU_revalidation": false
+  },
+  "last_GPU_state": {
+    "utilization_percent": 0,
+    "memory_MiB": 1,
+    "compute_processes": []
+  },
+  "shared_checkout": {
+    "commit": "82c570e5e3d49971605268c30a59fe856d5d1f01",
+    "clean": true,
+    "modified_by_B": false
+  },
+  "data": "272 fixed reservations retained; no engineering or screening question submitted; confirmation unused",
+  "next_batch": "New run_id and source/resolved-plan identity; same candidate, questions and gates",
+  "files_sha256": {
+    "batch_status.json": "1c2567234e04d5008bb28b3e846529f51a0be8e6b8ec4981daa9f7f97f7c77c5",
+    "deployment_identity.json": "22931baae59108ff3701a219ce6278c7bbe9379c20a67ec49dfb5b628e29fd9e",
+    "launch_run1.log": "425e7ad357cfc90a75b328284cee76ce5500a6b1421ce127276fbf9bedbd2de9",
+    "pre.log": "49247031b56f19ae9083c398390bc7777374d59e7c069151bb045b1916ada4c8",
+    "remote_inventory.json": "aa933d3e2b5b73a031bbea6a4ec7291c586feffd9e4f2c3d190171fd40f9bcfb",
+    "resolved_plan.json": "a4e7a80a07d10b6d5b628da4db33931d900b41ae63e9b74767accf26c2c1e5db"
+  }
+}
