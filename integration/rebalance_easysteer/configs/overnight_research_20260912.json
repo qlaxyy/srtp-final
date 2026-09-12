@@ -18794,7 +18794,7 @@
     "GPU_calls": 0
   },
   "local_four_hour_candidate_screen": {
-    "status": "in_progress_no_GPU_no_new_answers",
+    "status": "CPU_screen_and_unified_scripts_ready_four_hour_window_continues_GPUoff",
     "start_utc": "2026-09-12T05:47:48Z",
     "earliest_four_hour_finish_utc": "2026-09-12T09:47:48Z",
     "GPU_status": "User closed instance. No SSH or model forward authorized until explicit reopening after preparation.",
@@ -19111,14 +19111,1043 @@
       "sha256": "1f5d9f58d0b3d771744802b8ddc894fbf3fdfa744f4384bb8942656c7e81a401"
     },
     "ranked_pending": [
-      "raw_sampled_confidence: runtime locally checked; saved100 probability replay must pass before generation",
-      "SEAL_lexical_direction_with_original_dynamic_controller: CPU gate passed; prepare fresh pairing"
+      "raw_sampled_confidence: frozen saved100 probability opportunity gate, then short8 and fresh100 paired screen; conditional200reserve",
+      "SEAL_lexical_direction_with_original_dynamic_controller: fixed new8short and100paired screen; conditional200reserve; lexical behavior hypothesis only"
     ],
     "stopped": [
       "interval128:dynamic saved-path fraction2.43545percent below5percent",
       "robust_q95_aggressive:amplitude reduction18.01786percent below20percent; max was not driven by one question",
       "long_suffix_penalty:3of12 first events supported as redundant below75percent"
     ],
-    "next": "Freeze common bounded GPU batch with fresh train screen/reserve, exact inputs/assets/sources, short engineering checks, replay gate, grade/checkpoint/recovery and cost ceiling; do not execute until user reopens."
+    "next": "Finish the requested four-hour local window and documentation. Do not connect or execute until the user explicitly reopens GPU and accepts this fixed batch. No repeated old experiments,7B,fulltest,AIME or staticSEAL runs.",
+    "additional_CPU_evidence": {
+      "lexical_first_token_and_question_composition": {
+        "local_path": ".codex_work/overnight_research_20260912/lexical_support_CPU_cross_group.json",
+        "sha256": "e3742fd59f5c35cd13f1dc09b857aec090b469db7ca5e44591ce84289af18e5f",
+        "result": {
+          "status": "descriptive_CPU_lexical_support_audit_no_candidate_change",
+          "lexical_fit_audit_sha256": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+          "script_sha256": "25f014114a71a275c6d1fdae72313293dc8cfb8ae0efc12179ddcbfb1f0185af",
+          "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+          "train_sha256": "4bd7f5266f6c5c4fc729da2d9cbefbe2453cf8df7bd6ba93dc02b9e11512cefd",
+          "questions": 500,
+          "steps": 84008,
+          "capped_answers_included": 149,
+          "unavailable_diagnostics": "The frozen training JSONL has no type/level metadata; no subject or difficulty subgroup claim is made.",
+          "decompositions": {
+            "first_content_token": {
+              "groups": 493,
+              "raw_contrast_norm": 100.17876093992808,
+              "supplied_reference_cosine": null,
+              "composition_projection_fraction": 0.9916942359969927,
+              "composition_norm_over_full": 0.9923459095647701,
+              "residual_norm_over_full": 0.03690436608241593,
+              "residual_full_cosine": 0.22506182559695892,
+              "within_group_mixed_class_steps": 48210,
+              "exact_additive_reconstruction_max_error": 7.66053886991358e-15,
+              "leave_one_group_out": {
+                "items": 493,
+                "detail": "See hashed local artifact"
+              }
+            },
+            "calibration_question": {
+              "groups": 500,
+              "raw_contrast_norm": 100.17876093992808,
+              "supplied_reference_cosine": null,
+              "composition_projection_fraction": 0.3711606584999414,
+              "composition_norm_over_full": 0.3890623057682889,
+              "residual_norm_over_full": 0.6395687302939805,
+              "residual_full_cosine": 0.9832240253694229,
+              "within_group_mixed_class_steps": 83993,
+              "exact_additive_reconstruction_max_error": 1.5987211554602254e-14,
+              "leave_one_group_out": {
+                "items": 500,
+                "detail": "See hashed local artifact"
+              }
+            },
+            "original_mixed_direction_first_token": {
+              "groups": 366,
+              "raw_contrast_norm": 83.61913616775803,
+              "supplied_reference_cosine": 0.9999999999999998,
+              "composition_projection_fraction": 0.8405198658623574,
+              "composition_norm_over_full": 0.9043789353831205,
+              "residual_norm_over_full": 0.36994800586027143,
+              "residual_full_cosine": 0.4310879680694314,
+              "within_group_mixed_class_steps": 23518,
+              "exact_additive_reconstruction_max_error": 7.549516567451064e-15,
+              "leave_one_group_out": {
+                "items": 366,
+                "detail": "See hashed local artifact"
+              }
+            }
+          },
+          "cross_question_group_decompositions": {
+            "lexical_direction": {
+              "training_questions": 400,
+              "development_questions": 100,
+              "development_steps": 19087,
+              "unseen_first_token_steps": 447,
+              "composition_projection_fraction": 0.9564155552901411,
+              "composition_norm_over_full": 0.9869401067396062,
+              "residual_norm_over_full": 0.24742607726531815,
+              "residual_full_cosine": 0.17615137899600944,
+              "definition": "Token means estimated on original400 questions only; decomposition evaluated on original100 development questions. Unseen tokens use pooled training mean. No GPU outcomes or promotion rule involved."
+            },
+            "original_mixed_direction": {
+              "training_questions": 400,
+              "development_questions": 100,
+              "development_steps": 13399,
+              "unseen_first_token_steps": 270,
+              "composition_projection_fraction": 0.5866583007714349,
+              "composition_norm_over_full": 0.7801390923026454,
+              "residual_norm_over_full": 0.659772992623922,
+              "residual_full_cosine": 0.6264907837235079,
+              "definition": "Token means estimated on original400 questions only; decomposition evaluated on original100 development questions. Unseen tokens use pooled training mean. No GPU outcomes or promotion rule involved."
+            }
+          },
+          "existing_stratified_manual_cases": {
+            "execution": {
+              "uncertain": 12,
+              "repeat": 17,
+              "new": 31
+            },
+            "reflection": {
+              "repeat": 5,
+              "uncertain": 2,
+              "new": 4
+            },
+            "transition": {
+              "repeat": 5
+            }
+          },
+          "cpu_seconds": 10.081446199998027,
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0,
+          "decision": "Keep the previously fixed vector, scale and GPU gate unchanged; these are descriptive mechanism limitations.",
+          "limitations": [
+            "Grouping does not causally remove token identity or topic from representations.",
+            "Step weights match the fixed candidate and long traces retain more influence.",
+            "The 76 prior judgments are selected development cases from one reviewer; no population precision or accuracy claim.",
+            "No generation, independent correctness validation, classifier training or vector refitting is performed."
+          ]
+        }
+      },
+      "dynamic_configuration_fingerprint": {
+        "local_path": ".codex_work/overnight_research_20260912/dynamic_fingerprint_CPU_typed.json",
+        "sha256": "5928b8a3e7a24d87ae5f98f60f06c8d931cbac9113b13c7addfc9ef0dc9036fc",
+        "result": {
+          "status": "CPU_dynamic_configuration_identity_audited_no_generation",
+          "function": "worker_manager.config_fingerprint",
+          "fields": [
+            {
+              "field": "rebalance_boundary_token_ids",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_think_start_token_id",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_think_end_token_id",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_initial_coef",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_q25c",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_q75c",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_low_val_1",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_q25v",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_q75v",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_low_val_2",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_high_val_2",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_paper_parameters",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_curve_tau",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_negative_only",
+              "changes_fingerprint": false
+            },
+            {
+              "field": "rebalance_sampled_confidence",
+              "changes_fingerprint": false
+            }
+          ],
+          "dynamic_fields_omitted": 15,
+          "scale_positive_control": true,
+          "current_research_enable_prefix_caching": false,
+          "finding": "The real fingerprint ignores these dynamic ReBalance fields. The same function is used by prefix-cache key construction.",
+          "limits": "Configuration identity only. This does not demonstrate an erroneous cache hit, output change, slot-routing bug, or damage to frozen results. Current research disables prefix caching; per-request dynamic state can coexist with shared vector slots.",
+          "decision": "Record a limitation for future dynamic prefix-cache support. Do not enable caching or alter the fixed candidate batch.",
+          "source_sha256": {
+            "sources/EasySteer/vllm-steer/vllm/steer_vectors/request.py": "47d33197db9eb6b6aa74261d9e94802facc4ebd69d4dfa6562609754530aeb85",
+            "sources/EasySteer/vllm-steer/vllm/steer_vectors/worker_manager.py": "bd7e143ca00f85ead7fef9acbce66c260b3334a5407dc3a12ee3f3ac60ccbad9",
+            "sources/EasySteer/vllm-steer/vllm/v1/core/kv_cache_utils.py": "cfade80c6b04c0832ffa1e425f283864c58fdec5e4681e9b6c96d2d8edfec6c5",
+            "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py": "e40060d62c10e47d2428d6447d94a3d59310ecc9f538f39b8dd6c6e70185c5bf",
+            "integration/rebalance_easysteer/scripts/audit_rebalance_fingerprint.py": "437dd10be557f421502bef32e9db4db5daa7a7976b551c36695e3e63f7c53a74"
+          },
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "sampled_confidence_variance_coupling": {
+        "local_path": ".codex_work/overnight_research_20260912/sampled_curve_coupling_CPU.json",
+        "sha256": "1b9cafe11d6fc9b0fbfee77aedefe3c8f169b170d14d4822167df9e52f96001e",
+        "result": {
+          "status": "CPU_feasible_sampling_counterexample_not_model_trajectory",
+          "raw_distributions": [
+            [
+              0.88,
+              0.119999,
+              1e-06
+            ],
+            [
+              0.78,
+              0.12,
+              0.1
+            ]
+          ],
+          "chosen_token": 1,
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "retained_token_ids": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "sampling_law_probability_of_chosen_token": [
+            0.05487077901395568,
+            0.0645249134546534
+          ],
+          "controller_cases": [
+            {
+              "label": "original_modal",
+              "confidence": 0.78,
+              "variance": 0.0024999999999999988,
+              "coefficient": -1.5353449583053589,
+              "scalar_decomposition": {
+                "base": -0.5649740006366227,
+                "low_gate_weight": 1.0,
+                "high_gate_weight": 2.896863265071975e-52,
+                "low_adjustment": -1.0353450143175593,
+                "high_adjustment": 2.8258665162943277e-53,
+                "coefficient": -1.5353450143175593
+              }
+            },
+            {
+              "label": "selected_mean_with_old_variance_counterfactual",
+              "confidence": 0.12,
+              "variance": 0.0024999999999999988,
+              "coefficient": -1.5353449583053589,
+              "scalar_decomposition": {
+                "base": -0.5660853080750671,
+                "low_gate_weight": 1.0,
+                "high_gate_weight": 2.896863265071975e-52,
+                "low_adjustment": -1.0353450143175593,
+                "high_adjustment": 2.8258665162943277e-53,
+                "coefficient": -1.5353450143175593
+              }
+            },
+            {
+              "label": "selected_mean_and_derived_variance_candidate",
+              "confidence": 0.12,
+              "variance": 2.5000000000050007e-13,
+              "coefficient": -0.5660853385925293,
+              "scalar_decomposition": {
+                "base": -0.5660853080750671,
+                "low_gate_weight": 3.502604305078608e-26,
+                "high_gate_weight": 1.7996366213380043e-26,
+                "low_adjustment": -3.626403904390356e-26,
+                "high_adjustment": 1.7555308636943092e-27,
+                "coefficient": -0.5660853080750671
+              }
+            }
+          ],
+          "conclusion": "Lower realized-token probability does not universally produce a more negative coefficient: changing the step means also changes the two-step variance and can remove the strong negative adjustment.",
+          "impact": "The fixed replay gate measures absolute control differences in either direction. Its pass is an opportunity check, not evidence for more compression. Keep all settings and gates unchanged.",
+          "limits": "Constructed three-token distributions and one-content-token steps, not observed model frequencies, semantic correctness, or generated compression benefit. Counterfactual old variance is explanation only and is not another candidate.",
+          "source_sha256": {
+            ".codex_work/question_balanced_20260911/original_selected_layer/fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+            "integration/rebalance_easysteer/scripts/audit_sampled_curve_coupling.py": "b333e667c79ad2910f4babe4a2b2c63c44c4a07423d136440ad3979afdd56391",
+            "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "07c7e41b1850db0c9992c09322cd8a48f06dd9259a937b861b40d3a98b3fd807"
+          },
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "question_similarity_screen": {
+        "local_path": ".codex_work/overnight_research_20260912/prepared_similarity_CPU.json",
+        "sha256": "2476dc5499cfd6936559ff523f30ca211852305055fc9f1b116e803207fc6ba4",
+        "result": {
+          "status": "CPU_prompt_similarity_screen_requires_manual_duplicate_judgment",
+          "parent_plan_sha256": "fb6f50b425b7e5e009144c357d9e3952e84a2c9d045e2cdaeb3c9f2361c193b4",
+          "source_sha256": "b5d25f807017d3f5dbcc40031d1daf8c95dfb812cbd7b00f0ac6279357a80133",
+          "selected_questions": 608,
+          "historical_and_test_and_selected_pool": 5489,
+          "comparisons_with_any_shared_gram": 1494077,
+          "canonical_matches": [],
+          "near_matches": [
+            {
+              "planned_train_index": 3841,
+              "compared_id": "train:4423",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.976027397260274,
+              "planned_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is a 5?",
+              "compared_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is a $\\heartsuit$?"
+            },
+            {
+              "planned_train_index": 787,
+              "compared_id": "train:927",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.9447513812154696,
+              "planned_problem": "There exists a constant $c,$ so that among all chords $\\overline{AB}$ of the parabola $y = x^2$ passing through $C = (0,c),$\n\\[t = \\frac{1}{AC} + \\frac{1}{BC}\\]is a fixed constant.  Find the constant $t.$\n\n[asy]\nunitsize(1 cm);\n\nreal parab (real x) {\n  return(x^2);\n}\n\npair A, B, C;\n\nA = (1.7,parab(1.7));\nB = (-1,parab(-1));\nC = extension(A,B,(0,0),(0,1));\n\ndraw(graph(parab,-2,2));\ndraw(A--B);\ndraw((0,0)--(0,4));\n\ndot(\"$A$\", A, E);\ndot(\"$B$\", B, SW);\ndot(\"$(0,c)$\", C, NW);\n[/asy]",
+              "compared_problem": "There exists a constant $c,$ so that among all chords $\\overline{AB}$ of the parabola $y = x^2$ passing through $C = (0,c),$\n\\[t = \\frac{1}{AC^2} + \\frac{1}{BC^2}\\]is a fixed constant.  Find the constant $t.$\n\n[asy]\nunitsize(1 cm);\n\nreal parab (real x) {\n  return(x^2);\n}\n\npair A, B, C;\n\nA = (1.7,parab(1.7));\nB = (-1,parab(-1));\nC = extension(A,B,(0,0),(0,1));\n\ndraw(graph(parab,-2,2));\ndraw(A--B);\ndraw((0,0)--(0,4));\n\ndot(\"$A$\", A, E);\ndot(\"$B$\", B, SW);\ndot(\"$(0,c)$\", C, NW);\n[/asy]"
+            },
+            {
+              "planned_train_index": 5045,
+              "compared_id": "train:5750",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.9340659340659341,
+              "planned_problem": "Medians $\\overline{DP}$ and $\\overline{EQ}$ of $\\triangle DEF$ are perpendicular.  If $DP= 18$ and $EQ = 24$, then what is ${DF}$?",
+              "compared_problem": "Medians $\\overline{DP}$ and $\\overline{EQ}$ of $\\triangle DEF$ are perpendicular.  If $DP= 18$ and $EQ = 24$, then what is ${DE}$?"
+            },
+            {
+              "planned_train_index": 226,
+              "compared_id": "train:3841",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.919093851132686,
+              "planned_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is red and the second card is black?",
+              "compared_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is a 5?"
+            },
+            {
+              "planned_train_index": 226,
+              "compared_id": "train:4423",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.9102564102564102,
+              "planned_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is red and the second card is black?",
+              "compared_problem": "A standard deck of 52 cards has 13 ranks (Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, King) and 4 suits ($\\spadesuit$, $\\heartsuit$, $\\diamondsuit$, and $\\clubsuit$), such that there is exactly one card for any given rank and suit.  Two of the suits ($\\spadesuit$ and $\\clubsuit$) are black and the other two suits ($\\heartsuit$ and $\\diamondsuit$) are red.  The deck is randomly arranged. What is the probability that the top card is a $\\heartsuit$?"
+            },
+            {
+              "planned_train_index": 3299,
+              "compared_id": "train:3059",
+              "canonical_equal": false,
+              "character_5gram_jaccard": 0.8861788617886179,
+              "planned_problem": "Convert the point $(1,-\\sqrt{3})$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$",
+              "compared_problem": "Convert the point $(6,2 \\sqrt{3})$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$"
+            }
+          ],
+          "decision": "No automatic split mutation. Review flagged pairs for same question with the same values; similar templates with different values remain different questions.",
+          "limits": "Formatting and character similarity only; absence of a match does not prove semantic independence or absence from model pretraining. No model outputs or correctness labels were used.",
+          "cpu_seconds": 1.9763500999833923,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "question_similarity_manual_review": {
+        "local_path": ".codex_work/overnight_research_20260912/prepared_similarity_review.json",
+        "sha256": "7d54464575de29621f64151c2c7327b4c671326626036cdbbf7af193eed281d2",
+        "result": {
+          "status": "six_similarity_flags_reviewed_no_duplicate_found",
+          "audit_sha256": "2476dc5499cfd6936559ff523f30ca211852305055fc9f1b116e803207fc6ba4",
+          "judgments": [
+            {
+              "planned_train_index": 3841,
+              "compared_id": "train:4423",
+              "judgment": "related_template_distinct_question",
+              "reason": "The target event differs: rank5 versus heart suit; same deck preamble is not the same probability question."
+            },
+            {
+              "planned_train_index": 787,
+              "compared_id": "train:927",
+              "judgment": "related_template_distinct_question",
+              "reason": "The mathematical expression differs: reciprocal distance versus reciprocal squared distance. Both the invariant and its value are separate questions."
+            },
+            {
+              "planned_train_index": 5045,
+              "compared_id": "train:5750",
+              "judgment": "related_template_distinct_question",
+              "reason": "The requested triangle side differs: DF versus DE. Shared medians do not make these identical questions."
+            },
+            {
+              "planned_train_index": 226,
+              "compared_id": "train:3841",
+              "judgment": "related_template_distinct_question",
+              "reason": "The target event differs: two-card red/black event versus top-card rank5."
+            },
+            {
+              "planned_train_index": 226,
+              "compared_id": "train:4423",
+              "judgment": "related_template_distinct_question",
+              "reason": "The target event differs: two-card red/black event versus top-card heart suit."
+            },
+            {
+              "planned_train_index": 3299,
+              "compared_id": "train:3059",
+              "judgment": "related_template_distinct_question",
+              "reason": "The rectangular coordinates differ in both values and sign; the target polar coordinates differ."
+            }
+          ],
+          "split_changed": false,
+          "selected_indices_sha256": "531f5097ea44f2df781e0f76be10f601751d070cad96c6592276615c91e4063c",
+          "limits": "Single reviewer, prompt-only formatting and high-similarity check. Not a guarantee of semantic independence or absence from pretraining. Original distinct-question split is unchanged.",
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "accuracy_gate_resolution_hypothetical": {
+        "local_path": ".codex_work/overnight_research_20260912/accuracy_gate_CPU.json",
+        "sha256": "98ace6c2d47bff48b255dffdce27effa4c4f9c37a89f8659005cc86cfe4d1e0c",
+        "result": {
+          "status": "completed_exact_synthetic_accuracy_gate_resolution_not_model_results",
+          "derivation": "D_i in{-1,0,+1}; P(-1)=(q-delta)/2, P(0)=1-q, P(+1)=(q+delta)/2. Sum of n independent differences has the n-fold convolution. The observed accuracy gate is sum>=0. Independent conditional-binomial enumeration checks it.",
+          "scenarios": [
+            {
+              "hypothetical_discordance": 0.05,
+              "hypothetical_population_accuracy_delta_pp": -5.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.005920529220333997,
+                "200": 3.505266624882867e-05
+              },
+              "probability_both_independent_accuracy_gates_pass": 2.0753033477680542e-07
+            },
+            {
+              "hypothetical_discordance": 0.05,
+              "hypothetical_population_accuracy_delta_pp": -2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.24949125155442786,
+                "200": 0.1296792491102395
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.03235383816115208
+            },
+            {
+              "hypothetical_discordance": 0.05,
+              "hypothetical_population_accuracy_delta_pp": 0.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.5913772823094147,
+                "200": 0.5637901771541772
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.3334127027581808
+            },
+            {
+              "hypothetical_discordance": 0.05,
+              "hypothetical_population_accuracy_delta_pp": 2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.8762439399999961,
+                "200": 0.9279975219158854
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.8131522049138081
+            },
+            {
+              "hypothetical_discordance": 0.1,
+              "hypothetical_population_accuracy_delta_pp": -5.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.07013765531098712,
+                "200": 0.013723214970978968
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.000962514121393101
+            },
+            {
+              "hypothetical_discordance": 0.1,
+              "hypothetical_population_accuracy_delta_pp": -2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.31730767685301153,
+                "200": 0.21577250789782193
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.06846627320980596
+            },
+            {
+              "hypothetical_discordance": 0.1,
+              "hypothetical_population_accuracy_delta_pp": 0.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.5636644569884875,
+                "200": 0.5448039630190055
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.30708662998028374
+            },
+            {
+              "hypothetical_discordance": 0.1,
+              "hypothetical_population_accuracy_delta_pp": 2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.7876941620611925,
+                "200": 0.8445839888524209
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.6652738773894072
+            },
+            {
+              "hypothetical_discordance": 0.2,
+              "hypothetical_population_accuracy_delta_pp": -5.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.1546837307124122,
+                "200": 0.06460890428079052
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.009993946351393817
+            },
+            {
+              "hypothetical_discordance": 0.2,
+              "hypothetical_population_accuracy_delta_pp": -2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.3684678822563672,
+                "200": 0.289646219140175
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.10672532897014393
+            },
+            {
+              "hypothetical_discordance": 0.2,
+              "hypothetical_population_accuracy_delta_pp": 0.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.5447182494473073,
+                "200": 0.5315792096562403
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.28956089652653033
+            },
+            {
+              "hypothetical_discordance": 0.2,
+              "hypothetical_population_accuracy_delta_pp": 2.0,
+              "probability_observed_correct_count_not_lower": {
+                "100": 0.7125981898681895,
+                "200": 0.7621370431326802
+              },
+              "probability_both_independent_accuracy_gates_pass": 0.5430974773678421
+            }
+          ],
+          "independent_checks": 51,
+          "cpu_seconds": 0.07678790000500157,
+          "zero_observed_discordance": "A nonparametric paired bootstrap then always returns accuracy delta0 and a degenerate[0,0] interval; it cannot generate unseen discordant outcomes or establish zero population loss.",
+          "decision": "Keep the fixed100-question screen and conditional200-question reserve. Report uncertainty and limits; do not change the gate, add repetitions, or inflate confirmation claims.",
+          "limits": "IID hypothetical problem outcomes, not measured population rates or a forecast of these candidates. Token/cap gates and question/seed dependence are not modeled. The product assumes independent fresh stages and is not the false-promotion probability of the full research procedure.",
+          "source_sha256": "1b74d965a08cfecc85e757532034bdd269d599d56435b51b08700f7dd53d6768",
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "nucleus_modal_only_sufficient_bound": {
+        "local_path": ".codex_work/overnight_research_20260912/sampled_nucleus_bound_CPU.json",
+        "sha256": "0395d6261a98241436474b43c2abd2a087359b3a7f7503f886b8582532c71d0d",
+        "result": {
+          "status": "CPU_nucleus_bound_on_saved_greedy_prefixes_not_stochastic_opportunity",
+          "temperature": 0.7,
+          "top_p": 0.95,
+          "sufficient_raw_maximum": 0.8870651459672332,
+          "numeric_margin": 1e-06,
+          "derivation": "For r=1/T>1 and raw maximum m, sum(tail p_j^r)<=(1-m)^r. Hence post-temperature modal mass>=m^r/(m^r+(1-m)^r). If this exceeds top_p, nucleus keeps only the modal token. Solve for m to obtain1/(1+((1-top_p)/top_p)^T).",
+          "independent_probability_law_cases": 16,
+          "questions": 500,
+          "capped_answers_included": 149,
+          "totals": {
+            "thinking_tokens": 3153570,
+            "content_tokens": 3069903,
+            "modal_only_sufficient_tokens": 2676331,
+            "modal_only_sufficient_content_tokens": 2615139,
+            "not_ruled_out_content_fraction": 0.14813627661851203
+          },
+          "calibration_manifest": {
+            "seed": 42,
+            "count": 500,
+            "train_sha256": "4bd7f5266f6c5c4fc729da2d9cbefbe2453cf8df7bd6ba93dc02b9e11512cefd",
+            "excluded_test_overlap": 0,
+            "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+            "max_tokens": 16000,
+            "temperature": 0,
+            "generation": "vLLM greedy, raw selected-token log probabilities",
+            "commit": "73737c00bf189992068f38d53c1a9ba49879c8a1"
+          },
+          "original_generation_source_sha256": "9a831b68791373a260a54555fd17adb62900db351ecef8cde940263ff0636e76",
+          "recipe_snapshot_commit": "e28c401fd55ad5186f80775f4541123fb8966a41",
+          "generation_base_commit": "73737c00bf189992068f38d53c1a9ba49879c8a1",
+          "historical_provenance_note": "73737c0 with the new calibration script uncommitted; final recipe is preserved in snapshot_commit",
+          "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+          "source_sha256": "b021d417d12d91f5c4a892626dff602ba97d28b5b91996bea51d294094db8d4c",
+          "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+          "limits": "Only temperature and top_p transformations, no penalties or grammar. Ideal probability arithmetic plus a numerical margin is not a cross-kernel guarantee. These are old greedy prefixes, not trajectories generated with temperature0.7. Below the bound does not imply a nonmodal choice. Step-mean changes cannot be inferred from this token count.",
+          "decision": "Keep the fixed100saved stochastic probability replay and all gates; this analysis neither substitutes for it nor estimates compression or accuracy.",
+          "cpu_seconds": 6.624334599997383,
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      }
+    },
+    "additional_literature": [
+      {
+        "local_path": ".codex_work/overnight_research_20260912/literature/focused_followups/reading_receipt.json",
+        "sha256": "93e270ab176117504110722db153a3f8480d4256f0f55333f3ca9a5254b1d508",
+        "result": {
+          "status": "full_texts_read_latest_revision_checked_and_relevant_figures_viewed",
+          "papers": [
+            {
+              "url": "https://aclanthology.org/2025.emnlp-main.1705/",
+              "title": "Word Salad Chopper: Reasoning Models Waste A Ton Of Decoding Budget On Useless Repetitions, Self-Knowingly",
+              "publication": "EMNLP2025",
+              "evidence": "Section2.1 uses semantic-similarity0.99 repetition labels. Section3.1 changes all steps after a consecutive repetition onset to positive labels. Section3.2 compares chopping and rescue; rescue is better than blind truncation.",
+              "limits": "The repeated suffix relabeling does not prove every later step useless. Temperature0.6 and temperature0 findings differ.32k initial+4k/8k rescue budgets differ from our uniform16k. AppendixI overhead is an estimate, not an end-to-end benchmark. Table7 visible raw87.60to86.80 conflicts with printed arrow+0.20; do not use that arrow.",
+              "decision": "No added early-stop candidate: online causal label quality and compatible hidden states are absent; existing suffix semantic screen already failed.",
+              "sentinel": "c62a7bb3b0c9",
+              "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\url_724bc0b9eb614ce9\\parsed.md",
+              "parsed_lines": 771,
+              "parsed_sha256": "89f4a08f813ab3b67fb71c9f25136f134c8ac4bb6d5b441b974ae0cb84f16457",
+              "raw_pdf_sha256": "ff70df68105e18db22bdff16d61c1a0df2001865956cb4fef53c310ce7f0ae15",
+              "full_read_zero_based_inclusive": [
+                [
+                  0,
+                  259
+                ],
+                [
+                  260,
+                  514
+                ],
+                [
+                  515,
+                  770
+                ]
+              ],
+              "figures_sha256": {
+                "WSC_Table7_8.png": "b49d8475e684b436712a50aa095ebde50f56230a52478f1ac8f2e476f0beaa23"
+              }
+            },
+            {
+              "url": "https://proceedings.mlr.press/v267/liu25aq.html",
+              "title": "AdaptiveStep: Automatically Dividing Reasoning Step through Model Confidence",
+              "publication": "ICML2025 PMLR267:39016-39031",
+              "evidence": "Section3.1 Equation1 uses probability of the sampled token to segment training traces. Section3.3 Figure3 uses top1 confidence to trigger inference-time PRM candidate selection; these are separate stages.",
+              "limits": "The reported30percent saving concerns PRM construction cost, not inference length. The2percent trigger and short MetaMath/Mistral/Llama traces are not transferred to R1 long reasoning. The API code defaults greedy, so selected and modal coincide there.",
+              "decision": "Supports distinguishing confidence semantics, not efficacy of our sampled-token replacement. Preserve our independently fixed opportunity and generation gates.",
+              "sentinel": "394924fda953",
+              "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\url_036ae1347cbf9bb5\\parsed.md",
+              "parsed_lines": 1100,
+              "parsed_sha256": "df5764199091f56a5a51a6d04b626ee6684088cfc217bc8b35240801d6c0b9fb",
+              "raw_pdf_sha256": "4da75933d38d002f2476c597a8b9f39f894d7c5c36c9f3cc455ced5c1eec5582",
+              "full_read_zero_based_inclusive": [
+                [
+                  0,
+                  239
+                ],
+                [
+                  240,
+                  499
+                ],
+                [
+                  500,
+                  719
+                ],
+                [
+                  720,
+                  929
+                ],
+                [
+                  930,
+                  1099
+                ]
+              ],
+              "figures_sha256": {
+                "AdaptiveStep_Fig3_Eq1.png": "0cc672b5ab10d5a6141b8924edd30d6f066682a84f74b846ac5de7e9d6225401"
+              }
+            },
+            {
+              "url": "https://arxiv.org/abs/2607.20129v1",
+              "title": "CUSUM-Shaped Inference-Time Monitoring and Targeted Re-Decoding for Quantized Small Language Model Reasoning",
+              "publication": "arXiv v1, historical, superseded byv2",
+              "evidence": "Historical v1 reported emitted length and actually sampled length separately, with limitations in its selected historical population.",
+              "limits": "Do not repeat v1 limitations or results as current evidence; v2 replaced the evaluation. Both versions preserved in reading receipts.",
+              "decision": "Usev2 for all current method and experimental statements.",
+              "sentinel": "37dd2fb66bd7",
+              "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\url_ed6f20cf44d92a03\\parsed.md",
+              "parsed_lines": 960,
+              "parsed_sha256": "f60b2af43541b4132bcd14c4c3a5dce550762ba12783bbcfa24349ea20c5ddad",
+              "raw_pdf_sha256": "b7cce69fc4ad60399ab445b3d57a4893fce8016b1559d086e9c8dd5bd686a650",
+              "full_read_zero_based_inclusive": [
+                [
+                  0,
+                  254
+                ],
+                [
+                  255,
+                  504
+                ],
+                [
+                  505,
+                  749
+                ],
+                [
+                  750,
+                  959
+                ]
+              ],
+              "figures_sha256": {
+                "MGT_B_Table2_3.png": "ad848aa6f22b61a131b7f7402df080a6a223573490de1891f7f2bb23faf5f3cd"
+              }
+            },
+            {
+              "url": "https://arxiv.org/abs/2607.20129v2",
+              "title": "CUSUM-Shaped Inference-Time Monitoring and Targeted Re-Decoding for Quantized Small Language Model Reasoning",
+              "publication": "arXiv v2 revised2026-09-02, not peer review",
+              "evidence": "Section5.1 Eq3 centers selected-token log probability by same-law entropy; this is sampler consistency, not semantic correctness. Sections5.2to5.3 combine monitor, rollback, lower temperature, repetition penalty and ngram blocking. Section7 Tables1to3: MATH500 across3seeds accuracy54.73to56.40, sampled tokens4366.9to4591.3(+5.14percent), retained output+0.29percent, caps2to18 of1500. Section7.4 OmniMATH500 across3seeds accuracy16.67to16.60 and sampled tokens+2.10percent.",
+              "limits": "3seeds on500problems are not1500independent problems. QuantizedINT4/FP16,HuggingFace,20kcap and answer prompt differ from ourBF16/vLLM16k. Random-control intervention exposure9.4versus22.6percent limits component attribution. No public repository URL was found in the full text; AppendixC commit hashes alone do not establish accessible code. Same-law centered score does not inherit a guarantee when raw distribution and temperature/top-p sampling differ.",
+              "decision": "No added GPU candidate: latest evidence increases sampled tokens and caps, with no OmniMATH transfer. Retain distinction between emitted length and full decoding cost.",
+              "sentinel": "351843b3b808",
+              "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\url_c54b1856e6accdd1\\parsed.md",
+              "parsed_lines": 589,
+              "parsed_sha256": "4eaf62128a1abda70767e7b62aaab69d5e5653ef8c7bfd84688e9456938e90f7",
+              "raw_pdf_sha256": "1787e8085745f61c552b5a9d73d3d9cb205a568940addb24785c2a38dabc6f6f",
+              "full_read_zero_based_inclusive": [
+                [
+                  0,
+                  199
+                ],
+                [
+                  200,
+                  399
+                ],
+                [
+                  400,
+                  588
+                ]
+              ],
+              "figures_sha256": {
+                "MGT_B_v2_Table1_3.png": "773afc86f2140763173221560458d1be4c10b8854eb02289a270a6d1d257e8d3"
+              }
+            }
+          ],
+          "code_receipts": [
+            {
+              "url": "https://github.com/wenyaxie023/WordSaladChopper",
+              "commit": "81396f9351f3393ad9e1070d1719d729cd3d8258",
+              "files_sha256": {
+                "wscgen/chopper.py": "4e59212a56baebfba28dadfc3da4a666b3124143348d0b27db70f411892de9b2",
+                "wscgen/generate.py": "913a33d4542dbdc811f82a7c88dc3290eaf155e21eeeb136cea57bbf3b7b9dca",
+                "wscgen/pipeline/extractor.py": "bef11d723cc0c2bc6fa8974465336f2fa6b6742be28caaaa7ec1942a6e22b266"
+              },
+              "execution": "Read only no checkout, model load, package install or source execution"
+            },
+            {
+              "url": "https://github.com/Lux0926/ASPRM",
+              "commit": "6682033ba686b7d7fddd13df4cac09347148f42e",
+              "files_sha256": {
+                "evaluation/math/TVD/detector.py": "cc714e9ff24c5b7a9f5c43fc11c364b61c60d6a73f37c08d4f9ca031dc04b839",
+                "evaluation/math/TVD/tvd.py": "e275f55282aad7cd2404504ae04dab208f94b4d810d3bdfeed686ab8f4ecc794"
+              },
+              "execution": "Read only no checkout, model load, package install or source execution"
+            }
+          ],
+          "latest_rechecked_utc": "2026-09-12T08:26:00Z",
+          "other_version_checks": {
+            "DRY2608.22761": "v1 remains latest",
+            "Circular2601.05693": "v1 remains latest"
+          },
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      {
+        "local_path": ".codex_work/overnight_research_20260912/literature/focused_followups/statistics_reading_receipt.json",
+        "sha256": "7be5f49554319ff26589a228886d390b6fb600b2858b02b62e3f8c1dcd684a4e",
+        "result": {
+          "status": "full_text_and_relevant_figure_read",
+          "url": "https://aclanthology.org/P18-1128/",
+          "title": "The Hitchhikers Guide to Testing Statistical Significance in Natural Language Processing",
+          "publication": "ACL2018 pages1383to1392",
+          "sentinel": "708f0fd70c6d",
+          "full_read_zero_based_inclusive": [
+            [
+              0,
+              189
+            ],
+            [
+              190,
+              379
+            ],
+            [
+              380,
+              581
+            ]
+          ],
+          "parsed_sha256": "27f27c3e2647da4dea2dea30862660231469a37afa6e9cedbe0c6115bf7ab77b",
+          "raw_pdf_sha256": "e3b6e07cf7e404443e4b516db9b2a72c5d24a38285a9a6691ed2e3b01b02235b",
+          "figure_sha256": "92556571c30b32cdd3056fa950371f31d8337f157d394fb005d1bb0598ae3074",
+          "evidence": "Section3.2.2 explains paired nominal McNemar tests and paired resampling. Section5 notes dependent examples and multiple-comparison difficulties. Figure1 is a broad selection guide, not a guarantee of small-sample interval coverage.",
+          "project_decision": "Continue descriptive paired bootstrap plus exact conditional McNemar. These do not change the promotion gates and cannot certify a narrow non-inferiority margin. Add a hypothetical exact accuracy-gate resolution audit to expose finite-sample limits, not estimate candidate effects.",
+          "limits": "No significance claim for our unrun candidates; no adoption of the paper chi-square approximation for sparse discordant pairs. Small paired-bootstrap intervals can be unstable or degenerate.",
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      }
+    ],
+    "prepared_batch": {
+      "status": "prepared_GPUoff_waiting_for_explicit_reopening",
+      "bundle_path": "integration/rebalance_easysteer/configs/local_prepared_batch_20260912_v3",
+      "plan_sha256": "d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+      "bundle_commit": "63bcb77204b6af51e8f03ab9fa8bdcfe93626511",
+      "implementation_commit": "a885c3d6f323a6cb9750b28f0f39cdf182f121b1",
+      "sampled_runtime_commit": "9b466ee69f07d2b9f998df88a65508a07597c731",
+      "source_files": 87,
+      "bundle_files": 53,
+      "bundle_bytes": 2371232,
+      "checks": {
+        "local_path": ".codex_work/overnight_research_20260912/prepared_batch_CPU_checks_03/receipt.json",
+        "sha256": "9a045ba65870477784edfc8f7d88d4779be8816cb7fb9d5dfad88330f6267502",
+        "result": {
+          "status": "prepared_batch_CPU_checks_passed_native_Torch_and_Linux_pending",
+          "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+          "grammar_checked": "Python3.10",
+          "parsed_files": [
+            "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py",
+            "integration/rebalance_easysteer/scripts/audit_accuracy_gate_resolution.py",
+            "integration/rebalance_easysteer/scripts/audit_lexical_direction_support.py",
+            "integration/rebalance_easysteer/scripts/audit_prepared_parameter_branch.py",
+            "integration/rebalance_easysteer/scripts/audit_prepared_question_similarity.py",
+            "integration/rebalance_easysteer/scripts/audit_rebalance_fingerprint.py",
+            "integration/rebalance_easysteer/scripts/audit_sampled_curve_coupling.py",
+            "integration/rebalance_easysteer/scripts/audit_sampled_nucleus_bound.py",
+            "integration/rebalance_easysteer/scripts/audit_sampled_probabilities.py",
+            "integration/rebalance_easysteer/scripts/check_batch_process_cleanup.py",
+            "integration/rebalance_easysteer/scripts/check_prepared_prompts.py",
+            "integration/rebalance_easysteer/scripts/check_sampled_confidence_native.py",
+            "integration/rebalance_easysteer/scripts/grade_vector_batch.py",
+            "integration/rebalance_easysteer/scripts/prepare_local_candidate_batch.py",
+            "integration/rebalance_easysteer/scripts/run_local_prepared_batch.py",
+            "integration/rebalance_easysteer/scripts/run_mechanism_screen.py",
+            "integration/rebalance_easysteer/scripts/run_vector_batch.py",
+            "integration/rebalance_easysteer/scripts/summarize_local_prepared_batch.py",
+            "integration/rebalance_easysteer/tests/test_mechanism_screen.py"
+          ],
+          "test_methods": 18,
+          "scheduler_simulated_scenarios": 8,
+          "seconds": 1.063,
+          "unit_log_sha256": "099f89535f3c323af72c59dede2293490594a027ec7edcbb23b6b80e416cdcce",
+          "source_sha256": {
+            "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py": "6ff4fa7c870a076ea62a5b77b20d8af32e841c773028bc870e67a1f8e5b75fc6",
+            "integration/rebalance_easysteer/scripts/audit_accuracy_gate_resolution.py": "1b74d965a08cfecc85e757532034bdd269d599d56435b51b08700f7dd53d6768",
+            "integration/rebalance_easysteer/scripts/audit_lexical_direction_support.py": "25f014114a71a275c6d1fdae72313293dc8cfb8ae0efc12179ddcbfb1f0185af",
+            "integration/rebalance_easysteer/scripts/audit_prepared_parameter_branch.py": "64e537bb6d2981945822bb2b61526b7ad64173acee13f6c51cb9a1fa8ea5d6bf",
+            "integration/rebalance_easysteer/scripts/audit_prepared_question_similarity.py": "b5d25f807017d3f5dbcc40031d1daf8c95dfb812cbd7b00f0ac6279357a80133",
+            "integration/rebalance_easysteer/scripts/audit_rebalance_fingerprint.py": "437dd10be557f421502bef32e9db4db5daa7a7976b551c36695e3e63f7c53a74",
+            "integration/rebalance_easysteer/scripts/audit_sampled_curve_coupling.py": "b333e667c79ad2910f4babe4a2b2c63c44c4a07423d136440ad3979afdd56391",
+            "integration/rebalance_easysteer/scripts/audit_sampled_nucleus_bound.py": "b021d417d12d91f5c4a892626dff602ba97d28b5b91996bea51d294094db8d4c",
+            "integration/rebalance_easysteer/scripts/audit_sampled_probabilities.py": "c6b1eb90cb66669396f6c8f4d7f724a335bff5a61f7a4d43d417e12f138adbee",
+            "integration/rebalance_easysteer/scripts/check_batch_process_cleanup.py": "b8bb180f4e28ed8ee80a2cde4256b45ba00c79266c54ba99e5c95598ab639d4b",
+            "integration/rebalance_easysteer/scripts/check_prepared_prompts.py": "88bf4a7ddb13b03530b26bb1534979183cc1919cbdd899693834797c09d39f53",
+            "integration/rebalance_easysteer/scripts/check_sampled_confidence_native.py": "2b91b09707f2c89e48f50d3a0fb90c35ac05eaf8cf2971f3bbe1395b537b3308",
+            "integration/rebalance_easysteer/scripts/grade_vector_batch.py": "304ac013f304f51c3382d44304b59539a6d2a590d06abfcc8e8ac4b392afe95e",
+            "integration/rebalance_easysteer/scripts/prepare_local_candidate_batch.py": "f42c5c30a57176ef71635e6905477be9b635e3a497947244c13e2511c626705d",
+            "integration/rebalance_easysteer/scripts/run_local_prepared_batch.py": "97a688c9b5d6fc660890459b23629e16a00eda094aec1f6e5166172cdd9fe49d",
+            "integration/rebalance_easysteer/scripts/run_mechanism_screen.py": "1258ada53c5b2230a559e44d616766efc86bab9009541301425b09f0ff18497b",
+            "integration/rebalance_easysteer/scripts/run_vector_batch.py": "4488eca8c97147949bafbe58fb3445ce2b43dee6847bd9ea9c20c8e30027a222",
+            "integration/rebalance_easysteer/scripts/summarize_local_prepared_batch.py": "47c150e02afdef7b6e56698b175955345a068371b12d984aa712ba1f3d062bc4",
+            "integration/rebalance_easysteer/tests/test_mechanism_screen.py": "ece383295346a20cf46c1a16e29b0d692b8be406727cedf3143a264299d25d52"
+          },
+          "greedy_check": "Exact8-pair identity including final capped tokens; a one-token mismatch must fail.",
+          "GPU_calls": 0,
+          "model_loads": 0,
+          "new_answers": 0,
+          "log_provenance": "Captured from successful local exec chunk2ec194 after final candidate source edits; this receipt does not rerun tests.",
+          "source_commit": "2ef78d49fdd3c77afb93d160a4f8542c6b42765c",
+          "parameter_branch": {
+            "file": "parameter_branch_receipt.json",
+            "sha256": "183686c0ce7064052eb766a7f5ef9cc3626a050a003a0eff46e69d4452f6ad4a"
+          }
+        }
+      },
+      "parser_preflight": {
+        "local_path": ".codex_work/overnight_research_20260912/prepared_batch_CPU_checks_03/parser_receipt.json",
+        "sha256": "85a7b92de0b689f98f0da25094defd0a1357611a9ec15d4c342e1705cc5dc753",
+        "result": {
+          "status": "v3_parent_all_stages_and_actual12_parameter_branches_passed",
+          "parent_plan_sha256": "d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+          "source_commit": "2ef78d49fdd3c77afb93d160a4f8542c6b42765c",
+          "all_v2_splits_assets_and_runtime_unchanged": true,
+          "preserved_unrun_v2_sha256": "c87de6f28dacade1cba740b015f801003ee65b1c3810e28b3fa6c7db55dd1339",
+          "old_preparation_rejection": "Source changed: integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py",
+          "CPU_check_receipt_sha256": "9a045ba65870477784edfc8f7d88d4779be8816cb7fb9d5dfad88330f6267502",
+          "actual_parameter_branch_receipt_sha256": "183686c0ce7064052eb766a7f5ef9cc3626a050a003a0eff46e69d4452f6ad4a",
+          "model_loads": 0,
+          "GPU_calls": 0,
+          "new_answers": 0
+        }
+      },
+      "candidate_order": [
+        "sampled_confidence",
+        "lexical_direction"
+      ],
+      "unique_new_training_questions": 608,
+      "selection_seed": 20260927,
+      "max_prompt_tokens": 1312,
+      "engineering": "8shared questions times2arms times2candidates;512cap; sampled usesT0and exact8pair token identity, lexicalT0.7; never graded",
+      "screen": "100fresh questions times2arms per candidate, separate sets,16000cap",
+      "confirmation": "200separate fixed questions times2arms per candidate, only after its screen gate passes unchanged",
+      "maximum_short_outputs": 32,
+      "maximum_screen_answers": 400,
+      "maximum_conditional_confirmation_answers": 800,
+      "probability_replay": {
+        "bundle": "probability_replay",
+        "plan_sha256": "bd8b6c8eece58eef3313f128dd63e20ee5e53534d4b8577672101d73389ff267",
+        "expected_inputs_sha256": "9d6200f9cc1334cfc1faa56b9c8e3496524d30e458b8508cf8f418e8aeaccdb8",
+        "questions": 100,
+        "saved_thinking_tokens": 464036,
+        "new_answers": 0,
+        "timeout_seconds": 900
+      },
+      "promotion_gate": "Mean thinking AND total tokens each reduced at least5percent; correct count not lower; caps not higher. Exact integer token-sum boundary. All errors and caps included. No parameter or subset replacement.",
+      "wall_timeout_seconds": 5400,
+      "estimated_minutes_screening": [
+        15,
+        35
+      ],
+      "estimated_additional_minutes_if_both_confirm": [
+        16,
+        36
+      ],
+      "cost_limits": "GPU hourly price is not verified. Cost equals actual instance GPU wall hours times the console hourly rate. The batch ceiling is1.5hours; instance boot, synchronization, transfer and user idle time are additional. No power or mode change is automated.",
+      "stopping": "90-minute whole-batch ceiling. Do not begin a generation stage with<300seconds remaining for engineering/screen or<600seconds for confirmation. Mark unstarted stages as budget-limited, not efficacy failures. Parent bounds and kills only its own child process groups on timeouts.",
+      "failure_handling": "Runtime, input or grading failure stops the batch; preserve partial outputs and explicit incomplete status. Owned nested process groups terminated; native Linux cleanup check pending. Budget skips are not efficacy failures.",
+      "GPU_calls_in_local_phase": 0,
+      "SSH_attempts_in_local_phase": 0,
+      "new_answers_in_local_phase": 0,
+      "command_after_explicit_reopening": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python -u integration/rebalance_easysteer/scripts/run_local_prepared_batch.py --bundle integration/rebalance_easysteer/configs/local_prepared_batch_20260912_v3 --execute --expected-plan-sha256 d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+      "server_output": "/root/autodl-tmp/results/easysteer/local_prepared_batch_20260912",
+      "local_summary": "integration/rebalance_easysteer/scripts/summarize_local_prepared_batch.py --bundle integration/rebalance_easysteer/configs/local_prepared_batch_20260912_v3 --results <verified_download_directory> --output <fresh_summary.json>",
+      "native_pending": [
+        "Original tokenizer reproduces all608new prompts",
+        "Real Torch/CUDA numerical and request serialization checks",
+        "Linux process cleanup fixture",
+        "Teacher-forced saved100 probabilities",
+        "Actual generation implementation and effect checks"
+      ],
+      "greedy_engineering_commit": "1538c88c18a9adf065095aff434b86f92e3934cb",
+      "preparation_revision": "v3: sampled-confidence output description now matches its actual raw-selected-token definition; added CPU parameter-branch and nucleus-bound audits. Retains v2 greedy8-pair identity gate. All formal100/200 inputs, vectors, runtime and promotion gates unchanged. Earlier v1/v2 bundles were never executed and remain preserved.",
+      "superseded_preparations": [
+        {
+          "bundle_path": "integration/rebalance_easysteer/configs/local_prepared_batch_20260912",
+          "bundle_commit": "4a01bd79c30de5bdf64917c3acc91c2dd97fbf35",
+          "plan_sha256": "b9b099dcaaadf5433a12c53fb2f7df1a1ea8e2dce3d583e7c6b8c9167bc2d053",
+          "status": "never_executed_superseded_by_greedy_engineering_revision"
+        },
+        {
+          "bundle_path": "integration/rebalance_easysteer/configs/local_prepared_batch_20260912_v2",
+          "bundle_commit": "5676a4e0237f65e9fdb75fe22324f5d45e16662b",
+          "plan_sha256": "c87de6f28dacade1cba740b015f801003ee65b1c3810e28b3fa6c7db55dd1339",
+          "status": "never_executed_superseded_by_metadata_and_CPU_parameter_audits"
+        }
+      ],
+      "parameter_audit_commit": "2ef78d49fdd3c77afb93d160a4f8542c6b42765c",
+      "parameter_branch": {
+        "file": "parameter_branch_receipt.json",
+        "sha256": "183686c0ce7064052eb766a7f5ef9cc3626a050a003a0eff46e69d4452f6ad4a",
+        "status": "actual_12_CLI_fit_and_parameter_branches_passed_CPU_only",
+        "source_sha256": {
+          "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py": "6ff4fa7c870a076ea62a5b77b20d8af32e841c773028bc870e67a1f8e5b75fc6",
+          "integration/rebalance_easysteer/eval/calibration_contract.py": "4b8cd56f71e10d2baff455f84001996eaeba18f81a7af07d69bd5b3bbe91220a",
+          "integration/rebalance_easysteer/scripts/audit_prepared_parameter_branch.py": "64e537bb6d2981945822bb2b61526b7ad64173acee13f6c51cb9a1fa8ea5d6bf"
+        },
+        "commands": 12,
+        "controller_parameter_count": 9,
+        "calibration_hidden_state_index": 21,
+        "decoder_output_layer": 20,
+        "sampled_definition_matches_runtime": true,
+        "limitation": "AST subset and frozen-tokenizer CPU audit only. No Torch payload, VectorSpec, model forward, probability replay or generation. Native preflight remains required before the fixed GPU batch."
+      },
+      "committed_byte_verification": {
+        "local_path": ".codex_work/overnight_research_20260912/committed_bundle_v3_receipt.json",
+        "sha256": "b7371ab1d784369b634ca2a870275231fcf5c14badacf78510ee0430c0fa8880",
+        "result": {
+          "status": "committed_source_and_bundle_bytes_verified_current_v3_preflight_passed",
+          "commit": "63bcb77204b6af51e8f03ab9fa8bdcfe93626511",
+          "parent_plan_sha256": "d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+          "committed_sources_checked": 87,
+          "committed_bundle_members_checked": 52,
+          "bundle_file_manifest_sha256": "449496fa24eb51a2cf1c1e8c2b348b6e25bc749d62fde4daae9da118b9293be1",
+          "GPU_calls": 0,
+          "model_loads": 0,
+          "new_answers": 0
+        }
+      },
+      "deployment_fallback": {
+        "local_path": ".codex_work/overnight_research_20260912/local_deployment_fallback_receipt.json",
+        "sha256": "de7d8f2be0908836979bb878d010559a51355b74a8041d08427c9ba84016267c",
+        "result": {
+          "status": "local_deployment_fallback_prepared_and_verified_no_network_to_instance",
+          "target_commit": "63bcb77204b6af51e8f03ab9fa8bdcfe93626511",
+          "prerequisite_commit": "f17f4290f1fa1237b54b3cfe6163f12656869dd2",
+          "code_bundle": {
+            "local_path": ".codex_work/overnight_research_20260912/prepared_GPU_source_63bcb77.bundle",
+            "bytes": 582688,
+            "sha256": "6d5cb5747fd26025fc3c490e71aac16848f62cf1f4e7c1e6deaac3759e7a1466",
+            "git_bundle_verify_passed": true
+          },
+          "saved_input_rescue": {
+            "local_path": ".codex_work/overnight_research_20260912/prepared_saved_input_rescue_20260912.tar.gz",
+            "bytes": 885557,
+            "sha256": "3fa3ffc048d2b304ab79d3e346c4ca7aa092a0a31af918d2f16463c92499b4a4",
+            "members": [
+              {
+                "local": ".codex_work/overnight_research_20260912/seal_comparison_all_20260912/seal_comparison130_20260912/math_train_unsteered.json",
+                "remote": "/root/autodl-tmp/results/easysteer/seal_comparison130_20260912/math_train_unsteered.json",
+                "sha256": "238380ad32cbfe84a3dab2cbfd5eed90dcf27889c02014768bc173577d8d1e97",
+                "member": "math_train_unsteered.json",
+                "bytes": 7961404
+              },
+              {
+                "local": ".codex_work/overnight_research_20260912/probability_prompt_vllm_20260912.json",
+                "remote": "/root/autodl-tmp/results/easysteer/probability_prompt_vllm_20260912.json",
+                "sha256": "c3f916a0365f81cbb6c0617d5a14b0e787afb81daa1c4777e7db8332f50f950d",
+                "member": "probability_prompt_vllm_20260912.json",
+                "bytes": 351180
+              }
+            ]
+          },
+          "remote_branch_verified_at_UTC": "2026-09-12T09:28:14Z",
+          "policy": "Only after explicit GPU reopening: verify current checkout and jobs, prefer existing matching files; use bundle only if GitHub unavailable and prerequisite exists. Restore exact saved input bytes only to missing paths; any mismatched existing artifact stops for diagnosis. No replacement of frozen artifacts, no answer regeneration, no environment installation.",
+          "GPU_calls": 0,
+          "SSH_attempts": 0,
+          "new_answers": 0
+        }
+      }
+    },
+    "preparation_failures_and_corrections": [
+      "First nucleus audit incorrectly looked for the generation script at manifest base73737c0; the archive artifact_provenance explicitly records uncommitted initial generation and preserved recipe snapshote28c401. The audit now uses that existing snapshot and verifies the saved answer hash. No calibration data regenerated or modified.",
+      "Initial Windows OS-signal test fixture lacked SIGKILL; corrected the test-only simulated constant. Native Linux behavior remains pending.",
+      "The first HTTPS Git push encountered a WindowsTLS handshake error. A command-local OpenSSL backend with certificate verification retained succeeded; no global configuration or server environment changed."
+    ],
+    "report_consistency": {
+      "local_path": ".codex_work/overnight_research_20260912/local_evidence_report_consistency.json",
+      "sha256": "8a7655482c7f3306e7a780a63ad6ec49c9bce28862233109605bed834bc4eeb5",
+      "receipts_checked": 19,
+      "scalar_values_checked": 780,
+      "explicit_compacted_lists": 3
+    }
   }
 }
