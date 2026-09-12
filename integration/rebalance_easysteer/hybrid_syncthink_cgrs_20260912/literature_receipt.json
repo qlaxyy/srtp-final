@@ -1,0 +1,191 @@
+{
+  "2601.03649": {
+    "text_equivalent_to_read_copy": true,
+    "sentinel": "b6070c4b7daf",
+    "read_plan": [
+      {
+        "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\cache\\arxiv_2601.03649\\parsed.md",
+        "offset": 0,
+        "limit": 1189
+      }
+    ],
+    "files": {
+      "raw.html": "c83aa0fa0b2a4c531fc65cd6078266cb05edcd9cb6019c7b00afff2a6169831f",
+      "parsed.md": "3bcb4add4696334f5858556c650b2d08225fbab016d581644c92a13b5b30178b"
+    },
+    "pdf": {
+      "ok": true,
+      "raw_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\pdf_cache\\url_e1e71d57235e2600\\raw.pdf",
+      "parsed_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\pdf_cache\\url_e1e71d57235e2600\\parsed.md"
+    },
+    "pdf_error": "ModuleNotFoundError(\"No module named 'fitz'\")",
+    "version": "v1",
+    "url": "https://arxiv.org/abs/2601.03649v1",
+    "fully_read_original_sentinel": "37e6f1698c25",
+    "pdf_sha256": "2cd96ac1a22bf407688bb3ca922c2a80da0ed5f0d5a3514a10d04681304111f0",
+    "visually_inspected_pdf_pages_1_based": [
+      4,
+      5,
+      7,
+      8
+    ],
+    "rendering_recovery": "Existing pdftoppm used; no environment installation"
+  },
+  "2508.05337": {
+    "text_equivalent_to_read_copy": true,
+    "sentinel": "cca246159913",
+    "read_plan": [
+      {
+        "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\cache\\arxiv_2508.05337\\parsed.md",
+        "offset": 0,
+        "limit": 1643
+      }
+    ],
+    "files": {
+      "raw.html": "33aba685ae83fc6194fa2c590de3225488b3e9dddc68d02316da0caf6451d251",
+      "parsed.md": "eeedff549c3162814b8cbcfd2491ceb822c6c86ecebcf730cbaaf11dabf9934d"
+    },
+    "pdf": {
+      "ok": true,
+      "raw_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\pdf_cache\\url_89251c0f20db77dc\\raw.pdf",
+      "parsed_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\literature\\pdf_cache\\url_89251c0f20db77dc\\parsed.md"
+    },
+    "pdf_error": "ModuleNotFoundError(\"No module named 'fitz'\")",
+    "version": "v2",
+    "url": "https://arxiv.org/abs/2508.05337v2",
+    "fully_read_original_sentinel": "058b9c478fd6",
+    "pdf_sha256": "936773a3c70152e90c6b2c0c195b055875e10e1abc557f49665535b77532b9dd",
+    "visually_inspected_pdf_pages_1_based": [
+      9,
+      10,
+      11
+    ],
+    "rendering_recovery": "Existing pdftoppm used; no environment installation"
+  },
+  "SyncThink in:name,description,readme": {
+    "url": "https://api.github.com/search/repositories?q=SyncThink%20in%3Aname%2Cdescription%2Creadme&per_page=20",
+    "total_count": 13,
+    "items": [
+      {
+        "name": "waynesutton/claude-code-sync",
+        "url": "https://github.com/waynesutton/claude-code-sync",
+        "description": null
+      },
+      {
+        "name": "raubel/logseq-syncthing-conflicts-helper",
+        "url": "https://github.com/raubel/logseq-syncthing-conflicts-helper",
+        "description": null
+      },
+      {
+        "name": "joshuadavidthomas/pi-opensync-plugin",
+        "url": "https://github.com/joshuadavidthomas/pi-opensync-plugin",
+        "description": "A pi extension that syncs sessions to OpenSync dashboards."
+      },
+      {
+        "name": "Fozu-lzwpattern/syncthink",
+        "url": "https://github.com/Fozu-lzwpattern/syncthink",
+        "description": "本地优先、P2P 分布式、多人实时协同的无限结构化画布系统 — 团队级分布式思考节点网络"
+      },
+      {
+        "name": "biplabmukherjee62/syncthink",
+        "url": "https://github.com/biplabmukherjee62/syncthink",
+        "description": "syncthink repo"
+      },
+      {
+        "name": "waynesutton/cursor-cli-sync-plugin",
+        "url": "https://github.com/waynesutton/cursor-cli-sync-plugin",
+        "description": "Sync your Cursor sessions to OpenSync dashboard. Track coding sessions, analyze tool usage, and monitor token consumption across projects."
+      },
+      {
+        "name": "waynesutton/codex-sync-plugin",
+        "url": "https://github.com/waynesutton/codex-sync-plugin",
+        "description": null
+      },
+      {
+        "name": "abdulhadik/syncthink-hrms",
+        "url": "https://github.com/abdulhadik/syncthink-hrms",
+        "description": null
+      },
+      {
+        "name": "yemyat/droid-sync-plugin",
+        "url": "https://github.com/yemyat/droid-sync-plugin",
+        "description": "Sync Factory Droid sessions to OpenSync dashboard"
+      },
+      {
+        "name": "allkirill/WiFiFlashDrop",
+        "url": "https://github.com/allkirill/WiFiFlashDrop",
+        "description": "Телефон как беспроводная флешка для синхронизации обсидиана"
+      },
+      {
+        "name": "kellych123/SyncThinkTechnology1",
+        "url": "https://github.com/kellych123/SyncThinkTechnology1",
+        "description": null
+      },
+      {
+        "name": "GiorgioNatili/bitrise-aws-device-farm-runner-master-syncthink",
+        "url": "https://github.com/GiorgioNatili/bitrise-aws-device-farm-runner-master-syncthink",
+        "description": null
+      },
+      {
+        "name": "cebe/pulse-php",
+        "url": "https://github.com/cebe/pulse-php",
+        "description": "In implementation of the pulse/syncthink protocol in PHP, WIP"
+      }
+    ]
+  },
+  "\"2508.05337\" in:readme": {
+    "url": "https://api.github.com/search/repositories?q=%222508.05337%22%20in%3Areadme&per_page=20",
+    "total_count": 1,
+    "items": [
+      {
+        "name": "HuangJiameng/cgrs",
+        "url": "https://github.com/HuangJiameng/cgrs",
+        "description": "Code for CGRS research paper"
+      }
+    ]
+  },
+  "\"Certainty-Guided Reflection Suppression\" in:readme": {
+    "url": "https://api.github.com/search/repositories?q=%22Certainty-Guided%20Reflection%20Suppression%22%20in%3Areadme&per_page=20",
+    "total_count": 6,
+    "items": [
+      {
+        "name": "Eclipsess/Awesome-Efficient-Reasoning-LLMs",
+        "url": "https://github.com/Eclipsess/Awesome-Efficient-Reasoning-LLMs",
+        "description": "[TMLR 2025] Stop Overthinking: A Survey on Efficient Reasoning for Large Language Models"
+      },
+      {
+        "name": "yueliu1999/Awesome-Efficient-Inference-for-LRMs",
+        "url": "https://github.com/yueliu1999/Awesome-Efficient-Inference-for-LRMs",
+        "description": "[IEEE T-PAMI] Awesome-Efficient-Inference-for-LRMs is a collection of state-of-the-art, novel, exciting, token-efficient methods for Large Reasoning Models (LRMs). It contains papers, codes, datasets, evaluations, and analyses. https://arxiv.org/pdf/2503.23077"
+      },
+      {
+        "name": "HuangJiameng/cgrs",
+        "url": "https://github.com/HuangJiameng/cgrs",
+        "description": "Code for CGRS research paper"
+      },
+      {
+        "name": "ZLKong/Awesome-Collection-Token-Reduction",
+        "url": "https://github.com/ZLKong/Awesome-Collection-Token-Reduction",
+        "description": "A collection of token reduction (token pruning, merging, clustering, etc.) techniques for ML/AI"
+      },
+      {
+        "name": "fscdc/Awesome-Efficient-Reasoning-Models",
+        "url": "https://github.com/fscdc/Awesome-Efficient-Reasoning-Models",
+        "description": "[TMLR 2025] Efficient Reasoning Models: A Survey"
+      },
+      {
+        "name": "hemingkx/Awesome-Efficient-Reasoning",
+        "url": "https://github.com/hemingkx/Awesome-Efficient-Reasoning",
+        "description": "Paper list for Efficient Reasoning."
+      }
+    ]
+  },
+  "date": "2026-09-12",
+  "syncthink_code_status": "No confirmed author repository found within recorded searches",
+  "cgrs_author_repository": {
+    "url": "https://github.com/HuangJiameng/cgrs",
+    "commit": "27077bbca5a4b08fd3f6503d9e87b5fba7facddd",
+    "status": "Author public source exists; implementation discrepancies and runtime blockers audited, no model execution"
+  },
+  "interpretation": "pdf_error records unavailable fitz during first rendering attempt, not failed paper access; recovery pages inspected with existing Poppler"
+}

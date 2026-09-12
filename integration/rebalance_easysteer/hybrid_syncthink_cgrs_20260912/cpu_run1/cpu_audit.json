@@ -1,0 +1,243 @@
+{
+  "namespace": "hybrid_syncthink_cgrs_20260912",
+  "baseline_commit": "f7041d8ede196808d953595d855ea94d6dc289fd",
+  "read_checkout_commit": "2f4d540d8965d15d448e9b115d7e1d20675ba20a",
+  "source_files": {
+    "docs/research/00-研究交接.md": {
+      "sha256": "71699a620f12a5cd42b91a160c7cdad33c0a253e18db2679debdc1c86c2367ae",
+      "git_blob": "f076159183dd0d82843d178ad103d54f7aa24044"
+    },
+    "docs/research/03-ReBalance适配与运行.md": {
+      "sha256": "266cec8dfbb0efddd3654c4495b7e1a338728f94779837c392dfaf045b94d50f",
+      "git_blob": "49aafce80701953faba59fd5e3019383e1543a31"
+    },
+    "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py": {
+      "sha256": "cab4271d93011e2b70a6f42f3e9b38c397aea7de4bdb6f982fa26660bbd42b51",
+      "git_blob": "3ef503cb764c32afd57ad66e272ca9f12d40b705"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": {
+      "sha256": "88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5",
+      "git_blob": "bf67fd76184d55d318155f40f50a3b4731f9bec7"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py": {
+      "sha256": "83a2cfbd94c1016cf8bb05d681370f840646de8be3b51f613f090df799a1b5a5",
+      "git_blob": "d9d675411071d1797841e73c8068abbc3bb0db32"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": {
+      "sha256": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
+      "git_blob": "2f9eaafdb51be97c03e7fd4dcd3ba53178e98b4e"
+    },
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": {
+      "sha256": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+      "git_blob": "b61c3c2d3ddd7a749548dd139807a4724a0a215a"
+    }
+  },
+  "input_hashes": {
+    "train_LF": "4bd7f5266f6c5c4fc729da2d9cbefbe2453cf8df7bd6ba93dc02b9e11512cefd",
+    "tokenizer": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "dynamic_raw": "de6dace874d95e51244dbee63179cd90dc67fe259f5debf3a4ad0d2fad29b1ab",
+    "A_prior_plan": "b9b099dcaaadf5433a12c53fb2f7df1a1ea8e2dce3d583e7c6b8c9167bc2d053"
+  },
+  "formula_checks": {
+    "off_shadow_identity_and_answer_inactive": true,
+    "shift_invariance_and_rank_ties": true,
+    "lambda_larger_is_stricter_on_same_prefix": [
+      64,
+      45,
+      32,
+      16
+    ],
+    "pacing_cap": 32,
+    "forced_end_single_support": true,
+    "full_entropy_limits_and_delta_direction": true,
+    "max_probability_not_sufficient": [
+      {
+        "entropy": 0.7421667371998113,
+        "rank": 1,
+        "max_probability": 0.5,
+        "end_probability": 0.49
+      },
+      {
+        "entropy": 1.0397207708399179,
+        "rank": 1,
+        "max_probability": 0.5,
+        "end_probability": 0.25
+      }
+    ],
+    "post_mask_contamination_witness": {
+      "before": {
+        "entropy": 0.8979457248567798,
+        "rank": 1,
+        "max_probability": 0.6,
+        "end_probability": 0.29999999999999993
+      },
+      "after": {
+        "entropy": 0.5623351446188084,
+        "rank": 0,
+        "max_probability": 0.7499999999999999,
+        "end_probability": 0.7499999999999999
+      }
+    },
+    "dominance_not_synergy": true,
+    "nonfinite_rejection": true
+  },
+  "author_code": {
+    "commit": "27077bbca5a4b08fd3f6503d9e87b5fba7facddd",
+    "files": {
+      ".gitignore": "37561533a73581d5004f6925034693b5643ab0befe055e8052e7ed1eea54e34d",
+      "crgs.py": "282237df1ba846e1b01bfee31dac39485ed22a3ecbb7c9fad7681ac5293c694e",
+      "LICENSE": "b4fecc3a7ce2ba6e8a680a64b281f9be7f8b761847ff73f60b06d1bba2920412",
+      "README.md": "74e13a2e7c0645445a1c7eb6fffd850e7c1f6c6f285a4ee6bc8d2679b97d075d",
+      "requirements.txt": "e6269f383d7790398a8519ea9419029048de11338bdf0d7d4e44e20c1a785cec",
+      "scripts\\run-cgrs.sh": "75dc42c5f6c000b5ad6cd0fbc902b87eefec96922126fb3c54d5e1eb628d0558",
+      "utils\\utils.py": "6526c2f3392cd4727cd29100d169f87397ae1bdf283dfae643e83793b6d01f93",
+      "data\\aime\\test.jsonl": "b0e176aaa45d394ba2f4c7b06343bfe51640f3ba0c17ed643bf6b229789dbf4c",
+      "data\\amc\\test.jsonl": "1ec3cc7d2e053c7decfdbcd86489b381260d442194b6df6011eb1e67e2422f39",
+      "data\\gpqa\\test.jsonl": "7bc7ac78924691d0271ad7abb771e09c76b3aedbe1c2d9f51a13b29039744d1c",
+      "data\\math\\test.jsonl": "100fce760278f90091a30779ca998a7feba602e8e60de1fa4f99d5a244bdccf9"
+    },
+    "missing_parser_attributes": [
+      "points",
+      "rep",
+      "suppress_ratio"
+    ],
+    "script_calls_missing_cgrs_py": true,
+    "policy_argument_exit_code": 2,
+    "public_score_for_uniform_V1000_top5": 0.9785398516288991,
+    "paper_full_entropy_certainty": 0,
+    "callback_probabilities_for_two_requests": [
+      0.8,
+      0.8
+    ],
+    "notes": [
+      "AST-extracted CPU functions only; no model/vLLM import or startup",
+      "last_token_strs read at line 162 before local assignment at 167",
+      "logprobs=5 differs from full vocabulary entropy; probe token 0 skipped",
+      "default think_ratio=0.6 introduces separate forced budget",
+      "probe outputs not included in reported generated response or main output budget"
+    ]
+  },
+  "token_table": [
+    {
+      "paper_text": "Wait",
+      "paper_id": 14190,
+      "actual_text": "Wait",
+      "matches": true
+    },
+    {
+      "paper_text": " Wait",
+      "paper_id": 13824,
+      "actual_text": " Wait",
+      "matches": true
+    },
+    {
+      "paper_text": "wait",
+      "paper_id": 11489,
+      "actual_text": "wait",
+      "matches": true
+    },
+    {
+      "paper_text": " wait",
+      "paper_id": 3783,
+      "actual_text": " wait",
+      "matches": true
+    },
+    {
+      "paper_text": "But",
+      "paper_id": 3983,
+      "actual_text": "But",
+      "matches": true
+    },
+    {
+      "paper_text": " But",
+      "paper_id": 1988,
+      "actual_text": " But",
+      "matches": true
+    },
+    {
+      "paper_text": "but",
+      "paper_id": 8088,
+      "actual_text": "but",
+      "matches": true
+    },
+    {
+      "paper_text": " but",
+      "paper_id": 714,
+      "actual_text": " but",
+      "matches": true
+    },
+    {
+      "paper_text": "Alternatively",
+      "paper_id": 38478,
+      "actual_text": " Alternatively",
+      "matches": false
+    },
+    {
+      "paper_text": " Alternatively",
+      "paper_id": 38478,
+      "actual_text": " Alternatively",
+      "matches": true
+    },
+    {
+      "paper_text": "Alternative",
+      "paper_id": 75763,
+      "actual_text": "Alternative",
+      "matches": true
+    },
+    {
+      "paper_text": " Alternative",
+      "paper_id": 41109,
+      "actual_text": " Alternative",
+      "matches": true
+    },
+    {
+      "paper_text": "Hmm",
+      "paper_id": 80022,
+      "actual_text": "Hmm",
+      "matches": true
+    },
+    {
+      "paper_text": " Hmm",
+      "paper_id": 88190,
+      "actual_text": " Hmm",
+      "matches": true
+    }
+  ],
+  "end_token_id": 151649,
+  "actual_corrected_trigger_tokens": {
+    "14190": "Wait",
+    "1988": " But",
+    "714": " but",
+    "13824": " Wait",
+    "3983": "But",
+    "3783": " wait",
+    "11489": "wait",
+    "8088": "but",
+    "38478": " Alternatively",
+    "41109": " Alternative",
+    "75763": "Alternative",
+    "92014": "Alternatively",
+    "80022": "Hmm",
+    "88190": " Hmm"
+  },
+  "traces": {
+    "n": 100,
+    "total_thinking": 317436,
+    "head_hits": 1455,
+    "interior_hits": 1627,
+    "questions_with_triggers": 99,
+    "boundaries": 9056,
+    "capped": 1,
+    "note": "No correctness recomputation; raw correct flags are not the author regrade. Lexical counts are not useless-reflection counts or intervention opportunities."
+  },
+  "budget": {
+    "new_answers": 0,
+    "model_forward_calls": 0,
+    "GPU_calls": 0,
+    "server_connections": 0,
+    "environment_installs": 0
+  },
+  "runtime_ready": false,
+  "data_frozen": false,
+  "elapsed_seconds": 1.4709591999999247
+}

@@ -1,0 +1,902 @@
+[
+  {
+    "train_index": 2719,
+    "thinking_tokens": 978,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 13,
+    "longest_nonboundary_run": 121,
+    "capped": false
+  },
+  {
+    "train_index": 6624,
+    "thinking_tokens": 596,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 19,
+    "longest_nonboundary_run": 76,
+    "capped": false
+  },
+  {
+    "train_index": 4907,
+    "thinking_tokens": 2695,
+    "head_trigger_tokens": 23,
+    "interior_trigger_tokens": 41,
+    "boundary_count": 38,
+    "longest_nonboundary_run": 169,
+    "capped": false
+  },
+  {
+    "train_index": 7411,
+    "thinking_tokens": 891,
+    "head_trigger_tokens": 0,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 12,
+    "longest_nonboundary_run": 108,
+    "capped": false
+  },
+  {
+    "train_index": 6442,
+    "thinking_tokens": 1228,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 23,
+    "longest_nonboundary_run": 168,
+    "capped": false
+  },
+  {
+    "train_index": 6775,
+    "thinking_tokens": 575,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 11,
+    "longest_nonboundary_run": 92,
+    "capped": false
+  },
+  {
+    "train_index": 5624,
+    "thinking_tokens": 2170,
+    "head_trigger_tokens": 9,
+    "interior_trigger_tokens": 13,
+    "boundary_count": 45,
+    "longest_nonboundary_run": 201,
+    "capped": false
+  },
+  {
+    "train_index": 6312,
+    "thinking_tokens": 3582,
+    "head_trigger_tokens": 16,
+    "interior_trigger_tokens": 34,
+    "boundary_count": 66,
+    "longest_nonboundary_run": 382,
+    "capped": false
+  },
+  {
+    "train_index": 6876,
+    "thinking_tokens": 923,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 0,
+    "boundary_count": 27,
+    "longest_nonboundary_run": 74,
+    "capped": false
+  },
+  {
+    "train_index": 6005,
+    "thinking_tokens": 1139,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 32,
+    "longest_nonboundary_run": 94,
+    "capped": false
+  },
+  {
+    "train_index": 2739,
+    "thinking_tokens": 7048,
+    "head_trigger_tokens": 28,
+    "interior_trigger_tokens": 37,
+    "boundary_count": 118,
+    "longest_nonboundary_run": 238,
+    "capped": false
+  },
+  {
+    "train_index": 2800,
+    "thinking_tokens": 3860,
+    "head_trigger_tokens": 15,
+    "interior_trigger_tokens": 10,
+    "boundary_count": 82,
+    "longest_nonboundary_run": 205,
+    "capped": false
+  },
+  {
+    "train_index": 1960,
+    "thinking_tokens": 2477,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 82,
+    "longest_nonboundary_run": 161,
+    "capped": false
+  },
+  {
+    "train_index": 4876,
+    "thinking_tokens": 720,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 7,
+    "boundary_count": 9,
+    "longest_nonboundary_run": 123,
+    "capped": false
+  },
+  {
+    "train_index": 3016,
+    "thinking_tokens": 10593,
+    "head_trigger_tokens": 55,
+    "interior_trigger_tokens": 27,
+    "boundary_count": 499,
+    "longest_nonboundary_run": 109,
+    "capped": false
+  },
+  {
+    "train_index": 6062,
+    "thinking_tokens": 947,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 0,
+    "boundary_count": 34,
+    "longest_nonboundary_run": 73,
+    "capped": false
+  },
+  {
+    "train_index": 7165,
+    "thinking_tokens": 1010,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 25,
+    "longest_nonboundary_run": 103,
+    "capped": false
+  },
+  {
+    "train_index": 5081,
+    "thinking_tokens": 8904,
+    "head_trigger_tokens": 23,
+    "interior_trigger_tokens": 31,
+    "boundary_count": 391,
+    "longest_nonboundary_run": 129,
+    "capped": false
+  },
+  {
+    "train_index": 4594,
+    "thinking_tokens": 10487,
+    "head_trigger_tokens": 46,
+    "interior_trigger_tokens": 56,
+    "boundary_count": 277,
+    "longest_nonboundary_run": 226,
+    "capped": false
+  },
+  {
+    "train_index": 7148,
+    "thinking_tokens": 518,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 16,
+    "longest_nonboundary_run": 74,
+    "capped": false
+  },
+  {
+    "train_index": 4649,
+    "thinking_tokens": 1833,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 49,
+    "longest_nonboundary_run": 186,
+    "capped": false
+  },
+  {
+    "train_index": 5952,
+    "thinking_tokens": 1153,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 41,
+    "longest_nonboundary_run": 232,
+    "capped": false
+  },
+  {
+    "train_index": 4519,
+    "thinking_tokens": 96,
+    "head_trigger_tokens": 0,
+    "interior_trigger_tokens": 0,
+    "boundary_count": 2,
+    "longest_nonboundary_run": 38,
+    "capped": false
+  },
+  {
+    "train_index": 1439,
+    "thinking_tokens": 13310,
+    "head_trigger_tokens": 54,
+    "interior_trigger_tokens": 49,
+    "boundary_count": 280,
+    "longest_nonboundary_run": 263,
+    "capped": false
+  },
+  {
+    "train_index": 5435,
+    "thinking_tokens": 2991,
+    "head_trigger_tokens": 14,
+    "interior_trigger_tokens": 18,
+    "boundary_count": 115,
+    "longest_nonboundary_run": 100,
+    "capped": false
+  },
+  {
+    "train_index": 490,
+    "thinking_tokens": 4122,
+    "head_trigger_tokens": 11,
+    "interior_trigger_tokens": 26,
+    "boundary_count": 99,
+    "longest_nonboundary_run": 177,
+    "capped": false
+  },
+  {
+    "train_index": 2066,
+    "thinking_tokens": 1395,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 42,
+    "longest_nonboundary_run": 131,
+    "capped": false
+  },
+  {
+    "train_index": 5329,
+    "thinking_tokens": 2029,
+    "head_trigger_tokens": 12,
+    "interior_trigger_tokens": 18,
+    "boundary_count": 32,
+    "longest_nonboundary_run": 143,
+    "capped": false
+  },
+  {
+    "train_index": 6705,
+    "thinking_tokens": 2262,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 142,
+    "longest_nonboundary_run": 97,
+    "capped": false
+  },
+  {
+    "train_index": 3355,
+    "thinking_tokens": 7373,
+    "head_trigger_tokens": 62,
+    "interior_trigger_tokens": 24,
+    "boundary_count": 345,
+    "longest_nonboundary_run": 101,
+    "capped": false
+  },
+  {
+    "train_index": 5939,
+    "thinking_tokens": 1087,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 18,
+    "longest_nonboundary_run": 133,
+    "capped": false
+  },
+  {
+    "train_index": 5362,
+    "thinking_tokens": 2652,
+    "head_trigger_tokens": 14,
+    "interior_trigger_tokens": 27,
+    "boundary_count": 54,
+    "longest_nonboundary_run": 140,
+    "capped": false
+  },
+  {
+    "train_index": 2155,
+    "thinking_tokens": 2047,
+    "head_trigger_tokens": 7,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 61,
+    "longest_nonboundary_run": 100,
+    "capped": false
+  },
+  {
+    "train_index": 319,
+    "thinking_tokens": 2025,
+    "head_trigger_tokens": 11,
+    "interior_trigger_tokens": 9,
+    "boundary_count": 64,
+    "longest_nonboundary_run": 101,
+    "capped": false
+  },
+  {
+    "train_index": 851,
+    "thinking_tokens": 1698,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 62,
+    "longest_nonboundary_run": 91,
+    "capped": false
+  },
+  {
+    "train_index": 517,
+    "thinking_tokens": 3842,
+    "head_trigger_tokens": 21,
+    "interior_trigger_tokens": 39,
+    "boundary_count": 70,
+    "longest_nonboundary_run": 159,
+    "capped": false
+  },
+  {
+    "train_index": 4061,
+    "thinking_tokens": 4367,
+    "head_trigger_tokens": 24,
+    "interior_trigger_tokens": 51,
+    "boundary_count": 99,
+    "longest_nonboundary_run": 338,
+    "capped": false
+  },
+  {
+    "train_index": 253,
+    "thinking_tokens": 1072,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 29,
+    "longest_nonboundary_run": 94,
+    "capped": false
+  },
+  {
+    "train_index": 3614,
+    "thinking_tokens": 2702,
+    "head_trigger_tokens": 7,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 109,
+    "longest_nonboundary_run": 92,
+    "capped": false
+  },
+  {
+    "train_index": 5337,
+    "thinking_tokens": 796,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 11,
+    "longest_nonboundary_run": 141,
+    "capped": false
+  },
+  {
+    "train_index": 2917,
+    "thinking_tokens": 2052,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 48,
+    "longest_nonboundary_run": 189,
+    "capped": false
+  },
+  {
+    "train_index": 4544,
+    "thinking_tokens": 1272,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 20,
+    "longest_nonboundary_run": 142,
+    "capped": false
+  },
+  {
+    "train_index": 6823,
+    "thinking_tokens": 1133,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 44,
+    "longest_nonboundary_run": 73,
+    "capped": false
+  },
+  {
+    "train_index": 530,
+    "thinking_tokens": 4553,
+    "head_trigger_tokens": 35,
+    "interior_trigger_tokens": 39,
+    "boundary_count": 81,
+    "longest_nonboundary_run": 242,
+    "capped": false
+  },
+  {
+    "train_index": 5007,
+    "thinking_tokens": 6617,
+    "head_trigger_tokens": 35,
+    "interior_trigger_tokens": 37,
+    "boundary_count": 192,
+    "longest_nonboundary_run": 158,
+    "capped": false
+  },
+  {
+    "train_index": 5996,
+    "thinking_tokens": 1322,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 32,
+    "longest_nonboundary_run": 91,
+    "capped": false
+  },
+  {
+    "train_index": 6591,
+    "thinking_tokens": 755,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 11,
+    "longest_nonboundary_run": 122,
+    "capped": false
+  },
+  {
+    "train_index": 3390,
+    "thinking_tokens": 3433,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 34,
+    "longest_nonboundary_run": 287,
+    "capped": false
+  },
+  {
+    "train_index": 1383,
+    "thinking_tokens": 3849,
+    "head_trigger_tokens": 22,
+    "interior_trigger_tokens": 22,
+    "boundary_count": 128,
+    "longest_nonboundary_run": 163,
+    "capped": false
+  },
+  {
+    "train_index": 6878,
+    "thinking_tokens": 741,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 18,
+    "longest_nonboundary_run": 89,
+    "capped": false
+  },
+  {
+    "train_index": 1312,
+    "thinking_tokens": 1441,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 25,
+    "longest_nonboundary_run": 192,
+    "capped": false
+  },
+  {
+    "train_index": 582,
+    "thinking_tokens": 5292,
+    "head_trigger_tokens": 22,
+    "interior_trigger_tokens": 20,
+    "boundary_count": 122,
+    "longest_nonboundary_run": 177,
+    "capped": false
+  },
+  {
+    "train_index": 6476,
+    "thinking_tokens": 9092,
+    "head_trigger_tokens": 28,
+    "interior_trigger_tokens": 44,
+    "boundary_count": 239,
+    "longest_nonboundary_run": 196,
+    "capped": false
+  },
+  {
+    "train_index": 6975,
+    "thinking_tokens": 3114,
+    "head_trigger_tokens": 11,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 87,
+    "longest_nonboundary_run": 144,
+    "capped": false
+  },
+  {
+    "train_index": 2439,
+    "thinking_tokens": 1535,
+    "head_trigger_tokens": 6,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 32,
+    "longest_nonboundary_run": 129,
+    "capped": false
+  },
+  {
+    "train_index": 3136,
+    "thinking_tokens": 4123,
+    "head_trigger_tokens": 10,
+    "interior_trigger_tokens": 16,
+    "boundary_count": 129,
+    "longest_nonboundary_run": 210,
+    "capped": false
+  },
+  {
+    "train_index": 6529,
+    "thinking_tokens": 1201,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 13,
+    "longest_nonboundary_run": 143,
+    "capped": false
+  },
+  {
+    "train_index": 5535,
+    "thinking_tokens": 14800,
+    "head_trigger_tokens": 63,
+    "interior_trigger_tokens": 109,
+    "boundary_count": 377,
+    "longest_nonboundary_run": 231,
+    "capped": false
+  },
+  {
+    "train_index": 1451,
+    "thinking_tokens": 864,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 11,
+    "longest_nonboundary_run": 113,
+    "capped": false
+  },
+  {
+    "train_index": 182,
+    "thinking_tokens": 12086,
+    "head_trigger_tokens": 91,
+    "interior_trigger_tokens": 61,
+    "boundary_count": 605,
+    "longest_nonboundary_run": 169,
+    "capped": false
+  },
+  {
+    "train_index": 6261,
+    "thinking_tokens": 1038,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 34,
+    "longest_nonboundary_run": 97,
+    "capped": false
+  },
+  {
+    "train_index": 1056,
+    "thinking_tokens": 16000,
+    "head_trigger_tokens": 99,
+    "interior_trigger_tokens": 102,
+    "boundary_count": 471,
+    "longest_nonboundary_run": 220,
+    "capped": true
+  },
+  {
+    "train_index": 850,
+    "thinking_tokens": 3431,
+    "head_trigger_tokens": 12,
+    "interior_trigger_tokens": 13,
+    "boundary_count": 125,
+    "longest_nonboundary_run": 125,
+    "capped": false
+  },
+  {
+    "train_index": 3799,
+    "thinking_tokens": 1485,
+    "head_trigger_tokens": 8,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 23,
+    "longest_nonboundary_run": 168,
+    "capped": false
+  },
+  {
+    "train_index": 2510,
+    "thinking_tokens": 2478,
+    "head_trigger_tokens": 8,
+    "interior_trigger_tokens": 20,
+    "boundary_count": 30,
+    "longest_nonboundary_run": 158,
+    "capped": false
+  },
+  {
+    "train_index": 7498,
+    "thinking_tokens": 1038,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 44,
+    "longest_nonboundary_run": 54,
+    "capped": false
+  },
+  {
+    "train_index": 1329,
+    "thinking_tokens": 1410,
+    "head_trigger_tokens": 6,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 23,
+    "longest_nonboundary_run": 107,
+    "capped": false
+  },
+  {
+    "train_index": 7401,
+    "thinking_tokens": 1586,
+    "head_trigger_tokens": 11,
+    "interior_trigger_tokens": 14,
+    "boundary_count": 48,
+    "longest_nonboundary_run": 98,
+    "capped": false
+  },
+  {
+    "train_index": 1873,
+    "thinking_tokens": 1097,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 41,
+    "longest_nonboundary_run": 124,
+    "capped": false
+  },
+  {
+    "train_index": 5373,
+    "thinking_tokens": 4524,
+    "head_trigger_tokens": 26,
+    "interior_trigger_tokens": 45,
+    "boundary_count": 54,
+    "longest_nonboundary_run": 298,
+    "capped": false
+  },
+  {
+    "train_index": 7444,
+    "thinking_tokens": 744,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 17,
+    "longest_nonboundary_run": 84,
+    "capped": false
+  },
+  {
+    "train_index": 1865,
+    "thinking_tokens": 1716,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 38,
+    "longest_nonboundary_run": 128,
+    "capped": false
+  },
+  {
+    "train_index": 86,
+    "thinking_tokens": 1136,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 11,
+    "longest_nonboundary_run": 156,
+    "capped": false
+  },
+  {
+    "train_index": 631,
+    "thinking_tokens": 1589,
+    "head_trigger_tokens": 6,
+    "interior_trigger_tokens": 10,
+    "boundary_count": 35,
+    "longest_nonboundary_run": 193,
+    "capped": false
+  },
+  {
+    "train_index": 3933,
+    "thinking_tokens": 1234,
+    "head_trigger_tokens": 7,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 15,
+    "longest_nonboundary_run": 112,
+    "capped": false
+  },
+  {
+    "train_index": 4209,
+    "thinking_tokens": 1268,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 4,
+    "boundary_count": 18,
+    "longest_nonboundary_run": 135,
+    "capped": false
+  },
+  {
+    "train_index": 4295,
+    "thinking_tokens": 891,
+    "head_trigger_tokens": 0,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 33,
+    "longest_nonboundary_run": 83,
+    "capped": false
+  },
+  {
+    "train_index": 4108,
+    "thinking_tokens": 1036,
+    "head_trigger_tokens": 4,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 18,
+    "longest_nonboundary_run": 103,
+    "capped": false
+  },
+  {
+    "train_index": 6108,
+    "thinking_tokens": 1304,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 14,
+    "boundary_count": 22,
+    "longest_nonboundary_run": 100,
+    "capped": false
+  },
+  {
+    "train_index": 5014,
+    "thinking_tokens": 1249,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 40,
+    "longest_nonboundary_run": 99,
+    "capped": false
+  },
+  {
+    "train_index": 4897,
+    "thinking_tokens": 1922,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 10,
+    "boundary_count": 18,
+    "longest_nonboundary_run": 286,
+    "capped": false
+  },
+  {
+    "train_index": 2244,
+    "thinking_tokens": 5866,
+    "head_trigger_tokens": 41,
+    "interior_trigger_tokens": 44,
+    "boundary_count": 146,
+    "longest_nonboundary_run": 134,
+    "capped": false
+  },
+  {
+    "train_index": 4921,
+    "thinking_tokens": 3704,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 8,
+    "boundary_count": 96,
+    "longest_nonboundary_run": 112,
+    "capped": false
+  },
+  {
+    "train_index": 4287,
+    "thinking_tokens": 747,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 14,
+    "longest_nonboundary_run": 98,
+    "capped": false
+  },
+  {
+    "train_index": 1686,
+    "thinking_tokens": 1673,
+    "head_trigger_tokens": 10,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 57,
+    "longest_nonboundary_run": 102,
+    "capped": false
+  },
+  {
+    "train_index": 7325,
+    "thinking_tokens": 1982,
+    "head_trigger_tokens": 13,
+    "interior_trigger_tokens": 5,
+    "boundary_count": 68,
+    "longest_nonboundary_run": 65,
+    "capped": false
+  },
+  {
+    "train_index": 7065,
+    "thinking_tokens": 1660,
+    "head_trigger_tokens": 8,
+    "interior_trigger_tokens": 10,
+    "boundary_count": 49,
+    "longest_nonboundary_run": 141,
+    "capped": false
+  },
+  {
+    "train_index": 5162,
+    "thinking_tokens": 3523,
+    "head_trigger_tokens": 15,
+    "interior_trigger_tokens": 14,
+    "boundary_count": 145,
+    "longest_nonboundary_run": 117,
+    "capped": false
+  },
+  {
+    "train_index": 5307,
+    "thinking_tokens": 7691,
+    "head_trigger_tokens": 0,
+    "interior_trigger_tokens": 92,
+    "boundary_count": 93,
+    "longest_nonboundary_run": 364,
+    "capped": false
+  },
+  {
+    "train_index": 4605,
+    "thinking_tokens": 1556,
+    "head_trigger_tokens": 5,
+    "interior_trigger_tokens": 2,
+    "boundary_count": 22,
+    "longest_nonboundary_run": 268,
+    "capped": false
+  },
+  {
+    "train_index": 2029,
+    "thinking_tokens": 6968,
+    "head_trigger_tokens": 41,
+    "interior_trigger_tokens": 12,
+    "boundary_count": 306,
+    "longest_nonboundary_run": 123,
+    "capped": false
+  },
+  {
+    "train_index": 3115,
+    "thinking_tokens": 14739,
+    "head_trigger_tokens": 152,
+    "interior_trigger_tokens": 59,
+    "boundary_count": 531,
+    "longest_nonboundary_run": 132,
+    "capped": false
+  },
+  {
+    "train_index": 1082,
+    "thinking_tokens": 4000,
+    "head_trigger_tokens": 11,
+    "interior_trigger_tokens": 10,
+    "boundary_count": 118,
+    "longest_nonboundary_run": 101,
+    "capped": false
+  },
+  {
+    "train_index": 7010,
+    "thinking_tokens": 1679,
+    "head_trigger_tokens": 8,
+    "interior_trigger_tokens": 15,
+    "boundary_count": 39,
+    "longest_nonboundary_run": 160,
+    "capped": false
+  },
+  {
+    "train_index": 263,
+    "thinking_tokens": 642,
+    "head_trigger_tokens": 3,
+    "interior_trigger_tokens": 3,
+    "boundary_count": 14,
+    "longest_nonboundary_run": 111,
+    "capped": false
+  },
+  {
+    "train_index": 1286,
+    "thinking_tokens": 2823,
+    "head_trigger_tokens": 12,
+    "interior_trigger_tokens": 6,
+    "boundary_count": 93,
+    "longest_nonboundary_run": 145,
+    "capped": false
+  },
+  {
+    "train_index": 6142,
+    "thinking_tokens": 748,
+    "head_trigger_tokens": 2,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 15,
+    "longest_nonboundary_run": 90,
+    "capped": false
+  },
+  {
+    "train_index": 5444,
+    "thinking_tokens": 4042,
+    "head_trigger_tokens": 36,
+    "interior_trigger_tokens": 24,
+    "boundary_count": 131,
+    "longest_nonboundary_run": 104,
+    "capped": false
+  },
+  {
+    "train_index": 2261,
+    "thinking_tokens": 4320,
+    "head_trigger_tokens": 31,
+    "interior_trigger_tokens": 39,
+    "boundary_count": 115,
+    "longest_nonboundary_run": 137,
+    "capped": false
+  },
+  {
+    "train_index": 2977,
+    "thinking_tokens": 1429,
+    "head_trigger_tokens": 1,
+    "interior_trigger_tokens": 1,
+    "boundary_count": 55,
+    "longest_nonboundary_run": 82,
+    "capped": false
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "algorithm": "SHA256 exact delivered bytes",
+  "self_excluded": true,
+  "files": {
+    "cpu_run1/cpu_audit.json": "6475a6359cfac6218964aa0192d083da89260366d8aaf38658cf4e072616df6f",
+    "cpu_run1/data_registry.json": "bbc5f7fb18fe631aba057b86e5dc6465093a3689867b54901f6f3b037aacfe44",
+    "cpu_run1/trace_counts.json": "844179396e6820f5191a9a7025029314cc0b924213de8c1fcb0a5cc26465c625",
+    "delivery_checks.json": "770c2d525e9515e18632140f10551216af667fe5339ae6c89fe392e70db9f6d0",
+    "experiment_plan.json": "cad3ae75c9c2d66e1059cc44d218be150ab040b6ba2c5c8120888b302171b090",
+    "literature_receipt.json": "9ac535c1d84aba444dff1c45375a599ca0f3f6a5cf673f1deaff93d039be18b1",
+    "prepare_cpu.py": "1e306b537f7492e563007a571a7681ac56a868f0034f9cc47b816a75f1db8129",
+    "reference.py": "37d03b15e1165da172bd7719027475d48e6d5d08b666c1e345c274997a4bca08",
+    "研究交付.md": "4b3ff083cac126c392c23de2ba073efb9e70a42b734a1295e256e25d4bb4bfc6",
+    ".gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+  }
+}
