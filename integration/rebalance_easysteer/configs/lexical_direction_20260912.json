@@ -1,0 +1,32 @@
+{
+  "status": "hypothesis_fixed_before_lexical_direction_fit",
+  "candidate": "SEAL_lexical_direction_with_existing_dynamic_control",
+  "purpose": "Separate the behavioral direction labels from the confidence signal that also drives the online controller.",
+  "basis": [
+    {"source":"integration/rebalance_easysteer/scripts/calibrate_auto.py:fit","evidence":"Current over/under direction labels mix reflection lexicon hits and confidence quantiles; the same confidence statistic determines online action."},
+    {"source":"https://arxiv.org/abs/2504.07986v3","location":"behavior classes and mean-difference steering","evidence":"SEAL provides execution/reflection/transition classes. Official source b2ad6858fc48143021e5df5ce10396f5c693b1ec uses execution mean minus pooled reflection/transition mean."},
+    {"source":"https://github.com/VITA-Group/SEAL/blob/b2ad6858fc48143021e5df5ce10396f5c693b1ec/hidden_analysis.py#L36","derivation":"Our proposed hybrid uses SEAL's lexical labeling rule on exactly the original ReBalance complete-step support, and its opposite contrast for the sign convention of the existing dynamic controller. This isolates label/orientation changes; it is not the already completed static SEAL comparison or a faithful SEAL reproduction."}
+  ],
+  "exact_change": {
+    "support": "All84008 original complete-step first-content states at hidden_state_index21, unchanged question/step weights. Do not change to SEAL delimiter states, include additional incomplete tails, filter correctness, or regenerate answers.",
+    "labels": "Apply the verified official SEAL generate_index lexical check/transition conditions to each original step's decoded text. Reflection has precedence over transition; all remaining steps are execution. Preserve author spellings and substring semantics.",
+    "direction": "d_new=mean(reflection union transition)-mean(execution), scaled once to the Euclidean norm of the frozen originalraw vector. Negative original coefficients then point toward execution; positive ones toward pooled reflection/transition.",
+    "runtime": "Replace vector bytes only; retain outputlayer20, all original curve parameters and maximum-probability arithmetic controller, generation boundary routing and sampling. No coefficient refit or combination with another candidate."
+  },
+  "CPU_gate": {
+    "minimum_questions_per_binary_class": 25,
+    "minimum_original400_vs100_direction_cosine": 0.5,
+    "minimum_relative_vector_change_at_matched_norm": 0.10,
+    "maximum_relative_vector_change_at_matched_norm": 1.5,
+    "requires_exact_support_and_author_label_audit": true
+  },
+  "diagnostic": "Report class counts, label overlaps with original mixed classes, original-vector cosine, group agreement and joined existing76 content judgments. These judgments are a stratified single-reviewer development audit, not ground truth or independent correctness evidence. Do not tune labels/norm/strength based on them.",
+  "risks": [
+    "Lexical reflection markers also occur in useful checking and correction; their removal is not automatically safe.",
+    "Execution labels include unlabeled redundant prose and wrong calculations.",
+    "The original curve was calibrated for its original contrast. Matching vector norm controls scale but does not preserve its fitted linear-separator meaning.",
+    "The completed static SEAL comparison had an accuracy loss against dynamic ReBalance on its100 training questions; a hybrid has no demonstrated advantage. Fresh evaluation is required."
+  ],
+  "GPU_if_CPU_passes": "Prepare one fresh100-question original/candidate pair, same source/model/runtime,16000 maximum new tokens. Require>=5percent thinking and total-token reduction, no fewer correct and no more caps. Stop on failure without layer, strength or vocabulary search. Reserve200 independent questions only for confirming a frozen passing candidate within a separately fixed batch budget.",
+  "resources": "All needed states, tokenizer and official source are local. No GPU, SSH, new answers or hidden-state replay needed for this fit."
+}
