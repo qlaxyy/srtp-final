@@ -12,7 +12,7 @@ import numpy as np
 
 from mechanism_candidates import ROOT, BASE, read, save, sha, require
 from audit_control_alignment import load_controller, tensor
-from audit_sampled_probabilities import step_statistics
+from audit_sampled_probabilities import step_statistics, params_from_plan
 
 
 def events(ids, probabilities, boundaries, end_id, interval):
@@ -72,7 +72,7 @@ def main():
     started = time.perf_counter(); nchecks = checks()
     plan_path = ROOT/BASE/'configs/interval_control_20260912.json'; plan = read(plan_path)
     old_plan_path = ROOT/BASE/'configs/seal_comparison130_20260912/plan.json'; old_plan = read(old_plan_path)
-    params = SimpleNamespace(**old_plan['dynamic_parameters'])
+    params = params_from_plan(old_plan)
     boundaries = set(params.boundary_token_ids); interval = plan['intervention']['content_tokens_between_opportunities']
     dynamic_path = ROOT/plan['CPU_inputs']['dynamic_development']; dynamic = read(dynamic_path)
     ledger = read(dynamic_path.parent/'ledger.json')

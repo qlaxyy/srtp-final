@@ -11,6 +11,23 @@ from mechanism_candidates import ROOT, read, save, sha, require
 from audit_control_alignment import load_controller, tensor, scalar_reference
 
 
+def params_from_plan(plan):
+    """Curve-only plans obtain exact markers from the verified frozen tokenizer."""
+    path = ROOT/'.codex_work/label_audit_30_20260910/tokenizer.json'
+    require(sha(path) == plan['model_files_sha256']['tokenizer.json'], 'Tokenizer changed')
+    tokenizer = read(path); vocab = dict(tokenizer['model']['vocab'])
+    vocab.update({t['content']: t['id'] for t in tokenizer['added_tokens']})
+    markers = dict(boundary_token_ids=sorted(v for k, v in vocab.items() if 'ĊĊ' in k),
+                   think_start_token_id=vocab['<think>'], think_end_token_id=vocab['</think>'])
+    require(markers['boundary_token_ids'] and markers['think_start_token_id'] == 151648 and
+            markers['think_end_token_id'] == 151649, 'Unexpected frozen markers')
+    values = dict(plan['dynamic_parameters'])
+    for key, value in markers.items():
+        require(key not in values or values[key] == value, 'Conflicting token markers')
+        values[key] = value
+    return SimpleNamespace(**values)
+
+
 def step_statistics(ids, probabilities, boundaries, end_id):
     """Match sequential FP32 accumulation and last nonempty-step variance."""
     sums = np.zeros(2, dtype=np.float32); previous = None; count = 0; records = []
@@ -56,7 +73,7 @@ def main():
     require(ledger['status'] == 'completed' and ledger['completed_questions'] == 100, 'Incomplete replay')
     require(ledger['plan_sha256'] == sha(a.bundle/'plan.json'), 'Replay plan changed')
     require(sha(a.bundle/'questions.json') == plan['question_mapping_sha256'], 'Question mapping changed')
-    params = SimpleNamespace(**plan['dynamic_parameters']); boundary = set(params.boundary_token_ids)
+    params = params_from_plan(plan); boundary = set(params.boundary_token_ids)
     data = []; all_max = []; all_selected = []; nonmodal = []; per_question = []
     for q in read(a.bundle/'questions.json'):
         file = f"q{q['index']:03d}.npz"; path = a.replay/file; require(sha(path) == ledger['files_sha256'][file], 'Probability file changed')
