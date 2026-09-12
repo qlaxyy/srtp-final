@@ -1,0 +1,3018 @@
+{
+  "status": "cpu_audit_complete_content_gate_not_cleared",
+  "new_generations": 0,
+  "GPU_calls": 0,
+  "replay": "not_run",
+  "fitting": "not_run",
+  "screening": "not_run",
+  "confirmation": "not_run",
+  "integrity": {
+    "files_checked": 7191,
+    "missing": [],
+    "mismatches": [],
+    "manifest_sha256": "15e0eb0f94dcc473915a82c2dca0cbc245ffd59140a1a0d31a4cc604d07bde82",
+    "snapshot_commit_as_recorded": "3abc40114893e7a066d6480c0bd86dbd0f9e9344",
+    "frozen_tag_as_recorded": "easysteer-rebalance-v2-final-20260909",
+    "frozen_commit_as_recorded": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+    "git_object_history_independently_verified": false
+  },
+  "windows_path_fields_normalized": [
+    [
+      "sampled_confidence",
+      "original_dynamic",
+      "raw_file"
+    ],
+    [
+      "sampled_confidence",
+      "original_dynamic",
+      "label_file"
+    ],
+    [
+      "sampled_confidence",
+      "sampled_confidence",
+      "raw_file"
+    ],
+    [
+      "sampled_confidence",
+      "sampled_confidence",
+      "label_file"
+    ],
+    [
+      "lexical_direction",
+      "original_dynamic",
+      "raw_file"
+    ],
+    [
+      "lexical_direction",
+      "original_dynamic",
+      "label_file"
+    ],
+    [
+      "lexical_direction",
+      "lexical_direction",
+      "raw_file"
+    ],
+    [
+      "lexical_direction",
+      "lexical_direction",
+      "label_file"
+    ]
+  ],
+  "latest_400_numeric_replication": true,
+  "live_raw_and_labels_match": true,
+  "pair_manifest_exact_match": true,
+  "capture_positions": [
+    {
+      "batch": "lexical_direction",
+      "train_index": 6013,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        257,
+        365
+      ],
+      "distance_from_fork": [
+        21,
+        129
+      ],
+      "fraction_of_thinking": [
+        0.17329737019554955,
+        0.24612272420768713
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6013,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        256,
+        338
+      ],
+      "distance_from_fork": [
+        20,
+        102
+      ],
+      "fraction_of_thinking": [
+        0.13756045137023107,
+        0.18162278344975819
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4453,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        158,
+        212
+      ],
+      "distance_from_fork": [
+        49,
+        103
+      ],
+      "fraction_of_thinking": [
+        0.12982744453574363,
+        0.1741988496302383
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4453,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        219,
+        282
+      ],
+      "distance_from_fork": [
+        110,
+        173
+      ],
+      "fraction_of_thinking": [
+        0.1492842535787321,
+        0.19222903885480572
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2390,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        91,
+        176
+      ],
+      "distance_from_fork": [
+        28,
+        113
+      ],
+      "fraction_of_thinking": [
+        0.017218543046357615,
+        0.033301797540208136
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2390,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        135,
+        259
+      ],
+      "distance_from_fork": [
+        72,
+        196
+      ],
+      "fraction_of_thinking": [
+        0.009554140127388535,
+        0.018329794762915783
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4635,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        152,
+        217
+      ],
+      "distance_from_fork": [
+        0,
+        65
+      ],
+      "fraction_of_thinking": [
+        0.11385767790262172,
+        0.16254681647940075
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4635,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        152,
+        235
+      ],
+      "distance_from_fork": [
+        0,
+        83
+      ],
+      "fraction_of_thinking": [
+        0.0629399585921325,
+        0.09730848861283643
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3725,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        255,
+        357
+      ],
+      "distance_from_fork": [
+        44,
+        146
+      ],
+      "fraction_of_thinking": [
+        0.04059863079127528,
+        0.05683808310778538
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3725,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        263,
+        274
+      ],
+      "distance_from_fork": [
+        52,
+        63
+      ],
+      "fraction_of_thinking": [
+        0.05541508638853772,
+        0.05773282764433207
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6455,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        267,
+        320
+      ],
+      "distance_from_fork": [
+        6,
+        59
+      ],
+      "fraction_of_thinking": [
+        0.32922318125770655,
+        0.39457459926017263
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6455,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        262,
+        294
+      ],
+      "distance_from_fork": [
+        1,
+        33
+      ],
+      "fraction_of_thinking": [
+        0.1784741144414169,
+        0.20027247956403268
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3473,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        189,
+        224
+      ],
+      "distance_from_fork": [
+        0,
+        35
+      ],
+      "fraction_of_thinking": [
+        0.046244188891607536,
+        0.054807927575238564
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3473,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        189,
+        227
+      ],
+      "distance_from_fork": [
+        0,
+        38
+      ],
+      "fraction_of_thinking": [
+        0.1431818181818182,
+        0.17196969696969697
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3762,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        105,
+        136
+      ],
+      "distance_from_fork": [
+        62,
+        93
+      ],
+      "fraction_of_thinking": [
+        0.16666666666666666,
+        0.21587301587301588
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3762,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        118,
+        168
+      ],
+      "distance_from_fork": [
+        75,
+        125
+      ],
+      "fraction_of_thinking": [
+        0.08606856309263311,
+        0.12253829321663019
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4823,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        345,
+        417
+      ],
+      "distance_from_fork": [
+        11,
+        83
+      ],
+      "fraction_of_thinking": [
+        0.36430834213305174,
+        0.440337909186906
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4823,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        373,
+        403
+      ],
+      "distance_from_fork": [
+        39,
+        69
+      ],
+      "fraction_of_thinking": [
+        0.2736610418195158,
+        0.29567131327953045
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7341,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        467,
+        484
+      ],
+      "distance_from_fork": [
+        8,
+        25
+      ],
+      "fraction_of_thinking": [
+        0.17031363967906638,
+        0.1765134938001459
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7341,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        466,
+        511
+      ],
+      "distance_from_fork": [
+        7,
+        52
+      ],
+      "fraction_of_thinking": [
+        0.030712449746259803,
+        0.03367824424965399
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1354,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        242,
+        274
+      ],
+      "distance_from_fork": [
+        9,
+        41
+      ],
+      "fraction_of_thinking": [
+        0.1054925893635571,
+        0.11944202266782912
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1354,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        248,
+        291
+      ],
+      "distance_from_fork": [
+        15,
+        58
+      ],
+      "fraction_of_thinking": [
+        0.07793840351979887,
+        0.09145191703331239
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1904,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        219,
+        264
+      ],
+      "distance_from_fork": [
+        0,
+        45
+      ],
+      "fraction_of_thinking": [
+        0.1821963394342762,
+        0.21963394342762063
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1904,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        219,
+        302
+      ],
+      "distance_from_fork": [
+        0,
+        83
+      ],
+      "fraction_of_thinking": [
+        0.1376492771841609,
+        0.18981772470144564
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7108,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        276,
+        317
+      ],
+      "distance_from_fork": [
+        23,
+        64
+      ],
+      "fraction_of_thinking": [
+        0.30598669623059865,
+        0.3514412416851441
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7108,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        277,
+        287
+      ],
+      "distance_from_fork": [
+        24,
+        34
+      ],
+      "fraction_of_thinking": [
+        0.23415046491969568,
+        0.24260355029585798
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5148,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        128,
+        195
+      ],
+      "distance_from_fork": [
+        0,
+        67
+      ],
+      "fraction_of_thinking": [
+        0.03224993701184178,
+        0.0491307634164777
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5148,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        128,
+        164
+      ],
+      "distance_from_fork": [
+        0,
+        36
+      ],
+      "fraction_of_thinking": [
+        0.03996253512332189,
+        0.05120199812675617
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6628,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        553,
+        612
+      ],
+      "distance_from_fork": [
+        13,
+        72
+      ],
+      "fraction_of_thinking": [
+        0.21131066106228505,
+        0.23385555980129918
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6628,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        561,
+        625
+      ],
+      "distance_from_fork": [
+        21,
+        85
+      ],
+      "fraction_of_thinking": [
+        0.2788270377733598,
+        0.3106361829025845
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2982,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        136,
+        278
+      ],
+      "distance_from_fork": [
+        1,
+        143
+      ],
+      "fraction_of_thinking": [
+        0.08468244084682441,
+        0.17310087173100872
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2982,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        136,
+        184
+      ],
+      "distance_from_fork": [
+        1,
+        49
+      ],
+      "fraction_of_thinking": [
+        0.04619565217391304,
+        0.0625
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2908,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        305,
+        423
+      ],
+      "distance_from_fork": [
+        13,
+        131
+      ],
+      "fraction_of_thinking": [
+        0.07632632632632633,
+        0.10585585585585586
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2908,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        303,
+        393
+      ],
+      "distance_from_fork": [
+        11,
+        101
+      ],
+      "fraction_of_thinking": [
+        0.11314413741598207,
+        0.1467513069454817
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 278,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        301,
+        434
+      ],
+      "distance_from_fork": [
+        133,
+        266
+      ],
+      "fraction_of_thinking": [
+        0.16165413533834586,
+        0.23308270676691728
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 278,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        221,
+        360
+      ],
+      "distance_from_fork": [
+        53,
+        192
+      ],
+      "fraction_of_thinking": [
+        0.20577281191806332,
+        0.33519553072625696
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4871,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        183,
+        203
+      ],
+      "distance_from_fork": [
+        74,
+        94
+      ],
+      "fraction_of_thinking": [
+        0.08476146364057434,
+        0.09402501157943492
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4871,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        162,
+        170
+      ],
+      "distance_from_fork": [
+        53,
+        61
+      ],
+      "fraction_of_thinking": [
+        0.19732034104750304,
+        0.20706455542021923
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3046,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        150,
+        245
+      ],
+      "distance_from_fork": [
+        53,
+        148
+      ],
+      "fraction_of_thinking": [
+        0.10359116022099447,
+        0.1691988950276243
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3046,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        189,
+        262
+      ],
+      "distance_from_fork": [
+        92,
+        165
+      ],
+      "fraction_of_thinking": [
+        0.1090594345066359,
+        0.15118291979226775
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6804,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        131,
+        218
+      ],
+      "distance_from_fork": [
+        1,
+        88
+      ],
+      "fraction_of_thinking": [
+        0.17101827676240208,
+        0.2845953002610966
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6804,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        136,
+        264
+      ],
+      "distance_from_fork": [
+        6,
+        134
+      ],
+      "fraction_of_thinking": [
+        0.11202635914332784,
+        0.21746293245469522
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3450,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        152,
+        172
+      ],
+      "distance_from_fork": [
+        0,
+        20
+      ],
+      "fraction_of_thinking": [
+        0.0391147709727226,
+        0.0442614513638703
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3450,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        152,
+        199
+      ],
+      "distance_from_fork": [
+        0,
+        47
+      ],
+      "fraction_of_thinking": [
+        0.10896057347670252,
+        0.14265232974910394
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5920,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        159,
+        246
+      ],
+      "distance_from_fork": [
+        80,
+        167
+      ],
+      "fraction_of_thinking": [
+        0.13129644921552436,
+        0.20313790255986788
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5920,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        170,
+        248
+      ],
+      "distance_from_fork": [
+        91,
+        169
+      ],
+      "fraction_of_thinking": [
+        0.19036954087346025,
+        0.2777155655095185
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 228,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        122,
+        207
+      ],
+      "distance_from_fork": [
+        0,
+        85
+      ],
+      "fraction_of_thinking": [
+        0.09138576779026217,
+        0.1550561797752809
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 228,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        122,
+        264
+      ],
+      "distance_from_fork": [
+        0,
+        142
+      ],
+      "fraction_of_thinking": [
+        0.06327800829875518,
+        0.13692946058091288
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7488,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        166,
+        186
+      ],
+      "distance_from_fork": [
+        61,
+        81
+      ],
+      "fraction_of_thinking": [
+        0.08478038815117467,
+        0.09499489274770173
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 7488,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        157,
+        164
+      ],
+      "distance_from_fork": [
+        52,
+        59
+      ],
+      "fraction_of_thinking": [
+        0.098125,
+        0.1025
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2070,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        461,
+        481
+      ],
+      "distance_from_fork": [
+        0,
+        20
+      ],
+      "fraction_of_thinking": [
+        0.22553816046966732,
+        0.2353228962818004
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 2070,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        461,
+        515
+      ],
+      "distance_from_fork": [
+        0,
+        54
+      ],
+      "fraction_of_thinking": [
+        0.2940051020408163,
+        0.3284438775510204
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4161,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        176,
+        240
+      ],
+      "distance_from_fork": [
+        80,
+        144
+      ],
+      "fraction_of_thinking": [
+        0.1671415004748338,
+        0.22792022792022792
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4161,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        196,
+        274
+      ],
+      "distance_from_fork": [
+        100,
+        178
+      ],
+      "fraction_of_thinking": [
+        0.1355463347164592,
+        0.18948824343015214
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4765,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        189,
+        197
+      ],
+      "distance_from_fork": [
+        3,
+        11
+      ],
+      "fraction_of_thinking": [
+        0.18584070796460178,
+        0.19370698131760078
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4765,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        190,
+        231
+      ],
+      "distance_from_fork": [
+        4,
+        45
+      ],
+      "fraction_of_thinking": [
+        0.06329113924050633,
+        0.07694870086608928
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3205,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        279,
+        299
+      ],
+      "distance_from_fork": [
+        0,
+        20
+      ],
+      "fraction_of_thinking": [
+        0.19241379310344828,
+        0.20620689655172414
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3205,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        279,
+        284
+      ],
+      "distance_from_fork": [
+        0,
+        5
+      ],
+      "fraction_of_thinking": [
+        0.1586128482092098,
+        0.16145537237066515
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3549,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        115,
+        128
+      ],
+      "distance_from_fork": [
+        0,
+        13
+      ],
+      "fraction_of_thinking": [
+        0.03581438804110869,
+        0.03986297103706011
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 3549,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        115,
+        160
+      ],
+      "distance_from_fork": [
+        0,
+        45
+      ],
+      "fraction_of_thinking": [
+        0.012166737198476513,
+        0.016927634363097757
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4473,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        157,
+        254
+      ],
+      "distance_from_fork": [
+        28,
+        125
+      ],
+      "fraction_of_thinking": [
+        0.07336448598130842,
+        0.11869158878504672
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4473,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        202,
+        375
+      ],
+      "distance_from_fork": [
+        73,
+        246
+      ],
+      "fraction_of_thinking": [
+        0.04674843786160611,
+        0.08678546632723906
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6554,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        489,
+        528
+      ],
+      "distance_from_fork": [
+        15,
+        54
+      ],
+      "fraction_of_thinking": [
+        0.26149732620320854,
+        0.2823529411764706
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 6554,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        475,
+        532
+      ],
+      "distance_from_fork": [
+        1,
+        58
+      ],
+      "fraction_of_thinking": [
+        0.19395671702735812,
+        0.21723152307064109
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5914,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        96,
+        150
+      ],
+      "distance_from_fork": [
+        0,
+        54
+      ],
+      "fraction_of_thinking": [
+        0.054576463899943146,
+        0.08527572484366117
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 5914,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        96,
+        116
+      ],
+      "distance_from_fork": [
+        0,
+        20
+      ],
+      "fraction_of_thinking": [
+        0.04458894565722248,
+        0.0538783093358105
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4434,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        301,
+        415
+      ],
+      "distance_from_fork": [
+        91,
+        205
+      ],
+      "fraction_of_thinking": [
+        0.15279187817258882,
+        0.21065989847715735
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4434,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        281,
+        420
+      ],
+      "distance_from_fork": [
+        71,
+        210
+      ],
+      "fraction_of_thinking": [
+        0.20707442888725128,
+        0.30950626381724394
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4638,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        170,
+        193
+      ],
+      "distance_from_fork": [
+        86,
+        109
+      ],
+      "fraction_of_thinking": [
+        0.1022864019253911,
+        0.1161251504211793
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 4638,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        162,
+        255
+      ],
+      "distance_from_fork": [
+        78,
+        171
+      ],
+      "fraction_of_thinking": [
+        0.16927899686520376,
+        0.2664576802507837
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 332,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        452,
+        524
+      ],
+      "distance_from_fork": [
+        30,
+        102
+      ],
+      "fraction_of_thinking": [
+        0.12062983720309581,
+        0.13984520950093407
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 332,
+      "arm": "lexical_direction",
+      "short": false,
+      "positions": [
+        443,
+        457
+      ],
+      "distance_from_fork": [
+        21,
+        35
+      ],
+      "fraction_of_thinking": [
+        0.06825885978428352,
+        0.07041602465331279
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1300,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        95,
+        131
+      ],
+      "distance_from_fork": [
+        14,
+        50
+      ],
+      "fraction_of_thinking": [
+        0.01386456509048453,
+        0.019118505545826035
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 1300,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        126,
+        167
+      ],
+      "distance_from_fork": [
+        45,
+        86
+      ],
+      "fraction_of_thinking": [
+        0.06565919749869724,
+        0.08702449192287649
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 661,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        161,
+        221
+      ],
+      "distance_from_fork": [
+        81,
+        141
+      ],
+      "fraction_of_thinking": [
+        0.051143583227446,
+        0.07020330368487929
+      ]
+    },
+    {
+      "batch": "lexical_direction",
+      "train_index": 661,
+      "arm": "lexical_direction",
+      "short": true,
+      "positions": [
+        147,
+        218
+      ],
+      "distance_from_fork": [
+        67,
+        138
+      ],
+      "fraction_of_thinking": [
+        0.0837129840546697,
+        0.12414578587699317
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1474,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        211,
+        275
+      ],
+      "distance_from_fork": [
+        29,
+        93
+      ],
+      "fraction_of_thinking": [
+        0.045008532423208195,
+        0.05866040955631399
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1474,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        297,
+        338
+      ],
+      "distance_from_fork": [
+        115,
+        156
+      ],
+      "fraction_of_thinking": [
+        0.03417721518987342,
+        0.038895281933256615
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2551,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        261,
+        279
+      ],
+      "distance_from_fork": [
+        84,
+        102
+      ],
+      "fraction_of_thinking": [
+        0.17036553524804177,
+        0.1821148825065274
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2551,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        315,
+        340
+      ],
+      "distance_from_fork": [
+        138,
+        163
+      ],
+      "fraction_of_thinking": [
+        0.1661392405063291,
+        0.17932489451476794
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6407,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        128,
+        201
+      ],
+      "distance_from_fork": [
+        37,
+        110
+      ],
+      "fraction_of_thinking": [
+        0.0722755505364201,
+        0.11349520045172219
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6407,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        92,
+        112
+      ],
+      "distance_from_fork": [
+        1,
+        21
+      ],
+      "fraction_of_thinking": [
+        0.08897485493230174,
+        0.10831721470019343
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 81,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        124,
+        202
+      ],
+      "distance_from_fork": [
+        55,
+        133
+      ],
+      "fraction_of_thinking": [
+        0.0797427652733119,
+        0.12990353697749196
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 81,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        125,
+        199
+      ],
+      "distance_from_fork": [
+        56,
+        130
+      ],
+      "fraction_of_thinking": [
+        0.031985670419651994,
+        0.05092118730808598
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7412,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        973,
+        1026
+      ],
+      "distance_from_fork": [
+        42,
+        95
+      ],
+      "fraction_of_thinking": [
+        0.9240265906932573,
+        0.9743589743589743
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7412,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        1043,
+        1200
+      ],
+      "distance_from_fork": [
+        112,
+        269
+      ],
+      "fraction_of_thinking": [
+        0.7263231197771588,
+        0.8356545961002786
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2710,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        261,
+        320
+      ],
+      "distance_from_fork": [
+        40,
+        99
+      ],
+      "fraction_of_thinking": [
+        0.17092337917485265,
+        0.20956123117223313
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2710,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        262,
+        338
+      ],
+      "distance_from_fork": [
+        41,
+        117
+      ],
+      "fraction_of_thinking": [
+        0.3608815426997245,
+        0.465564738292011
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7190,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        1054,
+        1123
+      ],
+      "distance_from_fork": [
+        18,
+        87
+      ],
+      "fraction_of_thinking": [
+        0.5159079784630446,
+        0.5496818404307391
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7190,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        1060,
+        1131
+      ],
+      "distance_from_fork": [
+        24,
+        95
+      ],
+      "fraction_of_thinking": [
+        0.6654111738857501,
+        0.7099811676082862
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 968,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        558,
+        585
+      ],
+      "distance_from_fork": [
+        67,
+        94
+      ],
+      "fraction_of_thinking": [
+        0.24134948096885814,
+        0.2530276816608997
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 968,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        578,
+        605
+      ],
+      "distance_from_fork": [
+        87,
+        114
+      ],
+      "fraction_of_thinking": [
+        0.383289124668435,
+        0.40119363395225466
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5872,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        484,
+        527
+      ],
+      "distance_from_fork": [
+        47,
+        90
+      ],
+      "fraction_of_thinking": [
+        0.41402908468776733,
+        0.4508126603934987
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5872,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        484,
+        566
+      ],
+      "distance_from_fork": [
+        47,
+        129
+      ],
+      "fraction_of_thinking": [
+        0.3205298013245033,
+        0.3748344370860927
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1544,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        566,
+        639
+      ],
+      "distance_from_fork": [
+        22,
+        95
+      ],
+      "fraction_of_thinking": [
+        0.10637098289795151,
+        0.12009020860740462
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1544,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        583,
+        641
+      ],
+      "distance_from_fork": [
+        39,
+        97
+      ],
+      "fraction_of_thinking": [
+        0.05225419019449673,
+        0.05745272026530429
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5827,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        327,
+        356
+      ],
+      "distance_from_fork": [
+        12,
+        41
+      ],
+      "fraction_of_thinking": [
+        0.29118432769367764,
+        0.3170080142475512
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5827,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        316,
+        340
+      ],
+      "distance_from_fork": [
+        1,
+        25
+      ],
+      "fraction_of_thinking": [
+        0.3766388557806913,
+        0.4052443384982122
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 3544,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        366,
+        439
+      ],
+      "distance_from_fork": [
+        82,
+        155
+      ],
+      "fraction_of_thinking": [
+        0.07018216682646213,
+        0.08418024928092042
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 3544,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        325,
+        385
+      ],
+      "distance_from_fork": [
+        41,
+        101
+      ],
+      "fraction_of_thinking": [
+        0.030796929783000096,
+        0.03648251681986165
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 366,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        554,
+        652
+      ],
+      "distance_from_fork": [
+        19,
+        117
+      ],
+      "fraction_of_thinking": [
+        0.27223587223587226,
+        0.3203931203931204
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 366,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        552,
+        602
+      ],
+      "distance_from_fork": [
+        17,
+        67
+      ],
+      "fraction_of_thinking": [
+        0.15784958535887905,
+        0.1721475550471833
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6793,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        126,
+        180
+      ],
+      "distance_from_fork": [
+        5,
+        59
+      ],
+      "fraction_of_thinking": [
+        0.11270125223613596,
+        0.16100178890876565
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6793,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        128,
+        198
+      ],
+      "distance_from_fork": [
+        7,
+        77
+      ],
+      "fraction_of_thinking": [
+        0.07965152457996266,
+        0.12321095208462975
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1906,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        312,
+        344
+      ],
+      "distance_from_fork": [
+        117,
+        149
+      ],
+      "fraction_of_thinking": [
+        0.11646136618141098,
+        0.12840612168719673
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1906,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        280,
+        318
+      ],
+      "distance_from_fork": [
+        85,
+        123
+      ],
+      "fraction_of_thinking": [
+        0.022066356686894162,
+        0.025061076522972653
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 422,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        250,
+        400
+      ],
+      "distance_from_fork": [
+        82,
+        232
+      ],
+      "fraction_of_thinking": [
+        0.24727992087042533,
+        0.39564787339268054
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 422,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        253,
+        413
+      ],
+      "distance_from_fork": [
+        85,
+        245
+      ],
+      "fraction_of_thinking": [
+        0.09825242718446602,
+        0.1603883495145631
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7276,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        347,
+        520
+      ],
+      "distance_from_fork": [
+        46,
+        219
+      ],
+      "fraction_of_thinking": [
+        0.2558997050147493,
+        0.3834808259587021
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7276,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        390,
+        493
+      ],
+      "distance_from_fork": [
+        89,
+        192
+      ],
+      "fraction_of_thinking": [
+        0.35103510351035105,
+        0.44374437443744374
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6228,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        304,
+        345
+      ],
+      "distance_from_fork": [
+        62,
+        103
+      ],
+      "fraction_of_thinking": [
+        0.15245737211634905,
+        0.17301905717151456
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6228,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        286,
+        347
+      ],
+      "distance_from_fork": [
+        44,
+        105
+      ],
+      "fraction_of_thinking": [
+        0.19003322259136213,
+        0.23056478405315614
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6139,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        136,
+        197
+      ],
+      "distance_from_fork": [
+        0,
+        61
+      ],
+      "fraction_of_thinking": [
+        0.09483960948396095,
+        0.13737796373779637
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6139,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        136,
+        176
+      ],
+      "distance_from_fork": [
+        0,
+        40
+      ],
+      "fraction_of_thinking": [
+        0.11826086956521739,
+        0.15304347826086956
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 431,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        242,
+        254
+      ],
+      "distance_from_fork": [
+        39,
+        51
+      ],
+      "fraction_of_thinking": [
+        0.19469026548672566,
+        0.20434432823813356
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 431,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        253,
+        264
+      ],
+      "distance_from_fork": [
+        50,
+        61
+      ],
+      "fraction_of_thinking": [
+        0.1203615604186489,
+        0.12559467174119887
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4210,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        349,
+        374
+      ],
+      "distance_from_fork": [
+        81,
+        106
+      ],
+      "fraction_of_thinking": [
+        0.5470219435736677,
+        0.5862068965517241
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4210,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        322,
+        365
+      ],
+      "distance_from_fork": [
+        54,
+        97
+      ],
+      "fraction_of_thinking": [
+        0.4050314465408805,
+        0.4591194968553459
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6369,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        114,
+        144
+      ],
+      "distance_from_fork": [
+        9,
+        39
+      ],
+      "fraction_of_thinking": [
+        0.19655172413793104,
+        0.2482758620689655
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6369,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        124,
+        135
+      ],
+      "distance_from_fork": [
+        19,
+        30
+      ],
+      "fraction_of_thinking": [
+        0.10973451327433628,
+        0.11946902654867257
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 3706,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        186,
+        317
+      ],
+      "distance_from_fork": [
+        42,
+        173
+      ],
+      "fraction_of_thinking": [
+        0.07195357833655706,
+        0.12263056092843327
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 3706,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        185,
+        269
+      ],
+      "distance_from_fork": [
+        41,
+        125
+      ],
+      "fraction_of_thinking": [
+        0.035325568073324425,
+        0.05136528546877984
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2509,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        309,
+        389
+      ],
+      "distance_from_fork": [
+        25,
+        105
+      ],
+      "fraction_of_thinking": [
+        0.36310223266745006,
+        0.4571092831962397
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2509,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        303,
+        385
+      ],
+      "distance_from_fork": [
+        19,
+        101
+      ],
+      "fraction_of_thinking": [
+        0.20092838196286472,
+        0.2553050397877984
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4777,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        125,
+        154
+      ],
+      "distance_from_fork": [
+        27,
+        56
+      ],
+      "fraction_of_thinking": [
+        0.15413070283600494,
+        0.18988902589395806
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4777,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        130,
+        163
+      ],
+      "distance_from_fork": [
+        32,
+        65
+      ],
+      "fraction_of_thinking": [
+        0.0951683748169839,
+        0.11932650073206442
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2093,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        464,
+        575
+      ],
+      "distance_from_fork": [
+        13,
+        124
+      ],
+      "fraction_of_thinking": [
+        0.4006908462867012,
+        0.49654576856649396
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2093,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        461,
+        522
+      ],
+      "distance_from_fork": [
+        10,
+        71
+      ],
+      "fraction_of_thinking": [
+        0.09339546191247974,
+        0.10575364667747164
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1071,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        301,
+        456
+      ],
+      "distance_from_fork": [
+        72,
+        227
+      ],
+      "fraction_of_thinking": [
+        0.03907061266874351,
+        0.059190031152647975
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1071,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        298,
+        318
+      ],
+      "distance_from_fork": [
+        69,
+        89
+      ],
+      "fraction_of_thinking": [
+        0.06778889899909009,
+        0.07233848953594177
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6203,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        163,
+        209
+      ],
+      "distance_from_fork": [
+        58,
+        104
+      ],
+      "fraction_of_thinking": [
+        0.1065359477124183,
+        0.13660130718954247
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6203,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        172,
+        195
+      ],
+      "distance_from_fork": [
+        67,
+        90
+      ],
+      "fraction_of_thinking": [
+        0.0625,
+        0.07085755813953488
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6784,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        298,
+        343
+      ],
+      "distance_from_fork": [
+        24,
+        69
+      ],
+      "fraction_of_thinking": [
+        0.13657195233730524,
+        0.15719523373052247
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6784,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        298,
+        343
+      ],
+      "distance_from_fork": [
+        24,
+        69
+      ],
+      "fraction_of_thinking": [
+        0.255793991416309,
+        0.2944206008583691
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 151,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        136,
+        203
+      ],
+      "distance_from_fork": [
+        30,
+        97
+      ],
+      "fraction_of_thinking": [
+        0.04440091413646752,
+        0.0662748938948743
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 151,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        136,
+        219
+      ],
+      "distance_from_fork": [
+        30,
+        113
+      ],
+      "fraction_of_thinking": [
+        0.0702842377260982,
+        0.11317829457364341
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6877,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        702,
+        752
+      ],
+      "distance_from_fork": [
+        53,
+        103
+      ],
+      "fraction_of_thinking": [
+        0.4733648010788941,
+        0.50708024275118
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6877,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        685,
+        736
+      ],
+      "distance_from_fork": [
+        36,
+        87
+      ],
+      "fraction_of_thinking": [
+        0.7478165938864629,
+        0.8034934497816594
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7374,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        144,
+        186
+      ],
+      "distance_from_fork": [
+        32,
+        74
+      ],
+      "fraction_of_thinking": [
+        0.08,
+        0.10333333333333333
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 7374,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        176,
+        238
+      ],
+      "distance_from_fork": [
+        64,
+        126
+      ],
+      "fraction_of_thinking": [
+        0.1216309606081548,
+        0.16447823082239116
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2581,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        265,
+        335
+      ],
+      "distance_from_fork": [
+        89,
+        159
+      ],
+      "fraction_of_thinking": [
+        0.2420091324200913,
+        0.3059360730593607
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 2581,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        265,
+        347
+      ],
+      "distance_from_fork": [
+        89,
+        171
+      ],
+      "fraction_of_thinking": [
+        0.3345959595959596,
+        0.43813131313131315
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1343,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        634,
+        692
+      ],
+      "distance_from_fork": [
+        6,
+        64
+      ],
+      "fraction_of_thinking": [
+        0.32036382011116726,
+        0.34967155128852956
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 1343,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        636,
+        694
+      ],
+      "distance_from_fork": [
+        8,
+        66
+      ],
+      "fraction_of_thinking": [
+        0.5688729874776386,
+        0.6207513416815742
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6353,
+      "arm": "original_dynamic",
+      "short": false,
+      "positions": [
+        245,
+        257
+      ],
+      "distance_from_fork": [
+        29,
+        41
+      ],
+      "fraction_of_thinking": [
+        0.18134715025906736,
+        0.19022945965951146
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6353,
+      "arm": "sampled_confidence",
+      "short": true,
+      "positions": [
+        235,
+        242
+      ],
+      "distance_from_fork": [
+        19,
+        26
+      ],
+      "fraction_of_thinking": [
+        0.2219074598677998,
+        0.22851746931067043
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4942,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        471,
+        536
+      ],
+      "distance_from_fork": [
+        29,
+        94
+      ],
+      "fraction_of_thinking": [
+        0.1465463596764157,
+        0.16677037958929683
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 4942,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        471,
+        544
+      ],
+      "distance_from_fork": [
+        29,
+        102
+      ],
+      "fraction_of_thinking": [
+        0.06651602880949019,
+        0.07682530716000564
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5552,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        135,
+        190
+      ],
+      "distance_from_fork": [
+        0,
+        55
+      ],
+      "fraction_of_thinking": [
+        0.04082249773208346,
+        0.05745388569700635
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 5552,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        135,
+        176
+      ],
+      "distance_from_fork": [
+        0,
+        41
+      ],
+      "fraction_of_thinking": [
+        0.032679738562091505,
+        0.04260469619946744
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6038,
+      "arm": "original_dynamic",
+      "short": true,
+      "positions": [
+        394,
+        489
+      ],
+      "distance_from_fork": [
+        68,
+        163
+      ],
+      "fraction_of_thinking": [
+        0.42919389978213507,
+        0.5326797385620915
+      ]
+    },
+    {
+      "batch": "sampled_confidence",
+      "train_index": 6038,
+      "arm": "sampled_confidence",
+      "short": false,
+      "positions": [
+        422,
+        462
+      ],
+      "distance_from_fork": [
+        96,
+        136
+      ],
+      "fraction_of_thinking": [
+        0.2224565102793885,
+        0.24354243542435425
+      ]
+    }
+  ],
+  "capture_positions_at_least_90_percent": 2,
+  "content_review_sha256": "57689263bf132d8e3e66c979767f836acf30e33917d771fecdf18f624d3cf121",
+  "quote_locations": [
+    {
+      "review_id": 1,
+      "trace": "B",
+      "character_start": 3399,
+      "character_end": 3452,
+      "text_sha256": "ad9e90e6f8ebbe2e369577e759f59991dc6418ecbabab944832c5b23670dc32a",
+      "is_short": true
+    },
+    {
+      "review_id": 3,
+      "trace": "A",
+      "character_start": 9539,
+      "character_end": 9578,
+      "text_sha256": "51c5d74a2c770bc40fb401a6dd71e822b4152df97ed1a870b0d250e7cfd2a096",
+      "is_short": false
+    },
+    {
+      "review_id": 3,
+      "trace": "A",
+      "character_start": 15561,
+      "character_end": 15616,
+      "text_sha256": "51c5d74a2c770bc40fb401a6dd71e822b4152df97ed1a870b0d250e7cfd2a096",
+      "is_short": false
+    },
+    {
+      "review_id": 9,
+      "trace": "A",
+      "character_start": 15303,
+      "character_end": 15318,
+      "text_sha256": "2a4d830e94ff0a3a97030ff022c29a58156243484752fe136d4083bdf1d4f508",
+      "is_short": true
+    },
+    {
+      "review_id": 9,
+      "trace": "B",
+      "character_start": 26041,
+      "character_end": 26096,
+      "text_sha256": "22e896aaa74e27ae7accb58a64d8cf0233a2066933e92c792450c1fb537c8084",
+      "is_short": false
+    },
+    {
+      "review_id": 12,
+      "trace": "B",
+      "character_start": 3462,
+      "character_end": 3578,
+      "text_sha256": "2692a6c3f786695e8b47a78a70c345a26afef2c7505848ee49ac04162602f12c",
+      "is_short": true
+    }
+  ],
+  "reviewer": "Single Codex-assisted full-text review; not independent human annotation",
+  "semantic_outcomes": {
+    "core_valid_with_unresolved_short_error": 1,
+    "core_valid": 8,
+    "invalid_long_core": 1,
+    "core_valid_with_notation_errors": 1,
+    "underspecified_problem": 1
+  },
+  "semantic_gate_decision": {
+    "status": "not_cleared",
+    "reason": "10对有可支持的主解链，1对长主链错误，1题约束不足。至少两条短轨迹有未纠正的局部数学/符号错误。报告未预先区分主链有效与全文无错；不把局部错误等同整条主链无效，也不在看过样本后擅自豁免零错误条件。保守不放行GPU，保留人工复核入口。",
+    "interpretation_not_a_proved_method_failure": true,
+    "core_valid_pair_count": 10,
+    "fully_error_free_pair_count": "not_claimed",
+    "do_not_replace_pairs_or_change_gate": true,
+    "GPU_status": "not_run"
+  },
+  "exact_checks": {
+    "fraction": "150/37",
+    "unequal_solution": [
+      4,
+      -2,
+      -8
+    ],
+    "rescaled_coefficients": [
+      "18",
+      "4",
+      "81/2",
+      "-9",
+      "2"
+    ],
+    "rescaled_sum": "111/2"
+  },
+  "pool": {
+    "prior_plan_sha256": "b9b099dcaaadf5433a12c53fb2f7df1a1ea8e2dce3d583e7c6b8c9167bc2d053",
+    "excluded_unique": 3640,
+    "eligible_under_latest_ledger": 3858,
+    "selected_new_questions": 0,
+    "limitation": "No new split frozen; full repository-wide reservation reconciliation deferred after content stop"
+  },
+  "reviewed_keys": [
+    {
+      "review_id": 1,
+      "batch": "lexical_direction",
+      "train_index": 4635,
+      "arms": {
+        "A": "lexical_direction",
+        "B": "original_dynamic"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 2,
+      "batch": "lexical_direction",
+      "train_index": 4161,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "lexical_direction"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 3,
+      "batch": "lexical_direction",
+      "train_index": 1300,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "lexical_direction"
+      },
+      "short_arm": "lexical_direction"
+    },
+    {
+      "review_id": 4,
+      "batch": "lexical_direction",
+      "train_index": 278,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "lexical_direction"
+      },
+      "short_arm": "lexical_direction"
+    },
+    {
+      "review_id": 5,
+      "batch": "lexical_direction",
+      "train_index": 6455,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "lexical_direction"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 6,
+      "batch": "lexical_direction",
+      "train_index": 7488,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "lexical_direction"
+      },
+      "short_arm": "lexical_direction"
+    },
+    {
+      "review_id": 7,
+      "batch": "sampled_confidence",
+      "train_index": 366,
+      "arms": {
+        "A": "sampled_confidence",
+        "B": "original_dynamic"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 8,
+      "batch": "sampled_confidence",
+      "train_index": 81,
+      "arms": {
+        "A": "sampled_confidence",
+        "B": "original_dynamic"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 9,
+      "batch": "sampled_confidence",
+      "train_index": 1071,
+      "arms": {
+        "A": "sampled_confidence",
+        "B": "original_dynamic"
+      },
+      "short_arm": "sampled_confidence"
+    },
+    {
+      "review_id": 10,
+      "batch": "sampled_confidence",
+      "train_index": 3706,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "sampled_confidence"
+      },
+      "short_arm": "original_dynamic"
+    },
+    {
+      "review_id": 11,
+      "batch": "sampled_confidence",
+      "train_index": 6784,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "sampled_confidence"
+      },
+      "short_arm": "sampled_confidence"
+    },
+    {
+      "review_id": 12,
+      "batch": "sampled_confidence",
+      "train_index": 968,
+      "arms": {
+        "A": "original_dynamic",
+        "B": "sampled_confidence"
+      },
+      "short_arm": "sampled_confidence"
+    }
+  ],
+  "source_sha256": "9078c254d5c2458b541528c7d1fad9cae81ca525e7dffdd219921b6991ff5603",
+  "delivery_report_sha256": "cfaf93be28420b4b13a53adbb818b81c74e7fd12f06c36d57f0e3e91b4dc25bf"
+}

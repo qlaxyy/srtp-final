@@ -1,0 +1,117 @@
+{
+  "version": "bcc-v1-content-review-20260912",
+  "scope": "Full 12 fixed pairs / 24 traces; no replacement; single Codex-assisted review, not independent human gold labels",
+  "blinding": "A/B displays hide arm names and automatic labels; source keys opened only after full text review. Length and inherited project context cannot be blinded.",
+  "gate_as_supplied": "至少10对可以确认两条推导实质有效，短轨迹没有省略使结论失效的必要条件；不得出现已确认错误的短推导。",
+  "gate_decision": {
+    "status": "not_cleared",
+    "reason": "10对有可支持的主解链，1对长主链错误，1题约束不足。至少两条短轨迹有未纠正的局部数学/符号错误。报告未预先区分主链有效与全文无错；不把局部错误等同整条主链无效，也不在看过样本后擅自豁免零错误条件。保守不放行GPU，保留人工复核入口。",
+    "interpretation_not_a_proved_method_failure": true,
+    "core_valid_pair_count": 10,
+    "fully_error_free_pair_count": "not_claimed",
+    "do_not_replace_pairs_or_change_gate": true,
+    "GPU_status": "not_run"
+  },
+  "records": [
+    {
+      "review_id": 1,
+      "decision": "core_valid_with_unresolved_short_error",
+      "analysis": "两支主链999x=4050并约分为150/37成立。短B额外核验称150/37=3.783783...=4.054054...，未纠正。不是主结论猜对或整条主链无效；但不能认证全文无已确认错误。",
+      "evidence": [
+        {
+          "trace": "B",
+          "quote": "150 divided by 37 is 3.783783... which is 4.054054..."
+        }
+      ]
+    },
+    {
+      "review_id": 2,
+      "decision": "core_valid",
+      "analysis": "两支均由LW-(L-2)(W-2)=18得L+W=11，内周长2(L+W-4)=14；不按非等比例示意图的坐标尺寸取数。",
+      "evidence": []
+    },
+    {
+      "review_id": 3,
+      "decision": "invalid_long_core",
+      "analysis": "A把第一式错误倒写成a=-16/(b+4)，强制a=b=c，未证明所有解的乘积；其三次幂计算还多次错后修正。B直接代入并消去得到64，主链有效。反例(4,-2,-8)满足全部方程且不全相等，乘积仍64。不能把两支作者判对当两条有效推导。",
+      "evidence": [
+        {
+          "trace": "A",
+          "quote": "But from equation 1: a = -16 / (b + 4)."
+        },
+        {
+          "trace": "A",
+          "quote": "We find that \\(a\\), \\(b\\), and \\(c\\) must all be equal."
+        }
+      ]
+    },
+    {
+      "review_id": 4,
+      "decision": "core_valid",
+      "analysis": "两支每场淘汰1人及各轮求和均支持255。A曾混淆8轮与8场并纠正，另声称其他赛制也总是n-1是未支持的泛化，不用于原题主链。",
+      "evidence": []
+    },
+    {
+      "review_id": 5,
+      "decision": "core_valid",
+      "analysis": "FOIL四项3x²,-6x,6x,-12相加得3x²-12；两支有效。",
+      "evidence": []
+    },
+    {
+      "review_id": 6,
+      "decision": "core_valid",
+      "analysis": "两支推导d=10或-14、GP第三项49或1，保留负公比-1/3。A核验时混用19/21和两种r，随后明确纠正；B除以11+d遗漏显式非零说明，但d=-11给9,0,7不是GP，不漏有效解。",
+      "evidence": []
+    },
+    {
+      "review_id": 7,
+      "decision": "core_valid",
+      "analysis": "两支固定一个具体民主党人，另4人4!、共和党人5!，得2880。长A与短B均有后续计数/反射混乱，主链和最终解有效；不能认证每句无错。",
+      "evidence": []
+    },
+    {
+      "review_id": 8,
+      "decision": "core_valid",
+      "analysis": "两支补集计数24-3!2!=12有效。A直接计数把位置1的禁邻错写为位置4，虽数目巧合相同但该替代论证错误；B最终非邻位置(1,3),(1,4),(2,4)及两个2!有效，前面计数措辞随后重述纠正。",
+      "evidence": []
+    },
+    {
+      "review_id": 9,
+      "decision": "core_valid_with_notation_errors",
+      "analysis": "两支最后均能得到r=2、虚部平方9、a=-26；此前大量实根/非实根与变量a混淆不作为有效论证。短A最终把2±d中的d写为3而非3i；长B把2,2+3i,2-3i这个顺序称公差3i，顺序错误。根集合确可重排成AP，主结果成立，不能认证全文正确。",
+      "evidence": [
+        {
+          "trace": "A",
+          "quote": "with \\(d = 3\\)."
+        },
+        {
+          "trace": "B",
+          "quote": "These roots form an AP with common difference \\( ti \\)."
+        }
+      ]
+    },
+    {
+      "review_id": 10,
+      "decision": "core_valid",
+      "analysis": "短A按指数0..19去掉0,3,...18得13。长B最初对数/计数错误，最后明确按1..19去掉6个3倍数得13；0指数的1同时是8^0，漏列不改变集合差。",
+      "evidence": []
+    },
+    {
+      "review_id": 11,
+      "decision": "core_valid",
+      "analysis": "两支指数化为8x=9x-12得x=12并验为3^96；主链有效。",
+      "evidence": []
+    },
+    {
+      "review_id": 12,
+      "decision": "underspecified_problem",
+      "analysis": "两支标准立方和分解正确，标准系数和78。题面没有系数为整数及首项正/规范化限制；线性因子乘2、二次因子除2同样成立而系数和111/2，不足以推出所求和唯一。此为原题约束歧义，不把标准分解称算错，也不修改作者标签。",
+      "evidence": [
+        {
+          "trace": "B",
+          "quote": "Thus, the coefficients are indeed \\(a = 9\\), \\(b = 2\\), \\(c = 81\\), \\(d = -18\\), and \\(e = 4\\), and their sum is 78."
+        }
+      ]
+    }
+  ]
+}

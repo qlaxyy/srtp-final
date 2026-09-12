@@ -1,0 +1,40 @@
+{
+  "status": "completed_CPU_only_content_not_cleared",
+  "snapshot_commit": "3abc40114893e7a066d6480c0bd86dbd0f9e9344",
+  "delivery_zip_sha256": "5459713e174752141586ccff214e30f92da65b690babfe348cbe5ba1a3973dfc",
+  "original_project_zip_sha256": "95951774738b956c44f2cca68e2298fd008b3e84f41caa8b65a5b3c1b5f42b29",
+  "files_sha256": {
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/content_review.json": "57689263bf132d8e3e66c979767f836acf30e33917d771fecdf18f624d3cf121",
+    ".codex_work/independent_delivery_20260912/execution_audit.json": "f711e405b81c4808d5d3b587f9d6a9686e9c9c21c57a9b499f19333b6a500ccd",
+    ".codex_work/independent_delivery_20260912/review_blinded.json": "3ba3121187a727d373a8877d5b8ed2b8767182f629e645f17ec5179ed6e696a7",
+    ".codex_work/independent_delivery_20260912/review_key.json": "4442622ff277b34eb404bf758a43a26992c0048aa1aaf023bf3b95106c50305b",
+    ".codex_work/independent_delivery_20260912/evidence/reproduce_cpu_audit.py": "000c4061ca7aa156d5a315fc7a9f98fb4d05b0b90a5f8a2851eab792901de3b6",
+    ".codex_work/independent_delivery_20260912/recomputed_v2/archive_integrity.json": "9279f19a4b504944b9c1e63620b15de509c65e76017d6fa65111ccab3760ce52",
+    ".codex_work/independent_delivery_20260912/recomputed_v2/latest_cpu_audit.json": "f98999ebcb9fb15b924c710164e3ac1244f1259dcd02ef48d459420963472b1d",
+    ".codex_work/independent_delivery_20260912/recomputed_v2/bcc_candidate_manifest.json": "38c9923e5057c23f5658876bb84a13901f38716ff8ebd3f720eb84008c773864"
+  },
+  "checks": [
+    "7191 original snapshot manifest files match",
+    "76 pairs and 40/36 split exact match",
+    "400 saved result metrics exact after 8 Windows path separator normalizations",
+    "8 live raw/label files hash match",
+    "304 selected positions legal",
+    "12 full pair reviews / 24 traces",
+    "quoted evidence spans checked against full text",
+    "3 exact arithmetic/counterexample checks",
+    "tampered quote rejected before output write",
+    "existing output overwrite rejected"
+  ],
+  "attempts_preserved": [
+    "initial long-path extraction partial retained; short-root extraction succeeded",
+    "wrong snapshot parent failed before file audit; corrected exact archive root",
+    "inline display train_index lookup failed before producing review; author-label mapping used"
+  ],
+  "model_forwards": 0,
+  "new_generations": 0,
+  "SSH_connections": 0,
+  "GPU_seconds": 0,
+  "current_resource_state": "not_queried",
+  "future_stages": "not_run; no effect conclusion",
+  "scope_limit": "No GPU replay/fitting/evaluation code implemented after content gate was not cleared; no new question split frozen"
+}
