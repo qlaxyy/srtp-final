@@ -35,6 +35,7 @@ def validate_bundle(bundle):
         require(not any(arm.get('feedback_config') or arm.get('negative_only') for arm in plan['arms'].values()), 'Combined intervention')
         require(read(bundle/'cpu_summary.json')['passes_fixed_cpu_gate'], 'Radial CPU gate failed')
         require(sha(bundle/'cpu_summary.json')==plan['cpu_summary_sha256'], 'CPU receipt changed')
+        require(sha(bundle/'cpu_audit.json')==plan['cpu_audit_sha256'], 'CPU independent audit changed')
         require(sha(bundle/'cpu_tests.log',source=True)==plan['cpu_unit_log_sha256'], 'CPU unit receipt changed')
         require(len({arm[key] for arm in plan['arms'].values() for key in ['vector_sha256']})==1, 'Radial vectors differ')
         require(len({arm['fit_sha256'] for arm in plan['arms'].values()})==1, 'Radial fits differ')

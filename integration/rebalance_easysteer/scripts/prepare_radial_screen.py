@@ -54,7 +54,7 @@ def main():
     arms['radial_disabled']['radial_restore']='off'
     arms['radial_restore']['radial_restore']='on'
     shutil.copyfile(a.cpu/'summary.json',out/'cpu_summary.json')
-    shutil.copyfile(a.cpu/'local_audit.json',out/'cpu_audit.json')
+    save(out/'cpu_audit.json',audit)
     shutil.copyfile(a.unit_log,out/'cpu_tests.log')
     paths=set(prior['source_sha256'])
     paths.update(BASE+name for name in ['eval/baseline_reuse.py','scripts/audit_radial_restoration.py',
