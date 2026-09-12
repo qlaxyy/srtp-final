@@ -1,0 +1,30 @@
+{
+  "version": "auto-code-v2",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "aac7e0b391ab472d7784367e04dcfb26d92e20bebbe7a4afb8fbc2fb7f26b4b0",
+  "vector_norm": 52.82537841796875,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 48251,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "Replace raw difference d by w*(w dot d)/(w dot w), where frozen diagonal LDA readout w=d/(var_over+var_under+1e-12). This uniquely minimizes Euclidean displacement subject to preserving the old readout-score shift. The controller is unchanged. Original auto-code-v2 controller parameters retained. Experimental, no generation benefit established.",
+  "variant": "min_displacement",
+  "parent_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+  "cpu_plan_sha256": "4215fee950c192f2f55498750eea01318a8ac302afe5f801383649bb04563989"
+}

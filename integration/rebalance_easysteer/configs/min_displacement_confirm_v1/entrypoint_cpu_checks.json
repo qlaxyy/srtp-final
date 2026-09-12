@@ -1,0 +1,15 @@
+{
+  "status": "CPU_synthetic_only",
+  "actual_parser_arms": 2,
+  "count": 200,
+  "rejected": [
+    "missing",
+    "wrong_seed",
+    "wrong_hash",
+    "over_cap"
+  ],
+  "real_grader_summary_checked": true,
+  "new_model_generations": 0,
+  "holdout_model_answers_read": 0,
+  "limitations": "No model imported or author grader executed; server native tokenization, environment and assets remain pre-generation checks."
+}

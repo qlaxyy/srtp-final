@@ -1,0 +1,23 @@
+{
+  "status": "local_materialized_and_archive_snapshot_clear",
+  "full_audit_sha256": "67ea0e1d7345e9f23fcf15d2b34e4db811a7ba9d52027cd7db299e18b3b11598",
+  "scanned_files_and_members": 1626,
+  "archives": 29,
+  "unique_contents": 907,
+  "checks": {
+    "original_exclusion_overlap": [],
+    "Math_Math500_normalized_overlap": 0,
+    "Math_GSM8K_normalized_overlap": 0,
+    "peer_used_overlap": [],
+    "peer_proposed_reservations_overlap": [],
+    "bcc_overlap": []
+  },
+  "outcome_exposure_count": 0,
+  "peer_registry": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cpu_run1\\data_registry.json",
+  "peer_registry_sha256": "bbc5f7fb18fe631aba057b86e5dc6465093a3689867b54901f6f3b037aacfe44",
+  "target_sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+  "parse_error_resolution": "Only unresolved parser entry is zero-byte assets_attempt3.json in historical migration metadata. Bytes checked empty; contains no generated answer. Earlier two empty asset attempts retained in original receipts. No deletion or repaired result.",
+  "scope": "Materialized experimental JSON/JSONL and all local experimental ZIP/tar.gz members in current configs and .codex_work, including partial outputs and historical worktree configs; third-party source/upstream and damaged duplicate extraction excluded. Remote-only artifacts not inspected; does not assert that unreported remote jobs never ran.",
+  "pre_GPU_recheck": "Verify peer registry unchanged; inspect server for new unreported jobs and ensure exclusive batch. No proof about unknown remote-only work.",
+  "new_answers": 0
+}
