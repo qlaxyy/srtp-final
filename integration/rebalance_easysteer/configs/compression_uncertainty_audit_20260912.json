@@ -1,0 +1,18 @@
+{
+  "status": "posthoc_descriptive_CPU_audit_not_candidate_selection",
+  "purpose": "Explain uncertainty and cap-driven changes across the completed research window, including failures and the independently failed confirmation. Do not change fixed stopping decisions.",
+  "scope": "Completed formal paired generation arms in the position, confidence-only, matched-first confirmation, feedback, positive-branch, progression and radial batches. Exclude engineering outputs, wrong-layer outputs and hypothetical prefix-stop totals from generation-effect estimates. Keep SEAL/AIME comparison separate from optimization screening.",
+  "metrics": [
+    "Original and candidate accuracy, thinking and total tokens, caps, paired correctness changes, recorded pure generation time.",
+    "10000 paired bootstrap resamples, seed20260923, for accuracy difference and ratio changes in mean thinking/total tokens; resample complete questions with both outputs together.",
+    "Exact decomposition of net total-token change by cap transitions and correctness transitions. These outcome-conditioned groups are descriptive, not an online selection rule or deployable policy."
+  ],
+  "controls": "Include every predeclared control for three-arm designs. Never compare absolute scores across different question sets or pool distinct interventions into one effect.",
+  "interpretation": [
+    "Intervals are descriptive conditional on these questions, assets and a single generation seed; they do not include cross-seed, model or calibration uncertainty.",
+    "Bootstrap intervals are not adjusted for multiple comparisons and do not turn a failed fixed gate into a pass.",
+    "A cap-transition decomposition can show why an average changed, but membership uses realized outcomes and cannot support an inference-time gate.",
+    "Small-screen positive signals and their independent confirmation must remain separately labeled."
+  ],
+  "cost": "Local existing JSON and NumPy only. Zero GPU calls, new generations or regrading. Record all input and output hashes."
+}
