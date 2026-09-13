@@ -201,7 +201,8 @@ def run_child(a):
         if hasattr(runner,'hybrid_termination'):
             runner.hybrid_termination = None
         role = 'engineering' if stage=='engineering' else stage if r.get('expansion') else 'screening'
-        rows = dataset(role, bool(r.get('expansion')))
+        rows = (r['soft2_rows'][role] if r.get('soft2_rows')
+                else dataset(role, bool(r.get('expansion'))))
         cap = 512 if stage=='engineering' else 16000
         folder = output/stage/name
         folder.mkdir(parents=True,exist_ok=False)
@@ -254,7 +255,7 @@ def run_child(a):
             rid=record['request_id']
             record['R_history']=history.get(rid)
             record['hybrid']=receipt['requests'].get(rid)
-            if mode in ('shadow','enforce'):
+            if mode in ('shadow','enforce','soft'):
                 if r.get('expansion'):
                     h=record['hybrid']
                     # Two in-flight batches may sample one unused tail token.
@@ -266,6 +267,10 @@ def run_child(a):
                     h['worker_first_trigger']=h['first_trigger']
                     if h['first_trigger'] >= record['tokens']:
                         h['first_trigger']=-1
+                    if mode == 'soft':
+                        h['worker_first_bias'] = h['first_bias']
+                        if h['first_bias'] >= record['tokens']:
+                            h['first_bias'] = -1
                     h['worker_end_position']=h['end_position']
                     actual_end=record['token_ids'].index(151649) if 151649 in record['token_ids'] else -1
                     assert h['end_position']==actual_end or (actual_end==-1 and h['end_position']>=record['tokens'])
@@ -289,6 +294,9 @@ def run_child(a):
             group(stage,'R',True,'off')
     else:
         groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),('S',False,'enforce'),('RS',True,'enforce')]
+        if r.get('soft2_rows'):
+            groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),
+                      ('S',False,'soft'),('RS',True,'soft')]
         if r.get('engineering_reuse'):
             groups = groups[2:]
         for name,use_r,mode in groups:
@@ -301,7 +309,8 @@ def run_child(a):
                 assert x['R_history']['sha256']==y['R_history']['sha256'], name+' R history equality'
         combined=read(output/'engineering/RS/result.json')['records']
         for x,y in zip(base,combined):
-            trigger=y['hybrid']['first_trigger']
+            trigger=y['hybrid']['first_bias' if r.get('soft2_rows')
+                                else 'first_trigger']
             n=trigger if trigger>=0 else min(len(x['token_ids']),len(y['token_ids']))
             assert x['token_ids'][:n]==y['token_ids'][:n], 'Divergence before trigger'
         save(output/'engineering_gate.json',dict(status='pass',token_and_R_history_identity=True,
@@ -309,6 +318,8 @@ def run_child(a):
         for stage in (r['expansion']['roles'] if r.get('expansion') else ['screening']):
             for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
                 if r.get('expansion') and name not in r['expansion']['arms']:continue
+                if r.get('soft2_rows') and mode == 'enforce':
+                    mode = 'soft'
                 group(stage,name,use_r,mode)
     llm.llm_engine.engine_core.shutdown()
 

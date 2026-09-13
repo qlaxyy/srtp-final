@@ -1191,7 +1191,11 @@ class GPUModelRunner(
 
         if input_batch.num_draft_tokens == 0 or self.rejection_sampler is None:
             assert self.sampler is not None
-            sampler_output = self.sampler(logits, input_batch)
+            if hybrid_ticket is not None and hybrid.has_soft():
+                sampler_output = self.sampler(
+                    logits, input_batch, after_filter=hybrid.apply_after_filter)
+            else:
+                sampler_output = self.sampler(logits, input_batch)
         else:
             # Rejection sampling for spec decoding.
             assert self.rejection_sampler is not None
