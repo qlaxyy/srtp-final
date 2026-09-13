@@ -1,6 +1,6 @@
 {
   "namespace": "hybrid_syncthink_cgrs_20260912",
-  "status": "cgrs_full_test_complete_no_compression_replicated; prior results preserved",
+  "status": "cgrs_coordinated_v2_olympiad_full_complete_point_pass_2pp_ci_not_established; prior positive and negative results preserved",
   "normalization": "Unicode NFKC, remove all Unicode whitespace, SHA256 UTF-8; preserve case and symbols",
   "entries": [
     {
@@ -10239,12 +10239,18 @@
     "remote_reconciliation_complete": false
   },
   "olympiad_priority_batch": {
-    "status": "local_ready_pending_server_grader_and_engineering_gates",
-    "run_id": "cgrs_coordinated_v2_15b_olympiad675_run1_20260913",
+    "status": "complete_three_arm_with_U_continuation",
+    "run_id": "cgrs_coordinated_v2_15b_olympiad675_completion128r2_20260913",
     "registry": "cgrs_coordinated_v2/olympiad675_run1/rows.json",
     "rows_sha256": "1a0f3be14f38517bce7e75a3f007d363d74df0519278daef7c7ec0858032eb8f",
     "priority": "Olympiad then image-listed AIME24/AIME25/AMC23; SVAMP and Minerva deferred",
-    "scope": "1.5B675x3 U/R/RCnegative, same-run controls",
-    "remote_reconciliation_complete": false
+    "scope": "1.5B675x3; U651 original plus3 interrupted128 plus21 completion, R/RC contemporaneous128 controls",
+    "remote_reconciliation_complete": true,
+    "results": "cgrs_coordinated_v2/olympiad675_completion128r2/results/summary.json",
+    "source_commit": "0956128",
+    "initial_run_id": "cgrs_coordinated_v2_15b_olympiad675_run1_20260913",
+    "initial_run_status": "incomplete_timeout_651_U_preserved",
+    "interrupted_completion_run_id": "cgrs_coordinated_v2_15b_olympiad675_completion128_20260913",
+    "interrupted_completion_status": "logging_failure_3_U_preserved"
   }
 }

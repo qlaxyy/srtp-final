@@ -1,0 +1,8 @@
+{
+  "target": "/root/autodl-tmp/projects/hybrid_cgrs_olympiad675_completion128_20260913",
+  "archive_sha256": "7bdff491e47278584acd512eb1ea7909c5b20f6a591512da333b53aa86433703",
+  "source_commit": "f940bdfbcfa60f9985a0b340f60aace34ebc75dc",
+  "run_id": "cgrs_coordinated_v2_15b_olympiad675_completion128_20260913",
+  "deployment": "Gitless isolated hash-checked B copy; no shared source or environment mutations",
+  "launcher": "import json,subprocess,time,sys\nfrom pathlib import Path\nrel=\"integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2\"\nplan=json.load(open(rel+'/olympiad675_completion128/plan.json'))\n\ndef stage(name,cmd,limit):\n t=time.time();code=-1;error=None\n try:\n  with open('completion128_'+name+'.log','x') as log:\n   r=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,timeout=limit);code=r.returncode\n except Exception as e:error=repr(e)\n with open('completion128_'+name+'_exit.json','x') as f:json.dump(dict(returncode=code,wall_seconds=time.time()-t,error=error),f)\n if code:raise SystemExit(code)\n\nimport shlex\nstage('engineering',shlex.split(plan['commands']['engineering']),920)\nstage('full',shlex.split(plan['commands']['full']),9720)\nstage('grade',shlex.split(plan['commands']['grade']),620)\n"
+}
