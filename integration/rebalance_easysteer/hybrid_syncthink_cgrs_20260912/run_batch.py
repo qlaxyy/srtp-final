@@ -283,6 +283,10 @@ def run_child(a):
     stage='engineering'
     if a.child=='pre':
         group(stage,'pre_R',True,'absent')
+    elif r.get('completed_engineering_reuse'):
+        for stage in r['expansion']['roles']:
+            assert r['expansion']['arms']==['R']
+            group(stage,'R',True,'off')
     else:
         groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),('S',False,'enforce'),('RS',True,'enforce')]
         if r.get('engineering_reuse'):
@@ -322,11 +326,16 @@ def execute(a):
         for name,meta in r['engineering_reuse']['groups'].items():
             assert sha(meta['path']) == meta['sha256']
             shutil.copytree(Path(meta['path']).parent,output/'engineering'/name)
+    if r.get('completed_engineering_reuse'):
+        reuse=r['completed_engineering_reuse']
+        for name,h in reuse['files'].items():assert sha(Path(reuse['source'])/name)==h
+        shutil.copytree(Path(reuse['source'])/'engineering',output/'engineering')
+        shutil.copy2(Path(reuse['source'])/'engineering_gate.json',output/'engineering_gate.json')
     start=time.monotonic()
     env=child_environment()
     status='failed'
     try:
-        for child in (('integrated',) if r.get('engineering_reuse') else ('pre','integrated')):
+        for child in (('integrated',) if r.get('engineering_reuse') or r.get('completed_engineering_reuse') else ('pre','integrated')):
             command=[GEN,'-u',str(__file__),'--resolved-plan',str(a.resolved_plan),'--child',child]
             with (output/(child+'.log')).open('x') as log:
                 process=subprocess.Popen(command,stdout=log,stderr=subprocess.STDOUT,env=env,start_new_session=True)

@@ -28,11 +28,11 @@ def local():
     print('LOCAL READY',files)
 
 
-def remote():
+def remote(recheck=False):
     from transformers import AutoTokenizer
     from rebalance_static_eval import build_prompt
     import torch,vllm
-    exp=rb.read(DATA/'plan.json');base=rb.read(HERE/'experiment_plan.json')
+    exp=rb.read((HERE/'speed_recheck_20260913' if recheck else DATA)/'plan.json');base=rb.read(HERE/'experiment_plan.json')
     for n,m in base['assets']['model_files'].items():assert rb.sha(Path(base['assets']['model_path'])/n)==m['sha256']
     for k in ('vector','fit'):assert rb.sha(base['assets'][k]['path'])==base['assets'][k]['sha256']
     rows={role:rb.dataset(role,True) for role in ['engineering']+exp['roles']}
@@ -71,10 +71,27 @@ def remote():
             if p.is_file() and '__pycache__' not in p.parts and p.suffix in ('.py','.json','.jsonl'):sources[p.relative_to(ROOT).as_posix()]=rb.sha(p)
     assert rb.sha(ROOT/'baseline_model_runner.py')=='88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5'
     sources['baseline_model_runner.py']=rb.sha(ROOT/'baseline_model_runner.py')
-    save(ROOT/'resolved_full.json',dict(expansion=exp,run_id=exp['run_id'],data_frozen=True,source_sha256=sources,plan_sha256=rb.sha(HERE/'experiment_plan.json'),assets=base['assets'],prompts=prompts,output='/root/autodl-tmp/results/easysteer/'+base['namespace']+'/'+exp['run_id'],environment=dict(build_tools=rb.check_build_tools(),torch=torch.__version__,vllm=vllm.__version__),deployment=rb.read(ROOT/'deployment_identity.json'),historical_reference_sha256=rb.sha(ROOT/'historical_reference.json')))
-    print('READY',rb.sha(ROOT/'resolved_full.json'))
+    resolved=dict(expansion=exp,run_id=exp['run_id'],data_frozen=True,source_sha256=sources,plan_sha256=rb.sha(HERE/'experiment_plan.json'),assets=base['assets'],prompts=prompts,output='/root/autodl-tmp/results/easysteer/'+base['namespace']+'/'+exp['run_id'],environment=dict(build_tools=rb.check_build_tools(),torch=torch.__version__,vllm=vllm.__version__),deployment=rb.read(ROOT/'deployment_identity.json'),historical_reference_sha256=rb.sha(ROOT/'historical_reference.json'))
+    if recheck:
+        previous=Path('/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/s64_full_math500_gsm1319_RS_c256_run1_20260913')
+        old=rb.read(previous/'resolved_plan.json')
+        assert rb.read(previous/'batch_status.json')['status']=='complete'
+        assert old['prompts']==prompts
+        for name,h in old['source_sha256'].items():
+            if name.startswith('sources/'):assert sources[name]==h,name
+        for key in ('max_num_seqs','max_num_batched_tokens','async_scheduling','max_tokens','temperature','top_p','seed'):assert exp[key]==old['expansion'][key]
+        gate=rb.read(previous/'engineering_gate.json');assert gate['status']=='pass'
+        checked={str(p.relative_to(previous)):rb.sha(p) for p in (previous/'engineering').rglob('*') if p.is_file()}
+        checked['engineering_gate.json']=rb.sha(previous/'engineering_gate.json')
+        records={name:rb.read(previous/'engineering'/name/'result.json')['records'] for name in ('pre_R','off_R','shadow_R')}
+        for name in ('off_R','shadow_R'):
+            for x,y in zip(records['pre_R'],records[name]):assert x['token_ids']==y['token_ids'] and x['R_history']['sha256']==y['R_history']['sha256']
+        resolved['completed_engineering_reuse']=dict(source=str(previous),files=checked,reason='Same production sources and 256-way runtime; reuse completed gate, no new engineering answers')
+    target=ROOT/('resolved_speed.json' if recheck else 'resolved_full.json')
+    save(target,resolved)
+    print('READY',rb.sha(target))
 
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--remote',action='store_true');a=p.parse_args()
-    remote() if a.remote else local()
+    p=argparse.ArgumentParser();p.add_argument('--remote',action='store_true');p.add_argument('--speed-recheck',action='store_true');a=p.parse_args()
+    remote(a.speed_recheck) if a.remote else local()
