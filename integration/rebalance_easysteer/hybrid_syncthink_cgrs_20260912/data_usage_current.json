@@ -10196,7 +10196,7 @@
   },
   "next_cgrs_candidate": {
     "name": "cgrs_coordinated_v2",
-    "status": "CPU_ready_engineering_GPU_pending",
+    "status": "engineering_GPU_passed_efficacy_data_unfrozen",
     "data_registry": "cgrs_coordinated_v2/data_usage.json",
     "data_sha256": "bc3f5c005b6dec9f4c77b0b71296a3e93e4dfb2fc7a1b551d19af12eacabe6cb",
     "reused_engineering_indices": [
@@ -10209,6 +10209,7 @@
       1483,
       229
     ],
-    "new_training_reservations": []
+    "new_training_reservations": [],
+    "engineering_run_id": "cgrs_coordinated_v2_engineering8_run1_20260913"
   }
 }

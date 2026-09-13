@@ -1,0 +1,28 @@
+{
+  "archive_sha256": "f759117ac8c83fe6368527b13e5664aeb21055413afca53b783501da7f0afc75",
+  "bytes": 274372,
+  "files": {
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/plan.json": "2ac953ae9a7f76c8de4b250a2010ee1055d46e3ce314a4504475b4c4ee8fccae",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/native_cpu_check.json": "e22b86fe1c6d2626a3bbbc44b9ca0b58158dd06705770bf8752a9288ae88c03e",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/R/request_mapping.json": "7ba698985d509318d1e1e88db458fece3c3deb6b15a15d1816faf05c10eafdfb",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/R/partial.jsonl": "61bbd672327d5d131c13df54c488739afd7788f7d693410958153e918e2af75a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/R/result.json": "9add238f541e341a9da1aaaebbccd9789f2bba3ded29b447396e10206ca24468",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Roff/request_mapping.json": "7563b9e3449a7b70d04d074b08ba17ef8c3fe807e81653eabbed6b756489eb30",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Roff/partial.jsonl": "caf86a095794f95d671a3a83e72d326b495ffb27fef88b68264f2d2d46989cfe",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Roff/result.json": "8dfe622c9fd607fdc0808395cbbf18e64d44b583b5f6c081ea7d933432dc42af",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Rshadow/request_mapping.json": "4ec4c44234ba08a96599e65a6f4c596c6d80cf6097b87dc3a242aab3e2c99efe",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Rshadow/partial.jsonl": "e60d5209bebbdc7f3506e91e75f7f288baeee5309c6826140d5026c0602a3d2e",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Rshadow/result.json": "6a57af36e76c45ed0c6edaded3e1cb6cd238d3ef4c88ffc1d12e0c4e8965981a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/RC/request_mapping.json": "21255fc9ae2e4883c4627320740f474cd0eb6a0f98a66f39458fa63998b4b4f3",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/RC/partial.jsonl": "89ae1190bd02edd24ba17656756df79261a055be5fd97bcb3570b05ab3fb5f65",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/RC/result.json": "112274211f5fa6ce31a6b501098b5689d4c2256711de72707257810c0288e59e",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Clex/request_mapping.json": "78aa67020e60abcf60e1e0cb723a8151091cc96c0222d9556ab39e647b550e6d",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Clex/partial.jsonl": "51d59301fbfcbd12fcd09d6f9d70db344d843cac10fc75352781d14e0ba0c536",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/Clex/result.json": "7f2d0ede24c88914c0003700a1cf7d31aa14accace1e960b8a95b4bb4f5abe55",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_engineering8_run1_20260913/engineering_gate.json": "4ad6d63aa684eb23cce770b9ddd8f67d94bc5d7dd2860d5a5e325ad56af636e2"
+  },
+  "gpu_final": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+  "gpu_apps": "",
+  "shared_status": "",
+  "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n"
+}

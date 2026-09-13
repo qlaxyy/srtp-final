@@ -1,0 +1,48 @@
+{
+  "run_id": "cgrs_coordinated_v2_engineering8_run1_20260913",
+  "engineering_passed": true,
+  "startup_seconds": 25.39316686987877,
+  "wall_seconds": 36.24273106455803,
+  "arms": {
+    "R": {
+      "completed": 8,
+      "output_tokens": 2048,
+      "generation_seconds": 1.6706551909446716,
+      "eligible": 0,
+      "changed": 0
+    },
+    "Roff": {
+      "completed": 8,
+      "output_tokens": 2048,
+      "generation_seconds": 1.5063014030456543,
+      "eligible": 0,
+      "changed": 0
+    },
+    "Rshadow": {
+      "completed": 8,
+      "output_tokens": 2048,
+      "generation_seconds": 2.117502376437187,
+      "eligible": 33,
+      "changed": 0
+    },
+    "RC": {
+      "completed": 8,
+      "output_tokens": 2048,
+      "generation_seconds": 2.13466814160347,
+      "eligible": 33,
+      "changed": 33
+    },
+    "Clex": {
+      "completed": 8,
+      "output_tokens": 2048,
+      "generation_seconds": 1.7553977072238922,
+      "eligible": 31,
+      "changed": 31
+    }
+  },
+  "pure_generation_seconds": 9.184524819254875,
+  "limits": "8 training engineering questions, cap256; not accuracy/compression/full-load throughput evidence; no added model probe or forward",
+  "RC_vs_R_changed_trajectories": 0,
+  "all_40_outputs_hit_engineering_cap256": true,
+  "RC_generation_vs_R_percent": 27.77430993384231
+}

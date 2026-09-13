@@ -1,0 +1,9 @@
+{
+  "target": "/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_run1_20260913",
+  "run_id": "cgrs_coordinated_v2_engineering8_run1_20260913",
+  "archive_sha256": "dab623780d313dd8d3735a75679bb64d6386e2c7595d6dd2a7a71b175d51820b",
+  "package_commit": "58dbe4ec12ffc88269d10f2fc79e79dccf8b0899",
+  "command": "cd /root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_run1_20260913 && export PATH=/root/autodl-tmp/venvs/easysteer-vllm026/bin:$PATH PYTHONNOUSERSITE=1 PYTHONPATH=/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_run1_20260913/sources/EasySteer/vllm-steer:/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_run1_20260913/sources/EasySteer && nohup timeout 900s /root/autodl-tmp/venvs/easysteer-vllm026/bin/python integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/engineering.py --plan integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/engineering_plan.json --output-root /root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912 --gpu-authorized > cgrs_v2_run1.log 2>&1 < /dev/null &",
+  "plan_sha256": "c13b676f6486fb1d92a23f6c76a22b48a6fb85cb28b53f8d9c689d940006d089",
+  "deployment": "Gitless isolated copy with hash-checked source; shared runtime unchanged"
+}
