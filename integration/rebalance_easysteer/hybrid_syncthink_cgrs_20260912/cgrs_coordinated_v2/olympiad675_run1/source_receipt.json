@@ -1,0 +1,23 @@
+{
+  "url": "https://raw.githubusercontent.com/yu-lin-li/ReBalance/c7207ee1583e42170ac4f324c12345863b3d40f0/Data/Math_Olympiad/test.jsonl",
+  "commit": "c7207ee1583e42170ac4f324c12345863b3d40f0",
+  "sha256": "9a4967f3cddc645ef5d61dcad5e0f3aa0f3be4b63a0d6d94582696c87c17d4a9",
+  "bytes": 250501,
+  "rows": 675,
+  "keys": [
+    "id",
+    "problem",
+    "answer"
+  ],
+  "sample": {
+    "id": 1606,
+    "problem": "Xenia and Sergey play the following game. Xenia thinks of a positive integer $N$ not exceeding 5000. Then she fixes 20 distinct positive integers $a_{1}, a_{2}, \\ldots, a_{20}$ such that, for each $k=1,2, \\ldots, 20$, the numbers $N$ and $a_{k}$ are congruent modulo $k$. By a move, Sergey tells Xenia a set $S$ of positive integers not exceeding 20 , and she tells him back the set $\\left\\{a_{k}: k \\in S\\right\\}$ without spelling out which number corresponds to which index. How many moves does Sergey need to determine for sure the number Xenia thought of?",
+    "answer": "2"
+  },
+  "local_exists": true,
+  "local_equal": false,
+  "local_sha256": "466a5316e5ee82a845e10ead06696e24dab0dc8c21bef653fe0e76701224c8d0",
+  "semantic_equal": true,
+  "qwen_ids_prompts_answers_all_equal": true,
+  "original_benchmark_metadata_note": "94 multiple-answer rows, one 1e-1 tolerance; ReBalance public distribution strips these fields. Use frozen public grader consistently, not claim original benchmark grader."
+}

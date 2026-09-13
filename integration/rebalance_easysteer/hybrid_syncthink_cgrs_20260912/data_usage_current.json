@@ -10237,5 +10237,14 @@
     "rows_sha256": "187a9d6222112c798998de4f32cee99c4517c6ff5aa6947158b68dc00eed06ac",
     "purpose": "Fixed-policy new-benchmark comparison; proposed only, not frozen",
     "remote_reconciliation_complete": false
+  },
+  "olympiad_priority_batch": {
+    "status": "local_ready_pending_server_grader_and_engineering_gates",
+    "run_id": "cgrs_coordinated_v2_15b_olympiad675_run1_20260913",
+    "registry": "cgrs_coordinated_v2/olympiad675_run1/rows.json",
+    "rows_sha256": "1a0f3be14f38517bce7e75a3f007d363d74df0519278daef7c7ec0858032eb8f",
+    "priority": "Olympiad then image-listed AIME24/AIME25/AMC23; SVAMP and Minerva deferred",
+    "scope": "1.5B675x3 U/R/RCnegative, same-run controls",
+    "remote_reconciliation_complete": false
   }
 }

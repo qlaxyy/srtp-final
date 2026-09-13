@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "test_cpu.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_actual_sampler_with_numpy_tensor_standin (__main__.ContractTests.test_actual_sampler_with_numpy_tensor_standin) ... ok\ntest_content_and_answer_phase_are_protected (__main__.ContractTests.test_content_and_answer_phase_are_protected) ... ok\ntest_disabled_does_not_touch_engine_or_import_torch (__main__.ContractTests.test_disabled_does_not_touch_engine_or_import_torch) ... ok\ntest_negative_signal_and_valid_closed_step_required (__main__.ContractTests.test_negative_signal_and_valid_closed_step_required) ... ok\ntest_sampler_hot_path_has_no_host_reads_or_extra_sampling (__main__.ContractTests.test_sampler_hot_path_has_no_host_reads_or_extra_sampling) ... ok\ntest_shadow_uses_same_gate_without_defining_a_new_threshold (__main__.ContractTests.test_shadow_uses_same_gate_without_defining_a_new_threshold) ... ok\ntest_soft_odds_and_temperature_are_distinct (__main__.ContractTests.test_soft_odds_and_temperature_are_distinct) ... ok\ntest_whitespace_and_mixed_boundary (__main__.ContractTests.test_whitespace_and_mixed_boundary) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.091s\n\nOK\n"
+    },
+    {
+      "name": "test_replay_cpu.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_fresh_slot_starts_clean (__main__.Tests.test_fresh_slot_starts_clean) ... ok\ntest_generated_prefix_without_saved_state_rejected (__main__.Tests.test_generated_prefix_without_saved_state_rejected) ... ok\ntest_reassigned_slot_restores_all_lexical_state (__main__.Tests.test_reassigned_slot_restores_all_lexical_state) ... ok\ntest_replay_clock_mismatch_rejected_before_native_mutation (__main__.Tests.test_replay_clock_mismatch_rejected_before_native_mutation) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "name": "test_screen_cpu.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_factorial_scale_and_no_diagnostic_cherry_pick (__main__.Checks.test_factorial_scale_and_no_diagnostic_cherry_pick) ... ok\ntest_identical_output_does_not_pass_screen (__main__.Checks.test_identical_output_does_not_pass_screen) ... ok\ntest_margin_and_caps_not_accuracy_alone (__main__.Checks.test_margin_and_caps_not_accuracy_alone) ... ok\ntest_no_authorization_creates_no_outputs (__main__.Checks.test_no_authorization_creates_no_outputs) ... ok\ntest_reordered_pair_is_rejected (__main__.Checks.test_reordered_pair_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.461s\n\nOK\n"
+    }
+  ],
+  "ast_parse_all_python": true,
+  "original_answer_extractor_roundtrips": 675,
+  "full_grader_tested": false,
+  "reason": "Local sympy/regex/latex2sympy2/word2number absent; no install. Mandatory CPU grader gate in existing server rebalance environment before GPU load.",
+  "shared_controller_modified": false
+}
