@@ -1,0 +1,99 @@
+{
+  "runtime_commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+  "source_files_verified": 2928,
+  "generated_version_not_locally_compared": [
+    {
+      "path": "sources/EasySteer/vllm-steer/vllm/_version.py",
+      "sha256": "71e8de8405a62240d9830fff7f809d1d69d1d78a27e04088f12ae410f70c469d"
+    }
+  ],
+  "formal_records_verified": 1819,
+  "model_and_calibration_assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "environment": {
+    "build_tools": {
+      "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6"
+    },
+    "torch": "2.11.0+cu129",
+    "vllm": "0.1.dev18960+g6267ca0cf"
+  },
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 907.5576173663139,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "RS only: MATH500 and GSM8K1319,1819 new predictions; immutable U/R reused, zero new engineering generation"
+  },
+  "engineering_gate": {
+    "status": "pass",
+    "token_and_R_history_identity": true,
+    "pretrigger_identity": true,
+    "actual_preemption_tested": false
+  },
+  "resolved_sha256": "aa56adae0dabdf2f70f6550961c337fb6735789681d8593ead82520846c2b9dd",
+  "historical_reference_sha256": "ccf2e90fb1e32650bc8e4d51b6b9b7248874da854a52895a2bad3b28d3b6fc8f",
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_mix05_full1_complete_20260913.tar.gz",
+    "sha256": "bcc15e930159d2db2fa476203fc2ef141f198a79517ea75e2d7667a2ae7639c6",
+    "files": 32,
+    "bytes": 13506275,
+    "status": {
+      "status": "complete",
+      "wall_seconds": 907.5576173663139,
+      "prior_attempt_wall_seconds": 0.0,
+      "retries": 0,
+      "scope": "RS only: MATH500 and GSM8K1319,1819 new predictions; immutable U/R reused, zero new engineering generation"
+    }
+  }
+}

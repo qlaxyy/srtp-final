@@ -1,0 +1,92 @@
+{
+  "run_id": "mix05_full_math500_gsm1319_RS_c256_run1_20260913",
+  "runtime_commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+  "authorization_commit": "3621ac5",
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 907.5576173663139,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "RS only: MATH500 and GSM8K1319,1819 new predictions; immutable U/R reused, zero new engineering generation"
+  },
+  "formal_answers": 1819,
+  "new_engineering_answers": 0,
+  "reused_engineering_answers": 40,
+  "engineering_files_verified": {
+    "engineering/off_R/partial.jsonl": "0bbfbb667b011b1361c2848977486bf510b4d4402726bb2d8913700a2db78afc",
+    "engineering/off_R/result.json": "5154b19d314ae28c74648715b60439c13fb1a04ded0497bd2ec96f27cf81af11",
+    "engineering/pre_R/partial.jsonl": "1f5c28255f38fd922e47fbfbdec7caab5a128ef873b23008292e683e733ee077",
+    "engineering/pre_R/result.json": "3bb3872d362718dca62548f477b04c5b6f48bd786c29a65751a88630fab62063",
+    "engineering/RS/partial.jsonl": "954febdea6486055fd14460ae525143c1816c40581ced3af39ef78157e108d93",
+    "engineering/RS/result.json": "c8d697c557b47d0319ff77500537a769e6d9262621c9bd2cd72572ca6376c541",
+    "engineering/S/partial.jsonl": "039e9eeb532bd3856c8c4f9bd532d10e9db9c8ecedf2e6012a95e6434c9e0290",
+    "engineering/S/result.json": "37653319c11d728fe5e113a7b7ddfbf6e40e1a0753fdc930daaa1a51b227fb33",
+    "engineering/shadow_R/partial.jsonl": "04ebd84f17e773db4ec5a340fa4abfabba4053077bd62d508f0ec95d3c16e23c",
+    "engineering/shadow_R/result.json": "7ddda61264ab248fae7ad17cc92878b4ed9179c17e1c72a4227af01d30ad776f",
+    "engineering_gate.json": "f750de2a86f0039d1c17f91281f6679e64bd92477fb16151bce4008583ef967f"
+  },
+  "closure": {
+    "gpu": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB\n",
+    "compute_apps": "",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+    "shared_status": ""
+  },
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_mix05_full1_complete_20260913.tar.gz",
+    "sha256": "bcc15e930159d2db2fa476203fc2ef141f198a79517ea75e2d7667a2ae7639c6",
+    "files": 32,
+    "bytes": 13506275,
+    "status": {
+      "status": "complete",
+      "wall_seconds": 907.5576173663139,
+      "prior_attempt_wall_seconds": 0.0,
+      "retries": 0,
+      "scope": "RS only: MATH500 and GSM8K1319,1819 new predictions; immutable U/R reused, zero new engineering generation"
+    }
+  },
+  "deployment": {
+    "deployment": {
+      "commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+      "base_runtime": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_run1",
+      "scope": "Git-blob B namespace with fixed full-test preparation; production runner, sampler and mix05 controller unchanged; isolated copy; shared checkout untouched"
+    },
+    "archive_sha256": "5a259919833a2a105c7b9b32680c56e3d8f6307b24415b4155e8d004fbc0c558",
+    "remote": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_full1",
+    "native_cpu": "pass"
+  },
+  "launch": {
+    "pid": 11802,
+    "run_id": "mix05_full_math500_gsm1319_RS_c256_run1_20260913",
+    "project": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_full1"
+  },
+  "coordination": {
+    "run_id": "mix05_full_math500_gsm1319_RS_c256_run1_20260913",
+    "data_usage_sha256": "ca81a1d680e83b119f8f8857c4473bf39ec41b169376008d6c692d29f1023178",
+    "plan_sha256": "1d3e1b2ca3d3f66109986d659a16b7ce2fcf76e7c49cfa4b51960d68cbd1dd12",
+    "authority": "User 把mix05完整测完 explicitly authorizes fixed1.5B RS full MATH500+GSM8K1319; GPU enabled confirmed. Executing dialogue checked local worktrees and shared server inputs; no new training data claims.",
+    "cross_line_data_clear": true,
+    "shared_code_integrated_in_isolated_checkout": true,
+    "gpu_batch_authorized": true,
+    "checked_registries": {
+      "local_snapshot_sha256": "162c1495dafb2900f3b5a8830be4501c4ef8bfed463d93d92a15974ab1f86825",
+      "remote_snapshot_sha256": "ac85770f4c2dbcff909ff8dabee0730b3a8d9d249430b2b013f3a7871d179ec5",
+      "training_registry_sha256": "ad96069fa8d104058943b1281cca3e75512605c1c0ff6500e4b4bad92a11f310",
+      "scope": "Known test benchmark reuse only; not disjoint new confirmation"
+    },
+    "runtime_commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+    "deployment_archive_sha256": "5a259919833a2a105c7b9b32680c56e3d8f6307b24415b4155e8d004fbc0c558",
+    "gpu_before": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+    "data_status": "fixed_test_benchmark_reserved_RS_predictions_only",
+    "staging_incidents": [
+      "Initial connection timeout before user confirmed GPU enabled; no model generation at that point"
+    ],
+    "limits": [
+      "Single fixed test run after prior test exposure; no parameter selection",
+      "Prior mix05 training confirmation remains inconclusive",
+      "Frozen outputs and training calibration answers are not regenerated"
+    ]
+  },
+  "native_cpu_log_sha256": "40daed4f9fa25694286f109b117ed1af5ee627e4ee95c472cd587f215a63e919",
+  "extra_method_forwards": 0,
+  "probe_tokens": 0
+}
