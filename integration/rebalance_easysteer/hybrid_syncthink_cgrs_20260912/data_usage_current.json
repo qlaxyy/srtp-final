@@ -10230,5 +10230,12 @@
       "sha256": "09eff76d22470ba670f4d60e6e1a35b8016a64ec3b459de987c063e336bd2fdf",
       "source_commit": "94f00d7"
     }
+  },
+  "benchmark_expansion_proposal": {
+    "status": "proposal_local_data_prepared_not_gpu_ready_not_launched",
+    "registry": "cgrs_coordinated_v2/benchmark_expansion_v1/rows_proposed.json",
+    "rows_sha256": "187a9d6222112c798998de4f32cee99c4517c6ff5aa6947158b68dc00eed06ac",
+    "purpose": "Fixed-policy new-benchmark comparison; proposed only, not frozen",
+    "remote_reconciliation_complete": false
   }
 }
