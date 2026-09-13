@@ -32,6 +32,17 @@ def source_sha(path):
     return hashlib.sha256(Path(path).read_bytes().replace(b'\r\n', b'\n')).hexdigest()
 
 
+def deployment_record(root=ROOT):
+    """A hash-checked archive deployment need not contain a Git checkout."""
+    import subprocess
+    result = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=root,
+                            capture_output=True, text=True)
+    manifest = root/'cgrs_deployment_identity.json'
+    return dict(git_commit=result.stdout.strip() if result.returncode == 0 else None,
+                git_metadata_available=result.returncode == 0,
+                archive_deployment=read(manifest) if manifest.exists() else None)
+
+
 def save(path, value):
     with Path(path).open('x', encoding='utf8') as stream:
         json.dump(value, stream, ensure_ascii=False, indent=2)
@@ -337,8 +348,7 @@ def main():
         save(output/'runtime_identity.json', dict(
             python=sys.version, torch=torch.__version__, vllm=vllm.__version__,
             vllm_path=vllm.__file__, plan_sha256=sha(args.plan),
-            git_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT,
-                                               text=True).strip(),
+            deployment=deployment_record(),
             source_sha256=plan['source_sha256'], assets=plan['assets']))
         arms = ['R', 'Roff', 'Rshadow', 'C', 'RC'] if plan['phase'] == 'engineering' else ['R', 'C', 'RC']
         results = {}

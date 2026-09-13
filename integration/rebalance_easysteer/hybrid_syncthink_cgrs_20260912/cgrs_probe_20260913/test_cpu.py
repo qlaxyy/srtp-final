@@ -80,6 +80,15 @@ class PolicyTests(unittest.TestCase):
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_archive_deployment_does_not_require_git_metadata(self):
+        import tempfile
+        from pathlib import Path
+        from run import deployment_record
+        with tempfile.TemporaryDirectory() as folder:
+            result = deployment_record(Path(folder))
+            self.assertFalse(result['git_metadata_available'])
+            self.assertIsNone(result['git_commit'])
+
     def test_execution_refuses_missing_batch_authorization(self):
         from run import validate
         with self.assertRaisesRegex(ValueError, 'authorization'):
