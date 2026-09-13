@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "schedule": "exactly two RS mix05 groups; no U/R/S regeneration",
+  "cdf_agreement_n200_max_abs_error": 1.7763568394002505e-15,
+  "cdf_large_sample_n1319_finite_monotonic_and_endpoints": true,
+  "source_files_unchanged": [
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py"
+  ],
+  "new_model_forwards": 0,
+  "limitations": [
+    "CPU checks do not estimate efficacy; historical baseline identity and native assets checked again on server"
+  ]
+}
