@@ -1,0 +1,28 @@
+{
+  "base_commit": "c688b9c0328cbbad919e17b7665b8b489b5ef29f",
+  "files": {
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py": {
+      "base_lf_sha256": "cbc8a9dd89d12741cfd0b9723667a4622cbd18f90e65cb54c80812a25fe82346",
+      "patched_lf_sha256": "c2007ef15627762243060bf4d163d901c4ef4b4d906a4c9ea39f17a9e16a19ed"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py": {
+      "base_lf_sha256": "83a2cfbd94c1016cf8bb05d681370f840646de8be3b51f613f090df799a1b5a5",
+      "patched_lf_sha256": "d9bb1a4f0410e958cc8e9658ef816dae619601dfc7d0854e9a68d52c7663c0ff"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": {
+      "base_lf_sha256": "fb1834d245ef3190c733a38e1645c4cc842a2147e3caae8adad1b693e6b66b98",
+      "patched_lf_sha256": "1b90fa62add5595272146ef282681e667a16d4474d1ec544084f5d0b4443c8ce"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py": {
+      "base_lf_sha256": "a63bec4f3bb5a06bc566656b5075d6072b5bdd318c1f267eb80fe5534edc4227",
+      "patched_lf_sha256": "76824e0047e2de2bc0775d711ec85ad62ed794937ec5a93095e405cedf6b38b4"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py": {
+      "base_lf_sha256": "41ed980214b26c06672ce400644ad717e592f91edd69b067268223c096834906",
+      "patched_lf_sha256": "ebbe0a01cc7b43ae1601876f87d0e7b8f8dfab6e017e9eb3d47be0a83ce9417f"
+    }
+  },
+  "patch_sha256": "9578aae7f8b31e98542899e4e098c3170a35caf3e922518d283d389af7455c23",
+  "default_mode": "off",
+  "applied": false
+}
