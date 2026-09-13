@@ -1,0 +1,33 @@
+{
+  "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913",
+  "data_proposal_sha256": "c8c812ccb2322e359616a68038d524eb36598554bb0638244e0ebd363b1d17bb",
+  "plan_sha256": "8a1afdd0cc665310024e218fb91a6ecfc4747ffa51ab86f96a5f4dfb6d13bda1",
+  "authority": "User 扩大测试吧 authorizes fixed independent confirmation: fresh MATH200+GSM8K200 x R/S/RS=1200 answers; user confirmed GPU enabled; this executing dialogue reconciled live worktrees and server records",
+  "cross_line_data_clear": true,
+  "shared_code_integrated_in_isolated_checkout": true,
+  "gpu_batch_authorized": true,
+  "checked_registries": {
+    "local_files": 557,
+    "remote_files": 1004,
+    "local_sha256": "52699750d5e2eefcb2da041c61cf1428b6bf026f09b5bb03f48a1500b0ca7616",
+    "remote_sha256": "df872f06eb6cd3cd0e13d382a9e20dc14f3b787efb8e1e0d716618bf6f81c93f",
+    "worktrees": [
+      "E:/srtp/srtp-final",
+      "E:/srtp/hybrid-syncthink-cgrs-20260912",
+      "E:/srtp/srtp-final/.codex_work/mechanism_docs_main_20260912",
+      "E:/srtp/srtp-final/.codex_work/min_confirmation_worktree",
+      "E:/srtp/srtp-final/.codex_work/question_balance_worktree",
+      "E:/srtp/srtp-final/.codex_work/repeat_gate_worktree"
+    ]
+  },
+  "runtime_commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+  "deployment_archive_sha256": "ef696851531299ef0960e186f046d071cbd749106dad4078443803343a9cbc80",
+  "native_cpu_checks": "pass float32 and BF16, no model forward",
+  "gpu_before": "4090D 0%,1MiB,no compute apps",
+  "data_status": "frozen_for_this_independent_confirmation_batch_only",
+  "limitations": "Snapshot of enumerated worktree registries and shared server results; no claim about unrecorded external activity",
+  "staging_incidents": [
+    "Connection timed out during banner exchange after archive upload; verified target absent before retrying copy; no model generation had started",
+    "Initial SSH checks returned Connection closed; user then confirmed GPU enabled; no generation before recovery"
+  ]
+}
