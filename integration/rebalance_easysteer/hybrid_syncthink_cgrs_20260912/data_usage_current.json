@@ -10210,6 +10210,12 @@
       229
     ],
     "new_training_reservations": [],
-    "engineering_run_id": "cgrs_coordinated_v2_engineering8_run1_20260913"
+    "engineering_run_id": "cgrs_coordinated_v2_engineering8_run1_20260913",
+    "effect_screen_proposal": {
+      "path": "cgrs_coordinated_v2/screen64_run1/data_proposal.json",
+      "sha256": "0636cb27ddd92018f00c93fd43c0ddb220a5f58e525ada6f6d4dba7ebb34364b",
+      "status": "64_proposed_local_reconciled_remote_pending_not_frozen",
+      "confirmation_reserved": 0
+    }
   }
 }

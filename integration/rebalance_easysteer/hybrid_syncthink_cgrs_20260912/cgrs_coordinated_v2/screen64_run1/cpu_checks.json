@@ -1,0 +1,8 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_factorial_scale_and_no_diagnostic_cherry_pick (__main__.Checks.test_factorial_scale_and_no_diagnostic_cherry_pick) ... ok\ntest_identical_output_does_not_pass_screen (__main__.Checks.test_identical_output_does_not_pass_screen) ... ok\ntest_margin_and_caps_not_accuracy_alone (__main__.Checks.test_margin_and_caps_not_accuracy_alone) ... ok\ntest_no_authorization_creates_no_outputs (__main__.Checks.test_no_authorization_creates_no_outputs) ... ok\ntest_reordered_pair_is_rejected (__main__.Checks.test_reordered_pair_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.584s\n\nOK\n",
+  "local_registry_files": 677,
+  "overlaps": 0,
+  "limitations": "CPU statistical/orchestration checks only; screening driver not GPU executed. Native adapter unchanged from validated engineering source. No SSH this preparation turn."
+}
