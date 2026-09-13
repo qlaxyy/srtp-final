@@ -1,6 +1,6 @@
 {
   "namespace": "hybrid_syncthink_cgrs_20260912",
-  "status": "828_B_training_questions_consumed; mix05_point_pass_with_audit_hold",
+  "status": "828_B_training_questions_consumed; GSM5424_prebias_diagnostic_complete; no_new_confirmation_reservation",
   "normalization": "Unicode NFKC, remove all Unicode whitespace, SHA256 UTF-8; preserve case and symbols",
   "entries": [
     {
@@ -6466,7 +6466,8 @@
     "soft2_20260913/results_run1/data_usage.json": "24353f55ffcee2eb4b13838b4e6dffe650cd786bf177747229cd0ac54ffc1607",
     "mix05_20260913/data_proposal.json": "f61649ca96e8ace5271a319b1c22e68c25cbadeb6e45ddeb8fcb22ad1ff0cdfc",
     "mix05_20260913/execution_run1/coordination_mix05.json": "854d5216cb2c0397eff6a63601ca201ac0656aaec9292f2f4027c81598b4c185",
-    "mix05_20260913/results_run1/data_usage.json": "0f3b57dac4abf202ec7e2a6b621a98518e15a4c273e49451557c8b483d03aa7d"
+    "mix05_20260913/results_run1/data_usage.json": "0f3b57dac4abf202ec7e2a6b621a98518e15a4c273e49451557c8b483d03aa7d",
+    "mix05_20260913/prebias_audit_20260913/results_run1/data_usage.json": "bacbbdbc9175a64babf8fccfff74a02c14d7241904a9e4a583418c020096534e"
   },
-  "coordination": "828 unique B training questions consumed: prior700 plus128 mix05 screening. All384 formal and40 engineering answers completed. No untouched independent confirmation reservation. Exclude all registered IDs and normalized hashes from either line future confirmation. Mix05 point passes are preserved, with posthoc audit hold before promotion; A assets and shared server checkout untouched."
+  "coordination": "828 unique B training questions consumed: prior700 plus128 mix05 screening. All384 formal and40 engineering answers completed. No untouched independent confirmation reservation. Exclude all registered IDs and normalized hashes from either line future confirmation. Mix05 point passes are preserved, with posthoc audit hold before promotion; A assets and shared server checkout untouched. Completed192 short diagnostic outputs on64 previously consumed GSM questions; zero new unique questions. Target5424 localized to forward numerical path; not all46 cases individually traced."
 }

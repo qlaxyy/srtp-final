@@ -1,0 +1,71 @@
+{
+  "launch": {
+    "launch": {
+      "pid": 5236,
+      "project": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_prebias_trace1",
+      "output": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/prebias_gsm64_trace512_run1_20260913",
+      "command": [
+        "timeout",
+        "-k",
+        "10",
+        "600",
+        "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+        "-u",
+        "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_20260913/prebias_audit_20260913/trace_short.py",
+        "--execute",
+        "--resolved",
+        "resolved_mix05.json",
+        "--output",
+        "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/prebias_gsm64_trace512_run1_20260913"
+      ],
+      "archive_sha256": "0acf8e341402606ab98736686e8dbebd61243d632be934d5a387671146a3b4a2"
+    },
+    "authorization": {
+      "authorization": "User confirmed 已开启 after fixed192-output diagnostic scope on2026-09-13",
+      "harness_commit": "2cf3643e9e75d67aaacf0c4533261e3b353b4d1f",
+      "plan_sha256": "96da3674fde902a228ee6730ecc52d1cfb9988aa11b176d58217bbc53b9b4860",
+      "gpu_before": "4090D 0%,1MiB,no compute apps",
+      "scope": "Only fixed GSM64 x3 cap512 diagnostic; no expansion",
+      "base_runtime_commit": "a0a1fd6c8f0b2d13bcebf64b64dbf25d493a04b0"
+    },
+    "archive_sha256": "0acf8e341402606ab98736686e8dbebd61243d632be934d5a387671146a3b4a2",
+    "staging_incident": "Legacy extractall filter unsupported before any model startup; resumed safe extraction without changing runtime or scope"
+  },
+  "archive": {
+    "path": "/root/autodl-tmp/prebias_trace512_run1_complete_20260913.tar.gz",
+    "sha256": "29169d26d97dd57c6b44fc32737a05ba02796293dd069a8c2166f2b44c4755c9",
+    "files": 98,
+    "bytes": 7948281,
+    "closure": {
+      "gpu": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB\n",
+      "compute_apps": "",
+      "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+      "shared_status": ""
+    }
+  },
+  "actual_model_generation_retries": 0,
+  "diagnostic_status": {
+    "status": "complete",
+    "seconds": 43.73347620666027,
+    "formal_effect_test": false,
+    "new_answers_max": 192,
+    "cap": 512,
+    "extra_probe_tokens": 0,
+    "environment_batch_invariant": "0"
+  },
+  "source_and_assets": {
+    "harness_sha256": "ca5b678d4321bab9573c6828f60293e77eb93ca7e2fc39bf8cf3bdcec3da03a6",
+    "transformed_runner_sha256": "bb28f93a9f3412f0870bf9c4a92dd8ae0dcf694b6a27fee9cba7fa90d735e3df",
+    "baseline_runtime_commit": "a0a1fd6c8f0b2d13bcebf64b64dbf25d493a04b0",
+    "assets_sha256_verified": true,
+    "mode": "diagnostic_only",
+    "formal_effect_test": false
+  },
+  "limitations": [
+    "Direct snapshots are for GSM8K5424 only. MATH has not received this GPU trace.",
+    "The boundary coincides with changed hidden states before the end hook on matched prefix/R state/seed; a particular GEMM or attention kernel is not isolated.",
+    "No counterfactual run with fixed batch shape or batch-invariant kernels was authorized or performed.",
+    "Do not use512-token diagnostic outputs to grade or estimate compression/speed.",
+    "No independent confirmation of the original mix05 efficacy or2pp noninferiority."
+  ]
+}
