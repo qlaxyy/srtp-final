@@ -1,0 +1,190 @@
+{
+  "runtime_commit": "9ced0f84b6d590f1d5fa9f24d8e43db6f5342b73",
+  "resolved_sha256": "903c1e3d074b2511e3b989ebc2e291579b5ec5f03581fb8d1c45a0eb005899af",
+  "source_files_verified": 2839,
+  "generated_version_files": [
+    {
+      "path": "sources/EasySteer/vllm-steer/vllm/_version.py",
+      "remote_sha256": "71e8de8405a62240d9830fff7f809d1d69d1d78a27e04088f12ae410f70c469d",
+      "reason": "runtime-generated version file, recorded not compared with source tree"
+    }
+  ],
+  "formal_answers": 384,
+  "engineering_answers": 40,
+  "group_count": {
+    "math_soft2/R": 64,
+    "math_soft2/S": 64,
+    "math_soft2/RS": 64,
+    "gsm8k_soft2/R": 64,
+    "gsm8k_soft2/S": 64,
+    "gsm8k_soft2/RS": 64
+  },
+  "engineering_gate": {
+    "status": "pass",
+    "token_and_R_history_identity": true,
+    "pretrigger_identity": true,
+    "actual_preemption_tested": false
+  },
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_soft2_run1_complete_20260913.tar.gz",
+    "sha256": "d40527a77a1fcf49f59467aeff65502e125ab45cd1961e2df5297cf5cbd2289f",
+    "files": 48,
+    "bytes": 3967692,
+    "status": {
+      "status": "complete",
+      "wall_seconds": 756.4325972646475,
+      "prior_attempt_wall_seconds": 0.0,
+      "retries": 0,
+      "scope": "128 new training questions x3 =384 formal answers plus8 existing engineering questions x5 =40 short answers; zero frozen-test or calibration generation"
+    }
+  },
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 756.4325972646475,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "128 new training questions x3 =384 formal answers plus8 existing engineering questions x5 =40 short answers; zero frozen-test or calibration generation"
+  },
+  "closure": {
+    "gpu": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB\n",
+    "compute_apps": "",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+    "shared_status": ""
+  },
+  "raw_sha256": {
+    "math_soft2\\R\\result.json": "d450c1e5bc363b86bb82002feeef823ce3443a25ec45b61a53d2cb316733bd1f",
+    "math_soft2\\R\\author_grade.json": "b16abfb8f834839b746b1eae1d7ed9b3fb663bdebf6c74c5e4375be7c628126a",
+    "math_soft2\\S\\result.json": "9bbfac02dff0664a7b8595b3842680aa939c22390901cad27e5d0064395b436f",
+    "math_soft2\\S\\author_grade.json": "c398bcb9fd46803f0e0c2e66c3dabc551f22f7a0a2d37807dbdeac11899b91ba",
+    "math_soft2\\RS\\result.json": "24ff34616640d028b8340f1b16e58a5f4dc003d5917a516b99fbcb1727001ad3",
+    "math_soft2\\RS\\author_grade.json": "983b34616946e155827c413f4cb0eae457bce3b202e3676f2427bf923ebfcdd7",
+    "gsm8k_soft2\\R\\result.json": "fb1181830d4df1ec5987e02e9b7af678303f4aa67c7b86aae0b34923da06e308",
+    "gsm8k_soft2\\R\\author_grade.json": "a65ee90ed047b9e002abed5a2408f9be74538940743feac25370a58c1e363379",
+    "gsm8k_soft2\\S\\result.json": "b39a072978ef6b2a88a314ae22ae217e3c809d1af5d54752c596a9f57d5a47a2",
+    "gsm8k_soft2\\S\\author_grade.json": "51a2039a1a1df4c6fc2689ff6d69396785e4f8147b2ab628f515f262dbf16078",
+    "gsm8k_soft2\\RS\\result.json": "112b8ae69d91767545ac499072a3f757fada0a59d83e5a9ad417dbb0e0ad9eba",
+    "gsm8k_soft2\\RS\\author_grade.json": "7ba83788a0a4ad454f1adc76eb062d9e4cf46b9d1edcb471059d3f3257d68825"
+  },
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "environment": {
+    "build_tools": {
+      "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6"
+    },
+    "torch": "2.11.0+cu129",
+    "vllm": "0.1.dev18960+g6267ca0cf"
+  },
+  "coordination": {
+    "run_id": "s64_soft2_math64_gsm64_c256_run1_20260913",
+    "data_proposal_sha256": "c8864c3566d4479ff8a81c2426dc775231077bd2b83e7ff800257e7e57bf14dd",
+    "plan_sha256": "90d4e482eda7d108a2c859b62b72fbf849e634d5edbf822b5dda3b941b5d840a",
+    "authority": "User 可以开始 authorizes fixed384 formal+40 engineering batch; this executing dialogue reconciled live local worktrees and server records",
+    "cross_line_data_clear": true,
+    "shared_code_integrated_in_isolated_checkout": true,
+    "gpu_batch_authorized": true,
+    "checked_registries": {
+      "local_files": 507,
+      "remote_files": 885,
+      "local_sha256": "d23bf4ea402e9aaabaa8ac3ef76c03ca2cd3b62d2d214d0eaaa43e4c0aa57147",
+      "remote_sha256": "c5ced43330f3f3363a27623ca9935be73990ac94689743e75463ba885565d737",
+      "worktrees": [
+        "E:/srtp/srtp-final",
+        "E:/srtp/hybrid-syncthink-cgrs-20260912",
+        "E:/srtp/srtp-final/.codex_work/mechanism_docs_main_20260912",
+        "E:/srtp/srtp-final/.codex_work/min_confirmation_worktree",
+        "E:/srtp/srtp-final/.codex_work/question_balance_worktree",
+        "E:/srtp/srtp-final/.codex_work/repeat_gate_worktree"
+      ]
+    },
+    "runtime_commit": "9ced0f84b6d590f1d5fa9f24d8e43db6f5342b73",
+    "deployment_archive_sha256": "bb4ea196d6addb0f479d8988ac51c2b015fba17e7c2bf7c1bccd59a3bda7265d",
+    "native_cpu_checks": "pass float32 and BF16, no model forward",
+    "gpu_before": "4090D 0%,1MiB,no compute apps",
+    "data_status": "frozen_for_this_screening_batch_only",
+    "limitations": "Snapshot of enumerated worktree registries and shared server results; no claim about unrecorded external activity",
+    "staging_incidents": [
+      "Initial local Git archive enumeration quoted Chinese filenames; failed before upload, zero GPU work. Partial archive preserved; switched to NUL-delimited paths, identical committed source."
+    ]
+  },
+  "limitations": [
+    "No extra model/logit replay; observed token records only",
+    "Single seed and64 questions per dataset; not independent confirmation",
+    "Source generated _version.py recorded separately from Git identity"
+  ],
+  "author_grader_code_hashes_match_runtime_sources": true,
+  "token_identity_summary": {
+    "math_soft2": {
+      "n": 64,
+      "tokens_identical": 64,
+      "R_history_identical": 64,
+      "biased_only_at_natural_end": 60,
+      "no_bias": 4,
+      "time_increase_percent": 42.73532002839304
+    },
+    "gsm8k_soft2": {
+      "n": 64,
+      "tokens_identical": 64,
+      "R_history_identical": 64,
+      "biased_only_at_natural_end": 64,
+      "no_bias": 0,
+      "time_increase_percent": 56.51007177109641
+    }
+  },
+  "native_cpu_log_sha256": "08a63987b0adf1a3f9253c793b371244d954973c3a7d751dabbdd80043e4abe0",
+  "verification_script_sha256": "c0a29ba8a137bc30a5405c8c43f993063421f21b978554e796815d1502932480",
+  "frozen_tag_object": "21e366b6d9a76ebb112e24e3e110942ef405bab9",
+  "frozen_tag_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "initial_verification_script_sha256": "20c95980bb022825ca26ff596f30561133275e85c9b3b14128804c3e4ab23093",
+  "reproducible_cpu_reverification": "pass: identical384 per-question records using tracked verify_run.py"
+}

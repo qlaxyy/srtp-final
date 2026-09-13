@@ -1,0 +1,352 @@
+{
+  "math_soft2": {
+    "role": "math_soft2",
+    "n": 64,
+    "arms": {
+      "R": {
+        "correct": 53,
+        "accuracy": 0.828125,
+        "mean_tokens": 3735.484375,
+        "mean_thinking_tokens": 3398.890625,
+        "mean_answer_tokens": 335.65625,
+        "capped": 4,
+        "generation_seconds": 125.9630977511406,
+        "checkpoint_io_seconds": 0.025591030716896057,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 5.390275731682777,
+        "statistics_and_bias_gpu_seconds": 0.0,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 0,
+        "worker_filtered_trigger_count": 0,
+        "worker_trigger_count": 0,
+        "accepted_first_bias_requests": 0,
+        "discarded_async_tail_tokens": 0
+      },
+      "S": {
+        "correct": 53,
+        "accuracy": 0.828125,
+        "mean_tokens": 4256.3125,
+        "mean_thinking_tokens": 3917.203125,
+        "mean_answer_tokens": 338.171875,
+        "capped": 4,
+        "generation_seconds": 158.35611583292484,
+        "checkpoint_io_seconds": 0.030162617564201355,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 3.7301929146051407,
+        "statistics_and_bias_gpu_seconds": 13.61521739488095,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 60,
+        "worker_filtered_trigger_count": 164,
+        "worker_trigger_count": 224,
+        "accepted_first_bias_requests": 60,
+        "discarded_async_tail_tokens": 60
+      },
+      "RS": {
+        "correct": 53,
+        "accuracy": 0.828125,
+        "mean_tokens": 3735.484375,
+        "mean_thinking_tokens": 3398.890625,
+        "mean_answer_tokens": 335.65625,
+        "capped": 4,
+        "generation_seconds": 179.7938306927681,
+        "checkpoint_io_seconds": 0.025940731167793274,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 5.228936046361923,
+        "statistics_and_bias_gpu_seconds": 13.110436163432896,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 60,
+        "worker_filtered_trigger_count": 136,
+        "worker_trigger_count": 196,
+        "accepted_first_bias_requests": 60,
+        "discarded_async_tail_tokens": 60
+      }
+    },
+    "comparisons": {
+      "RS_minus_R": {
+        "accuracy_delta_pp": 0.0,
+        "accuracy_delta_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "net_loss_probability_upper95_conservative": 0.05600908938663657,
+        "accuracy_2pp_noninferiority_supported": false,
+        "wrong_to_right": [],
+        "right_to_wrong": [],
+        "token_metrics": {
+          "tokens": {
+            "delta": 0.0,
+            "delta_ci95": [
+              0.0,
+              0.0
+            ],
+            "percent_change": 0.0,
+            "percent_change_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "thinking_tokens": {
+            "delta": 0.0,
+            "delta_ci95": [
+              0.0,
+              0.0
+            ],
+            "percent_change": 0.0,
+            "percent_change_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "RS_minus_S": {
+        "accuracy_delta_pp": 0.0,
+        "accuracy_delta_pp_ci95": [
+          -9.375,
+          7.8125
+        ],
+        "net_loss_probability_upper95_conservative": 0.13507344604164156,
+        "accuracy_2pp_noninferiority_supported": false,
+        "wrong_to_right": [
+          1206,
+          5522,
+          1241,
+          1586
+        ],
+        "right_to_wrong": [
+          3346,
+          2705,
+          488,
+          3813
+        ],
+        "token_metrics": {
+          "tokens": {
+            "delta": -520.828125,
+            "delta_ci95": [
+              -1405.9453125,
+              373.31445312499955
+            ],
+            "percent_change": -12.236604455147504,
+            "percent_change_ci95": [
+              -30.2854139344627,
+              9.484427994708193
+            ]
+          },
+          "thinking_tokens": {
+            "delta": -518.3125,
+            "delta_ci95": [
+              -1431.166015625,
+              401.76992187499945
+            ],
+            "percent_change": -13.231698317916562,
+            "percent_change_ci95": [
+              -33.12841989656966,
+              11.555136961867868
+            ]
+          }
+        }
+      }
+    },
+    "point_screen_pass": false,
+    "dominated_by_S": false,
+    "source_sha256": {
+      "R": {
+        "result": "d450c1e5bc363b86bb82002feeef823ce3443a25ec45b61a53d2cb316733bd1f",
+        "grade": "b16abfb8f834839b746b1eae1d7ed9b3fb663bdebf6c74c5e4375be7c628126a"
+      },
+      "S": {
+        "result": "9bbfac02dff0664a7b8595b3842680aa939c22390901cad27e5d0064395b436f",
+        "grade": "c398bcb9fd46803f0e0c2e66c3dabc551f22f7a0a2d37807dbdeac11899b91ba"
+      },
+      "RS": {
+        "result": "24ff34616640d028b8340f1b16e58a5f4dc003d5917a516b99fbcb1727001ad3",
+        "grade": "983b34616946e155827c413f4cb0eae457bce3b202e3676f2427bf923ebfcdd7"
+      }
+    },
+    "confirmation_completed": false,
+    "synergy_evaluated": false,
+    "limitations": [
+      "One generation seed and small sample",
+      "Bootstrap can degenerate when no outcomes differ; use exact bound too",
+      "GPU statistics timing excludes Python bookkeeping but generation includes it",
+      "Worker bias/trigger counts retain possible discarded async tail"
+    ]
+  },
+  "gsm8k_soft2": {
+    "role": "gsm8k_soft2",
+    "n": 64,
+    "arms": {
+      "R": {
+        "correct": 51,
+        "accuracy": 0.796875,
+        "mean_tokens": 837.625,
+        "mean_thinking_tokens": 589.6875,
+        "mean_answer_tokens": 246.9375,
+        "capped": 0,
+        "generation_seconds": 46.293039843440056,
+        "checkpoint_io_seconds": 0.008178815245628357,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 0.1380227655172348,
+        "statistics_and_bias_gpu_seconds": 0.0,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 0,
+        "worker_filtered_trigger_count": 0,
+        "worker_trigger_count": 0,
+        "accepted_first_bias_requests": 0,
+        "discarded_async_tail_tokens": 0
+      },
+      "S": {
+        "correct": 49,
+        "accuracy": 0.765625,
+        "mean_tokens": 1022.625,
+        "mean_thinking_tokens": 769.15625,
+        "mean_answer_tokens": 252.46875,
+        "capped": 0,
+        "generation_seconds": 77.59919333457947,
+        "checkpoint_io_seconds": 0.009694978594779968,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 0.09806229174137115,
+        "statistics_and_bias_gpu_seconds": 8.821737566947936,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 64,
+        "worker_filtered_trigger_count": 58,
+        "worker_trigger_count": 122,
+        "accepted_first_bias_requests": 64,
+        "discarded_async_tail_tokens": 64
+      },
+      "RS": {
+        "correct": 51,
+        "accuracy": 0.796875,
+        "mean_tokens": 837.625,
+        "mean_thinking_tokens": 589.6875,
+        "mean_answer_tokens": 246.9375,
+        "capped": 0,
+        "generation_seconds": 72.45326988399029,
+        "checkpoint_io_seconds": 0.008259698748588562,
+        "startup_seconds": 15.108102321624756,
+        "grading_seconds": 0.09625518321990967,
+        "statistics_and_bias_gpu_seconds": 7.2487783416137095,
+        "extra_model_forwards": 0,
+        "probe_tokens": 0,
+        "worker_bias_count": 64,
+        "worker_filtered_trigger_count": 58,
+        "worker_trigger_count": 122,
+        "accepted_first_bias_requests": 64,
+        "discarded_async_tail_tokens": 64
+      }
+    },
+    "comparisons": {
+      "RS_minus_R": {
+        "accuracy_delta_pp": 0.0,
+        "accuracy_delta_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "net_loss_probability_upper95_conservative": 0.05600908938663657,
+        "accuracy_2pp_noninferiority_supported": false,
+        "wrong_to_right": [],
+        "right_to_wrong": [],
+        "token_metrics": {
+          "tokens": {
+            "delta": 0.0,
+            "delta_ci95": [
+              0.0,
+              0.0
+            ],
+            "percent_change": 0.0,
+            "percent_change_ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "thinking_tokens": {
+            "delta": 0.0,
+            "delta_ci95": [
+              0.0,
+              0.0
+            ],
+            "percent_change": 0.0,
+            "percent_change_ci95": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      },
+      "RS_minus_S": {
+        "accuracy_delta_pp": 3.125,
+        "accuracy_delta_pp_ci95": [
+          -4.6875,
+          10.9375
+        ],
+        "net_loss_probability_upper95_conservative": 0.09108049484346187,
+        "accuracy_2pp_noninferiority_supported": false,
+        "wrong_to_right": [
+          5718,
+          7288,
+          5260,
+          2655
+        ],
+        "right_to_wrong": [
+          163,
+          1571
+        ],
+        "token_metrics": {
+          "tokens": {
+            "delta": -185.0,
+            "delta_ci95": [
+              -365.869140625,
+              -52.98085937500005
+            ],
+            "percent_change": -18.090697958684753,
+            "percent_change_ci95": [
+              -27.600449668704314,
+              -7.086263041588335
+            ]
+          },
+          "thinking_tokens": {
+            "delta": -179.46875,
+            "delta_ci95": [
+              -356.548828125,
+              -50.233984375000006
+            ],
+            "percent_change": -23.33319790354691,
+            "percent_change_ci95": [
+              -34.346504937037764,
+              -9.80941847676091
+            ]
+          }
+        }
+      }
+    },
+    "point_screen_pass": false,
+    "dominated_by_S": false,
+    "source_sha256": {
+      "R": {
+        "result": "fb1181830d4df1ec5987e02e9b7af678303f4aa67c7b86aae0b34923da06e308",
+        "grade": "a65ee90ed047b9e002abed5a2408f9be74538940743feac25370a58c1e363379"
+      },
+      "S": {
+        "result": "b39a072978ef6b2a88a314ae22ae217e3c809d1af5d54752c596a9f57d5a47a2",
+        "grade": "51a2039a1a1df4c6fc2689ff6d69396785e4f8147b2ab628f515f262dbf16078"
+      },
+      "RS": {
+        "result": "112b8ae69d91767545ac499072a3f757fada0a59d83e5a9ad417dbb0e0ad9eba",
+        "grade": "7ba83788a0a4ad454f1adc76eb062d9e4cf46b9d1edcb471059d3f3257d68825"
+      }
+    },
+    "confirmation_completed": false,
+    "synergy_evaluated": false,
+    "limitations": [
+      "One generation seed and small sample",
+      "Bootstrap can degenerate when no outcomes differ; use exact bound too",
+      "GPU statistics timing excludes Python bookkeeping but generation includes it",
+      "Worker bias/trigger counts retain possible discarded async tail"
+    ]
+  }
+}
