@@ -39,7 +39,9 @@ def main():
     if not args.gpu_authorized:raise ValueError('Explicit Olympiad675 three-arm GPU scope required')
     plan=read(args.plan);validate(plan)
     if args.phase=='full':
-        gate=read(args.engineering_gate);assert gate['passed'] and gate['plan_sha256']==plan['parent_plan_sha256']
+        gate=read(args.engineering_gate)
+        expected_gate=sha(args.plan) if plan.get('require_current_runtime_gate') else plan['parent_plan_sha256']
+        assert gate['passed'] and gate['plan_sha256']==expected_gate
     run_id=plan['engineering_run_id'] if args.phase=='engineering' else plan['run_id']
     out=args.output_root/run_id;out.mkdir(parents=True,exist_ok=False)
     save(out/'resolved_plan.json',plan)
@@ -109,9 +111,10 @@ def main():
                 ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=SamplingParams(temperature=.7,top_p=.95,seed=42,max_tokens=cap,skip_special_tokens=False),steering=None if name=='U' else steer,use_tqdm=False)
                 ops=llm.llm_engine.output_processor.request_states;mapping={ops[rid].external_req_id:rid for rid in ids};rowmap=dict(zip(ids,rows))
                 save(folder/'request_mapping.json',{rid:dict(problem_sha256=row['problem_sha256'],dataset_index=row.get('dataset_index'),source_id=row.get('source_id',row.get('train_index'))) for rid,row in rowmap.items()})
+                heartbeat=began
                 with (folder/'partial.jsonl').open('x',encoding='utf8') as stream:
                     while llm.llm_engine.has_unfinished_requests() or core.batch_queue:
-                        if time.perf_counter()-began>(180 if args.phase=='engineering' else (900 if name=='U' else plan['arm_ceiling_seconds'])):raise TimeoutError('Fixed Olympiad ceiling reached')
+                        if time.perf_counter()-began>(parent.get('U_ceiling_seconds',900) if name=='U' else plan['arm_ceiling_seconds']):raise TimeoutError('Fixed Olympiad ceiling reached')
                         for output in llm.llm_engine.step():
                             assert output.finished
                             rid=mapping[output.request_id];answer=output.outputs[0];ts=list(answer.token_ids)
@@ -119,6 +122,13 @@ def main():
                             assert rid not in generated and len(ts)<=cap
                             generated[rid]=rec;t=time.perf_counter();stream.write(json.dumps(rec,ensure_ascii=False)+'\n');stream.flush();io+=time.perf_counter()-t
                         steps+=1
+                        if time.perf_counter()-heartbeat>=30:
+                            heartbeat=time.perf_counter()
+                            save(folder/'progress.json',dict(completed=len(generated),expected=len(rows),
+                                elapsed_seconds=heartbeat-began,steps=steps,running=len(core.scheduler.running),
+                                waiting=len(core.scheduler.waiting),preemptions=len(preempt_events),
+                                discarded_computed_tokens=sum(e['computed_tokens_discarded'] for e in preempt_events),
+                                completed_output_tokens=sum(x['tokens'] for x in generated.values())))
                         if args.phase=='engineering' and not forced and steps>=32:
                             req=core.scheduler.requests.get(ids[0])
                             if req is not None and req in core.scheduler.running and req.num_output_tokens>=16:
@@ -159,6 +169,11 @@ def main():
         save(out/('engineering_gate.json' if args.phase=='engineering' else 'batch_status.json'),dict(passed=True,status='complete',plan_sha256=sha(args.plan),startup_seconds=startup,wall_seconds=time.perf_counter()-started))
     except BaseException as exc:
         if monitor:monitor.terminate();monitor.wait(timeout=10)
+        if 'began' in locals():
+            save(folder/'interrupted_arm.json',dict(generation_seconds_to_error=time.perf_counter()-began,
+                completed=len(generated),scheduler_preemptions=preempt_events,
+                unfinished=[dict(request_id=q.request_id,num_output_tokens=q.num_output_tokens)
+                    for q in core.scheduler.requests.values()]))
         save(out/'failure.json',dict(error=repr(exc),completed=list(results),wall_seconds=time.perf_counter()-started));raise
 
 
