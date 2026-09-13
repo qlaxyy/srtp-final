@@ -49,6 +49,33 @@ def save(path, value):
         stream.write('\n')
 
 
+def engineering_checks(results):
+    """Coverage is mandatory: unchanged output alone cannot validate C-probe."""
+    def signature(arm):
+        return [(r['problem_sha256'], r['token_ids'], r['R_history_sha256'])
+                for r in results[arm]['records']]
+
+    checks = {}
+    for arm in ('Roff', 'Rshadow'):
+        if arm in results:
+            checks[arm + '_equivalent'] = signature(arm) == signature('R')
+    for arm in ('Rshadow', 'C', 'RC'):
+        if arm not in results:
+            continue
+        result = results[arm]
+        checks[arm + '_probes'] = result['probe_output_tokens'] > 0
+        preserved = result['primary_preservation_checks']
+        checks[arm + '_preserved'] = bool(preserved) and all(
+            c['passed'] and c['before'] == c['after'] for c in preserved)
+        if arm == 'Rshadow':
+            replay = result['replay_checks']
+            checks['replay_passed'] = bool(replay) and all(c['passed'] for c in replay)
+        else:
+            checks[arm + '_mask_exercised'] = any(
+                r['policy']['mask_count'] > 0 for r in result['records'])
+    return checks
+
+
 def validate(plan):
     if plan['phase'] not in ('engineering', 'screen'):
         raise ValueError('Only engineering or fresh training screening is implemented')
@@ -88,7 +115,11 @@ def validate(plan):
         if (sha(plan['engineering_gate']['path']) != plan['engineering_gate']['sha256']
                 or not gate['passed'] or gate['source_sha256'] != plan['source_sha256']
                 or gate['assets'] != assets or not gate['replay_checks']
-                or not all(x['passed'] for x in gate['replay_checks'])):
+                or not all(x['passed'] for x in gate['replay_checks'])
+                or not gate.get('coverage_checks')
+                or not all(gate['coverage_checks'].values())
+                or not all(gate['coverage_checks'].get(a + '_mask_exercised')
+                           for a in ('C', 'RC'))):
             raise ValueError('Missing matching successful native engineering gate')
     return rows
 
@@ -358,6 +389,17 @@ def main():
         results = {}
         for arm in arms:
             results[arm] = run_arm(llm, tok, steering, boundaries, rows, arm, plan, output)
+            if plan['phase'] == 'engineering':
+                coverage = engineering_checks(results)
+                failed = [name for name, passed in coverage.items() if not passed]
+                if failed:
+                    save(output/'engineering_gate.json', dict(
+                        passed=False, coverage_checks=coverage,
+                        failed_checks=failed, completed_arms=list(results),
+                        replay_checks=results.get('Rshadow', {}).get('replay_checks', []),
+                        source_sha256=plan['source_sha256'], assets=plan['assets']))
+                    raise RuntimeError('Engineering gate failed; stop remaining arms: '
+                                       + ', '.join(failed))
         if plan['phase'] == 'engineering':
             r = results['R']['records']
             equivalent = all(
@@ -368,6 +410,7 @@ def main():
             passed = equivalent and bool(checks) and all(x['passed'] for x in checks)
             save(output/'engineering_gate.json', dict(
                 passed=passed, off_shadow_equivalent=equivalent, replay_checks=checks,
+                coverage_checks=engineering_checks(results),
                 source_sha256=plan['source_sha256'], assets=plan['assets'],
                 runtime=dict(python=sys.version), config='sync_tp1_bf16_in_graph',
                 result_sha256={a: sha(output/a/'result.json') for a in arms}))
