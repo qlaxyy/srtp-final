@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "syntax_python310": true,
+  "native_torch_checked": false,
+  "gpu_used": false,
+  "new_answers": 0,
+  "script_sha256": {
+    "reconstruct.py": "8063d688fd5389df59c0924c3b833c1f8c0fe21a3465458163bf096a31f2475a",
+    "trace_short.py": "ca5b678d4321bab9573c6828f60293e77eb93ca7e2fc39bf8cf3bdcec3da03a6"
+  },
+  "limits": "CPU syntax and interface review only; no native Torch or model execution. Initial indentation and unavailable CPU-mirror attribute were corrected during local preparation before any server access."
+}

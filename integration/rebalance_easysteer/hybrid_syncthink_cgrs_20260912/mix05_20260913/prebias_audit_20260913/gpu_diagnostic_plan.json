@@ -1,0 +1,441 @@
+{
+  "run_id": "prebias_gsm64_trace512_run1_20260913",
+  "status": "prepared_not_GPU_authorized_or_run",
+  "purpose": "Distinguish premature writes or wrong slots from differences already present before the termination hook; locate actual batch padding change",
+  "groups": [
+    "R",
+    "shadow_R",
+    "RS"
+  ],
+  "questions_per_group": 64,
+  "max_new_tokens": 512,
+  "max_answers": 192,
+  "max_published_output_tokens": 98304,
+  "max_discarded_worker_tail_tokens": 192,
+  "watch_train_index": 5424,
+  "watch_generated_positions": [
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417
+  ],
+  "reference_run": "s64_mix05_math64_gsm64_c256_run1_20260913",
+  "reference_resolved_sha256": "9b90fafabfa7d3f1d0af9258eae88db82e435b230d75f7e313e685afe68999af",
+  "reference_result_sha256": {
+    "R": "9a6422f1f808ef3fd31bd2e0c89cb6d56ffd6a297a7a9190fa2143aa634a849e",
+    "RS": "7dfe472c5261d7ef940b83496a47ae955600c1d5e3104151dfaeba807d0341c7"
+  },
+  "questions": [
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 99,
+      "problem_sha256": "a48107453f1dd4bace34b708cebe8256c84d3b06cf4205124f5196276644ecf7"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2177,
+      "problem_sha256": "8fc7bf7f6338bb93a9983f2435ed71737aba5736fe74aaa255e54e256511e94f"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3648,
+      "problem_sha256": "dd600faab7598212ad1ab9dd5fceb30379e90e490fa2c5969cbff32baeee73bc"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5145,
+      "problem_sha256": "bc44031e7f8ef3983c0bfb1ec59be36776c885c499b9315610818dd8ff4aa46d"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6508,
+      "problem_sha256": "23920250d76894ed762cb6ea941e7fddb695e0d37f88aa18c4ee0b4a8c27a17e"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 590,
+      "problem_sha256": "8272edd2784e3be16648cef17f70091d9e1c98dee372bed15ddbf590c4d47972"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2961,
+      "problem_sha256": "f60a48d3c9e237a17863702892c52818e50f64befbff7b19be6ea1021fc2aef9"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3040,
+      "problem_sha256": "96bf114643ea7a4e69719357f937defc0723aeeb803cbfb569163468d3dd13ae"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4637,
+      "problem_sha256": "322168d71fb69c8c3487791759a6e73bc2a0f75b38d8e348acff954b4c6dd0ce"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2143,
+      "problem_sha256": "1c4a7f60d55894912b528fd615ce9d34aa7aa4d543dc27741ef8210e556bdb49"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1751,
+      "problem_sha256": "7ea54be6852171efe7b4a70e1ff5374782b024c0c95882044a0940715dd60ca7"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2003,
+      "problem_sha256": "dc1ea54198f83489c0119a75ecd78a5b749e36e45b47b7b7c08a2000c71e84ba"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6045,
+      "problem_sha256": "3b2334af47c5cb67e20e75187fcc96efa48617b93bf02f3035ca7abb53027832"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6359,
+      "problem_sha256": "83a022dd224da05653ba3d27fa4dd6a2ac89e4373c379ed28c44fb81793006b3"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6967,
+      "problem_sha256": "0122a94fb12345c55e1ea9ca162c8cb1290f0db1fd16e262580ead1febe7858c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2828,
+      "problem_sha256": "63a7e219840eb5232b0144c6c967d0045fce640b39893ec2c1ec49012551896e"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6131,
+      "problem_sha256": "47145c42af1714972dbeb7ca4f604d2720a1a99bc5a0d784a9bd71b27c926a57"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3295,
+      "problem_sha256": "9f4c2286b0bed5abfdbe3718dbc25de3aa4ded37ec4045513333e31ae7bdc472"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 865,
+      "problem_sha256": "10515ef8b9884086ffc5b373c0a2c6ab3fd6f904293ce46bdaf2fd1acec4c17c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 273,
+      "problem_sha256": "3320c1e2c5eae2072c16a3e3297fdaabb471b57df114881451968f98c06333de"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 702,
+      "problem_sha256": "a7e9eb6ad9027044e2ed8db545302bf6bf792af940fb464461c4383f8d314dc7"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7265,
+      "problem_sha256": "4ae7b8d4b1288e3132dfe1c6fa92e5dfaa0dfd858ce973c4c390f5da5bed09bf"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 471,
+      "problem_sha256": "2cea55247cf10c27bd05548019a20a10d5387cf6891e679ecdad67cd6ba1b17c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2299,
+      "problem_sha256": "18f2b44a1ed51cf853d9c82e411eccd8d3cafeb74414b8b25dae465c97044d54"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5727,
+      "problem_sha256": "b684f00d5a0322896153d435f2e3abd715650e92611be85b3876deed4fd7d2fd"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5706,
+      "problem_sha256": "0c404ad9b7f3a20767b493836e6bdadd7d8c8475a441331b2b3af8211ff5a4dc"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5391,
+      "problem_sha256": "47334fe67984377df69f262a198838acc1d4eff3e89cbe60ef950221ef100f54"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7159,
+      "problem_sha256": "b4fdf87332dea31e44d8dda34bd4721522de143599f4ad6098d0a0d90d0ac10c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1029,
+      "problem_sha256": "7f5bb7798f6bc1314d5ae500ec9516f986bce4680ff71721c8e60bdd7116761f"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1426,
+      "problem_sha256": "ace009f771140096ffaa18e44c2c1e9e0cc1fa5caedc06a68b7c4e1614b13047"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4095,
+      "problem_sha256": "9e087678f2e3585543f16fc5f52fb27562ef925805b80629f1278e6a235f545c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1444,
+      "problem_sha256": "e1d2d009bbb9e5c5b99d7844d338871f4529d2f502709ee6bfc1554bdfb9359a"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2369,
+      "problem_sha256": "6673e422e61b950e1accc8af0592815a26721169cfec01aba6a444a58e665b14"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3180,
+      "problem_sha256": "63c7afb831b94fe14bda9ea1a48ac4df02f5b682c39af57f0d47abbaa66c1087"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5424,
+      "problem_sha256": "031df1a46dac8f5a84f0202c0c4d97432eef54ec9125bd03962ad96b1971daef"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5675,
+      "problem_sha256": "0348521a47ea0977f18ce37a04bc1877ebe0e3102ef8320a2e3d3e0dc86f6b81"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4962,
+      "problem_sha256": "0cc838f8b25f5940512808d9f5fa0030e50451418e09d94c473fc96c11e7cad0"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5939,
+      "problem_sha256": "401d021acea5ae5e68a767be632726533da67ed840f9fa905c6a964eeb67aa76"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6176,
+      "problem_sha256": "dc4562f5f2d86ced82964fd7ccc1da0c6b21081290679d9c91a4f1ab6ed21a9c"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6526,
+      "problem_sha256": "4b606fc4c688c585db3ce6e49e3f9b1dc361ad8c70802f5fae4782803aa4955a"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 495,
+      "problem_sha256": "dad083823f1e376d819a9808d294cec0111848c2b4eff344cdbf698ed475c772"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7105,
+      "problem_sha256": "fb2a694470686056330458f61d77fa9cc147ea1b3a03e2ccda5ca0c81e345631"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5721,
+      "problem_sha256": "eff46f6491dd4714b73f1b00b885046d8228e392adeee31dde989302a3e712a1"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1012,
+      "problem_sha256": "9fe414142ac4c7c9e11da914cb55f3c1e0fdc770233e43955c78d51015e4b4d9"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1323,
+      "problem_sha256": "868b1d0853fdd6896f515d46f5dcd114760f04dbbd8a0f75e3eebc45342c44ae"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6896,
+      "problem_sha256": "48f1af907f018dc84abcf3a2ee10e7dde8286e6458183ea7f59bdd6ac6973fb6"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4729,
+      "problem_sha256": "e3fdbeae6487b279bd483eef716ac8ec788c62192907d2c493ba8f9ab0eda278"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1448,
+      "problem_sha256": "d618ade49dcc7781e26d24572b45484bee5e7f56ce78ab4648f32af2afd567fd"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 440,
+      "problem_sha256": "345e857e9aa42199d3a4402bf1e16af4a4268bfa02c857bcfcaff2cd4c17e8b3"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2179,
+      "problem_sha256": "e860e71bd2a5ba1feaa14ca037a3bb84cd4e7679de356d474f9f1c48b533e437"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4818,
+      "problem_sha256": "52bf56fb730a513288b5c1ed944ed6283b38241c3dbc44207e5a770cfd776a4f"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4764,
+      "problem_sha256": "568133ab76693924e1b4c7c22d601f7b4620843783e8efd583d8619541944cbb"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 181,
+      "problem_sha256": "84220e52f46a02decfab7df53478aa02cc689ca63cabb53eb9617ba10f3a2f5a"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4387,
+      "problem_sha256": "ba96120ae9385aaa81eeffe4c89bfcc5f1bd87fa394d94b70cd93c6a93ef474f"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1440,
+      "problem_sha256": "32fe933b49bb989fdc2e669d977b5609ae60708655ebc5b71a6c79e04c65d04f"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3568,
+      "problem_sha256": "6197b7a8f64fe3b17c8a7201fbfb64197f055df1cf9f5b4a5f27cce9910c5f9d"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1163,
+      "problem_sha256": "e1a6165ebaab37f63c679dfebe1f1b3cf10af83eeda9d5a0f7f44b764621bfd6"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5510,
+      "problem_sha256": "2def50f800ea609e17fa09e69b84704946be6025de1de9db3ba5c2e4bdc751be"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 658,
+      "problem_sha256": "153432e413795b76f66a6fad025930486d2ca17853f2cf71e8dd252bcb74e163"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6976,
+      "problem_sha256": "6eb4b113f884dc802d96f24b77ce99681ac068dffa231c326aa36a8bad80fae4"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6523,
+      "problem_sha256": "193e460f8ca94a6c1a7bb5173f520a1b1aba8c816368ad9cd65fd0fc6fd4725e"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 636,
+      "problem_sha256": "d9f5afbc008d9d21f293ce56015442a50e02166f8192fe90b47bcab13c34d36d"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4886,
+      "problem_sha256": "7b390a2addeb27567575b1718faca56d1f9b6f842b6f00e6a525e8a69e8686c5"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 442,
+      "problem_sha256": "7b807917d29e7493080478a183949f47f0105a186668fa3b078f0e8060f6b4b7"
+    }
+  ],
+  "data_purpose": "reuse already consumed development questions for engineering only; zero new confirmation reservations",
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "runtime_commit": "a0a1fd6c8f0b2d13bcebf64b64dbf25d493a04b0",
+  "controller_changes": false,
+  "diagnostic_harness_sha256": "ca5b678d4321bab9573c6828f60293e77eb93ca7e2fc39bf8cf3bdcec3da03a6",
+  "scope": "No grading, no tuning, no new calibration or test-set answers; diagnostic caps deliberately512 and cannot be reported as compression metrics",
+  "runtime": "Same256 async BF16 temperature.7 top_p.95 seed42 32768 model/batch caps; do not enable batch invariant kernels or change scheduling settings",
+  "estimated_minutes": [
+    2,
+    4
+  ],
+  "whole_budget_seconds": 600,
+  "per_arm_seconds": 180,
+  "termination_grace_seconds": 10,
+  "output": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/prebias_gsm64_trace512_run1_20260913",
+  "isolated_project": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_prebias_trace1",
+  "base_copy": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_run1",
+  "command": "timeout -k 10 600 /root/autodl-tmp/venvs/easysteer-vllm026/bin/python -u integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_20260913/prebias_audit_20260913/trace_short.py --execute --resolved resolved_mix05.json --output /root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/prebias_gsm64_trace512_run1_20260913",
+  "stop": [
+    "GPU not idle, hash mismatch, existing output directory",
+    "R outputs differ from original saved first512 tokens",
+    "shadow_R tokens or R history differ from diagnostic R",
+    "slot mismatch, raw logits changed by read-only trigger, non-end logits changed, untriggered end modified, writes to unowned row",
+    "OOM, NaN assertion, preemption, per-arm or whole timeout"
+  ],
+  "interpretation": [
+    "If guards fail: implementation or runtime defect; no expansion",
+    "If controls pass and identical own prefix has different raw hidden/logits before its own trigger, and actual batch dimensions differ: supports a difference in model numerical path, not early termination masking",
+    "Identify first changed R state and raw hidden/logits; do not claim a specific GEMM/attention kernel is proved without a counterfactual replay",
+    "If instrumentation does not reproduce the effect or controls fail: preserve output, inconclusive; no automatic retry or expansion"
+  ],
+  "limits": [
+    "Instrumentation affects timing; do not benchmark speed from this batch",
+    "CPU AST/interface checks are not native Torch/GPU validation"
+  ],
+  "gpu_cost": "Actual runtime times instance price; unknown price, no currency estimate"
+}
