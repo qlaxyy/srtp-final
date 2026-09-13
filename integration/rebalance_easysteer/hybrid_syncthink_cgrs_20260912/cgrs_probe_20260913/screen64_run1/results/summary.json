@@ -1,0 +1,222 @@
+{
+  "status": "complete_positive_screening_signal_not_confirmed",
+  "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913",
+  "source_commit": "9a1124e8587b0442e8ef0eb54ec607d50c9e7c0f",
+  "engineering_gate": "run4 passed 128 exact numeric checks and KV byte equality",
+  "arms": {
+    "R": {
+      "correct": 50,
+      "n": 64,
+      "capped": 3,
+      "generation_seconds": 232.34090347588062,
+      "means": {
+        "thinking_tokens": 3542.34375,
+        "tokens": 3932.46875,
+        "all_branch_output_tokens": 3932.46875,
+        "budget_tokens_including_probe_prompt": 3932.46875
+      }
+    },
+    "C": {
+      "correct": 53,
+      "n": 64,
+      "capped": 5,
+      "generation_seconds": 284.14337284862995,
+      "means": {
+        "thinking_tokens": 4217.65625,
+        "tokens": 4568.015625,
+        "all_branch_output_tokens": 4584.0625,
+        "budget_tokens_including_probe_prompt": 4602.21875
+      }
+    },
+    "RC": {
+      "correct": 52,
+      "n": 64,
+      "capped": 2,
+      "generation_seconds": 237.2659931331873,
+      "means": {
+        "thinking_tokens": 3266.34375,
+        "tokens": 3650.53125,
+        "all_branch_output_tokens": 3666.078125,
+        "budget_tokens_including_probe_prompt": 3680.734375
+      }
+    }
+  },
+  "comparisons": {
+    "RC_minus_R": {
+      "accuracy_delta_pp": 3.125,
+      "accuracy_delta_pp_ci95": [
+        -3.125,
+        9.375
+      ],
+      "wrong_to_right": [
+        5571,
+        1188,
+        4494
+      ],
+      "right_to_wrong": [
+        2959
+      ],
+      "lengths": {
+        "thinking_tokens": {
+          "percent_change": -7.7914516342463935,
+          "bootstrap_ci95": [
+            -26.611824292039632,
+            13.857436542005308
+          ],
+          "repetitions": 10000
+        },
+        "tokens": {
+          "percent_change": -7.169478460572631,
+          "bootstrap_ci95": [
+            -24.226605749020614,
+            11.903009741434145
+          ],
+          "repetitions": 10000
+        },
+        "all_branch_output_tokens": {
+          "percent_change": -6.774132025842549,
+          "bootstrap_ci95": [
+            -23.912178176620646,
+            12.432886458710769
+          ],
+          "repetitions": 10000
+        },
+        "budget_tokens_including_probe_prompt": {
+          "percent_change": -6.401433577825633,
+          "bootstrap_ci95": [
+            -23.61271517351372,
+            12.854381172515229
+          ],
+          "repetitions": 10000
+        }
+      }
+    },
+    "RC_minus_C": {
+      "accuracy_delta_pp": -1.5625,
+      "accuracy_delta_pp_ci95": [
+        -7.8125,
+        4.6875
+      ],
+      "wrong_to_right": [
+        5571,
+        5384
+      ],
+      "right_to_wrong": [
+        2959,
+        5639,
+        5152
+      ],
+      "lengths": {
+        "thinking_tokens": {
+          "percent_change": -22.55547734597859,
+          "bootstrap_ci95": [
+            -35.80832848754155,
+            -7.868390512930623
+          ],
+          "repetitions": 10000
+        },
+        "tokens": {
+          "percent_change": -20.08496577767288,
+          "bootstrap_ci95": [
+            -32.52008479392925,
+            -6.434810104946498
+          ],
+          "repetitions": 10000
+        },
+        "all_branch_output_tokens": {
+          "percent_change": -20.02556411479992,
+          "bootstrap_ci95": [
+            -32.43553916034496,
+            -6.2893905539717965
+          ],
+          "repetitions": 10000
+        },
+        "budget_tokens_including_probe_prompt": {
+          "percent_change": -20.022611376306266,
+          "bootstrap_ci95": [
+            -32.426736967915524,
+            -6.315548509076107
+          ],
+          "repetitions": 10000
+        }
+      }
+    }
+  },
+  "costs": {
+    "R": {
+      "generation_seconds": 232.34090347588062,
+      "probe_wall_seconds": 0.0,
+      "probe_prefill_tokens": 0,
+      "probe_output_tokens": 0,
+      "probe_prompt_tokens": 0,
+      "extra_forward_counts": {},
+      "callback_host_seconds": 0.0,
+      "clone_bytes": 0,
+      "probes": 0,
+      "mask_count": 0,
+      "masked_questions": 0,
+      "verified_record_count": 64
+    },
+    "C": {
+      "generation_seconds": 284.14337284862995,
+      "probe_wall_seconds": 11.180415749549866,
+      "probe_prefill_tokens": 1328,
+      "probe_output_tokens": 1027,
+      "probe_prompt_tokens": 1162,
+      "extra_forward_counts": {
+        "probe": {
+          "request_forward_rows": 1027,
+          "model_batches": 919,
+          "input_tokens": 2189
+        },
+        "audit": {
+          "request_forward_rows": 0,
+          "model_batches": 0,
+          "input_tokens": 0
+        }
+      },
+      "callback_host_seconds": 5.328156277537346,
+      "clone_bytes": 16532504576,
+      "probes": 166,
+      "mask_count": 123,
+      "masked_questions": 50,
+      "verified_record_count": 64
+    },
+    "RC": {
+      "generation_seconds": 237.2659931331873,
+      "probe_wall_seconds": 12.525255918502808,
+      "probe_prefill_tokens": 1072,
+      "probe_output_tokens": 995,
+      "probe_prompt_tokens": 938,
+      "extra_forward_counts": {
+        "probe": {
+          "request_forward_rows": 995,
+          "model_batches": 922,
+          "input_tokens": 1933
+        },
+        "audit": {
+          "request_forward_rows": 0,
+          "model_batches": 0,
+          "input_tokens": 0
+        }
+      },
+      "callback_host_seconds": 4.738473072648048,
+      "clone_bytes": 13053788160,
+      "probes": 134,
+      "mask_count": 96,
+      "masked_questions": 44,
+      "verified_record_count": 64
+    }
+  },
+  "pure_generation_seconds": 753.7502694576979,
+  "execution_wall_seconds": 792.9859481304884,
+  "grade_seconds": 17.223738491535187,
+  "RC_generation_time_change_vs_R_percent": 2.119768660457999,
+  "pre_registered_point_screen_passed": true,
+  "accuracy_noninferiority_established": false,
+  "compression_vs_R_independently_confirmed": false,
+  "decision": "Retain fixed candidate for fresh independent confirmation; do not replace frozen baseline or tune on these 64. No further batch in this run.",
+  "uncertainty": "Paired bootstrap token CI crosses zero versus R. Single seed and batch-coupled outputs; bootstrap excludes batch/re-run uncertainty. No U: no factorial synergy claim.",
+  "prefix_audit": "0 differences before first global mask at token index1024; 13 before own mask with changed active cohort, consistent with batching effects but not causal proof.",
+  "raw_archive_sha256": "86709e05827045bff5a2d1692fa7434161f5b8aed49ff6799a8cda036179a5db"
+}
