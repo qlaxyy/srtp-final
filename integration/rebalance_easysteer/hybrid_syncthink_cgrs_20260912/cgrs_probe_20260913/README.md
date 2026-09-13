@@ -57,4 +57,4 @@ timeout 1200s "$PY" "$P/run.py" --plan /path/to/unique_plan.json --output-root /
 
 ## 本地验证边界
 
-`test_cpu.py`验证纯状态机及用NumPy替身验证的接口合同；`test_native.py`在实际推理环境以CPU Torch验证FP32/BF16熵、行隔离及mask写入，模型加载前自动执行。当前本地无Torch，未安装，所以后者和GPU门槛均未运行，不能写成已验证可运行/已有效。详细本地记录见`cpu_checks.json`。共享源码及旧结果未修改。
+`test_cpu.py`验证纯状态机及用NumPy替身验证的接口合同；修复版14项通过。`test_native.py`在实际推理环境以CPU Torch验证FP32/BF16熵、行隔离及mask写入，模型加载前自动执行；首次两次部署均通过这两项检查。本地无Torch，未安装；当前逐token输出修复版尚未部署，GPU回放与试答覆盖门槛仍待验证，不能写成已验证可运行/已有效。详细本地记录见`cpu_checks.json`。共享源码及旧结果未修改。
