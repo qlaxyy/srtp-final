@@ -1,0 +1,33 @@
+{
+  "base_commit": "d9cfef52af4c682c7464445f6e5f1d0a78f3f714",
+  "files": {
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py": {
+      "base_lf_sha256": "8d9281082bf19bb594955e4ef98899f54009ec75ce9dcdc8ee657402d751d950",
+      "patched_lf_sha256": "e7e228f13d0e6ba0ba14a50bfe16a56143effba6d8b4c5ee9eb8fe11eeca67a3",
+      "unchanged": false
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py": {
+      "base_lf_sha256": "c72a761f04802b91ef8c590c40d81b0942a5398683baf4a7c2617c98f3ef10d6",
+      "patched_lf_sha256": "c72a761f04802b91ef8c590c40d81b0942a5398683baf4a7c2617c98f3ef10d6",
+      "unchanged": true
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": {
+      "base_lf_sha256": "1b90fa62add5595272146ef282681e667a16d4474d1ec544084f5d0b4443c8ce",
+      "patched_lf_sha256": "1b90fa62add5595272146ef282681e667a16d4474d1ec544084f5d0b4443c8ce",
+      "unchanged": true
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py": {
+      "base_lf_sha256": "d9bb1a4f0410e958cc8e9658ef816dae619601dfc7d0854e9a68d52c7663c0ff",
+      "patched_lf_sha256": "d9bb1a4f0410e958cc8e9658ef816dae619601dfc7d0854e9a68d52c7663c0ff",
+      "unchanged": true
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py": {
+      "base_lf_sha256": "2915794c3e5c6a71ca8360193e878471bb27111e213dd7babc17ae9dd24ba276",
+      "patched_lf_sha256": "2915794c3e5c6a71ca8360193e878471bb27111e213dd7babc17ae9dd24ba276",
+      "unchanged": true
+    }
+  },
+  "shared_inference_unchanged": true,
+  "scope": "Owned batch formal-arm dispatch only; default and historical R-only schedule unchanged",
+  "patch_sha256": "08c9f247ffe79370620d7b75799d2df55ef91ef667b741693546efdc30185c24"
+}

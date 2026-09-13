@@ -143,6 +143,17 @@ def validate(resolved):
         assert sha(ROOT/name) == h, name
 
 
+def formal_schedule(resolved):
+    expansion = resolved.get('expansion')
+    for stage in (expansion['roles'] if expansion else ['screening']):
+        for name, use_r, mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
+            if expansion and name not in expansion['arms']:
+                continue
+            if resolved.get('soft2_rows') and mode == 'enforce':
+                mode = 'mix05' if resolved.get('mix05') else 'soft'
+            yield stage, name, use_r, mode
+
+
 def run_child(a):
     r = read(a.resolved_plan)
     validate(r)
@@ -289,9 +300,8 @@ def run_child(a):
     if a.child=='pre':
         group(stage,'pre_R',True,'absent')
     elif r.get('completed_engineering_reuse'):
-        for stage in r['expansion']['roles']:
-            assert r['expansion']['arms']==['R']
-            group(stage,'R',True,'off')
+        for stage, name, use_r, mode in formal_schedule(r):
+            group(stage, name, use_r, mode)
     else:
         groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),('S',False,'enforce'),('RS',True,'enforce')]
         if r.get('soft2_rows'):
@@ -318,12 +328,8 @@ def run_child(a):
             assert x['token_ids'][:n]==y['token_ids'][:n], 'Divergence before trigger'
         save(output/'engineering_gate.json',dict(status='pass',token_and_R_history_identity=True,
              pretrigger_identity=True,actual_preemption_tested=False))
-        for stage in (r['expansion']['roles'] if r.get('expansion') else ['screening']):
-            for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
-                if r.get('expansion') and name not in r['expansion']['arms']:continue
-                if r.get('soft2_rows') and mode == 'enforce':
-                    mode = 'mix05' if r.get('mix05') else 'soft'
-                group(stage,name,use_r,mode)
+        for stage, name, use_r, mode in formal_schedule(r):
+            group(stage, name, use_r, mode)
     llm.llm_engine.engine_core.shutdown()
 
 
