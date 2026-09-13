@@ -54,7 +54,7 @@ def save(path, data):
 
 
 def dataset(role, expansion=False):
-    folder = 'expanded_20260913' if expansion and role != 'engineering' else 'prepared_run1'
+    folder = ('full_tests_20260913' if role.endswith('_test') else 'expanded_20260913') if expansion and role != 'engineering' else 'prepared_run1'
     return [json.loads(s) for s in (HERE/folder/f'{role}.jsonl').read_text(encoding='utf-8').splitlines()]
 
 
@@ -171,7 +171,7 @@ def run_child(a):
                     think_start_token_id=151648,think_end_token_id=151649))])
     started = time.monotonic()
     llm = LLM(model=r['assets']['model_path'],dtype='bfloat16',tensor_parallel_size=1,
-              max_model_len=32768,max_num_seqs=128,max_num_batched_tokens=32768,
+              max_model_len=32768,max_num_seqs=r.get('expansion',{}).get('max_num_seqs',128),max_num_batched_tokens=32768,
               gpu_memory_utilization=.9,enable_steer_vector=True,steer_algorithms=['rebalance'],
               enforce_eager=False,steer_graph_mode='in_graph',enable_chunked_prefill=False,
               enable_prefix_caching=False,async_scheduling=bool(r.get('expansion')),seed=42)
@@ -221,7 +221,7 @@ def run_child(a):
         checkpoint_io_seconds = 0.0
         with (folder/'partial.jsonl').open('x',encoding='utf-8') as f:
             while llm.llm_engine.has_unfinished_requests():
-                if time.monotonic()-began > ((900 if r.get('expansion') else 600) if stage!='engineering' else 120):
+                if time.monotonic()-began > (r.get('expansion',{}).get('arm_budget_seconds',900 if r.get('expansion') else 600) if stage!='engineering' else 120):
                     raise TimeoutError('Per-arm wall budget')
                 for result in llm.llm_engine.step():
                     if result.finished:
@@ -302,8 +302,9 @@ def run_child(a):
             assert x['token_ids'][:n]==y['token_ids'][:n], 'Divergence before trigger'
         save(output/'engineering_gate.json',dict(status='pass',token_and_R_history_identity=True,
              pretrigger_identity=True,actual_preemption_tested=False))
-        for stage in (['math','gsm8k'] if r.get('expansion') else ['screening']):
+        for stage in (r['expansion']['roles'] if r.get('expansion') else ['screening']):
             for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
+                if r.get('expansion') and name not in r['expansion']['arms']:continue
                 group(stage,name,use_r,mode)
     llm.llm_engine.engine_core.shutdown()
 
@@ -315,7 +316,7 @@ def execute(a):
     output=Path(r['output']);output.mkdir(parents=True,exist_ok=False)
     save(output/'resolved_plan.json',r)
     prior_seconds = 0.0
-    whole_budget=4200 if r.get('expansion') else 1800
+    whole_budget=r.get('expansion',{}).get('whole_budget_seconds',4200 if r.get('expansion') else 1800)
     if r.get('engineering_reuse'):
         prior_seconds = r['engineering_reuse']['previous_wall_seconds']
         for name,meta in r['engineering_reuse']['groups'].items():
@@ -343,15 +344,17 @@ def execute(a):
                         os.killpg(process.pid,signal.SIGTERM)
                         try:process.wait(timeout=10)
                         except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL)
-        for role in (['math','gsm8k'] if r.get('expansion') else ['screening']):
+        for role in (r['expansion']['roles'] if r.get('expansion') else ['screening']):
             command=[GRADE,str(HERE/'grade_screen.py'),'--output',str(output)]
-            if r.get('expansion'):command += ['--role',role,'--count','200']
+            if r.get('expansion'):
+                counts=r['expansion']['counts'];count=counts[role] if isinstance(counts,dict) else counts
+                command += ['--role',role,'--count',str(count),'--arms',*r['expansion']['arms']]
             subprocess.run(command,check=True,timeout=max(1,whole_budget-prior_seconds-(time.monotonic()-start)))
         status='complete'
     finally:
         save(output/'batch_status.json',dict(status=status,wall_seconds=time.monotonic()-start,
                                             prior_attempt_wall_seconds=prior_seconds,
-                                            retries=0,scope='MATH200 + GSM8K200 x4' if r.get('expansion') else 'first batch only'))
+                                            retries=0,scope=r['expansion'].get('scope','MATH200 + GSM8K200 x4') if r.get('expansion') else 'first batch only'))
 
 
 def main():

@@ -14,12 +14,13 @@ from utils.grader import check_is_correct
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k'])
+    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k','math_test','gsm8k_test'])
     p.add_argument('--count',type=int,default=64)
+    p.add_argument('--arms',nargs='+',default=['U','R','S','RS'],choices=['U','R','S','RS'])
     a=p.parse_args()
-    data_dir='prepared_run1' if a.role=='screening' else 'expanded_20260913'
+    data_dir='prepared_run1' if a.role=='screening' else 'full_tests_20260913' if a.role.endswith('_test') else 'expanded_20260913'
     rows=[json.loads(s) for s in (Path(__file__).parent/data_dir/(a.role+'.jsonl')).read_text(encoding='utf-8').splitlines()]
-    for arm in ('U','R','S','RS'):
+    for arm in a.arms:
         folder=a.output/a.role/arm
         target=folder/'author_grade.json'
         if target.exists():raise FileExistsError(target)
