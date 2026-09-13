@@ -1,0 +1,60 @@
+{
+  "archive_sha256": "961431b42f94a39d851e7f35974cdc568b8e830058f1be2cd21b0156f49e225e",
+  "bytes": 14373130,
+  "files": {
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/resolved_plan.json": "6696ec7f83035968b0c436f2cc3c03cd0bf81d1615727986731a91d7c5f52cfc",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/historical_reference.json": "3bc6471df2df6a6a770e5b1f9094b9c21d8a1b477037fa8baa529c45d42fbc29",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/native_cpu_check.json": "f94c1d586df53c371825abd433cb0f825c151f615159c98ac5e0f61304b266f3",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/runtime_identity.json": "a3b99a0ab4b39347a99c5a7d4284174e6c46eb3f1e5e851b0161b0da726d490a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/math_test/RCnegative/gpu.csv": "e84099cbdc464f6ba0a014dee2ec827c78d49bc817be1120735166873eb8e12b",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/math_test/RCnegative/request_mapping.json": "c8fdef3781be209c283789c25331f04184455604cdc8e9356584cfd843587d16",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/math_test/RCnegative/partial.jsonl": "e595a39aa1b33574140d71c5a878800c5b4305af7845b131f8a15f523af6002f",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/math_test/RCnegative/result.json": "475fe33711d2079aa8ae2e67044499a0ea6c843d204ac1eedaf419dd7ad9fab8",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/math_test/RCnegative/author_partial.jsonl": "9c05fe255eb9bbf167c066b0c877bcd3a126569c36fb2ab0877723e034fe73ac",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/gpu.csv": "e5f7b2df5cd49346bc651ba2ac558d5bef3d09c9673aaf2b6eddc8da91f3cf5c",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/request_mapping.json": "a22d5cc553e920e9714d7e0f0913cd57c92d29da1f4ec49a7013ce8540d77f2c",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/partial.jsonl": "f06b0d537650e1f3d7c2e840dc78d598f60238fddb0638f684d680e6f4fbafc0",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/result.json": "e3e2041485da2bc474fab2e2de16302438fa3b636452a2870077071e322648ec",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/author_partial.jsonl": "fb71e65a6ceae44912f5885ce99a7dd3446131d6877b15c94364999dd861aad3",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/batch_status.json": "622aa2b91810b92822852551454c71c4103e01e91d45a4c5bbfa35bdf46497cb",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913/analysis.json": "510e4b66bd885623c2fd71824af292b9db87f502878a3fe61d19dd7c58f00e6f",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/resolved_plan.json": "6696ec7f83035968b0c436f2cc3c03cd0bf81d1615727986731a91d7c5f52cfc",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/native_cpu_check.json": "61fb1059599af1f21b55241625391245f7f4ec28b6f0db9597402f837ac36f3a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/runtime_identity.json": "a3b99a0ab4b39347a99c5a7d4284174e6c46eb3f1e5e851b0161b0da726d490a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/R/gpu.csv": "85bf7e299dce826854769dcc7314848c4f40dc65314161816d818a96fbbb04fb",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/R/request_mapping.json": "9e4b00ec576146fd03f89cb7aaecba84c3e5d035673427cae46d6081f971ae20",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/R/partial.jsonl": "5bd5135d941fe1a92572879334709e6f78e1bb15a727b721d64f2f47f33f52dc",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/R/result.json": "f70089a66a970f8293ec75fcdb838600789943d5610cf3c81175f957bc3730d8",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Roff/gpu.csv": "4ba0e30ff9fb776e9e3da13375095bd8a68c972649f27ce7d1cd73365b5dd32f",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Roff/request_mapping.json": "e026358a132b65c08fb3fe73872786ed4005ec56eecfdf58af62993bcaed2ae6",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Roff/partial.jsonl": "43fa49835820353fcb8d58fb365e0691a8bf88ccfe0d85fe0709e37b7b561ef4",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Roff/result.json": "f652b0bc9e207db5e9873e50aff6bec23171075ec17cd28dc65ba36a060e3501",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Rshadow/gpu.csv": "fcced0a8ce1776a2789c9b672c56c88f69b4cd5ebdd092a78b648a58216f51bf",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Rshadow/request_mapping.json": "0fce76e58ca62fbcedead36d6de8a2effd7a52b24eec824e50145da25ab2b52a",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Rshadow/partial.jsonl": "1cc9f23014232a5021c3f055b9bc01c915d631a58ffdfd055f33edbaed62244d",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/Rshadow/result.json": "3a06c69d2b4e4c80dfb81df82072f5f0a91bcedd1fb2565993446c906cbd8fac",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/RCnegative/gpu.csv": "cb0595dc78e06a67b7dc7f421556833d8e9f0303512623a991ea6eaff4afec50",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/RCnegative/request_mapping.json": "cc30634994a0a94e91e777841e28d990b3e69f20b40ea7a6b14e74e6a4e5e04b",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/RCnegative/partial.jsonl": "b27232e2cf9a9d89e5409520f44206a7dd39ff712054fb6391077f9bf1543d04",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/RCnegative/result.json": "241bb3527465e74d8e7eb93b675af764ed58a2e7081968168c2dd05c922aed96",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_7b_engineering8_run1_20260913/engineering_gate.json": "499ed86868caf37e364aebcc8d8b77469c495371306f27e8e8f2435997a96925"
+  },
+  "gpu_final": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+  "gpu_apps": "",
+  "shared_status": "",
+  "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+  "stages": {
+    "engineering": {
+      "returncode": 0,
+      "wall_seconds": 90.00311779975891
+    },
+    "full": {
+      "returncode": 0,
+      "wall_seconds": 2667.2299432754517
+    },
+    "grade": {
+      "returncode": 0,
+      "wall_seconds": 34.01329445838928
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "target": "/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_7b_run1_20260913",
+  "run_id": "cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913",
+  "archive_sha256": "b9298019102799118dfae9adecaa153c81309a9118cc06deb0c3d6b9f4a634a7",
+  "package_commit": "94f00d7e69b0ab7ef6d11f584e42d21c7656a3a0",
+  "command": "cd /root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_7b_run1_20260913 && export PATH=/root/autodl-tmp/venvs/easysteer-vllm026/bin:$PATH PYTHONNOUSERSITE=1 PYTHONPATH=/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_7b_run1_20260913/sources/EasySteer/vllm-steer:/root/autodl-tmp/projects/hybrid_cgrs_coordinated_v2_7b_run1_20260913/sources/EasySteer && nohup timeout 11000s /root/autodl-tmp/venvs/easysteer-vllm026/bin/python launch_v2_7b.py > launch_v2_7b.log 2>&1 < /dev/null &",
+  "deployment": "Gitless isolated hash-checked B copy; no shared environment edits"
+}

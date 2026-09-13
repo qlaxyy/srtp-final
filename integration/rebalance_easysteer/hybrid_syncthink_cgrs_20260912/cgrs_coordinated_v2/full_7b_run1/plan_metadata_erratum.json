@@ -1,0 +1,9 @@
+{
+  "kind": "metadata_erratum_no_runtime_change",
+  "description": "7B plan inherited unused1.5B text fields estimated_generation_minutes10-18 and stop1200 seconds. New7B fields estimated_full_generation_minutes35-70 and arm_ceiling_seconds4200 were fixed before launch and used by run_7b.py and launcher. Preserve original plan and identify stale descriptive fields; no post-hoc timeout change.",
+  "actual_engineering_timeout_seconds": 900,
+  "actual_full_process_timeout_seconds": 9000,
+  "actual_dataset_timeout_seconds": 4200,
+  "source_commit": "94f00d7",
+  "generation_restarted": false
+}

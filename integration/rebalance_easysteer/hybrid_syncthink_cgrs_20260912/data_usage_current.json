@@ -10222,6 +10222,13 @@
       "data_registry": "cgrs_coordinated_v2/full_tests_run1/data_usage.json",
       "sha256": "18c15fbd1c7aa6b08898a8d574885f4d66043dcc14b03f2873b3cde40f5c6ce9",
       "source_commit": "bba85fc"
+    },
+    "full_7b_run": {
+      "run_id": "cgrs_coordinated_v2_full_7b_math500_gsm1319_run1_20260913",
+      "status": "complete",
+      "data_registry": "cgrs_coordinated_v2/full_7b_run1/data_usage.json",
+      "sha256": "09eff76d22470ba670f4d60e6e1a35b8016a64ec3b459de987c063e336bd2fdf",
+      "source_commit": "94f00d7"
     }
   }
 }
