@@ -40,16 +40,24 @@ def main():
     plan=read(args.plan);validate(plan)
     if args.phase=='full':
         gate=read(args.engineering_gate)
-        expected_gate=sha(args.plan) if plan.get('require_current_runtime_gate') else plan['parent_plan_sha256']
+        expected_gate=plan.get('engineering_gate_plan_sha256') or (sha(args.plan) if plan.get('require_current_runtime_gate') else plan['parent_plan_sha256'])
         assert gate['passed'] and gate['plan_sha256']==expected_gate
+        if plan.get('engineering_gate_plan_sha256'):
+            tested=read(args.engineering_gate.parent/'resolved_plan.json')
+            assert sha(plan['engineering_gate_plan_path'])==expected_gate
+            assert tested==read(plan['engineering_gate_plan_path'])
+            for key in ('runtime','assets','engineering_rows','rule'):assert tested[key]==plan[key],key
+            for n,h in tested['source_sha256'].items():
+                if n!=str(Path(__file__).relative_to(ROOT).as_posix()):assert h==plan['source_sha256'][n],n
     run_id=plan['engineering_run_id'] if args.phase=='engineering' else plan['run_id']
     out=args.output_root/run_id;out.mkdir(parents=True,exist_ok=False)
     save(out/'resolved_plan.json',plan)
     parent=plan['continuation']
+    for source in parent.get('source_files',[]):assert sha(source['path'])==source['sha256']
     assert sha(parent['partial_path'])==parent['partial_sha256']
     assert sha(parent['gpu_csv_path'])==parent['gpu_csv_sha256']
     prior=[json.loads(line) for line in Path(parent['partial_path']).read_text().splitlines()]
-    assert len(prior)==651 and len({x['dataset_index'] for x in prior})==651
+    assert len(prior)==parent['reused_completed_outputs'] and len({x['dataset_index'] for x in prior})==len(prior)
     prior_ids={x['dataset_index'] for x in prior}
     assert sorted(set(range(675))-prior_ids)==parent['missing_dataset_indices']
     for rec in prior:
@@ -124,7 +132,7 @@ def main():
                         steps+=1
                         if time.perf_counter()-heartbeat>=30:
                             heartbeat=time.perf_counter()
-                            save(folder/'progress.json',dict(completed=len(generated),expected=len(rows),
+                            save(folder/f'progress_{steps:07d}.json',dict(completed=len(generated),expected=len(rows),
                                 elapsed_seconds=heartbeat-began,steps=steps,running=len(core.scheduler.running),
                                 waiting=len(core.scheduler.waiting),preemptions=len(preempt_events),
                                 discarded_computed_tokens=sum(e['computed_tokens_discarded'] for e in preempt_events),
@@ -150,10 +158,10 @@ def main():
                     assert [x['dataset_index'] for x in merged]==list(range(675))
                     assert len({x['request_id'] for x in merged})==675
                     results[name].update(records=merged,generation_seconds=None,new_generation_seconds=seconds,
-                        generation_seconds_interval=[2400+seconds,parent['failed_process_wall_seconds']+seconds],
-                        generation_time_note='Prior U exceeded2400s; exact pure time unavailable. Upper bound charges entire failed process, including its startup. Add measured24-question continuation; do not compare as uninterrupted U speed.',
+                        generation_seconds_interval=[v+seconds for v in parent.get('prior_generation_seconds_interval',[2400,parent['failed_process_wall_seconds']])],
+                        generation_time_note='Prior interrupted U attempts retained. Interval adds their recorded lower bounds and conservative whole-process upper bounds to this measured completion. Mixed runtime; do not compare as uninterrupted U speed.',
                         parent_gpu_csv_path=parent['gpu_csv_path'],parent_gpu_csv_sha256=parent['gpu_csv_sha256'],
-                        continuation=dict(parent_partial_sha256=parent['partial_sha256'],reused_complete_outputs=651,new_outputs=24,
+                        continuation=dict(parent_partial_sha256=parent['partial_sha256'],reused_complete_outputs=len(prior),new_outputs=len(records),
                             lost_unfinished_output_tokens=None,prior_scheduler_preemptions=None,primary_R_RC_controls_continuous=True))
                 save(folder/'result.json',results[name]);print(json.dumps(dict(phase=args.phase,name=name,completed=len(rows),seconds=seconds,replay=replay)),flush=True)
             finally:
