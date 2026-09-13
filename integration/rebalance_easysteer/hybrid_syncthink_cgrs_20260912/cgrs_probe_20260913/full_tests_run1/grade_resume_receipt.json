@@ -1,0 +1,12 @@
+{
+  "mode": "CPU author grading resume only; no GPU or regeneration",
+  "reused_labels": {
+    "math_test": 500,
+    "gsm8k_test": 300
+  },
+  "reason": "Previous CPU grading process exited during/after transient connection loss; exact cause not established",
+  "original_deadline_seconds": 300,
+  "new_deadline_seconds": 900,
+  "implementation_sha256": "2ed20f3fcad5318f726e2987274445bd5652d68aedcdfad3c2b7fb2c69019c11",
+  "original_grader_sha256": "6d1e491889c11b9dba42d50387806409d1b5289d6e16126b58152667def8fc6c"
+}

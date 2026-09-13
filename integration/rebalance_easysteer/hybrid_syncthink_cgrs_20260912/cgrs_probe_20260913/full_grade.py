@@ -67,6 +67,8 @@ def main():
                 graded.append(item)
                 stream.write(json.dumps(item)+'\n')
                 stream.flush()
+                if (i+1) % 100 == 0 or i+1 == len(records):
+                    print('AUTHOR_GRADED', role, i+1, '/', len(records), flush=True)
         comparisons = {}
         for arm, reference in history[role]['groups'].items():
             ref = reference['records']
@@ -89,6 +91,7 @@ def main():
                 'probe_wall_seconds','callback_host_seconds','extra_forward_counts','clone_bytes',
                 'probe_prefill_tokens','checkpoint_io_seconds')},
             comparisons=comparisons, grades=graded, result_sha256=sha(folder/role/'RC/result.json'))
+        print('ANALYZED', role, flush=True)
     save(folder/'analysis.json', dict(status='full_evaluation_complete', datasets=summary,
         grade_seconds=time.monotonic()-started,
         resumed=args.resume, reused_grades=reused,

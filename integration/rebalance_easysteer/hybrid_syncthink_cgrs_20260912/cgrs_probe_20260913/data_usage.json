@@ -1,5 +1,5 @@
 {
-  "status": "engineering8_reused_and_fresh_screen64_consumed",
+  "status": "cgrs_full_test_complete_no_compression_replicated; prior results preserved",
   "used": [
     {
       "train_index": 647,
@@ -8,7 +8,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -18,7 +19,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -28,7 +30,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -38,7 +41,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -48,7 +52,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -58,7 +63,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -68,7 +74,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -78,7 +85,8 @@
       "run_id": "cgrs_probe_engineering8_run2_20260913",
       "additional_runs": [
         "cgrs_probe_engineering8_run3_20260913",
-        "cgrs_probe_engineering8_run4_20260913"
+        "cgrs_probe_engineering8_run4_20260913",
+        "cgrs_probe_engineering8_fast_run5_20260913"
       ]
     },
     {
@@ -467,5 +475,16 @@
     }
   ],
   "reserved": [],
-  "new_unique_questions": 64
+  "new_unique_questions": 64,
+  "cgrs_full_test_evaluation": {
+    "run_id": "cgrs_probe_full_math500_gsm1319_fast256_run1_20260913",
+    "counts": {
+      "math_test": 500,
+      "gsm8k_test": 1319
+    },
+    "registry_path": "cgrs_probe_20260913/full_tests_run1/data_usage.json",
+    "registry_sha256": "671d605b494bfa39ce0d2c386d9cfd01f07bafd5387c701c877c5197f5fb5259",
+    "purpose": "Consumed fixed full RC evaluation; no test-set threshold tuning; not independent confirmation",
+    "generation_commit": "cd9f42bce29a71d69217be93b40583b367907804"
+  }
 }

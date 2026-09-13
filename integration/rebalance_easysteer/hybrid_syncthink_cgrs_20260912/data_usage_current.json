@@ -1,6 +1,6 @@
 {
   "namespace": "hybrid_syncthink_cgrs_20260912",
-  "status": "cgrs_kv_clone_screen64_complete_positive_signal_unconfirmed; prior results preserved",
+  "status": "cgrs_full_test_complete_no_compression_replicated; prior results preserved",
   "normalization": "Unicode NFKC, remove all Unicode whitespace, SHA256 UTF-8; preserve case and symbols",
   "entries": [
     {
@@ -10182,5 +10182,16 @@
     "mix05_20260913/prebias_audit_20260913/results_run1/data_usage.json": "bacbbdbc9175a64babf8fccfff74a02c14d7241904a9e4a583418c020096534e",
     "mix05_confirm200_20260913/results_run1/data_usage.json": "27f223aa03c6ebdc1af0b6c96186cb67850b6310357867296238cb45e2366f57"
   },
-  "coordination": "Prior828 plus400 fresh mix05 independent-confirmation questions consumed. No data reserved for future confirmation. Exclude these IDs and normalized hashes in both research lines. No peer files modified."
+  "coordination": "Prior828 plus400 fresh mix05 independent-confirmation questions consumed. No data reserved for future confirmation. Exclude these IDs and normalized hashes in both research lines. No peer files modified.",
+  "cgrs_full_test_evaluation": {
+    "run_id": "cgrs_probe_full_math500_gsm1319_fast256_run1_20260913",
+    "counts": {
+      "math_test": 500,
+      "gsm8k_test": 1319
+    },
+    "registry_path": "cgrs_probe_20260913/full_tests_run1/data_usage.json",
+    "registry_sha256": "671d605b494bfa39ce0d2c386d9cfd01f07bafd5387c701c877c5197f5fb5259",
+    "purpose": "Consumed fixed full RC evaluation; no test-set threshold tuning; not independent confirmation",
+    "generation_commit": "cd9f42bce29a71d69217be93b40583b367907804"
+  }
 }

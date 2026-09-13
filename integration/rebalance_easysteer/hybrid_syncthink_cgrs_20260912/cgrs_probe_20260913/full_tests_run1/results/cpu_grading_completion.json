@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "generation_attempts": 1,
+  "cpu_grading_continuations": 2,
+  "final_resume_seconds": 115.62133437395096,
+  "prior_interrupted_grading_seconds": null,
+  "reused_labels_in_final_resume": {
+    "math_test": {
+      "labels": 500,
+      "partial_sha256": "792cbe9b1c8ef813845915802b071f4090dcc96b2f4ff6f54f9d010b4a9ecb3d"
+    },
+    "gsm8k_test": {
+      "labels": 834,
+      "partial_sha256": "52f4f9c05e2ee435fb51fa3e8573683cc3c95085a18711b549944df57f56c2c0"
+    }
+  },
+  "implementation_sha256": "795b9c0d22ca80164dfbbd8810c31ad68560cf985cb416f4d7dc1f0889789950",
+  "checks": "All preserved label-prefix hashes and 1819 output budgets independently verified; original author parser/grader hashes unchanged"
+}

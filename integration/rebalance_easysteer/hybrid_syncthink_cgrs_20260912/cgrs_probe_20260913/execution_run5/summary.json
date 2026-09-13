@@ -1,0 +1,43 @@
+{
+  "status": "engineering_passed",
+  "batch": {
+    "status": "complete",
+    "startup_seconds": 40.656664341688156,
+    "wall_seconds": 69.2668359130621
+  },
+  "native_cpu": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_bulk_signature_preserves_exact_scalar_and_history_bytes (__main__.NativeTensorTests.test_bulk_signature_preserves_exact_scalar_and_history_bytes) ... ok\ntest_cache_copy_after_zeroing_is_disjoint_and_byte_exact (__main__.NativeTensorTests.test_cache_copy_after_zeroing_is_disjoint_and_byte_exact) ... /root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/pydantic/dataclasses.py:313: UserWarning: `config` is set via both the `dataclass` decorator and `__pydantic_config__` for dataclass SteerVectorConfig. The `config` specification from `dataclass` decorator will take priority.\n  return create_dataclass if _cls is None else create_dataclass(_cls)\n/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/torch/jit/_script.py:365: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.\n  warnings.warn(\nok\ntest_native_bf16_mask_does_not_touch_other_rows (__main__.NativeTensorTests.test_native_bf16_mask_does_not_touch_other_rows) ... ok\ntest_raw_full_entropy_before_temperature_and_filter (__main__.NativeTensorTests.test_raw_full_entropy_before_temperature_and_filter) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 8.210s\n\nOK\n"
+  },
+  "replay_checks": 64,
+  "max_abs": 0.0,
+  "relative_l2": 0.0,
+  "arms": {
+    "R": {
+      "generation_seconds": 4.799885407090187,
+      "probe_output_tokens": 0,
+      "clone_bytes": 0
+    },
+    "Roff": {
+      "generation_seconds": 4.537204697728157,
+      "probe_output_tokens": 0,
+      "clone_bytes": 0
+    },
+    "Rshadow": {
+      "generation_seconds": 6.562435075640678,
+      "probe_output_tokens": 72,
+      "clone_bytes": 515637248
+    },
+    "C": {
+      "generation_seconds": 6.080143257975578,
+      "probe_output_tokens": 72,
+      "clone_bytes": 102760448
+    },
+    "RC": {
+      "generation_seconds": 6.532051965594292,
+      "probe_output_tokens": 72,
+      "clone_bytes": 103219200
+    }
+  }
+}
