@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "new_engineering_answers": 0,
+  "reused_answers": 40,
+  "matched_files": {
+    "engineering/off_R/partial.jsonl": "0bbfbb667b011b1361c2848977486bf510b4d4402726bb2d8913700a2db78afc",
+    "engineering/off_R/result.json": "5154b19d314ae28c74648715b60439c13fb1a04ded0497bd2ec96f27cf81af11",
+    "engineering/pre_R/partial.jsonl": "1f5c28255f38fd922e47fbfbdec7caab5a128ef873b23008292e683e733ee077",
+    "engineering/pre_R/result.json": "3bb3872d362718dca62548f477b04c5b6f48bd786c29a65751a88630fab62063",
+    "engineering/RS/partial.jsonl": "954febdea6486055fd14460ae525143c1816c40581ced3af39ef78157e108d93",
+    "engineering/RS/result.json": "c8d697c557b47d0319ff77500537a769e6d9262621c9bd2cd72572ca6376c541",
+    "engineering/S/partial.jsonl": "039e9eeb532bd3856c8c4f9bd532d10e9db9c8ecedf2e6012a95e6434c9e0290",
+    "engineering/S/result.json": "37653319c11d728fe5e113a7b7ddfbf6e40e1a0753fdc930daaa1a51b227fb33",
+    "engineering/shadow_R/partial.jsonl": "04ebd84f17e773db4ec5a340fa4abfabba4053077bd62d508f0ec95d3c16e23c",
+    "engineering/shadow_R/result.json": "7ddda61264ab248fae7ad17cc92878b4ed9179c17e1c72a4227af01d30ad776f",
+    "engineering_gate.json": "f750de2a86f0039d1c17f91281f6679e64bd92477fb16151bce4008583ef967f"
+  },
+  "source": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/s64_mix05_math64_gsm64_c256_run1_20260913",
+  "source_resolved_sha256": "9b90fafabfa7d3f1d0af9258eae88db82e435b230d75f7e313e685afe68999af"
+}

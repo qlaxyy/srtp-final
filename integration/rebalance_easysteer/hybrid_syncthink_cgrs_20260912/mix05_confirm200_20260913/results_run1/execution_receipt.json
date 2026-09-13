@@ -1,0 +1,61 @@
+{
+  "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913",
+  "runtime_commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+  "freeze_commit": "d58e520",
+  "status": {
+    "status": "complete",
+    "wall_seconds": 1070.3212928175926,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "400 new training questions x3 =1200 formal answers; reuse hash-verified completed engineering results, zero new engineering answers"
+  },
+  "formal_answers": 1200,
+  "new_engineering_answers": 0,
+  "reused_engineering_answers": 40,
+  "generation_retries": 0,
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_mix05_confirm200_run1_complete_20260913.tar.gz",
+    "sha256": "4929075ffbe2f508a277d273f286b28f0e0c62a176685bf8c27d158844cdf6f2",
+    "files": 47,
+    "bytes": 11302589,
+    "status": {
+      "status": "complete",
+      "wall_seconds": 1070.3212928175926,
+      "prior_attempt_wall_seconds": 0.0,
+      "retries": 0,
+      "scope": "400 new training questions x3 =1200 formal answers; reuse hash-verified completed engineering results, zero new engineering answers"
+    }
+  },
+  "closure": {
+    "gpu": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB\n",
+    "compute_apps": "",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+    "shared_status": ""
+  },
+  "deployment": {
+    "deployment": {
+      "commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+      "base_runtime": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_run1",
+      "scope": "Git-blob B namespace with formal schedule change; three shared inference files unchanged from completed mix05; isolated copy; shared checkout untouched"
+    },
+    "archive_sha256": "ef696851531299ef0960e186f046d071cbd749106dad4078443803343a9cbc80",
+    "remote": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_confirm200_run1",
+    "native_cpu": "pass",
+    "staging_incidents": [
+      "Connection timed out during banner exchange after archive upload; verified target absent before retrying copy; no model generation had started"
+    ]
+  },
+  "launch": {
+    "pid": 1943,
+    "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913",
+    "project": "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260913_mix05_confirm200_run1"
+  },
+  "inference_dependency_files_reused": 2760,
+  "source_inventory_count": 2905,
+  "extra_model_forwards": 0,
+  "probe_tokens": 0,
+  "limits": [
+    "Execution wall excludes deployment, asset checks and local analysis",
+    "GPU exclusivity checked before/after and sampled during run; no continuous ownership trace"
+  ]
+}

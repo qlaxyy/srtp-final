@@ -1,0 +1,130 @@
+{
+  "posthoc_descriptive_only": true,
+  "cases": [
+    {
+      "role": "math_mix05",
+      "train_index": 1502,
+      "review": "R reaches cap but author extracts2 from the saved full response. RS ends thinking at223 and answers10. Shorter thinking and avoiding cap do not imply correct output. R final answer is truncated; fixed grade unchanged.",
+      "arms": {
+        "R": {
+          "gold": "2",
+          "tokens": 16000,
+          "thinking_tokens": 15789,
+          "grade": {
+            "train_index": 1502,
+            "author_correct": true,
+            "extracted_answer": "2"
+          },
+          "text_sha256": "4d5634e53740daddd94eebd2d3e02498fbc8f3dae334527b026bc233bfbf5fbc",
+          "result_sha256": "fbc524e6395217a476a835245c1907fabbd1dbf81b18a1118e1255bf37250b89",
+          "grade_sha256": "ee8ee13ce710528f7558459bed6a35c7fdeef7da09881b46135be5d1ebab8af4"
+        },
+        "RS": {
+          "gold": "2",
+          "tokens": 1039,
+          "thinking_tokens": 223,
+          "grade": {
+            "train_index": 1502,
+            "author_correct": false,
+            "extracted_answer": "10"
+          },
+          "text_sha256": "56570c3f0e83b78506fe10cdb54dd8b86c7cd069b91333bef0db3cbb24b244e6",
+          "result_sha256": "1378a516fc8c3baaa55bc57501ebf11cc7640da2fd215013922c88f235e42c00",
+          "grade_sha256": "5f2f04245dc7c59c7e2656b9085163bad9d472375bc6f2d54e91fedebb708237"
+        }
+      }
+    },
+    {
+      "role": "gsm8k_mix05",
+      "train_index": 5054,
+      "review": "R repeats until16000 with no extracted answer; RS returns22 in985 tokens. Own pre-bias prefix already differs at640, before first bias885; do not attribute this rescue solely to its end intervention.",
+      "arms": {
+        "R": {
+          "gold": "22",
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "grade": {
+            "train_index": 5054,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "text_sha256": "9a190cf87f155668ef846e57c8483e11f42db646141266a42ec6dc06f74089d4",
+          "result_sha256": "1d3a1e9f1a5a09a5103f4d0a60b8f223120880c7066990c36a2d784d9adc9c99",
+          "grade_sha256": "32a73ee421ede87d3ac74a9d2a01ffddd9066af7c3c0c4565958fac40ca0fa79"
+        },
+        "RS": {
+          "gold": "22",
+          "tokens": 985,
+          "thinking_tokens": 885,
+          "grade": {
+            "train_index": 5054,
+            "author_correct": true,
+            "extracted_answer": "22"
+          },
+          "text_sha256": "d429ca941d8dab8d02181dd3274d33252d131f5649394479b4dc1575ad778385",
+          "result_sha256": "dd2c52a58690cd8d5346aa92ee89258c110557b280fa3d4358a69ee305379332",
+          "grade_sha256": "b79e3da87685d2e97cbf368d76c55dbc988145afa722fc6a9e21863340cb41f6"
+        }
+      }
+    },
+    {
+      "role": "gsm8k_mix05",
+      "train_index": 7110,
+      "review": "R author answer30 becomes RS48, saving12625 tokens. R reasoning also misstates trip ratios, so a correct final grade is not evidence that its whole derivation is valid or all long thought necessary.",
+      "arms": {
+        "R": {
+          "gold": "30",
+          "tokens": 14274,
+          "thinking_tokens": 13955,
+          "grade": {
+            "train_index": 7110,
+            "author_correct": true,
+            "extracted_answer": "30"
+          },
+          "text_sha256": "fa7cf5411e214ef82e65d480340e2cd46123f5201e9e3fdc9a46ce17f2372a6f",
+          "result_sha256": "1d3a1e9f1a5a09a5103f4d0a60b8f223120880c7066990c36a2d784d9adc9c99",
+          "grade_sha256": "32a73ee421ede87d3ac74a9d2a01ffddd9066af7c3c0c4565958fac40ca0fa79"
+        },
+        "RS": {
+          "gold": "30",
+          "tokens": 1649,
+          "thinking_tokens": 1307,
+          "grade": {
+            "train_index": 7110,
+            "author_correct": false,
+            "extracted_answer": "48"
+          },
+          "text_sha256": "532b9491fe66be0b604765235f0bde3ce598ed534a81e5d3eab0704898073a0b",
+          "result_sha256": "dd2c52a58690cd8d5346aa92ee89258c110557b280fa3d4358a69ee305379332",
+          "grade_sha256": "b79e3da87685d2e97cbf368d76c55dbc988145afa722fc6a9e21863340cb41f6"
+        }
+      }
+    }
+  ],
+  "concentration": {
+    "math_mix05": {
+      "total_net_tokens_saved": 66040,
+      "top_two_ids": [
+        1502,
+        5301
+      ],
+      "top_two_tokens_saved": 27845,
+      "top_two_share_of_net_savings": 0.42163840096910965,
+      "answer_mean_percent_change": 49.51398616240079,
+      "generation_seconds_percent_change": 29.618401115138514
+    },
+    "gsm8k_mix05": {
+      "total_net_tokens_saved": 36288,
+      "top_two_ids": [
+        5054,
+        7110
+      ],
+      "top_two_tokens_saved": 27640,
+      "top_two_share_of_net_savings": 0.76168430335097,
+      "answer_mean_percent_change": 0.10394602651604412,
+      "generation_seconds_percent_change": -47.995372054155624
+    }
+  },
+  "grading_unchanged": true,
+  "primary_metrics_include_all_errors_and_caps": true
+}

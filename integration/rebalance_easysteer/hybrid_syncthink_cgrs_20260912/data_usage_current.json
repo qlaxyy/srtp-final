@@ -1,6 +1,6 @@
 {
   "namespace": "hybrid_syncthink_cgrs_20260912",
-  "status": "mix05_independent_confirmation_400_questions_frozen_pending_generation; prior828_consumed; prior_failures_preserved",
+  "status": "1228_B_training_questions_consumed; mix05_independent_confirmation_complete; no_new_reservation",
   "normalization": "Unicode NFKC, remove all Unicode whitespace, SHA256 UTF-8; preserve case and symbols",
   "entries": [
     {
@@ -6460,7 +6460,7 @@
       "train_index": 3688,
       "problem_sha256": "dc2cf458dd0f57e567623b1316408956c841d82c54cae60116af866594930094",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6468,7 +6468,7 @@
       "train_index": 1298,
       "problem_sha256": "47a3634796901848511a7f567cecfd03c8d33e703c4d3b8f99aa8a474e109281",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6476,7 +6476,7 @@
       "train_index": 473,
       "problem_sha256": "ed2cb3675b755e4551451d6562cc20f39e3b3ef527eec609b85499ad901fa1ce",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6484,7 +6484,7 @@
       "train_index": 634,
       "problem_sha256": "af21dcb109dd9f4658432a63510c132db6807ce80f4372115d717e27f8d53399",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6492,7 +6492,7 @@
       "train_index": 1508,
       "problem_sha256": "f5a64f01ca504b883a244dbf1fa08239ddb0ae98ee018e3a2e6f66e7418c4870",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6500,7 +6500,7 @@
       "train_index": 3083,
       "problem_sha256": "1a64661ec472bf3568e9b1fdb984917a38f9be652d75f50bb7e4509508fb846c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6508,7 +6508,7 @@
       "train_index": 1557,
       "problem_sha256": "d4585e18b0ed75c15d5f6739d30f2a2977f20cd9e6b9cb35bb11296abda12df6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6516,7 +6516,7 @@
       "train_index": 7084,
       "problem_sha256": "cdd3d1ffa96e8e6b5bb196797a358301b929fcea975a74954d244845f23d4888",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6524,7 +6524,7 @@
       "train_index": 4459,
       "problem_sha256": "faeaded4cc200631654f7bc6bbd90fc0666be7d6f5453c4e438a17e90004ec5f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6532,7 +6532,7 @@
       "train_index": 4864,
       "problem_sha256": "31396d70ae7040abccdf43cd12a7507f99a5226b95723faa99ed6cb47d4db85c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6540,7 +6540,7 @@
       "train_index": 4678,
       "problem_sha256": "666db9eee8a8db3c22801c5ef84bb6abbfd8861902478fccf3503f64484a758a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6548,7 +6548,7 @@
       "train_index": 457,
       "problem_sha256": "1dad1508b0b3741d888b16b13f8dde1899b0f34edc30047490fe39ec88248ec3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6556,7 +6556,7 @@
       "train_index": 1236,
       "problem_sha256": "b98cd6accb97c72f2b7f8d0d04fb9ea050a016e6dee3a51467c12f296805a3d1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6564,7 +6564,7 @@
       "train_index": 335,
       "problem_sha256": "1c5686123a611d5966e439ae09d0db6887f42ab1444a203b2d2a069a616c68bf",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6572,7 +6572,7 @@
       "train_index": 1256,
       "problem_sha256": "41ca64c9cf941059412d64e649b9fbac606b9bde699f883ee2834357a5a9a242",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6580,7 +6580,7 @@
       "train_index": 6785,
       "problem_sha256": "3cebf59612cf34c4f1894ca245d92a29640224e6e23e47df5f6a3b5dd334e3c4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6588,7 +6588,7 @@
       "train_index": 5423,
       "problem_sha256": "7ed5bc35ab8b6e920b190473445d76057d8d1b988f2b2532116001b5853ed825",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6596,7 +6596,7 @@
       "train_index": 2639,
       "problem_sha256": "2d0356f673a10688f1c5441c6352b77dad8fbb7c15c396503518591b000fa6eb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6604,7 +6604,7 @@
       "train_index": 2190,
       "problem_sha256": "8bc8a2a1a811dbeae224f28ecf9dc18f3d8a541e17ebc36b1c2ecd66c1f1d042",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6612,7 +6612,7 @@
       "train_index": 5725,
       "problem_sha256": "8088b6bde1601c78be175f61ba4316569c19b7b3a6f4a04ab6b034926db55248",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6620,7 +6620,7 @@
       "train_index": 3529,
       "problem_sha256": "3de13f47e0fdf9d14467fdba956de19bb06c150f2fb0ec9cbd27f4b3d72aac33",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6628,7 +6628,7 @@
       "train_index": 6334,
       "problem_sha256": "fe5e5b3706d1df86a66d979d6547e278a0b8a97065cf834f952fc4b494cdc6ad",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6636,7 +6636,7 @@
       "train_index": 7458,
       "problem_sha256": "8c3e8a19132fa926adf4bfa5e6594f06554b433098ecc44a4b928e9af4eb5c54",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6644,7 +6644,7 @@
       "train_index": 2469,
       "problem_sha256": "b48cc5e6049f09149e3fb23302b88066bfb87801fd611b98f688b575fc550db2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6652,7 +6652,7 @@
       "train_index": 4589,
       "problem_sha256": "c2246b300d161961c80a2801aa00d90f983e8022f9d2648d82f596c504173015",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6660,7 +6660,7 @@
       "train_index": 7297,
       "problem_sha256": "eec6c849f159514c6646704c260ddd0615f5ac448a78864dbd810970130ff33d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6668,7 +6668,7 @@
       "train_index": 7487,
       "problem_sha256": "6aaaa8d6ed23f06ddfa94d22e093228f4ec68cad75d2617b6559f3e048201e5a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6676,7 +6676,7 @@
       "train_index": 4487,
       "problem_sha256": "94352eac6cd0cf5f2ae4f6be14322e8b6a93a21df02bd5a313ff7e75c7fbd0fd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6684,7 +6684,7 @@
       "train_index": 762,
       "problem_sha256": "245ade45505a0c77ab44a3e28057be68aa27ac7923e86f4e3ac7f244f9eead65",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6692,7 +6692,7 @@
       "train_index": 2726,
       "problem_sha256": "057bd86b5972fa37ae19536cda3fda8c13f39a774e66a27b6db14d4b20286085",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6700,7 +6700,7 @@
       "train_index": 650,
       "problem_sha256": "8f7a5f7334f2e199092a061739fc96d0554c5277ccf3d98bdac8f16b4c28e7bc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6708,7 +6708,7 @@
       "train_index": 7158,
       "problem_sha256": "882941028d7f7bad33ca1c7c8faea796bfbb0ae58e49af68ce00618ad4d25730",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6716,7 +6716,7 @@
       "train_index": 6744,
       "problem_sha256": "72a78bb1034bae6de116616517e2c4fba71201eb826ea40cd08e7770e74b39f3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6724,7 +6724,7 @@
       "train_index": 3776,
       "problem_sha256": "103d7af9f75d4b418d0a4491388a47c7c19f65b2fdc9fe12442b37ee0f81d754",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6732,7 +6732,7 @@
       "train_index": 4058,
       "problem_sha256": "ba0c40e487be6e04a0e334190b82f05997052a39eef39d18ee6344063a8a3f88",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6740,7 +6740,7 @@
       "train_index": 3640,
       "problem_sha256": "51e8477483e95d1c67e74e2e80cea814ad2d31858715f2da5952ef723934c047",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6748,7 +6748,7 @@
       "train_index": 2650,
       "problem_sha256": "3502dec5d88b26800bdccea5b05134e9c6fe948e224453e50a7bf0fc8b497ba3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6756,7 +6756,7 @@
       "train_index": 4163,
       "problem_sha256": "dc14fd4667ebc139541441c72cd6a0b52551c20d8c17f3460ef6a61a7ef7e7e0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6764,7 +6764,7 @@
       "train_index": 2417,
       "problem_sha256": "e6b51092925f6f49372e6a9e15f061c45f890226511aaed11af9d694009f404a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6772,7 +6772,7 @@
       "train_index": 3879,
       "problem_sha256": "f5688cc102cbd7db3530bb295b76f457c9e7db2076a55432d64c849ae5bd492c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6780,7 +6780,7 @@
       "train_index": 1382,
       "problem_sha256": "9f79d4543f3df68f769c5caa4b7825b0a440df2379c0da86a2bd1d0169ddb921",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6788,7 +6788,7 @@
       "train_index": 1112,
       "problem_sha256": "87b44fb87610b4114ca609d7155739c87462c349688cc2f5e1a6e7efa598cf08",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6796,7 +6796,7 @@
       "train_index": 5137,
       "problem_sha256": "a3a53d2fe90ddbefc670d5c074b3a0f48baaa328d0c68f3ee8571682fc01f24c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6804,7 +6804,7 @@
       "train_index": 7013,
       "problem_sha256": "842f57103a3fd7432e41e962c1484a0b5d9fed705329dd0a130f064b8b30592f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6812,7 +6812,7 @@
       "train_index": 6225,
       "problem_sha256": "6cd587dc726d866a60616ae467cf2e3ea7d908d2065c7150ebdd0835672bb957",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6820,7 +6820,7 @@
       "train_index": 4620,
       "problem_sha256": "3abeeef5aa349ec96771a120bbc6dda6c13dbe8af088db7c5e344103dcbc8bd1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6828,7 +6828,7 @@
       "train_index": 2203,
       "problem_sha256": "3ffe7ead88e158d6cd6ef9904cb8586bf37c989e42b5b49bd46de166ec99c260",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6836,7 +6836,7 @@
       "train_index": 573,
       "problem_sha256": "bfbb82ec799c1dadbc7d22d0d9d462f083afc143f143d7530a3e4d96e3c11691",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6844,7 +6844,7 @@
       "train_index": 750,
       "problem_sha256": "26ca9f1860363260f88260a61c8e1903311cb7a789297f5b0e9af530bf139f8b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6852,7 +6852,7 @@
       "train_index": 6096,
       "problem_sha256": "fc2858fccdf37294332bcc37e0d79bf2658589557b88587fb36ecd21a685b2a7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6860,7 +6860,7 @@
       "train_index": 326,
       "problem_sha256": "d38295f5b8a440e5defd84e737514085ef071fe4bf3b7327948e7f80531a7482",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6868,7 +6868,7 @@
       "train_index": 5138,
       "problem_sha256": "ddaad403c594e4fe03fa8b3d02e734a9ef4aedc2fd8fdfdc550fa3047d479c40",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6876,7 +6876,7 @@
       "train_index": 4349,
       "problem_sha256": "1db77797e186c745d747032a41d52af99165f8d684515fc6d31f1a56bd26c80b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6884,7 +6884,7 @@
       "train_index": 2252,
       "problem_sha256": "b8c9e3310f5d51a6fd616c7ccd4586af7aa817186864cd02baf3b813fef28f5a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6892,7 +6892,7 @@
       "train_index": 2628,
       "problem_sha256": "950d2a7baa561dff5042df37d353e3e6a27d0b6fb171d33f8c2befc8f064307b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6900,7 +6900,7 @@
       "train_index": 774,
       "problem_sha256": "fe495f91ad96538d9a0a305d9f8cdbfb0f70103ebfaf3101eafc62748348ffe3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6908,7 +6908,7 @@
       "train_index": 3660,
       "problem_sha256": "c6846aa0416c284891b3e5ce67eca0c7ece502eec35f30142bbf875fa9381f5f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6916,7 +6916,7 @@
       "train_index": 6597,
       "problem_sha256": "d2795c38afeda32be9f982d1f22f8565b1f11ce548882df77a90ebf2faa1802d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6924,7 +6924,7 @@
       "train_index": 1035,
       "problem_sha256": "e5c6f51f3aa4565c15887e55650a946809f9fa834eda8e52b10330871bc8dd02",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6932,7 +6932,7 @@
       "train_index": 2051,
       "problem_sha256": "e49c2376b72772d961b50a9aa6077560b32ead962eedd67640bfd86be9a839ba",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6940,7 +6940,7 @@
       "train_index": 5453,
       "problem_sha256": "658f5ea155ed7eeb51dc8839c026922f7c9834e4cbfd2ba1cce3d36f7492b64d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6948,7 +6948,7 @@
       "train_index": 5844,
       "problem_sha256": "33b64603f842261554a09de872ca8966903c711e081e366e933245e1347d0cd1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6956,7 +6956,7 @@
       "train_index": 1607,
       "problem_sha256": "0fe6502104c2e5193c66dce52a82a412e872906941076a621fc7a1e30ad6cf9b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6964,7 +6964,7 @@
       "train_index": 4416,
       "problem_sha256": "843cb7bdcd754cea5f1f944db4ac724919215373c88d109b6e884333e4371558",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6972,7 +6972,7 @@
       "train_index": 2696,
       "problem_sha256": "4d7277e98ae4c18fd922de87c9b6b6e832b987527bc536dca9484f756fe1a6f9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6980,7 +6980,7 @@
       "train_index": 5619,
       "problem_sha256": "e82b5c9f8b0ff3bad9a7d548ed26d242a4e9ea505b205b4efb94150475cc6715",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6988,7 +6988,7 @@
       "train_index": 930,
       "problem_sha256": "2fce2e653ae5ab3fbe7edd67f7ac0de13e7ab1eec78db74953fa83fb41d225a5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -6996,7 +6996,7 @@
       "train_index": 1194,
       "problem_sha256": "547510de28795f8feb8854baa151a971a068197a2e363fadf2d357bf9867c7b6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7004,7 +7004,7 @@
       "train_index": 5475,
       "problem_sha256": "f0d09e204b57fb620d9b585dac78893dc8be4faa5d6b1ae1b6e0bae79c0debe6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7012,7 +7012,7 @@
       "train_index": 6805,
       "problem_sha256": "14bf3825551e64167cfbbf6879bc0a2ee730cfd076d43c43d1b72a49c5dfb1ec",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7020,7 +7020,7 @@
       "train_index": 5258,
       "problem_sha256": "02b8e4ef18c676318e867a368fb73cfd0e59e55f1c674ebbae9fb82315c2c449",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7028,7 +7028,7 @@
       "train_index": 3033,
       "problem_sha256": "9ac3cbaea85c07a7cb4054b84f91b7fca34529ffb7c516da72cb039d39426480",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7036,7 +7036,7 @@
       "train_index": 6513,
       "problem_sha256": "b0b043b4fccfa3bba97cc4b23ff691a868d377b45542ed05d5ae7bbb4b940e5f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7044,7 +7044,7 @@
       "train_index": 3721,
       "problem_sha256": "6548d601534c9908b6c8b3eea0d0a2976f2a0ff481eeb7785d4670b629ac6f47",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7052,7 +7052,7 @@
       "train_index": 4044,
       "problem_sha256": "3e510ea86461ed39623190a0c0f779efa693efe708088afa05cded093bb2dd7d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7060,7 +7060,7 @@
       "train_index": 4376,
       "problem_sha256": "9b52e930b6b35fe14685a53ef61f1c50b619faa6963c91cb28f840360b8d3583",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7068,7 +7068,7 @@
       "train_index": 6237,
       "problem_sha256": "2c4f1f6dbe0b705298fef90158bc2cecadcfd6af7c89673d93702140731152b8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7076,7 +7076,7 @@
       "train_index": 4079,
       "problem_sha256": "efc9d106c1c0d55656e17374ad25a364eb2f404e068b3cc60be9f037278384e2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7084,7 +7084,7 @@
       "train_index": 3446,
       "problem_sha256": "b7cb36e6bd3d6b83e8420816dc5d92e2a0eb65d1919500080daf921677076a7d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7092,7 +7092,7 @@
       "train_index": 6655,
       "problem_sha256": "c0787dddd4663108cf327c5ff68a779dfed2a91fd15cbc5a2bb3b186c979045e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7100,7 +7100,7 @@
       "train_index": 1676,
       "problem_sha256": "1e5c048d243a7234b6e978d5b84be732ea37c5961cbabd74ad765dee0f086cb5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7108,7 +7108,7 @@
       "train_index": 2602,
       "problem_sha256": "1608a0cf92a5a860eddf1390da9bee4f7a30e917e5a1dbdb05ca46d210fb3bdb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7116,7 +7116,7 @@
       "train_index": 6168,
       "problem_sha256": "fe379c3873dcd15a60d90eb0e577a3ed2287000edef13ddb71ea72ba5b45eb3e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7124,7 +7124,7 @@
       "train_index": 5120,
       "problem_sha256": "f09c9a579b2c221b4223e947a4b749acfdf14b861ee8a6f77702dcf57d8394b1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7132,7 +7132,7 @@
       "train_index": 268,
       "problem_sha256": "5b3d9e56207be59c8596fe6d12864c5ddc6c12e71cecfb786d265821cb867be5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7140,7 +7140,7 @@
       "train_index": 3363,
       "problem_sha256": "216ffc65e1eccd0afdaa9d20449324a94f09811e3191c1ccd4b8fb0685163ad3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7148,7 +7148,7 @@
       "train_index": 5301,
       "problem_sha256": "2eeb3abd33158eaf9b682a2115a78a59ff8b6a74aa3ae6e74163f128f1eb155e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7156,7 +7156,7 @@
       "train_index": 3318,
       "problem_sha256": "1235a1a858803fe779b52d31a96397b356f3eadfb10e4930180f45999c256955",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7164,7 +7164,7 @@
       "train_index": 2395,
       "problem_sha256": "2282bf49a4fd3160114c850d3351f2d51252b69e6dc9fe8b4483b07d5679133a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7172,7 +7172,7 @@
       "train_index": 2871,
       "problem_sha256": "81043e6e83b9cf32dddd19b8102fc4619016e7864cc28184aa56545583536534",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7180,7 +7180,7 @@
       "train_index": 4358,
       "problem_sha256": "ee31fbd96858842e0d9031f6f6c540d8fb7604c81039a45819901b5a4fff8598",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7188,7 +7188,7 @@
       "train_index": 1020,
       "problem_sha256": "f858f1f69fbbb2d9a02e3b3e51b929afee2f0bbfaf35df587ecaf8227da7733d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7196,7 +7196,7 @@
       "train_index": 2748,
       "problem_sha256": "b0a7f15440a3721e680d2e486e207d97b4a1146b2159e9ee503b5d9bda134483",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7204,7 +7204,7 @@
       "train_index": 4602,
       "problem_sha256": "780500d305e995935057d155a6507ce4ccc7431f4ff7cac4a7fd35ad30b0f253",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7212,7 +7212,7 @@
       "train_index": 1163,
       "problem_sha256": "8d8e30367fd7712a1caa63690d2775df06e45532fdd5bd757b16374a6eebe00c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7220,7 +7220,7 @@
       "train_index": 60,
       "problem_sha256": "0c034439744ac339d44f744d53b4219c27faa966f3437806db1c55321a7d3659",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7228,7 +7228,7 @@
       "train_index": 3445,
       "problem_sha256": "ac2854e455d1ab2d6f95e905b726aa70a835a18c66ffcf2a59e2171f261a93cd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7236,7 +7236,7 @@
       "train_index": 497,
       "problem_sha256": "82ddd3e880dfab65082837a41def1782d25788cee5b3313d5ef93cad1a53bcdf",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7244,7 +7244,7 @@
       "train_index": 2420,
       "problem_sha256": "37cb93a01503fee069b31b255acea1b4275fe2188386d2fb2ca29b1784cf9515",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7252,7 +7252,7 @@
       "train_index": 352,
       "problem_sha256": "939c802356db24220ccb3e272fe2b8b5a799a31314b9417758bc9329fa4ee0b7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7260,7 +7260,7 @@
       "train_index": 6302,
       "problem_sha256": "5d20be79eceab7c31750b70834c70a0ce885513f1e0265a7ad33389c24427a2c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7268,7 +7268,7 @@
       "train_index": 2718,
       "problem_sha256": "38f78250302b0f7ddc125e91a7c02f3d94547baf0becf937758fc796d3e0134d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7276,7 +7276,7 @@
       "train_index": 359,
       "problem_sha256": "08b34f098588baf0b2377e1978be95478ab94c3bbb492a47d2892303171834e1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7284,7 +7284,7 @@
       "train_index": 317,
       "problem_sha256": "8bc0502f1cdd9eb135d9404ec8a71ff3d0ebdc21acdc700d7f32b0d9c7807ac0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7292,7 +7292,7 @@
       "train_index": 4821,
       "problem_sha256": "13d4ed5e07e77e874112e2e3654230b7cf96289fe7511b879be924007ae70528",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7300,7 +7300,7 @@
       "train_index": 5117,
       "problem_sha256": "165f45445d1249e1f8c713bee4bafc5225a131d41688ad6099aad47a764153cc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7308,7 +7308,7 @@
       "train_index": 1250,
       "problem_sha256": "f2f02bf85823e0494fe8353678acda9755a8755221c598308ad348cfd066641d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7316,7 +7316,7 @@
       "train_index": 5504,
       "problem_sha256": "556e48415963f5570f03d85a83371781ff686c5a69f930da2c1414c41a4378b2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7324,7 +7324,7 @@
       "train_index": 5852,
       "problem_sha256": "aed08e72db5a887f63bcfd6f9ab1cd26cc9346f8a0de273147ca0730bcf7f242",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7332,7 +7332,7 @@
       "train_index": 6452,
       "problem_sha256": "96443dc1c51e1f889a2f9d8684586adabc20d52b4e4f08aaa11e8f2cd833d40e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7340,7 +7340,7 @@
       "train_index": 389,
       "problem_sha256": "1f7e67900117fceed65422c348c52a270ea7a6ce7c532df52ef9ad5858d326af",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7348,7 +7348,7 @@
       "train_index": 1226,
       "problem_sha256": "b1726a4a00ae2eea46732b87b0d5f332582de4d380d152cc507a0d31ef17db6c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7356,7 +7356,7 @@
       "train_index": 3131,
       "problem_sha256": "ee9f0e539a365173288459b0dafa4c64e45a0090f87bc35b5ae94e06aae9a84f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7364,7 +7364,7 @@
       "train_index": 2239,
       "problem_sha256": "e7e6e5e6e3b98f5f298198be1d2f9267cda815aefb917cd4d5880b4d7198c308",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7372,7 +7372,7 @@
       "train_index": 2532,
       "problem_sha256": "2674f627c123a532b9997376164c65463c3b2b9a456a055e4a11e0562d8f1126",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7380,7 +7380,7 @@
       "train_index": 2207,
       "problem_sha256": "8f3b6bba679223145cdabadb376a78056c5b45d9420e6338a19971b1f97ac26c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7388,7 +7388,7 @@
       "train_index": 334,
       "problem_sha256": "31f8abdb2f263c1ad78633e1b9c27dedecc64ab9085e110a023f5aad8ffcf67e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7396,7 +7396,7 @@
       "train_index": 4623,
       "problem_sha256": "5c8a186c9c114e802f907b35457de230c30c8214c532da0622fbc8d1c5fd3350",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7404,7 +7404,7 @@
       "train_index": 5324,
       "problem_sha256": "2852e5b1e028a8b5960b410037d13f1ea17a268392284fde7365c5ec1e640726",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7412,7 +7412,7 @@
       "train_index": 4451,
       "problem_sha256": "e141325249b96ad7cba74a83df25591b66289de9989c8ef4b20eb923c057a48e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7420,7 +7420,7 @@
       "train_index": 1029,
       "problem_sha256": "c06bdf2cb723abad3c77cb9f87e51813a9234523645c6e2ab206a3632d6b7108",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7428,7 +7428,7 @@
       "train_index": 2583,
       "problem_sha256": "2315d7687a0cc0cd6e452be31a6155f0edf445985603a623e8b3412f2edec66b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7436,7 +7436,7 @@
       "train_index": 1260,
       "problem_sha256": "c161649ad6c807be2c86efc2386bac50c06b92980191ad4a5133679dce062c9f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7444,7 +7444,7 @@
       "train_index": 3075,
       "problem_sha256": "c661b3ff9563f8d6ca656d375c0b6d6de4066ea7e83fe973035e6ee08a4c91b3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7452,7 +7452,7 @@
       "train_index": 211,
       "problem_sha256": "457c35c9cc028a2c117ae758d8dde7b317fa33f995b2ea7e8a6b5443fe22d5db",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7460,7 +7460,7 @@
       "train_index": 5240,
       "problem_sha256": "a2131c63d6addfa6e67212d2b20c70dea368dbca80da87e79d3d85184821fa00",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7468,7 +7468,7 @@
       "train_index": 46,
       "problem_sha256": "a77936485db05a7acbba0824ac7c24b9bacc2ddd5cbeeea9e02b4be4ac5a2dd0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7476,7 +7476,7 @@
       "train_index": 6299,
       "problem_sha256": "e5e746b52f7b631c61a7859df79f2b106ddaed2333fe675f8bace86e7d3d09bb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7484,7 +7484,7 @@
       "train_index": 7156,
       "problem_sha256": "60ac2535e28d3c8398af18bdd5c9015e1fe4639b16a5c4f411012654389a35a7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7492,7 +7492,7 @@
       "train_index": 5355,
       "problem_sha256": "0e91211a98ce974ab2bb64f51453fd2742389264d7fe4bfc5d2c958f6ed4ef97",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7500,7 +7500,7 @@
       "train_index": 3379,
       "problem_sha256": "0ce054a9be60ca7273765f046dec9db216ae36c60f0d32c28c4e3d31be805327",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7508,7 +7508,7 @@
       "train_index": 2292,
       "problem_sha256": "89e9f2ce483715a2d981c3d272e70e7ca000c4b88e747301800f81b3b2eca56a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7516,7 +7516,7 @@
       "train_index": 4362,
       "problem_sha256": "d790af530dbd3ae94a4bfbd10fac9103f342604e0824da9f7a38fb7f2a4ab605",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7524,7 +7524,7 @@
       "train_index": 3911,
       "problem_sha256": "6f7601d984eed269d34d2cb05a655fc361a534d65eb445ac6f26fbe706576579",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7532,7 +7532,7 @@
       "train_index": 110,
       "problem_sha256": "fdbbb5045b4ceab9a816d8a127758960a99a9b9f539f0dcf2be3d6afe1d498ec",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7540,7 +7540,7 @@
       "train_index": 1740,
       "problem_sha256": "a99095306761248a58c3c6e315f5802f4a7d391596d07db29f1cf813b530a17b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7548,7 +7548,7 @@
       "train_index": 78,
       "problem_sha256": "4475a8fb68bfda96971a4e24f3440760d9d14b18a4927f7a6c35f078656fb771",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7556,7 +7556,7 @@
       "train_index": 7154,
       "problem_sha256": "493f3c5a379cac5825ba86f77e7b01ec275bad75bf406feb2849865dc52012b4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7564,7 +7564,7 @@
       "train_index": 3791,
       "problem_sha256": "3e68b85e4c68307ff8d18bd8e2fbfed38bc1fc7ff4abca712a17c460d7091242",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7572,7 +7572,7 @@
       "train_index": 3995,
       "problem_sha256": "840dcc05ae25418116b491bc2a0b9ca71e9703d69da98afceeb958c4e034c5b7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7580,7 +7580,7 @@
       "train_index": 1337,
       "problem_sha256": "ca1e601253112d2b2e67b6d4a24a27109a92f864723fd6befe2320d2f0e08b5b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7588,7 +7588,7 @@
       "train_index": 6169,
       "problem_sha256": "53d7df66ec233d352b5a58e6a33f5d36fd6f72df2c9c5e8b7be81e4e254f15d5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7596,7 +7596,7 @@
       "train_index": 3587,
       "problem_sha256": "2a9339c0d42695323006f34f108335857077121c5ede2d21dbcf6c1c782ee241",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7604,7 +7604,7 @@
       "train_index": 2645,
       "problem_sha256": "a428b44ed6ad3b7b1c4bacfdf280a6dc484278a69657359800f65cd77244781a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7612,7 +7612,7 @@
       "train_index": 7077,
       "problem_sha256": "e5816bdf1aef4e3cbf1f365b5ae05e3719f7b3cb06abe6092853dcc3ef02d203",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7620,7 +7620,7 @@
       "train_index": 602,
       "problem_sha256": "a0a5550c848385b2194c4ae2719bae038ce92265cb855b1d9b4b92609c57beae",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7628,7 +7628,7 @@
       "train_index": 6111,
       "problem_sha256": "a0ec2ebd7a306552ddbaa3d35b4dd534668f74d3f25e81bc388a881a557b69ed",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7636,7 +7636,7 @@
       "train_index": 7055,
       "problem_sha256": "1aacd8afcdff562a1b189d9856b44af0dfeffe970dd52ec68640e599684e8829",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7644,7 +7644,7 @@
       "train_index": 7452,
       "problem_sha256": "0df0bf3a939321394e526ae8584abb77cfc81333ef19787124b70751197f99b2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7652,7 +7652,7 @@
       "train_index": 3294,
       "problem_sha256": "cd9a05386e408cc981c0ed75fc127ab0a7c09bc0f1c9960466da87e8d8916d79",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7660,7 +7660,7 @@
       "train_index": 1502,
       "problem_sha256": "63c7f7bebd4f986c9cf29b5e2d64a925b505b8b85f7f0a703e604a6a764ee26a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7668,7 +7668,7 @@
       "train_index": 2833,
       "problem_sha256": "0900ebcdb52a11f3bf1a1879e2adebd171be39efab00f3a18cafe2e27a3f5300",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7676,7 +7676,7 @@
       "train_index": 3885,
       "problem_sha256": "6b885107d11594b33ef63ed270584b939ec575b5192d66511c76e7a6dfec8939",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7684,7 +7684,7 @@
       "train_index": 2176,
       "problem_sha256": "187a6932bb6ec96f6489a68eaa9476e23349a8819b2cb0c4acbb53377b51a5ff",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7692,7 +7692,7 @@
       "train_index": 2111,
       "problem_sha256": "e7317b427f9bd85255880c532e053300a278f4d83084e33dc73e2407feca22db",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7700,7 +7700,7 @@
       "train_index": 4960,
       "problem_sha256": "df5d35cf95ff3d46c7b9cea1002a3141d425abc9a225cfaef909959cf38e30ec",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7708,7 +7708,7 @@
       "train_index": 4359,
       "problem_sha256": "897b04e3bcc77f2f07b6b95c2a4aff964788b19d35e204648fa1df7c20874993",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7716,7 +7716,7 @@
       "train_index": 249,
       "problem_sha256": "2f82be57e4cab5decc1cf09816374cd25f3d46fd43c34c541c0f43d9fcf0e686",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7724,7 +7724,7 @@
       "train_index": 3051,
       "problem_sha256": "028ddb1ecd109340fe7074a868ec57af292ce8a2647426b7c710e234f1840b21",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7732,7 +7732,7 @@
       "train_index": 5735,
       "problem_sha256": "125e0e22f60ea6a629960e9117917f265b9ddcc2b99b5136a76baf3c80c4b647",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7740,7 +7740,7 @@
       "train_index": 6330,
       "problem_sha256": "ef41aa8df7fb9004415b4773a7edf4e5bb6f84bcb7b123635fb9988f29eb0922",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7748,7 +7748,7 @@
       "train_index": 5879,
       "problem_sha256": "0f8ac56bed6ee9657f91fea291d85dda48c73e7417fe78054b731cbb0c69590b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7756,7 +7756,7 @@
       "train_index": 1986,
       "problem_sha256": "8418e4ef4b223ed2ea1f73d910b05338308f93e297f45be81c7b228767ce0963",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7764,7 +7764,7 @@
       "train_index": 2570,
       "problem_sha256": "e2c2c442616ba448896d81649b766807d2addfa5c9fdf1bf3039a4ed6516feac",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7772,7 +7772,7 @@
       "train_index": 534,
       "problem_sha256": "cbb82c6b50624faa2db31076a3f13690bc73447068ac956cb971400d3439832d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7780,7 +7780,7 @@
       "train_index": 7160,
       "problem_sha256": "5b949507e9d348cffce53b03af9a6b84616efa03b8dfbcaeb29994acab583d68",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7788,7 +7788,7 @@
       "train_index": 2681,
       "problem_sha256": "1662ee66da548baf43bb4625ea7436878f8a2180c27e691ed8a625d66213f82b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7796,7 +7796,7 @@
       "train_index": 67,
       "problem_sha256": "830ac66a79ac3fe7635ab74d65dad2fcbfdddfe70cfade3f6288732d9721363f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7804,7 +7804,7 @@
       "train_index": 3655,
       "problem_sha256": "210f8cb9e282741dc5cf54b7ff1aa75676c08af0d244768d8a3a2da9b75115db",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7812,7 +7812,7 @@
       "train_index": 7159,
       "problem_sha256": "5bc9858b5fdaf915f9aa42e63de51daf46fd44edcf53c07a98ca34dba818702a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7820,7 +7820,7 @@
       "train_index": 6946,
       "problem_sha256": "5c86ea4f2f71806a645c158f3ca54d6f9ffa4cc047f4ba1e0143939f3fe5977b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7828,7 +7828,7 @@
       "train_index": 383,
       "problem_sha256": "9173302ba117374c8c68d5a76dda4db0b14a0523f7856494a964f5750596fe70",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7836,7 +7836,7 @@
       "train_index": 6066,
       "problem_sha256": "13bb691b81537c8da92e436341544bf3efc3f69b14ee0a9dcbfa530322c77d5e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7844,7 +7844,7 @@
       "train_index": 730,
       "problem_sha256": "3bfcee4acdc826874dbf84d851314eb7b38dc6ce29168655ee637963c6fa68e1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7852,7 +7852,7 @@
       "train_index": 4310,
       "problem_sha256": "d59cb1c26f50451045d1db70072ca6d53c408d4cc001a856230233d9358d27a8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7860,7 +7860,7 @@
       "train_index": 7168,
       "problem_sha256": "22b16416f83fcbb53e4a57a124b8c88ce31865a574097ea6699e90c0bc5f3a3f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7868,7 +7868,7 @@
       "train_index": 7266,
       "problem_sha256": "196e9c5071d275c460fca816420dfbf2bd6db37208ebe2c57c7867c89f4c6d02",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7876,7 +7876,7 @@
       "train_index": 5107,
       "problem_sha256": "a31b04c8dcc88661cffabf1d8bcb477e977f5881604411a30e2b09147857359a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7884,7 +7884,7 @@
       "train_index": 2052,
       "problem_sha256": "2c50c64fbd8a62375e3a6f0ba43eb63df6cf4f396850dd70832d76ec9a723d0a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7892,7 +7892,7 @@
       "train_index": 2752,
       "problem_sha256": "1239ce5c6c5220fc3471db3d7b4edede6e541814123ef8353227efda21e52dd5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7900,7 +7900,7 @@
       "train_index": 3340,
       "problem_sha256": "7c050eea0d7912758285e7b5af713338d6467114bc749e85a3e202ab2db14b61",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7908,7 +7908,7 @@
       "train_index": 3782,
       "problem_sha256": "8fc1d2b9c7cb88d3f5358dc391b919b943b7060d32348f756518bbd496442c33",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7916,7 +7916,7 @@
       "train_index": 6283,
       "problem_sha256": "27f7af9cd4eb6d3a8af79a34f0a33da317c07b0bb65544dca7f8a29fd7e8edbe",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7924,7 +7924,7 @@
       "train_index": 626,
       "problem_sha256": "bd8db22dfcf929f8347f6fc1af543310b333379d2041d06ebc137795fb9f1cfc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7932,7 +7932,7 @@
       "train_index": 1486,
       "problem_sha256": "5cca9b38517231b50c3fed9d90ca497e2639e1297ec658d13250e44f9b81773b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7940,7 +7940,7 @@
       "train_index": 4431,
       "problem_sha256": "06fb2a4806e1c9fc5d7583c21a6144d6b602f1de511f228affab1782f99e3eb5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7948,7 +7948,7 @@
       "train_index": 495,
       "problem_sha256": "d503641a590209298263fdd4bd56031b0ed9ed6440cb57a757bcdb175190c438",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7956,7 +7956,7 @@
       "train_index": 7022,
       "problem_sha256": "bb5b256fd451ac9366f20fc69c14607e1001b6210e4fc2db0fbddb32cbe7cd92",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7964,7 +7964,7 @@
       "train_index": 532,
       "problem_sha256": "821ddd651f51d5a6b283d69ded1bdb3b8304442315f8b75c79e4770400ddb2d2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7972,7 +7972,7 @@
       "train_index": 994,
       "problem_sha256": "287378a4ad326977642ecd56e2af366c9e2bea730a3fe697761a39ee35c9a3c6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7980,7 +7980,7 @@
       "train_index": 264,
       "problem_sha256": "3972934efcd524262aec3dd5d390bcd7979ebe8d9961dd97aa47dbc5ae26108e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7988,7 +7988,7 @@
       "train_index": 2438,
       "problem_sha256": "6c6a8aa2641a4d4cc0045e8916f2f5c13c6109f50c055f281b98033bf21d7282",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -7996,7 +7996,7 @@
       "train_index": 162,
       "problem_sha256": "a76020b5a4c94e42a948db93df27fa668483b1a376e2689a41d47c3ad94480f8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8004,7 +8004,7 @@
       "train_index": 691,
       "problem_sha256": "6218cd8103fefadaeb4ba1e7bfa3819eda281abe19ef65d3b98839804fdcfa25",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8012,7 +8012,7 @@
       "train_index": 6270,
       "problem_sha256": "3076b57d2da4c48facfaec72af87c92e7fd319985c57023bcb419c9472aed884",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8020,7 +8020,7 @@
       "train_index": 6521,
       "problem_sha256": "1f25afd5773d09d2b92b53a065646813cfea2e8c59affa639b2ea1a1b1d4e97d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8028,7 +8028,7 @@
       "train_index": 887,
       "problem_sha256": "52dffd2dcab4c1a20b4c2e35e50ebb611962644e1bf19c2eb3903dfd061ffb81",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8036,7 +8036,7 @@
       "train_index": 1923,
       "problem_sha256": "cc90130137b7dba239d364bc5b77844bf0207cebb5dd5b603633ff5009693ab5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8044,7 +8044,7 @@
       "train_index": 7299,
       "problem_sha256": "9c9fe33b8b25c75a70e09261a62aec128f0c464407aa8ca84aa9f32e9d672a13",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8052,7 +8052,7 @@
       "train_index": 6814,
       "problem_sha256": "0d9cc7e3855330f0ab7da8840b9fb13058aba5fceb94157442c1bc42987d12d1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8060,7 +8060,7 @@
       "train_index": 6005,
       "problem_sha256": "78ea2f3094ba8bf86c8de5959f13a44ec1c844c2880a78134b4bb4ba571d8366",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8068,7 +8068,7 @@
       "train_index": 5539,
       "problem_sha256": "2cdfd9eb1e3216e334fb666f989177bc050bfb0404afbb5b903001c4bde84862",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8076,7 +8076,7 @@
       "train_index": 7025,
       "problem_sha256": "71f83b61f0ec9df3a4305d74be8c9f24457de084b6dfa2cc57058c86c528902c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8084,7 +8084,7 @@
       "train_index": 2,
       "problem_sha256": "35e62cc2a0961e804acb9aa9281104df9e9c349b8b8d78183ae75d37341e2229",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8092,7 +8092,7 @@
       "train_index": 2123,
       "problem_sha256": "00528ac488d18964afd3ec0ed1317ba588c06590b8f58185305e73c2c5c6e7a9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8100,7 +8100,7 @@
       "train_index": 1928,
       "problem_sha256": "2bf7d0c9ee790da68b230a2e2ad6ace980730f8b93ba41c6f6e9b6b20cad491a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8108,7 +8108,7 @@
       "train_index": 5371,
       "problem_sha256": "30596adfa5b63dbc943180830eb18606c18f82bb5bfc0c626a85d4c24f2271f7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8116,7 +8116,7 @@
       "train_index": 1459,
       "problem_sha256": "640f724da5288117d179880651ad1b8a81c2bf295095366452d53acfe6f3ed7e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8124,7 +8124,7 @@
       "train_index": 77,
       "problem_sha256": "cd54650f0132b54d59550ebb226a2e9800d45811ef590450107dea26a91832dd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8132,7 +8132,7 @@
       "train_index": 4905,
       "problem_sha256": "09f5cd866a558f518de7ddfbd90a526c64fc8786da2ac889dee0d0dc4a536513",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8140,7 +8140,7 @@
       "train_index": 3580,
       "problem_sha256": "88a5f721cf40a8b479b9543678ff3d34bf4bcd3a640aba38138674f3e020004f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8148,7 +8148,7 @@
       "train_index": 3661,
       "problem_sha256": "faa9135e7a4119bf649c610705374c0a00d9cd085698fa77e55e22226d39fced",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8156,7 +8156,7 @@
       "train_index": 4331,
       "problem_sha256": "9fa39b5dacc7299338e002d76151f84794ab0ceabc3a19f51a769a23fae24205",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8164,7 +8164,7 @@
       "train_index": 1353,
       "problem_sha256": "ce88b0685207519ef97e0af226d701b447345587abb294cf11e44e1f3fcf506b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8172,7 +8172,7 @@
       "train_index": 7099,
       "problem_sha256": "ebc4ff3fc6247a71218998571e296dbfb4cdafa1e4fb3513817c309ff82b53cd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8180,7 +8180,7 @@
       "train_index": 3681,
       "problem_sha256": "3df4e3e39e8c45a5c9cea6a6b973a9b07271f18faf1c0250e5a8643d96d1fa8b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8188,7 +8188,7 @@
       "train_index": 2595,
       "problem_sha256": "c06550daa905edb489798d785c8d1c3f079b7264f5841017db5079200c76b69b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8196,7 +8196,7 @@
       "train_index": 2917,
       "problem_sha256": "fcd6f035cc83f6f025a073f8eb70e56cf20f51b6759fd51873af95e5c8993a7d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8204,7 +8204,7 @@
       "train_index": 1959,
       "problem_sha256": "15dc6eff3df248c233258fd0221176e2b0be304fcd8f274b5e83efdb6dcac06f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8212,7 +8212,7 @@
       "train_index": 5069,
       "problem_sha256": "2bc6a609d77abcdc2e3c0ff43106609a661782016328e066fdd98aa2be75accd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8220,7 +8220,7 @@
       "train_index": 1005,
       "problem_sha256": "a8b6c417625f853ce8e10165753907c1dce287586bce37218b73d9c4737ae91a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8228,7 +8228,7 @@
       "train_index": 438,
       "problem_sha256": "07fa9832802d19c6abc87c5f045d5706751b5d57333c57882c65f535b418c01c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8236,7 +8236,7 @@
       "train_index": 6527,
       "problem_sha256": "eb0799ad2d030838cb69bea6155a5a229b11d7ddcd7c7488b33377147ec780e7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8244,7 +8244,7 @@
       "train_index": 7470,
       "problem_sha256": "ffd3bbccc12fcc92a14dfae2541a13f3f570e7c7b2f98cf1deaaf482bba978db",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8252,7 +8252,7 @@
       "train_index": 7282,
       "problem_sha256": "b23f869b6cda1c04501671f02ac1f53bad018b33b6fd5be5cbf3d99426edc9a4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8260,7 +8260,7 @@
       "train_index": 1670,
       "problem_sha256": "a76ff810bbfc6f48f06d50898c51bdcbcaec07e7d83704bfb058084e897c57d3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8268,7 +8268,7 @@
       "train_index": 401,
       "problem_sha256": "03c7e2dd4e143f08975c0bf611672d7ea50cc477e4d05743e2504d0483154189",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8276,7 +8276,7 @@
       "train_index": 5167,
       "problem_sha256": "26c3f46b7df5a1c2500f204aeb800b556d2487377ff368568491327f61e4a05c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8284,7 +8284,7 @@
       "train_index": 2747,
       "problem_sha256": "5c16cc4bbd771fb77d293d591724dce43f16980edcdcd430581ef6630b326bef",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8292,7 +8292,7 @@
       "train_index": 1994,
       "problem_sha256": "c400da2cad4663e81fe77e6accf53b40cb0ad353f48d941dd632373e58e603a3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8300,7 +8300,7 @@
       "train_index": 6321,
       "problem_sha256": "a68e93abf6e6c1abf8220aeb2579f220a492b96861c21636aaf1acba64527416",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8308,7 +8308,7 @@
       "train_index": 6699,
       "problem_sha256": "abd636f45bb1dad2bc02da5105fc82a6f921d9987793293142e7bc97b7db5c68",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8316,7 +8316,7 @@
       "train_index": 3111,
       "problem_sha256": "708df3d4d6d5c07d864066832c90c8f6665f99f00eef94bde69d73fcfd438d40",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8324,7 +8324,7 @@
       "train_index": 6053,
       "problem_sha256": "ba1b08d447393d075a2009f92af236925391623bffa3e9300b0a4e008f6c076a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8332,7 +8332,7 @@
       "train_index": 254,
       "problem_sha256": "537e627b073cba77654a1f4cf307462d89052b331a8ec0e6cd2de20869b8199e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8340,7 +8340,7 @@
       "train_index": 251,
       "problem_sha256": "51e314831c5246bf12d2d73cf0cd4536303bce59dd017ff850472e79d2450c3c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8348,7 +8348,7 @@
       "train_index": 4477,
       "problem_sha256": "bc779b9c64801c721fd312b63cf5589fb8a17727943761bbca1b1562fdf2b7b0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8356,7 +8356,7 @@
       "train_index": 4308,
       "problem_sha256": "d7cf3b32f657ea8ed283372a3cef8b9fbc6d096cbe75808850f33de68ff996f0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8364,7 +8364,7 @@
       "train_index": 6217,
       "problem_sha256": "8011f1b3a4db3d49d32fcc2465fd7c2f56b6d117ed52a929f5212a9c67f0b592",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8372,7 +8372,7 @@
       "train_index": 866,
       "problem_sha256": "c8cfa00bfb7b6b26931521d59e31a66bb84052bd7f6c5a1e91f94d7228fb80cc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8380,7 +8380,7 @@
       "train_index": 2883,
       "problem_sha256": "2fe07c9d712fd2f84cd5a3119aea42208dee303c74e41782af8ab01e9a9fe98f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8388,7 +8388,7 @@
       "train_index": 71,
       "problem_sha256": "8ec322fcf21cc4b5c5a31a98f577bb6251dc58f2178caa975ead3cb917b7aad4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8396,7 +8396,7 @@
       "train_index": 5849,
       "problem_sha256": "c5ef1cd0245875899d7b612707565d8f2e1c2d11ff0e758be88f7745c2f8be31",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8404,7 +8404,7 @@
       "train_index": 4546,
       "problem_sha256": "b222b2711db1d4f35ee0e28acf878ab43eca543b729a4597b6d386fe5581cdab",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8412,7 +8412,7 @@
       "train_index": 4479,
       "problem_sha256": "89235b6e371ff4c4f5799d6dce6886de77d525eed015fe24604a5bff2b407b24",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8420,7 +8420,7 @@
       "train_index": 4894,
       "problem_sha256": "4956d627e1ac8dcaf378bc742386b35f3320984779b756b4fa08b56a85e75651",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8428,7 +8428,7 @@
       "train_index": 4406,
       "problem_sha256": "598a3a81eb43651b00f11c8c6eb16abdc08d14e83552e342ff448ab8228e51ff",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8436,7 +8436,7 @@
       "train_index": 6778,
       "problem_sha256": "e227f33f5b195c4c13cff31856671d124f71035dd02e98aa40a7a74029123173",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8444,7 +8444,7 @@
       "train_index": 5219,
       "problem_sha256": "dff6b2219cbd76246c66cf433b364e42cc048708ba987927f08fbe0ad68c9e83",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8452,7 +8452,7 @@
       "train_index": 7455,
       "problem_sha256": "954e6a965264acbe4aa5b6aa753cb810467ecd0f0cdcf21d1183a5f66545defb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8460,7 +8460,7 @@
       "train_index": 4949,
       "problem_sha256": "c57e8b5e3d57e3432139205b37579251f8c0bc8696464db073932690acc66317",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8468,7 +8468,7 @@
       "train_index": 4533,
       "problem_sha256": "120dd9e6262d9f843bbe71e54c8dff3d0f64961daf772936b2977e2ca30f7e5d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8476,7 +8476,7 @@
       "train_index": 3419,
       "problem_sha256": "9ec7567e99820a2bebfa0888a5f34d4f3fb82a9306111b1cf2b063c936541394",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8484,7 +8484,7 @@
       "train_index": 1852,
       "problem_sha256": "e1f447d51383b5ab0a974d80925eca6ce31dad0b7480a97a4246ffff74372c34",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8492,7 +8492,7 @@
       "train_index": 5130,
       "problem_sha256": "f13b454d591959913840d5d73f5e9aaddafe668b258fd3c21f83b9cc04b2eca3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8500,7 +8500,7 @@
       "train_index": 682,
       "problem_sha256": "b162f01ad18ef7c1809b7e9ac6f7116a24aa6e897ed59a690cac240bfd289d28",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8508,7 +8508,7 @@
       "train_index": 11,
       "problem_sha256": "5b18bfecf3ef845f8c1c9560c77623d969c97a585232f3713ad7047ffd426deb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8516,7 +8516,7 @@
       "train_index": 1357,
       "problem_sha256": "db94603ff9ee247c386445d1316fbe7ee41cb8227b52ff53083f85784f6201e6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8524,7 +8524,7 @@
       "train_index": 353,
       "problem_sha256": "be08ecbb455114b4c460b1c1933359f6a29bacc0d2e11c1c667076790077868c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8532,7 +8532,7 @@
       "train_index": 1321,
       "problem_sha256": "9bab19d2504a6c64b531aca001b7b0989bcf20bcfa4a24afbde10a77d3d73b96",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8540,7 +8540,7 @@
       "train_index": 2036,
       "problem_sha256": "49375cd39e7ddf7c45f6fd277dbf05a1fdcc3e1bdda747937d21ac9303998533",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8548,7 +8548,7 @@
       "train_index": 6784,
       "problem_sha256": "4f8df59f2145b4078c6897d6f295dc29b24c71d3edf2efc53363655cd7e5cffb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8556,7 +8556,7 @@
       "train_index": 7110,
       "problem_sha256": "263fb674eb15c2a11043216446a950f9466bfa47d6740eab60a05e96f9b7344a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8564,7 +8564,7 @@
       "train_index": 6124,
       "problem_sha256": "586e071bdee84e638f0ee120dffadb93a323d61daeb58a0c228fc84f2879a704",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8572,7 +8572,7 @@
       "train_index": 481,
       "problem_sha256": "0c3df6beeb8d6edc8f2746c9f1cf8d68b6b6c01400cc084b15bb16678a1165d5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8580,7 +8580,7 @@
       "train_index": 1847,
       "problem_sha256": "a70aec5c39fb253aea964ef1981fc5e2eba878e3065cd8b2e6e6a481a241dd60",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8588,7 +8588,7 @@
       "train_index": 5054,
       "problem_sha256": "dab3339b1d00c9b22d9fd353db077508f24ddacb8410d5d316f5f37d1824b886",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8596,7 +8596,7 @@
       "train_index": 6541,
       "problem_sha256": "c051a349015064cefc015d636b0dbac0f8c556e788ddde2a73d084d86d4189ba",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8604,7 +8604,7 @@
       "train_index": 1689,
       "problem_sha256": "854edb78c1cae3e49e0abbc744f41ac8fc9e1dcf8e2193bc2c4716352cfa6273",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8612,7 +8612,7 @@
       "train_index": 5479,
       "problem_sha256": "877543b2c92c21f1db0da726a9a7b79e687bd9e68879adea512c637bc4a0f872",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8620,7 +8620,7 @@
       "train_index": 3031,
       "problem_sha256": "fb16bfef837980899af8480e6e7864000d9803d80454b5cbd519b5d93f1a09d7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8628,7 +8628,7 @@
       "train_index": 3162,
       "problem_sha256": "1cc29e8308a7b92f280a6642224bca5527a6ae24578da33243b2d808f5bbb55e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8636,7 +8636,7 @@
       "train_index": 5835,
       "problem_sha256": "0ff5d5de3a6bd58817230819199b3d8e5f7262b4c179eb008c9f0975d37e7449",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8644,7 +8644,7 @@
       "train_index": 809,
       "problem_sha256": "83c9fdca85287a58c2295e6eb1ad3a0c07b15395396edce1723f5699a259308c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8652,7 +8652,7 @@
       "train_index": 5153,
       "problem_sha256": "dee7b145c8127f1ea95e915e967d201ed2ba20c9442dfb8db04a9727b6c1f345",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8660,7 +8660,7 @@
       "train_index": 6418,
       "problem_sha256": "30ab056c7e65b25a20de25e3530e0e0352a5d1329addb0e98df90e00bda76f69",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8668,7 +8668,7 @@
       "train_index": 4754,
       "problem_sha256": "45124e3dcdd725b49754e96139113ddf96507d205739e8a03e9eb7e987705628",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8676,7 +8676,7 @@
       "train_index": 5121,
       "problem_sha256": "735f226704278b7bd652c64c86475e962edd5710373d867aa1854083966919e9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8684,7 +8684,7 @@
       "train_index": 5806,
       "problem_sha256": "f1dfc7615fe97a410b6eb475f4bc73fad49682b0e4d3f03953b0039519650350",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8692,7 +8692,7 @@
       "train_index": 5209,
       "problem_sha256": "2cf456631d54408cce4b360483634ec789f1a4b696791f1aa6cee9cc1c3c03f2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8700,7 +8700,7 @@
       "train_index": 1866,
       "problem_sha256": "865adbb88c50726002aaea486b0a04839e6fee30d3a49556ef9b7ecef27560b5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8708,7 +8708,7 @@
       "train_index": 1545,
       "problem_sha256": "0db67f2cd2c5ea87edf19e4a7204c2aadc7d9487dd420006bfbb1ffa4b062977",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8716,7 +8716,7 @@
       "train_index": 6946,
       "problem_sha256": "1f0e018083b5c64a66688003aceee5c43a37277da3188850be46a083d0dac1f7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8724,7 +8724,7 @@
       "train_index": 1735,
       "problem_sha256": "facaae92e633fa9425ffc74a1daf58e13bb34e944fa34f4c2a8a2abe8db027c3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8732,7 +8732,7 @@
       "train_index": 6848,
       "problem_sha256": "7a7167e90555439add2e7152c6d904e765d33cf08555b1b8cb9cfdfe3540b1a3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8740,7 +8740,7 @@
       "train_index": 5093,
       "problem_sha256": "d82f8ae8a24de586c0f171bad3b44b36e31ac61eaa9f93cd18d4b94e57f50683",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8748,7 +8748,7 @@
       "train_index": 2031,
       "problem_sha256": "bee13cdbae5967371aa6465f6c57270c3dffc920e73dd5a7705f037202452b3b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8756,7 +8756,7 @@
       "train_index": 27,
       "problem_sha256": "0a88f3e138844c97b38699b1bec41ccc4a3e2b2dfc62f074a202e713449ac0b6",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8764,7 +8764,7 @@
       "train_index": 558,
       "problem_sha256": "5f40cdc8faf03b1541753706808221f54068898a06538ddf94c392158d7213b7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8772,7 +8772,7 @@
       "train_index": 5275,
       "problem_sha256": "4fc53674c61b8c79105452790d72bc7503df13fec414e5b84c148eb5b5baf468",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8780,7 +8780,7 @@
       "train_index": 6283,
       "problem_sha256": "db42cbde85b611c849864bcb8255dc2f282e02e373361d1e3281ae72071ed586",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8788,7 +8788,7 @@
       "train_index": 2569,
       "problem_sha256": "c9198b426eca9ec560e387038fde693441d1edd9225a7d7f8592d53bd6540331",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8796,7 +8796,7 @@
       "train_index": 2044,
       "problem_sha256": "df59d5d37ba78563f0ac69f9cbcd1d64ddd6a61189e0197d6de974b410ab99fe",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8804,7 +8804,7 @@
       "train_index": 6630,
       "problem_sha256": "00535066ee5943dd9330e436d8896a50ee2725e0a4bec9588d40ac02f9e96178",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8812,7 +8812,7 @@
       "train_index": 1884,
       "problem_sha256": "e1605da3faa9eff0896cffba9b30c3aa1ee3d40b9fc7fb4a83f1a04b46647d80",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8820,7 +8820,7 @@
       "train_index": 2942,
       "problem_sha256": "1af722ca39055e8f0892ac438ec49b3a2f8abb73c82f333e3eac09f038e11f72",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8828,7 +8828,7 @@
       "train_index": 649,
       "problem_sha256": "25f44a1e41f92be085b48daed001214417746748ebc9a6d03add272fb63a8abc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8836,7 +8836,7 @@
       "train_index": 6046,
       "problem_sha256": "bac9d3f541150e8649385ab237e0542bca5b1c208d9512296ee95073074a3106",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8844,7 +8844,7 @@
       "train_index": 792,
       "problem_sha256": "5df4db161f5fa8bf31e4d1c2204ebc7ce88a34c83743f61dd9e11bbac1701ec1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8852,7 +8852,7 @@
       "train_index": 1146,
       "problem_sha256": "888db1946017611d4c362a49ab268df533320e580ece437e6b417e5407564ced",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8860,7 +8860,7 @@
       "train_index": 1810,
       "problem_sha256": "523519b0b7f00620461ba5c0bd9704d4d7619498f9fe5ce5ba3912caa5741fa7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8868,7 +8868,7 @@
       "train_index": 4761,
       "problem_sha256": "e078c2e81ed1d9a2e0a526804407e6cb2673347187fb1710d4fa6dc4f3a7bb7f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8876,7 +8876,7 @@
       "train_index": 109,
       "problem_sha256": "1a4e2b0c7f99676bab355f47a0d63428d38747ccdd08846a70fc6529d6c47a2e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8884,7 +8884,7 @@
       "train_index": 6614,
       "problem_sha256": "b92e28717684858c0617877dad48648fcac7c8d51eaebcd529a76921c1405661",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8892,7 +8892,7 @@
       "train_index": 7378,
       "problem_sha256": "8c526e03bd952997536d8187fd40152d0da120d2aaafeaa6dcdd39d51a044c72",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8900,7 +8900,7 @@
       "train_index": 3353,
       "problem_sha256": "b8e1a10bb33a35522fe0274e3c2d6a2236303f4b26d6387e9ffae112b4ac1719",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8908,7 +8908,7 @@
       "train_index": 1851,
       "problem_sha256": "f79efacbbb645c12ba221fa47cd54a9fc3ab0629cbec3bc42dba8d94ac0bc6d2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8916,7 +8916,7 @@
       "train_index": 703,
       "problem_sha256": "34936ead814041679d2eb59caea70cd9d1043a8e775e8bed65401cc8e604fdb7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8924,7 +8924,7 @@
       "train_index": 4263,
       "problem_sha256": "c950a5880dd0ccfe01c76d385525f4cab537e2f09c24f6198924a4e00029c409",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8932,7 +8932,7 @@
       "train_index": 1799,
       "problem_sha256": "17887e697f9bd288e40e6b7699e2166a6368abab6c7e5b3af64e0ea67bd41145",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8940,7 +8940,7 @@
       "train_index": 623,
       "problem_sha256": "f0bdcdd5114959b5d447cd3e37e30bc94cb086d27f640eb84de86437b5b825ee",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8948,7 +8948,7 @@
       "train_index": 1241,
       "problem_sha256": "22ff5006a1438417bcfdb798602c2a3854c87d6c3aa47134a1fb27e175afb6c8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8956,7 +8956,7 @@
       "train_index": 415,
       "problem_sha256": "2e22e7f100856d9800752cc91dfc43ebfe53117a37e64fa1392c6a95cf6d9110",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8964,7 +8964,7 @@
       "train_index": 5836,
       "problem_sha256": "6da20353c7e8047415c8b4876a32a27684328df489fb90dc3b554a3eaa55a0e2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8972,7 +8972,7 @@
       "train_index": 53,
       "problem_sha256": "c87707f631d2a806cd1c3fb374031b81c7cee813796b9bf100b1fff5ffd2cb55",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8980,7 +8980,7 @@
       "train_index": 3769,
       "problem_sha256": "e7d1e24df97d6c1da39a656c27cad3df8c2a083f7f766b4cb2ea9735c3ae8286",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8988,7 +8988,7 @@
       "train_index": 5756,
       "problem_sha256": "01e3b350259c20dfea6c5474834d5b20080bf6f3800b2600bebcf4c6e602c64e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -8996,7 +8996,7 @@
       "train_index": 2282,
       "problem_sha256": "233efeeb8930b5ab154ad74d3af29a70afb480f4416de6ab3d0f09d63ff6b964",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9004,7 +9004,7 @@
       "train_index": 4050,
       "problem_sha256": "bf55fb4d603a50cd10bff708b6f748dea5b36b6f9e16b13d449de2af6866a01e",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9012,7 +9012,7 @@
       "train_index": 3375,
       "problem_sha256": "56b4ab0a2ee27918df864c2df8b48fa9e0a8e43fa4e92b8ac0658ca5aa0fdef4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9020,7 +9020,7 @@
       "train_index": 1046,
       "problem_sha256": "9cdb9a3bdc0dee889b7a4944f985b24f30aaed35e522bca0e8efc2b4eac384c9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9028,7 +9028,7 @@
       "train_index": 5237,
       "problem_sha256": "21b9afb03ee2c136b21aec7f15581909688b7d32387d9a6e36278b372bba565b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9036,7 +9036,7 @@
       "train_index": 6756,
       "problem_sha256": "f0af02721a1038ac59695c9790a0cbe85bc2a7146203388df88e89fc95a7ab4f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9044,7 +9044,7 @@
       "train_index": 1068,
       "problem_sha256": "a9b77694114f34707b61347b2fda10d3098d2ce8338f6775431700de3723e469",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9052,7 +9052,7 @@
       "train_index": 4140,
       "problem_sha256": "c0a20252bf428c53bb4fae6b73fa3ff51e4e33de77f0d852cc924bcbe0204d05",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9060,7 +9060,7 @@
       "train_index": 4064,
       "problem_sha256": "793f7f5f1c773acabf4a851c6cef8eed44b23e6f17577bf3c63910f864f427a5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9068,7 +9068,7 @@
       "train_index": 5460,
       "problem_sha256": "618fdc67006f9a4e98d64ee278c13bbc88e17147acfb1afea6f330361be23ef4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9076,7 +9076,7 @@
       "train_index": 7161,
       "problem_sha256": "d4e98e51c841802fb5badfaa44d518cac4ee2f41f307a2477bd1e5159e6c27f9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9084,7 +9084,7 @@
       "train_index": 239,
       "problem_sha256": "20acd2a9051ccbea9bc9dab3425d874b725e683e7c51756e7ca1a8eafa42db24",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9092,7 +9092,7 @@
       "train_index": 5668,
       "problem_sha256": "cfbdc3edf3db6a0ebddbe3fab5e27ccd8c6df652224a2efee2cc536c18470cd4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9100,7 +9100,7 @@
       "train_index": 880,
       "problem_sha256": "e31194606048967faeb61f1141ada7fe9521e3a5a9ab50b9bffbc19a5bf2f6fe",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9108,7 +9108,7 @@
       "train_index": 4877,
       "problem_sha256": "b9617d2eb9e4d8a3c1f3cd1efe8b5f48a3d5982206b1f84d51e3e4b3f0bff3db",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9116,7 +9116,7 @@
       "train_index": 3261,
       "problem_sha256": "a91c205b886e61198ea026d53ca9d6674719d3c40eb0e6e15edda27acb4088e1",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9124,7 +9124,7 @@
       "train_index": 2775,
       "problem_sha256": "3652e9fdc54d6b6093dcecf628a5b5e2840c8aced57bd1cd61356b5b92a5e912",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9132,7 +9132,7 @@
       "train_index": 1929,
       "problem_sha256": "de58f681cd1390166dfa64bd5a34e5abc59bb13508476da71cf09bf20f9f8638",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9140,7 +9140,7 @@
       "train_index": 565,
       "problem_sha256": "8bcc3b668ae7ba4b9181b36034ed61020f264acbf5e645c1372311f9c5e93856",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9148,7 +9148,7 @@
       "train_index": 3671,
       "problem_sha256": "84b3761a0a4baa403af271dfc72ac400d3c5b0dac31d87a307b54538a565a664",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9156,7 +9156,7 @@
       "train_index": 944,
       "problem_sha256": "3f3f39350560b5b9c99ab3a45a92672ac42a0fb8bbbcf56a8c318e59b2ce5db2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9164,7 +9164,7 @@
       "train_index": 757,
       "problem_sha256": "c630201097832c07f1edbb4a89122b6878adbd1e61e1740de90be3db5d2eaabd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9172,7 +9172,7 @@
       "train_index": 2745,
       "problem_sha256": "ed0373480a78d1c08be199cb97871405c517877c09204262b89ba7d03bf9e043",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9180,7 +9180,7 @@
       "train_index": 7270,
       "problem_sha256": "155d813b063d9188c055c453db26ce2f623b64995295c8ef4886812d328e63a7",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9188,7 +9188,7 @@
       "train_index": 5351,
       "problem_sha256": "ec7c2511ff86b7be85c714f4e64433aa2baaba4dbf9cca4aeafb4cba2792edf3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9196,7 +9196,7 @@
       "train_index": 2510,
       "problem_sha256": "ee3e8cd4217f197b97a2cb94e6851c88439c039e338b23170be710e499bfcec5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9204,7 +9204,7 @@
       "train_index": 3558,
       "problem_sha256": "c625dc990dca8bb25e5d4bcbc6756de4522b95168c6293cf8b47ab4d506ac2fe",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9212,7 +9212,7 @@
       "train_index": 4673,
       "problem_sha256": "d498be2370bf96fd54810dbdf23816e7d527241b0a06d0ada8ed02363eac2656",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9220,7 +9220,7 @@
       "train_index": 1129,
       "problem_sha256": "32daec7374408b56f627454923fe2fc45582c9ca61889d77ba73a1cd326d286b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9228,7 +9228,7 @@
       "train_index": 4204,
       "problem_sha256": "239673c7f1c7dd4186f96386407884d7a46495a4405ad4649bca1924958cd96d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9236,7 +9236,7 @@
       "train_index": 3696,
       "problem_sha256": "07a38b9f954518d66fbc49cfcd561e9428289026a2a6683795e19dd43583b3d2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9244,7 +9244,7 @@
       "train_index": 761,
       "problem_sha256": "80b63573bbf8ed11f1e70c2eb3795c3a8faf5dc0d3b23e9cf472ba63c1150ac9",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9252,7 +9252,7 @@
       "train_index": 447,
       "problem_sha256": "791203181653d2998d108a76f1acba566ec135879fa59cf7acd5c217ce0bb5a2",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9260,7 +9260,7 @@
       "train_index": 3784,
       "problem_sha256": "876ab6a099eb32fc6220f164ef7de8145274d43bbc48c627010a630344fad42b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9268,7 +9268,7 @@
       "train_index": 1134,
       "problem_sha256": "eb74aa5bb47c0a8e783df429774ceb1c58a6f38fc44e2f0ea4ee0b75aa513c54",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9276,7 +9276,7 @@
       "train_index": 4507,
       "problem_sha256": "688d92c042c597b59df7b58bc82e9f6696b3f0f1f11e11514874caaea67e81d4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9284,7 +9284,7 @@
       "train_index": 1370,
       "problem_sha256": "d3ba6db9ab54249b7c450ae744ced809df1cb4e5e413647b5f6c5cfb294e58c5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9292,7 +9292,7 @@
       "train_index": 5931,
       "problem_sha256": "43f80cfba654c7ed8c2d1f3e0429741f97b3e2ca2879908f33e9eeb24dd6e64d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9300,7 +9300,7 @@
       "train_index": 6352,
       "problem_sha256": "c7371c24737f43ea2d75fb4a8667eee29dcb7edbb9c877588897a0017b897497",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9308,7 +9308,7 @@
       "train_index": 2854,
       "problem_sha256": "147c51a845472cc1e497c9f7bd7249c8ec33d79e6cbc9b2fdbfc0292d2164242",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9316,7 +9316,7 @@
       "train_index": 1294,
       "problem_sha256": "66b8afe3701e4c15dbe8ddae756cf0175e35eb9e40933264b06d1ae5c0f4bc59",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9324,7 +9324,7 @@
       "train_index": 2305,
       "problem_sha256": "2d9ecde33256595043f143c98afa34d89af0840ed3bfbdcd03f0f2d694cd277c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9332,7 +9332,7 @@
       "train_index": 6471,
       "problem_sha256": "bc377bb5085dce09667e43d41d02b28ee2e4995b2e31964c5e5deb3ace3bf7f4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9340,7 +9340,7 @@
       "train_index": 501,
       "problem_sha256": "f6c9a0d578e1568e0b3b270e47e41dea8aae90e2c17801f03a26c64008af1fa8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9348,7 +9348,7 @@
       "train_index": 3724,
       "problem_sha256": "9b284e09f6fe284f87c6af9fa718091ab3d353edb7349c9d7019ac696e814a99",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9356,7 +9356,7 @@
       "train_index": 4173,
       "problem_sha256": "6dfa13467829bcd91d572827074654d677f5da47e7260a7d1fa54c06c10c37dd",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9364,7 +9364,7 @@
       "train_index": 6122,
       "problem_sha256": "da49e38319b998905d9ec8be0e3565465edc40b19f06856c0bb360661fef8ec8",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9372,7 +9372,7 @@
       "train_index": 2620,
       "problem_sha256": "f90fdc6fa3ee2591beb63c897610722aafced796bd51d41cfc1988a88002514d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9380,7 +9380,7 @@
       "train_index": 118,
       "problem_sha256": "b079e45456c96b8c11f2e8450639bdf38cfde61de30d5773a2e568a9db1dc250",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9388,7 +9388,7 @@
       "train_index": 4163,
       "problem_sha256": "bdfac0eef6d9432329ed7b850bf6e472df017ae73a7c2a570ba7cd131695f42d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9396,7 +9396,7 @@
       "train_index": 2598,
       "problem_sha256": "f5b3d1b37469a139fc8748a02fc62eef54091fdae1c3012eab2abaf012957b35",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9404,7 +9404,7 @@
       "train_index": 5499,
       "problem_sha256": "e547c56b6d4697e033acfb3d9a214f99cfe0100ee29bd7f727dd027576808e0a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9412,7 +9412,7 @@
       "train_index": 2307,
       "problem_sha256": "9a6e2ecedb530463b0d43fc3384f0f8d8f93aaaf76760e8f3353c07d6eb1eeb0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9420,7 +9420,7 @@
       "train_index": 6384,
       "problem_sha256": "b7d59bdf73301b438b951822dde4d53a3b7227dd81b728295f7d43de3e413c93",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9428,7 +9428,7 @@
       "train_index": 7112,
       "problem_sha256": "2c51411cc2987f9a1b2ba9932e6296a9714c80282d79dafb7e261b155a6b04ee",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9436,7 +9436,7 @@
       "train_index": 2652,
       "problem_sha256": "a542440f9da63f3fe0fcffff74cbb4051149ee3d4a9640efcfee31fac8b807fb",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9444,7 +9444,7 @@
       "train_index": 2067,
       "problem_sha256": "7eb2c7b5fa2ecc598167513f7eeef52fd2e2a1f10de4d91e9630b119a55432e0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9452,7 +9452,7 @@
       "train_index": 451,
       "problem_sha256": "1486216a2675b9a0b4b65a79605d8f8f8364a28959724c2a6941edbda86b7b71",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9460,7 +9460,7 @@
       "train_index": 3765,
       "problem_sha256": "8b95e43574c8d8f7c60993a57808b96d5e8b316ce115b35bc3e42678cb3f0bdc",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9468,7 +9468,7 @@
       "train_index": 3251,
       "problem_sha256": "6e017b4ee815886cd4eb40e20420e817776759850fa148d9a0d4b21f5739f460",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9476,7 +9476,7 @@
       "train_index": 5288,
       "problem_sha256": "571376b3c735ef8ec08f64865f565337c5cd1d262a0677295f904db46e6bfbef",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9484,7 +9484,7 @@
       "train_index": 1471,
       "problem_sha256": "bfcaa88c2656b5d569bb61d2b82e67143fd9d8059eb2719cb0c9798e9f2ab579",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9492,7 +9492,7 @@
       "train_index": 6626,
       "problem_sha256": "0a0ef6b1c76f99d7b8c37a709fc3973806a8275667ae44ce9ba05c062227cd73",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9500,7 +9500,7 @@
       "train_index": 5654,
       "problem_sha256": "545b5ec9aa611464b2bde36c0a69d12e1e2e13f530a13fb6f1233af3cd53cc3a",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9508,7 +9508,7 @@
       "train_index": 502,
       "problem_sha256": "ce2d4c6fdad9df824e396df605b1044888780a636a161b5234440df37b3b63ef",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9516,7 +9516,7 @@
       "train_index": 4265,
       "problem_sha256": "0f94818985f63600acfeaab997f7be7a9d10f5270da09f4ad0d06b45d90619af",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9524,7 +9524,7 @@
       "train_index": 7377,
       "problem_sha256": "9c625a98f7941f4daef66cf605684b2808a3d0974ec24ddade50cbfc88efa25d",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9532,7 +9532,7 @@
       "train_index": 3776,
       "problem_sha256": "71c64857a473337e4c9f6cfc80a96c74395a107f49c2091906511a7487326e96",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9540,7 +9540,7 @@
       "train_index": 4212,
       "problem_sha256": "09891bde2196c5ea661de7203c6bd31f7b4f428366c981efe9188fe9c1c15091",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9548,7 +9548,7 @@
       "train_index": 6029,
       "problem_sha256": "ca542662c9ae1a6169cb35e9e4b2e3deadce4fb4bea01881317ec6bda69a295c",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9556,7 +9556,7 @@
       "train_index": 4087,
       "problem_sha256": "c5527cf4792562a5d2db8bd24bbf5c5f1e8fac3e74d6141cb48a06c4d6b9c357",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9564,7 +9564,7 @@
       "train_index": 6975,
       "problem_sha256": "2cf4b58264087b19eb898ce7328b03cc16e0c5e4f9fda06f63db11249aad3b20",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9572,7 +9572,7 @@
       "train_index": 5281,
       "problem_sha256": "f5cc117e13e0513fcff0f7cfbba07242c3a86b7f1cd6744c0dc936e4b3343d3b",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9580,7 +9580,7 @@
       "train_index": 971,
       "problem_sha256": "89ea542fc6db600b2682be36a94dc0ec954409b28e22f32d4b7093c8b3a919a3",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9588,7 +9588,7 @@
       "train_index": 2253,
       "problem_sha256": "969d84e93e129046dab5f38744dc4a2fb9225e92b3e25e56d6f4121cf92c6de0",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9596,7 +9596,7 @@
       "train_index": 7375,
       "problem_sha256": "8a78c1af319e9fce63528991a02769954aaea8ca7b5f6e17185d69bb8d5820e5",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9604,7 +9604,7 @@
       "train_index": 4657,
       "problem_sha256": "08db5b2467d582a2a0e36b5fa44fa6b71a0c2eebf8ad55c2be159655de8206f4",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9612,7 +9612,7 @@
       "train_index": 4713,
       "problem_sha256": "0b9d992f5251bd63f8627631999da1bb97fb696733b2fae5f39f1012f5a66592",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9620,7 +9620,7 @@
       "train_index": 7339,
       "problem_sha256": "26a7d43cf788eec96947e2d4980f20171b6ebcedfdacde4da408beb7140c1862",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9628,7 +9628,7 @@
       "train_index": 1100,
       "problem_sha256": "559f2ba69c905903c6f0e1a12887090034cbbbd980036868a93ec7b40560ba21",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9636,7 +9636,7 @@
       "train_index": 1122,
       "problem_sha256": "5fb1327ace0ae8318aa78d86ae55e312b415ab1836111f186c9fc265d5b0bc0f",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9644,7 +9644,7 @@
       "train_index": 310,
       "problem_sha256": "897451aff6b9550c520ebd7f778484dcb14dbb47162b5aaec543062790143423",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     },
     {
@@ -9652,7 +9652,7 @@
       "train_index": 2838,
       "problem_sha256": "f8f4ea12b074d77d4d6af7548dcf1f604eac53b7dd79c6a9b0b46ea95304f189",
       "purpose": "mix05_independent_confirmation",
-      "status": "frozen_pending_generation",
+      "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
     }
   ],
@@ -9667,7 +9667,8 @@
     "mix05_20260913/data_proposal.json": "f61649ca96e8ace5271a319b1c22e68c25cbadeb6e45ddeb8fcb22ad1ff0cdfc",
     "mix05_20260913/execution_run1/coordination_mix05.json": "854d5216cb2c0397eff6a63601ca201ac0656aaec9292f2f4027c81598b4c185",
     "mix05_20260913/results_run1/data_usage.json": "0f3b57dac4abf202ec7e2a6b621a98518e15a4c273e49451557c8b483d03aa7d",
-    "mix05_20260913/prebias_audit_20260913/results_run1/data_usage.json": "bacbbdbc9175a64babf8fccfff74a02c14d7241904a9e4a583418c020096534e"
+    "mix05_20260913/prebias_audit_20260913/results_run1/data_usage.json": "bacbbdbc9175a64babf8fccfff74a02c14d7241904a9e4a583418c020096534e",
+    "mix05_confirm200_20260913/results_run1/data_usage.json": "27f223aa03c6ebdc1af0b6c96186cb67850b6310357867296238cb45e2366f57"
   },
-  "coordination": "828 unique B training questions consumed: prior700 plus128 mix05 screening. All384 formal and40 engineering answers completed. No untouched independent confirmation reservation. Exclude all registered IDs and normalized hashes from either line future confirmation. Mix05 point passes are preserved, with posthoc audit hold before promotion; A assets and shared server checkout untouched. Completed192 short diagnostic outputs on64 previously consumed GSM questions; zero new unique questions. Target5424 localized to forward numerical path; not all46 cases individually traced."
+  "coordination": "Prior828 plus400 fresh mix05 independent-confirmation questions consumed. No data reserved for future confirmation. Exclude these IDs and normalized hashes in both research lines. No peer files modified."
 }

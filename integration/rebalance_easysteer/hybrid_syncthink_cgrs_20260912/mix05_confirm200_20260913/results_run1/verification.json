@@ -1,0 +1,167 @@
+{
+  "runtime_commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+  "resolved_sha256": "ded9d2a33271a6221e8b0d23c1a63332ea08ecda0a96a85f788868f5d955b887",
+  "source_files_verified": 2904,
+  "generated_version_files": [
+    {
+      "path": "sources/EasySteer/vllm-steer/vllm/_version.py",
+      "remote_sha256": "71e8de8405a62240d9830fff7f809d1d69d1d78a27e04088f12ae410f70c469d",
+      "reason": "runtime-generated version file, recorded not compared with source tree"
+    }
+  ],
+  "formal_answers": 1200,
+  "new_engineering_answers": 0,
+  "reused_engineering_answers": 40,
+  "group_count": {
+    "math_mix05/R": 200,
+    "math_mix05/S": 200,
+    "math_mix05/RS": 200,
+    "gsm8k_mix05/R": 200,
+    "gsm8k_mix05/S": 200,
+    "gsm8k_mix05/RS": 200
+  },
+  "engineering_gate": {
+    "status": "pass",
+    "token_and_R_history_identity": true,
+    "pretrigger_identity": true,
+    "actual_preemption_tested": false
+  },
+  "archive": {
+    "path": "/root/autodl-tmp/hybrid_mix05_confirm200_run1_complete_20260913.tar.gz",
+    "sha256": "4929075ffbe2f508a277d273f286b28f0e0c62a176685bf8c27d158844cdf6f2",
+    "files": 47,
+    "bytes": 11302589,
+    "status": {
+      "status": "complete",
+      "wall_seconds": 1070.3212928175926,
+      "prior_attempt_wall_seconds": 0.0,
+      "retries": 0,
+      "scope": "400 new training questions x3 =1200 formal answers; reuse hash-verified completed engineering results, zero new engineering answers"
+    }
+  },
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 1070.3212928175926,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "400 new training questions x3 =1200 formal answers; reuse hash-verified completed engineering results, zero new engineering answers"
+  },
+  "closure": {
+    "gpu": "NVIDIA GeForce RTX 4090 D, 0 %, 1 MiB\n",
+    "compute_apps": "",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+    "shared_status": ""
+  },
+  "raw_sha256": {
+    "math_mix05\\R\\result.json": "fbc524e6395217a476a835245c1907fabbd1dbf81b18a1118e1255bf37250b89",
+    "math_mix05\\R\\author_grade.json": "ee8ee13ce710528f7558459bed6a35c7fdeef7da09881b46135be5d1ebab8af4",
+    "math_mix05\\S\\result.json": "1cec4bb6811b48302dd4b2f005b60f742c544c5d08189f63abeb52e0406315b7",
+    "math_mix05\\S\\author_grade.json": "d4eb002181877858df26fe5c69b94cca44c6ce7dc1cdad97ead4c724212cbabb",
+    "math_mix05\\RS\\result.json": "1378a516fc8c3baaa55bc57501ebf11cc7640da2fd215013922c88f235e42c00",
+    "math_mix05\\RS\\author_grade.json": "5f2f04245dc7c59c7e2656b9085163bad9d472375bc6f2d54e91fedebb708237",
+    "gsm8k_mix05\\R\\result.json": "1d3a1e9f1a5a09a5103f4d0a60b8f223120880c7066990c36a2d784d9adc9c99",
+    "gsm8k_mix05\\R\\author_grade.json": "32a73ee421ede87d3ac74a9d2a01ffddd9066af7c3c0c4565958fac40ca0fa79",
+    "gsm8k_mix05\\S\\result.json": "77650deb7c413b6c22202741b0873f54dd99d4b22e29155564d12f9a016383de",
+    "gsm8k_mix05\\S\\author_grade.json": "33d4d2aaf55cd8dfe359e87e3c7c4dcaaf12b2c89fdfce95e3641a6707667496",
+    "gsm8k_mix05\\RS\\result.json": "dd2c52a58690cd8d5346aa92ee89258c110557b280fa3d4358a69ee305379332",
+    "gsm8k_mix05\\RS\\author_grade.json": "b79e3da87685d2e97cbf368d76c55dbc988145afa722fc6a9e21863340cb41f6"
+  },
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "environment": {
+    "build_tools": {
+      "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6"
+    },
+    "torch": "2.11.0+cu129",
+    "vllm": "0.1.dev18960+g6267ca0cf"
+  },
+  "coordination": {
+    "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913",
+    "data_proposal_sha256": "c8c812ccb2322e359616a68038d524eb36598554bb0638244e0ebd363b1d17bb",
+    "plan_sha256": "8a1afdd0cc665310024e218fb91a6ecfc4747ffa51ab86f96a5f4dfb6d13bda1",
+    "authority": "User 扩大测试吧 authorizes fixed independent confirmation: fresh MATH200+GSM8K200 x R/S/RS=1200 answers; user confirmed GPU enabled; this executing dialogue reconciled live worktrees and server records",
+    "cross_line_data_clear": true,
+    "shared_code_integrated_in_isolated_checkout": true,
+    "gpu_batch_authorized": true,
+    "checked_registries": {
+      "local_files": 557,
+      "remote_files": 1004,
+      "local_sha256": "52699750d5e2eefcb2da041c61cf1428b6bf026f09b5bb03f48a1500b0ca7616",
+      "remote_sha256": "df872f06eb6cd3cd0e13d382a9e20dc14f3b787efb8e1e0d716618bf6f81c93f",
+      "worktrees": [
+        "E:/srtp/srtp-final",
+        "E:/srtp/hybrid-syncthink-cgrs-20260912",
+        "E:/srtp/srtp-final/.codex_work/mechanism_docs_main_20260912",
+        "E:/srtp/srtp-final/.codex_work/min_confirmation_worktree",
+        "E:/srtp/srtp-final/.codex_work/question_balance_worktree",
+        "E:/srtp/srtp-final/.codex_work/repeat_gate_worktree"
+      ]
+    },
+    "runtime_commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+    "deployment_archive_sha256": "ef696851531299ef0960e186f046d071cbd749106dad4078443803343a9cbc80",
+    "native_cpu_checks": "pass float32 and BF16, no model forward",
+    "gpu_before": "4090D 0%,1MiB,no compute apps",
+    "data_status": "frozen_for_this_independent_confirmation_batch_only",
+    "limitations": "Snapshot of enumerated worktree registries and shared server results; no claim about unrecorded external activity",
+    "staging_incidents": [
+      "Connection timed out during banner exchange after archive upload; verified target absent before retrying copy; no model generation had started",
+      "Initial SSH checks returned Connection closed; user then confirmed GPU enabled; no generation before recovery"
+    ]
+  },
+  "limitations": [
+    "No extra model/logit replay; observed token records only",
+    "Independent confirmation on200 new questions per dataset; single seed and batch order",
+    "Source generated _version.py recorded separately from Git identity"
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "posthoc_descriptive_only": true,
+  "formal_decisions": {
+    "math_mix05": false,
+    "gsm8k_mix05": false
+  },
+  "datasets": {
+    "math_mix05": {
+      "R": {
+        "empty_extractions": [
+          2639,
+          762,
+          1112,
+          5301,
+          1163,
+          3075,
+          2833,
+          2176,
+          2752,
+          162,
+          887
+        ],
+        "cap_ids": [
+          2639,
+          762,
+          1112,
+          5301,
+          1163,
+          352,
+          3075,
+          1502,
+          2833,
+          2176,
+          2752,
+          162,
+          887
+        ],
+        "answer_tokens_sum": 70677
+      },
+      "S": {
+        "empty_extractions": [
+          6785,
+          2639,
+          762,
+          1112,
+          1607,
+          4376,
+          3446,
+          3363,
+          2871,
+          4358,
+          1163,
+          2239,
+          5324,
+          3075,
+          3379,
+          2176,
+          3655,
+          162
+        ],
+        "cap_ids": [
+          2639,
+          1112,
+          3446,
+          3363,
+          2871,
+          1163,
+          359,
+          2239,
+          5324,
+          3075,
+          3379,
+          2176,
+          162
+        ],
+        "answer_tokens_sum": 85644
+      },
+      "RS": {
+        "empty_extractions": [
+          2639,
+          1163,
+          3131,
+          3075,
+          2833,
+          2176,
+          4960,
+          495,
+          162,
+          887
+        ],
+        "cap_ids": [
+          2639,
+          2190,
+          1163,
+          3075,
+          2833,
+          2176,
+          495,
+          162,
+          887
+        ],
+        "answer_tokens_sum": 105672
+      }
+    },
+    "gsm8k_mix05": {
+      "R": {
+        "empty_extractions": [
+          6321,
+          6778,
+          5219,
+          7455,
+          3419,
+          5054,
+          623,
+          880,
+          1370,
+          6352,
+          1294,
+          501,
+          6626
+        ],
+        "cap_ids": [
+          5054
+        ],
+        "answer_tokens_sum": 50988
+      },
+      "S": {
+        "empty_extractions": [
+          7455,
+          3419,
+          11,
+          2942,
+          757,
+          501,
+          3251,
+          5288,
+          1100
+        ],
+        "cap_ids": [],
+        "answer_tokens_sum": 51645
+      },
+      "RS": {
+        "empty_extractions": [
+          1959,
+          6778,
+          7455,
+          3419,
+          5275,
+          880,
+          1370,
+          6352,
+          1294,
+          501,
+          3251,
+          5654
+        ],
+        "cap_ids": [],
+        "answer_tokens_sum": 51041
+      }
+    }
+  },
+  "limitations": [
+    "Fixed author grader and original scores retained",
+    "Earlier GSM5424 trace diagnoses one selected case, not all current mismatches",
+    "No logits replay, seed replication, scheduling counterfactual or new GPU diagnosis",
+    "Question bootstrap does not estimate batch-coupled or runtime variability"
+  ]
+}
