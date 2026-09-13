@@ -255,7 +255,7 @@ def run_child(a):
             rid=record['request_id']
             record['R_history']=history.get(rid)
             record['hybrid']=receipt['requests'].get(rid)
-            if mode in ('shadow','enforce','soft'):
+            if mode in ('shadow','enforce','soft','mix05'):
                 if r.get('expansion'):
                     h=record['hybrid']
                     # Two in-flight batches may sample one unused tail token.
@@ -267,7 +267,7 @@ def run_child(a):
                     h['worker_first_trigger']=h['first_trigger']
                     if h['first_trigger'] >= record['tokens']:
                         h['first_trigger']=-1
-                    if mode == 'soft':
+                    if mode in ('soft','mix05'):
                         h['worker_first_bias'] = h['first_bias']
                         if h['first_bias'] >= record['tokens']:
                             h['first_bias'] = -1
@@ -297,6 +297,9 @@ def run_child(a):
         if r.get('soft2_rows'):
             groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),
                       ('S',False,'soft'),('RS',True,'soft')]
+        if r.get('mix05'):
+            groups = [(name,use_r,'mix05' if mode=='soft' else mode)
+                      for name,use_r,mode in groups]
         if r.get('engineering_reuse'):
             groups = groups[2:]
         for name,use_r,mode in groups:
@@ -319,7 +322,7 @@ def run_child(a):
             for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
                 if r.get('expansion') and name not in r['expansion']['arms']:continue
                 if r.get('soft2_rows') and mode == 'enforce':
-                    mode = 'soft'
+                    mode = 'mix05' if r.get('mix05') else 'soft'
                 group(stage,name,use_r,mode)
     llm.llm_engine.engine_core.shutdown()
 

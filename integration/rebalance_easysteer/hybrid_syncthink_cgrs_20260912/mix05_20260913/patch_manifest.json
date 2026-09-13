@@ -1,0 +1,20 @@
+{
+  "base_commit": "c62de5a7a14256ed0bf46cdaace59adccd6d9efd",
+  "files": {
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py": {
+      "base_lf_sha256": "c2007ef15627762243060bf4d163d901c4ef4b4d906a4c9ea39f17a9e16a19ed",
+      "patched_lf_sha256": "2915794c3e5c6a71ca8360193e878471bb27111e213dd7babc17ae9dd24ba276"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py": {
+      "base_lf_sha256": "76824e0047e2de2bc0775d711ec85ad62ed794937ec5a93095e405cedf6b38b4",
+      "patched_lf_sha256": "8d9281082bf19bb594955e4ef98899f54009ec75ce9dcdc8ee657402d751d950"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py": {
+      "base_lf_sha256": "ebbe0a01cc7b43ae1601876f87d0e7b8f8dfab6e017e9eb3d47be0a83ce9417f",
+      "patched_lf_sha256": "c72a761f04802b91ef8c590c40d81b0942a5398683baf4a7c2617c98f3ef10d6"
+    }
+  },
+  "patch_sha256": "fa9f0ef4ee822aef81c024f497a1811354b3fc30fce997ce770585c0854b1a55",
+  "applied_to_isolated_B_worktree": true,
+  "shared_server_untouched": true
+}

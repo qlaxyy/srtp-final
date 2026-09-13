@@ -1,0 +1,1308 @@
+{
+  "status": "proposed_not_frozen_pending_executor_global_reconciliation",
+  "normalization": "Unicode NFKC then remove all Unicode whitespace; SHA256 UTF-8",
+  "peer_commit": "c0a3a5a8e7c3b82abad559bf9ac6fdef11e9e986",
+  "scanned_sha256": {
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\auto_code_v2_1p5b_20260908.json": "57872b05fffdd856ae82d0e22c493c9b64097652fe34554f9a57997b6ede2bde",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\auto_code_v2_qwen7b_20260908.json": "2999fe3edf58679dd41546ed63aaf748e18fe4ff74b396250427ab4fe59b7137",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\boundary_ablation20_20260910.json": "1a0518f4c42ebb585b6d0dcccbcf93b06e2fb4ffdc3b5c0ac4db76f0599d08ef",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\boundary_ablation20_plan_20260910.json": "62c0b481ba6311fd6a353db0ee201ad7709288f3c218ca84885c510a8979be73",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\boundary_content_review4_20260910.json": "763469c3d68d62faa70e2e75ecb67733098867a78043ba2993d68d4757f6aae7",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\boundary_failure_review6_20260910.json": "d2159c01c6c2dbf64cc6b2d847cc2e9d72683bba40d66fe2956d393c321d3df0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\calibration_control_alignment30_20260910.json": "c7e7556de619718883207d94123809106ee3301be2c181cbd040cc9ae4272698",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\calibration_label_audit30_20260910.json": "16afb4311bfc055245fb1802cc8d661ba0565d318434cc310de8e93437944261",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\calibration_label_evidence30_20260910.json": "874f19a091ee96092cc6912868fc5222c154c58dd410af971083ac9d0ed8f2d9",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\calibration_question_weights_20260911.json": "1b58d6104ef124184627d8c466f04b5c7e4d30cda37ba270bf6c19b1fab9c83a",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\cycle_atoms500_20260911.json": "3577adcae3e732707c32c5cdf4a68d6540b55676a7eed6d83c2a24ba5de0dcb8",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\cycle_atoms_plan_20260911.json": "671c4fb0b61e093af1ceece06c10cb6be512e546cfdbd1bd3a770de8ca56147c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\cycle_monitor500_20260911.json": "302aad7e7f12c46280ddc2e1550152c71bb8f7e408b3029efaf819c657691509",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\cycle_monitor_plan_20260911.json": "b74d6a5e017e58f30f76625850c6394042467edf0991c5882324c661add6c6a4",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\final_results_20260909.json": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\first_step_half_7b_20260910.json": "c8130787dd3c998a575bdc00b324e8531c128c1f2998a854302add561137dba3",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\first_step_half_gsm8k_20260910.json": "a13603df3e994d360b3d6dbe155d3a6adfc8f0d11edbfa84088514a9d4fe4d3e",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\first_step_half_math500_20260910.json": "8a0803c38ada12f346ec640aaeb8f214a711b3b280181f5cfade860a358e070c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\first_step_math500_20260910.json": "66e2f5d22028054303ac785b547f5dc287fb5407479454014325e1a402100a79",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\first_step_validation100_20260910.json": "c359f0032da84901caacc262c83bc31ab0073ab69bb11e31187ad5a4e38471f7",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\mechanism_research_20260911.json": "d14407ee7804d60b5faca21b5d90712cd52d4733e53473890745df1cea79d383",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\migration_15536_20260911.json": "71921105aae3bf66440b33e92a6ba46343ec6333460303fd864692c31a234feb",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\overnight_research_20260912.json": "f072b9200fc8f6d9a0c7fd37a3398fb4cf80abadeab455440bac81611aa7ec26",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\paper_reconstruction_v1.json": "8472dffe410b22f3f66c400bcd6662533adb348e5a8c37d017ac5312a2fe4c6e",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\question_balanced_validation100_20260911.json": "163880371ea31d8f059b124c66cb718245f4b86e28cdc11639034a811c57922f",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\repeat_confidence30_20260911.json": "8b6d7428cb92c33d12ee64cb78252ff1730e0c932f357d305f1dcf0943fc8976",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\repeat_gate500_20260911.json": "9c14b597b5b6871ffc02a08f68e6a31e8fdfc1994c7ba0746224ab6db6e48511",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\repeat_validation100_20260911.json": "24e7acd05f687f7acc6e73271162149d83b26d28675808a14696644b8d24e398",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\candidate_manifest.json": "38c9923e5057c23f5658876bb84a13901f38716ff8ebd3f720eb84008c773864",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\capture_diagnosis_preparation.json": "3fda52d22b67eb7d665a27da3a27ee17d7fec238ef887c7c9c54e76687347097",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\content_clarification.json": "21704e762a19ba09f6ba93ba8f2a35a7416405d5abb39a3404dc8b9ce1ea4c9b",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\content_review.json": "57689263bf132d8e3e66c979767f836acf30e33917d771fecdf18f624d3cf121",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\execution_audit.json": "f711e405b81c4808d5d3b587f9d6a9686e9c9c21c57a9b499f19333b6a500ccd",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\receipt.json": "0dcd096520958f7e9dd2a158d6e46d29b4cab9b3d24e121098b3a87036d9fa37",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_cpu_checks.json": "e1dc255a2c5ca2c514e244f20155137228bf76ea8638f391a669342c4a5da980",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_plan.json": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_position_text_audit_corrected.json": "3f90dae752c287c5b2f479d3c7d8372e1d99f0c3596bad271b26ce85d9f51fad",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_preparation.json": "65220f49c07d0e6fca15d036ce9882d32322db029dd525e9b3c6e7db39e8b817",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_run1_failure.json": "43205d547e3585f1df4680444d37d82185dfaee548df2efe96c47f0cb5834c69",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\small_gain_combination_audit.json": "784a63ed8df78b412fa591a7f2bc4b62768ae67a5566b3fe3e114cc1c1f91377",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\artifact_hashes.json": "dd3dfd121339395106a0009b3530be040226c247de3cd3b8c13cd0d64d3dc063",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\data_usage_current.json": "f62a75239019ff044a877b9ebef995aabcd4b48db90457b60222ffcb92e0cd82",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\delivery_checks.json": "770c2d525e9515e18632140f10551216af667fe5339ae6c89fe392e70db9f6d0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\experiment_plan.json": "cad3ae75c9c2d66e1059cc44d218be150ab040b6ba2c5c8120888b302171b090",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\literature_receipt.json": "9ac535c1d84aba444dff1c45375a599ca0f3f6a5cf673f1deaff93d039be18b1",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cpu_run1\\cpu_audit.json": "6475a6359cfac6218964aa0192d083da89260366d8aaf38658cf4e072616df6f",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cpu_run1\\data_registry.json": "bbc5f7fb18fe631aba057b86e5dc6465093a3689867b54901f6f3b037aacfe44",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cpu_run1\\trace_counts.json": "844179396e6820f5191a9a7025029314cc0b924213de8c1fcb0a5cc26465c625",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\data_usage.json": "934d97f4e065fc7124e4bcf4ce55a74ddca02b9c23f472b7184e8465b7ed88aa",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\gsm8k.jsonl": "8c91e8fdc4d56a54155277abf9d11967c6429adc253e30b06fc6962c42db7c75",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\local_audit.json": "235ac10b5fe3b9aeadff002672af8e725e71ef3126f2e862f6add027455b7ae0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\math.jsonl": "ae69bd58a5af33f3f23a38b67714bc1dc510ca1bf2723dc5dd328b8fb60465f6",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\plan.json": "550ab68fea178fa162df873b166fe66dfffbcaff8a069f26a02176129029474a",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\failed_run1\\batch_status.json": "1c2567234e04d5008bb28b3e846529f51a0be8e6b8ec4981daa9f7f97f7c77c5",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\failed_run1\\deployment_identity.json": "22931baae59108ff3701a219ce6278c7bbe9379c20a67ec49dfb5b628e29fd9e",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\failed_run1\\remote_inventory.json": "aa933d3e2b5b73a031bbea6a4ec7291c586feffd9e4f2c3d190171fd40f9bcfb",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\failed_run1\\resolved_plan.json": "a4e7a80a07d10b6d5b628da4db33931d900b41ae63e9b74767accf26c2c1e5db",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\failed_run1\\result.json": "e79849392a8709b1faab0f5094cdeb8ca86efc97ffb9140603dde8a3704b8f2a",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\data_usage.json": "c05706a7ac8e91645e2d9b32a12732290be4449a4cd28d256dde0561babcf8e3",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\gsm8k_test.jsonl": "72f89f07697e1f5ded1a24648db637eea9fdf177ac89cd818dbda30e247ead39",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\math_test.jsonl": "9881c8db7c28be1037f06451aa2dc9f44b892e443b432e6c60e39b65c65d5929",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\plan.json": "0d902d817ccb064ccb7c015ec70be81d384bf71577971c2de697dd3437a66af5",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\prepared_run1\\data_audit.json": "c35b8c7bbd17357cedabf57153f08edbfa14a39c3db38d9da3e7c5e96366506f",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\prepared_run1\\data_freeze.json": "746311646de3feaac8780490fdc88099efac8c01aa225853eafd3c9b17ca7e6c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\prepared_run1\\engineering.jsonl": "b2a9cb03af57e9a3a996dea03328c70f4dd4bc82d5f43ec50d5f4e41bbd7dfe5",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\prepared_run1\\screening.jsonl": "20bc4c9e4c6dd00e8942dc03d53d22d8f3401dd3272e444c626e480396f2c31b",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\screen64_20260913\\artifact_hashes.json": "086657121e37a39602baa43111aa07ef5008ce5161398ebdcdfce4868adf55d0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\screen64_20260913\\data_usage.json": "bd4c62153323a1a23222402fee9a1d0d62ee829cd739fdbe637646d9bd22027f",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\screen64_20260913\\per_question.json": "7b6385f9a017772085d971df5c5848265c201a15c93be8ea870f9ebaaf638647",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\screen64_20260913\\result.json": "1df10445248a13b186dd75941cb7a6e3da55af5054dbb8ff0ff6bd9a9e8b85dc",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\screen64_20260913\\verification.json": "0b06f711594735737a1914d03df8097d3cecd76e955201c72ed4eb5f8d347cb2",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\artifact_hashes.json": "82f15326a2bbb88a7a5a6c24e137021f5dcb6b6ae8073d54cf102d4baf928fe0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\cpu_checks.json": "6b25422b1ba3106403933526fa4006715a61e7f087a7714d338a072606ade1cf",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\data_proposal.json": "c8864c3566d4479ff8a81c2426dc775231077bd2b83e7ff800257e7e57bf14dd",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\development_usage.json": "da6c8f28b8f2449569bfea4e67cf49790654409d85df88e02575fd3714b823b3",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\final_checks.json": "92d513e03abc78b2fd06f6813fb28af0edeb9cb9116323886138bdad32af6557",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\gsm8k_soft2.json": "6e8aee67c89e5e933a7baf5c3c175df96e50408ec5044f306ac70c883ceef8bc",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\math_soft2.json": "cb8a125c3409f6d530217f727ca40180e5da85480d517122496f05660f51d383",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\patch_manifest.json": "be583b1aa4bad9231e66058b27c42f5735ea82cd4587631be6fab962136ace38",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\plan.json": "90d4e482eda7d108a2c859b62b72fbf849e634d5edbf822b5dda3b941b5d840a",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\training_audit.json": "beea4afd333f505e3f063d071a82bb80d4a48bf361e32e81dd92f8e6996765dd",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\plan.json": "36e5356fa1645a4058eda1809a1c56faacbbf6e8ee38e8794ab5978b71ebfabc",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\artifact_hashes.json": "d1d7e1f1fa4f7ecad3eb596ee3159dd73dbe2f8189bbec2afdf16e82edc7d2c9",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\data_usage.json": "b47e1a1e734d4f9b41fbdfd759a12fad06f0475daaf6a55d48758e90581982c5",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\gsm8k_analysis.json": "d40d3ec112c0549153a6677a00b2d9af444c16a49fac33186c24070bf73d4cf6",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\math_analysis.json": "7fa10a269ee8aab3677755f867339fa570b84f4851dcfea33d0017574b533065",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\per_question.json": "22792590b739f2e5fe9838e46157d29794843ae668bb3f61ea58b01238a6867d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\results\\verification.json": "73634e372347c3847458f274617aa38fa5cabd62f939e8b742ff6db393d4fbf1",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\artifact_hashes.json": "9d7d499ba1579b524f25cf24511f8afd6e5d0daf4632d6d41925ddd269f0836c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\data_usage.json": "3e3d75e3452780adf9917069605353679f42f04b39435d3a310a51169192feee",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\gsm8k_test_analysis.json": "03772ea90c2d93359e01d044c021a0c7bc8bf31e16eff7c83a8e3f2e181d40e4",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\math_test_analysis.json": "15a736885bd91a0a5cee2311d3ee3a4804d3b586320818783e33c4817429b0d0",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\per_question.json": "b1b4d343a46decad4501e2885658cf2abc46a05c39f522a89bc2252e9156ca5d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\full_tests_20260913\\results\\verification.json": "6e3dc8483f56785613b2a5f2ea4bc665944e600a90422171cf6b19958607a91d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\execution_run1\\coordination_soft2.json": "b08f973b2b1fe32e8735703bd15adb4d20825751d44aa99d808b81f3fcf3909c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\execution_run1\\local_reconciliation.json": "bc60667f715abc1858bf6ede784f643ea69650bb3d49dfc12c4ceeac4ea7e20b",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\execution_run1\\remote_reconciliation.json": "340157157d6d9e69f2a7faef88170219e5e5ff1c42f63633c95831063196dc3d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\analysis.json": "4cd7491dd3ff079a962e8ff3cf9e42ef4980bbd34c936e060232ce80e5c3a787",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\artifact_hashes.json": "18d5581ec712b77235a78b6e2d09b69e26ce81728115b16d32e6753e243afac5",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\data_usage.json": "24353f55ffcee2eb4b13838b4e6dffe650cd786bf177747229cd0ac54ffc1607",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\decision.json": "90ec8b050a22d9f5ffa2d2408fb8b1b6bd93e39aecea61c75616788650bbc11e",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\per_question.json": "3453e6fa2e1da94a4660cdacf9ae816d9f8d2706245ab6bb2147cfe64b03ceb7",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\token_identity.json": "2574e9515d1c49e6f0db1967bd6e273977a64a703d8ab0718f2db9bb23b9ce10",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\soft2_20260913\\results_run1\\verification.json": "ddacc115bf0e841bd93030e9bcce71fd547a848438328bff6fb9e7d7a33a6b9d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\artifact_hashes.json": "7d5e6a4347029ca6c3e715a8948890d30bfd08c6fa1c322f15f2f1e56cf44321",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\data_usage.json": "3e9d1040707a6f428de38216e3ec5d6494d3dc5e267783ebb3042a3c6036757d",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\gsm8k_test_analysis.json": "022b6683aa52204c01c4e18deca1f8b5bd5515745cc348860a9501340594d205",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\math_test_analysis.json": "44e81ae2da52f5e7fa476a2e3c739e5ac594c773bdbd1e6f4b40f3b69fce8203",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\per_question.json": "8e9435d384c2e04cfee58e00db6b25a7a9ac5cc38f623e731d6fae8e1334176c",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\speed_recheck_20260913\\results\\verification.json": "fb79cb22b25219893645e6bc841b546ff4e0803d94023cf65c9a16480edf5e5a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\auto_code_v2_1p5b_20260908.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\auto_code_v2_qwen7b_20260908.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\boundary_ablation20_20260910.json": "1a0518f4c42ebb585b6d0dcccbcf93b06e2fb4ffdc3b5c0ac4db76f0599d08ef",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\boundary_ablation20_plan_20260910.json": "65af63ee007c9ad0a995ab2c861de560c6ffc911b620dd20917c3ce41e050b84",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\boundary_content_review4_20260910.json": "be8d7107290a342524e9181a1c98358b7204668cb138d8892b772d6f566696cd",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\boundary_failure_review6_20260910.json": "2d5c6d4790eb7eaee6bfc4019c91f0ac86848311aa113c964eb52052baea64bb",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\calibration_control_alignment30_20260910.json": "f5fd5f1bc7ef1bfb3598d85998338b6eb1edc84097ea00ba25fe7d39da5e1267",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\calibration_label_audit30_20260910.json": "16afb4311bfc055245fb1802cc8d661ba0565d318434cc310de8e93437944261",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\calibration_label_evidence30_20260910.json": "867903ee69aa4dc4e22e210bf3b40355754cf24780516d2aefc6f2691b80440f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\calibration_question_weights_20260911.json": "1b58d6104ef124184627d8c466f04b5c7e4d30cda37ba270bf6c19b1fab9c83a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\causal_correctness_readout_20260912.json": "de42b19618c30b4be59b3a9aea8d9c0d4c3d32a46db092bb3256734c08cf5087",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\compiler_buffer_diagnostic_20260912.json": "495c0ed4c0cc77e80d076676f5c4a656e8ead245a149b8fe8aae4432f804b7db",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\compression_uncertainty_audit_20260912.json": "14c1320c4ef96c1eed9244b0ed105802028dec186f08b32fc47d0b817e9f7e55",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_surface_audit_20260912.json": "372b2de2864a22787513f5958d4636f21dc22305e4133f78dacb94bfd69168ae",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\cycle_atoms500_20260911.json": "636ecc1cf54a25813169eb09ca99cb94d54510386d737bed53db80c2c3975a34",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\cycle_atoms_plan_20260911.json": "7a83f9e24f2c40405854575b0b1136e82783489ae6442dc7703effba613ba980",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\cycle_monitor500_20260911.json": "75ad2e8248e0558428f004ecea6397ce4e095133bdc980a664bc64c0330ea92b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\cycle_monitor_plan_20260911.json": "2adf7842241fb54483b6dd518f27d5b3fba52bc651fb0cace06e8b85c828adfd",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\final_results_20260909.json": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\first_step_half_7b_20260910.json": "c8130787dd3c998a575bdc00b324e8531c128c1f2998a854302add561137dba3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\first_step_half_gsm8k_20260910.json": "a13603df3e994d360b3d6dbe155d3a6adfc8f0d11edbfa84088514a9d4fe4d3e",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\first_step_half_math500_20260910.json": "8a0803c38ada12f346ec640aaeb8f214a711b3b280181f5cfade860a358e070c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\first_step_math500_20260910.json": "66e2f5d22028054303ac785b547f5dc287fb5407479454014325e1a402100a79",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\first_step_validation100_20260910.json": "c359f0032da84901caacc262c83bc31ab0073ab69bb11e31187ad5a4e38471f7",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\interval_control_20260912.json": "6d008883a24b92d922f8ab8c2a74c6ac9a634890bdf0a1083e0a3078220d089c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\lexical_direction_20260912.json": "95779707d81a500d136f591b9506508f2e53e6001f9f3203e6b09f626125b12b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_cpu_plan_20260911.json": "4215fee950c192f2f55498750eea01318a8ac302afe5f801383649bb04563989",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_followups_20260912.json": "88a92eee76027d9da5dc126a59a22c69afc8a6093ff902f3bb707503f9b8944a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_research_20260911.json": "d14407ee7804d60b5faca21b5d90712cd52d4733e53473890745df1cea79d383",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\migration_15536_20260911.json": "677b33f0bfc181ecb113d2d47202c032408b1db9622dd0f38a590984c6a5e5fa",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\overnight_research_20260912.json": "d132a27161e9bfa63c6e879d8f25809a96ec2f651465497c42430d449ecd58f4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\paper_reconstruction_v1.json": "8472dffe410b22f3f66c400bcd6662533adb348e5a8c37d017ac5312a2fe4c6e",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_ablation_20260912.json": "e8c1d411805bc63534dd5359698cff2f4d3e329ab106939ff0002d35c6839dfc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\question_balanced_validation100_20260911.json": "163880371ea31d8f059b124c66cb718245f4b86e28cdc11639034a811c57922f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_numeric_diagnostic_20260912.json": "4d1e9b3eb89f1bdbe88af71267a9c6b54d73f60d623aa14e320a2bc5f93e8c75",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_restoration_20260912.json": "e4c81b5133992fa26d61788b2f9912ddf4b43a3a537b982967e1a9087d8250f9",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\relative_displacement_20260912.json": "01568024229ad2784cf047b65fd2e72e789cba388c367b76fe1f925007c8b3ac",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\repeat_confidence30_20260911.json": "8b6d7428cb92c33d12ee64cb78252ff1730e0c932f357d305f1dcf0943fc8976",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\repeat_gate500_20260911.json": "9c14b597b5b6871ffc02a08f68e6a31e8fdfc1994c7ba0746224ab6db6e48511",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\repeat_validation100_20260911.json": "3389116583f59c9a8504c3b51be04dba6a1cb40c187719ca4a2728e1c6b0ee36",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\research_lines_20260912.json": "19b6a38510ac1a756e8cd933a2f576ea9c9210d2e4e43ffffbd27fce0fb8a249",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\robust_aggressive_20260912.json": "4b0d4f267e5f036b15e9bd17a8abda994618d7c961be948f3df45f93f4869d4c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_confidence_20260912.json": "f5353259cc7e861802bc55b4939b0da002daa2ca902ee05e5f969fb9722f95c2",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_confidence_test_design_20260912.json": "c8b2c3e2254a123575a7913b85c7185ebd73044d5ad99a5578f1423f1bebaebc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\short_step_specificity_plan_20260911.json": "e08d607ce04d6cf5704a730d1dc6f27fb0286b4c99d6445e15872ea438ca46d9",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\suffix_penalty_20260912.json": "ecd44e2b30440aa29b53bb6f86b0c41ac7386a3d3e9fd2100d094a035f84c9d2",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\tangent_retraction_20260912.json": "0b22252555ca6d20061c359eb5f7d0ee0e452875f6005f5ea1377883a880b5bb",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\within_trajectory_progress_20260912.json": "28973d1d4f0f4a70a739af23239c4926f79e75658bae46ea8dcf8575314de493",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\candidate_manifest.json": "38c9923e5057c23f5658876bb84a13901f38716ff8ebd3f720eb84008c773864",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\capture_diagnosis2_result.json": "11a0cd5a7de848cda6db4e1be66ec7c77314a13df5ebe4f81ebe3ea6ac9f6ee9",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\capture_diagnosis_preparation.json": "3fda52d22b67eb7d665a27da3a27ee17d7fec238ef887c7c9c54e76687347097",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\capture_diagnosis_v2_cpu.json": "cfec7284ff3d49d8095cd8a4ad64ce82eef8f9387a32c56efcbc3ab49ad5b88c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\capture_diagnosis_v2_preparation.json": "9c01c969d84b04f3bb91715fef5e22043cda6b411b4bb05d9b80e091f08da4bb",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\content_clarification.json": "16fa65dc61db70fee39b423f42fc91ca7900ef0fd4c58d52498720b3f9b4c13c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\content_review.json": "57689263bf132d8e3e66c979767f836acf30e33917d771fecdf18f624d3cf121",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\execution_audit.json": "f711e405b81c4808d5d3b587f9d6a9686e9c9c21c57a9b499f19333b6a500ccd",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\last_diagnosis_intake_20260913.json": "8cdd0ac02dec5bd2e8d5379b6713cc9bf5e9aaa0ac4d1837323a7c1999ab8e71",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\min_displacement_h200_inventory.json": "78ee05351417209c56cb1a30179cca42df02ee894912da70898781d574db759f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\pro_followup_intake.json": "39edd1e8c51ef02a6ec3764b66fe20304952955f9917713025f2350d40fa0ff3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\pro_followup_supplements.json": "12eaeac6a29f2ae2dd4c8719c11a86bb7c4e6c4f3ceb9a1df31793cfd76f0b51",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\receipt.json": "0dcd096520958f7e9dd2a158d6e46d29b4cab9b3d24e121098b3a87036d9fa37",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_cpu_checks.json": "e1dc255a2c5ca2c514e244f20155137228bf76ea8638f391a669342c4a5da980",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_plan.json": "c21ef694cad5f2d27208293a41211cbef068d05383ded94d9872a1907dd1954e",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_position_text_audit_corrected.json": "3f90dae752c287c5b2f479d3c7d8372e1d99f0c3596bad271b26ce85d9f51fad",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_preparation.json": "65220f49c07d0e6fca15d036ce9882d32322db029dd525e9b3c6e7db39e8b817",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\replay_run1_failure.json": "43205d547e3585f1df4680444d37d82185dfaee548df2efe96c47f0cb5834c69",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\bcc_v1_20260912\\small_gain_combination_audit.json": "784a63ed8df78b412fa591a7f2bc4b62768ae67a5566b3fe3e114cc1c1f91377",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_only_screen100_20260912\\confirmation200.jsonl": "704df4d464cf7dfa4240526afb55e57f549a77c9abf530859832f669ac018c5a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_only_screen100_20260912\\plan.json": "ac7b5eacc428ade278f356a1576695e383675149db888cdea456118b8c9f0923",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_only_screen100_20260912\\screen100.jsonl": "d57163107de986c9d6f5d1eef03405fa1f2de325cafeecfbd1348b380ea65c83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_replay_20260912\\cpu_summary.json": "692890c04fe7d2143e732c1452b10524ff2cd2434df2cfa1eab812d045e1e50d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_replay_20260912\\plan.json": "33e5fa25a0a9cd3f1338f730d2870ac210b28267407d5d993df95a54643e2de8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\confirmation200.jsonl": "34bb8b9eae0b48fdc9d39b3c12a5f8c6878b72ede89f0cf3221f274294290475",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\plan.json": "8a36c9f7147cb60db9f116df28cc4c2602fc0be26c81461231eb558d59395a5f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\screen100.jsonl": "a427e2d69ead5c7013851ef7b4afaa351f52c1091cd34659a464c7322d18a09d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\confirmation200.jsonl": "5555ffe42c1b2b7ae6c482e54696450c50a8bcf807676a02a6639ac0940c9201",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\plan.json": "e5dea88c859bf4227fdd2640507ceeb4b3606bbbf01d82868ac7d4bcc5e2a066",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\screen100.jsonl": "6b8c5102167b8483565e8b655b426e385adc3b84a234d14644b4a6ae9e0c8616",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\smoke8.jsonl": "dbedb101aa1112a53f6fa63cbf841d2aa3a43791b68764c06483af3226e802ca",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\confirmation200.jsonl": "5555ffe42c1b2b7ae6c482e54696450c50a8bcf807676a02a6639ac0940c9201",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\plan.json": "cba4bfba430e39560ca74c2427cf3e72633aa5a50c3ef187618bb4f7fe2e9b2b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\screen100.jsonl": "6b8c5102167b8483565e8b655b426e385adc3b84a234d14644b4a6ae9e0c8616",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\smoke8.jsonl": "dbedb101aa1112a53f6fa63cbf841d2aa3a43791b68764c06483af3226e802ca",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\confirmation200.jsonl": "5555ffe42c1b2b7ae6c482e54696450c50a8bcf807676a02a6639ac0940c9201",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\plan.json": "caf35b027198d1f09d78c1c886564138d3e6ba6a4980e4fb05c71b1aa655c158",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\screen100.jsonl": "6b8c5102167b8483565e8b655b426e385adc3b84a234d14644b4a6ae9e0c8616",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\smoke8.jsonl": "dbedb101aa1112a53f6fa63cbf841d2aa3a43791b68764c06483af3226e802ca",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\CPU_checks_receipt.json": "bcd1469dbbf3bc40f40d4e331a7c120aaeb285c6b865520c3e9d75fa419762c3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\files_sha256.json": "5ba943f27b4d1004f8ddad634939b0d207ffc9290e214c4e0910952dbbbe4a82",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\local_preflight_receipt.json": "30871ac4dcfc0a7c0aa17b87622f0792dc26588032464df67d9c7e10da4f170d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\plan.json": "b9b099dcaaadf5433a12c53fb2f7df1a1ea8e2dce3d583e7c6b8c9167bc2d053",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\prompt_audit.json": "fb11977f2bc0efd2dc60d7b40c187f12b8cea05cd24d2451443fb45df82dfb6f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\CPU_checks_receipt.json": "ee62fcf8be41ff3db2481efd9272e589815adcbc3c0aae4e04aa3a5be410135e",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\files_sha256.json": "e6cd6ade38ea67a95cf6986392314216caf72d4377f53f383a226d5b93495409",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\local_preflight_receipt.json": "2cd3bf4967d09d1c050b202c319420cde3418d32f58a743f08ff37570d26568a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\plan.json": "c87de6f28dacade1cba740b015f801003ee65b1c3810e28b3fa6c7db55dd1339",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\prompt_audit.json": "fb11977f2bc0efd2dc60d7b40c187f12b8cea05cd24d2451443fb45df82dfb6f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\CPU_checks_receipt.json": "9a045ba65870477784edfc8f7d88d4779be8816cb7fb9d5dfad88330f6267502",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\files_sha256.json": "449496fa24eb51a2cf1c1e8c2b348b6e25bc749d62fde4daae9da118b9293be1",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\local_preflight_receipt.json": "85a7b92de0b689f98f0da25094defd0a1357611a9ec15d4c342e1705cc5dc753",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\parameter_branch_receipt.json": "183686c0ce7064052eb766a7f5ef9cc3626a050a003a0eff46e69d4452f6ad4a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\plan.json": "d1861d76c0989d5272430a6089bd087c2d87ace27917e75da63309cdd7ae876f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\prompt_audit.json": "fb11977f2bc0efd2dc60d7b40c187f12b8cea05cd24d2451443fb45df82dfb6f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\matched_first_confirmation200_20260912\\confirmation200.jsonl": "34bb8b9eae0b48fdc9d39b3c12a5f8c6878b72ede89f0cf3221f274294290475",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\matched_first_confirmation200_20260912\\plan.json": "9f5cf6a7b941aeaef702fa9cc84101f941fb08323e6fcdd577a70df127a16a9a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\confirmation200.jsonl": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\plan.json": "b65e5c6f05bfbba58d98a5d664b18dca38938d2b98fd89c0d0d443988d67e000",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\screen100.jsonl": "169264381d2cc5bb36ebc2f2c28adf51b4872d20a06f0658977ef0ab233d22d7",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\min_displacement_confirm_v1\\data_audit_receipt.json": "ae20b0c5b0dce4ebda56cdd09cf61d4937bd272f4fadc00da6bf16ecdf901ed5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\min_displacement_confirm_v1\\preparation.json": "163cf7537d64ef22455a122d4c7b5d24d23d2e65f68e4593a416c2c898b5b827",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\min_displacement_confirm_v1\\result.json": "3edb6096f0e092f47b183aa47d5a75a69f8306747a96e5aec952018bb7e44fd9",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\min_displacement_confirm_v1\\statistics_cpu_checks.json": "973ac455c8850cf89153129d9a9462ca1bcc618106ef10ce4f1c9aef728eed4a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\confirmation200.jsonl": "32fddadd2fdac1467e6774fac39fda2169efcfea5d723ca3a5cb017398661db3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\cpu_opportunities.json": "87db1fa5ba5a83261417d3edf90af7b808f24261651086e50328e95ffdad6016",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\plan.json": "8e843dcca0c97f78cf0ba3273a45ea2deed052c512d6ef908b83ae61d7d8f8d1",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\plan.preflight1.json": "c6444125ac6f3b1d2b2f3d912b93b4234550780b6394ec639a759df213724fae",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\screen100.jsonl": "a538bc4fa89ccbd336f81455dee2fef10bd72d7aa9c22ab924b7d5510a5cd982",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\smoke8.jsonl": "ba20347163042f44491a31954c55cdb1ce5e35be99a81df135df49a65910389f",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\prefix_probe32_20260912\\plan.json": "9440ece64c9578d28efc1dbf7eb02cb9765de589793b460ab279c6666ffe895d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\prefix_probe32_20260912\\selected.json": "cc8bfdd44e0dd1739cb39fb37be7738673419df4c2624bfe25a9037166aea091",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\confirmation200.jsonl": "bd3d0934af6e64afaba2e839224cfd7ddc76cc757a424a73107f4bb97e906b1d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\cpu_audit.json": "8907acab039eac04b571aaf6ce483e5701919b4ef091fdf2d676fb2701e4a832",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\cpu_summary.json": "b032c5dd46168696ed7d54a137994f9c2cb5450f90a9ca04ac8fdd42295bdca4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\plan.json": "27446f6b211f3452cfab7fea2c432dfa4b3523ae950acf7575fc77315a1382cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\screen100.jsonl": "fdfdf00201ea9b3782a5aaf37776fa0a26ba1c8ebe1f509e2e23d937fc9abdf5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\smoke8.jsonl": "0584fb9ac13cc403b30fe1eccbaa0a53f718e895d863bd9b0cbf0b444312039b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\confirmation200.jsonl": "bd3d0934af6e64afaba2e839224cfd7ddc76cc757a424a73107f4bb97e906b1d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\cpu_audit.json": "8907acab039eac04b571aaf6ce483e5701919b4ef091fdf2d676fb2701e4a832",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\cpu_summary.json": "b032c5dd46168696ed7d54a137994f9c2cb5450f90a9ca04ac8fdd42295bdca4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\plan.json": "e81a38060be22e3b8b86af40fc452fbe168c2c82427bb1a02a0b09c7860b07de",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\screen100.jsonl": "fdfdf00201ea9b3782a5aaf37776fa0a26ba1c8ebe1f509e2e23d937fc9abdf5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\smoke8.jsonl": "0584fb9ac13cc403b30fe1eccbaa0a53f718e895d863bd9b0cbf0b444312039b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_probability_replay100_20260912\\plan.json": "64f6aa313004c99c84a1693677c3cb13630c2ec01a2a4ab66bb38317fe5b3cd4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_probability_replay100_20260912\\questions.json": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_probability_replay100_promptfix_20260912\\plan.json": "2493be84b5394c5b1fea16b55c8d2e195058ed619a8baceef4553bca848a58af",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\sampled_probability_replay100_promptfix_20260912\\questions.json": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\aime2024.jsonl": "afeac47232fe8975b2752a01da1af749171a6f97b9a53c8ee2f17db866425326",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\engineering.jsonl": "d8256b8f7d0f4f3186ed4f99b631f30e76e8d4a9db3d7c798bccea569f3fff17",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\math_train.jsonl": "4fc5fd69fd3a8ec1eef8e1daecc9e271bcf4ef8af14cd425cf4f9a6491b56f4b",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\plan.json": "0ee617b6cc227574b79a01d3e9868772130d67e7d27e3fb8c78509897a3fd720",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\confirmation200.jsonl": "fe6bf546544a4e32049d76cb743c5b4ede8f6a5fbb61fc6780f9a1bdcde0ee3a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\cpu_summary.json": "560ad01bbde80af6f1dd77fd55fcf710a41209cb2ea43dd4106e42b2fbea7cd8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\plan.json": "fff8be30e4886e6faa249a55a7a11c0158a7cd7acfa39a6dea04c6430eec33d5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\screen100.jsonl": "bbf1ebb5166a74fcb433b7e42b3b4201fa0ccb2e6b8c31dd9bd0192c251ead14",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_only_screen100_20260912\\assets\\confidence_only_direction\\fit.json": "16d7cf7d8dc3c7e919b68b57c52ad540eee0c04120c845504fe926a41f90cca3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\confidence_only_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\assets\\matched_first\\fit.json": "69e667b222ac56394c5461329b4a672ab3a4015572f57f9c475f5f5ba417b8c4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\control_point_screen100_20260912\\assets\\predecessor_delimiter\\fit.json": "46d5a5b64c02f9e50e2bf4ff6e8acf113aaf6a0e6035d6e5bc644215a9766533",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\assets\\latent_feedback_clip\\feedback.json": "4631c179b9b7fb08ee8f1f74c195bc8a6f0962ad416df0f77620609532f01629",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\assets\\latent_feedback_clip\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\feedback_controlled_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\assets\\latent_feedback_clip\\feedback.json": "4631c179b9b7fb08ee8f1f74c195bc8a6f0962ad416df0f77620609532f01629",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\assets\\latent_feedback_clip\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\assets\\latent_feedback_clip\\feedback.json": "4631c179b9b7fb08ee8f1f74c195bc8a6f0962ad416df0f77620609532f01629",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\assets\\latent_feedback_clip\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\latent_feedback_screen100_cachefix_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\probability_replay\\expected_inputs.json": "9d6200f9cc1334cfc1faa56b9c8e3496524d30e458b8508cf8f418e8aeaccdb8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\probability_replay\\plan.json": "bd8b6c8eece58eef3313f128dd63e20ee5e53534d4b8577672101d73389ff267",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\probability_replay\\questions.json": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\confirmation\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\confirmation\\plan.json": "04c7d1c0355db1f0847d143f302b68f8af2430cf0e941681fac334d63e96d1ab",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\confirmation\\questions.jsonl": "8081c7bd4627bdd015791a625357eef4404299bbb4a675d0ae5c676f6cc78ca1",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\engineering\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\engineering\\plan.json": "f015ae97a3893c8ad5c2ed0022d5b155ddfb988a95afd2055ae065f492400e09",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\screen\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\screen\\plan.json": "d0c65f3622c5d6ca77d22769fb7c4621221b707bb41e69adc453c8585073765c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\screen\\questions.jsonl": "1846822a53be7388daf610c723c6384347f6c3d47d540e555e1a6fbcd8e3d450",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\confirmation\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\engineering\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\screen\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\lexical_direction\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\confirmation\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\confirmation\\plan.json": "1d0383dba7156d1517d2bc27e8bec7a1e805da1f144cba5f8db831b33bc896ce",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\confirmation\\questions.jsonl": "d3e9364d8fd29397d50d19d9fb287b3b471ef2e7a49693d69d94f1f9528e30e0",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\engineering\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\engineering\\plan.json": "dda4f71f2b821b3d9070e98161dccde14b4fad46d8c95a4fd712640712501921",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\screen\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\screen\\plan.json": "b927ffb9a05c329e41ccef2819b2ff626836f9c1e7951bd228ca352df4c05dad",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\screen\\questions.jsonl": "76e5f6b7281cc28e7ccc9642bfff09ffe278a508b68850cdf50a2882f99b7c0a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\confirmation\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\engineering\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912\\sampled_confidence\\screen\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\probability_replay\\expected_inputs.json": "9d6200f9cc1334cfc1faa56b9c8e3496524d30e458b8508cf8f418e8aeaccdb8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\probability_replay\\plan.json": "bd8b6c8eece58eef3313f128dd63e20ee5e53534d4b8577672101d73389ff267",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\probability_replay\\questions.json": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\confirmation\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\confirmation\\plan.json": "c8a56bb515c7b13f949a8ead4616e8228c32b2ab22018d37acddbd0edd752cf4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\confirmation\\questions.jsonl": "8081c7bd4627bdd015791a625357eef4404299bbb4a675d0ae5c676f6cc78ca1",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\engineering\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\engineering\\plan.json": "c0cc76645a758bbe842ee390bd8c978262025052ee2be9db5110880b1e8ad369",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\screen\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\screen\\plan.json": "6475141dc1f7fdfd053752d632791c76460d9f2954a4b19ca05b0c4429812e5d",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\screen\\questions.jsonl": "1846822a53be7388daf610c723c6384347f6c3d47d540e555e1a6fbcd8e3d450",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\confirmation\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\engineering\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\screen\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\lexical_direction\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\confirmation\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\confirmation\\plan.json": "aae5b2f46b9709e175df50af07ba4339c0273087940b3ccf44502697c754e447",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\confirmation\\questions.jsonl": "d3e9364d8fd29397d50d19d9fb287b3b471ef2e7a49693d69d94f1f9528e30e0",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\engineering\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\engineering\\plan.json": "873ae667bb55df30a511d3ef0856bec318e3a790d7627e59e57ef45f93b4accc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\screen\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\screen\\plan.json": "22fc928e45143a2176aa4c25150a0b4e4bd48f25a2d7d16afcf92df31363c8df",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\screen\\questions.jsonl": "76e5f6b7281cc28e7ccc9642bfff09ffe278a508b68850cdf50a2882f99b7c0a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\confirmation\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\engineering\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v2\\sampled_confidence\\screen\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\probability_replay\\expected_inputs.json": "9d6200f9cc1334cfc1faa56b9c8e3496524d30e458b8508cf8f418e8aeaccdb8",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\probability_replay\\plan.json": "bd8b6c8eece58eef3313f128dd63e20ee5e53534d4b8577672101d73389ff267",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\probability_replay\\questions.json": "5fd07e22989077c1f73e7689d2dcd4d3e4de8ed047beb3c29fc4c45b75f206cf",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\confirmation\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\confirmation\\plan.json": "58fd3aff738b3e701380045663191e1a160524854b345923597338370c9a1ee4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\confirmation\\questions.jsonl": "8081c7bd4627bdd015791a625357eef4404299bbb4a675d0ae5c676f6cc78ca1",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\engineering\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\engineering\\plan.json": "06d1fa00a5d0ac4552f70a15a9fe7f7bfef89d977a22181a8a1d535fdcca7617",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\screen\\cpu_receipt.json": "c7c30a1aeee605473faca18ac170148fc338aa31a8a8d9dc703b4bc407e38bee",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\screen\\plan.json": "b8641ef8915635124008960fa4b90210858e27e9dec5c15765c9de59417fff30",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\screen\\questions.jsonl": "1846822a53be7388daf610c723c6384347f6c3d47d540e555e1a6fbcd8e3d450",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\confirmation\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\engineering\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\screen\\assets\\lexical_direction\\fit.json": "fb5544c91149e63e801d4f9f5af7681070b434bb5a8dd5ee9df1aaa74bfab6e5",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\lexical_direction\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\confirmation\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\confirmation\\plan.json": "a0d1a316bf6b23f1dafe67a2130c43a97c83703990c878e770c92a035284656a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\confirmation\\questions.jsonl": "d3e9364d8fd29397d50d19d9fb287b3b471ef2e7a49693d69d94f1f9528e30e0",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\engineering\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\engineering\\plan.json": "61c2abf445e25b2695e282851ebb3af916b469f7e1f83a1b047ee5f26427a747",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\engineering\\questions.jsonl": "b5d9e4598b439a40ff6437eb262c33ab24a327313859b2f01feb6a1d7b4f5fcc",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\screen\\cpu_receipt.json": "b47320daba7779625c495922436cff3d0a89af7c8d106870959df2d941b1b65c",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\screen\\plan.json": "71f98ac8666663f8e0a490b41642608f529543b44a166863b92b5a81f2f2a3ed",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\screen\\questions.jsonl": "76e5f6b7281cc28e7ccc9642bfff09ffe278a508b68850cdf50a2882f99b7c0a",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\confirmation\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\confirmation\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\engineering\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\engineering\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\screen\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\local_prepared_batch_20260912_v3\\sampled_confidence\\screen\\assets\\sampled_confidence\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\matched_first_confirmation200_20260912\\assets\\matched_first\\fit.json": "69e667b222ac56394c5461329b4a672ab3a4015572f57f9c475f5f5ba417b8c4",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\matched_first_confirmation200_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\assets\\min_displacement\\fit.json": "1a32eed3f3feb908b0aba6bbe919342395bd4cc2bb7971409777d9f38fd57043",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\mechanism_screen100_20260911\\assets\\orthogonal_mean\\fit.json": "9736339dc17cb2e481f4a644a76828a68ebe2341497b9a155bf2a257e8b4e0f3",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\assets\\negative_only_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\positive_branch_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\assets\\radial_disabled\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_20260912\\assets\\radial_restore\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\assets\\radial_disabled\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\radial_screen100_fp32_20260912\\assets\\radial_restore\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\seal_comparison130_20260912\\assets\\seal\\fit.json": "2492f50db5376043476692407e91e67867fff5fdaffa054d7660762d1aaf7652",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\assets\\original_dynamic\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\integration\\rebalance_easysteer\\configs\\trajectory_progress_screen100_20260912\\assets\\within_trajectory_progress\\fit.json": "b7fe6289fe3fbc0d0d423d321ce6ea30cb6768dd2a775119039079a058890b80",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\ReBalance\\Data\\Math_Math500\\test.jsonl": "100fce760278f90091a30779ca998a7feba602e8e60de1fa4f99d5a244bdccf9",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\ReBalance\\Data\\Math_GSM8K\\test.jsonl": "e978da3bb40e8b614736313c91455191f29d67896a1fae721540a081fd869708"
+  },
+  "parse_errors": [],
+  "eligible": {
+    "math_mix05": 3521,
+    "gsm8k_mix05": 7209
+  },
+  "source_sha256": {
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\ReBalance\\Data\\Math_Train\\test.jsonl": "535154c2836c92dc2df7e57a817e63eee67370fcd513004fc7b887924ff56270",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\expanded_20260913\\gsm8k_source_train.jsonl": "17f347dc51477c50d4efb83959dbb7c56297aba886e5544ee2aaed3024813465"
+  },
+  "question_files": {
+    "math_mix05": "06092bfc7c1ad52e5f0da7b0fafd246939d838dca17df379d533ef4a5838fb6a",
+    "gsm8k_mix05": "e2ce7936ae0b9caedb9777b36d352e659eda6d96b2ecd0297eb1a905361a0779"
+  },
+  "proposals": [
+    {
+      "dataset": "math_train",
+      "train_index": 3619,
+      "problem_sha256": "a29afbbaa655c0d28a2f4ae3f70ac610af119e956368266489e9fd4a41ce5f36",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3315,
+      "problem_sha256": "388155f40f06420bd759353d36d83e9584ac63dccb1a34cd4cae7ff4620203da",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5325,
+      "problem_sha256": "a3129e54e4b0686faae893a98b329cc88c83f4581ee1ad855bc1bc1f2c73e3a8",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1482,
+      "problem_sha256": "8b44835455652551a26eec752486efdc6da469839683e2955b41df317576ba02",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 949,
+      "problem_sha256": "6c193b785d9c79c58193ee2d97671ef49cb2a2e99742fe8a5736ac1b22db987c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2074,
+      "problem_sha256": "56ddb9b303c438cadf3c6d8cc1211fdb76a7e7292a26982e08db416e8c5eb6a1",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3381,
+      "problem_sha256": "dc2d14aae59614d49bd4c257e293fd27798728057ba06fa83042493a6a6d8674",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6925,
+      "problem_sha256": "9c53aa8dd50676164a38d10247ec709f3702d1cd75aee4eb140302a061f914a5",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2354,
+      "problem_sha256": "163f50e46c1aabdb3f90df69d9e39b94df99af18cef14490ee53688357ba8a18",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7365,
+      "problem_sha256": "35aaecb6e7e15dd00a7dd738f0dda141ab8440a8a57ddc26394126e4ec85d935",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1801,
+      "problem_sha256": "435ee041c500d5f8d4edb751aacc37c862fadc55a1861416f78dd9ac1e52a49d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5964,
+      "problem_sha256": "c2557c935336e24246798d27a00de9fbd3ff6822d43ef8450cc46f11836bd933",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7243,
+      "problem_sha256": "dae2bef0982aacc0b2a548d73fd32a16ddaf93f9263b41ec629d8fecf6b33268",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5714,
+      "problem_sha256": "4d54eeb8609f4d805bf3b76281ece92bd092bd2ca7311bdccc32ede44eb76c55",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 538,
+      "problem_sha256": "648149d2b32fe6fd40ca910ec555c6467c9dde639d530c1707353eb9c85c6442",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4152,
+      "problem_sha256": "a1aac4759e7d3f1a6b7dc04e33545cb0b168a65437f24fac5ff4d3502df51131",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6212,
+      "problem_sha256": "759a7c658835f866e0b7f8904c6f6328799b95352f7280d76275959862459352",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3646,
+      "problem_sha256": "f3034a6e8ebfbe07320fcfe3ffd824491b92fb25efbb924aa3d6ae6f28ade980",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 126,
+      "problem_sha256": "a2bf2ec2915782fd214f6abde96691bb51f73929cfe84f3f94f2237d13228a45",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4808,
+      "problem_sha256": "03b11256d138d1e3ae6a4072ed03bd24be7ded15481e7615d168b9b24e329d38",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7356,
+      "problem_sha256": "05023699fdd7777a766d6705ecbf4f4f9e3b9dfdd594db46b1845b1450a1c638",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5071,
+      "problem_sha256": "a470ed93f584a1e561ed0eec181379282848ad24168d9d4acfbcea8847a2505d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6766,
+      "problem_sha256": "a821f360b7b4cdb98ecaf6046ce58670af7c5f61ee1be8221d653d0bcf53b9d0",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2851,
+      "problem_sha256": "3ceb697ef1e7a9363187cd6bace8eef3386f9321cb118ef8b182855b5137706d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4787,
+      "problem_sha256": "2c34c794ae201e506548faab8d8361a7b4a0405ab2d9918d5c3ae35ac3c864a8",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4839,
+      "problem_sha256": "da080b69205ec42b0f8b0af4d1e894de883bd252a85f242a3c399431492e0fc2",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2464,
+      "problem_sha256": "eb0f1966b8a6b3bacd7ec4350eaa9ffb53804c6bb4dd046614963f2a96a88ad4",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2751,
+      "problem_sha256": "976c54b3251dc5c195036aa31968f83218c4b0779c3d5875605b559be0d1cf82",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 811,
+      "problem_sha256": "489f43f79dc40977b65a83a6eace29f0414ef60c98dbefb784c3eee24b51b12c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5891,
+      "problem_sha256": "9338685f5d6313d9b66eacc2035dd0ea07e8fb97f6f07448c84fe20ea64d9a2d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2357,
+      "problem_sha256": "84b3abb99fb30b1058a865375ad00c98d2dde0ba7e6fd158e58749060aaab8d0",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3894,
+      "problem_sha256": "1311899d07186ab9e474b2f14d7081b1e2895653d263ccc91152e82902b7d576",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4700,
+      "problem_sha256": "4554b550cafde377b1de06cdfb5b0101b61445f3f38bc11ddf92ac08618b75b7",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5024,
+      "problem_sha256": "d79d315fe6e134a9acab3975af0d6b5f7030594140f9deae1c9b6a201b556674",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 478,
+      "problem_sha256": "98edc4c30d9a30cfd739e84b7848f43824b703825bdb5a8a63014f5eb46d1d7f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6523,
+      "problem_sha256": "241a10cfb272b811010c0d82afaa2bf05b1f7ff700d935ade308481525d6fe79",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6568,
+      "problem_sha256": "e3f71246a1f2df2526299aa71badfcd6dd053fff37571254dc41eb2f76ca9be5",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7187,
+      "problem_sha256": "fb052c2b3a09dcd418c081926eaf1cd329cb9e8e3c2d919f2140243e41e64af3",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2934,
+      "problem_sha256": "25b21c30fc470f43b1ca09a6146aa0c53b9d64aca3ef6d81a48723a57a6021d3",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4576,
+      "problem_sha256": "73dbefc95750c992eb757b8a6224e2c449e56713aa02481c8e4ff1f84a102285",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7422,
+      "problem_sha256": "d5733407fa31ffd15aa22df040888bb2327d9637419c28b0bbe62360a14ca7ad",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6715,
+      "problem_sha256": "b53846fe6d1a2c115af4b23eb6e0b11b4cb7542e225ebc5e1c4885bd3449e277",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4989,
+      "problem_sha256": "0ee700de5cf2c87a75c5fa8d87cfa5475fca4129b90c31a9f6e3a29ebe4b64af",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2981,
+      "problem_sha256": "b66dabd376d192188dadc2fb9a093aa6cbc00099df86051770e987db17718206",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6345,
+      "problem_sha256": "ae04bcdde22c30b4af5704f03f4469a96c365b56dd53bdecc09dc31ac439937d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5566,
+      "problem_sha256": "3ea8e8679268c734c19126343bf0bcca0f3fb073a432b0eeed5ec1c41d222855",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 607,
+      "problem_sha256": "d5620589e404ac5a39f9f84aa8c1a03084c23176e0dfb331b72112c88edf6cb8",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3132,
+      "problem_sha256": "bade5e753612aa32099c987c667f9221c4751657003ec67cb37f563ab4cde977",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7465,
+      "problem_sha256": "81f3bc1fbce381aed88f661c12b142475395dcf1f12ce858c0872c38cfd1eb6c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3982,
+      "problem_sha256": "d6bc471648eb004f818508fad968d3306046f40d56cdd402809d871ea760f778",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2920,
+      "problem_sha256": "25a7765d9900bb54cbc0fe13db57535ae6aac7899aa4528ee1a52db738331da2",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7265,
+      "problem_sha256": "2925fccf57f9aa5cefe579095a53b1e86e16359b17500e98944a03d2f91c3e62",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6862,
+      "problem_sha256": "1d8d3da2e6925981628cb81ce88fd87d2ef96f9d2a6e5e627a073a6faa921706",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3070,
+      "problem_sha256": "465e8744f4ad332890006ce045a5e32d987824ba1d6def015bc2545aced1caea",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 536,
+      "problem_sha256": "f1bfd2131060546683c22ea0840041ca80c8a8ad1ecb54dc5cb6acaead330df6",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5690,
+      "problem_sha256": "dce614284528dc2c5f0516c52bf687c469274e6ceeeb3509c7f9f7626574b2c6",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1002,
+      "problem_sha256": "b07cd684a150b2e0b181edabc92a90be1ed65fd7fba54516f100488cea2fce74",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5517,
+      "problem_sha256": "d3222b9364740a6b16d807bde17433fb9046b97b32977b6b3c6c674cf24e1e92",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6202,
+      "problem_sha256": "001e1ba735ea8f8a4a8d428a3363ccf0a8aaea61abe303a4c847a407059266a9",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1109,
+      "problem_sha256": "f0f981d7cc5332fc7790d9a88e3fd387a4563ef858ce43365975624aea24a011",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 250,
+      "problem_sha256": "9dc5c2fa9245372ea2213f5d8555b350628dc3036d40f3bcdd7d03b3a42b083c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2105,
+      "problem_sha256": "14eecfea31aee167dcb14578ccc7e0b66c864dceda1162182ebd53711812006f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2802,
+      "problem_sha256": "63b03109da34b60c4b721980ff0f44ab3bf5df12ad7a054302019ab27a124a26",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1409,
+      "problem_sha256": "41f9263b63ca068df9fa1618f2808fa0fcb86495fd68221ee0c49afe27432122",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 99,
+      "problem_sha256": "a48107453f1dd4bace34b708cebe8256c84d3b06cf4205124f5196276644ecf7",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2177,
+      "problem_sha256": "8fc7bf7f6338bb93a9983f2435ed71737aba5736fe74aaa255e54e256511e94f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3648,
+      "problem_sha256": "dd600faab7598212ad1ab9dd5fceb30379e90e490fa2c5969cbff32baeee73bc",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5145,
+      "problem_sha256": "bc44031e7f8ef3983c0bfb1ec59be36776c885c499b9315610818dd8ff4aa46d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6508,
+      "problem_sha256": "23920250d76894ed762cb6ea941e7fddb695e0d37f88aa18c4ee0b4a8c27a17e",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 590,
+      "problem_sha256": "8272edd2784e3be16648cef17f70091d9e1c98dee372bed15ddbf590c4d47972",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2961,
+      "problem_sha256": "f60a48d3c9e237a17863702892c52818e50f64befbff7b19be6ea1021fc2aef9",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3040,
+      "problem_sha256": "96bf114643ea7a4e69719357f937defc0723aeeb803cbfb569163468d3dd13ae",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4637,
+      "problem_sha256": "322168d71fb69c8c3487791759a6e73bc2a0f75b38d8e348acff954b4c6dd0ce",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2143,
+      "problem_sha256": "1c4a7f60d55894912b528fd615ce9d34aa7aa4d543dc27741ef8210e556bdb49",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1751,
+      "problem_sha256": "7ea54be6852171efe7b4a70e1ff5374782b024c0c95882044a0940715dd60ca7",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2003,
+      "problem_sha256": "dc1ea54198f83489c0119a75ecd78a5b749e36e45b47b7b7c08a2000c71e84ba",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6045,
+      "problem_sha256": "3b2334af47c5cb67e20e75187fcc96efa48617b93bf02f3035ca7abb53027832",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6359,
+      "problem_sha256": "83a022dd224da05653ba3d27fa4dd6a2ac89e4373c379ed28c44fb81793006b3",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6967,
+      "problem_sha256": "0122a94fb12345c55e1ea9ca162c8cb1290f0db1fd16e262580ead1febe7858c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2828,
+      "problem_sha256": "63a7e219840eb5232b0144c6c967d0045fce640b39893ec2c1ec49012551896e",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6131,
+      "problem_sha256": "47145c42af1714972dbeb7ca4f604d2720a1a99bc5a0d784a9bd71b27c926a57",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3295,
+      "problem_sha256": "9f4c2286b0bed5abfdbe3718dbc25de3aa4ded37ec4045513333e31ae7bdc472",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 865,
+      "problem_sha256": "10515ef8b9884086ffc5b373c0a2c6ab3fd6f904293ce46bdaf2fd1acec4c17c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 273,
+      "problem_sha256": "3320c1e2c5eae2072c16a3e3297fdaabb471b57df114881451968f98c06333de",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 702,
+      "problem_sha256": "a7e9eb6ad9027044e2ed8db545302bf6bf792af940fb464461c4383f8d314dc7",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7265,
+      "problem_sha256": "4ae7b8d4b1288e3132dfe1c6fa92e5dfaa0dfd858ce973c4c390f5da5bed09bf",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 471,
+      "problem_sha256": "2cea55247cf10c27bd05548019a20a10d5387cf6891e679ecdad67cd6ba1b17c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2299,
+      "problem_sha256": "18f2b44a1ed51cf853d9c82e411eccd8d3cafeb74414b8b25dae465c97044d54",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5727,
+      "problem_sha256": "b684f00d5a0322896153d435f2e3abd715650e92611be85b3876deed4fd7d2fd",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5706,
+      "problem_sha256": "0c404ad9b7f3a20767b493836e6bdadd7d8c8475a441331b2b3af8211ff5a4dc",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5391,
+      "problem_sha256": "47334fe67984377df69f262a198838acc1d4eff3e89cbe60ef950221ef100f54",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7159,
+      "problem_sha256": "b4fdf87332dea31e44d8dda34bd4721522de143599f4ad6098d0a0d90d0ac10c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1029,
+      "problem_sha256": "7f5bb7798f6bc1314d5ae500ec9516f986bce4680ff71721c8e60bdd7116761f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1426,
+      "problem_sha256": "ace009f771140096ffaa18e44c2c1e9e0cc1fa5caedc06a68b7c4e1614b13047",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4095,
+      "problem_sha256": "9e087678f2e3585543f16fc5f52fb27562ef925805b80629f1278e6a235f545c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1444,
+      "problem_sha256": "e1d2d009bbb9e5c5b99d7844d338871f4529d2f502709ee6bfc1554bdfb9359a",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2369,
+      "problem_sha256": "6673e422e61b950e1accc8af0592815a26721169cfec01aba6a444a58e665b14",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3180,
+      "problem_sha256": "63c7afb831b94fe14bda9ea1a48ac4df02f5b682c39af57f0d47abbaa66c1087",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5424,
+      "problem_sha256": "031df1a46dac8f5a84f0202c0c4d97432eef54ec9125bd03962ad96b1971daef",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5675,
+      "problem_sha256": "0348521a47ea0977f18ce37a04bc1877ebe0e3102ef8320a2e3d3e0dc86f6b81",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4962,
+      "problem_sha256": "0cc838f8b25f5940512808d9f5fa0030e50451418e09d94c473fc96c11e7cad0",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5939,
+      "problem_sha256": "401d021acea5ae5e68a767be632726533da67ed840f9fa905c6a964eeb67aa76",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6176,
+      "problem_sha256": "dc4562f5f2d86ced82964fd7ccc1da0c6b21081290679d9c91a4f1ab6ed21a9c",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6526,
+      "problem_sha256": "4b606fc4c688c585db3ce6e49e3f9b1dc361ad8c70802f5fae4782803aa4955a",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 495,
+      "problem_sha256": "dad083823f1e376d819a9808d294cec0111848c2b4eff344cdbf698ed475c772",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 7105,
+      "problem_sha256": "fb2a694470686056330458f61d77fa9cc147ea1b3a03e2ccda5ca0c81e345631",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5721,
+      "problem_sha256": "eff46f6491dd4714b73f1b00b885046d8228e392adeee31dde989302a3e712a1",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1012,
+      "problem_sha256": "9fe414142ac4c7c9e11da914cb55f3c1e0fdc770233e43955c78d51015e4b4d9",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1323,
+      "problem_sha256": "868b1d0853fdd6896f515d46f5dcd114760f04dbbd8a0f75e3eebc45342c44ae",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6896,
+      "problem_sha256": "48f1af907f018dc84abcf3a2ee10e7dde8286e6458183ea7f59bdd6ac6973fb6",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4729,
+      "problem_sha256": "e3fdbeae6487b279bd483eef716ac8ec788c62192907d2c493ba8f9ab0eda278",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1448,
+      "problem_sha256": "d618ade49dcc7781e26d24572b45484bee5e7f56ce78ab4648f32af2afd567fd",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 440,
+      "problem_sha256": "345e857e9aa42199d3a4402bf1e16af4a4268bfa02c857bcfcaff2cd4c17e8b3",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 2179,
+      "problem_sha256": "e860e71bd2a5ba1feaa14ca037a3bb84cd4e7679de356d474f9f1c48b533e437",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4818,
+      "problem_sha256": "52bf56fb730a513288b5c1ed944ed6283b38241c3dbc44207e5a770cfd776a4f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4764,
+      "problem_sha256": "568133ab76693924e1b4c7c22d601f7b4620843783e8efd583d8619541944cbb",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 181,
+      "problem_sha256": "84220e52f46a02decfab7df53478aa02cc689ca63cabb53eb9617ba10f3a2f5a",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4387,
+      "problem_sha256": "ba96120ae9385aaa81eeffe4c89bfcc5f1bd87fa394d94b70cd93c6a93ef474f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1440,
+      "problem_sha256": "32fe933b49bb989fdc2e669d977b5609ae60708655ebc5b71a6c79e04c65d04f",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 3568,
+      "problem_sha256": "6197b7a8f64fe3b17c8a7201fbfb64197f055df1cf9f5b4a5f27cce9910c5f9d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 1163,
+      "problem_sha256": "e1a6165ebaab37f63c679dfebe1f1b3cf10af83eeda9d5a0f7f44b764621bfd6",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 5510,
+      "problem_sha256": "2def50f800ea609e17fa09e69b84704946be6025de1de9db3ba5c2e4bdc751be",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 658,
+      "problem_sha256": "153432e413795b76f66a6fad025930486d2ca17853f2cf71e8dd252bcb74e163",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6976,
+      "problem_sha256": "6eb4b113f884dc802d96f24b77ce99681ac068dffa231c326aa36a8bad80fae4",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 6523,
+      "problem_sha256": "193e460f8ca94a6c1a7bb5173f520a1b1aba8c816368ad9cd65fd0fc6fd4725e",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 636,
+      "problem_sha256": "d9f5afbc008d9d21f293ce56015442a50e02166f8192fe90b47bcab13c34d36d",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 4886,
+      "problem_sha256": "7b390a2addeb27567575b1718faca56d1f9b6f842b6f00e6a525e8a69e8686c5",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    },
+    {
+      "dataset": "gsm8k_train",
+      "train_index": 442,
+      "problem_sha256": "7b807917d29e7493080478a183949f47f0105a186668fa3b078f0e8060f6b4b7",
+      "purpose": "mix05_screening",
+      "status": "proposed_not_frozen"
+    }
+  ],
+  "limitations": [
+    "Local tracked data/config snapshot only; remote/private claims require executor check",
+    "No confirmation questions reserved; no A/B registry or peer file modified"
+  ]
+}

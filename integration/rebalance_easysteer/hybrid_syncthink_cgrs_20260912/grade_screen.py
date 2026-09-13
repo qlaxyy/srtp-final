@@ -14,12 +14,12 @@ from utils.grader import check_is_correct
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k','math_test','gsm8k_test','math_soft2','gsm8k_soft2'])
+    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k','math_test','gsm8k_test','math_soft2','gsm8k_soft2','math_mix05','gsm8k_mix05'])
     p.add_argument('--count',type=int,default=64)
     p.add_argument('--arms',nargs='+',default=['U','R','S','RS'],choices=['U','R','S','RS'])
     a=p.parse_args()
     data_dir='prepared_run1' if a.role=='screening' else 'full_tests_20260913' if a.role.endswith('_test') else 'expanded_20260913'
-    if a.role.endswith('_soft2'):
+    if a.role.endswith(('_soft2','_mix05')):
         resolved = json.loads((a.output/'resolved_plan.json').read_text(encoding='utf-8'))
         rows = resolved['soft2_rows'][a.role]
     else:

@@ -8,6 +8,14 @@ import torch
 NAMESPACE = "hybrid_syncthink_cgrs_20260912"
 
 
+def mixed_end_column(logits, end_id=151649):
+    """Implement .95 P + .05 delta_end after filtering, in logit space."""
+    values = logits.float()
+    log_z = torch.logsumexp(values, dim=-1)
+    torch._assert_async(torch.isfinite(log_z).all(), "Empty filtered support")
+    return torch.logaddexp(values[:, end_id], log_z + math.log(1.0 / 19.0))
+
+
 def admit(runner, request, slot):
     params = request.sampling_params
     config = (params.extra_args or {}).get(NAMESPACE) if params else None
@@ -21,7 +29,7 @@ def admit(runner, request, slot):
             or runner.parallel_config.tensor_parallel_size != 1
             or runner.cache_config.enable_prefix_caching):
         raise ValueError("S64 does not support these request/engine settings")
-    if config.get("mode") == "soft" and (
+    if config.get("mode") in ("soft", "mix05") and (
             params.seed is None or params.temperature <= 0):
         raise ValueError("S64-soft2 requires a seed and positive temperature")
     state = getattr(runner, "hybrid_termination", None)
@@ -50,6 +58,8 @@ class HybridTerminationState:
         self.first_bias = torch.full_like(self.count, -1)
         self.bias_count = torch.zeros_like(self.count)
         self.filtered_trigger_count = torch.zeros_like(self.count)
+        self.mix_slots = torch.zeros_like(self.closed)
+        self.revived_end_count = torch.zeros_like(self.count)
         self.events = []
         self.max_buffer_estimate = 0
 
@@ -57,7 +67,7 @@ class HybridTerminationState:
         if config != {"mode": config.get("mode"), "entropy_weight": 0.8,
                       "pacing_cap": 64, "end_token_id": 151649}:
             raise ValueError("S64 requires the fixed registered configuration")
-        if config["mode"] not in ("shadow", "enforce", "soft"):
+        if config["mode"] not in ("shadow", "enforce", "soft", "mix05"):
             raise ValueError("Unknown hybrid mode")
         if prefill_length != len(prompt) or 151648 not in prompt:
             raise ValueError("S64 requires a fresh thinking request")
@@ -72,6 +82,8 @@ class HybridTerminationState:
         self.first_entropy[slot] = 0
         self.first_bias[slot] = -1
         self.bias_count[slot] = self.filtered_trigger_count[slot] = 0
+        self.mix_slots[slot] = config["mode"] == "mix05"
+        self.revived_end_count[slot] = 0
 
     def remove_request(self, req_id):
         data = self.requests.pop(req_id, None)
@@ -86,17 +98,20 @@ class HybridTerminationState:
             end_position=values[2], trigger_count=values[3],
             first_rank=values[4], first_entropy=float(self.first_entropy[slot]),
             prompt_length=prompt_len, mode=mode)
-        if mode == "soft":
+        if mode in ("soft", "mix05"):
             self.completed[req_id].update(
                 first_bias=int(self.first_bias[slot]),
                 bias_count=int(self.bias_count[slot]),
                 filtered_trigger_count=int(self.filtered_trigger_count[slot]))
+            if mode == "mix05":
+                self.completed[req_id]["revived_end_count"] = int(
+                    self.revived_end_count[slot])
 
     def has_soft(self):
-        return any(data[2] == "soft" for data in self.requests.values())
+        return any(data[2] in ("soft", "mix05") for data in self.requests.values())
 
     def apply_after_filter(self, logits):
-        """Bias retained end odds after temperature/top-p, preserving support."""
+        """Apply the selected end action after temperature/top-p, once."""
         ticket = self.pending_soft
         self.pending_soft = None
         if ticket is None:
@@ -108,14 +123,21 @@ class HybridTerminationState:
             end = torch.cuda.Event(enable_timing=True)
             start.record()
         column = logits[pos, 151649]
-        enabled = trigger & torch.isfinite(column)
+        mix = self.mix_slots[idx]
+        enabled = trigger & (torch.isfinite(column) | mix)
         self.filtered_trigger_count[idx] += (trigger & ~enabled).long()
         first = enabled & (self.first_bias[idx] < 0)
         self.first_bias[idx] = torch.where(
             first, self.count[idx], self.first_bias[idx])
         self.bias_count[idx] += enabled.long()
+        replacement = column.float() + math.log(2.0)
+        if any(data[2] == "mix05" for data in self.requests.values()):
+            mixture = mixed_end_column(logits.index_select(0, pos))
+            replacement = torch.where(mix, mixture, replacement)
+            self.revived_end_count[idx] += (
+                trigger & mix & ~torch.isfinite(column)).long()
         logits[pos, 151649] = torch.where(
-            enabled, column.float() + math.log(2.0), column.float()
+            enabled, replacement, column.float()
         ).to(logits.dtype)
         if end is not None:
             end.record()
@@ -172,7 +194,8 @@ class HybridTerminationState:
         force = trigger & enforce
         if self.has_soft():
             soft = torch.tensor(
-                [self.requests[batch.req_ids[p]][2] == "soft" for p in positions],
+                [self.requests[batch.req_ids[p]][2] in ("soft", "mix05")
+                 for p in positions],
                 device=f.device)
             self.pending_soft = pos, idx, trigger & soft
         # Legacy hard action unchanged; soft writes only the end column later.
