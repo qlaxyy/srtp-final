@@ -1,0 +1,110 @@
+{
+  "runtime_commit": "e9597e71ddede6447bf9f7c1e1d4a519faae6f04",
+  "source_files_verified": 2816,
+  "generated_version_not_locally_compared": [
+    "sources/EasySteer/vllm-steer/vllm/_version.py"
+  ],
+  "formal_records_verified": 1819,
+  "model_and_calibration_assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "environment": {
+    "build_tools": {
+      "ninja": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/ninja",
+      "version": "1.13.2.git.kitware.jobserver-pipe-1",
+      "sha256": "08639e194fffa7f08b259fc4abfa4803aff66b64de52549cee42ec527d55cea6"
+    },
+    "torch": "2.11.0+cu129",
+    "vllm": "0.1.dev18960+g6267ca0cf"
+  },
+  "batch_status": {
+    "status": "complete",
+    "wall_seconds": 644.2292803525925,
+    "prior_attempt_wall_seconds": 0.0,
+    "retries": 0,
+    "scope": "User-authorized ReBalance-only repeat: MATH500 and GSM8K1319; frozen originals unchanged"
+  },
+  "engineering_reuse": {
+    "source": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/s64_full_math500_gsm1319_RS_c256_run1_20260913",
+    "files": {
+      "engineering/pre_R/partial.jsonl": "f73e56a6ecde997507e5df93305ce7206dda2afc4046349d874d0749b99137e1",
+      "engineering/pre_R/result.json": "de24941778c504f02226144692f0966eea2df7b8306f47be824f710407863815",
+      "engineering/off_R/partial.jsonl": "0c536e085335dc701305f21ab010c1ebad1aecf22e9d8d95196816845e75daca",
+      "engineering/off_R/result.json": "5479a8e75bdae76c3a4336fdfad9e48bf2d43586306b2cbf4c901fffd3742213",
+      "engineering/shadow_R/partial.jsonl": "1fbf18c6f5388bc597ba855d3c8161330fcecd1050f54c5e945af32fa20fa92e",
+      "engineering/shadow_R/result.json": "f66cb908e8cfce459b50d1b9c1e2e3bd043ac54d216f6b6ec12c36bb2554e2e8",
+      "engineering/S/partial.jsonl": "b64aa56fbfcfe1d194e5351c7184cb74bd3acf47886566eed4842cf3c8c3f0e0",
+      "engineering/S/result.json": "7a462865d1910482bdaa1003560e8445d4eb9a8fc3be2c9d4d82ac07732bd4d0",
+      "engineering/RS/partial.jsonl": "6053a091b19794c4a7e960be446c3af6975414de44342d20584f56be7dc4ad57",
+      "engineering/RS/result.json": "12793906509cf993382fb0d31c1b458671709f7def402a8d450c1c54370590bc",
+      "engineering_gate.json": "f750de2a86f0039d1c17f91281f6679e64bd92477fb16151bce4008583ef967f"
+    },
+    "reason": "Same production sources and 256-way runtime; reuse completed gate, no new engineering answers"
+  },
+  "new_engineering_answers": 0,
+  "S64_active_requests": 0,
+  "S64_entropy_or_mask_calls": 0,
+  "resolved_sha256": "f471d96d83a57ba2bfac4262fc68deba0aedfb62af2cda202cdfd306ffcf0801",
+  "historical_token_identity_sha256": "91318bfa7f9c12d8a3b981a8a2467ab64c5ffaf35a206a64ac4e1494a1973a37",
+  "archive": {
+    "path": "/root/autodl-tmp/rebalance_speed1_complete_20260913.tar.gz",
+    "sha256": "8ea5d1cc821063be5c28ade384938ec7f32deb2843b6a56eccdedcccb859718e",
+    "files": 29,
+    "bytes": 12147049
+  },
+  "closure_observation": {
+    "gpu": "RTX4090D",
+    "utilization_percent": 0,
+    "memory_mib": 1,
+    "compute_apps": []
+  },
+  "analysis_source_sha256": "56e9924c676df50b127e5c7b375c9772106226e9feb0d9eb7ab99824116653ed"
+}
