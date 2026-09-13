@@ -1,6 +1,10 @@
 # ReBalance × C-probe v1 实现
 
-**2026-09-13首次工程批次已结束，门槛未通过，不能进入效果筛选。** 8题×5组共40份256-token工程输出完成，原生Torch两项检查通过，Roff/Rshadow/RC与R的输出及R历史一致；但试答、mask与回放审计全部为0。已定位到本适配遗漏了离线入口强制FINAL_ONLY：中间token没有发布，检查点在题目完成时被丢弃。这是接入错误，不是CGRS效果失败。当前已本地修复为在入队后更新复制的OutputProcessor状态为CUMULATIVE，并断言逐token发布；14项本地检查通过，**修复版未部署、未GPU验证**。下一批不能复用这个失败门槛。
+**2026-09-13首次工程批次已结束，门槛未通过，不能进入效果筛选。** 8题×5组共40份256-token工程输出完成，原生Torch两项检查通过，Roff/Rshadow/RC与R的输出及R历史一致；但试答、mask与回放审计全部为0。已定位到本适配遗漏了离线入口强制FINAL_ONLY：中间token没有发布，检查点在题目完成时被丢弃。这是接入错误，不是CGRS效果失败。当前已本地修复为在入队后更新复制的OutputProcessor状态为CUMULATIVE，并断言逐token发布；17项本地检查通过，**修复版未部署、未GPU验证**。下一批不能复用这个失败门槛。
+
+用户要求继续修改后，提交`9727aa1`增加逐组强制覆盖验收：Roff/Rshadow须保持原输出，Rshadow须完成试答、主状态保持及回放检查，C和RC须实际执行试答及mask；任一缺失即写失败门槛并停止后续组。筛选入口拒绝没有覆盖证据的门槛。新增CPU回归直接抽取固定vLLM源码的真实输出发布方法，复现FINAL_ONLY静默并验证修复；模拟引擎调用真实试答生命周期，验证完整boxed停止、子请求释放、主请求恢复及状态概率启用。这些是CPU接口证据，不能代替真实GPU回放精度验证。
+
+修复复核仍为原8题×5组，未扩测。`execution_run3/plan.json`及`preparation.json`已固定源码/题单哈希、命令、独立输出目录和停止条件；本次SSH返回“Connection closed”，没有上传或生成，等待连接恢复后先核验独占再执行。运行源码提交以`coordination.runtime_commit`和源码哈希为准；旧生成器的`implementation_commit`字段记录的是历史基准提交，不能作为实际运行版本证据。
 
 首次启动因无Git元数据失败，53.57秒、0份答案，已修复；之后工程运行42.31秒，其中纯生成14.29秒。两次执行共95.88秒，不含SSH/上传/取回等待。25个产物文件已核验取回，服务器无计算进程，共享checkout干净。没有安装依赖、使用新题或重新校准。两次记录见`execution_run1`、`execution_run2/summary.json`；未改参数、未扩测。不是官方CGRS原样复现，不继承S64/mix05的收益或失败结论。
 
@@ -57,4 +61,4 @@ timeout 1200s "$PY" "$P/run.py" --plan /path/to/unique_plan.json --output-root /
 
 ## 本地验证边界
 
-`test_cpu.py`验证纯状态机及用NumPy替身验证的接口合同；修复版14项通过。`test_native.py`在实际推理环境以CPU Torch验证FP32/BF16熵、行隔离及mask写入，模型加载前自动执行；首次两次部署均通过这两项检查。本地无Torch，未安装；当前逐token输出修复版尚未部署，GPU回放与试答覆盖门槛仍待验证，不能写成已验证可运行/已有效。详细本地记录见`cpu_checks.json`。共享源码及旧结果未修改。
+`test_cpu.py`验证纯状态机及用NumPy替身验证的接口合同；修复版17项通过。`test_native.py`在实际推理环境以CPU Torch验证FP32/BF16熵、行隔离及mask写入，模型加载前自动执行；首次两次部署均通过这两项检查。本地无Torch，未安装；当前逐token输出修复版尚未部署，GPU回放与试答覆盖门槛仍待验证，不能写成已验证可运行/已有效。详细本地记录见`cpu_checks.json`。共享源码及旧结果未修改。
