@@ -1,0 +1,8 @@
+{
+  "replay_lifecycle_tests": 4,
+  "ast_parsed": true,
+  "gpu_native_gate_pending": true,
+  "shared_vllm_modified": false,
+  "default_off": "ReplayAdapter off returns before hooks; existing Sampler reused unchanged",
+  "limitations": "7B synchronous forced replay gate must pass before any full generation; sync replay may be slower than1.5B async, not comparable across sizes"
+}
