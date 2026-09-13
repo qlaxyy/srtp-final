@@ -11,7 +11,7 @@ from unittest.mock import patch
 import numpy as np
 
 from policy import Config, State, TRIGGERS, boxed_certainty, draw, probability
-from backend import Backend, SamplerAdapter, parked
+from backend import Backend, SamplerAdapter, parked, enable_cumulative
 
 
 class Tokenizer:
@@ -80,6 +80,23 @@ class PolicyTests(unittest.TestCase):
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_offline_final_only_override_is_repaired_in_copied_output_state(self):
+        request = SimpleNamespace(num_output_tokens=0,
+                                  sampling_params=SimpleNamespace(output_kind='FINAL_ONLY'))
+        state = SimpleNamespace(output_kind='FINAL_ONLY', stream_interval=4)
+        engine = SimpleNamespace(
+            engine_core=SimpleNamespace(engine_core=SimpleNamespace(
+                scheduler=SimpleNamespace(requests={'a': request}))),
+            output_processor=SimpleNamespace(request_states={'a': state}))
+        llm = SimpleNamespace(llm_engine=engine)
+        enable_cumulative(llm, ['a'], 'CUMULATIVE')
+        self.assertEqual(state.output_kind, 'CUMULATIVE')
+        self.assertEqual(state.stream_interval, 1)
+        self.assertEqual(request.sampling_params.output_kind, 'CUMULATIVE')
+        request.num_output_tokens = 1
+        with self.assertRaises(RuntimeError):
+            enable_cumulative(llm, ['a'], 'CUMULATIVE')
+
     def test_archive_deployment_does_not_require_git_metadata(self):
         import tempfile
         from pathlib import Path

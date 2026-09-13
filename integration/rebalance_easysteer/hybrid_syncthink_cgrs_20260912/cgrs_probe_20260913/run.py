@@ -132,7 +132,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     import torch
     from vllm import SamplingParams
     from rebalance_static_eval import build_prompt
-    from backend import Backend, parked
+    from backend import Backend, parked, enable_cumulative
     folder = output/arm
     folder.mkdir(exist_ok=False)
     engineering = plan['phase'] == 'engineering'
@@ -170,6 +170,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     ids = llm.enqueue([{'prompt_token_ids': x} for x in prompt_ids],
                       sampling_params=sampling, steering=steering if r_on else None,
                       use_tqdm=False)
+    enable_cumulative(llm, ids)
     ops = llm.llm_engine.output_processor.request_states
     external = {ops[rid].external_req_id: rid for rid in ids}
     row_map = dict(zip(ids, rows))
@@ -192,6 +193,9 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                     completion = result.outputs[0]
                     tokens = list(completion.token_ids)
                     policy = policies[rid]
+                    if len(tokens) - policy.count != 1:
+                        raise RuntimeError('Expected each accepted token to be published; '
+                                           'offline FINAL_ONLY or buffered output is unsupported')
                     if tokens[:policy.count] != latest.get(rid, []):
                         raise RuntimeError('Expected cumulative accepted output')
                     for token in tokens[policy.count:]:

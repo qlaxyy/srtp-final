@@ -1,0 +1,18 @@
+{
+  "run_id": "cgrs_probe_engineering8_run2_20260913",
+  "phase": "engineering",
+  "dataset": "math",
+  "rows_sha256": "7baabd668e257ff0e0cf016c11a9dd7c4b8d9ea42c061181bd42a35a72f03701",
+  "data_reconciled": true,
+  "gpu_authorized": true,
+  "authorization_text": "User GPU已开启 authorizes previously specified engineering8 x5 only",
+  "checked_registries": [
+    "local_reconciliation.json",
+    "remote_reconciliation.json"
+  ],
+  "purpose": "Reuse original B engineering8, no independent accuracy claim",
+  "runtime_commit": "6794a138980b80d9753e76ba6ef5550cfbbecf1e",
+  "initialization_attempt": 2,
+  "generation_retries": 0,
+  "prior_failure": "No Git metadata; zero question predictions; fixed metadata only"
+}

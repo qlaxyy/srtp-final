@@ -11,6 +11,22 @@ import time
 from policy import TRIGGERS, boxed_certainty
 
 
+def enable_cumulative(llm, request_ids, cumulative_kind=None):
+    """Undo offline FINAL_ONLY in copied output states before any execution."""
+    if cumulative_kind is None:
+        from vllm.sampling_params import RequestOutputKind
+        cumulative_kind = RequestOutputKind.CUMULATIVE
+    engine = llm.llm_engine
+    requests = engine.engine_core.engine_core.scheduler.requests
+    states = engine.output_processor.request_states
+    for rid in request_ids:
+        if requests[rid].num_output_tokens:
+            raise RuntimeError('Configure streaming before the first generated token')
+        states[rid].output_kind = cumulative_kind
+        states[rid].stream_interval = 1
+        requests[rid].sampling_params.output_kind = cumulative_kind
+
+
 @contextmanager
 def parked(scheduler):
     """Temporarily withhold live main requests; retain their KV ownership."""
@@ -183,6 +199,7 @@ class Backend:
         prompts = [{'prompt_token_ids': item['prefix'] + suffix} for item in requests]
         ids = self.llm.enqueue(prompts, sampling_params=sampling, steering=steering,
                                use_tqdm=False)
+        enable_cumulative(self.llm, ids)
         output_states = self.llm.llm_engine.output_processor.request_states
         external = {output_states[rid].external_req_id: rid for rid in ids}
         for rid, item in zip(ids, requests):
