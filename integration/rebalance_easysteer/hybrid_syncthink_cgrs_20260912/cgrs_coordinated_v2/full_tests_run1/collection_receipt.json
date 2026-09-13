@@ -1,0 +1,37 @@
+{
+  "archive_sha256": "edb85f1f631be924f071a0805b87590e70a1d0e3f75e9c1f61a2fa1045185bf8",
+  "bytes": 12284711,
+  "files": {
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/resolved_plan.json": "8b799f5e0bd54431402c9496b2db0e22a7438a03e7595d1320267ae5ac8bc9b8",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/launch_receipt.json": "a863f9a48698db6dcd6821d49e5053aabafc3da9629ce0a09e6c8e9782e28240",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/historical_reference.json": "150b959d0a1eee7cf89a9e3458b67c14d584a4d7d66b7e40f2bf4b005887c9d7",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/native_cpu_check.json": "c4fd397ac1cf8d2cffc4175bb3e6641a456451525934fc53ffdd49be033b9815",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/runtime_identity.json": "964370143efe68288bdff8e9927924142f5dfad1af15d1897f8a1e8bddd38dd4",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/gpu.csv": "1efb2d1a56b0cae23bb2b6f457428a0705d3652b6afe4467e455b1f3e8cd98e7",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/start.json": "fc479a9a67a3b3493209617231a9e8c9ac99769ead6cf0d0d614279e6a8da649",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/request_mapping.json": "a495a9fa8278fbbac4ef7e6751a3918f99cad1672ee111200d693a748918b35d",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/partial.jsonl": "794178431d5f1f4b989e6ac1c37bd51d0060fb04b05835a0b3f1e22ca7b9b842",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/result.json": "b22b7844068a5b080d4a59345aa09c5201bea0b3d828f74e8f3f0fc01234e011",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/math_test/RCnegative/author_partial.jsonl": "973e81ecc9911ee5523dee23719cd082a8ffde30d1ff11cda5169f98cae77fe0",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/gpu.csv": "68707fa08bd7c84df53b9bdc6be3b971081c406ef3398135452c39b0e5396191",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/start.json": "a71ac546d8dbf6ab00981d45110778b1b03040566bd21a9350315998632e0bcc",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/request_mapping.json": "f5059ed71c2d4ae6708f1ea4e1a70a5ef385e3f0a203e53e23987acb0136d5ee",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/partial.jsonl": "f6468a60b19730ab63fd464ccab4cbf49053036e71de8d7da14168b21ee3e732",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/result.json": "5ac511e3e80e98881517e602a2e28c4a2f181de99717de98b006030bb73d442b",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/gsm8k_test/RCnegative/author_partial.jsonl": "8c6768cddf0972522b29bb7fe56325398ba030509105536a5ad6fae69c538094",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/batch_status.json": "c8035b1d35c92d448f53a9a6ffb3e617d6622577d5045da48f611e0ba6b69d17",
+    "results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913/analysis.json": "233bf88e147d2a4a02cfeb75710f6f9d3bcf7f26be8b2cb6fe7d6806cd8e4142"
+  },
+  "gpu_final": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+  "gpu_apps": "",
+  "shared_status": "",
+  "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01\n",
+  "generation_exit": {
+    "returncode": 0,
+    "wall_seconds": 620.3612599372864
+  },
+  "grade_exit": {
+    "returncode": 0,
+    "wall_seconds": 56.18924021720886
+  }
+}

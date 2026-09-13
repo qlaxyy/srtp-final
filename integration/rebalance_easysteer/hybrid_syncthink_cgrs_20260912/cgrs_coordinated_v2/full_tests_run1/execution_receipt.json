@@ -1,0 +1,11 @@
+{
+  "gpu_authorized": true,
+  "authorization": "User: 直接测全量gsm8k和math500，注意配置，提高GPU利用率，尽量快点完成测试",
+  "package_commit": "bba85fc8ae2af04d04882eeb3b253b48fb1a2c6b",
+  "plan_sha256": "e51d0a210e2700c03a859f17b34b79903176f7b0870000179993a71db952e56b",
+  "run_id": "cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913",
+  "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01",
+  "shared_status": "",
+  "gpu": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+  "data_scope": "Known exposed public full tests; no fresh split, original training64 not consumed"
+}

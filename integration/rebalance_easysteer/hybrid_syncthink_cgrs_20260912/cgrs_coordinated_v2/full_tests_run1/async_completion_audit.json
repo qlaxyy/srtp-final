@@ -1,0 +1,24 @@
+{
+  "initial_check": "Strict sampler_count==output_count failed; this check was only valid for engineering cap256, not natural EOS under async scheduling",
+  "datasets": {
+    "math_test": {
+      "output_tokens": 1628707,
+      "sampler_prediction_count": 1629192,
+      "discarded_after_eos": 485,
+      "mean_including_native_async_discarded_samples": 3258.384
+    },
+    "gsm8k_test": {
+      "output_tokens": 1032748,
+      "sampler_prediction_count": 1034067,
+      "discarded_after_eos": 1319,
+      "mean_including_native_async_discarded_samples": 783.978013646702
+    }
+  },
+  "source_evidence": {
+    "sources/EasySteer/vllm-steer/vllm/v1/engine/core.py": "lines657-702 submit next sampling before previous result processed at717",
+    "sources/EasySteer/vllm-steer/vllm/v1/core/sched/scheduler.py": "lines482-496 skip extra step at known max_tokens; lines1710-1718 discard result for already finished request"
+  },
+  "interpretation": "Every natural EOS output includes EOS and exactly one additional sampled prediction is counted; capped outputs have zero extra. Matches native async pipeline. Extra token identities were not saved, so no byte-level replay claim.",
+  "action": "No regeneration, no change to raw outputs, grades, parameters or acceptance criteria. Output token accounting stays comparable with frozen R; unused native async samples reported separately.",
+  "gpu_rerun": false
+}

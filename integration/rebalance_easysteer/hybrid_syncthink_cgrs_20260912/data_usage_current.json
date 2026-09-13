@@ -10196,7 +10196,7 @@
   },
   "next_cgrs_candidate": {
     "name": "cgrs_coordinated_v2",
-    "status": "engineering_GPU_passed_efficacy_data_unfrozen",
+    "status": "full_tests_complete",
     "data_registry": "cgrs_coordinated_v2/data_usage.json",
     "data_sha256": "bc3f5c005b6dec9f4c77b0b71296a3e93e4dfb2fc7a1b551d19af12eacabe6cb",
     "reused_engineering_indices": [
@@ -10214,8 +10214,14 @@
     "effect_screen_proposal": {
       "path": "cgrs_coordinated_v2/screen64_run1/data_proposal.json",
       "sha256": "0636cb27ddd92018f00c93fd43c0ddb220a5f58e525ada6f6d4dba7ebb34364b",
-      "status": "64_proposed_local_reconciled_remote_pending_not_frozen",
+      "status": "not_executed_not_frozen_user_switched_to_full_tests",
       "confirmation_reserved": 0
+    },
+    "full_test_run": {
+      "run_id": "cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913",
+      "data_registry": "cgrs_coordinated_v2/full_tests_run1/data_usage.json",
+      "sha256": "18c15fbd1c7aa6b08898a8d574885f4d66043dcc14b03f2873b3cde40f5c6ce9",
+      "source_commit": "bba85fc"
     }
   }
 }
