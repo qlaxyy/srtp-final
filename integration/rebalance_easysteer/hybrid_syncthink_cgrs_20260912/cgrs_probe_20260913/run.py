@@ -49,6 +49,19 @@ def save(path, value):
         stream.write('\n')
 
 
+def accept_output(published, previous, count, incremental):
+    """DELTA avoids repeatedly copying/comparing a growing cumulative prefix."""
+    if incremental:
+        if len(published) != 1 or len(previous) != count:
+            raise RuntimeError('Expected one incremental accepted token')
+        previous.append(published[0])
+        return previous
+    tokens = list(published)
+    if len(tokens) != count + 1 or tokens[:count] != previous:
+        raise RuntimeError('Expected each accepted token in cumulative output')
+    return tokens
+
+
 def engineering_checks(results):
     """Coverage is mandatory: unchanged output alone cannot validate C-probe."""
     def signature(arm):
@@ -81,23 +94,27 @@ def engineering_checks(results):
 
 
 def validate(plan):
-    if plan['phase'] not in ('engineering', 'screen'):
-        raise ValueError('Only engineering or fresh training screening is implemented')
+    if plan['phase'] not in ('engineering', 'screen', 'full_test'):
+        raise ValueError('Unknown evaluation phase')
     if plan.get('branch_mode', 'replay') not in ('replay', 'kv_clone'):
         raise ValueError('Unknown branch mode')
+    if plan.get('fast_io') and (plan['branch_mode'] != 'kv_clone' or
+            plan.get('main_window') != (4 if plan['phase'] == 'engineering' else 256)):
+        raise ValueError('Fast mode requires fixed KV-clone admission limits')
     if not plan['coordination']['data_reconciled'] or not plan['coordination']['gpu_authorized']:
         raise ValueError('Executor must reconcile data and record batch authorization')
     if (not plan['run_id'].startswith('cgrs_probe_')
             or '/' in plan['run_id'] or '\\' in plan['run_id']):
         raise ValueError('Use independent C-probe run_id')
-    expected = 8 if plan['phase'] == 'engineering' else 64
+    expected = (500 if plan['dataset'] == 'math' else 1319) if plan['phase'] == 'full_test' else (8 if plan['phase'] == 'engineering' else 64)
     rows = plan['rows']
     if len(rows) != expected or plan['dataset'] not in ('math', 'gsm8k'):
-        raise ValueError('Fixed scope is 8 engineering or 64 screening questions')
+        raise ValueError('Question count does not match fixed phase and dataset')
     for row in rows:
         if (row['problem_sha256'] != problem_hash(row['problem'])
-                or row['split'] != 'train' or 'train_index' not in row):
-            raise ValueError('Invalid training identity')
+                or row['split'] != ('test' if plan['phase']=='full_test' else 'train')
+                or 'train_index' not in row):
+            raise ValueError('Invalid question identity or split')
     if len({r['problem_sha256'] for r in rows}) != expected:
         raise ValueError('Duplicate question')
     if len({r['train_index'] for r in rows}) != expected:
@@ -116,10 +133,11 @@ def validate(plan):
     for key in ('vector', 'fit'):
         if sha(assets[key]['path']) != assets[key]['sha256']:
             raise ValueError(f'Changed {key}')
-    if plan['phase'] == 'screen':
+    if plan['phase'] in ('screen', 'full_test'):
         gate = read(plan['engineering_gate']['path'])
         if (sha(plan['engineering_gate']['path']) != plan['engineering_gate']['sha256']
                 or gate.get('branch_mode', 'replay') != plan.get('branch_mode', 'replay')
+                or gate.get('fast_io', False) != plan.get('fast_io', False)
                 or not gate['passed'] or gate['source_sha256'] != plan['source_sha256']
                 or gate['assets'] != assets or not gate['replay_checks']
                 or not all(x['passed'] for x in gate['replay_checks'])
@@ -156,13 +174,16 @@ def build_engine(plan):
         params=dict(fit['parameters'], boundary_token_ids=boundaries,
                     think_start_token_id=151648, think_end_token_id=151649))])
     llm = LLM(model=assets['model_path'], dtype='bfloat16', tensor_parallel_size=1,
-              max_model_len=32768, max_num_seqs=256, max_num_batched_tokens=32768,
+              max_model_len=32768, max_num_seqs=288 if plan.get('fast_io') else 256,
+              max_num_batched_tokens=32768,
               gpu_memory_utilization=.9, enable_steer_vector=True,
               steer_algorithms=['rebalance'], steer_graph_mode='in_graph',
               enforce_eager=False, enable_chunked_prefill=False,
               enable_prefix_caching=False, async_scheduling=False, seed=42)
     from backend import Backend
     llm.llm_engine.engine_core.engine_core.scheduler._preempt_request = Backend.reject_preemption
+    if plan.get('fast_io'):
+        llm.llm_engine.engine_core.engine_core.scheduler.max_num_running_reqs = plan['main_window']
     return llm, tok, steering, boundaries
 
 
@@ -174,6 +195,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     folder = output/arm
     folder.mkdir(exist_ok=False)
     engineering = plan['phase'] == 'engineering'
+    fast = plan.get('fast_io', False)
     cfg = Config(interval=32, max_probes=2, probe_tokens=8, max_tokens=256) if engineering else Config()
     c_on = arm in ('C', 'RC', 'Rshadow')
     r_on = arm != 'C'
@@ -185,10 +207,16 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     backend = Backend(llm, suppress=arm in ('C', 'RC'), branch_mode=branch_mode,
                       verify_cache=engineering) if arm != 'R' else None
     started = time.monotonic()
-    deadline = started + (180 if engineering else 600)
+    started_epoch = time.time()
+    deadline = started + (180 if engineering else (1800 if plan['phase']=='full_test' else 600))
     if backend:
         backend.deadline = deadline
         backend.tokenizer = tok
+        backend.bulk_signature = fast
+        if fast:
+            backend.probe_batch_limit = 32
+            if engineering and plan['main_window'] > 32:
+                raise ValueError('Engineering audit must fit the same main batch')
     sampling = SamplingParams(temperature=.7, top_p=.95, seed=42,
                               max_tokens=cfg.max_tokens, skip_special_tokens=False)
     prompt_ids = [tok.encode(build_prompt(tok, row['problem'])) for row in rows]
@@ -210,7 +238,11 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     ids = llm.enqueue([{'prompt_token_ids': x} for x in prompt_ids],
                       sampling_params=sampling, steering=steering if r_on else None,
                       use_tqdm=False)
-    enable_cumulative(llm, ids)
+    if fast:
+        from vllm.sampling_params import RequestOutputKind
+        enable_cumulative(llm, ids, RequestOutputKind.DELTA)
+    else:
+        enable_cumulative(llm, ids)
     ops = llm.llm_engine.output_processor.request_states
     external = {ops[rid].external_req_id: rid for rid in ids}
     row_map = dict(zip(ids, rows))
@@ -222,6 +254,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     suffix = tok.encode(PROBE_PROMPT, add_special_tokens=False)
     probe_seconds, probe_prefill_tokens, audit_tokens, io_seconds = 0., 0, 0, 0.
     preservation = []
+    pieces = {}
     try:
         with (folder/'partial.jsonl').open('x', encoding='utf8') as partial, \
                 (folder/'probes.jsonl').open('x', encoding='utf8') as probe_stream:
@@ -231,17 +264,14 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                 for result in llm.llm_engine.step():
                     rid = external[result.request_id]
                     completion = result.outputs[0]
-                    tokens = list(completion.token_ids)
                     policy = policies[rid]
-                    if len(tokens) - policy.count != 1:
-                        raise RuntimeError('Expected each accepted token to be published; '
-                                           'offline FINAL_ONLY or buffered output is unsupported')
-                    if tokens[:policy.count] != latest.get(rid, []):
-                        raise RuntimeError('Expected cumulative accepted output')
-                    for token in tokens[policy.count:]:
-                        trigger = policy.accept(token, tok.decode([token]), boundaries)
-                        if trigger and c_on:
-                            due.add(rid)
+                    tokens = accept_output(completion.token_ids, latest.get(rid, []), policy.count, fast)
+                    token = tokens[-1]
+                    if token not in pieces:
+                        pieces[token] = tok.decode([token])
+                    trigger = policy.accept(token, pieces[token], boundaries)
+                    if trigger and c_on:
+                        due.add(rid)
                     latest[rid] = tokens
                     if result.finished:
                         due.discard(rid)
@@ -256,7 +286,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                         partial.write(json.dumps(rec, ensure_ascii=False)+'\n')
                         partial.flush()
                         io_seconds += time.perf_counter() - before
-                if not due or core.scheduler.waiting or core.scheduler.skipped_waiting:
+                if not due or (not fast and (core.scheduler.waiting or core.scheduler.skipped_waiting)):
                     continue
                 pending = []
                 for rid in ids:
@@ -274,7 +304,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                 if not pending:
                     continue
                 began = time.monotonic()
-                with parked(core.scheduler) as held:
+                with parked(core.scheduler, allow_waiting=fast) as held:
                     before = backend.primary_signature(held)
                     if engineering and arm == 'Rshadow':
                         audit_sampling = SamplingParams(temperature=0, max_tokens=1,
@@ -344,6 +374,8 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                     raise RuntimeError('Combined token budget exceeded')
                 records.append(rec)
             summary = dict(status='complete', arm=arm, config=asdict(cfg), records=records,
+                           fast_io=fast, main_window=plan.get('main_window'),
+                           started_epoch=started_epoch, ended_epoch=time.time(),
                            branch_mode=branch_mode,
                            clone_checks=backend.clone_checks if backend else [],
                            clone_bytes=backend.clone_bytes if backend else 0,
@@ -416,6 +448,7 @@ def main():
                 if failed:
                     save(output/'engineering_gate.json', dict(
                         passed=False, coverage_checks=coverage, branch_mode=plan.get('branch_mode','replay'),
+                        fast_io=plan.get('fast_io', False),
                         failed_checks=failed, completed_arms=list(results),
                         replay_checks=results.get('Rshadow', {}).get('replay_checks', []),
                         source_sha256=plan['source_sha256'], assets=plan['assets']))
@@ -432,6 +465,7 @@ def main():
             save(output/'engineering_gate.json', dict(
                 passed=passed, off_shadow_equivalent=equivalent, replay_checks=checks,
                 branch_mode=plan.get('branch_mode', 'replay'),
+                fast_io=plan.get('fast_io', False),
                 coverage_checks=engineering_checks(results),
                 source_sha256=plan['source_sha256'], assets=plan['assets'],
                 runtime=dict(python=sys.version), config='sync_tp1_bf16_in_graph',

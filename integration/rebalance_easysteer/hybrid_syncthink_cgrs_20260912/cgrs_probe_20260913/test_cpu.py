@@ -80,6 +80,37 @@ class PolicyTests(unittest.TestCase):
 
 
 class LifecycleTests(unittest.TestCase):
+    def test_incremental_output_matches_cumulative_without_copying_prefix(self):
+        from run import accept_output
+        fast, old = [], []
+        sequence = [1, 9, 3, 151649, 7]
+        for i, token in enumerate(sequence):
+            before = fast
+            fast = accept_output([token], fast, i, True)
+            old = accept_output(sequence[:i+1], old, i, False)
+            self.assertIs(fast, before)
+            self.assertEqual(fast, old)
+        with self.assertRaises(RuntimeError):
+            accept_output([1, 2], fast, len(fast), True)
+
+    def test_parked_primary_waiting_queue_is_restored_in_order(self):
+        class Queue(list):
+            def add_request(self, value):
+                self.append(value)
+        waiting, skipped = Queue(['next1', 'next2']), Queue(['deferred'])
+        scheduler = SimpleNamespace(running=['main'], waiting=waiting, skipped_waiting=skipped)
+        with parked(scheduler, allow_waiting=True):
+            self.assertEqual(scheduler.running, [])
+            self.assertEqual(scheduler.waiting, [])
+            self.assertEqual(scheduler.skipped_waiting, [])
+        self.assertIs(scheduler.waiting, waiting)
+        self.assertIs(scheduler.skipped_waiting, skipped)
+        self.assertEqual(scheduler.waiting, ['next1', 'next2'])
+        with self.assertRaisesRegex(RuntimeError, 'drained'):
+            with parked(scheduler, allow_waiting=True):
+                scheduler.waiting.add_request('failed_child')
+        self.assertEqual(scheduler.waiting, ['next1', 'next2', 'failed_child'])
+
     def test_real_output_processor_reproduces_and_repairs_missing_checkpoint(self):
         # Execute the pinned production publication method without importing
         # CUDA dependencies. Output construction is stubbed; its gating is real.

@@ -1,6 +1,161 @@
 {
-  "base_commit": "2d97c918539621a5c21d2242fff162cef9fa6a1b",
-  "branch": "codex/hybrid-syncthink-cgrs-20260912",
+  "phase": "engineering",
+  "dataset": "math",
+  "run_id": "cgrs_probe_engineering8_fast_run5_20260913",
+  "branch_mode": "kv_clone",
+  "rows": [
+    {
+      "problem": "The first six rows of Pascal's triangle are shown below, beginning with row zero. Except for the $1$ at each end, row $4$ consists of only even numbers, as does row $2.$ How many of the first $20$ rows have this property? (Don't include row $0$ or row $1$). \\begin{tabular}{ccccccccccc}\n&&&&&1&&&&&\\\\\n&&&&1&&1&&&&\\\\\n&&&1&&2&&1&&&\\\\\n&&1&&3&&3&&1&&\\\\\n&1&&4&&6&&4&&1&\\\\\n1&&5&&10&&10&&5&&1\\\\\n\\end{tabular}",
+      "solution": "Each number in Pascal's triangle is the sum of the two numbers above it. If we use $0\\text{'s}$ and $1\\text{'s}$ to stand for \"even\" and \"odd\", then by using the rules $0+0=0,$ $0+1=1,$ and $1+1=0,$ we can efficiently compute the parity (even- or oddness) of the entries without computing the entries themselves: \\begin{tabular}{c *{40}{@{}c}}\n&&&&&&&&&&&&&&&&&&&&1&&&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&&&1&&1&&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&&1&&0&&1&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&1&&1&&1&&1&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&1&&0&&0&&0&&1&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&1&&1&&0&&0&&1&&1&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&1&&0&&1&&0&&1&&0&&1&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&1&&1&&1&&1&&1&&1&&1&&1&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&1&&0&&0&&0&&0&&0&&0&&0&&1&&&&&&&&&&&&\\\\\n&&&&&&&&&&&1&&1&&0&&0&&0&&0&&0&&0&&1&&1&&&&&&&&&&&\\\\\n&&&&&&&&&&1&&0&&1&&0&&0&&0&&0&&0&&1&&0&&1&&&&&&&&&&\\\\\n&&&&&&&&&1&&1&&1&&1&&0&&0&&0&&0&&1&&1&&1&&1&&&&&&&&&\\\\\n&&&&&&&&1&&0&&0&&0&&1&&0&&0&&0&&1&&0&&0&&0&&1&&&&&&&&\\\\\n&&&&&&&1&&1&&0&&0&&1&&1&&0&&0&&1&&1&&0&&0&&1&&1&&&&&&&\\\\\n&&&&&&1&&0&&1&&0&&1&&0&&1&&0&&1&&0&&1&&0&&1&&0&&1&&&&&&\\\\\n&&&&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&&&&\\\\\n&&&&1&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&1&&&&\\\\\n&&&1&&1&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&1&&1&&&\\\\\n&&1&&0&&1&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&1&&0&&1&&\\\\\n&1&&1&&1&&1&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&1&&1&&1&&1&\\\\\n1&&0&&0&&0&&1&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&0&&1&&0&&0&&0&&1\n\\end{tabular} There's an interesting pattern here! It's clearer if we don't write the $0\\text{'s}:$ \\begin{tabular}{c *{40}{@{}c}}\n&&&&&&&&&&&&&&&&&&&&1&&&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&&&1&&1&&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&&1&&&&1&&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&&1&&1&&1&&1&&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&&1&&&&&&&&1&&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&&1&&1&&&&&&1&&1&&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&&1&&&&1&&&&1&&&&1&&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&&1&&1&&1&&1&&1&&1&&1&&1&&&&&&&&&&&&&\\\\\n&&&&&&&&&&&&1&&&&&&&&&&&&&&&&1&&&&&&&&&&&&\\\\\n&&&&&&&&&&&1&&1&&&&&&&&&&&&&&1&&1&&&&&&&&&&&\\\\\n&&&&&&&&&&1&&&&1&&&&&&&&&&&&1&&&&1&&&&&&&&&&\\\\\n&&&&&&&&&1&&1&&1&&1&&&&&&&&&&1&&1&&1&&1&&&&&&&&&\\\\\n&&&&&&&&1&&&&&&&&1&&&&&&&&1&&&&&&&&1&&&&&&&&\\\\\n&&&&&&&1&&1&&&&&&1&&1&&&&&&1&&1&&&&&&1&&1&&&&&&&\\\\\n&&&&&&1&&&&1&&&&1&&&&1&&&&1&&&&1&&&&1&&&&1&&&&&&\\\\\n&&&&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&1&&&&&\\\\\n&&&&1&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&1&&&&\\\\\n&&&1&&1&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&1&&1&&&\\\\\n&&1&&&&1&&&&&&&&&&&&&&&&&&&&&&&&&&&&1&&&&1&&\\\\\n&1&&1&&1&&1&&&&&&&&&&&&&&&&&&&&&&&&&&1&&1&&1&&1&\\\\\n1&&&&&&&&1&&&&&&&&&&&&&&&&&&&&&&&&1&&&&&&&&1\n\\end{tabular} Anyway, this table shows that there are four rows that qualify: the $2^{\\rm nd},$ $4^{\\rm th},$ $8^{\\rm th},$ and $16^{\\rm th}$ rows. So the answer is $\\boxed{4}.$",
+      "answer": "4",
+      "subject": "Counting & Probability",
+      "level": 4,
+      "train_index": 647,
+      "problem_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
+      "split": "train"
+    },
+    {
+      "problem": "Suppose\n$$a(2+i)^4 + b(2+i)^3 + c(2+i)^2 + b(2+i) + a = 0,$$where $a,b,c$ are integers whose greatest common divisor is $1$.  Determine $|c|$.",
+      "solution": "Let $f(x) = ax^4+bx^3+cx^2+bx+a$. Thus, the problem asserts that $x=2+i$ is a root of $f$.\n\nNote the symmetry of the coefficients.  In particular, we have $f\\left(\\frac 1x\\right) = \\frac{f(x)}{x^4}$ for all $x\\ne 0$. Thus, if $x=r$ is any root of $f(x)$, then $x=\\frac 1r$ is also a root.\n\nIn particular, $x=\\frac 1{2+i}$ is a root. To write this root in standard form, we multiply the numerator and denominator by the conjugate of the denominator:\n$$\\frac 1{2+i} = \\frac 1{2+i}\\cdot\\frac{2-i}{2-i} = \\frac{2-i}5 = \\frac 25-\\frac 15i.$$Now we have two nonreal roots of $f$. Since $f$ has real coefficients, the conjugates of its roots are also roots. Therefore, the four roots of $f$ are $2\\pm i$ and $\\frac 25\\pm\\frac 15i$.\n\nThe monic quadratic whose roots are $2\\pm i$ is $(x-2-i)(x-2+i) = (x-2)^2-i^2 = x^2-4x+5$.\n\nThe monic quadratic whose roots are $\\frac 25\\pm\\frac 15i$ is $\\left(x-\\frac 25-\\frac 15i\\right)\\left(x-\\frac 25+\\frac 15i\\right) = \\left(x-\\frac 25\\right)^2-\\left(\\frac 15i\\right)^2 = x^2-\\frac 45x+\\frac 15$.\n\nTherefore,\n\\begin{align*}\nf(x) &= a(x^2-4x+5)\\left(x^2-\\frac 45x+\\frac 15\\right) \\\\\n&= a\\left(x^4-\\frac{24}5x^3+\\frac{42}5x^2-\\frac{24}5x+1\\right),\n\\end{align*}so\n$a,b,c$ are in the ratio $1:-\\frac{24}5:\\frac{42}5$. Since $a,b,c$ are integers whose greatest common divisor is $1$, we have $(a,b,c) = (5,-24,42)$ or $(-5,24,-42)$. In either case, $|c|=\\boxed{42}$.",
+      "answer": "42",
+      "subject": "Intermediate Algebra",
+      "level": 5,
+      "train_index": 1837,
+      "problem_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
+      "split": "train"
+    },
+    {
+      "problem": "Compute $\\tan (-3645^\\circ)$.",
+      "solution": "Rotating $360^\\circ$ is the same as doing nothing, so rotating $3645^\\circ$ is the same as rotating $3645^\\circ - 10\\cdot 360^\\circ = 45^\\circ$.  Therefore, $\\tan(-3645^\\circ) = \\tan (-45^\\circ)$.\n\nRotating $45^\\circ$ clockwise is the same as rotating $360^\\circ - 45^\\circ = 315^\\circ$ counterclockwise, so $\\tan(-45^\\circ) = \\tan (360^\\circ - 45^\\circ) = \\tan 315^\\circ$.\n\nLet $P$ be the point on the unit circle that is $315^\\circ$ counterclockwise from $(1,0)$, and let $D$ be the foot of the altitude from $P$ to the $x$-axis, as shown below.\n\n[asy]\n\npair A,C,P,O,D;\n\ndraw((0,-1.2)--(0,1.2),p=black+1.2bp,Arrows(0.15cm));\n\ndraw((-1.2,0)--(1.2,0),p=black+1.2bp,Arrows(0.15cm));\n\nA = (1,0);\n\nO= (0,0);\n\nlabel(\"$x$\",(1.2,0),SE);\n\nlabel(\"$y$\",(0,1.2),NE);\n\nP = rotate(315)*A;\n\nD = foot(P,A,-A);\n\ndraw(O--P--D);\n\ndraw(rightanglemark(O,D,P,2));\n\ndraw(Circle(O,1));\n\nlabel(\"$O$\",O,NW);\n\nlabel(\"$P$\",P,SE);\n\n//label(\"$A$\",A,SE);\n\nlabel(\"$D$\",D,N);\n\n[/asy]\n\nTriangle $POD$ is a 45-45-90 triangle, so $DO = OP = \\frac{\\sqrt{2}}{2}$.  Therefore, the coordinates of $P$ are $\\left(\\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2}\\right)$, so $\\tan(-3645^\\circ) = \\tan (-45^\\circ) = \\tan 315^\\circ = \\frac{\\sin 315^\\circ}{\\cos 315^\\circ} = \\frac{-\\sqrt{2}/2}{\\sqrt{2}/2} = \\boxed{-1}$.",
+      "answer": "-1",
+      "subject": "Geometry",
+      "level": 2,
+      "train_index": 4972,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "split": "train"
+    },
+    {
+      "problem": "If $a$,$b$, and $c$ are positive real numbers such that $a(b+c) = 152$, $b(c+a) = 162$, and $c(a+b) = 170$, then find $abc.$",
+      "solution": "Adding the given equations gives $2(ab+bc+ca) = 484$, so $ab+bc+ca = 242$. Subtracting from this each of the given equations yields $bc=90$, $ca=80$, and $ab=72$. It follows that $a^2b^2c^2 = 90 \\cdot 80 \\cdot 72 = 720^2$. Since $abc>0$, we have $abc =\\boxed{720}$.",
+      "answer": "720",
+      "subject": "Intermediate Algebra",
+      "level": 2,
+      "train_index": 1441,
+      "problem_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "split": "train"
+    },
+    {
+      "problem": "Four points $B,$ $A,$ $E,$ and $L$ are on a straight line, as shown. The point $G$ is off the line so that $\\angle BAG = 120^\\circ$ and $\\angle GEL = 80^\\circ.$ If the reflex angle at $G$ is $x^\\circ,$ then what does $x$ equal?\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\n[/asy]",
+      "solution": "Since the sum of the angles at any point on a line is $180^\\circ,$ then we find that \\begin{align*}\n\\angle GAE &= 180^\\circ - 120^\\circ = 60^\\circ, \\\\\n\\angle GEA &= 180^\\circ - 80^\\circ = 100^\\circ.\n\\end{align*}\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\ndraw((11,5.5)--(11.5,0.5),black+linewidth(1));\ndraw((11,5.5)--(11.5,0.5),EndArrow);\ndraw((13,-4)--(14,1),black+linewidth(1));\ndraw((13,-4)--(14,1),EndArrow);\nlabel(\"$60^\\circ$\",(11,5.5),N);\nlabel(\"$100^\\circ$\",(13,-4),S);\n[/asy]\n\nSince the sum of the angles in a triangle is $180^\\circ,$ we have  \\begin{align*}\n\\angle AGE &=180^\\circ - \\angle GAE - \\angle GEA \\\\\n&= 180^\\circ - 60^\\circ - 100^\\circ \\\\\n&= 20^\\circ.\n\\end{align*} Since $\\angle AGE=20^\\circ,$ then the reflex angle at $G$ is $360^\\circ - 20^\\circ = 340^\\circ.$ Therefore, $x=\\boxed{340}.$",
+      "answer": "340",
+      "subject": "Prealgebra",
+      "level": 3,
+      "train_index": 4432,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "split": "train"
+    },
+    {
+      "problem": "Find $\\cot (-60^\\circ).$",
+      "solution": "We have that\n\\[\\cot (-60^\\circ) = \\frac{1}{\\tan (-60^\\circ)}.\\]Then\n\\[\\tan (-60^\\circ) = -\\tan 60^\\circ = -\\sqrt{3},\\]so\n\\[\\frac{1}{\\tan (-60^\\circ)} = -\\frac{1}{\\sqrt{3}} = \\boxed{-\\frac{\\sqrt{3}}{3}}.\\]",
+      "answer": "-\\frac{\\sqrt{3}}{3}",
+      "subject": "Precalculus",
+      "level": 1,
+      "train_index": 3497,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "split": "train"
+    },
+    {
+      "problem": "Find the minimum value of\n\\[f(x) = x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}}\\]for $x > 0.$",
+      "solution": "First, consider the function\n\\[g(x) = x + \\frac{1}{x}.\\]If $1 \\le x < y,$ then\n\\begin{align*}\ng(y) - g(x) &= y + \\frac{1}{y} - x - \\frac{1}{x} \\\\\n&= y - x + \\frac{1}{y} - \\frac{1}{x} \\\\\n&= y - x + \\frac{x - y}{xy} \\\\\n&= (y - x) \\left( 1 - \\frac{1}{xy} \\right) \\\\\n&= \\frac{(y - x)(xy - 1)}{xy} \\\\\n&> 0.\n\\end{align*}Thus, $g(x)$ is increasing on the interval $[1,\\infty).$\n\nBy AM-GM (and what we just proved above),\n\\[x + \\frac{1}{x} \\ge 2,\\]so\n\\[g \\left( x + \\frac{1}{x} \\right) \\ge 2 + \\frac{1}{2} = \\frac{5}{2}.\\]Equality occurs when $x = 1,$ to the minimum value of $f(x)$ for $x > 0$ is $\\boxed{\\frac{5}{2}}.$\n\nIn particular, we cannot use the following argument: By AM-GM,\n\\[x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}} \\ge 2 \\sqrt{\\left( x + \\frac{1}{x} \\right) \\cdot \\frac{1}{x + \\frac{1}{x}}} = 2.\\]However, we cannot conclude that the minimum is 2, because equality can occur only when $x + \\frac{1}{x} = 1,$ and this is not possible.",
+      "answer": "\\frac{5}{2}",
+      "subject": "Intermediate Algebra",
+      "level": 3,
+      "train_index": 1483,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "split": "train"
+    },
+    {
+      "problem": "The first digit of a string of 2002 digits is a 1. Any two-digit number formed by consecutive digits within this string is divisible by 19 or 31. What is the largest possible last digit in this string?",
+      "solution": "Make a list of the two-digit multiples of 19 and 31: 19, 31, 38, 57, 62, 76, 93, and 95.  If we build the string from the beginning, we have different possibilities to check.  For example, the second digit is 9, but the third digit could be 3 or 5.  However, no units digit appears more than once, so if we build the string in reverse then the order is determined.  If the 2002nd digit is 9, then the 2001st digit is 1, the 2000th digit is 3, the 1999th digit is 9, etc.  Therefore, the first digit would be 9.  So if the first digit is 1, then the final digit cannot be 9.  If the 2002nd digit is 8, the the 2001st digit is 3, the 2000th digit is 9, the 1999th digit is 1, the 1998th digit is 3, etc.  In this case, the first digit is 1, so the maximum possible last digit is $\\boxed{8}$.",
+      "answer": "8",
+      "subject": "Counting & Probability",
+      "level": 5,
+      "train_index": 229,
+      "problem_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
+      "split": "train"
+    }
+  ],
+  "coordination": {
+    "run_id": "cgrs_probe_engineering8_run4_20260913",
+    "phase": "engineering",
+    "dataset": "math",
+    "rows_sha256": "7baabd668e257ff0e0cf016c11a9dd7c4b8d9ea42c061181bd42a35a72f03701",
+    "data_reconciled": true,
+    "gpu_authorized": true,
+    "authorization_text": "User: 继续，有问题自己解决，直到跑出结果. Bounded engineering repair and small screening; no full-test rerun.",
+    "checked_registries": [
+      "local_reconciliation.json",
+      "remote_reconciliation.json"
+    ],
+    "purpose": "Reuse original B engineering8, no independent accuracy claim",
+    "runtime_commit": "recorded in deployment manifest",
+    "prior_failure": "Full-prefill replay failed strict numeric gate; new opt-in KV clone with identical main decode audit batch and byte equality, thresholds unchanged",
+    "status": "prepared",
+    "authorization": "User requests full RC evaluation with throughput optimization; bounded 8x5 engineering gate first"
+  },
+  "engineering_gate": null,
+  "rows_sha256": "7baabd668e257ff0e0cf016c11a9dd7c4b8d9ea42c061181bd42a35a72f03701",
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
   "source_sha256": {
     "integration/rebalance_easysteer/eval/decode_profiler.py": "09133a44875c673b45f38592589e2ef551a2f4a094ff7032f68d5303ab17f17f",
     "integration/rebalance_easysteer/eval/rebalance_boundary_compare.py": "e7172efd6270fec16527f6b9f3f62c1c9c0334d77f328874f4f60dfff802828c",
@@ -2194,58 +2349,8 @@
     "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_probe_20260913/full.py": "4a0aecb386df1c2f38f42d66b7e1c5076a7d68ce14f9b213660945f2ae306834",
     "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_probe_20260913/full_grade.py": "6d1e491889c11b9dba42d50387806409d1b5289d6e16126b58152667def8fc6c"
   },
-  "assets": {
-    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
-    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
-    "model_files": {
-      "config.json": {
-        "bytes": 679,
-        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
-      },
-      "generation_config.json": {
-        "bytes": 181,
-        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
-      },
-      "model.safetensors": {
-        "bytes": 3554214621,
-        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
-      },
-      "tokenizer.json": {
-        "bytes": 7031660,
-        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
-      },
-      "tokenizer_config.json": {
-        "bytes": 3071,
-        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
-      }
-    },
-    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
-    "vector": {
-      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
-      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
-      "bytes": 7344
-    },
-    "fit": {
-      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
-      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
-      "bytes": 1186
-    },
-    "decoder_output_layer": 20,
-    "rebalance_parameters": {
-      "q25c": 0.888148010597869,
-      "q75c": 0.9989141310845991,
-      "q25v": 2.1830046484335987e-07,
-      "q75v": 0.0014852457558952,
-      "low_val_1": -0.49999999999999994,
-      "low_val_2": -1.5353450143175593,
-      "high_val_2": 0.1,
-      "initial_coef": -1.0,
-      "curve_tau": 0.002450814632284028
-    },
-    "calibration_answers_must_not_be_regenerated": true,
-    "vector_normalization": "raw"
-  },
-  "official_cgrs_commit": "27077bbca5a4b08fd3f6503d9e87b5fba7facddd",
-  "shared_source_mutations": [],
-  "source_hash_format": "SHA256 of UTF-8 Python file bytes with CRLF normalized to LF; model/vector/fit hashes are raw bytes"
+  "implementation_commit": "9a1124e8587b0442e8ef0eb54ec607d50c9e7c0f",
+  "baseline_commit": "2d97c918539621a5c21d2242fff162cef9fa6a1b",
+  "fast_io": true,
+  "main_window": 4
 }

@@ -1,0 +1,55 @@
+{
+  "arms": [
+    "RC"
+  ],
+  "counts": {
+    "math_test": 500,
+    "gsm8k_test": 1319
+  },
+  "max_total_budget": 16000,
+  "method": {
+    "interval": 1024,
+    "max_probes": 8,
+    "probe_tokens": 32,
+    "delta": 0.9,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.95
+  },
+  "runtime": {
+    "main_window": 256,
+    "physical_slots": 288,
+    "probe_batch_limit": 32,
+    "batch_tokens": 32768,
+    "model_len": 32768,
+    "dtype": "bfloat16",
+    "cuda_graph": true,
+    "async_scheduling": false,
+    "gpu_memory_utilization": 0.9
+  },
+  "stop": [
+    "native CPU failure",
+    "engineering gate failure without relaxation",
+    "preemption or KV identity/preservation failure",
+    "per dataset 1800 seconds; entire process 4200 seconds",
+    "exception, budget excess, missing or duplicate question; retain partial outputs"
+  ],
+  "costs": {
+    "engineering": "8 reused questions x 5 arms x maximum 256 main tokens plus engineering probes",
+    "full": "1819 RC outputs only; no U/R/C full reruns",
+    "estimate_minutes": [
+      15,
+      30
+    ]
+  },
+  "judgment": {
+    "accuracy_loss_margin_pp": 2,
+    "primary_comparison": "RC vs frozen R on each dataset separately",
+    "primary_tokens": "main plus all probe generated tokens",
+    "secondary": "thinking tokens and budget including forced probe prompt",
+    "uncertainty": "10000 paired bootstrap samples seed 20260913; report CI plus point accuracy loss; CI lower bound >= -2 needed for CI-based noninferiority",
+    "efficacy": "Token mean decreases and point accuracy loss <=2pp is descriptive pass; confidence interval crossing zero means unconfirmed compression.",
+    "synergy": "Not identified by this RC-only full evaluation; no full C control and reference scheduling differs."
+  },
+  "provenance": "Paper-derived CGRS adaptation; not unmodified official implementation. Fixed after training screening64; exposed tests not independent confirmation."
+}

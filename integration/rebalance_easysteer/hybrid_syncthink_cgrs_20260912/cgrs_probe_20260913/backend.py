@@ -28,10 +28,15 @@ def enable_cumulative(llm, request_ids, cumulative_kind=None):
 
 
 @contextmanager
-def parked(scheduler):
+def parked(scheduler, allow_waiting=False):
     """Temporarily withhold live main requests; retain their KV ownership."""
-    if scheduler.waiting or scheduler.skipped_waiting:
+    if not allow_waiting and (scheduler.waiting or scheduler.skipped_waiting):
         raise RuntimeError('Park only after all primary requests are admitted')
+    queues = None
+    if allow_waiting:
+        queues = scheduler.waiting, scheduler.skipped_waiting
+        scheduler.waiting = type(queues[0])()
+        scheduler.skipped_waiting = type(queues[1])()
     held = scheduler.running
     scheduler.running = []
     try:
@@ -41,6 +46,11 @@ def parked(scheduler):
     finally:
         # On exceptions retain all live requests so abort/cleanup can find them.
         scheduler.running = held + scheduler.running
+        if queues is not None:
+            for saved, active in zip(queues, (scheduler.waiting, scheduler.skipped_waiting)):
+                for request in active:
+                    saved.add_request(request)
+            scheduler.waiting, scheduler.skipped_waiting = queues
 
 
 class SamplerAdapter:
@@ -253,6 +263,19 @@ class Backend:
     def primary_signature(self, held):
         state = self.runner.steer_vector_state
         signatures = {}
+        bulk = getattr(self, 'bulk_signature', False)
+        cached = {}
+        if bulk:
+            routed = [r.request_id for r in held if r.request_id in state._dynamic_indices]
+            if routed:
+                index = self.torch.tensor([state._dynamic_indices[r] for r in routed],
+                                         device=state._history.device)
+                fields = [f.index_select(0, index).cpu().numpy() for f in state._state_fields()]
+                length = max(state._history_lengths[r] for r in routed)
+                histories = state._history[:, :length].index_select(0, index).cpu().numpy()
+                cached = {rid: ([f[i].tobytes() for f in fields],
+                                histories[i, :state._history_lengths[rid]].tobytes())
+                          for i, rid in enumerate(routed)}
         for req in held:
             rid = req.request_id
             h = hashlib.sha256()
@@ -264,15 +287,37 @@ class Backend:
                     h.update(view[blocks].cpu().numpy().tobytes())
             if rid in state._dynamic_indices:
                 idx = state._dynamic_indices[rid]
-                for field in state._state_fields():
-                    h.update(field[idx].cpu().numpy().tobytes())
-                h.update(state._history[idx, :state._history_lengths[rid]]
-                         .cpu().numpy().tobytes())
+                if bulk:
+                    fields, history = cached[rid]
+                    for value in fields:
+                        h.update(value)
+                    h.update(history)
+                else:
+                    for field in state._state_fields():
+                        h.update(field[idx].cpu().numpy().tobytes())
+                    h.update(state._history[idx, :state._history_lengths[rid]]
+                             .cpu().numpy().tobytes())
             signatures[rid] = h.hexdigest()
         return signatures
 
     def drain_probe_requests(self, requests, sampling, steering, suffix, audit=False):
         """Caller parks primary scheduler list before invoking this method."""
+        limit = getattr(self, 'probe_batch_limit', None)
+        if limit is not None and requests:
+            free = self.scheduler.kv_cache_manager.block_pool.get_num_free_blocks()
+            selected, required = 0, 0
+            for item in requests[:limit]:
+                blocks = (len(item['prefix']) + len(suffix) + sampling.max_tokens
+                          + self.block_size - 1) // self.block_size
+                if required + blocks > free - 32:
+                    break
+                selected += 1
+                required += blocks
+            if not selected:
+                raise RuntimeError('Insufficient independent probe KV capacity; stop without skipping probe')
+            if selected < len(requests):
+                return (self.drain_probe_requests(requests[:selected], sampling, steering, suffix, audit)
+                        + self.drain_probe_requests(requests[selected:], sampling, steering, suffix, audit))
         prompts = [{'prompt_token_ids': item['prefix'] + suffix} for item in requests]
         ids = self.llm.enqueue(prompts, sampling_params=sampling, steering=steering,
                                use_tqdm=False)

@@ -10,6 +10,20 @@ from policy import Config, State, TRIGGERS
 
 
 class NativeTensorTests(unittest.TestCase):
+    def test_bulk_signature_preserves_exact_scalar_and_history_bytes(self):
+        owner = Backend.__new__(Backend)
+        owner.torch = torch
+        fields = [torch.tensor([float('nan'), .2]), torch.tensor([1, 2])]
+        state = SimpleNamespace(_dynamic_indices={'a': 0, 'b': 1},
+            _state_fields=lambda: fields, _history=torch.arange(16).reshape(2, 8),
+            _history_lengths={'a': 3, 'b': 5})
+        owner.runner = SimpleNamespace(steer_vector_state=state)
+        requests = [SimpleNamespace(request_id=r, all_token_ids=[1,2],
+                                    num_computed_tokens=1, num_output_tokens=1) for r in ('b','a')]
+        old = owner.primary_signature(requests)
+        owner.bulk_signature = True
+        self.assertEqual(old, owner.primary_signature(requests))
+
     def test_cache_copy_after_zeroing_is_disjoint_and_byte_exact(self):
         owner = Backend.__new__(Backend)
         owner.torch = torch
