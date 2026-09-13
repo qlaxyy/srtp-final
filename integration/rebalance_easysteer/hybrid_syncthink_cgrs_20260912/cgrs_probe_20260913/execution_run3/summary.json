@@ -1,0 +1,100 @@
+{
+  "status": "stopped_at_replay_gate_not_efficacy_result",
+  "source_commit": "9727aa175ac3e91d31ea54cba373ed1921cdfa7b",
+  "package_commit": "5864f8db7fd1530b2b7cc81a4cfda9b1a8c3530f",
+  "completed_arms": [
+    "R",
+    "Roff"
+  ],
+  "completed_predictions": 16,
+  "partial_arm": "Rshadow",
+  "partial_predictions": 8,
+  "partial_accepted_tokens_each": 46,
+  "not_started": [
+    "C",
+    "RC"
+  ],
+  "off_equivalent": true,
+  "all_saved_shadow_prefixes_equal_R": true,
+  "complete_probes": [
+    {
+      "parent_key": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "position": 46,
+      "token_ids": [
+        90,
+        16,
+        17,
+        15,
+        532
+      ],
+      "entropy": [
+        0.09538650512695312,
+        2.187471389770508,
+        1.811990737915039,
+        1.091867446899414,
+        1.0409717559814453
+      ],
+      "selected_tokens": [
+        1,
+        2,
+        3
+      ],
+      "certainty": 0.8577588362320032,
+      "status": "complete",
+      "suppression_probability": 0.0,
+      "prefill_tokens": 129,
+      "prefix_sha256": "9880016a91ff3c88ae3e6422d0d094fe9d09d4544d200118176a96faf079db0c"
+    }
+  ],
+  "replay_checks": [
+    {
+      "request_id": "19-b9fe291a",
+      "max_abs": 0.125,
+      "relative_l2": 0.01159913931041956,
+      "argmax_equal": true,
+      "passed": false
+    }
+  ],
+  "primary_preservation_checks": [
+    {
+      "before": {
+        "16-98d24b7a": "8b80a395ef235fb7e8e6cd3b1bea0555d3e0f7e6d539a1c72204679726e16327",
+        "17-89773352": "3a53e19db9e0dbeedc31a0e34b2c264f9fb419fe5f9bfc1f76cf7cb2c1fdbfc7",
+        "18-813ba037": "f9ecc43c012c6af368efc592c3620b91924ca17e019c12d33465ba738db482fd",
+        "19-b9fe291a": "645ccad19e4cb9d8803c6e8c3a9bb00b0a7218e6e84eb3381820c294c31ed10d",
+        "20-adc700c6": "c1b23f38660c6a813661a9790964ab24b14a6549883d763cf2b567227aeada20",
+        "21-9897bb29": "d0c3813748a82482c6288b42d2b996c362a9a444e51016490f9ce8e1277c0a07",
+        "22-965c72a5": "d929a9c9ac8b2c14d2e57d8ec1b2aea031d3fcb6b8d9355d847f8463a5648b3c",
+        "23-99db7d82": "cf6a98cf2f7e7aae97b61c2ed8a37b7a6ce6ea57b72d6afa95ad49a2617424eb"
+      },
+      "after": {
+        "16-98d24b7a": "8b80a395ef235fb7e8e6cd3b1bea0555d3e0f7e6d539a1c72204679726e16327",
+        "17-89773352": "3a53e19db9e0dbeedc31a0e34b2c264f9fb419fe5f9bfc1f76cf7cb2c1fdbfc7",
+        "18-813ba037": "f9ecc43c012c6af368efc592c3620b91924ca17e019c12d33465ba738db482fd",
+        "19-b9fe291a": "645ccad19e4cb9d8803c6e8c3a9bb00b0a7218e6e84eb3381820c294c31ed10d",
+        "20-adc700c6": "c1b23f38660c6a813661a9790964ab24b14a6549883d763cf2b567227aeada20",
+        "21-9897bb29": "d0c3813748a82482c6288b42d2b996c362a9a444e51016490f9ce8e1277c0a07",
+        "22-965c72a5": "d929a9c9ac8b2c14d2e57d8ec1b2aea031d3fcb6b8d9355d847f8463a5648b3c",
+        "23-99db7d82": "cf6a98cf2f7e7aae97b61c2ed8a37b7a6ce6ea57b72d6afa95ad49a2617424eb"
+      },
+      "passed": true
+    }
+  ],
+  "native_cpu_checks_passed": 2,
+  "wall_seconds": 33.07154007256031,
+  "completed_arms_generation_seconds": 4.915150448679924,
+  "time_caveat": "Completed-arm generation only; excludes failed shadow time. Full run wall includes initialization and shadow failure; excludes transfer.",
+  "raw_archive_sha256": "b23d3c89543dc8d06194033c7108ad6a1b62f7d88f4bc210982fea8bf1c6d926",
+  "new_questions": 0,
+  "diagnosis": {
+    "confirmed": "FINAL_ONLY bug fixed; complete probe and return to main sampler reached. Historical replay logits differ from original live-KV main logits before any C suppression.",
+    "not_established": "Cannot distinguish prefill/decode numerical differences, replay injection mismatch, or KV state mutation from current logs; signatures cover tokens and R controller, not KV contents or RNG.",
+    "code_audit": "History lengths include newest sampled token; replay copies per-position history and original prompt boundary; no confirmed off-by-one found.",
+    "gate_unchanged": {
+      "max_abs": 0.02,
+      "relative_l2": 0.002,
+      "argmax_equal": true
+    }
+  },
+  "next_action": "CPU preparation of a separately bounded same-prefix diagnostic separating unsteered replay error from R replay error, and parked-main effects. No automatic GPU retry or efficacy screening."
+}

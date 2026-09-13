@@ -1,5 +1,5 @@
 {
-  "status": "local_cpu_pass_native_gpu_pending",
+  "status": "local_cpu_and_native_pass_gpu_replay_failed",
   "tests": 17,
   "returncode": 0,
   "seconds": 0.266,
@@ -15,10 +15,11 @@
     "test_native.py"
   ],
   "torch_available": false,
-  "native_torch_test": "Passed for deployed pre-streaming-fix snapshot; current changed adapter awaits native recheck",
-  "vllm_execution": "not_run",
-  "gpu_replay_gate": "Revised coverage gate pending run3",
-  "server_connected": false,
-  "new_model_predictions": 0,
-  "source_hashes_verified": 2189
+  "native_torch_test": "run3 deployed source 9727aa1: 2 passed",
+  "vllm_execution": "run3 R/Roff complete; Rshadow partial; C/RC not started",
+  "gpu_replay_gate": "run3 failed max_abs .125 > .02; relative_l2 .011599 > .002; argmax same",
+  "server_connected": true,
+  "new_model_predictions": 16,
+  "source_hashes_verified": 2189,
+  "partial_model_predictions": 8
 }
