@@ -1,6 +1,6 @@
 {
   "namespace": "hybrid_syncthink_cgrs_20260912",
-  "status": "1228_B_training_questions_consumed; mix05_independent_confirmation_complete; no_new_reservation",
+  "status": "cgrs_screen64_frozen; prior results and reservations preserved",
   "normalization": "Unicode NFKC, remove all Unicode whitespace, SHA256 UTF-8; preserve case and symbols",
   "entries": [
     {
@@ -9654,6 +9654,518 @@
       "purpose": "mix05_independent_confirmation",
       "status": "consumed_independent_confirmation",
       "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2218,
+      "problem_sha256": "45a85d7c0ddf11f38b8ba6690424c946d73bc4658f18753455e7845e999665c4",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6110,
+      "problem_sha256": "ae69fd00ec3850303e2d5f09f3dad0a917082386d4883f4efd5d6b19c2289336",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3147,
+      "problem_sha256": "8e220835d7fe1a263f9c59eaa74557a97b272bff7a106ffae279fc30cdf04eb6",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 70,
+      "problem_sha256": "9857027cdef009ceb97b4280849832a816917e7780fd3d15d5350cc9394ab7be",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2959,
+      "problem_sha256": "4a6cba243df2c3d36a1a258ed927aa749810ac27baeb094dac33016044737329",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7317,
+      "problem_sha256": "4f0a778fa8ab191367378ce8a2b2bd9b33e0dac76b03845b38310ae0f6afb4a4",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4953,
+      "problem_sha256": "f186f7ada51472c2ea63f03b8bd217918e8f34e066c7202b584b3ae8c5dd88c8",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6006,
+      "problem_sha256": "9b4206d82575628f305b8d4aa642966385f70c40f02065d11698ff6fadc54bbe",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5863,
+      "problem_sha256": "738efe5939994acd68b2e9efdec07527f67104317a953b9e726d472e075800e2",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3195,
+      "problem_sha256": "6130963362b5df543a601a4b2e59d93ce60dad65c04a6fbf122f33debbb65836",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2227,
+      "problem_sha256": "d8e1a96cf1deab5776de167afcafd8aa895f20367fd7574fdedb9c6499884787",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6213,
+      "problem_sha256": "e8b1d480e758192681e06cec7e95b168e3dbf3a670db98d4f9cb3d369d769f27",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3720,
+      "problem_sha256": "f13e4b37a49392e81bd4da9205634e4bdb6735d3d386c6e51f93c1d5af6ec2a4",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3946,
+      "problem_sha256": "fb97227b5118288795daaecff995345c77f95506d27f967cfe1670348bec2ac9",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2222,
+      "problem_sha256": "58293db18b01125c2b1b68c21a948a4cdf77384bf291b2a01f3878111fe72911",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 346,
+      "problem_sha256": "c384de627e6fb966d0e7d307fbc59c75761cc529806d5965f8511c43b0fbebfd",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1142,
+      "problem_sha256": "1aedb91b2dbde0000db813f4873b390f89d488f31a8f868d9f0be97d46ffef92",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6426,
+      "problem_sha256": "821cca5edbf8dee330c93543b993da79b24cb21b3f098668ef0736a007d40dfe",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4388,
+      "problem_sha256": "1cbd293fb8af4780d451b4ba3fcb46295a23789fcc6cdda0fa6e71118778fb47",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3828,
+      "problem_sha256": "f02dd653bb049a39328d0f96e8be2c69982d17db5568e39f06f785b6ecb49603",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6485,
+      "problem_sha256": "e953ba42b9eafb4958a03d40cd1f1a0fa5ec9d451b150f1ef0c0fd4b01f7c515",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4461,
+      "problem_sha256": "24e6b60d79b0a05a683285e4db7ea0f3bba1e53dc6fca46f3b4666cc64310034",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2728,
+      "problem_sha256": "5fc764e23d659107530a63f4af994abb749b0e57a215ef2386a0d931d0800fc6",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3613,
+      "problem_sha256": "a0a9101394baf0f1d90cf024b1b42649822e85a20cc1ca9f73969f6f1a223113",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6229,
+      "problem_sha256": "b5985a3a6d2a3418bbeb85adc777618ba2d1479117d65b7b131911dc21cd0777",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2545,
+      "problem_sha256": "21acfe987395ae1bb9b8dc31587f916fcf73a3efdae2dcd5542171f0bffb127e",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 207,
+      "problem_sha256": "3f83b9e11e0045a8fb27c46fba7647336b994d3a5cf30b4653305dd0e4dbf188",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5639,
+      "problem_sha256": "f28467b3903b9131677d04e8ee52ea71322080c2667556c5933a98235f0ab360",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5571,
+      "problem_sha256": "ec5f32c6be8253552c8dba14e08b9e17376710cec96a5d20ac217904ed40a7ae",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6201,
+      "problem_sha256": "0c990c2165e6b86170bd9fe5802f58db92d54d813afa8a151f30078038bbb92a",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7407,
+      "problem_sha256": "c754a3fd8775eb09e11291def0ee3ae0cf8b91ce12a5b53c1e287d2e4124eace",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2586,
+      "problem_sha256": "fefe28a1b17ac0bdaa0dc8bc9a94b1d75befd04a0bfd8c14d299553c01926f6b",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4225,
+      "problem_sha256": "feea4d0ea44320ca62202f4b4aa39204e9375fe02ea5434b3ee9c02226579fea",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6301,
+      "problem_sha256": "df96587b4f40ba0dc34dd51a330e3710170e8c6c301e8571d0271b2d10ef4d8d",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2935,
+      "problem_sha256": "db9bd5c0cd525cf91d7adff9340c4d8daa518440127ac33d0866d99649aa9215",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5384,
+      "problem_sha256": "c6cc862fe53fcb8501ed59d606c908f1e45e48d5a24c35af56193ad03ab8b77f",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4768,
+      "problem_sha256": "116430ca904ab18f9ac94c48ce3cd6eaf6da5f26becf2b72332d3c0ae0cb88ef",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2458,
+      "problem_sha256": "97f43e168152570f1ec0b16f037df6d438e5d10e9dc48df0ef01c30da7f8d9a5",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5774,
+      "problem_sha256": "e57562c9749c801a61257ef87e0fd8dc03fc55eb3d0ff46a891c004acbebc6d1",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3101,
+      "problem_sha256": "4d50fa845f818c874047fc3d27f54c21c08415374b5388e737e9a5f9ff7f535c",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5679,
+      "problem_sha256": "eb5d61823123ad2390394cd7e287252c6cef0a7481bc62e876737379f4851c26",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2672,
+      "problem_sha256": "d1bad44203e88ab1ce113cb4a3c869079a63d176f0f861337f6b825e74bf35b8",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5900,
+      "problem_sha256": "c585ee915949dbde0e87a6f4e13863fee76eaa22ae4d234e414f8be73f2f47ab",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 7267,
+      "problem_sha256": "033484b82bad485ce9b0974668c394a25bdc6836619db984817eae3bda35bfdd",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5971,
+      "problem_sha256": "f1975276fbae9760c9fc93094c48bcc7e755d18f5e28386341681470ab4ebc57",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6166,
+      "problem_sha256": "d86237c246b4704857b34feda15a5156bde46e7a57c06f37b6a1b9f88513d7aa",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 720,
+      "problem_sha256": "fd56098a4cd5f4aa3a22f275a26427a1ee4fa588b4e09e82a5b746f97980c21a",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2836,
+      "problem_sha256": "0e17dfc803634e6ec63677889bbf4792f44de228fc7ac10f0f5910240c5e5b83",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6470,
+      "problem_sha256": "37fab9a03c0e5346b87bfb1e5afe583bb3ee4e1ec92bbb73a8838627e8d533b3",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4540,
+      "problem_sha256": "12054e495a04d6c3a9c34c903e7ddc31d184a62fd522a56a8267f0dbc7dfc20b",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 196,
+      "problem_sha256": "8210399210b7b39f17b69d540ea0d0379b8057b468452785201d51cd505568f0",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4263,
+      "problem_sha256": "8154a0c7b26e1930e09e85251b104d3cb40b8f51784b74035f7a5da97bc55184",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6036,
+      "problem_sha256": "7b3892bc409874c537af3b8294212b0f64eec241f11222aefd9298b2bf4f4186",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1188,
+      "problem_sha256": "a1b5963c6ea0d51300e9e52308fd8b4e61ce13120d1b6397f61489798e59a6be",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6435,
+      "problem_sha256": "93aa09e13b2ce44ac5d7fd427e7d5c5d716ed303809596a38805cef08fde77c3",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 4494,
+      "problem_sha256": "86b998e61e34b249f226fa5bb1f5339acad13c3324411bb5aebbbca1f8b1ac3c",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5152,
+      "problem_sha256": "c05427d3ec3aaedb717dcbacac7b91bfdfb543a97c8281eb62e6b12219eeba9a",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 1587,
+      "problem_sha256": "2c9a776d0d28c7acf7dfca4fbfef41aa57959daee7b3d1d443902e585b850711",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 418,
+      "problem_sha256": "d549a3e8aa0c374a4e39b724e9c0970a350933a577a10d632fc64719d2e27602",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 5666,
+      "problem_sha256": "767e49e105bc810ed976c83dc195d40c81ea926b210c4c65fe094484dc610528",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 6519,
+      "problem_sha256": "f51e365007d3a3bc1f32dd1f0c331c30e7b696e689a24ee3de1a1cb548caa296",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3056,
+      "problem_sha256": "8ed65a91e3609ea36b9ead7c4482d533d144ea32de827e08a92e1629c3fb3f15",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 2701,
+      "problem_sha256": "c007d3b6acfe27853e31e1069bbefa4ac6bd5af2d5ef3ec4d52e7afe2a10cd51",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
+    },
+    {
+      "dataset": "math_train",
+      "train_index": 3251,
+      "problem_sha256": "abec7fb93a9de60e4e7d7dc5d47be15f242b94cde671dbcb7c960f30c83be863",
+      "purpose": "cgrs_kv_clone_screening_not_confirmation",
+      "status": "frozen_pending_generation",
+      "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913"
     }
   ],
   "sources": {

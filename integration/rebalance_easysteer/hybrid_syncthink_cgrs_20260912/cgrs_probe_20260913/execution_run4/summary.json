@@ -1,0 +1,78 @@
+{
+  "status": "engineering_passed_not_efficacy_result",
+  "source_commit": "9a1124e8587b0442e8ef0eb54ec607d50c9e7c0f",
+  "branch_mode": "kv_clone",
+  "questions": 8,
+  "completed_predictions": 40,
+  "native_cpu_passed": 3,
+  "coverage_checks": {
+    "Roff_equivalent": true,
+    "Rshadow_equivalent": true,
+    "Rshadow_probes": true,
+    "Rshadow_cache_copied": true,
+    "Rshadow_preserved": true,
+    "replay_passed": true,
+    "C_probes": true,
+    "C_cache_copied": true,
+    "C_preserved": true,
+    "C_mask_exercised": true,
+    "RC_probes": true,
+    "RC_cache_copied": true,
+    "RC_preserved": true,
+    "RC_mask_exercised": true
+  },
+  "numeric_checks": 128,
+  "max_absolute_difference": 0.0,
+  "max_relative_l2": 0.0,
+  "arms": {
+    "R": {
+      "generation_seconds": 2.55925789475441,
+      "probe_output_tokens": 0,
+      "audit_output_tokens": 0,
+      "mask_count": 0,
+      "clone_bytes": 0,
+      "clone_checks": 0,
+      "primary_preservation_checks": 0
+    },
+    "Roff": {
+      "generation_seconds": 2.3454002141952515,
+      "probe_output_tokens": 0,
+      "audit_output_tokens": 0,
+      "mask_count": 0,
+      "clone_bytes": 0,
+      "clone_checks": 0,
+      "primary_preservation_checks": 0
+    },
+    "Rshadow": {
+      "generation_seconds": 5.980594024062157,
+      "probe_output_tokens": 72,
+      "audit_output_tokens": 128,
+      "mask_count": 0,
+      "clone_bytes": 944111616,
+      "clone_checks": 32,
+      "primary_preservation_checks": 16
+    },
+    "C": {
+      "generation_seconds": 5.2022290378808975,
+      "probe_output_tokens": 72,
+      "audit_output_tokens": 0,
+      "mask_count": 2,
+      "clone_bytes": 107347968,
+      "clone_checks": 16,
+      "primary_preservation_checks": 16
+    },
+    "RC": {
+      "generation_seconds": 5.526681423187256,
+      "probe_output_tokens": 72,
+      "audit_output_tokens": 0,
+      "mask_count": 4,
+      "clone_bytes": 105512960,
+      "clone_checks": 16,
+      "primary_preservation_checks": 16
+    }
+  },
+  "wall_seconds": 57.9350546002388,
+  "startup_seconds": 36.2075946778059,
+  "generation_seconds": 21.61416259407997,
+  "limitations": "Two changes relative to failed replay: clone main KV and audit the full live batch; this resolves operation but does not isolate original numeric error source. Engineering caps are not accuracy or compression evidence."
+}
