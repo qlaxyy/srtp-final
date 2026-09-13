@@ -111,12 +111,16 @@ class SamplerAdapter:
 
 
 class Backend:
-    def __init__(self, llm, suppress):
+    def __init__(self, llm, suppress, branch_mode='replay', verify_cache=False):
         import torch
         self.torch, self.llm, self.suppress = torch, llm, suppress
         self.core = llm.llm_engine.engine_core.engine_core
         self.scheduler = self.core.scheduler
         self.runner = self.core.model_executor.driver_worker.worker.model_runner
+        if branch_mode not in ('replay', 'kv_clone'):
+            raise ValueError('Unknown branch mode')
+        self.branch_mode, self.verify_cache = branch_mode, verify_cache
+        self.clone_checks, self.clone_bytes = [], 0
         cfg = self.runner.vllm_config
         if (cfg.scheduler_config.async_scheduling or self.core.batch_queue is not None
                 or cfg.parallel_config.tensor_parallel_size != 1
@@ -134,9 +138,18 @@ class Backend:
         self.callback_host_seconds = 0.
         self.original_sampler = self.runner.sampler
         self.original_add = self.runner.add_requests
+        self.original_update = self.runner.update_requests
         self.original_preempt = self.scheduler._preempt_request
         self.runner.sampler = SamplerAdapter(self, self.original_sampler)
         self.runner.add_requests = self.add_requests
+        if branch_mode == 'kv_clone':
+            groups = self.runner.kv_cache_config.kv_cache_groups
+            if (len(groups) != 1 or type(groups[0].kv_cache_spec).__name__ != 'FullAttentionSpec'
+                    or groups[0].kv_cache_spec.block_size != self.runner.kernel_block_sizes[0]):
+                raise RuntimeError('KV clone currently requires one unsplit full-attention group')
+            self.block_size = groups[0].kv_cache_spec.block_size
+            self.cache_views = self.cache_block_views()
+            self.runner.update_requests = self.update_requests
         self.scheduler._preempt_request = self.reject_preemption
 
     @staticmethod
@@ -146,6 +159,7 @@ class Backend:
     def close(self):
         self.runner.sampler = self.original_sampler
         self.runner.add_requests = self.original_add
+        self.runner.update_requests = self.original_update
         self.scheduler._preempt_request = self.original_preempt
 
     def add_requests(self, output):
@@ -167,6 +181,65 @@ class Backend:
             state._in_think[idx] = False
             state._coefs[idx] = 0.
 
+    def cache_block_views(self):
+        """Use the pinned runner's block-major storage, including packed K/V."""
+        seen, views = set(), []
+        count = self.runner.kv_cache_config.num_blocks
+        for tensor in self.runner.kv_caches:
+            if not isinstance(tensor, self.torch.Tensor):
+                raise RuntimeError('Unsupported recurrent/mixed cache')
+            storage = tensor.untyped_storage()
+            if storage.data_ptr() in seen:
+                continue
+            seen.add(storage.data_ptr())
+            raw = self.torch.empty(0, dtype=self.torch.uint8, device=tensor.device)
+            raw.set_(storage)
+            if raw.numel() % count:
+                raise RuntimeError('Non-block-major cache storage')
+            views.append(raw.view(count, -1))
+        if not views:
+            raise RuntimeError('No KV storage')
+        return views
+
+    def update_requests(self, output):
+        # The original method zeros newly allocated blocks. Copy AFTER zeroing.
+        self.original_update(output)
+        from vllm.v1.worker.utils import copy_kv_cache_blocks_inplace
+        pairs = []
+        for req in output.scheduled_new_reqs:
+            probe = self.probes.get(req.req_id)
+            if probe is None:
+                continue
+            parent = self.scheduler.requests[probe['parent']]
+            n = probe['cached_tokens']
+            if parent.num_computed_tokens != n or req.num_computed_tokens != n:
+                raise RuntimeError('Parent or child KV prefix moved before copy')
+            if list(req.prompt_token_ids[:n]) != list(parent.all_token_ids[:n]):
+                raise RuntimeError('KV copy token identity differs')
+            count = (n + self.block_size - 1) // self.block_size
+            src = self.scheduler.kv_cache_manager.get_block_ids(parent.request_id)[0][:count]
+            dst = req.block_ids[0][:count]
+            if len(src) != count or len(dst) != count or set(src) & set(dst):
+                raise RuntimeError('KV copy must own disjoint complete block allocations')
+            pairs.extend(zip(src, dst))
+        if not pairs:
+            return
+        if len({d for _, d in pairs}) != len(pairs):
+            raise RuntimeError('Aliased child KV blocks')
+        copy_kv_cache_blocks_inplace(self.runner.kv_caches,
+                                    self.runner.kv_cache_config.num_blocks, pairs)
+        src = self.torch.tensor([s for s, _ in pairs], device=self.cache_views[0].device)
+        dst = self.torch.tensor([d for _, d in pairs], device=src.device)
+        copied = sum(v.shape[1] * len(pairs) for v in self.cache_views)
+        self.clone_bytes += copied
+        verified = None
+        if self.verify_cache:
+            verified = all(self.torch.equal(v[src], v[dst]) for v in self.cache_views)
+            if not verified:
+                raise RuntimeError('Cloned KV differs byte-for-byte before forward')
+        self.clone_checks.append(dict(block_pairs=len(pairs), bytes=copied,
+                                      byte_equal=verified))
+
     def snapshot(self, rid, prefix_length):
         state = self.runner.steer_vector_state
         if rid not in state._dynamic_indices:
@@ -185,6 +258,10 @@ class Backend:
             h = hashlib.sha256()
             h.update(bytes(str(list(req.all_token_ids)), 'utf8'))
             h.update(str((req.num_computed_tokens, req.num_output_tokens)).encode())
+            if getattr(self, 'verify_cache', False) and self.branch_mode == 'kv_clone':
+                blocks = self.scheduler.kv_cache_manager.get_block_ids(rid)[0]
+                for view in self.cache_views:
+                    h.update(view[blocks].cpu().numpy().tobytes())
             if rid in state._dynamic_indices:
                 idx = state._dynamic_indices[rid]
                 for field in state._state_fields():
@@ -205,6 +282,14 @@ class Backend:
         for rid, item in zip(ids, requests):
             self.probes[rid] = dict(snapshot=item['snapshot'], entropy=[], logits=None,
                                     audit=audit, parent=item['rid'])
+            if getattr(self, 'branch_mode', 'replay') == 'kv_clone':
+                parent = self.scheduler.requests[item['rid']]
+                cached = parent.num_computed_tokens
+                if cached != len(item['prefix']) - 1 or cached <= 0:
+                    raise RuntimeError('Clone needs the live prefix with one pending token')
+                child = self.scheduler.requests[rid]
+                child.num_computed_tokens = cached
+                self.probes[rid]['cached_tokens'] = cached
         results = {}
         while len(results) < len(ids):
             if time.monotonic() > self.deadline:

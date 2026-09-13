@@ -15,6 +15,7 @@ def main():
     parser.add_argument('--phase', choices=['engineering', 'screen'], required=True)
     parser.add_argument('--dataset', choices=['math', 'gsm8k'], required=True)
     parser.add_argument('--run-id', required=True)
+    parser.add_argument('--branch-mode', choices=['replay', 'kv_clone'], default='replay')
     parser.add_argument('--gate', type=Path)
     parser.add_argument('--output', type=Path, required=True)
     a = parser.parse_args()
@@ -39,10 +40,12 @@ def main():
     if a.phase == 'screen' and gate is None:
         raise ValueError('Screening needs completed engineering evidence')
     save(a.output, dict(phase=a.phase, dataset=a.dataset, run_id=a.run_id,
+                        branch_mode=a.branch_mode,
                         rows=rows, coordination=coord, engineering_gate=gate,
                         rows_sha256=sha(a.rows), assets=identity['assets'],
                         source_sha256=identity['source_sha256'],
-                        implementation_commit=identity['base_commit']))
+                        implementation_commit=coord.get('runtime_commit'),
+                        baseline_commit=identity['base_commit']))
 
 
 if __name__ == '__main__':

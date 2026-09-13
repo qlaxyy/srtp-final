@@ -64,6 +64,10 @@ def engineering_checks(results):
             continue
         result = results[arm]
         checks[arm + '_probes'] = result['probe_output_tokens'] > 0
+        if result.get('branch_mode') == 'kv_clone':
+            copies = result['clone_checks']
+            checks[arm + '_cache_copied'] = bool(copies) and all(
+                c['byte_equal'] is True for c in copies)
         preserved = result['primary_preservation_checks']
         checks[arm + '_preserved'] = bool(preserved) and all(
             c['passed'] and c['before'] == c['after'] for c in preserved)
@@ -79,6 +83,8 @@ def engineering_checks(results):
 def validate(plan):
     if plan['phase'] not in ('engineering', 'screen'):
         raise ValueError('Only engineering or fresh training screening is implemented')
+    if plan.get('branch_mode', 'replay') not in ('replay', 'kv_clone'):
+        raise ValueError('Unknown branch mode')
     if not plan['coordination']['data_reconciled'] or not plan['coordination']['gpu_authorized']:
         raise ValueError('Executor must reconcile data and record batch authorization')
     if (not plan['run_id'].startswith('cgrs_probe_')
@@ -113,6 +119,7 @@ def validate(plan):
     if plan['phase'] == 'screen':
         gate = read(plan['engineering_gate']['path'])
         if (sha(plan['engineering_gate']['path']) != plan['engineering_gate']['sha256']
+                or gate.get('branch_mode', 'replay') != plan.get('branch_mode', 'replay')
                 or not gate['passed'] or gate['source_sha256'] != plan['source_sha256']
                 or gate['assets'] != assets or not gate['replay_checks']
                 or not all(x['passed'] for x in gate['replay_checks'])
@@ -174,7 +181,9 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
     runner = core.model_executor.driver_worker.worker.model_runner
     if core.scheduler.requests or llm.llm_engine.has_unfinished_requests():
         raise RuntimeError('Previous arm not drained')
-    backend = Backend(llm, suppress=arm in ('C', 'RC')) if arm != 'R' else None
+    branch_mode = plan.get('branch_mode', 'replay')
+    backend = Backend(llm, suppress=arm in ('C', 'RC'), branch_mode=branch_mode,
+                      verify_cache=engineering) if arm != 'R' else None
     started = time.monotonic()
     deadline = started + (180 if engineering else 600)
     if backend:
@@ -270,9 +279,16 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                     if engineering and arm == 'Rshadow':
                         audit_sampling = SamplingParams(temperature=0, max_tokens=1,
                                                         skip_special_tokens=False)
+                        audit_pending = pending
+                        if branch_mode == 'kv_clone':
+                            # Match the original main decode's batch shape and order.
+                            audit_pending = [dict(rid=req.request_id,
+                                prefix=list(req.all_token_ids),
+                                snapshot=backend.snapshot(req.request_id, len(req.all_token_ids)))
+                                for req in held]
                         audits = backend.drain_probe_requests(
-                            pending, audit_sampling, steering if r_on else None, [], audit=True)
-                        for item, audit in zip(pending, audits):
+                            audit_pending, audit_sampling, steering if r_on else None, [], audit=True)
+                        for item, audit in zip(audit_pending, audits):
                             backend.expected_logits[item['rid']] = audit['logits']
                         audit_tokens += sum(len(a['token_ids']) for a in audits)
                     ps = SamplingParams(temperature=0, max_tokens=cfg.probe_tokens,
@@ -289,7 +305,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                             result['token_ids'], result['entropy'], tok, result['vocab_size'])
                         policy = policies[rid]
                         policy.complete_probe(certainty, len(result['token_ids']))
-                        prefill = len(item['prefix']) + len(suffix)
+                        prefill = (1 if branch_mode == 'kv_clone' else len(item['prefix'])) + len(suffix)
                         probe_prefill_tokens += prefill
                         record = dict(parent_key=policy.key, position=policy.count,
                                       token_ids=result['token_ids'], entropy=result['entropy'],
@@ -328,6 +344,9 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                     raise RuntimeError('Combined token budget exceeded')
                 records.append(rec)
             summary = dict(status='complete', arm=arm, config=asdict(cfg), records=records,
+                           branch_mode=branch_mode,
+                           clone_checks=backend.clone_checks if backend else [],
+                           clone_bytes=backend.clone_bytes if backend else 0,
                            generation_seconds=seconds, probe_wall_seconds=probe_seconds,
                            probe_prefill_tokens=probe_prefill_tokens,
                            probe_output_tokens=sum(p.probe_output_tokens for p in policies.values()),
@@ -338,7 +357,7 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
                            replay_checks=backend.replay_checks if backend else [],
                            primary_preservation_checks=preservation,
                            limitations=['Synchronous pilot; not original async speed benchmark',
-                                        'Replay prefill compute included in generation time',
+                                        'Branch prefill and cache copy included in generation time',
                                         'Engineering shadow does not debit probe budget from main'])
             save(folder/'result.json', summary)
             return summary
@@ -350,6 +369,8 @@ def run_arm(llm, tok, steering, boundaries, rows, arm, plan, output):
             active_probe_entropy={rid: p['entropy'] for rid, p in backend.probes.items()}
             if backend else {},
             replay_checks=backend.replay_checks if backend else [],
+            clone_checks=backend.clone_checks if backend else [],
+            clone_bytes=backend.clone_bytes if backend else 0,
             primary_preservation_checks=preservation))
         raise
     finally:
@@ -394,7 +415,7 @@ def main():
                 failed = [name for name, passed in coverage.items() if not passed]
                 if failed:
                     save(output/'engineering_gate.json', dict(
-                        passed=False, coverage_checks=coverage,
+                        passed=False, coverage_checks=coverage, branch_mode=plan.get('branch_mode','replay'),
                         failed_checks=failed, completed_arms=list(results),
                         replay_checks=results.get('Rshadow', {}).get('replay_checks', []),
                         source_sha256=plan['source_sha256'], assets=plan['assets']))
@@ -410,6 +431,7 @@ def main():
             passed = equivalent and bool(checks) and all(x['passed'] for x in checks)
             save(output/'engineering_gate.json', dict(
                 passed=passed, off_shadow_equivalent=equivalent, replay_checks=checks,
+                branch_mode=plan.get('branch_mode', 'replay'),
                 coverage_checks=engineering_checks(results),
                 source_sha256=plan['source_sha256'], assets=plan['assets'],
                 runtime=dict(python=sys.version), config='sync_tp1_bf16_in_graph',
