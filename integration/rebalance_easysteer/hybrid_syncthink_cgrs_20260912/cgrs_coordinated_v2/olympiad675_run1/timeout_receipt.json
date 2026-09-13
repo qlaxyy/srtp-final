@@ -1,0 +1,44 @@
+{
+  "archive_sha256": "697bb997050bcdf28622b68490cfa84862a4c33defab5f72000a5dd9e295f79d",
+  "parent_partial_sha256": "8d46075b488b94c32157692ef07fc00f1792db120dfe8a1dd878761e73d2b617",
+  "parent_gpu_sha256": "d23d45ad91aabe088c45322d66c5dbdafaf4e828a851b03b1bee4ef438eeaceb",
+  "complete": 651,
+  "missing": [
+    612,
+    613,
+    615,
+    616,
+    621,
+    635,
+    637,
+    639,
+    640,
+    641,
+    646,
+    649,
+    650,
+    652,
+    653,
+    654,
+    655,
+    656,
+    659,
+    660,
+    663,
+    664,
+    666,
+    672
+  ],
+  "full_exit": {
+    "returncode": 1,
+    "wall_seconds": 2437.002425670624,
+    "error": null
+  },
+  "failure": {
+    "error": "TimeoutError('Fixed Olympiad ceiling reached')",
+    "completed": [],
+    "wall_seconds": 2432.0761263221502
+  },
+  "gpu_final": "0 %, 1 MiB\n",
+  "status": "incomplete_timeout_not_formal_metrics"
+}

@@ -73,10 +73,16 @@ def grade(folder, resume):
                 labels.append(label)
                 if (i+1)%100==0 or i==674:print('GRADED',arm,i+1,flush=True)
         values=[float(x[1]) for x in csv.reader((f/'gpu.csv').read_text().splitlines()) if len(x)==4]
+        if result.get('parent_gpu_csv_path'):
+            prior_gpu=Path(result['parent_gpu_csv_path'])
+            assert sha(prior_gpu)==result['parent_gpu_csv_sha256']
+            values += [float(x[1]) for x in csv.reader(prior_gpu.read_text().splitlines()) if len(x)==4]
         events=result['events']
         groups[arm]=dict(n=675,correct=sum(x['correct'] for x in labels),accuracy_percent=100*sum(x['correct'] for x in labels)/675,
             mean_total_tokens=sum(r['tokens'] for r in records)/675,mean_thinking_tokens=sum(r['thinking_tokens'] for r in records)/675,
             capped=sum(r['finish_reason']=='length' for r in records),generation_seconds=result['generation_seconds'],
+            generation_seconds_interval=result.get('generation_seconds_interval',[result['generation_seconds']]*2),
+            generation_time_note=result.get('generation_time_note'),continuation=result.get('continuation'),
             gpu_utilization=dict(samples=len(values),mean_percent=sum(values)/len(values) if values else None),
             events=dict(eligible=sum(e['eligible'] for e in events.values()),interventions=sum(e['changed'] for e in events.values()),
                         intervened_questions=sum(e['changed']>0 for e in events.values())),
@@ -95,7 +101,8 @@ def grade(folder, resume):
             and all(v['percent_change']<0 for v in c['lengths'].values()))
     save(folder/'analysis.json',dict(status='complete_same_batch_three_arm',groups=groups,comparisons=comparisons,
         passes_fixed_point_criteria=passed,grade_invocation_seconds=time.perf_counter()-began,reused_labels=reused,
-        pure_generation_seconds=sum(g['generation_seconds'] for g in groups.values()),
+        pure_generation_seconds=(sum(g['generation_seconds'] for g in groups.values()) if all(g['generation_seconds'] is not None for g in groups.values()) else None),
+        pure_generation_seconds_interval=[sum(g['generation_seconds_interval'][i] for g in groups.values()) for i in [0,1]],
         plan_sha256=sha(folder/'resolved_plan.json'),bootstrap=dict(repetitions=10000,seed=20260913),
         limitations=['One seed; paired question intervals omit sampling/batch variability',
             'No lexical-only group; no factorial synergy claim',
