@@ -32,6 +32,7 @@ def utilization(folder, result):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--resume', action='store_true', help='Reuse validated saved author labels; never regenerate')
     args = p.parse_args()
     folder = args.output
     plan, history = read(folder/'resolved_plan.json'), read(folder/'historical_reference.json')
@@ -39,16 +40,26 @@ def main():
     sys.path.insert(0, str(ROOT/'sources/ReBalance'))
     from utils.parser import parse_ground_truth, extract_answer
     from utils.grader import check_is_correct
-    started, summary = time.monotonic(), {}
+    started, summary, reused = time.monotonic(), {}, {}
     keys = ('thinking_tokens', 'tokens', 'all_branch_output_tokens', 'budget_tokens_including_probe_prompt')
     for role, sub in plan['datasets'].items():
         data = read(folder/role/'RC/result.json')
         records = data['records']
         assert data['status'] == 'complete' and len(records) == len(sub['rows'])
         graded = []
-        with (folder/role/'RC/author_partial.jsonl').open('x', encoding='utf8') as stream:
-            for row, rec in zip(sub['rows'], records):
+        partial = folder/role/'RC/author_partial.jsonl'
+        previous = [json.loads(line) for line in partial.read_text(encoding='utf8').splitlines()] if args.resume and partial.exists() else []
+        assert len(previous) <= len(records)
+        reused[role] = dict(labels=len(previous), partial_sha256=sha(partial) if partial.exists() else None)
+        with partial.open('a' if args.resume else 'x', encoding='utf8') as stream:
+            for i, (row, rec) in enumerate(zip(sub['rows'], records)):
                 assert row['problem_sha256'] == rec['problem_sha256']
+                if i < len(previous):
+                    item = previous[i]
+                    assert item['problem_sha256'] == row['problem_sha256']
+                    assert item['dataset_index'] == row['train_index'] and type(item['correct']) is bool
+                    graded.append(item)
+                    continue
                 _, gold = parse_ground_truth(row, sub['dataset'])
                 answer = extract_answer(rec['text'], sub['dataset'])
                 item = dict(problem_sha256=row['problem_sha256'], dataset_index=row['train_index'],
@@ -80,6 +91,9 @@ def main():
             comparisons=comparisons, grades=graded, result_sha256=sha(folder/role/'RC/result.json'))
     save(folder/'analysis.json', dict(status='full_evaluation_complete', datasets=summary,
         grade_seconds=time.monotonic()-started,
+        resumed=args.resume, reused_grades=reused,
+        grade_timing_note='This invocation only; previous interrupted CPU grading is additional unmeasured cost' if args.resume else 'Single complete grading invocation',
+        analysis_implementation_sha256=sha(Path(__file__)),
         grader_sha256={name:sha(ROOT/'sources/ReBalance/utils'/name) for name in ('parser.py','grader.py')},
         limitations=['Historical U/R use asynchronous scheduling; RC uses synchronous KV-clone probes.',
             'No full C-only control: this does not establish factorial synergy or superiority over both components.',
