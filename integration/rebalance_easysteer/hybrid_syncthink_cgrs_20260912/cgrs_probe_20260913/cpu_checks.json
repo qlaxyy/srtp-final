@@ -1,0 +1,24 @@
+{
+  "status": "local_cpu_pass_native_gpu_pending",
+  "tests": 12,
+  "returncode": 0,
+  "seconds": 0.39100000000325963,
+  "output": "test_execution_refuses_missing_batch_authorization (__main__.LifecycleTests.test_execution_refuses_missing_batch_authorization) ... ok\ntest_mask_is_request_local_and_excludes_answer_phase (__main__.LifecycleTests.test_mask_is_request_local_and_excludes_answer_phase) ... ok\ntest_off_passes_original_logits_object_and_no_mask (__main__.LifecycleTests.test_off_passes_original_logits_object_and_no_mask) ... ok\ntest_park_retains_exact_objects_and_restores_on_error (__main__.LifecycleTests.test_park_retains_exact_objects_and_restores_on_error) ... ok\ntest_probe_admission_replays_history_and_disables_new_R (__main__.LifecycleTests.test_probe_admission_replays_history_and_disables_new_R) ... ok\ntest_waiting_primary_is_not_silently_advanced (__main__.LifecycleTests.test_waiting_primary_is_not_silently_advanced) ... ok\ntest_full_entropy_uniform_and_certain_probes (__main__.PolicyTests.test_full_entropy_uniform_and_certain_probes) ... ok\ntest_mixed_boundary_content_is_not_masked (__main__.PolicyTests.test_mixed_boundary_content_is_not_masked) ... ok\ntest_nested_braces_and_crossing_tokens (__main__.PolicyTests.test_nested_braces_and_crossing_tokens) ... ok\ntest_no_stale_probability_after_boundary_or_end (__main__.PolicyTests.test_no_stale_probability_after_boundary_or_end) ... ok\ntest_probe_prompt_and_outputs_debit_one_budget (__main__.PolicyTests.test_probe_prompt_and_outputs_debit_one_budget) ... ok\ntest_rng_independent_of_request_batch_order (__main__.PolicyTests.test_rng_independent_of_request_batch_order) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.161s\n\nOK\n",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "syntax_files": [
+    "backend.py",
+    "grade.py",
+    "policy.py",
+    "prepare.py",
+    "run.py",
+    "test_cpu.py",
+    "test_native.py"
+  ],
+  "torch_available": false,
+  "native_torch_test": "not_run",
+  "vllm_execution": "not_run",
+  "gpu_replay_gate": "not_run",
+  "server_connected": false,
+  "new_model_predictions": 0,
+  "source_hashes_verified": 2189
+}

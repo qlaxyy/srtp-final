@@ -1,0 +1,6 @@
+{
+  "status": "implementation_only_no_question_access",
+  "used": [],
+  "reserved": [],
+  "freeze_requires": "Executor reconciles all A/B question IDs and normalized hashes before selecting engineering or screening rows"
+}
