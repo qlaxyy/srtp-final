@@ -10193,5 +10193,22 @@
     "registry_sha256": "671d605b494bfa39ce0d2c386d9cfd01f07bafd5387c701c877c5197f5fb5259",
     "purpose": "Consumed fixed full RC evaluation; no test-set threshold tuning; not independent confirmation",
     "generation_commit": "cd9f42bce29a71d69217be93b40583b367907804"
+  },
+  "next_cgrs_candidate": {
+    "name": "cgrs_coordinated_v2",
+    "status": "CPU_ready_engineering_GPU_pending",
+    "data_registry": "cgrs_coordinated_v2/data_usage.json",
+    "data_sha256": "bc3f5c005b6dec9f4c77b0b71296a3e93e4dfb2fc7a1b551d19af12eacabe6cb",
+    "reused_engineering_indices": [
+      647,
+      1837,
+      4972,
+      1441,
+      4432,
+      3497,
+      1483,
+      229
+    ],
+    "new_training_reservations": []
   }
 }

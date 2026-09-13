@@ -1,0 +1,12 @@
+{
+  "source_commit": "7ce7f938032137e47e8f249786016e48d3f15f0c",
+  "plan_sha256": "c13b676f6486fb1d92a23f6c76a22b48a6fb85cb28b53f8d9c689d940006d089",
+  "cpu_guard": {
+    "returncode": 1,
+    "error": "Traceback (most recent call last):\n  File \"E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\engineering.py\", line 154, in <module>\n    main()\n  File \"E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\engineering.py\", line 37, in main\n    raise ValueError('Record new bounded GPU authorization before running')\nValueError: Record new bounded GPU authorization before running\n"
+  },
+  "ssh_connections": 0,
+  "gpu_forwards": 0,
+  "new_generations": 0,
+  "status": "CPU preparation complete; native Torch and async engineering not yet run"
+}
