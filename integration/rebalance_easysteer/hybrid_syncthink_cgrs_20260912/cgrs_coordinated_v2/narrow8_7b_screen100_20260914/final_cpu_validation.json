@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "plan_sha256": "fd11954ea5164df436a3ed55c34325ef99eab315a2ca8ac745026596245a841c",
+  "source_files_verified": 2209,
+  "prior_test_receipt_sha256": "b288901d2e7618adda2a472550fa28a9c924222436b267e829319ae99d0fa3d1",
+  "tests_passed": 21,
+  "final_change_validation": "Python3.10 AST parse; new exception-only saved token-prefix property verified in pinned request.py; no sampling changes after tests",
+  "unique_reserved_rows": 300,
+  "split": [
+    100,
+    200
+  ],
+  "engineering_rows": 8,
+  "speed_rows": 64,
+  "native_torch_and_gpu_pending": true
+}

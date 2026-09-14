@@ -1,0 +1,17 @@
+{
+  "gpu_authorized": false,
+  "plan_sha256": "fd11954ea5164df436a3ed55c34325ef99eab315a2ca8ac745026596245a841c",
+  "data_reconciled": false,
+  "unregistered_claims_checked": false,
+  "authorized_phases": [],
+  "authorized_speed_profiles": [],
+  "local_reconciliation": {
+    "path": null,
+    "sha256": null
+  },
+  "remote_reconciliation": {
+    "path": null,
+    "sha256": null
+  },
+  "note": "Fill only after actual coordination and bounded user GPU authorization; local proposal audit is not a live freeze receipt"
+}

@@ -10252,5 +10252,14 @@
     "initial_run_status": "incomplete_timeout_651_U_preserved",
     "interrupted_completion_run_id": "cgrs_coordinated_v2_15b_olympiad675_completion128_20260913",
     "interrupted_completion_status": "logging_failure_3_U_preserved"
+  },
+  "narrow8_7b_proposal": {
+    "status": "proposed_not_frozen_CPU_only",
+    "path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow8_7b_screen100_20260914/data_proposal.json",
+    "proposal_sha256": "d246f103a8100aac4ecb68105a0e6c27423e2d447cc06a6bf22676766c3ab0da",
+    "reserved_rows_sha256": "2dd2e80cf69890309632fc241eb6a219a83b8475cf203b801106ed3174b2448a",
+    "screen_count": 100,
+    "confirmation_reserved": 200,
+    "note": "Reservations enumerated in referenced proposal; executor must reconcile current A/B local and remote registries and unregistered claims before freeze"
   }
 }

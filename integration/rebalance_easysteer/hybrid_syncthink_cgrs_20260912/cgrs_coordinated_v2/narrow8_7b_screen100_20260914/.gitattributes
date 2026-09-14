@@ -1,0 +1,2 @@
+# These proposal receipts hash raw bytes; preserve them across Windows/Linux.
+*.json -text whitespace=cr-at-eol

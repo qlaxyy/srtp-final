@@ -15,6 +15,19 @@ TRIGGERS = {
     80022: 'Hmm', 88190: ' Hmm',
 }
 
+# Fixed semantic ablation: preserve Wait/Alternatively/Hmm, release generic
+# contrast and adjectival Alternative. A semantic hypothesis, not a validated rule.
+NARROW_EXCLUDED = frozenset((3983, 1988, 8088, 714, 75763, 41109))
+
+
+def trigger_vocabulary(profile='original14'):
+    if profile == 'original14':
+        return dict(TRIGGERS)
+    if profile == 'narrow8':
+        return {token: piece for token, piece in TRIGGERS.items()
+                if token not in NARROW_EXCLUDED}
+    raise ValueError('Unknown trigger profile: ' + str(profile))
+
 
 def token_flags(piece, rebalance_boundary):
     """Mixed boundary/content tokens must not open a lexical window."""

@@ -8,8 +8,8 @@ from adapter import Adapter
 class ReplayAdapter(Adapter):
     fields=('opening','thinking','count','prompt_len','eligible_count','changed_count','first_change')
 
-    def __init__(self,llm,tokenizer,mode='off',gate_on=False):
-        super().__init__(llm,tokenizer,mode,gate_on)
+    def __init__(self,llm,tokenizer,mode='off',gate_on=False,*,trigger_profile='original14'):
+        super().__init__(llm,tokenizer,mode,gate_on,trigger_profile=trigger_profile)
         if not self.enabled:return
         if self.runner.vllm_config.scheduler_config.async_scheduling:
             super().close()

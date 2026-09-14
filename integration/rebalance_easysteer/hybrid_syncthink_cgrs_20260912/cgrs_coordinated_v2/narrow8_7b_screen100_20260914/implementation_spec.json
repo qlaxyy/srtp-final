@@ -1,0 +1,43 @@
+{
+  "status": "implemented_CPU_only",
+  "api": "ReplayAdapter(llm, tokenizer, mode='negative', gate_on=True, trigger_profile='narrow8')",
+  "default": "original14; mode off returns before engine access",
+  "trigger_ids": {
+    "14190": "Wait",
+    "13824": " Wait",
+    "11489": "wait",
+    "3783": " wait",
+    "92014": "Alternatively",
+    "38478": " Alternatively",
+    "80022": "Hmm",
+    "88190": " Hmm"
+  },
+  "released": {
+    "3983": "But",
+    "1988": " But",
+    "8088": "but",
+    "714": " but",
+    "75763": "Alternative",
+    "41109": " Alternative"
+  },
+  "penalty": 0.6931471805599453,
+  "order": [
+    "Native ReBalance confidence computed from existing unmasked distribution",
+    "Use current R coefficient<0 and finite previous completed step mean",
+    "At clean thinking-step opening subtract ln2 only on chosen raw-logit columns",
+    "Native sampler applies existing temperature/top-p and samples once",
+    "Update lexical opening/thinking/token clock from actual sampled token; native R observes actual tokens"
+  ],
+  "states": "No new per-request state. Same opening/thinking/count/prompt_len/eligible_count/changed_count/first_change fields; selection fixed per adapter instance.",
+  "reset": "Fresh requests zero state; end-thinking closes gate; eviction snapshots existing fields; replay restores fields and validates absolute clock; finish removes state; close restores hooks.",
+  "shared_code_changes": [],
+  "new_auxiliary_model_forwards": 0,
+  "evidence": "Current Sampler AST and ReplayAdapter lifecycle AST unchanged versus9a49f43; off and shadow CPU tests pass; native BF16/GPU forced-replay equivalence pending.",
+  "limitations": [
+    "Lexical fragments do not establish intent; Wait/Alternatively/Hmm can still have normal semantic use",
+    "No phrase matcher; tokenizer must map each exact selected string to the specified one token",
+    "Less suppression can restore correction or increase redundant reflection; new data needed",
+    "Raw-logit ln2 penalty is not final post-temperature/top-p probability halving",
+    "Plan is prepared, not data-frozen or GPU-authorized"
+  ]
+}

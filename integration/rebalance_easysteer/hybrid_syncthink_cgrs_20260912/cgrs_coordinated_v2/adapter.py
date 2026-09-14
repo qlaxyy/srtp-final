@@ -6,11 +6,11 @@ the explicit native gate; a CPU reference check is not GPU validation.
 import hashlib
 import math
 
-from policy import PENALTY, TRIGGERS, token_flags
+from policy import PENALTY, token_flags, trigger_vocabulary
 
 
 class Adapter:
-    def __init__(self, llm, tokenizer, mode='off', gate_on=False):
+    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14'):
         self.mode = mode
         self.enabled = mode != 'off'
         if mode not in ('off', 'shadow', 'negative', 'always'):
@@ -19,6 +19,8 @@ class Adapter:
             return  # Strict default-off path: install no hooks or device buffers.
         if not gate_on:
             raise ValueError('Explicit experimental gate_on is required')
+        triggers = trigger_vocabulary(trigger_profile)
+        self.trigger_profile = trigger_profile
         import torch
         self.torch = torch
         self.core = llm.llm_engine.engine_core.engine_core
@@ -50,8 +52,8 @@ class Adapter:
         self.clean = torch.tensor(clean, device=device)
         self.white = torch.tensor(white, device=device)
         self.boundary = torch.tensor(boundary, device=device)
-        self.ids = torch.tensor(list(TRIGGERS), device=device)
-        for token, piece in TRIGGERS.items():
+        self.ids = torch.tensor(list(triggers), device=device)
+        for token, piece in triggers.items():
             if tokenizer.decode([token]) != piece or tokenizer.encode(piece, add_special_tokens=False) != [token]:
                 raise ValueError('Tokenizer mismatch')
         self.runner.sampler = Sampler(self)
