@@ -1,0 +1,12 @@
+{
+  "passed": 41,
+  "failed": 0,
+  "command": "python -m unittest discover -p test*cpu.py",
+  "model_forward": false,
+  "method_sources_unchanged": [
+    "adapter.py",
+    "policy.py",
+    "replay_adapter.py"
+  ],
+  "scope": "runner/runtime transfer and frozen 1.5B protocol; GPU engineering gate required"
+}

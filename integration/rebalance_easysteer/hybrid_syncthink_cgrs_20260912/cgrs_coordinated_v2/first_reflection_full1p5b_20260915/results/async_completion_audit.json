@@ -1,0 +1,20 @@
+{
+  "datasets": {
+    "math_test": {
+      "output_tokens": 1667554,
+      "native_async_discarded_after_eos": 483,
+      "mean_counting_discarded_samples": 3336.074,
+      "zero_extra_for_all_caps": true,
+      "one_extra_for_all_natural_eos": true
+    },
+    "gsm8k_test": {
+      "output_tokens": 1034305,
+      "native_async_discarded_after_eos": 1318,
+      "mean_counting_discarded_samples": 785.1576952236543,
+      "zero_extra_for_all_caps": true,
+      "one_extra_for_all_natural_eos": true
+    }
+  },
+  "interpretation": "Same native async terminal oversampling pattern as RC14: one discarded sample after natural EOS, zero at known cap. Output counts remain frozen benchmark convention; discarded predictions and their compute cost reported separately. Discarded token identities not recorded.",
+  "probe_forwards": 0
+}
