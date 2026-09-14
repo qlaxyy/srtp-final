@@ -35,6 +35,15 @@ def validate_receipt(plan, receipt, plan_path):
     expected=dict(dtype='bfloat16',max_tokens=16000,max_model_len=17408,max_num_seqs=32,
         max_num_batched_tokens=4096,gpu_memory_utilization=.94,async_scheduling=False,
         chunked_prefill=True,seed=42,temperature=.7,top_p=.95)
+    if primary=='RChistory' and 'context_amendment' in plan:
+        amendment=plan['context_amendment']
+        assert amendment['generated_answers_before_amendment']==0
+        audit_path=ROOT/amendment['prompt_audit_path']
+        assert sha(audit_path)==amendment['prompt_audit_sha256']
+        audit=read(audit_path)
+        assert [r['problem_sha256'] for r in audit['rows']]==[r['problem_sha256'] for r in plan['rows']]
+        maximum=max(r['prompt_tokens'] for r in audit['rows'])
+        expected['max_model_len']=((maximum+16000+511)//512)*512
     assert plan['runtime']==expected
     if primary=='RC8':
         assert plan['speed_profiles']=={'current32':{'max_num_seqs':32},'candidate48':{'max_num_seqs':48}}
@@ -76,6 +85,12 @@ def validate_engineering_gate(plan, plan_path, gate_path):
             assert sha(ROOT/name,True)==digest,name
     else:
         assert gate['plan_sha256']==sha(plan_path)
+
+
+def validate_prompt_capacity(prompts, cap, model_len):
+    maximum=max(map(len,prompts))
+    assert maximum+cap<=model_len, (maximum,cap,model_len)
+    return maximum
 
 
 def main():
@@ -123,6 +138,11 @@ def main():
         from rebalance_static_eval import build_prompt
         from replay_adapter import ReplayAdapter
         a=plan['assets'];tok=AutoTokenizer.from_pretrained(a['model_path'],local_files_only=True)
+        rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
+        cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024}[args.phase]
+        prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
+        maximum=validate_prompt_capacity(prompts,cap,runtime['max_model_len'])
+        save(out/'prompt_capacity.json',dict(max_prompt_tokens=maximum,max_model_len=runtime['max_model_len'],cap=cap))
         boundaries=sorted(i for piece,i in tok.get_vocab().items() if 'ĊĊ' in piece)
         steer=SteeringSpec(vectors=[VectorSpec(name='rebalance_dynamic',
             data=from_pt_direction(a['vector']['path'],layers=[21]),algorithm='rebalance',
@@ -130,7 +150,7 @@ def main():
             params=dict(read(a['fit']['path'])['parameters'],boundary_token_ids=boundaries,
                         think_start_token_id=151648,think_end_token_id=151649))])
         llm=LLM(model=a['model_path'],dtype='bfloat16',tensor_parallel_size=1,
-            max_model_len=17408,max_num_seqs=runtime['max_num_seqs'],
+            max_model_len=runtime['max_model_len'],max_num_seqs=runtime['max_num_seqs'],
             max_num_batched_tokens=runtime['max_num_batched_tokens'],
             gpu_memory_utilization=runtime['gpu_memory_utilization'],enable_chunked_prefill=True,
             enable_prefix_caching=False,async_scheduling=False,enable_steer_vector=True,
@@ -138,8 +158,6 @@ def main():
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         save(out/'runtime_identity.json',dict(runtime=runtime,torch=torch.__version__,
             vllm_path=vllm.__file__,python=sys.version,startup_seconds=time.perf_counter()-started))
-        rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
-        cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024}[args.phase]
         ceiling=plan['arm_seconds'][args.phase]
         for case in cases(plan,args.phase):
             name,mode,profile=case[:3];history_gate=case[3] if len(case)==4 else 'none'
@@ -161,8 +179,6 @@ def main():
                 return oldpreempt(req,now)
             core.scheduler._preempt_request=track
             replay_before=dict(state.replay_counts);generated={};steps=0;forced=False;io=0.
-            prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
-            assert max(map(len,prompts))+cap<17408
             gpu=(folder/'gpu.csv').open('x')
             monitor=subprocess.Popen(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used,power.draw',
                 '--format=csv,noheader,nounits','--loop-ms=1000'],stdout=gpu,stderr=subprocess.DEVNULL)
