@@ -10349,9 +10349,9 @@
     "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914_r2/results/summary.json"
   },
   "first_reflection_full7b": {
-    "status": "fixed_full_exposed_test_prepared",
-    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full7b_20260914/plan.json",
-    "plan_sha256": "a9a41e9df78ee8680656fefbcd073b7532b4d7f9213fa99bda62c4ba74bf16a9",
+    "status": "completed_exposed_full_test",
+    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full7b_20260914/plan_pathfix.json",
+    "plan_sha256": "c072fff2518cc34b8f06d2aae7d68e69e88a951bb92b7ac5a155a21ebd70aaf2",
     "datasets": {
       "math_test": 500,
       "gsm8k_test": 1319
@@ -10364,6 +10364,10 @@
       "R",
       "RC14"
     ],
-    "confirmation200_used": false
+    "confirmation200_used": false,
+    "execution_commit": "4eb8cd7cd8503d4cce1b8b5fb00ab99a29882ab5",
+    "completion_date": "2026-09-15",
+    "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full7b_20260914/results/summary.json",
+    "generation_answers": 1819
   }
 }
