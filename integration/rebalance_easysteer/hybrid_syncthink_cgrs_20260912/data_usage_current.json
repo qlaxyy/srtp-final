@@ -10329,5 +10329,15 @@
     "engineering_run_id": "cgrs_first_reflection_7b_engineering8x6_20260914",
     "execution_commit": "6243c3c29b1432ad4106fe781fbb6e14e0fd137f",
     "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_20260914/results/summary.json"
+  },
+  "first_reflection_screen100": {
+    "status": "proposed_not_frozen_remote_reconciliation_pending",
+    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914/plan.json",
+    "plan_sha256": "146addac0384a4f8a6aedc76c19b3d215988c209d80e3260485e55fd62670d42",
+    "rows_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914/rows.json",
+    "count": 100,
+    "purpose": "new7B_MATH_training_screen_not_independent_confirmation",
+    "confirmation200_used": false,
+    "generation_started": false
   }
 }

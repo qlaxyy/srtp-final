@@ -1,0 +1,17 @@
+{
+  "gpu_authorized": false,
+  "plan_sha256": "146addac0384a4f8a6aedc76c19b3d215988c209d80e3260485e55fd62670d42",
+  "data_reconciled": false,
+  "unregistered_claims_checked": false,
+  "authorized_phases": [
+    "screen"
+  ],
+  "local_reconciliation": {
+    "path": null,
+    "sha256": null
+  },
+  "remote_reconciliation": {
+    "path": null,
+    "sha256": null
+  }
+}

@@ -8,8 +8,8 @@ import time
 from engineering import ROOT,read,save,sha
 
 
-def decision(groups):
-    r,c,n=(groups[k] for k in ('R','RC14','RC8'))
+def decision(groups, primary='RC8'):
+    r,c,n=(groups[k] for k in ('R','RC14',primary))
     keys=('mean_total_tokens','mean_thinking_tokens')
     accuracy=n['correct']>=c['correct'] and 100*(n['correct']-r['correct'])/r['n']>=-2
     compression=all(n[k]<r[k] for k in keys)
@@ -70,10 +70,12 @@ def main():
             checkpoint_io_seconds=result['checkpoint_io_seconds'],labels=labels,result_sha256=sha(f/'result.json'))
         raw[name]=[dict(r,correct=l['correct']) for r,l in zip(records,labels)]
     comparisons={}
-    for base,candidate in [('R','RC14'),('R','RC8'),('RC14','RC8')]:
+    primary=plan.get('primary_candidate','RC8')
+    assert plan['arms']==['R','RC14',primary] and primary in ('RC8','RChistory')
+    for base,candidate in [('R','RC14'),('R',primary),('RC14',primary)]:
         comparisons[candidate+'_vs_'+base]=compare(raw[base],raw[candidate],groups[candidate]['labels'])
     save(folder/'analysis.json',dict(status='complete_training_screen',groups=groups,comparisons=comparisons,
-        decision=decision(groups),reused_labels=reused,grade_seconds=time.perf_counter()-began,
+        decision=decision(groups,primary),reused_labels=reused,grade_seconds=time.perf_counter()-began,
         plan_sha256=sha(folder/'resolved_plan.json'),
         limitations=['100 paired training questions; not independent confirmation or test evidence',
             'Single seed and fixed arm order; confidence intervals omit batch/sampling variability',

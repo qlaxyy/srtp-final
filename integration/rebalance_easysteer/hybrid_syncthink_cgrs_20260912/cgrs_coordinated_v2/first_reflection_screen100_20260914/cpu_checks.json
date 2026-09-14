@@ -1,0 +1,11 @@
+{
+  "source_files_verified": 2213,
+  "python310_syntax_passed": true,
+  "local_tests_passed": 33,
+  "torch_native_tests": "pending in existing remote environment; no local torch installed",
+  "new_gpu_generation": "not_started_connection_closed",
+  "algorithm_unchanged_from_engineering_commit": "6243c3c29b1432ad4106fe781fbb6e14e0fd137f",
+  "plan_sha256": "146addac0384a4f8a6aedc76c19b3d215988c209d80e3260485e55fd62670d42",
+  "data_status": "local791files_no_overlap_proposal_only_remote_audit_pending",
+  "prior_confirmation200_used": false
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-14",
+  "host": "connect.cqa1.seetacloud.com",
+  "port": 20403,
+  "attempts": 2,
+  "exit_codes": [
+    1,
+    1
+  ],
+  "output": "Connection closed by 198.18.0.88 port 20403",
+  "remote_execution_started": false,
+  "gpu_status": "unavailable_not_inferred"
+}

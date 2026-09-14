@@ -30,12 +30,16 @@ def validate_receipt(plan, receipt, plan_path):
         assert sha(item['path'])==item['sha256']
         audit=read(item['path'])
         assert audit['passed'] and audit['rows_sha256']==plan['reserved_rows_sha256']
-    assert plan['arms']==['R','RC14','RC8'] and len(plan['rows'])==100
+    primary='RChistory' if plan.get('candidate_kind')=='first_reflection_screen' else 'RC8'
+    assert plan['arms']==['R','RC14',primary] and len(plan['rows'])==100
     expected=dict(dtype='bfloat16',max_tokens=16000,max_model_len=17408,max_num_seqs=32,
         max_num_batched_tokens=4096,gpu_memory_utilization=.94,async_scheduling=False,
         chunked_prefill=True,seed=42,temperature=.7,top_p=.95)
     assert plan['runtime']==expected
-    assert plan['speed_profiles']=={'current32':{'max_num_seqs':32},'candidate48':{'max_num_seqs':48}}
+    if primary=='RC8':
+        assert plan['speed_profiles']=={'current32':{'max_num_seqs':32},'candidate48':{'max_num_seqs':48}}
+    else:
+        assert receipt['authorized_phases']==['screen']
     assert len({r['problem_sha256'] for r in plan['rows']})==100
     for i,row in enumerate(plan['rows']):
         assert row['dataset_index']==i and row['dataset']=='math_train'
@@ -43,6 +47,10 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='first_reflection_screen':
+        assert phase=='screen'
+        return [('R','off','original14','none'),('RC14','negative','original14','none'),
+                ('RChistory','negative','original14','after_first_reflection')]
     if plan.get('candidate_kind')=='first_reflection':
         assert phase=='engineering'
         return [('R','off','original14','none'),('Roff_history','off','original14','after_first_reflection'),
@@ -57,6 +65,19 @@ def cases(plan, phase):
     return [('R','off','original14'),('RC14','negative','original14'),('RC8','negative','narrow8')]
 
 
+def validate_engineering_gate(plan, plan_path, gate_path):
+    gate=read(gate_path)
+    assert gate['passed']
+    if plan.get('candidate_kind')=='first_reflection_screen':
+        prior=plan['engineering_evidence']
+        assert sha(gate_path)==prior['gate_sha256']
+        assert gate['plan_sha256']==prior['plan_sha256']
+        for name,digest in prior['unchanged_mechanism_sources'].items():
+            assert sha(ROOT/name,True)==digest,name
+    else:
+        assert gate['plan_sha256']==sha(plan_path)
+
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--plan',type=Path,required=True)
     p.add_argument('--receipt',type=Path,required=True)
@@ -68,12 +89,12 @@ def main():
     if not args.gpu_authorized:raise ValueError('Explicit fixed-batch GPU authorization required')
     plan=read(args.plan);receipt=read(args.receipt)
     if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
+    if plan.get('candidate_kind')=='first_reflection_screen':assert args.phase=='screen'
     validate_receipt(plan,receipt,args.plan)
     assert args.phase in receipt['authorized_phases']
     validate_assets(plan)
     if args.phase=='screen':
-        gate=read(args.engineering_gate)
-        assert gate['passed'] and gate['plan_sha256']==sha(args.plan)
+        validate_engineering_gate(plan,args.plan,args.engineering_gate)
     runtime=dict(plan['runtime'])
     if args.phase=='speed':
         assert args.profile in receipt['authorized_speed_profiles']
@@ -85,7 +106,7 @@ def main():
     started=time.perf_counter();results={};monitor=None;active=None
     try:
         tests=('test_native.py','test_narrow_native.py')
-        if plan.get('candidate_kind')=='first_reflection':tests+=('test_history_native.py',)
+        if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen'):tests+=('test_history_native.py',)
         for test in tests:
             check=subprocess.run([sys.executable,str(HERE/test)],capture_output=True,text=True,timeout=60)
             save(out/(test+'.json'),dict(returncode=check.returncode,stdout=check.stdout,stderr=check.stderr))
