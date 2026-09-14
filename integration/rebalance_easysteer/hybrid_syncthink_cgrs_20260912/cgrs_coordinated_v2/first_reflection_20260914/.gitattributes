@@ -1,0 +1,2 @@
+# Preserve raw plan and receipt hashes across Windows/Linux checkouts.
+*.json -text whitespace=cr-at-eol

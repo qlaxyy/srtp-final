@@ -8,9 +8,10 @@ from adapter import Adapter
 class ReplayAdapter(Adapter):
     fields=('opening','thinking','count','prompt_len','eligible_count','changed_count','first_change')
 
-    def __init__(self,llm,tokenizer,mode='off',gate_on=False,*,trigger_profile='original14'):
-        super().__init__(llm,tokenizer,mode,gate_on,trigger_profile=trigger_profile)
+    def __init__(self,llm,tokenizer,mode='off',gate_on=False,*,trigger_profile='original14',history_gate='none'):
+        super().__init__(llm,tokenizer,mode,gate_on,trigger_profile=trigger_profile,history_gate=history_gate)
         if not self.enabled:return
+        if history_gate != 'none':self.fields=type(self).fields+('first_reflection',)
         if self.runner.vllm_config.scheduler_config.async_scheduling:
             super().close()
             raise ValueError('Native R KV history replay is only validated synchronously')
@@ -44,6 +45,10 @@ class ReplayAdapter(Adapter):
             generated=len(r.prefill_token_ids)-len(r.prompt_token_ids)
             if r.req_id in self.suspended:
                 saved=self.suspended[r.req_id]
+                if getattr(self,'history_gate','none') != 'none':
+                    position=saved.get('first_reflection')
+                    if set(saved)!=set(self.fields) or type(position) is not int or not -1<=position<generated:
+                        raise RuntimeError('Invalid reflection-history replay state')
                 if generated!=saved['count'] or len(r.prompt_token_ids)!=saved['prompt_len']:
                     raise RuntimeError('Lexical replay prefix clock mismatch')
             elif generated:
@@ -64,6 +69,7 @@ class ReplayAdapter(Adapter):
                 self.opening[slot]=False;self.thinking[slot]=151648 in r.prompt_token_ids
                 self.count[slot]=self.eligible_count[slot]=self.changed_count[slot]=0
                 self.first_change[slot]=-1;self.prompt_len[slot]=len(r.prompt_token_ids)
+                if getattr(self,'history_gate','none') != 'none':self.first_reflection[slot]=-1
 
     def close(self):
         if self.enabled:self.runner.finish_requests=self.original_finish

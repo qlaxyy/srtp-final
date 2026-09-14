@@ -10,7 +10,7 @@ from policy import PENALTY, token_flags, trigger_vocabulary
 
 
 class Adapter:
-    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14'):
+    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14', history_gate='none'):
         self.mode = mode
         self.enabled = mode != 'off'
         if mode not in ('off', 'shadow', 'negative', 'always'):
@@ -21,6 +21,11 @@ class Adapter:
             raise ValueError('Explicit experimental gate_on is required')
         triggers = trigger_vocabulary(trigger_profile)
         self.trigger_profile = trigger_profile
+        if history_gate not in ('none','after_first_reflection'):
+            raise ValueError('Unknown history gate')
+        if history_gate != 'none' and (trigger_profile != 'original14' or mode not in ('negative','shadow')):
+            raise ValueError('History candidate requires original14 and negative/shadow mode')
+        self.history_gate = history_gate
         import torch
         self.torch = torch
         self.core = llm.llm_engine.engine_core.engine_core
@@ -53,6 +58,10 @@ class Adapter:
         self.white = torch.tensor(white, device=device)
         self.boundary = torch.tensor(boundary, device=device)
         self.ids = torch.tensor(list(triggers), device=device)
+        if history_gate != 'none':
+            self.first_reflection = torch.full_like(self.count, -1)
+            self.reflection_lookup = torch.zeros(size, dtype=torch.bool, device=device)
+            self.reflection_lookup[self.ids] = True
         for token, piece in triggers.items():
             if tokenizer.decode([token]) != piece or tokenizer.encode(piece, add_special_tokens=False) != [token]:
                 raise ValueError('Tokenizer mismatch')
@@ -89,6 +98,8 @@ class Adapter:
             self.count[slot] = self.eligible_count[slot] = self.changed_count[slot] = 0
             self.first_change[slot] = -1
             self.prompt_len[slot] = len(r.prompt_token_ids)
+            if getattr(self,'history_gate','none') != 'none':
+                self.first_reflection[slot] = -1
 
     def remove_request(self, rid):
         if rid in self.active:
@@ -103,6 +114,8 @@ class Adapter:
                                           .cpu().numpy().tobytes()).hexdigest()
             self.completed[rid] = dict(zip(('tokens','eligible','changed','first_change'),values),
                                        R_history_sha256=history)
+            if getattr(self,'history_gate','none') != 'none':
+                self.completed[rid]['first_reflection'] = int(self.first_reflection[slot].cpu())
         return self.original_remove(rid)
 
     def close(self):
@@ -131,10 +144,13 @@ class Sampler:
         t._assert_async((~valid | (batch.seq_lens[:batch.num_reqs] ==
                         o.prompt_len[idx]+o.count[idx])).all(), 'Accepted-token clock mismatch')
         mask = o.opening[idx] & o.thinking[idx] & valid
+        history_on = getattr(o,'history_gate','none') != 'none'
         if o.mode in ('negative','shadow'):
             s = o.runner.steer_vector_state
             coefficient, mean = s._coefs[idx], s._prev_step_mean[idx]
             mask &= t.isfinite(coefficient) & t.isfinite(mean) & (coefficient < 0)
+        if history_on:
+            mask &= o.first_reflection[idx] >= 0
         o.eligible_count[idx] += mask.to(t.int64)
         if o.mode != 'shadow':
             # Raw R maximum probability was already computed by model_runner.
@@ -150,6 +166,11 @@ class Sampler:
         # Invalid partial prefill dummy samples are never used as token IDs.
         safe = t.where(valid, token, t.zeros_like(token))
         t._assert_async(((safe>=0)&(safe<o.clean.numel())).all(), 'Invalid tokenizer ID')
+        if history_on:
+            # Observe the ACTUAL sampled marker at an already clean opening.
+            # Interior words, boundary+word mixed tokens and prompt text do not count.
+            first = valid & o.opening[idx] & o.thinking[idx] & o.reflection_lookup[safe] & (o.first_reflection[idx]<0)
+            o.first_reflection[idx] = t.where(first, o.count[idx], o.first_reflection[idx])
         active = o.thinking[idx]
         active = (active | (safe==151648)) & (safe!=151649)
         opening = t.where(o.boundary[safe], o.clean[safe], o.opening[idx] & o.white[safe])

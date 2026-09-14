@@ -16,6 +16,14 @@ from prepare_screen import phash
 def validate_receipt(plan, receipt, plan_path):
     assert receipt['gpu_authorized'] is True
     assert receipt['plan_sha256'] == sha(plan_path)
+    if plan.get('candidate_kind')=='first_reflection':
+        assert plan['phase']=='engineering_only' and receipt['reuse_registered_engineering_rows'] is True
+        assert plan['engineering_cap']==512 and len(plan['engineering_rows'])==8
+        for row in plan['engineering_rows']:assert phash(row['problem'])==row['problem_sha256']
+        assert plan['runtime']==dict(dtype='bfloat16',max_tokens=16000,max_model_len=17408,max_num_seqs=32,
+            max_num_batched_tokens=4096,gpu_memory_utilization=.94,async_scheduling=False,
+            chunked_prefill=True,seed=42,temperature=.7,top_p=.95)
+        return
     assert receipt['data_reconciled'] is True and receipt['unregistered_claims_checked'] is True
     for side in ('local','remote'):
         item=receipt[side+'_reconciliation']
@@ -35,6 +43,12 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='first_reflection':
+        assert phase=='engineering'
+        return [('R','off','original14','none'),('Roff_history','off','original14','after_first_reflection'),
+            ('RC14default','negative',None,'none'),('RC14explicit','negative','original14','none'),
+            ('RChistory_shadow','shadow','original14','after_first_reflection'),
+            ('RChistory','negative','original14','after_first_reflection')]
     if phase=='engineering':
         return [('R','off','original14'),('Roff8','off','narrow8'),
                 ('RC14default','negative',None),('RC14explicit','negative','original14'),
@@ -53,6 +67,7 @@ def main():
     p.add_argument('--gpu-authorized',action='store_true');args=p.parse_args()
     if not args.gpu_authorized:raise ValueError('Explicit fixed-batch GPU authorization required')
     plan=read(args.plan);receipt=read(args.receipt)
+    if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
     validate_receipt(plan,receipt,args.plan)
     assert args.phase in receipt['authorized_phases']
     validate_assets(plan)
@@ -69,7 +84,9 @@ def main():
     save(out/'resolved_plan.json',plan);save(out/'execution_receipt.json',receipt)
     started=time.perf_counter();results={};monitor=None;active=None
     try:
-        for test in ('test_native.py','test_narrow_native.py'):
+        tests=('test_native.py','test_narrow_native.py')
+        if plan.get('candidate_kind')=='first_reflection':tests+=('test_history_native.py',)
+        for test in tests:
             check=subprocess.run([sys.executable,str(HERE/test)],capture_output=True,text=True,timeout=60)
             save(out/(test+'.json'),dict(returncode=check.returncode,stdout=check.stdout,stderr=check.stderr))
             assert check.returncode==0,test
@@ -101,11 +118,13 @@ def main():
         save(out/'runtime_identity.json',dict(runtime=runtime,torch=torch.__version__,
             vllm_path=vllm.__file__,python=sys.version,startup_seconds=time.perf_counter()-started))
         rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
-        cap={'engineering':256,'screen':16000,'speed':1024}[args.phase]
+        cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024}[args.phase]
         ceiling=plan['arm_seconds'][args.phase]
-        for name,mode,profile in cases(plan,args.phase):
+        for case in cases(plan,args.phase):
+            name,mode,profile=case[:3];history_gate=case[3] if len(case)==4 else 'none'
             folder=out/name;folder.mkdir();active=folder
             before=time.perf_counter();kw={} if profile is None else {'trigger_profile':profile}
+            if history_gate!='none':kw['history_gate']=history_gate
             adapter=ReplayAdapter(llm,tok,mode=mode,gate_on=True,**kw)
             setup=time.perf_counter()-before
             state=runner.steer_vector_state;oldremove=state.remove_request;history={}
@@ -184,9 +203,14 @@ def main():
             if args.phase=='engineering':
                 assert forced and replay['restored']>=1
                 key=lambda d:[(r['token_ids'],r['R_history_sha256']) for r in d['records']]
-                if name in ('Roff8','RC8shadow'):assert key(result)==key(results['R']),name
+                if name in ('Roff8','RC8shadow','Roff_history','RChistory_shadow'):assert key(result)==key(results['R']),name
                 if name=='RC14explicit':assert key(result)==key(results['RC14default'])
                 if name=='RC8':assert sum(e['changed'] for e in result['events'].values())>0
+                if name=='RChistory':
+                    events=list(result['events'].values())
+                    assert sum(e['changed'] for e in events)>0
+                    assert all(e['first_change']<0 or 0<=e['first_reflection']<e['first_change'] for e in events)
+                    assert any(a['token_ids']!=b['token_ids'] for a,b in zip(result['records'],results['RC14explicit']['records']))
         save(out/('engineering_gate.json' if args.phase=='engineering' else 'batch_status.json'),
             dict(passed=True,status='complete',phase=args.phase,plan_sha256=sha(args.plan),wall_seconds=time.perf_counter()-started))
     except BaseException as exc:
