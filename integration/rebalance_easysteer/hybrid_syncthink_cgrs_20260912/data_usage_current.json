@@ -10270,53 +10270,64 @@
     "confirmation_generation_count": 0
   },
   "first_reflection_candidate": {
-    "status": "CPU_implemented_engineering_only_pending_new_GPU_authorization",
+    "status": "engineering_passed_effect_unverified_formal_not_authorized",
     "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_20260914/plan.json",
     "plan_sha256": "f2cf75c5409d0fed0d54965ee6ef2176edab3a4dcfb8ef693769d1d2ba1d71e3",
     "uses": [
       {
         "problem_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 647
+        "train_index": 647,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 1837
+        "train_index": 1837,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 4972
+        "train_index": 4972,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 1441
+        "train_index": 1441,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 4432
+        "train_index": 4432,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 3497
+        "train_index": 3497,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 1483
+        "train_index": 1483,
+        "status": "engineering_cap512_used"
       },
       {
         "problem_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
         "purpose": "reuse_existing8_engineering_only",
-        "train_index": 229
+        "train_index": 229,
+        "status": "engineering_cap512_used"
       }
     ],
     "formal_new_rows_reserved": 0,
     "confirmation200_used": false,
-    "reference": "RCnegative original14 pinned at73cef5f; existing outcomes immutable"
+    "reference": "RCnegative original14 pinned at73cef5f; existing outcomes immutable",
+    "engineering_run_id": "cgrs_first_reflection_7b_engineering8x6_20260914",
+    "execution_commit": "6243c3c29b1432ad4106fe781fbb6e14e0fd137f",
+    "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_20260914/results/summary.json"
   }
 }

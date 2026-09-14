@@ -1,0 +1,12 @@
+{
+  "gpu_authorized": true,
+  "plan_sha256": "f2cf75c5409d0fed0d54965ee6ef2176edab3a4dcfb8ef693769d1d2ba1d71e3",
+  "authorized_phases": [
+    "engineering"
+  ],
+  "reuse_registered_engineering_rows": true,
+  "note": "Only fill for actual bounded engineering authorization; these8 registered rows are engineering reuse, not fresh independent data",
+  "authorization": "User confirmed fixed8x6 engineering,512tokens,900s ceiling; no formal100",
+  "source_commit": "6243c3c29b1432ad4106fe781fbb6e14e0fd137f",
+  "registered_engineering_rows_match": true
+}
