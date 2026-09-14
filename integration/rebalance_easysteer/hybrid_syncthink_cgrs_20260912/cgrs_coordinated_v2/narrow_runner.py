@@ -16,6 +16,10 @@ from prepare_screen import phash
 def validate_receipt(plan, receipt, plan_path):
     assert receipt['gpu_authorized'] is True
     assert receipt['plan_sha256'] == sha(plan_path)
+    if plan.get('candidate_kind')=='first_reflection_full':
+        from history_full import validate_full_plan
+        validate_full_plan(plan,receipt)
+        return
     if plan.get('candidate_kind')=='first_reflection':
         assert plan['phase']=='engineering_only' and receipt['reuse_registered_engineering_rows'] is True
         assert plan['engineering_cap']==512 and len(plan['engineering_rows'])==8
@@ -56,6 +60,9 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='first_reflection_full':
+        assert phase=='full'
+        return [(role,'negative','original14','after_first_reflection') for role in plan['datasets']]
     if plan.get('candidate_kind')=='first_reflection_screen':
         assert phase=='screen'
         return [('R','off','original14','none'),('RC14','negative','original14','none'),
@@ -77,7 +84,7 @@ def cases(plan, phase):
 def validate_engineering_gate(plan, plan_path, gate_path):
     gate=read(gate_path)
     assert gate['passed']
-    if plan.get('candidate_kind')=='first_reflection_screen':
+    if plan.get('candidate_kind') in ('first_reflection_screen','first_reflection_full'):
         prior=plan['engineering_evidence']
         assert sha(gate_path)==prior['gate_sha256']
         assert gate['plan_sha256']==prior['plan_sha256']
@@ -96,7 +103,7 @@ def validate_prompt_capacity(prompts, cap, model_len):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--plan',type=Path,required=True)
     p.add_argument('--receipt',type=Path,required=True)
-    p.add_argument('--phase',choices=['engineering','screen','speed'],required=True)
+    p.add_argument('--phase',choices=['engineering','screen','speed','full'],required=True)
     p.add_argument('--profile',choices=['current32','candidate48'])
     p.add_argument('--engineering-gate',type=Path)
     p.add_argument('--output-root',type=Path,required=True)
@@ -105,10 +112,11 @@ def main():
     plan=read(args.plan);receipt=read(args.receipt)
     if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
     if plan.get('candidate_kind')=='first_reflection_screen':assert args.phase=='screen'
+    if plan.get('candidate_kind')=='first_reflection_full':assert args.phase=='full'
     validate_receipt(plan,receipt,args.plan)
     assert args.phase in receipt['authorized_phases']
     validate_assets(plan)
-    if args.phase=='screen':
+    if args.phase in ('screen','full'):
         validate_engineering_gate(plan,args.plan,args.engineering_gate)
     runtime=dict(plan['runtime'])
     if args.phase=='speed':
@@ -118,10 +126,13 @@ def main():
     run_id=plan['run_ids'][args.phase]+('_'+args.profile if args.profile else '')
     out=args.output_root/run_id;out.mkdir(parents=True,exist_ok=False)
     save(out/'resolved_plan.json',plan);save(out/'execution_receipt.json',receipt)
+    if args.phase=='full':
+        from history_full import collect_references
+        save(out/'historical_reference.json',collect_references(plan))
     started=time.perf_counter();results={};monitor=None;active=None
     try:
         tests=('test_native.py','test_narrow_native.py')
-        if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen'):tests+=('test_history_native.py',)
+        if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen','first_reflection_full'):tests+=('test_history_native.py',)
         for test in tests:
             check=subprocess.run([sys.executable,str(HERE/test)],capture_output=True,text=True,timeout=60)
             save(out/(test+'.json'),dict(returncode=check.returncode,stdout=check.stdout,stderr=check.stderr))
@@ -138,10 +149,14 @@ def main():
         from rebalance_static_eval import build_prompt
         from replay_adapter import ReplayAdapter
         a=plan['assets'];tok=AutoTokenizer.from_pretrained(a['model_path'],local_files_only=True)
-        rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
-        cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024}[args.phase]
-        prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
-        maximum=validate_prompt_capacity(prompts,cap,runtime['max_model_len'])
+        cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024,'full':16000}[args.phase]
+        if args.phase=='full':
+            prepared={role:[tok.encode(build_prompt(tok,r['problem'])) for r in sub['rows']] for role,sub in plan['datasets'].items()}
+            maximum=max(validate_prompt_capacity(p,cap,runtime['max_model_len']) for p in prepared.values())
+        else:
+            rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
+            prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
+            maximum=validate_prompt_capacity(prompts,cap,runtime['max_model_len'])
         save(out/'prompt_capacity.json',dict(max_prompt_tokens=maximum,max_model_len=runtime['max_model_len'],cap=cap))
         boundaries=sorted(i for piece,i in tok.get_vocab().items() if 'ĊĊ' in piece)
         steer=SteeringSpec(vectors=[VectorSpec(name='rebalance_dynamic',
@@ -161,7 +176,10 @@ def main():
         ceiling=plan['arm_seconds'][args.phase]
         for case in cases(plan,args.phase):
             name,mode,profile=case[:3];history_gate=case[3] if len(case)==4 else 'none'
-            folder=out/name;folder.mkdir();active=folder
+            if args.phase=='full':
+                rows=plan['datasets'][name]['rows'];prompts=prepared[name]
+            folder=out/name/plan['primary_candidate'] if args.phase=='full' else out/name
+            folder.mkdir(parents=True);active=folder
             before=time.perf_counter();kw={} if profile is None else {'trigger_profile':profile}
             if history_gate!='none':kw['history_gate']=history_gate
             adapter=ReplayAdapter(llm,tok,mode=mode,gate_on=True,**kw)

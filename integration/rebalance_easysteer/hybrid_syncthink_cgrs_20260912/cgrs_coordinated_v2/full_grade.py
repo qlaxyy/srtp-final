@@ -36,7 +36,7 @@ def main():
     from utils.grader import check_is_correct
     started=time.perf_counter();summaries={};reuse={}
     for role,sub in plan['datasets'].items():
-        location=folder/role/'RCnegative';data=read(location/'result.json');records=data['records'];labels=[]
+        location=folder/role/plan.get('primary_candidate','RCnegative');data=read(location/'result.json');records=data['records'];labels=[]
         assert data['status']=='complete' and len(records)==len(sub['rows'])
         partial=location/'author_partial.jsonl'
         previous=[json.loads(s) for s in partial.read_text(encoding='utf8').splitlines()] if args.resume and partial.exists() else []

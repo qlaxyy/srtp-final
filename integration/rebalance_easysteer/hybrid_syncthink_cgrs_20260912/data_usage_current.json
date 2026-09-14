@@ -10347,5 +10347,23 @@
     "generation_completed": true,
     "consumed_rows": 100,
     "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914_r2/results/summary.json"
+  },
+  "first_reflection_full7b": {
+    "status": "fixed_full_exposed_test_prepared",
+    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full7b_20260914/plan.json",
+    "plan_sha256": "a9a41e9df78ee8680656fefbcd073b7532b4d7f9213fa99bda62c4ba74bf16a9",
+    "datasets": {
+      "math_test": 500,
+      "gsm8k_test": 1319
+    },
+    "arms": [
+      "RChistory"
+    ],
+    "reference_reuse": [
+      "U",
+      "R",
+      "RC14"
+    ],
+    "confirmation200_used": false
   }
 }
