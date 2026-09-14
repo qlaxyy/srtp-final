@@ -10,10 +10,10 @@ def main():
     screen=read(HERE/'first_reflection_screen100_20260914_r2/plan.json')
     local=ROOT/'.codex_work/cgrs_v2_7b_run1_verified/results/easysteer/hybrid_syncthink_cgrs_20260912'/old['run_id']
     remote=Path('/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912')/old['run_id']
-    ref=dict(analysis_path=str(remote/'analysis.json'),analysis_sha256=sha(local/'analysis.json'),results={})
+    ref=dict(analysis_path=(remote/'analysis.json').as_posix(),analysis_sha256=sha(local/'analysis.json'),results={})
     for role in old['datasets']:
         p=local/role/'RCnegative/result.json'
-        ref['results'][role]=dict(path=str(remote/role/'RCnegative/result.json'),sha256=sha(p))
+        ref['results'][role]=dict(path=(remote/role/'RCnegative/result.json').as_posix(),sha256=sha(p))
     plan=dict(schema=1,candidate_kind='first_reflection_full',phase='full_test',arms=['RChistory'],primary_candidate='RChistory',
         runtime=screen['runtime'],assets=screen['assets'],datasets=old['datasets'],frozen_benchmarks=old['frozen_benchmarks'],
         rc14_reference=ref,engineering_evidence=screen['engineering_evidence'],source_sha256=screen['source_sha256'],
