@@ -1,0 +1,2941 @@
+{
+  "status": "complete_training_screen",
+  "comparisons": {
+    "RC14_vs_R": {
+      "accuracy_delta_pp": 1.0,
+      "accuracy_ci95": [
+        -3.0,
+        5.0
+      ],
+      "point_loss_within_2pp": true,
+      "nominal_ci_noninferiority_2pp": false,
+      "wrong_to_right": [
+        65,
+        77,
+        98
+      ],
+      "right_to_wrong": [
+        58,
+        86
+      ],
+      "lengths": {
+        "tokens": {
+          "percent_change": 4.5186613174942325,
+          "ci95": [
+            -6.180851940679279,
+            16.273822347116788
+          ]
+        },
+        "thinking_tokens": {
+          "percent_change": 5.037974886155383,
+          "ci95": [
+            -7.6185428539087034,
+            19.061601276683845
+          ]
+        }
+      }
+    },
+    "RChistory_vs_R": {
+      "accuracy_delta_pp": 3.0,
+      "accuracy_ci95": [
+        0.0,
+        7.000000000000001
+      ],
+      "point_loss_within_2pp": true,
+      "nominal_ci_noninferiority_2pp": true,
+      "wrong_to_right": [
+        65,
+        77,
+        98
+      ],
+      "right_to_wrong": [],
+      "lengths": {
+        "tokens": {
+          "percent_change": -2.8631966515569873,
+          "ci95": [
+            -12.746009490662994,
+            8.3221765233927
+          ]
+        },
+        "thinking_tokens": {
+          "percent_change": -3.49136861649767,
+          "ci95": [
+            -15.078639982951831,
+            10.02370185092166
+          ]
+        }
+      }
+    },
+    "RChistory_vs_RC14": {
+      "accuracy_delta_pp": 2.0,
+      "accuracy_ci95": [
+        0.0,
+        5.0
+      ],
+      "point_loss_within_2pp": true,
+      "nominal_ci_noninferiority_2pp": true,
+      "wrong_to_right": [
+        58,
+        86
+      ],
+      "right_to_wrong": [],
+      "lengths": {
+        "tokens": {
+          "percent_change": -7.0627176773987665,
+          "ci95": [
+            -17.99559014906026,
+            6.432446720883015
+          ]
+        },
+        "thinking_tokens": {
+          "percent_change": -8.120247474208742,
+          "ci95": [
+            -20.573753520190465,
+            7.626008743325357
+          ]
+        }
+      }
+    }
+  },
+  "decision": {
+    "accuracy_point_pass": true,
+    "compression_vs_R": true,
+    "caps_pass": true,
+    "strict_improvement_over_RC14": true,
+    "promote": true
+  },
+  "reused_labels": {
+    "R": 0,
+    "RC14": 0,
+    "RChistory": 0
+  },
+  "grade_seconds": 17.836656481027603,
+  "plan_sha256": "d4236f0324f33afa7b77f904165c1a5af3cabe62ef1ed5c6e869e0222328a416",
+  "limitations": [
+    "100 paired training questions; not independent confirmation or test evidence",
+    "Single seed and fixed arm order; confidence intervals omit batch/sampling variability",
+    "Point loss bound and confidence-interval noninferiority are separate",
+    "No automatic confirmation, threshold retuning, or runtime selection"
+  ],
+  "groups": {
+    "R": {
+      "n": 100,
+      "correct": 91,
+      "mean_total_tokens": 2878.95,
+      "mean_thinking_tokens": 2499.02,
+      "capped": 2,
+      "generation_seconds": 538.4972492903471,
+      "gpu_mean_percent": 72.00185528756957,
+      "output_tokens_per_second": 534.6266863561501,
+      "replayed_input_tokens": 0,
+      "eligible": 0,
+      "interventions": 0,
+      "scheduler_preemptions": [],
+      "replay_counts": {
+        "suspended": 0,
+        "restored": 0
+      },
+      "control_gpu_seconds": null,
+      "extra_probe_forwards": 0,
+      "setup_seconds": 3.2454729080200195e-05,
+      "checkpoint_io_seconds": 0.13365480303764343,
+      "result_sha256": "43a549e6ede975bc562638144d2a878b7d91c0326840352ca8d06d1468f668a6"
+    },
+    "RC14": {
+      "n": 100,
+      "correct": 92,
+      "mean_total_tokens": 3009.04,
+      "mean_thinking_tokens": 2624.92,
+      "capped": 3,
+      "generation_seconds": 501.0955324023962,
+      "gpu_mean_percent": 86.08582834331337,
+      "output_tokens_per_second": 600.4922824942773,
+      "replayed_input_tokens": 0,
+      "eligible": 7224,
+      "interventions": 7224,
+      "scheduler_preemptions": [],
+      "replay_counts": {
+        "suspended": 0,
+        "restored": 0
+      },
+      "control_gpu_seconds": null,
+      "extra_probe_forwards": 0,
+      "setup_seconds": 1.01473930478096,
+      "checkpoint_io_seconds": 0.037539660930633545,
+      "result_sha256": "4869ff1fab2cbd05d029fd6d5ba0d68acb767675eb3b1522f81ec01a326e50f3"
+    },
+    "RChistory": {
+      "n": 100,
+      "correct": 94,
+      "mean_total_tokens": 2796.52,
+      "mean_thinking_tokens": 2411.77,
+      "capped": 2,
+      "generation_seconds": 456.81592032313347,
+      "gpu_mean_percent": 85.32822757111597,
+      "output_tokens_per_second": 612.1765629406814,
+      "replayed_input_tokens": 0,
+      "eligible": 5106,
+      "interventions": 5106,
+      "scheduler_preemptions": [],
+      "replay_counts": {
+        "suspended": 0,
+        "restored": 0
+      },
+      "control_gpu_seconds": null,
+      "extra_probe_forwards": 0,
+      "setup_seconds": 0.7227523624897003,
+      "checkpoint_io_seconds": 0.03616343438625336,
+      "result_sha256": "e81aa781fad4927e65c2868ac935f831d3b7b3bcfdd3807a25d61cab21f0cccf"
+    }
+  },
+  "local_audit": {
+    "manifest_files": 93,
+    "all_hashes": true,
+    "all_metrics_recomputed": true,
+    "bootstrap_recomputed_exact": true,
+    "author_labels_reused_not_regraded": true,
+    "identity_vs_R": 6,
+    "identity_vs_RC14": 5
+  },
+  "per_question": [
+    {
+      "train_index": 4080,
+      "problem_sha256": "7d7e63d96036494602f7bda9717927cccfa6360e8052fc7d683c2ef6feaa9c61",
+      "dataset_index": 0,
+      "arms": {
+        "R": {
+          "tokens": 1057,
+          "thinking_tokens": 864,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1002,
+          "thinking_tokens": 812,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1057,
+          "thinking_tokens": 864,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": 370
+    },
+    {
+      "train_index": 1404,
+      "problem_sha256": "c4f21bf1964c055a6d1224000953b631cde1881c54a699f299985f87ce33800e",
+      "dataset_index": 1,
+      "arms": {
+        "R": {
+          "tokens": 2234,
+          "thinking_tokens": 1910,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1775,
+          "thinking_tokens": 1455,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1812,
+          "thinking_tokens": 1532,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1057,
+      "first_difference_from_RC14": 1047
+    },
+    {
+      "train_index": 2189,
+      "problem_sha256": "4c5b944c3305298583b54078d98a8d57a9fbbeb4de11db5368ba73d34f99f6af",
+      "dataset_index": 2,
+      "arms": {
+        "R": {
+          "tokens": 4502,
+          "thinking_tokens": 3894,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 4964,
+          "thinking_tokens": 4354,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3244,
+          "thinking_tokens": 2548,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 940,
+      "first_difference_from_RC14": 1017
+    },
+    {
+      "train_index": 3130,
+      "problem_sha256": "97c00341a1872447acdf0bbe67094dfe8090c69a7c06fb1342f40c9e6113d5bc",
+      "dataset_index": 3,
+      "arms": {
+        "R": {
+          "tokens": 8310,
+          "thinking_tokens": 7462,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 14291,
+          "thinking_tokens": 13778,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        }
+      },
+      "first_difference_from_R": 989,
+      "first_difference_from_RC14": 1037
+    },
+    {
+      "train_index": 2846,
+      "problem_sha256": "87e639ef69d82b89962824e79416e6cefcd38f64e833cfbc74e00b633c8de246",
+      "dataset_index": 4,
+      "arms": {
+        "R": {
+          "tokens": 3235,
+          "thinking_tokens": 2642,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3011,
+          "thinking_tokens": 2423,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3131,
+          "thinking_tokens": 2534,
+          "correct": false,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1074,
+      "first_difference_from_RC14": 1253
+    },
+    {
+      "train_index": 5826,
+      "problem_sha256": "0048e1b862a8e948c49ee445a7de9d76ae1a97f7937df05a8b8a85c2a66abe5c",
+      "dataset_index": 5,
+      "arms": {
+        "R": {
+          "tokens": 3082,
+          "thinking_tokens": 2659,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1846,
+          "thinking_tokens": 1420,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2006,
+          "thinking_tokens": 1580,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 914,
+      "first_difference_from_RC14": 1064
+    },
+    {
+      "train_index": 4565,
+      "problem_sha256": "c1ed97d2b009a26df482a21befc334023c7d1c54f7320bb12bf3288095e2bcca",
+      "dataset_index": 6,
+      "arms": {
+        "R": {
+          "tokens": 1263,
+          "thinking_tokens": 1097,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1338,
+          "thinking_tokens": 1112,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1338,
+          "thinking_tokens": 1112,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 987,
+      "first_difference_from_RC14": null
+    },
+    {
+      "train_index": 1771,
+      "problem_sha256": "b69397fb2087bfcca4b754d012009bf3bd2df57d14fa762edc76c50444f05c7d",
+      "dataset_index": 7,
+      "arms": {
+        "R": {
+          "tokens": 1884,
+          "thinking_tokens": 1534,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 4473,
+          "thinking_tokens": 4007,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3066,
+          "thinking_tokens": 2730,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 972,
+      "first_difference_from_RC14": 1121
+    },
+    {
+      "train_index": 4437,
+      "problem_sha256": "ed943b9e96d6f7ff7d8ce26fa8f00a2e56fbf66caf59be583cef665db980df0b",
+      "dataset_index": 8,
+      "arms": {
+        "R": {
+          "tokens": 643,
+          "thinking_tokens": 436,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 643,
+          "thinking_tokens": 436,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 643,
+          "thinking_tokens": 436,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": null
+    },
+    {
+      "train_index": 6757,
+      "problem_sha256": "c6d848f3aae76d33f9919ba2c33be65308c4444d289e3a036c6c72d8be8cf943",
+      "dataset_index": 9,
+      "arms": {
+        "R": {
+          "tokens": 1977,
+          "thinking_tokens": 1766,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2141,
+          "thinking_tokens": 1918,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2615,
+          "thinking_tokens": 2430,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1006,
+      "first_difference_from_RC14": 1006
+    },
+    {
+      "train_index": 6468,
+      "problem_sha256": "182cc0e3cde8af19c82af53e4cbbae9ed3f8bed661bb12e88bcad7ea7c1c6708",
+      "dataset_index": 10,
+      "arms": {
+        "R": {
+          "tokens": 1177,
+          "thinking_tokens": 840,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1177,
+          "thinking_tokens": 840,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1177,
+          "thinking_tokens": 840,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": null
+    },
+    {
+      "train_index": 1817,
+      "problem_sha256": "ad83e7ca2475a774d4c5311266d985ad355bba805a295259aadedb5eca5be96c",
+      "dataset_index": 11,
+      "arms": {
+        "R": {
+          "tokens": 2831,
+          "thinking_tokens": 2218,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2550,
+          "thinking_tokens": 2036,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2483,
+          "thinking_tokens": 1925,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 797,
+      "first_difference_from_RC14": 1274
+    },
+    {
+      "train_index": 6189,
+      "problem_sha256": "2119efd69cc320911f3a637bbb7008ea477d46c027a017c217604729ac2528ba",
+      "dataset_index": 12,
+      "arms": {
+        "R": {
+          "tokens": 904,
+          "thinking_tokens": 654,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1056,
+          "thinking_tokens": 856,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1239,
+          "thinking_tokens": 1002,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 451,
+      "first_difference_from_RC14": 211
+    },
+    {
+      "train_index": 6549,
+      "problem_sha256": "d4c806ecd787d52a2698fcb9019050570e3a89ac29eb40997d1084c88790464a",
+      "dataset_index": 13,
+      "arms": {
+        "R": {
+          "tokens": 2252,
+          "thinking_tokens": 1801,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1721,
+          "thinking_tokens": 1307,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2429,
+          "thinking_tokens": 1954,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 986,
+      "first_difference_from_RC14": 1141
+    },
+    {
+      "train_index": 5124,
+      "problem_sha256": "df06fca928c9d6c3851fe280193841e8390f0eadc545e937aeb5eaa5597d9f7e",
+      "dataset_index": 14,
+      "arms": {
+        "R": {
+          "tokens": 1887,
+          "thinking_tokens": 1499,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2767,
+          "thinking_tokens": 2101,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3507,
+          "thinking_tokens": 2969,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 513,
+      "first_difference_from_RC14": 1032
+    },
+    {
+      "train_index": 7322,
+      "problem_sha256": "e1ad474c7e210c491b17223ee39850664bb0271c9f4cf8b6006193d34c0ba438",
+      "dataset_index": 15,
+      "arms": {
+        "R": {
+          "tokens": 1948,
+          "thinking_tokens": 1675,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1668,
+          "thinking_tokens": 1401,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1537,
+          "thinking_tokens": 1270,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 477,
+      "first_difference_from_RC14": 1033
+    },
+    {
+      "train_index": 5768,
+      "problem_sha256": "c97a2d3d8f6a71bbd82ab16e22e98df173e8517a3e5d77811bb2b2910034d943",
+      "dataset_index": 16,
+      "arms": {
+        "R": {
+          "tokens": 828,
+          "thinking_tokens": 624,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 828,
+          "thinking_tokens": 624,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 828,
+          "thinking_tokens": 624,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": null
+    },
+    {
+      "train_index": 2384,
+      "problem_sha256": "e211b9ca5dfd8d952848bae84eff61737c7be09e7cc68ce98065deabf51ba2fd",
+      "dataset_index": 17,
+      "arms": {
+        "R": {
+          "tokens": 3208,
+          "thinking_tokens": 2976,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2729,
+          "thinking_tokens": 2389,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2844,
+          "thinking_tokens": 2608,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1049,
+      "first_difference_from_RC14": 1049
+    },
+    {
+      "train_index": 3993,
+      "problem_sha256": "31774a2bc2cb3edda59c9e21007141a98158cc5b731366bfe199d9f4cc20d87c",
+      "dataset_index": 18,
+      "arms": {
+        "R": {
+          "tokens": 1256,
+          "thinking_tokens": 989,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1256,
+          "thinking_tokens": 989,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1256,
+          "thinking_tokens": 989,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1136,
+      "first_difference_from_RC14": 1136
+    },
+    {
+      "train_index": 2280,
+      "problem_sha256": "a183e4cf86c9db4cb957c495fcf091fbc9ed8dd31c67858d5cf92346d168b8c9",
+      "dataset_index": 19,
+      "arms": {
+        "R": {
+          "tokens": 2015,
+          "thinking_tokens": 1624,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1726,
+          "thinking_tokens": 1277,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1881,
+          "thinking_tokens": 1466,
+          "correct": false,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1114,
+      "first_difference_from_RC14": 1060
+    },
+    {
+      "train_index": 1710,
+      "problem_sha256": "8c357a44f65019dbac172e0e3355471d7c7a85f20976166309e0211d7622233d",
+      "dataset_index": 20,
+      "arms": {
+        "R": {
+          "tokens": 3544,
+          "thinking_tokens": 2679,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2772,
+          "thinking_tokens": 2083,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3109,
+          "thinking_tokens": 2360,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 972,
+      "first_difference_from_RC14": 1352
+    },
+    {
+      "train_index": 1632,
+      "problem_sha256": "01f894d3890d065b9d872f401f6a30cd3883d9d568ab7f33a7e14623e83ea80e",
+      "dataset_index": 21,
+      "arms": {
+        "R": {
+          "tokens": 1302,
+          "thinking_tokens": 914,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1253,
+          "thinking_tokens": 1055,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1312,
+          "thinking_tokens": 1053,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 747,
+      "first_difference_from_RC14": 1013
+    },
+    {
+      "train_index": 5478,
+      "problem_sha256": "43e5f2bdee58601522cdc0caff92908edef0d14741518df561ff9f966d15daf7",
+      "dataset_index": 22,
+      "arms": {
+        "R": {
+          "tokens": 2375,
+          "thinking_tokens": 1620,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2381,
+          "thinking_tokens": 1774,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2394,
+          "thinking_tokens": 1689,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 952,
+      "first_difference_from_RC14": 832
+    },
+    {
+      "train_index": 2703,
+      "problem_sha256": "159772ffcbe28eb612ee28d11a022061e7eff26e4f92fc24555d05b6fcde0955",
+      "dataset_index": 23,
+      "arms": {
+        "R": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        },
+        "RC14": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        },
+        "RChistory": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        }
+      },
+      "first_difference_from_R": 1092,
+      "first_difference_from_RC14": 552
+    },
+    {
+      "train_index": 6309,
+      "problem_sha256": "6a2f24caf1a0dbd4fc15e2652da14656c79e28b77dd40a218c5edd2810cd70fb",
+      "dataset_index": 24,
+      "arms": {
+        "R": {
+          "tokens": 2260,
+          "thinking_tokens": 1789,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2479,
+          "thinking_tokens": 2115,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1973,
+          "thinking_tokens": 1494,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1255,
+      "first_difference_from_RC14": 78
+    },
+    {
+      "train_index": 4345,
+      "problem_sha256": "f6c56a55baaea7c9e2ade86b7280330539746ac5e72e8b3613f63e5b880e220b",
+      "dataset_index": 25,
+      "arms": {
+        "R": {
+          "tokens": 3331,
+          "thinking_tokens": 2815,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3870,
+          "thinking_tokens": 3370,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3235,
+          "thinking_tokens": 2659,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1154,
+      "first_difference_from_RC14": 1154
+    },
+    {
+      "train_index": 3255,
+      "problem_sha256": "ae0641666db1ef35c26d36c3d50dcb89046beeda4a083789ac37fb3ce3a289b1",
+      "dataset_index": 26,
+      "arms": {
+        "R": {
+          "tokens": 1505,
+          "thinking_tokens": 1106,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1494,
+          "thinking_tokens": 1098,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1544,
+          "thinking_tokens": 1155,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 997,
+      "first_difference_from_RC14": 1025
+    },
+    {
+      "train_index": 1596,
+      "problem_sha256": "08fe5baceee29bca8ed240f31b131e25642735f897365d3be1518e4899f0ca44",
+      "dataset_index": 27,
+      "arms": {
+        "R": {
+          "tokens": 4305,
+          "thinking_tokens": 3909,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3139,
+          "thinking_tokens": 2753,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3562,
+          "thinking_tokens": 3127,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1056,
+      "first_difference_from_RC14": 1225
+    },
+    {
+      "train_index": 3118,
+      "problem_sha256": "5095f196fcc042c80d0b8009e1486a0f9962de2f9c884061b6b2cff3416b967d",
+      "dataset_index": 28,
+      "arms": {
+        "R": {
+          "tokens": 3109,
+          "thinking_tokens": 2685,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1461,
+          "thinking_tokens": 1082,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1461,
+          "thinking_tokens": 1082,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 299,
+      "first_difference_from_RC14": null
+    },
+    {
+      "train_index": 4246,
+      "problem_sha256": "fdd776d5e84d2364d111cf81a97339c4a9d669cd853e94ade07b90063bead78a",
+      "dataset_index": 29,
+      "arms": {
+        "R": {
+          "tokens": 2676,
+          "thinking_tokens": 2338,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2949,
+          "thinking_tokens": 2577,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1431,
+          "thinking_tokens": 1167,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 950,
+      "first_difference_from_RC14": 331
+    },
+    {
+      "train_index": 7429,
+      "problem_sha256": "9e041ce7127d3f7e5a0ab05aadb8c80a8d29d0bb7d4d8180dfbd79a2bad5aab8",
+      "dataset_index": 30,
+      "arms": {
+        "R": {
+          "tokens": 2131,
+          "thinking_tokens": 1797,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2060,
+          "thinking_tokens": 1713,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1650,
+          "thinking_tokens": 1334,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1127,
+      "first_difference_from_RC14": 1127
+    },
+    {
+      "train_index": 4830,
+      "problem_sha256": "901029dabde32766b2afe78b5e8cfe70afaa4242febd14655aaec5dacae42e36",
+      "dataset_index": 31,
+      "arms": {
+        "R": {
+          "tokens": 3170,
+          "thinking_tokens": 2710,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2458,
+          "thinking_tokens": 2101,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2347,
+          "thinking_tokens": 2013,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1031,
+      "first_difference_from_RC14": 878
+    },
+    {
+      "train_index": 4672,
+      "problem_sha256": "83b9115475b773e4bf35e7385c8872a137a89bfcd9e6575b697a1311b07faac5",
+      "dataset_index": 32,
+      "arms": {
+        "R": {
+          "tokens": 1751,
+          "thinking_tokens": 1448,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1545,
+          "thinking_tokens": 1236,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1970,
+          "thinking_tokens": 1689,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 713,
+      "first_difference_from_RC14": 477
+    },
+    {
+      "train_index": 4815,
+      "problem_sha256": "0c111707da7f8af646f2cb9849defc24a63ea58437e92b37cac0ca1bee00e361",
+      "dataset_index": 33,
+      "arms": {
+        "R": {
+          "tokens": 567,
+          "thinking_tokens": 413,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 705,
+          "thinking_tokens": 530,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 567,
+          "thinking_tokens": 413,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": 226
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "dataset_index": 34,
+      "arms": {
+        "R": {
+          "tokens": 2342,
+          "thinking_tokens": 1802,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1898,
+          "thinking_tokens": 1312,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2821,
+          "thinking_tokens": 2084,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 150,
+      "first_difference_from_RC14": 86
+    },
+    {
+      "train_index": 2004,
+      "problem_sha256": "ba6bc9f392f8cf25315a91fee70b318319eafb5882eecf3481313415c8f2ab4f",
+      "dataset_index": 35,
+      "arms": {
+        "R": {
+          "tokens": 3144,
+          "thinking_tokens": 2719,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2990,
+          "thinking_tokens": 2461,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2492,
+          "thinking_tokens": 1857,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 266,
+      "first_difference_from_RC14": 178
+    },
+    {
+      "train_index": 5546,
+      "problem_sha256": "4c89dd3f8234b3394930ac4a8e4ea774535f57121d313cff5a450b188ec24c09",
+      "dataset_index": 36,
+      "arms": {
+        "R": {
+          "tokens": 2962,
+          "thinking_tokens": 2693,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1636,
+          "thinking_tokens": 1367,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2395,
+          "thinking_tokens": 2081,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 82,
+      "first_difference_from_RC14": 82
+    },
+    {
+      "train_index": 6898,
+      "problem_sha256": "1ceb8359f8970f7eaa0f3956cd30860053e987a05ec187123cddacc91ec623a2",
+      "dataset_index": 37,
+      "arms": {
+        "R": {
+          "tokens": 1250,
+          "thinking_tokens": 1059,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1351,
+          "thinking_tokens": 1182,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1304,
+          "thinking_tokens": 1106,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 62,
+      "first_difference_from_RC14": 62
+    },
+    {
+      "train_index": 1597,
+      "problem_sha256": "0a8207b9fc078f65fd99cdc6fa8ca6e100b9764526da215e9bcfe60a1878e34d",
+      "dataset_index": 38,
+      "arms": {
+        "R": {
+          "tokens": 3173,
+          "thinking_tokens": 2803,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3954,
+          "thinking_tokens": 3589,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3279,
+          "thinking_tokens": 2907,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 449,
+      "first_difference_from_RC14": 447
+    },
+    {
+      "train_index": 3958,
+      "problem_sha256": "9a77685c0d456ace85f67b3ee31349862194833bf000651e193437899dd98456",
+      "dataset_index": 39,
+      "arms": {
+        "R": {
+          "tokens": 759,
+          "thinking_tokens": 555,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 734,
+          "thinking_tokens": 526,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 759,
+          "thinking_tokens": 555,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": null,
+      "first_difference_from_RC14": 321
+    },
+    {
+      "train_index": 4055,
+      "problem_sha256": "de74d32acd57d78e8e0450f60d1d4d8a7ca1de29238c14a24b6c69a5126796ce",
+      "dataset_index": 40,
+      "arms": {
+        "R": {
+          "tokens": 3182,
+          "thinking_tokens": 2955,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2402,
+          "thinking_tokens": 2110,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2352,
+          "thinking_tokens": 2081,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 211,
+      "first_difference_from_RC14": 450
+    },
+    {
+      "train_index": 5817,
+      "problem_sha256": "705d9bf1e78729d6b9b2f86490f6ef91911e21601dd6f61bdc06235988af70e7",
+      "dataset_index": 41,
+      "arms": {
+        "R": {
+          "tokens": 2575,
+          "thinking_tokens": 2240,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2060,
+          "thinking_tokens": 1722,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1694,
+          "thinking_tokens": 1345,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 67,
+      "first_difference_from_RC14": 97
+    },
+    {
+      "train_index": 3737,
+      "problem_sha256": "4f72b223b62d6d9c6f00bf42e7e36bcd0d2ab9fccc8243213148d37f514bbac2",
+      "dataset_index": 42,
+      "arms": {
+        "R": {
+          "tokens": 1088,
+          "thinking_tokens": 927,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2122,
+          "thinking_tokens": 1906,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1871,
+          "thinking_tokens": 1632,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 261,
+      "first_difference_from_RC14": 762
+    },
+    {
+      "train_index": 4121,
+      "problem_sha256": "807f1c1fae2bd6ddc68c99c274beba3b74a61ec6d22f018845d14b9f5fa15fc6",
+      "dataset_index": 43,
+      "arms": {
+        "R": {
+          "tokens": 1767,
+          "thinking_tokens": 1558,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1900,
+          "thinking_tokens": 1678,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2107,
+          "thinking_tokens": 1832,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 118,
+      "first_difference_from_RC14": 87
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "dataset_index": 44,
+      "arms": {
+        "R": {
+          "tokens": 2029,
+          "thinking_tokens": 1589,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2093,
+          "thinking_tokens": 1752,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1815,
+          "thinking_tokens": 1475,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 120,
+      "first_difference_from_RC14": 6
+    },
+    {
+      "train_index": 2868,
+      "problem_sha256": "4555ebc7a70c6026e8112ff76bce94e32266e9f834679f38a69f0a66476c4f87",
+      "dataset_index": 45,
+      "arms": {
+        "R": {
+          "tokens": 2554,
+          "thinking_tokens": 2229,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2407,
+          "thinking_tokens": 2091,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2002,
+          "thinking_tokens": 1648,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 239,
+      "first_difference_from_RC14": 239
+    },
+    {
+      "train_index": 5579,
+      "problem_sha256": "0140345c96d83e8d056db79863fc22874854f31ff3b6d239fa6c09c23a303c8e",
+      "dataset_index": 46,
+      "arms": {
+        "R": {
+          "tokens": 3979,
+          "thinking_tokens": 3570,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2861,
+          "thinking_tokens": 2481,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2043,
+          "thinking_tokens": 1671,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 225,
+      "first_difference_from_RC14": 174
+    },
+    {
+      "train_index": 6971,
+      "problem_sha256": "a929c96850322807070dfdec0d4b97a3a235fe38bade4fb277b29e3f693a91f8",
+      "dataset_index": 47,
+      "arms": {
+        "R": {
+          "tokens": 1843,
+          "thinking_tokens": 1435,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1606,
+          "thinking_tokens": 1142,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1456,
+          "thinking_tokens": 1024,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 136,
+      "first_difference_from_RC14": 136
+    },
+    {
+      "train_index": 3609,
+      "problem_sha256": "773566cc09c76732ea5c33a9b0495f0c364d2c6ecad07662aa050fb56ce52044",
+      "dataset_index": 48,
+      "arms": {
+        "R": {
+          "tokens": 4298,
+          "thinking_tokens": 3683,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 4229,
+          "thinking_tokens": 3710,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3546,
+          "thinking_tokens": 2882,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 111,
+      "first_difference_from_RC14": 491
+    },
+    {
+      "train_index": 5192,
+      "problem_sha256": "a52c7c7ddf97167e81cf4eeef0bd9d23c7664974f2f25088ab16d55a35c329a3",
+      "dataset_index": 49,
+      "arms": {
+        "R": {
+          "tokens": 4697,
+          "thinking_tokens": 4167,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 7518,
+          "thinking_tokens": 6904,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3871,
+          "thinking_tokens": 3297,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 80,
+      "first_difference_from_RC14": 655
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "dataset_index": 50,
+      "arms": {
+        "R": {
+          "tokens": 1435,
+          "thinking_tokens": 1164,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1353,
+          "thinking_tokens": 1087,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1464,
+          "thinking_tokens": 1158,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 48,
+      "first_difference_from_RC14": 48
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "dataset_index": 51,
+      "arms": {
+        "R": {
+          "tokens": 1367,
+          "thinking_tokens": 1036,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1902,
+          "thinking_tokens": 1637,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1556,
+          "thinking_tokens": 1270,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 64,
+      "first_difference_from_RC14": 64
+    },
+    {
+      "train_index": 2381,
+      "problem_sha256": "bf20254c07f72e4c1787ffe8ed1858a9570d77c0fe568e37367af3e324edd1fb",
+      "dataset_index": 52,
+      "arms": {
+        "R": {
+          "tokens": 3238,
+          "thinking_tokens": 2837,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3466,
+          "thinking_tokens": 2942,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 4397,
+          "thinking_tokens": 4052,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 65,
+      "first_difference_from_RC14": 65
+    },
+    {
+      "train_index": 2460,
+      "problem_sha256": "68ce6ef78321eb952cb9ce65ae85519e97f506d17f663188148d2603489a8953",
+      "dataset_index": 53,
+      "arms": {
+        "R": {
+          "tokens": 2045,
+          "thinking_tokens": 1636,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1690,
+          "thinking_tokens": 1225,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1375,
+          "thinking_tokens": 1006,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 126,
+      "first_difference_from_RC14": 93
+    },
+    {
+      "train_index": 4832,
+      "problem_sha256": "2110b06f8ed0b69cb6a56fb8320fc5076939c4ac4984cc18186bd8fae1659cdb",
+      "dataset_index": 54,
+      "arms": {
+        "R": {
+          "tokens": 1405,
+          "thinking_tokens": 1226,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1289,
+          "thinking_tokens": 1102,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 878,
+          "thinking_tokens": 716,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 192,
+      "first_difference_from_RC14": 247
+    },
+    {
+      "train_index": 6001,
+      "problem_sha256": "f51f80220b93760f22710a695b2fff40d057638aaeff6d6037317222151e27c4",
+      "dataset_index": 55,
+      "arms": {
+        "R": {
+          "tokens": 1491,
+          "thinking_tokens": 1189,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1225,
+          "thinking_tokens": 968,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1042,
+          "thinking_tokens": 756,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 95,
+      "first_difference_from_RC14": 465
+    },
+    {
+      "train_index": 6682,
+      "problem_sha256": "54a3567269487c6f4d13c735aebef6739e3004870c7e9400d48da795811ca886",
+      "dataset_index": 56,
+      "arms": {
+        "R": {
+          "tokens": 2080,
+          "thinking_tokens": 1616,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2073,
+          "thinking_tokens": 1655,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2485,
+          "thinking_tokens": 2022,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 522,
+      "first_difference_from_RC14": 318
+    },
+    {
+      "train_index": 7106,
+      "problem_sha256": "751d96e7f942fbabb03ba6891759b2f43710584d061c2201b349d63343ca1454",
+      "dataset_index": 57,
+      "arms": {
+        "R": {
+          "tokens": 1554,
+          "thinking_tokens": 1332,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 937,
+          "thinking_tokens": 816,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2076,
+          "thinking_tokens": 1790,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 162,
+      "first_difference_from_RC14": 291
+    },
+    {
+      "train_index": 2951,
+      "problem_sha256": "a54499605c8ca43631de739cc3868dfdcf9536c76d03946f6cba05647960e5a0",
+      "dataset_index": 58,
+      "arms": {
+        "R": {
+          "tokens": 5179,
+          "thinking_tokens": 4746,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 13114,
+          "thinking_tokens": 12549,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2726,
+          "thinking_tokens": 2290,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 311,
+      "first_difference_from_RC14": 183
+    },
+    {
+      "train_index": 4483,
+      "problem_sha256": "9b7862f71dc0ac0bf64d8d4f23a7945be43c1b39e29d9aaae313d3fb04f9a795",
+      "dataset_index": 59,
+      "arms": {
+        "R": {
+          "tokens": 1320,
+          "thinking_tokens": 1165,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1945,
+          "thinking_tokens": 1754,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1157,
+          "thinking_tokens": 978,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 278,
+      "first_difference_from_RC14": 140
+    },
+    {
+      "train_index": 2058,
+      "problem_sha256": "158d0bcefaf6aad022cdbc21eb6a5df0531575e412342a040a7b2c75d526c9d1",
+      "dataset_index": 60,
+      "arms": {
+        "R": {
+          "tokens": 4014,
+          "thinking_tokens": 3508,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2535,
+          "thinking_tokens": 2036,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3563,
+          "thinking_tokens": 3111,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 207,
+      "first_difference_from_RC14": 207
+    },
+    {
+      "train_index": 5314,
+      "problem_sha256": "9cce97e0674a7a7e139508a851fe83039330ac34780345ef1e167e8594ac4388",
+      "dataset_index": 61,
+      "arms": {
+        "R": {
+          "tokens": 4391,
+          "thinking_tokens": 3943,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 4386,
+          "thinking_tokens": 3782,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3934,
+          "thinking_tokens": 3436,
+          "correct": false,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 152,
+      "first_difference_from_RC14": 84
+    },
+    {
+      "train_index": 4311,
+      "problem_sha256": "2138280b3399bc5de8398061cca5640608624d8353120a093fcb85ad890111df",
+      "dataset_index": 62,
+      "arms": {
+        "R": {
+          "tokens": 3561,
+          "thinking_tokens": 3118,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1655,
+          "thinking_tokens": 1281,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1853,
+          "thinking_tokens": 1493,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 130,
+      "first_difference_from_RC14": 130
+    },
+    {
+      "train_index": 1685,
+      "problem_sha256": "8abc01fe6f873beb73a6a71577c29a900bcf3b9763e530a1eefee208ccef6c43",
+      "dataset_index": 63,
+      "arms": {
+        "R": {
+          "tokens": 3813,
+          "thinking_tokens": 3267,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 4193,
+          "thinking_tokens": 3675,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 6609,
+          "thinking_tokens": 6006,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 127,
+      "first_difference_from_RC14": 126
+    },
+    {
+      "train_index": 7206,
+      "problem_sha256": "43f39a3c8f0be99935e80be10e82b07f0e36a31c949ee331600333b025ff452a",
+      "dataset_index": 64,
+      "arms": {
+        "R": {
+          "tokens": 1771,
+          "thinking_tokens": 1400,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1735,
+          "thinking_tokens": 1331,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1471,
+          "thinking_tokens": 1208,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 92,
+      "first_difference_from_RC14": 92
+    },
+    {
+      "train_index": 4992,
+      "problem_sha256": "b05c8fbb0e4c4bd8554bc4e88d84a806ea552d548b8ec048119a24c40f5ac5ae",
+      "dataset_index": 65,
+      "arms": {
+        "R": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        },
+        "RC14": {
+          "tokens": 12327,
+          "thinking_tokens": 11677,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 8060,
+          "thinking_tokens": 7650,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 110,
+      "first_difference_from_RC14": 113
+    },
+    {
+      "train_index": 7357,
+      "problem_sha256": "ca88862f4962e6b299af5e4ee41651bb4f1c556a2c1f30ed68a431cce6b91259",
+      "dataset_index": 66,
+      "arms": {
+        "R": {
+          "tokens": 2292,
+          "thinking_tokens": 2004,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2371,
+          "thinking_tokens": 2030,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1150,
+          "thinking_tokens": 822,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 296,
+      "first_difference_from_RC14": 323
+    },
+    {
+      "train_index": 3428,
+      "problem_sha256": "d64e3e63f2e035e0dd8af619250e8707d2b319c0c249e1b78d682b67c9492b63",
+      "dataset_index": 67,
+      "arms": {
+        "R": {
+          "tokens": 2026,
+          "thinking_tokens": 1406,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3522,
+          "thinking_tokens": 2819,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2472,
+          "thinking_tokens": 1711,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 491,
+      "first_difference_from_RC14": 346
+    },
+    {
+      "train_index": 4613,
+      "problem_sha256": "22826a490816b7c43f3d8843a0652f2c69e0ea7e0330101a93eec21eab7759ae",
+      "dataset_index": 68,
+      "arms": {
+        "R": {
+          "tokens": 1697,
+          "thinking_tokens": 1400,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1610,
+          "thinking_tokens": 1277,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2121,
+          "thinking_tokens": 1771,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 280,
+      "first_difference_from_RC14": 136
+    },
+    {
+      "train_index": 4718,
+      "problem_sha256": "7dbd4037d868e7117481b776c0b61c37b5bba90d517d88ddd9bf427f94b85600",
+      "dataset_index": 69,
+      "arms": {
+        "R": {
+          "tokens": 1545,
+          "thinking_tokens": 1190,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1734,
+          "thinking_tokens": 1270,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1480,
+          "thinking_tokens": 1021,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 515,
+      "first_difference_from_RC14": 416
+    },
+    {
+      "train_index": 4535,
+      "problem_sha256": "bbaa0056c8aed366463b13adc8b004654cd3be3ca1f3606e32d23cf387b24071",
+      "dataset_index": 70,
+      "arms": {
+        "R": {
+          "tokens": 1217,
+          "thinking_tokens": 1094,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1424,
+          "thinking_tokens": 1316,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1735,
+          "thinking_tokens": 1613,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 158,
+      "first_difference_from_RC14": 145
+    },
+    {
+      "train_index": 1921,
+      "problem_sha256": "9851b61df33a1652b7b73f1aae16c42e597d6174fbaeba328d6d9950ef47634e",
+      "dataset_index": 71,
+      "arms": {
+        "R": {
+          "tokens": 1743,
+          "thinking_tokens": 1539,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2207,
+          "thinking_tokens": 2003,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1482,
+          "thinking_tokens": 1263,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 68,
+      "first_difference_from_RC14": 424
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "dataset_index": 72,
+      "arms": {
+        "R": {
+          "tokens": 3134,
+          "thinking_tokens": 2763,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2145,
+          "thinking_tokens": 1764,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2509,
+          "thinking_tokens": 2164,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 313,
+      "first_difference_from_RC14": 44
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "dataset_index": 73,
+      "arms": {
+        "R": {
+          "tokens": 1415,
+          "thinking_tokens": 1202,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1090,
+          "thinking_tokens": 885,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1562,
+          "thinking_tokens": 1347,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 44,
+      "first_difference_from_RC14": 44
+    },
+    {
+      "train_index": 3120,
+      "problem_sha256": "b2db5aa24e5565506b5081734d60e200daa7398b6ca5c8448729771c4fd371f2",
+      "dataset_index": 74,
+      "arms": {
+        "R": {
+          "tokens": 4710,
+          "thinking_tokens": 4140,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2340,
+          "thinking_tokens": 1861,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2815,
+          "thinking_tokens": 2313,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 300,
+      "first_difference_from_RC14": 300
+    },
+    {
+      "train_index": 2229,
+      "problem_sha256": "b6282cd78756975b817400c2e69c0498a8a6cb53d2cbd39214ef326dba463c01",
+      "dataset_index": 75,
+      "arms": {
+        "R": {
+          "tokens": 3488,
+          "thinking_tokens": 3119,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2898,
+          "thinking_tokens": 2426,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 4508,
+          "thinking_tokens": 4075,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 118,
+      "first_difference_from_RC14": 146
+    },
+    {
+      "train_index": 6977,
+      "problem_sha256": "b892804ba445b161646c1e1d473d79f3dee99d23e37902ef121b15ec9922a80c",
+      "dataset_index": 76,
+      "arms": {
+        "R": {
+          "tokens": 1376,
+          "thinking_tokens": 947,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1843,
+          "thinking_tokens": 1408,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1451,
+          "thinking_tokens": 1089,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 139,
+      "first_difference_from_RC14": 429
+    },
+    {
+      "train_index": 3239,
+      "problem_sha256": "ca06077a45b94eae5618f557924f477268bbd02183a02b9944b8384015da0a92",
+      "dataset_index": 77,
+      "arms": {
+        "R": {
+          "tokens": 5563,
+          "thinking_tokens": 4796,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2722,
+          "thinking_tokens": 1721,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 4019,
+          "thinking_tokens": 3064,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 258,
+      "first_difference_from_RC14": 289
+    },
+    {
+      "train_index": 6567,
+      "problem_sha256": "67c9ffd3fff07d9650cf1818e5ce10167af7ae42079979ca7b0c783a93339392",
+      "dataset_index": 78,
+      "arms": {
+        "R": {
+          "tokens": 1191,
+          "thinking_tokens": 1020,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 911,
+          "thinking_tokens": 711,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 994,
+          "thinking_tokens": 830,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 6,
+      "first_difference_from_RC14": 301
+    },
+    {
+      "train_index": 6354,
+      "problem_sha256": "6afc7a2784666985bb76d38e68ac4df9dfcd32e36c97916a86f1fa44b07496a4",
+      "dataset_index": 79,
+      "arms": {
+        "R": {
+          "tokens": 979,
+          "thinking_tokens": 767,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1207,
+          "thinking_tokens": 935,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1130,
+          "thinking_tokens": 931,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 184,
+      "first_difference_from_RC14": 150
+    },
+    {
+      "train_index": 2837,
+      "problem_sha256": "205a18a78c4fdfaf6f84cecf3f61db45e175916f583a9389f132fdce4c7bdd72",
+      "dataset_index": 80,
+      "arms": {
+        "R": {
+          "tokens": 1681,
+          "thinking_tokens": 1121,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1843,
+          "thinking_tokens": 1357,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1567,
+          "thinking_tokens": 1083,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 179,
+      "first_difference_from_RC14": 179
+    },
+    {
+      "train_index": 3154,
+      "problem_sha256": "67e48d357778803660676560c8e75dd745c6a0072dbd8800555f540b5df29aec",
+      "dataset_index": 81,
+      "arms": {
+        "R": {
+          "tokens": 3201,
+          "thinking_tokens": 2466,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3655,
+          "thinking_tokens": 2771,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3738,
+          "thinking_tokens": 2859,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 302,
+      "first_difference_from_RC14": 353
+    },
+    {
+      "train_index": 6590,
+      "problem_sha256": "2be48e64fc34bc12161a3513b3cc9259b3f24aed0fa0236dce0e73578683a768",
+      "dataset_index": 82,
+      "arms": {
+        "R": {
+          "tokens": 1370,
+          "thinking_tokens": 1074,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1388,
+          "thinking_tokens": 1065,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1358,
+          "thinking_tokens": 1060,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 111,
+      "first_difference_from_RC14": 1014
+    },
+    {
+      "train_index": 2272,
+      "problem_sha256": "61c442fd5de2412c8d875a53845c608ea3ea864416bd1962622886b9cfbb8afc",
+      "dataset_index": 83,
+      "arms": {
+        "R": {
+          "tokens": 2488,
+          "thinking_tokens": 1808,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2394,
+          "thinking_tokens": 1765,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2825,
+          "thinking_tokens": 2261,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 270,
+      "first_difference_from_RC14": 270
+    },
+    {
+      "train_index": 5810,
+      "problem_sha256": "431cb90c9da89c738df3bf5b53b97427ed31bf4b17d437e0368607493abb51de",
+      "dataset_index": 84,
+      "arms": {
+        "R": {
+          "tokens": 4726,
+          "thinking_tokens": 4159,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 5775,
+          "thinking_tokens": 5080,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3390,
+          "thinking_tokens": 2826,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1348,
+      "first_difference_from_RC14": 502
+    },
+    {
+      "train_index": 5476,
+      "problem_sha256": "9749daa1930f1a42d49b498f2a7b2a1955196d35d7a66618fdc145a3c3e7223c",
+      "dataset_index": 85,
+      "arms": {
+        "R": {
+          "tokens": 989,
+          "thinking_tokens": 703,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1239,
+          "thinking_tokens": 738,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1754,
+          "thinking_tokens": 1261,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 107,
+      "first_difference_from_RC14": 130
+    },
+    {
+      "train_index": 5683,
+      "problem_sha256": "43c09398dedff993530e9054347ef6ea063873835cbb046010ba876456dc6c60",
+      "dataset_index": 86,
+      "arms": {
+        "R": {
+          "tokens": 7804,
+          "thinking_tokens": 7284,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        },
+        "RChistory": {
+          "tokens": 10252,
+          "thinking_tokens": 9766,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 158,
+      "first_difference_from_RC14": 158
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "dataset_index": 87,
+      "arms": {
+        "R": {
+          "tokens": 11808,
+          "thinking_tokens": 11366,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "correct": false,
+          "finish_reason": "length"
+        },
+        "RChistory": {
+          "tokens": 8830,
+          "thinking_tokens": 8441,
+          "correct": false,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 95,
+      "first_difference_from_RC14": 95
+    },
+    {
+      "train_index": 6389,
+      "problem_sha256": "7bb327376bc4d796e06b8ba1e09e575c345ed83bd2c736f0a221ee0976f70f16",
+      "dataset_index": 88,
+      "arms": {
+        "R": {
+          "tokens": 1931,
+          "thinking_tokens": 1458,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1860,
+          "thinking_tokens": 1469,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3933,
+          "thinking_tokens": 3556,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 142,
+      "first_difference_from_RC14": 583
+    },
+    {
+      "train_index": 1795,
+      "problem_sha256": "0e0b1d19fca03d83f3c4e33dd7a7c977143c1fadadbe737bf0325f1cbe3d2f17",
+      "dataset_index": 89,
+      "arms": {
+        "R": {
+          "tokens": 5123,
+          "thinking_tokens": 4699,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 7148,
+          "thinking_tokens": 6563,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 3586,
+          "thinking_tokens": 3006,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 155,
+      "first_difference_from_RC14": 251
+    },
+    {
+      "train_index": 4936,
+      "problem_sha256": "d072757a3f1c6d5c3a253c9f3c46c8f877574cd935d5c798871b5214a423b96a",
+      "dataset_index": 90,
+      "arms": {
+        "R": {
+          "tokens": 1509,
+          "thinking_tokens": 1218,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1495,
+          "thinking_tokens": 1158,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1747,
+          "thinking_tokens": 1355,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 175,
+      "first_difference_from_RC14": 177
+    },
+    {
+      "train_index": 4132,
+      "problem_sha256": "da24bd1ea170a7dc9ce1ec15398df42fffe41ba20bd4e74979442b1e4bc84847",
+      "dataset_index": 91,
+      "arms": {
+        "R": {
+          "tokens": 2165,
+          "thinking_tokens": 1867,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1786,
+          "thinking_tokens": 1467,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2458,
+          "thinking_tokens": 2260,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 72,
+      "first_difference_from_RC14": 181
+    },
+    {
+      "train_index": 5671,
+      "problem_sha256": "bf9d2929414eb175463b2086ad96967328da2f1045e858762056662202565070",
+      "dataset_index": 92,
+      "arms": {
+        "R": {
+          "tokens": 7720,
+          "thinking_tokens": 7340,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 3544,
+          "thinking_tokens": 3236,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 14270,
+          "thinking_tokens": 14000,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 181,
+      "first_difference_from_RC14": 492
+    },
+    {
+      "train_index": 5752,
+      "problem_sha256": "af8958f6489cee5eb34c884dea6977c5a5913288a0a1e8f20a5798cb1c6efd22",
+      "dataset_index": 93,
+      "arms": {
+        "R": {
+          "tokens": 3001,
+          "thinking_tokens": 2563,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2308,
+          "thinking_tokens": 1871,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1754,
+          "thinking_tokens": 1336,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 70,
+      "first_difference_from_RC14": 70
+    },
+    {
+      "train_index": 2392,
+      "problem_sha256": "b44c5fe2206a5e5227a951d2be10d5cb8bbcaf34a91c9f766f9dfde0bb3a5fec",
+      "dataset_index": 94,
+      "arms": {
+        "R": {
+          "tokens": 1874,
+          "thinking_tokens": 1443,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2648,
+          "thinking_tokens": 2087,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2290,
+          "thinking_tokens": 1652,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 77,
+      "first_difference_from_RC14": 317
+    },
+    {
+      "train_index": 6600,
+      "problem_sha256": "cc55149d02fa8534157989b87c3174d9a3fe40476a5c04bee9f5efbf140ba7d6",
+      "dataset_index": 95,
+      "arms": {
+        "R": {
+          "tokens": 1629,
+          "thinking_tokens": 1272,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2071,
+          "thinking_tokens": 1817,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2394,
+          "thinking_tokens": 2022,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 151,
+      "first_difference_from_RC14": 151
+    },
+    {
+      "train_index": 2165,
+      "problem_sha256": "06f8d4ba1397e8cb7a305c20414ae99dbac0b471454357d9110dcca2e75c8c48",
+      "dataset_index": 96,
+      "arms": {
+        "R": {
+          "tokens": 1327,
+          "thinking_tokens": 1095,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1484,
+          "thinking_tokens": 1225,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 1415,
+          "thinking_tokens": 1188,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 154,
+      "first_difference_from_RC14": 235
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "dataset_index": 97,
+      "arms": {
+        "R": {
+          "tokens": 1724,
+          "thinking_tokens": 1385,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 2590,
+          "thinking_tokens": 2291,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2330,
+          "thinking_tokens": 1958,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 64,
+      "first_difference_from_RC14": 64
+    },
+    {
+      "train_index": 5461,
+      "problem_sha256": "ef6912f84b7d503d482a1954bf61807da8d247f23fe68fa64680b020ed869d83",
+      "dataset_index": 98,
+      "arms": {
+        "R": {
+          "tokens": 841,
+          "thinking_tokens": 191,
+          "correct": false,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 725,
+          "thinking_tokens": 222,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 805,
+          "thinking_tokens": 222,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 123,
+      "first_difference_from_RC14": 248
+    },
+    {
+      "train_index": 6236,
+      "problem_sha256": "330c709086daa913193bd3f3a4bfd8896b96eba36aa4bed1a17f5c3a710daf58",
+      "dataset_index": 99,
+      "arms": {
+        "R": {
+          "tokens": 1783,
+          "thinking_tokens": 1449,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RC14": {
+          "tokens": 1813,
+          "thinking_tokens": 1412,
+          "correct": true,
+          "finish_reason": "stop"
+        },
+        "RChistory": {
+          "tokens": 2427,
+          "thinking_tokens": 1984,
+          "correct": true,
+          "finish_reason": "stop"
+        }
+      },
+      "first_difference_from_R": 1001,
+      "first_difference_from_RC14": 877
+    }
+  ],
+  "closure": {
+    "compute_apps": "",
+    "gpu": "0 %, 1 MiB\n",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01",
+    "shared_status": "",
+    "execution_commit": "16df6eb91ab8799db00b5a476c61aab867b717fa"
+  },
+  "process": {
+    "status": "complete",
+    "wall_seconds": 1594.9904441833496
+  },
+  "raw_root": "E:\\srtp\\B-history-screen-r2_0914",
+  "attribution_audit": {
+    "first_divergence_before_own_mask": 59,
+    "all_three_wrong_to_right_vs_R_precede_own_mask": true,
+    "improved_train_indices": [
+      4992,
+      3239,
+      5461
+    ],
+    "train5461_candidate_mask_count": 0,
+    "explanation_status": "unresolved; batch scheduling/numerical differences possible but not isolated",
+    "decision": "Preserve preregistered point-screen pass; do not claim individual correctness gains caused by history gate or stable compression. No confirmation automatically started."
+  },
+  "costs": {
+    "pure_generation_total_seconds": 1496.4087020158768,
+    "successful_process_including_grade_seconds": 1594.9904441833496,
+    "failed_startup_seconds": 49.01941132545471,
+    "combined_recorded_process_seconds": 1644.0098555088043,
+    "excludes": "SSH/deployment/tokenizer audit/local analysis and billed idle time",
+    "extra_probe_forwards": 0,
+    "control_kernel_seconds": null
+  },
+  "plan_identity": {
+    "input_sha256": "ff639c772f693a924da7cadd942412f58e953fbb6e54173f8d31a56aea54058b",
+    "resolved_sha256": "d4236f0324f33afa7b77f904165c1a5af3cabe62ef1ed5c6e869e0222328a416",
+    "parsed_objects_equal": true,
+    "byte_difference": "Windows CRLF versus Linux JSON serialization; input receipt and resolved result each have own exact hash"
+  }
+}

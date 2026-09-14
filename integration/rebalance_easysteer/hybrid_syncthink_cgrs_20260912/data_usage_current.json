@@ -10270,7 +10270,7 @@
     "confirmation_generation_count": 0
   },
   "first_reflection_candidate": {
-    "status": "engineering_passed_effect_unverified_formal_not_authorized",
+    "status": "engineering_passed_followup100_point_pass_attribution_unresolved",
     "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_20260914/plan.json",
     "plan_sha256": "f2cf75c5409d0fed0d54965ee6ef2176edab3a4dcfb8ef693769d1d2ba1d71e3",
     "uses": [
@@ -10331,13 +10331,21 @@
     "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_20260914/results/summary.json"
   },
   "first_reflection_screen100": {
-    "status": "proposed_not_frozen_remote_reconciliation_pending",
-    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914/plan.json",
-    "plan_sha256": "146addac0384a4f8a6aedc76c19b3d215988c209d80e3260485e55fd62670d42",
+    "status": "completed_point_screen_pass_attribution_unresolved_no_confirmation",
+    "plan_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914_r2/plan.json",
+    "plan_sha256": "ff639c772f693a924da7cadd942412f58e953fbb6e54173f8d31a56aea54058b",
     "rows_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914/rows.json",
     "count": 100,
     "purpose": "new7B_MATH_training_screen_not_independent_confirmation",
     "confirmation200_used": false,
-    "generation_started": false
+    "generation_started": true,
+    "execution_commit": "16df6eb91ab8799db00b5a476c61aab867b717fa",
+    "runtime_max_model_len": 17920,
+    "local_audit_files": 788,
+    "remote_audit_files": 5763,
+    "original_attempt": "zero_answers_context_capacity_failure_preserved",
+    "generation_completed": true,
+    "consumed_rows": 100,
+    "result_path": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_screen100_20260914_r2/results/summary.json"
   }
 }

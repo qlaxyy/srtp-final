@@ -1,0 +1,21 @@
+{
+  "gpu_authorized": true,
+  "plan_sha256": "ff639c772f693a924da7cadd942412f58e953fbb6e54173f8d31a56aea54058b",
+  "data_reconciled": true,
+  "unregistered_claims_checked": true,
+  "authorized_phases": [
+    "screen"
+  ],
+  "local_reconciliation": {
+    "path": "/root/autodl-tmp/projects/hybrid_cgrs_history_screen100_20260914_r2/local_reconciliation_live.json",
+    "sha256": "477debd438ed47613059700e535175efec55c1ba1b856b5512ef6828709be11f"
+  },
+  "remote_reconciliation": {
+    "path": "/root/autodl-tmp/projects/hybrid_cgrs_history_screen100_20260914_r2/remote_reconciliation_live.json",
+    "sha256": "0fee7de45a9bcf959a9dd54a38a48e3e2d8fd163e02259ed6ebe0c57b1a2dc4c"
+  },
+  "source_commit": "16df6eb91ab8799db00b5a476c61aab867b717fa",
+  "authorization": "User requested continue after fixed7B100x3 full-generation proposal and restored server connection",
+  "unregistered_check_evidence": "All current local worktree registries plus remote project registries and easysteer raw results scanned; no other GPU process. Undisclosed usage cannot be assessed.",
+  "data_status": "Fixed100 screening rows reconciled; existing confirmation200 untouched"
+}
