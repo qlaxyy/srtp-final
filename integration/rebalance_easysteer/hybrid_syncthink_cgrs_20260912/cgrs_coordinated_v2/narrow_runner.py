@@ -62,7 +62,12 @@ def validate_receipt(plan, receipt, plan_path):
 def cases(plan, phase):
     if plan.get('candidate_kind')=='first_reflection_full':
         assert phase=='full'
-        return [(role,'negative','original14','after_first_reflection') for role in plan['datasets']]
+        gates=[]
+        if plan.get('model_family')=='1p5b':
+            gates=[('async_R','off','original14','none'),('async_off','off','original14','after_first_reflection'),
+                ('async_shadow','shadow','original14','after_first_reflection'),
+                ('async_history','negative','original14','after_first_reflection')]
+        return gates+[(role,'negative','original14','after_first_reflection') for role in plan['datasets']]
     if plan.get('candidate_kind')=='first_reflection_screen':
         assert phase=='screen'
         return [('R','off','original14','none'),('RC14','negative','original14','none'),
@@ -115,7 +120,10 @@ def main():
     if plan.get('candidate_kind')=='first_reflection_full':assert args.phase=='full'
     validate_receipt(plan,receipt,args.plan)
     assert args.phase in receipt['authorized_phases']
-    validate_assets(plan)
+    if plan.get('model_family')=='1p5b':
+        from history_full import validate_1p5b_assets
+        validate_1p5b_assets(plan)
+    else:validate_assets(plan)
     if args.phase in ('screen','full'):
         validate_engineering_gate(plan,args.plan,args.engineering_gate)
     runtime=dict(plan['runtime'])
@@ -148,10 +156,13 @@ def main():
         from easysteer.vectors import from_pt_direction
         from rebalance_static_eval import build_prompt
         from replay_adapter import ReplayAdapter
+        from adapter import Adapter
         a=plan['assets'];tok=AutoTokenizer.from_pretrained(a['model_path'],local_files_only=True)
         cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024,'full':16000}[args.phase]
         if args.phase=='full':
             prepared={role:[tok.encode(build_prompt(tok,r['problem'])) for r in sub['rows']] for role,sub in plan['datasets'].items()}
+            if plan.get('model_family')=='1p5b':
+                prepared['async_gate']=[tok.encode(build_prompt(tok,r['problem'])) for r in plan['async_engineering_rows']]
             maximum=max(validate_prompt_capacity(p,cap,runtime['max_model_len']) for p in prepared.values())
         else:
             rows=plan[{'engineering':'engineering_rows','screen':'rows','speed':'speed_rows'}[args.phase]]
@@ -159,16 +170,17 @@ def main():
             maximum=validate_prompt_capacity(prompts,cap,runtime['max_model_len'])
         save(out/'prompt_capacity.json',dict(max_prompt_tokens=maximum,max_model_len=runtime['max_model_len'],cap=cap))
         boundaries=sorted(i for piece,i in tok.get_vocab().items() if 'ĊĊ' in piece)
+        layer=a['decoder_output_layer']
         steer=SteeringSpec(vectors=[VectorSpec(name='rebalance_dynamic',
-            data=from_pt_direction(a['vector']['path'],layers=[21]),algorithm='rebalance',
-            scale=1.,layers=[21],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
+            data=from_pt_direction(a['vector']['path'],layers=[layer]),algorithm='rebalance',
+            scale=1.,layers=[layer],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
             params=dict(read(a['fit']['path'])['parameters'],boundary_token_ids=boundaries,
                         think_start_token_id=151648,think_end_token_id=151649))])
         llm=LLM(model=a['model_path'],dtype='bfloat16',tensor_parallel_size=1,
             max_model_len=runtime['max_model_len'],max_num_seqs=runtime['max_num_seqs'],
             max_num_batched_tokens=runtime['max_num_batched_tokens'],
-            gpu_memory_utilization=runtime['gpu_memory_utilization'],enable_chunked_prefill=True,
-            enable_prefix_caching=False,async_scheduling=False,enable_steer_vector=True,
+            gpu_memory_utilization=runtime['gpu_memory_utilization'],enable_chunked_prefill=runtime['chunked_prefill'],
+            enable_prefix_caching=False,async_scheduling=runtime['async_scheduling'],enable_steer_vector=True,
             steer_algorithms=['rebalance'],steer_graph_mode='in_graph',enforce_eager=False,seed=42)
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         save(out/'runtime_identity.json',dict(runtime=runtime,torch=torch.__version__,
@@ -176,13 +188,18 @@ def main():
         ceiling=plan['arm_seconds'][args.phase]
         for case in cases(plan,args.phase):
             name,mode,profile=case[:3];history_gate=case[3] if len(case)==4 else 'none'
+            async_gate=name.startswith('async_')
             if args.phase=='full':
-                rows=plan['datasets'][name]['rows'];prompts=prepared[name]
-            folder=out/name/plan['primary_candidate'] if args.phase=='full' else out/name
+                if async_gate:
+                    rows=plan['async_engineering_rows'];prompts=prepared['async_gate'];cap=plan['async_engineering_cap'];ceiling=180
+                else:
+                    rows=plan['datasets'][name]['rows'];prompts=prepared[name];cap=16000;ceiling=plan['arm_seconds']['full']
+            folder=out/name/plan['primary_candidate'] if args.phase=='full' and not async_gate else out/name
             folder.mkdir(parents=True);active=folder
             before=time.perf_counter();kw={} if profile is None else {'trigger_profile':profile}
             if history_gate!='none':kw['history_gate']=history_gate
-            adapter=ReplayAdapter(llm,tok,mode=mode,gate_on=True,**kw)
+            adapter_type=Adapter if runtime['async_scheduling'] else ReplayAdapter
+            adapter=adapter_type(llm,tok,mode=mode,gate_on=True,**kw)
             setup=time.perf_counter()-before
             state=runner.steer_vector_state;oldremove=state.remove_request;history={}
             def capture(rid,manager):
@@ -190,10 +207,11 @@ def main():
                     slot=state._dynamic_indices[rid]
                     history[rid]=hashlib.sha256(state._history[slot,:state._history_lengths[rid]].cpu().numpy().tobytes()).hexdigest()
                 return oldremove(rid,manager)
-            if args.phase=='engineering':state.remove_request=capture
+            if args.phase=='engineering' or async_gate:state.remove_request=capture
             preempt=[];oldpreempt=core.scheduler._preempt_request
             def track(req,now):
                 preempt.append(dict(request_id=req.request_id,computed_tokens_discarded=req.num_computed_tokens))
+                if runtime['async_scheduling']:return Adapter.reject_preempt(req,now)
                 return oldpreempt(req,now)
             core.scheduler._preempt_request=track
             replay_before=dict(state.replay_counts);generated={};steps=0;forced=False;io=0.
@@ -240,7 +258,7 @@ def main():
                     generation_seconds=seconds,setup_seconds=setup,checkpoint_io_seconds=io,
                     engine_steps=steps,forced_preemption=forced,replay_counts=replay,scheduler_preemptions=preempt,
                     events=adapter.completed if adapter.enabled else {},
-                    replay_events=adapter.replay_events if adapter.enabled else [],trigger_profile=profile or 'original14',
+                    replay_events=getattr(adapter,'replay_events',[]) if adapter.enabled else [],trigger_profile=profile or 'original14',
                     extra_probe_forwards=0,control_gpu_seconds=None)
                 save(folder/'result.json',result);results[name]=result
                 print(json.dumps(dict(arm=name,n=len(rows),seconds=seconds)),flush=True)
@@ -255,6 +273,17 @@ def main():
             finally:
                 monitor.terminate();monitor.wait(timeout=10);monitor=None;gpu.close()
                 state.remove_request=oldremove;core.scheduler._preempt_request=oldpreempt;adapter.close()
+            if async_gate:
+                key=lambda d:[(r['token_ids'],r['R_history_sha256']) for r in d['records']]
+                if name in ('async_off','async_shadow'):assert key(result)==key(results['async_R']),name
+                if name=='async_history':
+                    events=list(result['events'].values())
+                    assert sum(e['changed'] for e in events)>0
+                    assert all(e['first_change']<0 or 0<=e['first_reflection']<e['first_change'] for e in events)
+                    save(out/'async_engineering_gate.json',dict(passed=True,rows=8,arms=4,cap=512,
+                        no_preemptions=True,off_shadow_tokens_and_R_history_equal=True,
+                        interventions=sum(e['changed'] for e in events),
+                        generation_seconds=sum(results[k]['generation_seconds'] for k in results)))
             if args.phase=='engineering':
                 assert forced and replay['restored']>=1
                 key=lambda d:[(r['token_ids'],r['R_history_sha256']) for r in d['records']]

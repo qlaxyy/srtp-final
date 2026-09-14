@@ -5,6 +5,20 @@ from narrow_runner import cases
 
 
 class FullTests(unittest.TestCase):
+    def test_1p5b_async_transfer_guard(self):
+        old=read(HERE/'full_tests_run1/plan.json')
+        plan=dict(candidate_kind='first_reflection_full',model_family='1p5b',phase='full_test',arms=['RChistory'],
+            assets=old['assets'],datasets=old['datasets'],runtime=dict(old['runtime'],gpu_memory_utilization=.9,chunked_prefill=False),
+            async_engineering_rows=read(HERE/'engineering_plan.json')['rows'],async_engineering_cap=512)
+        receipt=dict(authorized_phases=['full'],exposed_test_reuse_acknowledged=True)
+        validate_full_plan(plan,receipt)
+        self.assertEqual([x[0] for x in cases(plan,'full')],['async_R','async_off','async_shadow','async_history','math_test','gsm8k_test'])
+        for field,value in [('max_num_seqs',512),('async_scheduling',False),('max_tokens',8000)]:
+            changed=copy.deepcopy(plan);changed['runtime'][field]=value
+            with self.assertRaises(AssertionError):validate_full_plan(changed,receipt)
+        changed=copy.deepcopy(plan);changed['assets']['decoder_output_layer']=21
+        with self.assertRaises(AssertionError):validate_full_plan(changed,receipt)
+
     def test_exact_datasets_runtime_and_single_candidate(self):
         old=read(HERE/'full_7b_run1/plan.json')
         plan=dict(candidate_kind='first_reflection_full',phase='full_test',arms=['RChistory'],

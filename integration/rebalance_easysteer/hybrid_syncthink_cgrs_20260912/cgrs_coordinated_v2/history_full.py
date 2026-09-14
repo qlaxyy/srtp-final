@@ -9,9 +9,16 @@ def validate_full_plan(plan,receipt):
     assert receipt['authorized_phases']==['full'] and receipt['exposed_test_reuse_acknowledged'] is True
     assert list(plan['datasets'])==['math_test','gsm8k_test']
     assert [len(s['rows']) for s in plan['datasets'].values()]==[500,1319]
-    assert plan['runtime']==dict(dtype='bfloat16',max_tokens=16000,max_model_len=17920,max_num_seqs=32,
+    expected=dict(dtype='bfloat16',max_tokens=16000,max_model_len=17920,max_num_seqs=32,
         max_num_batched_tokens=4096,gpu_memory_utilization=.94,async_scheduling=False,
         chunked_prefill=True,seed=42,temperature=.7,top_p=.95)
+    if plan.get('model_family')=='1p5b':
+        expected.update(max_model_len=32768,max_num_seqs=256,max_num_batched_tokens=32768,
+            gpu_memory_utilization=.9,async_scheduling=True,chunked_prefill=False)
+        assert plan['assets']['decoder_output_layer']==20
+        assert len(plan['async_engineering_rows'])==8 and plan['async_engineering_cap']==512
+        for row in plan['async_engineering_rows']:assert phash(row['problem'])==row['problem_sha256']
+    assert plan['runtime']==expected
     hashes=set()
     for role,sub in plan['datasets'].items():
         for i,row in enumerate(sub['rows']):
@@ -21,7 +28,10 @@ def validate_full_plan(plan,receipt):
 
 
 def collect_references(plan):
-    from run_7b import historical
+    if plan.get('model_family')=='1p5b':
+        from full_eval import historical
+    else:
+        from run_7b import historical
     result=historical(plan)
     ref=plan['rc14_reference'];analysis_path=Path(ref['analysis_path'])
     assert sha(analysis_path)==ref['analysis_sha256']
@@ -39,3 +49,15 @@ def collect_references(plan):
                 tokens=record['tokens'],thinking_tokens=record['thinking_tokens'],capped=record['finish_reason']=='length'))
         result[role]['groups']['RC14']=dict(records=compact,summary={k:v for k,v in summary.items() if k not in ('grades','comparisons')})
     return result
+
+
+def validate_1p5b_assets(plan):
+    import subprocess
+    from engineering import ROOT
+    for name,digest in plan['source_sha256'].items():assert sha(ROOT/name,True)==digest,name
+    a=plan['assets']
+    assert a['model']=='DeepSeek-R1-Distill-Qwen-1.5B'
+    for name,meta in a['model_files'].items():assert sha(Path(a['model_path'])/name)==meta['sha256'],name
+    for key in ('vector','fit'):assert sha(a[key]['path'])==a[key]['sha256'],key
+    assert a['decoder_output_layer']==read(a['fit']['path'])['decoder_output_layer']==20
+    assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
