@@ -1,0 +1,41 @@
+{
+  "status": "Protocol proposal, data not frozen, not runnable GPU authorization",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH training,100 new proposed unique questions",
+  "arms": [
+    "R",
+    "RC14",
+    "RCconstant",
+    "RCscaled"
+  ],
+  "generation_seed": 42,
+  "maximum_new_tokens": 16000,
+  "answers": 400,
+  "constants": {
+    "RC14_logit_penalty": 0.6931471805599453,
+    "RCconstant_scale": 0.3158607139745424,
+    "RCscaled": "ln2 * clip(coef / -1.5353450143175593,0,1)"
+  },
+  "comparison_scope": "Same questions, seed, fit, model, grader, prompt and runtime across all4arms. No frozen historical tests rerun or substituted as current controls.",
+  "primary": "RCscaled vsRC14 andRCconstant on thinking and total tokens, withR as original control.",
+  "screen_rule": {
+    "retain_only_if": "Thinking and total token point estimates both lower than each of R,RC14,RCconstant; observed accuracy loss no more than2pp against R or RC14, and no net cap increase against these two references.",
+    "no_minimum_five_percent_gain": true,
+    "meaning": "Screening rule only; point estimates meeting it do not establish noninferiority or improvement.",
+    "reject": "Fails rule or offers no additional benefit over fixed weakening; preserve all outputs and do not tune on these100questions."
+  },
+  "uncertainty": {
+    "method": "Resample paired question indices, keep all4arms aligned;20000bootstrap draws. Report95percent intervals for thinking/total token ratio of means and paired accuracy differences; also report flip counts and caps.",
+    "interpretation": "100questions may leave the2pp margin unresolved; use independent confirmation for a retained candidate, never claim noninferiority from observed loss alone.",
+    "multiple_comparisons": "No strict synergy claim. Screen contrasts are exploratory; any confirmatory endpoints/multiplicity treatment must be fixed separately."
+  },
+  "correctness_policy": "Use existing author grader and same extraction; retain errors,caps,and grading failures explicitly. Do not turn empty extraction into correct.",
+  "cost": "No extra probes/forwards from method. Runtime profile, hard ceilings and execution commands still need to be fixed beforeGPU; no timing promise from512-token engineering speed.",
+  "next_required": [
+    "Remote/local data ledger reconciliation, preserve existing200confirmation reservation.",
+    "Extend runner with exact four-arm screen and confirm selected deployment source/asset hashes.",
+    "Freeze runtime/cost/stop conditions and execution receipt before requesting this batch."
+  ],
+  "gpu_authorized": false,
+  "execution_ready": false
+}

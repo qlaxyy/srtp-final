@@ -1,0 +1,526 @@
+{
+  "status": "proposed_not_frozen",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "unique_questions": 100,
+  "arms": [
+    "R",
+    "RC14",
+    "RCconstant",
+    "RCscaled"
+  ],
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "available": 1998,
+  "salt": "hybrid_syncthink_cgrs_20260912|strength_screen100_v1|",
+  "rows_sha256": "f5e56b3717b059c6b754c7c7ac46b159900d54ce7bb3ad9c7eb0adab11d51141",
+  "source_sha256": "535154c2836c92dc2df7e57a817e63eee67370fcd513004fc7b887924ff56270",
+  "reservations": [
+    {
+      "train_index": 3270,
+      "problem_sha256": "6b2a96f1146fc193c908415bcef21924225366bbb77be47c2786f5bed897727d",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3507,
+      "problem_sha256": "0572771c5a4baed80fb2e83e61911278b1fecfdd982f6ba293601422440857b6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3332,
+      "problem_sha256": "588a0e8dd5b573feb5ac7f10fabb3fc939bb9e9d70d191bf3842da2f6c3da207",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5887,
+      "problem_sha256": "b97b13c888f6c1f3ff837cdeb729af1ba0f55a73dd977234898cc84c26c99bee",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2071,
+      "problem_sha256": "8c502cca458b419511711071272e50efff3e74e3667198450adda28db8551a62",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3962,
+      "problem_sha256": "4be7a18007b333db4a34ee9ccd8462512750d02428e193fad3d83fdcd7e31133",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5935,
+      "problem_sha256": "2e56b6c8056ed578829a322f91695a1c5cd37e3fe7b00b7051ca7687dd352cee",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7343,
+      "problem_sha256": "b216b8cf93482eb028456d1964006c196eb246f2328e5b6d4fe50538a7ba9a6b",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6106,
+      "problem_sha256": "7d721cd93c19b9fef5f50cc59ea622ce7b7c5d5e60c5fa1fe87fcea37afe7800",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5576,
+      "problem_sha256": "3def92f68c96904a1453b29cbe843c87e03c7a2e62dce5832c9d25af681cd0a3",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2566,
+      "problem_sha256": "e73cb8769f2bad92d5d13f6cfc28329f91edaf45eb3364de7e2e6d6c78c2c1de",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5647,
+      "problem_sha256": "92792dc966bd41b69d629627abeccec09b27cabe1b271972b6b744f27aaa222f",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1493,
+      "problem_sha256": "27aca4f15f00b62dccad85010a2c976495b6a6653c5ef07f470d130b02981d1b",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6432,
+      "problem_sha256": "0d77835a2aab29956af9f6531dc26cb2af4538e9150515194325e8df578f2ef3",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1421,
+      "problem_sha256": "682d1c7988e78807ab236af6bbc7edf9724f453f3af7293310f6a9c62256ce77",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4748,
+      "problem_sha256": "c8d302b3bf1b5a086c1ed7b17ccdc5dd2bb35cc9b8b9958e115446882e5ee02a",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1754,
+      "problem_sha256": "42a640d56784e614529f430df136305bc17836f0b0ff235cc3248c591f662f29",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7029,
+      "problem_sha256": "73b3be1ed8bbcae9d65c8f00c505a18bc59e6ca35873de0d429acce76c97ae77",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7061,
+      "problem_sha256": "51a6422037e7a87f2baaf91aefc8181d18571b712bd29853b7b3c5d9970d594c",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3996,
+      "problem_sha256": "81a105ee39bafb09cc63d2366c0f58e0bdb6c955acaa0e5a96b774b4dedb8982",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7379,
+      "problem_sha256": "ce2183724e1a42546f5777286ac2bc9d9b7674b63c9292a2e86716c3d3f05ee5",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2867,
+      "problem_sha256": "c70b67960a9740d7b28c981881dff279d33b2c1ab966eff4b57d220a340892c9",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3882,
+      "problem_sha256": "07b814ac50226b2e31ae248d688550ee17746d45098979ef110d94bc1ae986e8",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3832,
+      "problem_sha256": "d2090ae5c2d37412da62f0cab97a7ee81603b7cbf938b2e435d93491039eb30e",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2539,
+      "problem_sha256": "3ce07ec04d14a243daa095232fcc36af79f1ffc690a43d3adb19a3ccbcee79e8",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5695,
+      "problem_sha256": "12385c5b467b258550c162693786db4c9a040d851358e44d07b1ffcad6ad77e8",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1583,
+      "problem_sha256": "c4a91e165709c8bafd9a23e9500ef7283d40f316799d6ea69322ec82aad36d3e",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5200,
+      "problem_sha256": "576abf8e2d0e6ddbe47887883e43cb821ea927fbe3b296f5aa6cfcd4183b5409",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5729,
+      "problem_sha256": "0777ffe3f893dfaf92c6474273a82b5eaeebec6ac88ea51ca45eed2d8f1298a4",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4480,
+      "problem_sha256": "d28a26c87de97aa7972a6f3f2ce8391729eca8852fc9ae2963fa113dc733bbdf",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1576,
+      "problem_sha256": "be09da0401ac9819aeb41f1fc21b7154eaf92101d8ffd5c2be22c46af8d6c58c",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2228,
+      "problem_sha256": "534c02ccf1e87f05cfe605f96208a47be867e3734fa4d8a4e8007b065d0df1f6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2466,
+      "problem_sha256": "7c59ac8f66c9a01717a446f38fcaf0ede39454c48a30a8a75cc4befdf5c4b2e4",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3490,
+      "problem_sha256": "dc73aadcb97cdae1228df525d7027da15687486ecc52d6344e7769ae854db432",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7170,
+      "problem_sha256": "c3d3d472787daff51fe892e9a15054820d3446605d551dd140ff34c339c17dee",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5728,
+      "problem_sha256": "0f152653c92e594cc4c58ce40c2f635287ead445df0beb43cacc9fe45254bc28",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4740,
+      "problem_sha256": "03f08cc2acbc6d9d4946720426479bfc3518ceed059180074a30dc3c3984899a",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4261,
+      "problem_sha256": "4fd3275fde487c16aec699c936c61eb4a2e046335ea02a9ec4224ed7c5618f77",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3817,
+      "problem_sha256": "55c3438fef8f7452fd5b7e7f87538fadc82e44e851882dab3ffc76696cc91628",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3803,
+      "problem_sha256": "bbe2d2c2878c74a096659511604d3c38cc65271e33a3af0230487cfe7de20446",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7481,
+      "problem_sha256": "ce004bc9c033e938b0ed47c8b6b62e8a6219c576dcd3f48a7336452234c326c4",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3344,
+      "problem_sha256": "7bbd08e934dccfdcd4379743bddef38e23bae2b5594d91e4e521556209ddb321",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6721,
+      "problem_sha256": "7512155a1a293b45ab210ec335cd885a55cb532501c23999a04550378d6a3755",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1327,
+      "problem_sha256": "a436360e136edef4d551e7b7b1716752494b7234952f3dc1d1810f23c834ecc9",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6350,
+      "problem_sha256": "a79ed4b799f50dfb8d7da067cbdeb545f5d67c5bbb8f1a8d8bfb563698a3cd7d",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2130,
+      "problem_sha256": "259e1ee5d36a301dac6442d82e5b3f84fb57b80a80372c5ee7c1aa1aa97ac4a6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7018,
+      "problem_sha256": "1402b6b6ea9cf5c83152fb8bdfec4b4d1d8b529b175a6fceb4da1a20cec0b7ad",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7450,
+      "problem_sha256": "681a1e43e23897dce3427f183ae23794ae511962028eab39be53183f7afd064e",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5402,
+      "problem_sha256": "2c9bebef881091b67ebd7c27b163ad8c7b0dc913e690409a447cfa0e04a9867a",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6010,
+      "problem_sha256": "9a3b32d73a720096b6b980ab0f9b54786fb7550e4980dec441b60037a4f1966a",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3608,
+      "problem_sha256": "72c9b485573cc816123ff7e61c98ea1bc60dec2f05f60b2610e4c8de206509a8",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2248,
+      "problem_sha256": "da06c25dfc8a832a1669fe6735cede3cbdd0cfc7681a33744509c2ecef851b59",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4300,
+      "problem_sha256": "a45e78533e312ad9e829792eea0b8b5fb8b79b5a831e4ccd86b42cf4ff32bf29",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6535,
+      "problem_sha256": "2ffa2da5ac595d776980767aab7401b32a483bff85ce250d412b0f3684b9cef6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3632,
+      "problem_sha256": "8cdf8b5f2d093aed7b5c9866c2c171512d44286ff62d25a5835a19dea2776d15",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5414,
+      "problem_sha256": "cfcf3563c02ca156a6e6aece3bc2cab654f7450ecdce2e6388fa5d1fa4e7d398",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2353,
+      "problem_sha256": "312821d53f31fa687e63df1e52be41a4e0e5f72254c4fbcb780f54eddede8221",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2022,
+      "problem_sha256": "cf89bdffc17a9526842e63c4dba48bec41b7e00e8b92eca3f875d83ba228811e",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2226,
+      "problem_sha256": "fef343e90df3058b3dbc9c31ed30855259c1a31305f480541fd3362ba9154bf4",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5297,
+      "problem_sha256": "679aeb311f28af8dbefd0deb6a9abaa12ef0c9b29d6234bc31a4ed89903efacc",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6822,
+      "problem_sha256": "85c860877752e0a01d6279c6f6e4c8dafeccad63bb4092e662b24e5b887ea568",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6676,
+      "problem_sha256": "73c3a3509ca22a6b9b1c49260791f600057f46197d70ed29567fda0f52306b50",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2830,
+      "problem_sha256": "df1fd5a80749c556ced709e1c96deb0f1e6fa66a3c55b84bf01e5fd579a0e0e9",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6891,
+      "problem_sha256": "06cacf2f405e1b95b2c13d94bf0c75207b395c9162231bb5746b99739261838c",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6320,
+      "problem_sha256": "82ced6dff88165049de4c13adbeea196f2525b3108d5ba78e1e113e0be84f75c",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3430,
+      "problem_sha256": "9baf5a79152f4f86fc7ed98aa486abd13371450f6562aa11f3eadc8374d40dc8",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1910,
+      "problem_sha256": "b5810345800c31275b1e25822337004ab16f18d36e4fe95b39fbc1d8b96c5fb3",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3955,
+      "problem_sha256": "d2929ba5762fc4f697d98882ed71d34ce44a2762a9be1ece0e126d2303dde4ae",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3053,
+      "problem_sha256": "3648fdfceb29ed42843c1857b3ed7aa3ac7b358acaabaeb03e92e7c96c734e34",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6565,
+      "problem_sha256": "6500b980758e376366fb9cd7831d8e5ff22aecd6f844111b06f9c99c2879c3c6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2784,
+      "problem_sha256": "be910ebffea7629732eb5950ec6279e247b6821a492580cb7d7b24802079f3bc",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2197,
+      "problem_sha256": "02126e471ddfc9c68effe7d94e3f536fd6471f0d7260025607ba88c0752f6772",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4348,
+      "problem_sha256": "0b1b86d36872e6a03dca2dfe021568ff6eddd120b36c0092e890decfd1261d09",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2765,
+      "problem_sha256": "000d6237efe51c3532c45d96706fb7e4e1e0539e21c143181f481834166922c9",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6789,
+      "problem_sha256": "4f9355590a79f516205a883d2030dd9f9550d353b6f264a5c1b936e1b0f24729",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2126,
+      "problem_sha256": "ebfd0147afaa0ee93dfce0614d503cac076e54caabbc4ef325c2bcf1d01e2983",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6913,
+      "problem_sha256": "8c92a87034fa5a731ea12c3b5c023ffb6d0daf0e1811ba4e8d2917cdc7954c1d",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3233,
+      "problem_sha256": "b7fc56ac6de53d04d4fdd2b147bfd25312a07f632e0965f5694dcd3e2bdb2d35",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2922,
+      "problem_sha256": "66ff6a09a355a607e72c40077c5095b5a67e6600820a899460b610457e8c6fa1",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3526,
+      "problem_sha256": "df079ca68321093e66b09f9f337d6ec6720c2f98ec32e68cd67b0c12f0938778",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1941,
+      "problem_sha256": "da0146ad7ad51afd8834cc461e3a44c62e5ee87667508060818d5c05f989acce",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3433,
+      "problem_sha256": "90743ab7d8c68b833deb40f34af1053d9b84f254469af9c705daf9cb80d17779",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2607,
+      "problem_sha256": "07a238274fc591476caf4964e7195d73727013449be560eda26fd88198093739",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2048,
+      "problem_sha256": "dc1a9969d242595c5e6a6f7d5b356e9bf604fdff401b21d188767038befd865d",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5265,
+      "problem_sha256": "5ba390ee1280cfab35a9de1745be9e8a4fa93c833046cac6f63bf348db37380b",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6592,
+      "problem_sha256": "9789ad0ecaf1c45d753e59d534683d729e3eb0777afef88268a47a03094c0ece",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7030,
+      "problem_sha256": "e1d7653618358de9931325d3d6b697ef56912e5fa486352a5be7b21268e883bc",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5361,
+      "problem_sha256": "321bee3967ff0457b61e54ece7d1e82afa1f6207fa2f423589ea44fe9b8f3d8f",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 3593,
+      "problem_sha256": "1b97c48502fc1fd86d0f299b0d38c2158dbe5cf791095528640bbf5a5aab8d86",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5051,
+      "problem_sha256": "a66005760badef6cd5985f3dd3d9b711519e031eec646f22190e6897139d51ae",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4443,
+      "problem_sha256": "2ba33412a58d6bdad5b9bb49863bb6e2ee361dc122bd7431d66bf0550e5f6c08",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4833,
+      "problem_sha256": "ee3b8e89cf8fa08d2601e0b2fd1127996235815914b8515142910c73ea712bf6",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 1592,
+      "problem_sha256": "ef2b7f5e3121e39f28fab94725e82edd10f120dab3481843c99891895d0caa9d",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5789,
+      "problem_sha256": "82557a8d7d14cf96a58049e52cf2be514197b801be90ce1589e6ca9d716b7cc9",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 7151,
+      "problem_sha256": "d089bfb1a0f943501057008a96408d1fd1530aff9eba2e2fdcca5082dc498504",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 5703,
+      "problem_sha256": "334c98d751e6132c36f0d2a28498265accd3023182e2aaa9ba9651b0f9e2f693",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 4800,
+      "problem_sha256": "56e5884d1476e21c9cc6d7d82aa27b628852a815a9e85fc540b5357c96c4b04b",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6995,
+      "problem_sha256": "cfe39af35b1796ae02690b3ba5cd1fd9e3b2a8bb4949802bda1f84890ae098ce",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 6707,
+      "problem_sha256": "c50e197dc802575ac5372511b01ce3dd97811ee2730b891a65c2b54d35a8b6a0",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    },
+    {
+      "train_index": 2260,
+      "problem_sha256": "be81be504af5a8c0ede362577bec1d3f493eb28b8ba4ac00468e3f25a311544c",
+      "purpose": "proposed_strength_screen_not_independent_confirmation"
+    }
+  ],
+  "remote_reconciliation_complete": false,
+  "gpu_authorized": false,
+  "limitations": [
+    "Local registered claims and explicitly included raw folders only. Executor must reconcile current remote and unregistered usage before freezing.",
+    "Old200 confirmation reservation preserved; not used or newly reclassified.",
+    "No outcome-based question selection."
+  ]
+}
