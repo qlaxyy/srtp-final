@@ -172,7 +172,8 @@ class Sampler:
                 logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
             else:
                 amount = device_penalty(t, coefficient, penalty_mode, o.lower_bound, o.constant_scale)
-                logits[:, o.ids] = t.where(mask[:,None], values-amount[:,None], values)
+                adjusted = (values-amount[:,None]).to(values.dtype)
+                logits[:, o.ids] = t.where(mask[:,None], adjusted, values)
             o.changed_count[idx] += mask.to(t.int64)
             o.first_change[idx] = t.where(mask & (o.first_change[idx]<0), o.count[idx], o.first_change[idx])
         result = o.original_sampler(logits, batch, **kwargs)

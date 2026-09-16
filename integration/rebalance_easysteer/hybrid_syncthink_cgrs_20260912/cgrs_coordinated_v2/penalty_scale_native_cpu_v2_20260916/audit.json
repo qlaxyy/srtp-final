@@ -1,0 +1,59 @@
+{
+  "results": {
+    "1.5B": {
+      "questions": 500,
+      "covered_questions": 500,
+      "eligible_slots": 59154,
+      "constant_scale": 0.3158607139745424,
+      "constant_penalty": 0.21893796334110538,
+      "scale_quantiles": [
+        1.4558123950791924e-07,
+        0.009488026378676295,
+        0.1471080332994461,
+        0.3684037774801254,
+        1.0
+      ],
+      "lower_bound": -1.5353450143175593,
+      "fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+      "native_vs_float64_sign_disagreements": 0,
+      "native_vs_float64_max_abs_difference": 6.612759536395174e-06
+    },
+    "7B": {
+      "questions": 500,
+      "covered_questions": 500,
+      "eligible_slots": 39416,
+      "constant_scale": 0.3274918507166507,
+      "constant_penalty": 0.22700005298060494,
+      "scale_quantiles": [
+        3.976324023824418e-06,
+        0.07741354405879974,
+        0.24888991564512253,
+        0.37444744259119034,
+        1.0
+      ],
+      "lower_bound": -1.478875294778046,
+      "fit_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+      "generations_sha256": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362",
+      "native_vs_float64_sign_disagreements": 0,
+      "native_vs_float64_max_abs_difference": 6.409962297837524e-05
+    }
+  },
+  "input_sha256": {
+    "E:\\srtp\\srtp-final\\.codex_work\\label_audit_30_20260910\\tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\EasySteer\\vllm-steer\\vllm\\steer_vectors\\rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+    "E:\\srtp\\srtp-final\\.codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz": "4107b807450a0a810c4df483846ba9be4255fe96c9615c4a1984e0c0c7954ada",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\calibration\\generations.jsonl": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\fit.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+  },
+  "source_sha256": "7437188ca4d54aece7cc4a388ad824d94a550a736df57196fcb2c838f070a506",
+  "scope": "Native CPU Torch 2.5.1 FP32 controller, sequential FP32 accumulation from saved greedy logprobs.",
+  "limitations": [
+    "Not online steered trajectory exposure or counterfactual token saving.",
+    "Saved logprobs are converted back to probabilities; original GPU softmax values/rounding are not replayed. Tokenizer flags still require installed tokenizer parity.",
+    "All errors and capped calibration outputs retained; no answer-based selection.",
+    "Whitespace opening slots counted individually as actual adapter would; new paths can have different dose."
+  ],
+  "gpu_ready": false
+}

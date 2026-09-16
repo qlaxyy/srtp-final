@@ -16,6 +16,13 @@ from prepare_screen import phash
 def validate_receipt(plan, receipt, plan_path):
     assert receipt['gpu_authorized'] is True
     assert receipt['plan_sha256'] == sha(plan_path)
+    if plan.get('candidate_kind')=='strength_engineering':
+        from strength_engineering import validate
+        validate(plan)
+        assert receipt['authorized_phases']==['engineering']
+        assert receipt['scope']=='strength_1p5b_8x7_512_only'
+        assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()==receipt['execution_commit']
+        return
     if plan.get('candidate_kind')=='history_repeatability':
         from repeatability import validate
         validate(plan)
@@ -67,6 +74,10 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='strength_engineering':
+        from strength_engineering import CASES
+        assert phase=='engineering'
+        return CASES
     if plan.get('candidate_kind')=='history_repeatability':
         assert phase=='screen'
         from repeatability import cases as repeat_cases
@@ -126,6 +137,7 @@ def main():
     p.add_argument('--gpu-authorized',action='store_true');args=p.parse_args()
     if not args.gpu_authorized:raise ValueError('Explicit fixed-batch GPU authorization required')
     plan=read(args.plan);receipt=read(args.receipt)
+    if plan.get('candidate_kind')=='strength_engineering':assert args.phase=='engineering'
     if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
     if plan.get('candidate_kind')=='first_reflection_screen':assert args.phase=='screen'
     if plan.get('candidate_kind')=='first_reflection_full':assert args.phase=='full'
@@ -152,6 +164,7 @@ def main():
     started=time.perf_counter();results={};monitor=None;active=None
     try:
         tests=('test_native.py','test_narrow_native.py')
+        if plan.get('candidate_kind')=='strength_engineering':tests+=('test_penalty_native.py',)
         if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen','first_reflection_full','history_repeatability'):tests+=('test_history_native.py',)
         if plan.get('candidate_kind')=='history_repeatability':tests+=('test_repeatability_cpu.py',)
         for test in tests:
@@ -171,6 +184,9 @@ def main():
         from replay_adapter import ReplayAdapter
         from adapter import Adapter
         a=plan['assets'];tok=AutoTokenizer.from_pretrained(a['model_path'],local_files_only=True)
+        if plan.get('candidate_kind')=='strength_engineering':
+            from strength_engineering import tokenizer_gate
+            save(out/'tokenizer_gate.json',tokenizer_gate(tok,a))
         cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024,'full':16000}[args.phase]
         if args.phase=='full':
             prepared={role:[tok.encode(build_prompt(tok,r['problem'])) for r in sub['rows']] for role,sub in plan['datasets'].items()}
@@ -218,6 +234,9 @@ def main():
             folder.mkdir(parents=True);active=folder
             before=time.perf_counter();kw={} if profile is None else {'trigger_profile':profile}
             if history_gate!='none':kw['history_gate']=history_gate
+            if plan.get('candidate_kind')=='strength_engineering':
+                from strength_engineering import adapter_options
+                kw.update(adapter_options(plan,name))
             adapter_type=Adapter if runtime['async_scheduling'] else ReplayAdapter
             adapter=adapter_type(llm,tok,mode=mode,gate_on=True,**kw)
             setup=time.perf_counter()-before
@@ -282,6 +301,7 @@ def main():
                     replay_events=getattr(adapter,'replay_events',[]) if adapter.enabled else [],trigger_profile=profile or 'original14',
                     extra_probe_forwards=0,control_gpu_seconds=None)
                 if plan.get('candidate_kind')=='history_repeatability':result['sampling_seed']=sampling_seed
+                if plan.get('candidate_kind')=='strength_engineering':result['adapter_options']=kw
                 save(folder/'result.json',result);results[name]=result
                 print(json.dumps(dict(arm=name,n=len(rows),seconds=seconds)),flush=True)
             except BaseException:
@@ -317,6 +337,9 @@ def main():
                     assert sum(e['changed'] for e in events)>0
                     assert all(e['first_change']<0 or 0<=e['first_reflection']<e['first_change'] for e in events)
                     assert any(a['token_ids']!=b['token_ids'] for a,b in zip(result['records'],results['RC14explicit']['records']))
+                if plan.get('candidate_kind')=='strength_engineering':
+                    from strength_engineering import check_result
+                    check_result(name,results)
         save(out/('engineering_gate.json' if args.phase=='engineering' else 'batch_status.json'),
             dict(passed=True,status='complete',phase=args.phase,plan_sha256=sha(args.plan),wall_seconds=time.perf_counter()-started))
     except BaseException as exc:

@@ -1,0 +1,4 @@
+{
+  "superseded_by": "penalty_scale_native_cpu_v2_20260916",
+  "reason": "Comparison array in first pass inherited float32 instead of intended float64; ratio also used double scalar division. V2 explicitly uses float64 comparator and FP32 ratio. Original results retained; no model generation in either pass."
+}

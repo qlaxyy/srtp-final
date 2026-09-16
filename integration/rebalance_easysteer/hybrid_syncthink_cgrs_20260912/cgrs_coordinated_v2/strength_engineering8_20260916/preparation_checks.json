@@ -1,0 +1,12 @@
+{
+  "cpu_tests": 72,
+  "native_torch_tests": 8,
+  "native_environment": "D:/Anaconda/envs/pytorch_3/python.exe; Torch2.5.1, CPU tensors only",
+  "python310_parse": true,
+  "initial_native_failure": "BF16 indexed assignment received FP32 value; fixed explicit cast only in new branches. Fixed-reference expectation corrected to original BF16 scalar arithmetic.",
+  "source_files_hashed": 2223,
+  "new_generations": 0,
+  "gpu_execution": false,
+  "remaining": "Installed tokenizer flags preflight; target-runtime native tests; actual vLLM generation and forced KV replay on GPU.",
+  "plan_sha256": "c49877e75324bf47e285cc9f9792cb8fe4d0f6d7a8061141110c768236417f61"
+}
