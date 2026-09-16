@@ -1,0 +1,19 @@
+{
+  "gpu_authorized": false,
+  "scope": "strength_1p5b_mathtrain100x4_seed42_only",
+  "authorized_phases": [
+    "screen"
+  ],
+  "data_reconciled": false,
+  "unregistered_claims_checked": false,
+  "plan_sha256": "d33543e54ab5ce56111521d9d16302f1a8a75f801520e781a4693fd415c2f2d4",
+  "execution_commit": "FILL_VERIFIED_COMMIT_AFTER_AUTHORIZATION",
+  "local_reconciliation": {
+    "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\strength_screen100_20260917\\local_reconciliation.json",
+    "sha256": "622e5971e2ffc87f156fa66b77bac8420884e100f5570040ff6aeb21d0dc4d4c"
+  },
+  "remote_reconciliation": {
+    "path": "FILL",
+    "sha256": "FILL"
+  }
+}

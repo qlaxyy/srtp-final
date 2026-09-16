@@ -24,6 +24,11 @@ def main():
     p.add_argument('--resume',action='store_true');args=p.parse_args();folder=args.output
     plan=read(folder/'resolved_plan.json');status=read(folder/'batch_status.json')
     assert status['passed'] and status['phase']=='screen'
+    strength=plan.get('candidate_kind')=='strength_screen'
+    if strength:
+        from strength_screen import validate
+        validate(plan)
+        assert status['plan_sha256']==sha(folder/'resolved_plan.json')
     assert not (folder/'analysis.json').exists()
     for n,h in plan['source_sha256'].items():assert sha(ROOT/n,True)==h,n
     import sys
@@ -41,6 +46,7 @@ def main():
         with partial.open('a' if args.resume else 'x',encoding='utf8') as stream:
             for i,(row,rec) in enumerate(zip(plan['rows'],records)):
                 assert row['problem_sha256']==rec['problem_sha256'] and rec['dataset_index']==i
+                if strength:assert row['problem']==rec['problem'] and row['answer']==rec['answer']
                 assert len(rec['token_ids'])==rec['tokens']<=16000
                 ids=rec['token_ids']
                 assert rec['thinking_tokens']==(ids.index(151649) if 151649 in ids else len(ids))
@@ -51,7 +57,7 @@ def main():
                     label=previous[i];assert all(label[k]==v for k,v in identity.items())
                     assert type(label['correct']) is bool
                 else:
-                    _,gold=parse_ground_truth(row,'math');answer=extract_answer(rec['text'])
+                    _,gold=parse_ground_truth(row,'math');answer=extract_answer(rec['text'],'math') if strength else extract_answer(rec['text'])
                     label=dict(identity,correct=bool(check_is_correct(answer,gold)),extracted_answer=answer)
                     stream.write(json.dumps(label,ensure_ascii=False)+'\n');stream.flush()
                 labels.append(label)
@@ -69,14 +75,24 @@ def main():
             control_gpu_seconds=None,extra_probe_forwards=0,setup_seconds=result['setup_seconds'],
             checkpoint_io_seconds=result['checkpoint_io_seconds'],labels=labels,result_sha256=sha(f/'result.json'))
         raw[name]=[dict(r,correct=l['correct']) for r,l in zip(records,labels)]
+        if strength:
+            groups[name]['empty_answer_extractions']=sum(not l.get('extracted_answer') for l in labels)
     comparisons={}
     primary=plan.get('primary_candidate','RC8')
-    assert plan['arms']==['R','RC14',primary] and primary in ('RC8','RChistory')
-    for base,candidate in [('R','RC14'),('R',primary),('RC14',primary)]:
-        comparisons[candidate+'_vs_'+base]=compare(raw[base],raw[candidate],groups[candidate]['labels'])
+    if strength:
+        from strength_statistics import comparisons as four_arm_comparisons
+        from strength_screen import decision as screen_decision
+        comparisons=four_arm_comparisons(raw)
+        selected_decision=screen_decision(groups)
+    else:
+        assert plan['arms']==['R','RC14',primary] and primary in ('RC8','RChistory')
+        for base,candidate in [('R','RC14'),('R',primary),('RC14',primary)]:
+            comparisons[candidate+'_vs_'+base]=compare(raw[base],raw[candidate],groups[candidate]['labels'])
+        selected_decision=decision(groups,primary)
     save(folder/'analysis.json',dict(status='complete_training_screen',groups=groups,comparisons=comparisons,
-        decision=decision(groups,primary),reused_labels=reused,grade_seconds=time.perf_counter()-began,
+        decision=selected_decision,reused_labels=reused,grade_seconds=time.perf_counter()-began,
         plan_sha256=sha(folder/'resolved_plan.json'),
+        statistics=dict(bootstrap_draws=20000,bootstrap_seed=20260917,shared_question_indices_across_arms=True) if strength else None,
         limitations=['100 paired training questions; not independent confirmation or test evidence',
             'Single seed and fixed arm order; confidence intervals omit batch/sampling variability',
             'Point loss bound and confidence-interval noninferiority are separate',
