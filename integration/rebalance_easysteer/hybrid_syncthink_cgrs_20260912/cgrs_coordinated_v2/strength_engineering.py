@@ -19,7 +19,7 @@ def validate(plan):
     assert len({r['problem_sha256'] for r in plan['engineering_rows']})==8
     for r in plan['engineering_rows']:assert phash(r['problem'])==r['problem_sha256']
     assert plan['runtime']==dict(dtype='bfloat16',max_tokens=16000,max_model_len=32768,max_num_seqs=32,
-        max_num_batched_tokens=4096,gpu_memory_utilization=.90,async_scheduling=False,chunked_prefill=False,
+        max_num_batched_tokens=32768,gpu_memory_utilization=.90,async_scheduling=False,chunked_prefill=False,
         seed=42,temperature=.7,top_p=.95)
     a=plan['assets'];p=a['rebalance_parameters']
     assert plan['penalty']['lower_bound']==min(p['low_val_1'],p['low_val_2'])

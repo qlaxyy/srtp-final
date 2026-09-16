@@ -6,7 +6,7 @@ from strength_engineering import validate,adapter_options,check_result
 
 
 class StrengthEngineeringTests(unittest.TestCase):
-    def setUp(self):self.plan=read(HERE/'strength_engineering8_20260916/plan.json')
+    def setUp(self):self.plan=read(HERE/'strength_engineering8_20260916/plan_run2.json')
     def test_fixed_batch_and_no_formal_run(self):
         validate(self.plan);self.assertEqual(len(cases(self.plan,'engineering')),7)
         for phase in ('screen','full','speed'):
