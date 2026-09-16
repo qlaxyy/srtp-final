@@ -1,0 +1,63 @@
+{
+  "status": "Retained research hypothesis, not GPU-ready or demonstrated improvement",
+  "name": "ReBalance coefficient-scaled lexical penalty",
+  "formula": "lambda(c)=ln(2)*clip(c/c_min,0,1), c_min=min(frozen_model_fit.low_val_1, frozen_model_fit.low_val_2); require original RC14 eligibility; nonfinite c gives zero",
+  "unique_change": "Only lexical penalty magnitude; keep original14, history_gate=none, model-specific R vector/layer/fit, and sampling fixed.",
+  "mechanism": "Remove jump from zero to full ln2 at c=0. A weak negative activation-steering command receives weak lexical suppression; strong negative commands retain original penalty.",
+  "not_assumed": [
+    "Coefficient magnitude is not a correctness probability.",
+    "Strong negative commands are not proven to benefit from stronger word suppression.",
+    "This can reduce compression by restoring useful or useless reflection.",
+    "May be no better than a fixed weaker penalty."
+  ],
+  "evidence": {
+    "source": "audit.json",
+    "scope": "Float64 reconstruction on saved calibration steps; quartiles match frozen fit, not exact online eligibility.",
+    "new_generations": 0,
+    "new_forwards": 0,
+    "cpu_tests_passed": 61
+  },
+  "implementation": {
+    "file": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py",
+    "interface": "Prospective penalty_mode=fixed|coefficient_scaled|calibration_constant; default fixed, unimplemented in live adapter.",
+    "placement": "Sampler.__call__, after reading original s._coefs and building original mask; before original_sampler temperature/top-p.",
+    "ordering": "R raw maximum softmax confidence is saved before lexical penalty; original_sampler samples; native runner consumes accepted token and saved confidence; next invocation uses resulting R coefficient.",
+    "state": "No new per-request adaptive history. Model-specific lower bound is immutable; mixed-model configurations rejected. Existing slot resets/think/end/clean-opening logic unchanged.",
+    "off_contract": "mode=off returns before reading fit or installing hooks. penalty_mode=fixed preserves exact existing operation order and buffers. Do not route fixed through a new multiply.",
+    "replay": "If implemented, shared pure penalty policy used by both native adapter and replay adapter; no copied controller; preemption remains rejected in async path until separately validated.",
+    "cost": "No extra forward/probe/RNG. Adds per-live-row division and clamp before existing lexical update; device cost not measured."
+  },
+  "required_controls": [
+    "R",
+    "RC14 fixed ln2",
+    "RC14 with fixed reduced penalty matched to calibration mean eligible scaled penalty",
+    "coefficient-scaled candidate"
+  ],
+  "constant_control": "Do not use audit all-negative-step mean as final setting. Replay original calibration token boundaries/clean openings and R states, freeze mean over eligible lexical slots before any candidate generation. Off-policy calibration mean is only approximate dose matching, not matched realized dose after paths diverge.",
+  "pre_gpu_cpu_tasks": [
+    "Verify coefficient reconstruction against pinned Torch FP32 computation when an existing suitable runtime is available; no installation.",
+    "Reconstruct exact calibration eligible openings and freeze constant comparator, question IDs and hashes.",
+    "Implement opt-in shared penalty calculation without changing default paths; validate mask/reset/finite/think/temperature ordering and default equivalence."
+  ],
+  "effect_protocol": {
+    "model_first": "1.5B",
+    "data": "New registered training validation questions only; one seed; screening and confirmation separate. IDs and size not frozen here.",
+    "max_new_tokens": 16000,
+    "accuracy_loss_margin_pp_vs_R": 2,
+    "primary": "Thinking-token reduction with accuracy retention; total tokens also reported.",
+    "report": [
+      "accuracy",
+      "thinking tokens",
+      "total tokens",
+      "caps",
+      "wrong-to-correct and correct-to-wrong",
+      "paired uncertainty",
+      "generation and added overhead"
+    ],
+    "support": "Candidate must offer useful paired accuracy/token tradeoff versus both RC14 and constant weaker penalty, then independent confirmation. No universal 5% floor.",
+    "reject": "No benefit beyond fixed weakening, no compression improvement, increased unresolved caps, or accuracy evidence incompatible with accepted bound. Do not retune on same validation questions.",
+    "interaction": "Four R-containing arms distinguish coordination from weaker suppression, not strict R-by-CGRS synergy. Strict synergy additionally needs U and matching lexical-only arms."
+  },
+  "gpu_authorized": false,
+  "gpu_ready": false
+}
