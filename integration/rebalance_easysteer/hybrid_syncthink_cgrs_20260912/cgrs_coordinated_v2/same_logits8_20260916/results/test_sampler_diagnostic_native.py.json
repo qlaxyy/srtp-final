@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_case_replays_preserve_live_state_with_BF16_and_permuted_partial_prefill (__main__.NativeDiagnosticTests.test_case_replays_preserve_live_state_with_BF16_and_permuted_partial_prefill) ... ok\ntest_mutated_rng_state_fails_and_keeps_diagnostic_evidence (__main__.NativeDiagnosticTests.test_mutated_rng_state_fails_and_keeps_diagnostic_evidence) ... ok\ntest_probe_persists_capture_and_reports_failure_instead_of_advancing (__main__.NativeDiagnosticTests.test_probe_persists_capture_and_reports_failure_instead_of_advancing) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.489s\n\nOK\n"
+}

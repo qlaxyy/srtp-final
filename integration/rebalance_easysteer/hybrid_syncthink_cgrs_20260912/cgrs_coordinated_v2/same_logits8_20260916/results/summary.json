@@ -1,0 +1,34 @@
+{
+  "status": "same_input_sampler_gate_passed",
+  "execution_commit": "3040c6b792d7a0fc964fea2b62b9e52fa5b35ab7",
+  "n": 8,
+  "engineering_output_tokens": 1024,
+  "selected_observations": 32,
+  "capture_batches": 14,
+  "batch_case_checks": 70,
+  "all_checks_passed": true,
+  "native_cpu_tests_passed": 8,
+  "generation_seconds": 2.8947920948266983,
+  "runner_after_preflight_seconds": 37.11440432071686,
+  "whole_command_seconds": 59.15262794494629,
+  "extra_model_forwards_for_comparisons": 0,
+  "capture_payload_bytes": 34092800,
+  "archive_bytes": 23519663,
+  "archive_sha256": "a33137d5dd3c8f7f5d5a9f4eec672dfec86ac9581199e1f3789bdc0673d464b1",
+  "verified_files": 30,
+  "raw_root": "E:\\srtp\\B-same-logits8_0916",
+  "closure": {
+    "gpu": "0 %, 1 MiB\n",
+    "compute_apps": "",
+    "shared_status": "",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01"
+  },
+  "gpu_reruns": 0,
+  "limitations": [
+    "Same current logits only; historical-prefix and refill layouts not tested.",
+    "Synthetic active penalty is not a natural effectiveness test.",
+    "Engineering ignore_eos128 outputs not graded; instrumented time not throughput benchmark.",
+    "Local hashes and report consistency checked; tensor numerical checks ran only on server."
+  ],
+  "next_step": "Local preparation of controlled historical-prefix/batch-layout diagnostic; no automatic GPU expansion or confirmation200."
+}
