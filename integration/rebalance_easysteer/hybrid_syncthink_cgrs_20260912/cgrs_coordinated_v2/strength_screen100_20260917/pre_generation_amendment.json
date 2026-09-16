@@ -1,0 +1,9 @@
+{
+  "reason": "Correct extract_answer signature: second argument is use_last_number, not dataset. Removing truthy string preserves default True behavior. No generation run or criteria change.",
+  "old_plan_sha256": "d33543e54ab5ce56111521d9d16302f1a8a75f801520e781a4693fd415c2f2d4",
+  "new_plan_sha256": "e6b2165d437362b36f6f09c3f8c06aa80a0778601646be48399bc8578c1b01a9",
+  "source": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow_grade.py",
+  "old_source_sha256": "b152e28e5092a337ce77ad48396fe85b690c59a9b404145ce54530e5b1b68821",
+  "new_source_sha256": "103142233ab16fd82818977ce34577f3a0b284fcc6996192c91dd8be44b456e7",
+  "gpu_authorized": false
+}

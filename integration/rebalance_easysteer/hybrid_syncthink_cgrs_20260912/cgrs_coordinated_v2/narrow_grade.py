@@ -57,7 +57,7 @@ def main():
                     label=previous[i];assert all(label[k]==v for k,v in identity.items())
                     assert type(label['correct']) is bool
                 else:
-                    _,gold=parse_ground_truth(row,'math');answer=extract_answer(rec['text'],'math') if strength else extract_answer(rec['text'])
+                    _,gold=parse_ground_truth(row,'math');answer=extract_answer(rec['text'])
                     label=dict(identity,correct=bool(check_is_correct(answer,gold)),extracted_answer=answer)
                     stream.write(json.dumps(label,ensure_ascii=False)+'\n');stream.flush()
                 labels.append(label)
