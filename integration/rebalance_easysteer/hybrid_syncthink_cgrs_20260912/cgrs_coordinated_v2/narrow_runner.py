@@ -16,6 +16,13 @@ from prepare_screen import phash
 def validate_receipt(plan, receipt, plan_path):
     assert receipt['gpu_authorized'] is True
     assert receipt['plan_sha256'] == sha(plan_path)
+    if plan.get('candidate_kind')=='history_repeatability':
+        from repeatability import validate
+        validate(plan)
+        assert receipt['scope']=='history_repeatability_100x3x3_only'
+        assert receipt['authorized_phases']==['screen'] and receipt['reuse_exposed_rows'] is True
+        assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()==receipt['execution_commit']
+        return
     if plan.get('candidate_kind')=='first_reflection_full':
         from history_full import validate_full_plan
         validate_full_plan(plan,receipt)
@@ -60,6 +67,10 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='history_repeatability':
+        assert phase=='screen'
+        from repeatability import cases as repeat_cases
+        return repeat_cases(plan)
     if plan.get('candidate_kind')=='first_reflection_full':
         assert phase=='full'
         gates=[]
@@ -89,7 +100,7 @@ def cases(plan, phase):
 def validate_engineering_gate(plan, plan_path, gate_path):
     gate=read(gate_path)
     assert gate['passed']
-    if plan.get('candidate_kind') in ('first_reflection_screen','first_reflection_full'):
+    if plan.get('candidate_kind') in ('first_reflection_screen','first_reflection_full','history_repeatability'):
         prior=plan['engineering_evidence']
         assert sha(gate_path)==prior['gate_sha256']
         assert gate['plan_sha256']==prior['plan_sha256']
@@ -118,6 +129,7 @@ def main():
     if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
     if plan.get('candidate_kind')=='first_reflection_screen':assert args.phase=='screen'
     if plan.get('candidate_kind')=='first_reflection_full':assert args.phase=='full'
+    if plan.get('candidate_kind')=='history_repeatability':assert args.phase=='screen'
     validate_receipt(plan,receipt,args.plan)
     assert args.phase in receipt['authorized_phases']
     if plan.get('model_family')=='1p5b':
@@ -140,7 +152,8 @@ def main():
     started=time.perf_counter();results={};monitor=None;active=None
     try:
         tests=('test_native.py','test_narrow_native.py')
-        if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen','first_reflection_full'):tests+=('test_history_native.py',)
+        if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen','first_reflection_full','history_repeatability'):tests+=('test_history_native.py',)
+        if plan.get('candidate_kind')=='history_repeatability':tests+=('test_repeatability_cpu.py',)
         for test in tests:
             check=subprocess.run([sys.executable,str(HERE/test)],capture_output=True,text=True,timeout=60)
             save(out/(test+'.json'),dict(returncode=check.returncode,stdout=check.stdout,stderr=check.stderr))
@@ -188,6 +201,13 @@ def main():
         ceiling=plan['arm_seconds'][args.phase]
         for case in cases(plan,args.phase):
             name,mode,profile=case[:3];history_gate=case[3] if len(case)==4 else 'none'
+            sampling_seed=42
+            if plan.get('candidate_kind')=='history_repeatability':
+                from repeatability import ordered_rows
+                sub=next(s for s in plan['schedule'] if s['name']==name);sampling_seed=sub['seed']
+                rows=ordered_rows(plan['rows'],sampling_seed)
+                by_hash={r['problem_sha256']:p for r,p in zip(plan['rows'],prompts)} if name==plan['schedule'][0]['name'] else by_hash
+                prompts=[by_hash[r['problem_sha256']] for r in rows]
             async_gate=name.startswith('async_')
             if args.phase=='full':
                 if async_gate:
@@ -221,7 +241,7 @@ def main():
             torch.cuda.synchronize();began=time.perf_counter();heartbeat=began
             try:
                 ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],
-                    sampling_params=SamplingParams(temperature=.7,top_p=.95,seed=42,max_tokens=cap,
+                    sampling_params=SamplingParams(temperature=.7,top_p=.95,seed=sampling_seed,max_tokens=cap,
                                                   skip_special_tokens=False),steering=steer,use_tqdm=False)
                 ops=llm.llm_engine.output_processor.request_states
                 mapping={ops[rid].external_req_id:rid for rid in ids};rowmap=dict(zip(ids,rows))
@@ -235,6 +255,7 @@ def main():
                             rec=dict(rowmap[rid],request_id=rid,token_ids=ts,tokens=len(ts),
                                 thinking_tokens=ts.index(151649) if 151649 in ts else len(ts),
                                 text=tok.decode(ts,skip_special_tokens=True),finish_reason=ans.finish_reason)
+                            if plan.get('candidate_kind')=='history_repeatability':rec['completed_seconds']=time.perf_counter()-began
                             generated[rid]=rec;t=time.perf_counter()
                             stream.write(json.dumps(rec,ensure_ascii=False)+'\n');stream.flush();io+=time.perf_counter()-t
                         steps+=1
@@ -260,6 +281,7 @@ def main():
                     events=adapter.completed if adapter.enabled else {},
                     replay_events=getattr(adapter,'replay_events',[]) if adapter.enabled else [],trigger_profile=profile or 'original14',
                     extra_probe_forwards=0,control_gpu_seconds=None)
+                if plan.get('candidate_kind')=='history_repeatability':result['sampling_seed']=sampling_seed
                 save(folder/'result.json',result);results[name]=result
                 print(json.dumps(dict(arm=name,n=len(rows),seconds=seconds)),flush=True)
             except BaseException:
