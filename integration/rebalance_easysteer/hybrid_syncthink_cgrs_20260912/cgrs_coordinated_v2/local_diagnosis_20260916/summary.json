@@ -1,0 +1,796 @@
+{
+  "datasets": {
+    "1p5b_math_test": {
+      "n": 500,
+      "prefix": {
+        "R": {
+          "after_first_intervention": 224,
+          "identical": 25,
+          "at_first_intervention": 18,
+          "before_either_intervention": 215,
+          "different_without_either_intervention": 18
+        },
+        "RC14": {
+          "after_first_intervention": 410,
+          "identical": 30,
+          "at_first_intervention": 9,
+          "before_either_intervention": 51
+        }
+      },
+      "accuracy_transitions": {
+        "R": {
+          "-1": {
+            "after_first_intervention": 7,
+            "before_either_intervention": 9,
+            "different_without_either_intervention": 1
+          },
+          "1": {
+            "after_first_intervention": 11,
+            "before_either_intervention": 11,
+            "at_first_intervention": 1
+          }
+        },
+        "RC14": {
+          "-1": {
+            "after_first_intervention": 15,
+            "at_first_intervention": 1,
+            "before_either_intervention": 3
+          },
+          "1": {
+            "after_first_intervention": 23,
+            "before_either_intervention": 6,
+            "at_first_intervention": 1
+          }
+        }
+      },
+      "token_delta_by_correctness": {
+        "-1": {
+          "n": 19,
+          "total_delta": 50765
+        },
+        "0": {
+          "n": 451,
+          "total_delta": 39547
+        },
+        "1": {
+          "n": 30,
+          "total_delta": -51465
+        }
+      },
+      "no_intervention_questions": 26,
+      "old_R_protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_Math500/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+        "offset": 0,
+        "limit": 500,
+        "rebalance_source_layer": 21,
+        "easysteer_output_layer": 20,
+        "max_tokens": 16000,
+        "max_model_len": 32768,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "group_timeout_seconds": 1500
+      },
+      "old_R_commit": "836e37b8c660b4e01c3d146e14bda946a0824c40",
+      "caps": {
+        "new": 17,
+        "old": 15,
+        "new_only": [
+          41,
+          96,
+          101,
+          108,
+          213,
+          239,
+          264,
+          282,
+          286,
+          308,
+          351,
+          352,
+          444,
+          460
+        ],
+        "resolved": [
+          43,
+          110,
+          119,
+          184,
+          204,
+          295,
+          303,
+          392,
+          412,
+          448,
+          473,
+          481
+        ]
+      },
+      "lengths": {
+        "history": {
+          "total": 1667554,
+          "maximum": 16000,
+          "top5_total": 80000,
+          "aggregate_tokens_per_second": 3929.4798359857273,
+          "generation_seconds": 424.3701633810997,
+          "checkpoint_io_seconds": 0.2040972113609314
+        },
+        "RC14": {
+          "total": 1628707,
+          "maximum": 16000,
+          "top5_total": 80000,
+          "aggregate_tokens_per_second": 4071.2167780758946,
+          "generation_seconds": 400.0541088283062,
+          "checkpoint_io_seconds": 0.18510469794273376
+        }
+      },
+      "tail_observations_30s_resolution": {
+        "1": null,
+        "8": {
+          "first_observed_elapsed": 420.21800366044044,
+          "completed": 497,
+          "running": 3,
+          "remaining_seconds_lower_bound": 4.152159720659256
+        },
+        "32": {
+          "first_observed_elapsed": 330.20000916719437,
+          "completed": 472,
+          "running": 28,
+          "remaining_seconds_lower_bound": 94.17015421390533
+        }
+      },
+      "largest_token_increases": [
+        {
+          "dataset_index": 282,
+          "delta": 13079
+        },
+        {
+          "dataset_index": 351,
+          "delta": 13033
+        },
+        {
+          "dataset_index": 239,
+          "delta": 11530
+        },
+        {
+          "dataset_index": 41,
+          "delta": 11259
+        },
+        {
+          "dataset_index": 444,
+          "delta": 10628
+        }
+      ],
+      "largest_token_decreases": [
+        {
+          "dataset_index": 412,
+          "delta": -11864
+        },
+        {
+          "dataset_index": 448,
+          "delta": -11669
+        },
+        {
+          "dataset_index": 43,
+          "delta": -11396
+        },
+        {
+          "dataset_index": 400,
+          "delta": -11023
+        },
+        {
+          "dataset_index": 119,
+          "delta": -10904
+        }
+      ]
+    },
+    "1p5b_gsm8k_test": {
+      "n": 1319,
+      "prefix": {
+        "R": {
+          "identical": 413,
+          "after_first_intervention": 103,
+          "before_either_intervention": 322,
+          "at_first_intervention": 12,
+          "different_without_either_intervention": 469
+        },
+        "RC14": {
+          "identical": 407,
+          "after_first_intervention": 695,
+          "before_either_intervention": 208,
+          "different_without_either_intervention": 3,
+          "at_first_intervention": 6
+        }
+      },
+      "accuracy_transitions": {
+        "R": {
+          "-1": {
+            "after_first_intervention": 3,
+            "different_without_either_intervention": 31,
+            "before_either_intervention": 35
+          },
+          "1": {
+            "different_without_either_intervention": 25,
+            "at_first_intervention": 2,
+            "after_first_intervention": 4,
+            "before_either_intervention": 30
+          }
+        },
+        "RC14": {
+          "-1": {
+            "after_first_intervention": 43,
+            "before_either_intervention": 21,
+            "at_first_intervention": 1
+          },
+          "1": {
+            "after_first_intervention": 40,
+            "before_either_intervention": 20,
+            "at_first_intervention": 1
+          }
+        }
+      },
+      "token_delta_by_correctness": {
+        "-1": {
+          "n": 65,
+          "total_delta": 8802
+        },
+        "0": {
+          "n": 1193,
+          "total_delta": 4045
+        },
+        "1": {
+          "n": 61,
+          "total_delta": -11290
+        }
+      },
+      "no_intervention_questions": 853,
+      "old_R_protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_GSM8K/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+        "offset": 0,
+        "limit": 1319,
+        "rebalance_source_layer": 21,
+        "easysteer_output_layer": 20,
+        "max_tokens": 16000,
+        "max_model_len": 32768,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "group_timeout_seconds": 1500
+      },
+      "old_R_commit": "836e37b8c660b4e01c3d146e14bda946a0824c40",
+      "caps": {
+        "new": 1,
+        "old": 0,
+        "new_only": [
+          754
+        ],
+        "resolved": []
+      },
+      "lengths": {
+        "history": {
+          "total": 1034305,
+          "maximum": 16000,
+          "top5_total": 41337,
+          "aggregate_tokens_per_second": 4421.7621739590095,
+          "generation_seconds": 233.91239947080612,
+          "checkpoint_io_seconds": 0.16396395862102509
+        },
+        "RC14": {
+          "total": 1032748,
+          "maximum": 9726,
+          "top5_total": 38407,
+          "aggregate_tokens_per_second": 5705.883414735895,
+          "generation_seconds": 180.9970384836197,
+          "checkpoint_io_seconds": 0.14585977792739868
+        }
+      },
+      "tail_observations_30s_resolution": {
+        "1": {
+          "first_observed_elapsed": 180.01950772106647,
+          "completed": 1318,
+          "running": 1,
+          "remaining_seconds_lower_bound": 53.89289174973965
+        },
+        "8": {
+          "first_observed_elapsed": 150.01783028244972,
+          "completed": 1314,
+          "running": 5,
+          "remaining_seconds_lower_bound": 83.8945691883564
+        },
+        "32": {
+          "first_observed_elapsed": 150.01783028244972,
+          "completed": 1314,
+          "running": 5,
+          "remaining_seconds_lower_bound": 83.8945691883564
+        }
+      },
+      "largest_token_increases": [
+        {
+          "dataset_index": 754,
+          "delta": 12203
+        },
+        {
+          "dataset_index": 534,
+          "delta": 4630
+        },
+        {
+          "dataset_index": 450,
+          "delta": 4092
+        },
+        {
+          "dataset_index": 815,
+          "delta": 3303
+        },
+        {
+          "dataset_index": 1314,
+          "delta": 3206
+        }
+      ],
+      "largest_token_decreases": [
+        {
+          "dataset_index": 931,
+          "delta": -8457
+        },
+        {
+          "dataset_index": 427,
+          "delta": -5773
+        },
+        {
+          "dataset_index": 660,
+          "delta": -4537
+        },
+        {
+          "dataset_index": 1188,
+          "delta": -4393
+        },
+        {
+          "dataset_index": 965,
+          "delta": -3425
+        }
+      ]
+    },
+    "7b_math_test": {
+      "n": 500,
+      "prefix": {
+        "R": {
+          "after_first_intervention": 61,
+          "before_either_intervention": 412,
+          "different_without_either_intervention": 19,
+          "identical": 2,
+          "at_first_intervention": 6
+        },
+        "RC14": {
+          "after_first_intervention": 425,
+          "identical": 5,
+          "before_either_intervention": 59,
+          "at_first_intervention": 11
+        }
+      },
+      "accuracy_transitions": {
+        "R": {
+          "-1": {
+            "before_either_intervention": 14,
+            "after_first_intervention": 3
+          },
+          "1": {
+            "before_either_intervention": 11,
+            "different_without_either_intervention": 1
+          }
+        },
+        "RC14": {
+          "-1": {
+            "after_first_intervention": 9,
+            "before_either_intervention": 3
+          },
+          "1": {
+            "after_first_intervention": 11,
+            "before_either_intervention": 3,
+            "at_first_intervention": 1
+          }
+        }
+      },
+      "token_delta_by_correctness": {
+        "-1": {
+          "n": 12,
+          "total_delta": 37075
+        },
+        "0": {
+          "n": 473,
+          "total_delta": -49126
+        },
+        "1": {
+          "n": 15,
+          "total_delta": -36151
+        }
+      },
+      "no_intervention_questions": 20,
+      "old_R_protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_Math500/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/auto_vector.pt",
+        "offset": 0,
+        "limit": 500,
+        "rebalance_source_layer": 22,
+        "easysteer_output_layer": 21,
+        "max_tokens": 16000,
+        "max_model_len": 17408,
+        "max_num_seqs": 64,
+        "gpu_memory_utilization": 0.92,
+        "chunked_prefill": true,
+        "max_num_batched_tokens": 2048,
+        "max_prompt_tokens": 811,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "async_scheduling": false,
+        "profiling_enabled": false,
+        "profile_steps": 0,
+        "profile_start_step": 16,
+        "profile_only": false,
+        "length_policy": "all generated tokens, including capped/incorrect answers",
+        "group_timeout_seconds": 0,
+        "preemption_policy": "restore controller and replay historical input scales",
+        "run_order": [
+          "rebalance_dynamic",
+          "baseline"
+        ],
+        "diagnostic_only": false
+      },
+      "old_R_commit": "1bdfa11784239431c4868e774a31d4e72d390714",
+      "caps": {
+        "new": 8,
+        "old": 13,
+        "new_only": [
+          94,
+          177,
+          236,
+          381
+        ],
+        "resolved": [
+          96,
+          110,
+          168,
+          264,
+          308,
+          349,
+          412,
+          422,
+          444
+        ]
+      },
+      "lengths": {
+        "history": {
+          "total": 1578749,
+          "maximum": 16000,
+          "top5_total": 80000,
+          "aggregate_tokens_per_second": 988.4674984659642,
+          "generation_seconds": 1597.1683464050293,
+          "checkpoint_io_seconds": 0.1915236860513687
+        },
+        "RC14": {
+          "total": 1626951,
+          "maximum": 16000,
+          "top5_total": 80000,
+          "aggregate_tokens_per_second": 1005.487571747183,
+          "generation_seconds": 1618.0717153698206,
+          "checkpoint_io_seconds": 0.1844935268163681
+        }
+      },
+      "tail_observations_30s_resolution": {
+        "1": {
+          "first_observed_elapsed": 1470.6504978239536,
+          "completed": 499,
+          "running": 1,
+          "remaining_seconds_lower_bound": 126.51784858107567
+        },
+        "8": {
+          "first_observed_elapsed": 1440.6500810682774,
+          "completed": 495,
+          "running": 5,
+          "remaining_seconds_lower_bound": 156.51826533675194
+        },
+        "32": {
+          "first_observed_elapsed": 1290.6043966412544,
+          "completed": 470,
+          "running": 30,
+          "remaining_seconds_lower_bound": 306.5639497637749
+        }
+      },
+      "largest_token_increases": [
+        {
+          "dataset_index": 236,
+          "delta": 12047
+        },
+        {
+          "dataset_index": 94,
+          "delta": 8341
+        },
+        {
+          "dataset_index": 41,
+          "delta": 8252
+        },
+        {
+          "dataset_index": 126,
+          "delta": 8044
+        },
+        {
+          "dataset_index": 416,
+          "delta": 7758
+        }
+      ],
+      "largest_token_decreases": [
+        {
+          "dataset_index": 412,
+          "delta": -11549
+        },
+        {
+          "dataset_index": 168,
+          "delta": -10995
+        },
+        {
+          "dataset_index": 96,
+          "delta": -10223
+        },
+        {
+          "dataset_index": 349,
+          "delta": -9918
+        },
+        {
+          "dataset_index": 9,
+          "delta": -8757
+        }
+      ]
+    },
+    "7b_gsm8k_test": {
+      "n": 1319,
+      "prefix": {
+        "R": {
+          "different_without_either_intervention": 371,
+          "after_first_intervention": 81,
+          "before_either_intervention": 668,
+          "identical": 194,
+          "at_first_intervention": 5
+        },
+        "RC14": {
+          "identical": 198,
+          "after_first_intervention": 890,
+          "at_first_intervention": 14,
+          "before_either_intervention": 214,
+          "different_without_either_intervention": 3
+        }
+      },
+      "accuracy_transitions": {
+        "R": {
+          "-1": {
+            "before_either_intervention": 15,
+            "different_without_either_intervention": 13,
+            "at_first_intervention": 1
+          },
+          "1": {
+            "before_either_intervention": 19,
+            "different_without_either_intervention": 11,
+            "after_first_intervention": 2
+          }
+        },
+        "RC14": {
+          "-1": {
+            "after_first_intervention": 26,
+            "before_either_intervention": 7,
+            "at_first_intervention": 1
+          },
+          "1": {
+            "after_first_intervention": 30,
+            "before_either_intervention": 4,
+            "at_first_intervention": 1
+          }
+        }
+      },
+      "token_delta_by_correctness": {
+        "-1": {
+          "n": 34,
+          "total_delta": 4950
+        },
+        "0": {
+          "n": 1250,
+          "total_delta": -2210
+        },
+        "1": {
+          "n": 35,
+          "total_delta": -13997
+        }
+      },
+      "no_intervention_questions": 558,
+      "old_R_protocol": {
+        "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+        "dataset": "/root/autodl-tmp/projects/srtp-final/sources/ReBalance/Data/Math_GSM8K/test.jsonl",
+        "vector": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/formal_kv_replay/auto_vector.pt",
+        "offset": 0,
+        "limit": 1319,
+        "rebalance_source_layer": 22,
+        "easysteer_output_layer": 21,
+        "max_tokens": 16000,
+        "max_model_len": 17408,
+        "max_num_seqs": 32,
+        "gpu_memory_utilization": 0.92,
+        "chunked_prefill": true,
+        "max_num_batched_tokens": 2048,
+        "max_prompt_tokens": 208,
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "seed": 42,
+        "execution_mode": "in_graph",
+        "async_scheduling": false,
+        "group_timeout_seconds": 1500,
+        "preemption_policy": "restore controller and replay historical input scales",
+        "run_order": [
+          "rebalance_dynamic",
+          "baseline"
+        ]
+      },
+      "old_R_commit": "96cd818be20a29632d9241e4f8a3685aabf5fe4a",
+      "caps": {
+        "new": 0,
+        "old": 0,
+        "new_only": [],
+        "resolved": []
+      },
+      "lengths": {
+        "history": {
+          "total": 1251443,
+          "maximum": 10605,
+          "top5_total": 36352,
+          "aggregate_tokens_per_second": 1228.366098012788,
+          "generation_seconds": 1018.7866646796465,
+          "checkpoint_io_seconds": 0.19733652472496033
+        },
+        "RC14": {
+          "total": 1262700,
+          "maximum": 9696,
+          "top5_total": 35229,
+          "aggregate_tokens_per_second": 1256.9582129121081,
+          "generation_seconds": 1004.5680015683174,
+          "checkpoint_io_seconds": 0.1799604743719101
+        }
+      },
+      "tail_observations_30s_resolution": {
+        "1": {
+          "first_observed_elapsed": 990.3836606889963,
+          "completed": 1318,
+          "running": 1,
+          "remaining_seconds_lower_bound": 28.403003990650177
+        },
+        "8": {
+          "first_observed_elapsed": 960.3820511996746,
+          "completed": 1316,
+          "running": 3,
+          "remaining_seconds_lower_bound": 58.404613479971886
+        },
+        "32": {
+          "first_observed_elapsed": 930.3665313273668,
+          "completed": 1301,
+          "running": 18,
+          "remaining_seconds_lower_bound": 88.42013335227966
+        }
+      },
+      "largest_token_increases": [
+        {
+          "dataset_index": 415,
+          "delta": 3071
+        },
+        {
+          "dataset_index": 1213,
+          "delta": 2682
+        },
+        {
+          "dataset_index": 301,
+          "delta": 2518
+        },
+        {
+          "dataset_index": 93,
+          "delta": 2416
+        },
+        {
+          "dataset_index": 347,
+          "delta": 2317
+        }
+      ],
+      "largest_token_decreases": [
+        {
+          "dataset_index": 1176,
+          "delta": -5934
+        },
+        {
+          "dataset_index": 924,
+          "delta": -4074
+        },
+        {
+          "dataset_index": 989,
+          "delta": -3644
+        },
+        {
+          "dataset_index": 1071,
+          "delta": -3635
+        },
+        {
+          "dataset_index": 255,
+          "delta": -3317
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Earlier divergence than either intervention excludes direct local lexical action as its cause; does not identify batch numerical or state error cause.",
+    "After-intervention divergence is compatible with an effect, not proof of beneficial causality.",
+    "Historical R protocols differ; RC14 comparison uses earliest intervention of BOTH trajectories.",
+    "No logits, per-step batch membership, CUDA kernel timings or per-question finish timestamps were saved.",
+    "30s snapshots give observed lower bounds for tails, not exact duration or counterfactual savings.",
+    "All subgroup and extreme-row analyses are post hoc descriptive; no retuning or new efficacy test.",
+    "Initial wave means first max_num_seqs input indices, a capacity-based proxy only; actual per-step batch membership was not logged. Refill attribution remains a hypothesis."
+  ],
+  "initial_wave_audit": {
+    "1p5b_math_test": {
+      "initial_batch_capacity": 256,
+      "initial_wave_suspect": 0,
+      "later_suspect": 51,
+      "total_suspect": 51
+    },
+    "1p5b_gsm8k_test": {
+      "initial_batch_capacity": 256,
+      "initial_wave_suspect": 0,
+      "later_suspect": 211,
+      "total_suspect": 211
+    },
+    "7b_math_test": {
+      "initial_batch_capacity": 32,
+      "initial_wave_suspect": 0,
+      "later_suspect": 59,
+      "total_suspect": 59
+    },
+    "7b_gsm8k_test": {
+      "initial_batch_capacity": 32,
+      "initial_wave_suspect": 0,
+      "later_suspect": 217,
+      "total_suspect": 217
+    }
+  },
+  "screen100_before_both": {
+    "count": 8,
+    "first32": 0,
+    "source_hashes": {
+      "E:\\srtp\\B-history-screen-r2_0914\\results\\R\\result.json": "43a549e6ede975bc562638144d2a878b7d91c0326840352ca8d06d1468f668a6",
+      "E:\\srtp\\B-history-screen-r2_0914\\results\\RC14\\result.json": "4869ff1fab2cbd05d029fd6d5ba0d68acb767675eb3b1522f81ec01a326e50f3",
+      "E:\\srtp\\B-history-screen-r2_0914\\results\\RChistory\\result.json": "e81aa781fad4927e65c2868ac935f831d3b7b3bcfdd3807a25d61cab21f0cccf"
+    }
+  },
+  "source_review": {
+    "source_commit": "d0a7295f83f8be4938b50506c0047ea3d7a6e23f",
+    "files": {
+      "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/gumbel.py": "f4721ad9e90850c66a0ee0e60580052f02e55f80cbfbfad29c0e6bfb6fd3edc8",
+      "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py": "d9bb1a4f0410e958cc8e9658ef816dae619601dfc7d0854e9a68d52c7663c0ff",
+      "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py": "94cdd6fa8480db526a5e9216e29d9ca2412b90ec96ecbd7329f0b49f0ed73179"
+    },
+    "observations": [
+      "Explicit request seed selects native top-p then Gumbel path; seed is request-specific and RNG uses absolute position plus vocabulary offset, not global queue order directly.",
+      "Gumbel source is byte-identical in git to frozen1.5B commit836e37b. Sampler changed only optional after_filter branch; this adapter never passes it.",
+      "Adapter applies finite lexical subtraction before temperature/top-p. When its mask is false the gathered values are written back unchanged; no local lexical subtraction occurs.",
+      "These source checks do not prove identical runtime logits, batch layouts, slot mappings, compiled kernels or numerical paths.",
+      "Historical RC14/common current source hashes differ only in adapter/policy/grading and7B replay adapter;7B max_model_len also17408->17920. No simultaneous same-runtime reference repeat exists.",
+      "First-reflection lookup/state-update kernels and completion scalar transfer add work; existing logs have no kernel timing to measure their isolated overhead."
+    ],
+    "runtime_evidence": "No NVIDIA/server connection or model execution performed in this diagnostic.",
+    "excluded_explanations": "Do not claim unseeded random sampling, log file writing, or KV replay alone explains these results. I/O<0.21s per new dataset;1.5B replay0.",
+    "still_unresolved": [
+      "batch-dependent floating point/attention paths",
+      "request-slot/controller state correspondence during refill",
+      "historical runtime/settings and repeat variability"
+    ]
+  },
+  "decision": "Keep RC14 fixed; postpone independent200 confirmation until attribution engineering. Diagnose saved development8; no model-specific superiority claim."
+}

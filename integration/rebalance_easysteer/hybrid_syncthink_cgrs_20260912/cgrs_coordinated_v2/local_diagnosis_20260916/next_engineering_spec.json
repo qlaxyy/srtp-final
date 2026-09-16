@@ -1,0 +1,47 @@
+{
+  "status": "design_only_requires_implementation_and_CPU_gate_before_GPU_request",
+  "gpu_authorized": false,
+  "purpose": "Separate local sampler/state error from batch/refill numerical effects before further effectiveness evaluation",
+  "input": "engineering_inputs.json: exactly8 previously exposed7B training examples; no gold-based selection or fresh data",
+  "stages": [
+    {
+      "name": "same_distribution_sampler_replay",
+      "scope": "Capture identical pre-penalty logits/controller state/seed/position for the8 fixed prefixes, compare native,off,shadow,history with forcibly inactive mask. Replay retained tensors; no correctness scoring.",
+      "required": [
+        "logits checksum before and after",
+        "bitwise unmodified logits when inactive",
+        "exact sampled token and seed/position correspondence",
+        "request-ID to model/controller/adapter slot correspondence"
+      ]
+    },
+    {
+      "name": "same_prefix_batch_shape",
+      "scope": "Use each saved prefix with validated teacher-forced R history; compare fixed batch layout to controlled refill/companion layouts at identical input prefix. Record logits and sampled tokens; do not silently compare unequal prefixes.",
+      "required": [
+        "teacher-forced R confidence/history restoration CPU and GPU validation",
+        "identical run repeated before any batch-shape contrast",
+        "batch/request/position trace and numerical error,not only final text"
+      ]
+    },
+    {
+      "name": "cost_profile",
+      "scope": "Profile same fixed input lengths and batch shapes with nativeR,RC14,history; separate model,confidence,sampler,gate kernels and host completion transfer; synchronize only at measurement boundaries.",
+      "required": [
+        "same-work throughput and timing",
+        "startup/warmup excluded and separately recorded",
+        "memory/preemption statistics"
+      ]
+    }
+  ],
+  "acceptance": [
+    "Inactive-mask logits and sampled token must match exactly under identical stored inputs; any mismatch stops method confirmation.",
+    "If identical-layout repeat already differs, investigate repeatability first; do not label differences as a gate effect.",
+    "Batch sensitivity alone must be reported as whole-pipeline variability,not fixed by relaxing correctness or prefix gates.",
+    "Do not consume confirmation200 until independent data coordination and diagnostic review."
+  ],
+  "remaining_work": [
+    "Implement capture/replay harness with default-off instrumentation without changing shared controller behavior",
+    "Freeze exact per-case input lengths/forwards,commands,artifact hashes,time budget and stop limits after CPU validation",
+    "Only then request bounded GPU batch; no commands claimed ready now"
+  ]
+}
