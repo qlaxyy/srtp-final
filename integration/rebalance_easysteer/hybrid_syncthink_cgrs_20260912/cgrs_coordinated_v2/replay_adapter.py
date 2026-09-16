@@ -8,8 +8,8 @@ from adapter import Adapter
 class ReplayAdapter(Adapter):
     fields=('opening','thinking','count','prompt_len','eligible_count','changed_count','first_change')
 
-    def __init__(self,llm,tokenizer,mode='off',gate_on=False,*,trigger_profile='original14',history_gate='none'):
-        super().__init__(llm,tokenizer,mode,gate_on,trigger_profile=trigger_profile,history_gate=history_gate)
+    def __init__(self,llm,tokenizer,mode='off',gate_on=False,*,trigger_profile='original14',history_gate='none',penalty_mode='fixed',lower_bound=None,constant_scale=None):
+        super().__init__(llm,tokenizer,mode,gate_on,trigger_profile=trigger_profile,history_gate=history_gate,penalty_mode=penalty_mode,lower_bound=lower_bound,constant_scale=constant_scale)
         if not self.enabled:return
         if history_gate != 'none':self.fields=type(self).fields+('first_reflection',)
         if self.runner.vllm_config.scheduler_config.async_scheduling:
@@ -59,6 +59,7 @@ class ReplayAdapter(Adapter):
             if rid in self.active or rid in self.completed:raise RuntimeError('Request ID reused')
             slot=self.runner.req_states.req_id_to_index[rid]
             if rid not in self.runner.steer_vector_state._dynamic_indices:raise RuntimeError('R required')
+            self.check_penalty_request(rid)
             self.active[rid]=slot
             saved=self.suspended.pop(rid,None)
             if saved is not None:

@@ -1,0 +1,40 @@
+{
+  "status": "CPU implementation complete; native parity and GPU engineering pending",
+  "tests_passed": 68,
+  "python310_parse": true,
+  "new_forwards": 0,
+  "new_generations": 0,
+  "production_default": "fixed, original14, no history gate",
+  "new_options": {
+    "penalty_mode": [
+      "coefficient_scaled",
+      "calibration_constant"
+    ],
+    "lower_bound": "Must match actual request ReBalance params, paper path rejected.",
+    "constant_scale": "Calibration-only, still provisional until native FP32 replay."
+  },
+  "validation": [
+    "Existing tests compare default sampler output and lifecycle arrays with frozen sampler source.",
+    "Candidate sampler tested with negative/positive/nonfinite/answer/invalid-prefill masks.",
+    "Shadow unchanged; off touches no engine or tokenizer.",
+    "Native and replay use same sampler and penalty function; replay restores existing state without new per-request history."
+  ],
+  "limitations": [
+    "NumPy fixtures do not prove CUDA or native PyTorch equality.",
+    "No new experiment runner or authorization issued.",
+    "Calibration replay uses original greedy logs and analytical double precision; exact native floating-point eligibility remains pending.",
+    "Changed counters retain old meaning: eligible logit-update calls, not changed sampled-token count or measurable BF16 change."
+  ],
+  "next_required": [
+    "Use an already-installed PyTorch/tokenizer runtime for native CPU controller and tokenizer flag parity; no package changes.",
+    "Freeze constant-control value after native replay, record any difference from provisional value.",
+    "Prepare isolated GPU engineering entry and exact bounded batch/commands before asking to open GPU."
+  ],
+  "source_sha256": {
+    "policy.py": "40462f53d50413d49a63a0662efa07ebce676da3341a9e4483fc4ad335321d20",
+    "adapter.py": "0fccdc21e604a52dd3aea4c1665543990b2e4a799a1a70fabc2d873235dd207c",
+    "replay_adapter.py": "94aea7ba2de30d907497786409a0b36946179a244d4855906d337b65dfd1e0b3",
+    "calibrate_penalty_scale_cpu.py": "77c7e64a4a8ffb3df101b37327734a6a87846f55f6add56030d40369c22c77fa",
+    "test_penalty_adapter_cpu.py": "e4e530dcbbcd271fd8d332dfb310cec1c10596544dc2c950e4c619b7a7d06311"
+  }
+}

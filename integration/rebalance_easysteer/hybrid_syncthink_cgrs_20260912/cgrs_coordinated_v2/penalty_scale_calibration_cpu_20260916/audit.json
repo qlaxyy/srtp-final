@@ -1,0 +1,55 @@
+{
+  "results": {
+    "1.5B": {
+      "questions": 500,
+      "covered_questions": 500,
+      "eligible_slots": 59155,
+      "constant_scale": 0.31585543621205237,
+      "constant_penalty": 0.21893430507491574,
+      "scale_quantiles": [
+        1.8211010101911296e-07,
+        0.009487242790409915,
+        0.14707626604735957,
+        0.3684037492791914,
+        1.0
+      ],
+      "lower_bound": -1.5353450143175593,
+      "fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "generations_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+    },
+    "7B": {
+      "questions": 500,
+      "covered_questions": 500,
+      "eligible_slots": 39417,
+      "constant_scale": 0.32748362577939666,
+      "constant_penalty": 0.226994351888537,
+      "scale_quantiles": [
+        2.2278907863300536e-26,
+        0.077397671823015,
+        0.24888533759547413,
+        0.37444434500699614,
+        1.0
+      ],
+      "lower_bound": -1.478875294778046,
+      "fit_sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+      "generations_sha256": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362"
+    }
+  },
+  "input_sha256": {
+    "E:\\srtp\\srtp-final\\.codex_work\\label_audit_30_20260910\\tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\EasySteer\\vllm-steer\\vllm\\steer_vectors\\rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+    "E:\\srtp\\srtp-final\\.codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz": "4107b807450a0a810c4df483846ba9be4255fe96c9615c4a1984e0c0c7954ada",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\calibration\\generations.jsonl": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\fit.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+  },
+  "source_sha256": "77c7e64a4a8ffb3df101b37327734a6a87846f55f6add56030d40369c22c77fa",
+  "scope": "Exact original token positions with analytical float64 R coefficients, on unsteered greedy calibration trajectories.",
+  "limitations": [
+    "Not online steered trajectory exposure or counterfactual token saving.",
+    "Native FP32 coefficient and tokenizer flag parity remain required; values provisional until verified.",
+    "All errors and capped calibration outputs retained; no answer-based selection.",
+    "Whitespace opening slots counted individually as actual adapter would; new paths can have different dose."
+  ],
+  "gpu_ready": false
+}

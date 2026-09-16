@@ -6,11 +6,11 @@ the explicit native gate; a CPU reference check is not GPU validation.
 import hashlib
 import math
 
-from policy import PENALTY, token_flags, trigger_vocabulary
+from policy import PENALTY, token_flags, trigger_vocabulary, validate_penalty, device_penalty
 
 
 class Adapter:
-    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14', history_gate='none'):
+    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14', history_gate='none', penalty_mode='fixed', lower_bound=None, constant_scale=None):
         self.mode = mode
         self.enabled = mode != 'off'
         if mode not in ('off', 'shadow', 'negative', 'always'):
@@ -19,6 +19,10 @@ class Adapter:
             return  # Strict default-off path: install no hooks or device buffers.
         if not gate_on:
             raise ValueError('Explicit experimental gate_on is required')
+        validate_penalty(penalty_mode, lower_bound, constant_scale)
+        if penalty_mode != 'fixed' and (mode not in ('negative','shadow') or trigger_profile != 'original14' or history_gate != 'none'):
+            raise ValueError('Penalty candidate requires original14, negative/shadow, no history gate')
+        self.penalty_mode, self.lower_bound, self.constant_scale = penalty_mode, lower_bound, constant_scale
         triggers = trigger_vocabulary(trigger_profile)
         self.trigger_profile = trigger_profile
         if history_gate not in ('none','after_first_reflection'):
@@ -74,6 +78,12 @@ class Adapter:
     def reject_preempt(*args, **kwargs):
         raise RuntimeError('Stop: coordinated adapter has not validated preemption')
 
+    def check_penalty_request(self, rid):
+        if getattr(self, 'penalty_mode', 'fixed') != 'fixed':
+            params = self.runner.steer_vector_state._dynamic_params[rid]
+            if params.paper_parameters is not None or min(params.low_val_1, params.low_val_2) != self.lower_bound:
+                raise ValueError('Penalty bound must match actual frozen ReBalance parameters')
+
     def add_requests(self, output):
         # Reject unsupported requests before mutating the native runner.
         for r in output.scheduled_new_reqs:
@@ -92,6 +102,7 @@ class Adapter:
             slot = self.runner.req_states.req_id_to_index[rid]
             if self.mode in ('negative','shadow') and rid not in state._dynamic_indices:
                 raise ValueError('Negative gate needs the actual ReBalance controller')
+            self.check_penalty_request(rid)
             self.active[rid] = slot
             self.opening[slot] = False
             self.thinking[slot] = 151648 in r.prompt_token_ids
@@ -156,7 +167,12 @@ class Sampler:
             # Raw R maximum probability was already computed by model_runner.
             # This is before temperature/top-p. Final probability is NOT halved.
             values = logits[:, o.ids]
-            logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
+            penalty_mode = getattr(o, 'penalty_mode', 'fixed')
+            if penalty_mode == 'fixed':
+                logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
+            else:
+                amount = device_penalty(t, coefficient, penalty_mode, o.lower_bound, o.constant_scale)
+                logits[:, o.ids] = t.where(mask[:,None], values-amount[:,None], values)
             o.changed_count[idx] += mask.to(t.int64)
             o.first_change[idx] = t.where(mask & (o.first_change[idx]<0), o.count[idx], o.first_change[idx])
         result = o.original_sampler(logits, batch, **kwargs)

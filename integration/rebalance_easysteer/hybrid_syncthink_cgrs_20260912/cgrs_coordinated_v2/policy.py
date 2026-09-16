@@ -7,6 +7,32 @@ No probe, answer substitution, extra RNG, or claim that confidence proves truth.
 import math
 
 PENALTY = math.log(2)
+
+
+def validate_penalty(mode, lower_bound, constant_scale):
+    if mode == 'fixed':
+        if lower_bound is not None or constant_scale is not None:
+            raise ValueError('Fixed penalty takes no new parameters')
+        return
+    if mode not in ('coefficient_scaled', 'calibration_constant'):
+        raise ValueError('Unknown penalty mode')
+    if lower_bound is None or not math.isfinite(lower_bound) or lower_bound >= 0:
+        raise ValueError('Finite negative model-specific lower bound required')
+    if mode == 'calibration_constant':
+        if constant_scale is None or not math.isfinite(constant_scale) or not 0 < constant_scale <= 1:
+            raise ValueError('Frozen calibration scale must be in (0, 1]')
+    elif constant_scale is not None:
+        raise ValueError('Scaled mode takes no constant scale')
+
+
+def device_penalty(torch, coefficient, mode, lower_bound, constant_scale):
+    """New modes only; fixed mode retains its original scalar subtraction."""
+    if mode == 'calibration_constant':
+        return torch.full_like(coefficient, PENALTY * constant_scale)
+    if mode != 'coefficient_scaled':
+        raise ValueError(mode)
+    safe = torch.where(torch.isfinite(coefficient), coefficient, torch.zeros_like(coefficient))
+    return PENALTY * torch.clamp(safe / lower_bound, min=0.0, max=1.0)
 TRIGGERS = {
     14190: 'Wait', 13824: ' Wait', 11489: 'wait', 3783: ' wait',
     3983: 'But', 1988: ' But', 8088: 'but', 714: ' but',
