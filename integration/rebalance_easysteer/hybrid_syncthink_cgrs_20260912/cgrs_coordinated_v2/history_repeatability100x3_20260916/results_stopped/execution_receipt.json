@@ -1,0 +1,11 @@
+{
+  "gpu_authorized": true,
+  "scope": "history_repeatability_100x3x3_only",
+  "authorized_phases": [
+    "screen"
+  ],
+  "reuse_exposed_rows": true,
+  "plan_sha256": "f503fcb6fcae84ce5164243ff28efcd856f4699c1111af6323be3834df39ffc7",
+  "execution_commit": "0569986c658842d8f17d3209284f401539022337",
+  "authorization": "User authorized fixed900 answer repeatability batch on cloned server port21095"
+}

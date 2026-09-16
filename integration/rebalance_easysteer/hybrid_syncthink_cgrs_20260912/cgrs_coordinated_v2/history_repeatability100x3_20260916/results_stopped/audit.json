@@ -1,0 +1,19 @@
+{
+  "status": "user_stopped_no_resume",
+  "execution_commit": "0569986c658842d8f17d3209284f401539022337",
+  "server_port": 21095,
+  "archive_sha256": "95d834273afd411ff705ea32424f161474b478d156a89cd2c3a3c9bfd3e49511",
+  "archive_bytes": 7978932,
+  "verified_files": 148,
+  "raw_root": "E:\\srtp\\B-repeatability-stopped_0916",
+  "complete_arms": 6,
+  "complete_answers": 600,
+  "unique_questions": 100,
+  "incomplete_arm_completed_answers": 93,
+  "incomplete_arm_excluded": true,
+  "complete_arms_generation_seconds": 3103.0635421010666,
+  "grade_seconds": 48.35795736312866,
+  "planned_protocol_completed": false,
+  "decision": "Retain RC14; no stable advantage of history gate shown in two complete repeats. No formal three-seed promotion decision. No further repetitions; next work only with user-scoped new questions and a single fixed seed.",
+  "user_preference": "User requested stop:100 questions suffice for this small check; do not repeat same100 across3seeds."
+}
