@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_forced_token_is_observed_and_hooks_restore (__main__.NativeLayout.test_forced_token_is_observed_and_hooks_restore) ... ok\ntest_invalid_input_or_slot_never_reaches_native_forward (__main__.NativeLayout.test_invalid_input_or_slot_never_reaches_native_forward) ... ok\ntest_reference_restores_nan_scalars_and_history_before_forward (__main__.NativeLayout.test_reference_restores_nan_scalars_and_history_before_forward) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.024s\n\nOK\n"
+}

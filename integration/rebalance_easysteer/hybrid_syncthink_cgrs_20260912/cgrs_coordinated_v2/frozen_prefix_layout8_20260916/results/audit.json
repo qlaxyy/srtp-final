@@ -1,0 +1,66 @@
+{
+  "status": "layout_sensitivity_demonstrated_on_fixed_prefixes",
+  "execution_commit": "9677684759728758addf2758380d6af9f8168abf",
+  "plan_sha256": "4dae62b76787f5517174bba951a302f7be2c8d31b385576706d7ba40be164e75",
+  "raw_root": "E:\\srtp\\B-layout8_0916",
+  "archive_sha256": "816d95ccad03c24069064ad7994d9e4f79a11317b54a9c8a4497f963a243879e",
+  "archive_bytes": 26817445,
+  "verified_files": 32,
+  "native_cpu_tests": 9,
+  "phases": {
+    "reference8": {
+      "state_positions": 1024,
+      "selected_logits": 32,
+      "native_draw_differences": 0,
+      "confidence_differences": 0,
+      "selected_logit_differences": 0,
+      "instrumented_generation_seconds": 3.7809358686208725,
+      "engine_steps": 128,
+      "model_input_tokens": 1764
+    },
+    "repeat8": {
+      "state_positions": 1024,
+      "selected_logits": 32,
+      "native_draw_differences": 0,
+      "confidence_differences": 0,
+      "selected_logit_differences": 0,
+      "instrumented_generation_seconds": 4.0195266753435135,
+      "engine_steps": 128,
+      "model_input_tokens": 1764
+    },
+    "single1": {
+      "state_positions": 1024,
+      "selected_logits": 32,
+      "native_draw_differences": 17,
+      "confidence_differences": 604,
+      "selected_logit_differences": 32,
+      "instrumented_generation_seconds": 22.093271777033806,
+      "engine_steps": 1024,
+      "model_input_tokens": 1764,
+      "max_selected_logit_abs": 0.4375,
+      "max_selected_relative_l2": 0.04132499173283577
+    },
+    "refill4plus4": {
+      "state_positions": 1024,
+      "selected_logits": 32,
+      "native_draw_differences": 12,
+      "confidence_differences": 601,
+      "selected_logit_differences": 32,
+      "instrumented_generation_seconds": 4.986568838357925,
+      "engine_steps": 160,
+      "model_input_tokens": 1764,
+      "max_selected_logit_abs": 0.3125,
+      "max_selected_relative_l2": 0.02902798540890217
+    }
+  },
+  "total_instrumented_generation_seconds": 34.88030315935612,
+  "whole_command_seconds": 89.83739018440247,
+  "limitations": [
+    "New reference R states, not historical hidden-state reconstruction.",
+    "4096 forced tokens are engineering positions, not task answers.",
+    "Layout comparison includes shape, mixed prefill, padding, slot and KV placement effects; individual kernel root cause unresolved.",
+    "32 selected logits per phase; draws and confidence checked at all1024 positions.",
+    "Observed historical effect estimates preserved; this does not establish synergy or explain every historical divergence."
+  ],
+  "next_decision": "Keep RC14 frozen. Before new efficacy confirmation, predeclare layout-matched scheduling or repeated-seed paired controls; do not tune thresholds on exposed test outcomes. No further GPU run authorized by this batch."
+}
