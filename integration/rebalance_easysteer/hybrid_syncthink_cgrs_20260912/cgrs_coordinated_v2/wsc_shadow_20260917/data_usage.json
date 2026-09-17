@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "train_index": 647,
+      "normalized_question_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 1837,
+      "normalized_question_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 4972,
+      "normalized_question_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 1441,
+      "normalized_question_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 4432,
+      "normalized_question_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 3497,
+      "normalized_question_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 1483,
+      "normalized_question_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    },
+    {
+      "train_index": 229,
+      "normalized_question_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
+      "purpose": "exposed engineering only",
+      "public_wsc_source_exact_overlap": false
+    }
+  ],
+  "new_independent_split": false,
+  "previous_use": "SAT engineering; existing shared engineering rows",
+  "no_formal_metrics": true
+}
