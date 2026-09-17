@@ -1,0 +1,20 @@
+{
+  "pid": 2307,
+  "start_unix": 1789622967.17079,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "900s",
+    "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "-u",
+    "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/run_wsc_long_shadow.py",
+    "--plan",
+    "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/wsc_native_long_20260917/plan.json",
+    "--output-root",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_native_long_20260917",
+    "--gpu-authorized"
+  ],
+  "code_commit": "4b0ee3b",
+  "authorization": "Autonomous research authorized by current user; one8-question native observation, max16000each, no active new intervention."
+}

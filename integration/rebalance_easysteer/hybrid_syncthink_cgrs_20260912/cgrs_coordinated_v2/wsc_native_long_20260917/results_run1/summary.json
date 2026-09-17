@@ -1,0 +1,27 @@
+{
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH Train, previously exposed engineering rows",
+  "arms": [
+    "RC14_wsc_shadow"
+  ],
+  "questions": 8,
+  "seed": 42,
+  "max_tokens": 16000,
+  "generated_tokens": 40814,
+  "thinking_tokens": 37056,
+  "caps": 0,
+  "scored_boundaries": 1139,
+  "trigger_questions": [
+    647,
+    4432,
+    229
+  ],
+  "exact_copy64_third_copy_questions": [],
+  "prior512_token_and_control_match_questions": 8,
+  "generation_seconds": 143.63382245600224,
+  "startup_seconds": 22.394335061311722,
+  "wall_seconds": 168.6031699925661,
+  "cpu_scoring_seconds": 0.4419120252132416,
+  "added_probe_forward_calls": 0,
+  "scope": "Single-arm shadow engineering observation; no compression, accuracy-delta, or synergy estimate. Full native BF16 observations do not reverse the failed BF16 cross-partition replay gate."
+}
