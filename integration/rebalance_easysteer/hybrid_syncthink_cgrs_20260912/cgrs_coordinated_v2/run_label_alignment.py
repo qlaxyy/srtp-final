@@ -11,9 +11,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 
 
 def validate(plan,release,phase):
-    assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==500
-    assert [a['name'] for a in plan['arms']]==['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control']
-    assert release['plan_sha256']==sha(HERE/'label_alignment_20260917/plan_v2_math500.json')
+    gsm=plan.get('dataset_key')=='gsm8k'
+    assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
+    assert [a['name'] for a in plan['arms']]==(['L27_L27'] if gsm else ['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control'])
+    assert release['plan_sha256']==sha(HERE/release.get('plan_relative_path','label_alignment_20260917/plan_v2_math500.json'))
     assert release['table_schema']=='compact-token-classes-v1'
     assert release['source_hash_mode']=='lf-normalized'
     for n,h in release['source_sha256'].items():
@@ -29,17 +30,26 @@ def main():
     p.add_argument('--phase',choices=['engineering','full'],required=True)
     p.add_argument('--engineering-result',type=Path)
     args=p.parse_args();release=read(args.release)
-    plan=read(HERE/'label_alignment_20260917/plan_v2_math500.json');validate(plan,release,args.phase)
+    plan=read(HERE/release.get('plan_relative_path','label_alignment_20260917/plan_v2_math500.json'));validate(plan,release,args.phase)
     if args.phase=='full':
         gate=read(args.engineering_result/'complete.json')
         assert gate['phase']=='engineering' and gate['passed']
-        assert gate['release_sha256']==sha(args.release)
+        assert gate['release_sha256']==release.get('engineering_parent_release_sha256',sha(args.release))
+        if 'engineering_parent_release_sha256' in release:
+            assert sha(args.engineering_result/'complete.json')==release['engineering_complete_sha256']
+            prior=read(HERE/'label_alignment_20260917/release_v2.json')
+            assert sha(HERE/'label_alignment_20260917/release_v2.json')==release['engineering_parent_release_sha256']
+            for n,h in prior['source_sha256'].items():
+                if n not in ('run_label_alignment.py','grade_label_alignment.py'):
+                    assert release['source_sha256'][n]==h,n
+            assert release['runtime_source_sha256']==prior['runtime_source_sha256']
+            assert release['assets']==prior['assets']
     assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
     args.output.mkdir(parents=True,exist_ok=False)
     save(args.output/'plan.json',plan);save(args.output/'release.json',release)
     began=time.monotonic();done=[];monitor=None
     def timeout(*_):raise TimeoutError('Fixed batch ceiling; preserve partial results')
-    signal.signal(signal.SIGALRM,timeout);signal.alarm(1200 if args.phase=='engineering' else 9000)
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(1200 if args.phase=='engineering' else plan.get('process_hard_stop_seconds',9000))
     try:
         assets=release['assets']
         for name,meta in assets['model_files'].items():assert sha(Path(assets['model_path'])/name)==meta['sha256'],name
@@ -69,7 +79,7 @@ def main():
         names=[a['name'] for a in plan['arms']]
         if args.phase=='engineering':names=['RC14','RC14_extension_off']+names
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
-        assert len(rows)==(8 if args.phase=='engineering' else 500)
+        assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         cap=512 if args.phase=='engineering' else 16000
         prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
         assert max(map(len,prompts))+cap<=32768
@@ -106,7 +116,7 @@ def main():
                 mapping={ops[r].external_req_id:r for r in ids};rowmap=dict(zip(ids,rows))
                 with (folder/'partial.jsonl').open('x',encoding='utf8') as f:
                     while llm.llm_engine.has_unfinished_requests() or core.batch_queue:
-                        if time.monotonic()-start>(150 if args.phase=='engineering' else 1500):raise TimeoutError(name)
+                        if time.monotonic()-start>(150 if args.phase=='engineering' else plan.get('hard_stop_seconds_per_arm',1500)):raise TimeoutError(name)
                         for output in llm.llm_engine.step():
                             assert output.finished
                             rid=mapping[output.request_id];ans=output.outputs[0];ts=list(ans.token_ids)

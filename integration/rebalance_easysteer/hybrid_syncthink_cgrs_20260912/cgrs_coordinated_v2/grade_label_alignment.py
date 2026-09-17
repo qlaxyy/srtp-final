@@ -53,8 +53,9 @@ def main():
     complete=read(a.run/'complete.json');assert complete['phase']=='full' and complete['passed']
     release=read(a.run/'release.json');plan=read(a.run/'plan.json')
     assert not (a.run/'analysis.json').exists()
-    refs_path=Path(__file__).parent/'label_alignment_20260917/historical_compact.json'
-    assert sha(refs_path)==release['artifact_sha256']['historical_compact.json']
+    refs_name=release.get('references_artifact','historical_compact.json')
+    refs_path=Path(__file__).parent/'label_alignment_20260917'/refs_name
+    assert sha(refs_path)==release['artifact_sha256'][refs_name]
     refs=read(refs_path);groups={k:v['records'] for k,v in refs['groups'].items()}
     for name,h in refs['grader_sha256'].items():assert sha(a.runtime_root/'sources/ReBalance/utils'/name)==h
     sys.path.insert(0,str(a.runtime_root/'sources/ReBalance'))
@@ -63,7 +64,7 @@ def main():
     started=time.monotonic();results={}
     for name in complete['arms']:
         folder=a.run/name;data=read(folder/'result.json');records=data['records']
-        assert data['status']=='complete' and len(records)==500
+        assert data['status']=='complete' and len(records)==len(plan['rows'])
         path=folder/'author_partial.jsonl'
         previous=[json.loads(s) for s in path.read_text(encoding='utf8').splitlines()] if a.resume and path.exists() else []
         labels=[]
@@ -76,11 +77,11 @@ def main():
                 if i<len(previous):
                     label=previous[i];assert all(label[k]==v for k,v in identity.items())
                 else:
-                    _,gold=parse_ground_truth(row,'math');answer=extract_answer(r['text'])
+                    _,gold=parse_ground_truth(row,plan.get('dataset_key','math'));answer=extract_answer(r['text'])
                     label=dict(identity,correct=bool(check_is_correct(answer,gold)))
                     f.write(json.dumps(label)+'\n');f.flush()
                 labels.append(dict(label,tokens=r['tokens'],thinking_tokens=r['thinking_tokens']))
-        assert len(previous)<=500
+        assert len(previous)<=len(plan['rows'])
         groups[name]=labels
         results[name]=dict(summary=summary(labels),comparisons={k:compare(groups[k],labels) for k in ('U','R','RC14')},
             generation_seconds=data['generation_seconds'],setup_seconds=data['setup_seconds'],
@@ -88,10 +89,10 @@ def main():
             source_result_sha256=sha(folder/'result.json'),labels_sha256=sha(path))
     save(a.run/'analysis.json',dict(status='complete exploratory full benchmark, no independent confirmation',
         candidates=results,references={k:summary(groups[k]) for k in ('U','R','RC14')},
-        factorial_interaction=interaction(groups),bootstrap_replicates=20000,
+        factorial_interaction=interaction(groups) if all(k in groups for k in ('T14_L27','T14_T14','L27_L27','RC14')) else None,bootstrap_replicates=20000,
         generation_seed=42,analysis_rng_seed=20260917,grading_and_analysis_seconds=time.monotonic()-started,
         limitations=['Same seed is not numerical equivalence across historical runtimes.',
-            'Five candidates and a repeatedly exposed test set: intervals are descriptive and unadjusted; do not select a winner and call it confirmed.',
+            'Candidate selection history and exposed test sets: intervals are descriptive and unadjusted; this is not untouched independent confirmation.',
             'Calibration and inference lexical scopes differ; same inventory alone does not guarantee benefit.']))
 
 
