@@ -1,0 +1,47 @@
+{
+  "source_sha256": {
+    "E:\\srtp\\B-strength-fullmath500_0917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\strength_1p5b_math500_scaled_run1_20260917\\math_test\\RCscaled\\result.json": "be6345f3fe5defcf8922ba1a8f362c913a956a292b09f99da5cc5ab1ee453292",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\cgrs_v2_full_run1_verified\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913\\math_test\\RCnegative\\result.json": "b22b7844068a5b080d4a59345aa09c5201bea0b3d828f74e8f3f0fc01234e011",
+    "E:\\srtp\\B-strength-fullmath500_0917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\strength_1p5b_math500_scaled_run1_20260917\\analysis.json": "6cf5df77a54f38fc6351c932c2e50e095e54a91c24c938746cf7fd58d4059ab2",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\cgrs_v2_full_run1_verified\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913\\analysis.json": "233bf88e147d2a4a02cfeb75710f6f9d3bcf7f26be8b2cb6fe7d6806cd8e4142"
+  },
+  "groups": {
+    "1->1": {
+      "n": 374,
+      "total_token_delta": 20037,
+      "mean_token_delta": 53.57486631016043,
+      "longer": 193
+    },
+    "1->0": {
+      "n": 32,
+      "total_token_delta": 131650,
+      "mean_token_delta": 4114.0625,
+      "longer": 23
+    },
+    "0->1": {
+      "n": 34,
+      "total_token_delta": -80812,
+      "mean_token_delta": -2376.823529411765,
+      "longer": 8
+    },
+    "0->0": {
+      "n": 60,
+      "total_token_delta": 29349,
+      "mean_token_delta": 489.15,
+      "longer": 31
+    }
+  },
+  "total_token_delta": 100224,
+  "pre_penalty_divergence": 142,
+  "cap_transitions": {
+    "old_only": 10,
+    "new_only": 12,
+    "both": 5
+  },
+  "limitations": [
+    "Historical asynchronous256 vs current synchronous128; prefix differences before intervention prohibit attributing all flips to penalty change.",
+    "This is descriptive post-test diagnosis, not threshold selection or independent evidence.",
+    "No per-step logits in full outputs; cannot infer candidate decision probabilities or counterfactual accuracy."
+  ],
+  "gpu_calls": 0
+}
