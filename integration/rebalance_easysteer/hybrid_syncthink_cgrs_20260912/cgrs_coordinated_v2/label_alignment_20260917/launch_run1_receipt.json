@@ -1,0 +1,40 @@
+{
+  "status": "Full run started; not completed or graded",
+  "execution_commit": "8602cd4",
+  "archive_sha256": "6fb1e6cef9e014128d785d4106efacfb7d54024280b2abd0609344894b777865",
+  "release_sha256": "341e77a6916ccfb78aa427c63798df9b0dcf42377bab5d9becb491435bc226af",
+  "engineering": {
+    "phase": "engineering",
+    "passed": true,
+    "arms": [
+      "RC14",
+      "RC14_extension_off",
+      "L27_L27",
+      "T14_T14",
+      "T14_L27",
+      "CV_CV",
+      "L27_L27_control"
+    ],
+    "release_sha256": "341e77a6916ccfb78aa427c63798df9b0dcf42377bab5d9becb491435bc226af",
+    "wall_seconds": 68.38693982362747
+  },
+  "engineering_generation_seconds": {
+    "CV_CV": 4.52423782646656,
+    "L27_L27": 4.702105894684792,
+    "L27_L27_control": 4.730355083942413,
+    "RC14": 4.663722112774849,
+    "RC14_extension_off": 4.447796538472176,
+    "T14_L27": 4.705267906188965,
+    "T14_T14": 4.484656170010567
+  },
+  "server_run": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/label_alignment_math500_v2_20260917/full_run1",
+  "last_snapshot": {
+    "arm": "L27_L27",
+    "completed_answers": 81,
+    "total": 500,
+    "gpu_utilization_percent": 67,
+    "note": "One instantaneous snapshot, not mean utilization or a result"
+  },
+  "networking": "System DNS returned proxy fake IP 198.18.0.110; AliDNS DoH resolved 58.144.141.28; HostName override with original SSH HostKeyAlias succeeded. No global DNS/proxy or host-key-check changes.",
+  "auto_chain": "engineering -> five full arms -> author grading; set -e, immutable unique output paths"
+}
