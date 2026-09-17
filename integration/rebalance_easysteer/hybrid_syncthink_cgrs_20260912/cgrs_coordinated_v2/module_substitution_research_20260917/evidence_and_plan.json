@@ -1,0 +1,114 @@
+{
+  "status": "CPU/literature design only; no GPU run, no benefit claimed",
+  "date": "2026-09-17",
+  "frozen_tag": "easysteer-rebalance-l27-v1-20260917",
+  "frozen_commit": "3489a752e84ce24b32f2edefe3b6751b7e2e58c9",
+  "principle": "Match the problem, identify the module and interface, substitute one factor, reuse frozen controls, retain failures.",
+  "evidence": [
+    {
+      "paper": "ATLAS",
+      "url": "https://arxiv.org/html/2601.03093v3",
+      "read": "Full official HTML body, references and appendices read. Local fetch_and_parse failed; no parsed read_plan or END-OF-PAPER sentinel exists.",
+      "locations": [
+        "3.2 equations 4-6",
+        "3.3 latent verifier",
+        "3.4 equation 7",
+        "A.2 Table 5",
+        "A.5 Tables 6-7",
+        "B.5 Table 14",
+        "B.8 Table 16"
+      ],
+      "gaps": [
+        "Official implementation not confirmed; paper promises code release.",
+        "Greedy, 8192-token cap and MATH 5000 differ from our protocol.",
+        "Table 13 and Table 16 report differing GSM8K numbers for alpha=1/full action set; do not use headline gains to predict ours.",
+        "Keyword labels are weak thought-type labels, not correctness labels.",
+        "Gaussian perturbation stability does not establish causal ranking of steering interventions."
+      ]
+    },
+    {
+      "paper": "RISER",
+      "url": "https://arxiv.org/html/2601.09269v1",
+      "read": "Method sections 3-4, experimental discussion and appendix D/E inspected; not claimed full-paper read.",
+      "locations": [
+        "3.3",
+        "4 equation 5",
+        "D.2",
+        "E Algorithm 1"
+      ],
+      "code": "https://github.com/gooogleshanghai/RISER-Orchestrating-Latent-Reasoning-Skills-for-Adaptive-Activation-Steering",
+      "code_status": "Repository lists riser folder and states code uploaded; implementation not audited.",
+      "decision": "Deferred: oracle grid search, SFT and GRPO are not a cheap replacement. Router runs once at prefill, unlike ReBalance step control."
+    },
+    {
+      "paper": "Self-Affirmation Refinement",
+      "id": "2506.12353",
+      "read": "Abstract/discovery only; full text retrieval failed.",
+      "decision": "No implementation recommendation from abstract."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "type_split_suppression",
+      "rank": 1,
+      "status": "Retained for CPU feasibility; test allocation not frozen.",
+      "problem": "L27 treats checking, strategy changes and ambiguous discourse alike. Useful corrections or alternate methods may be suppressed together with redundant checking.",
+      "paper_component": "ATLAS A.2 distinguishes reflection from transition.",
+      "our_design": "Keep original L27 extraction, fit, layer, controller, penalty, matcher and reset rules. Replace suppression selection only. First construct a fixed partition of current L27 entries into checking, transition, ambiguous. Do not import all ATLAS words or tune lists on frozen test outcomes.",
+      "example_checking": [
+        "wait",
+        "think again",
+        "make sure",
+        "let me check",
+        "hold on",
+        "double check",
+        "any errors"
+      ],
+      "example_transition": [
+        "alternatively",
+        "alternative",
+        "another",
+        "differently",
+        "alternate"
+      ],
+      "important": "Examples are proposed assignments, not a frozen full partition or a semantic guarantee. 'another' and 'wait' can have normal semantic uses.",
+      "cpu_next": [
+        "Audit original calibration step text by question, not frozen benchmark correctness, for prefix coverage, co-occurrence and ambiguous usage.",
+        "Record exact lexical rules, normalized question hashes and per-category coverage before deciding a candidate.",
+        "Compare candidate completion token masks to frozen L27; retain tokenizer identity, multi-token completion, thought opening and clean boundary behavior.",
+        "If categories mostly co-occur or disambiguation is not reliable, reject before GPU."
+      ],
+      "interface": "Separate opt-in table asset supplied to AlignmentAdapter(tables=..., large_suppression=True, enabled=True); retain lexicon_automaton compilation. No shared controller changes.",
+      "state": "Use existing per-request lex_state/lex_open/lex_hit and start/end/boundary/reuse resets unchanged. Confidence remains native pre-penalty signal; candidate mask remains gated by negative ReBalance coefficient.",
+      "future_comparison": "Frozen L27 versus checking-only and transition-only (mutually exclusive masks, union may exclude ambiguous entries). This identifies category policies but does not isolate semantics from intervention frequency; log attempted/effective mask events and probability mass. Do not call reduced intervention count semantic proof.",
+      "data_cost": "No new LLM forward for lexical CPU audit; no regeneration of 500 calibration answers. Later generation needs fixed one-seed comparison and predeclared accuracy loss <=2pp.",
+      "risk": "Reduced reflection coverage may lose compression; protecting strategy switches may preserve necessary correction, but switching can itself be redundant.",
+      "stop": "Reject if token benefit disappears, accuracy loss exceeds predeclared limit, or apparent benefit is only from failed/incomplete output."
+    },
+    {
+      "id": "latent_step_quality",
+      "rank": 2,
+      "status": "Reserve; not implemented",
+      "problem": "Token confidence measures model certainty, not whether the current reasoning step is useful or correct.",
+      "paper_component": "ATLAS 3.3/3.4 distils PRM step scores into a small latent verifier.",
+      "our_design": "Replace only controller decision signal in a future separate arm. Initially compare no steering versus the original ReBalance-proposed action, retain L27 suppression policy; do not simultaneously introduce E/R/T vectors.",
+      "data_cost": "Needs question-disjoint training/validation, offline step-quality labels and aligned hidden-state replay. Existing first-content-token features do not automatically equal ATLAS end-of-thought states. PRM labelling and replay require GPU; small-head training cost excludes these.",
+      "cpu_gate": "Audit whether labels/states exist and define exact boundary and causal feature availability. No whole-answer correctness copied onto every step.",
+      "risk": "Verifier may be miscalibrated on intervened states; argmax over h+v can exploit score without helping downstream reasoning. Natural-state held-out prediction alone cannot validate action ranking.",
+      "interface": "Would require explicit opt-in hidden-state read plus batched head at completed step boundary; specify shared interface before implementation. No modification now."
+    }
+  ],
+  "rejected_repeats": [
+    "Static SEAL execution vector already explored; do not rename it as new ATLAS adaptation.",
+    "Do not repeat failed strength, termination, vector-position and length-preservation searches without a new mechanism."
+  ],
+  "completed_cpu": [
+    "Verified 52 archived raw files against four existing run receipts before freeze.",
+    "Reviewed L27 vocabulary and AlignmentAdapter masking/reset path; no native controller changed."
+  ],
+  "not_completed": [
+    "No category-level calibration corpus statistics yet.",
+    "No new vector fitted, quality head trained or candidate benefit tested."
+  ],
+  "gpu_started": false
+}
