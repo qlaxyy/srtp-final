@@ -1,0 +1,11 @@
+{
+  "gpu_authorized": true,
+  "scope": "strength_1p5b_math500_scaled_only",
+  "authorized_phases": [
+    "full"
+  ],
+  "exposed_test_reuse_acknowledged": true,
+  "execution_commit": "20a6be0c724494bcaf98b541629306a9b3e29d99",
+  "plan_sha256": "896c160da600debc1b4abccf43dfcd4434f26e1506537bd6bc2616960e8db942",
+  "user_authorization": "Direct full 500 requested; only fixed RCscaled, historical U/R/RC14 reused; prior100 screen cancelled"
+}

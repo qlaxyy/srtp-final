@@ -1,0 +1,26 @@
+{
+  "protocol": "Frozen pre-generation requires compression and cap criteria against BOTH R and RC14, with observed <=2pp accuracy loss.",
+  "by_reference": {
+    "R": {
+      "accuracy_loss_observed_within_2pp": true,
+      "both_token_means_lower": true,
+      "caps_not_increased": true,
+      "accuracy_ci_noninferiority_2pp": false,
+      "wrong_to_right": 27,
+      "right_to_wrong": 30
+    },
+    "RC14": {
+      "accuracy_loss_observed_within_2pp": true,
+      "both_token_means_lower": false,
+      "caps_not_increased": false,
+      "accuracy_ci_noninferiority_2pp": false,
+      "wrong_to_right": 34,
+      "right_to_wrong": 32
+    }
+  },
+  "passes_both_references": false,
+  "recommendation": "Retain RC14; no retuning on MATH-500.",
+  "legacy_grader_field_note": "analysis.json passes_fixed_point_criteria only evaluates R. It is true but is NOT the whole new protocol. This explicit both-reference decision is authoritative.",
+  "no_constant_ablation": "User cancelled four-arm screen; mechanism versus simple weaker penalty remains unresolved.",
+  "historical_limitations": "Different scheduler and batch profiles; not causal synergy, untouched confirmation, or paired timing benchmark."
+}
