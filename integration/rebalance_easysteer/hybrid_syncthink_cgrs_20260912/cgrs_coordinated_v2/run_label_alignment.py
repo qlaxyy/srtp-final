@@ -13,7 +13,7 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    assert [a['name'] for a in plan['arms']]==(['L27_L27'] if gsm else ['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control'])
+    assert [a['name'] for a in plan['arms']]==(['L27_L27'] if gsm or plan.get('single_transfer') else ['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control'])
     assert release['plan_sha256']==sha(HERE/release.get('plan_relative_path','label_alignment_20260917/plan_v2_math500.json'))
     assert release['table_schema']=='compact-token-classes-v1'
     assert release['source_hash_mode']=='lf-normalized'
@@ -36,9 +36,11 @@ def main():
         assert gate['phase']=='engineering' and gate['passed']
         assert gate['release_sha256']==release.get('engineering_parent_release_sha256',sha(args.release))
         if 'engineering_parent_release_sha256' in release:
-            assert sha(args.engineering_result/'complete.json')==release['engineering_complete_sha256']
-            prior=read(HERE/'label_alignment_20260917/release_v2.json')
-            assert sha(HERE/'label_alignment_20260917/release_v2.json')==release['engineering_parent_release_sha256']
+            if 'engineering_complete_sha256' in release:
+                assert sha(args.engineering_result/'complete.json')==release['engineering_complete_sha256']
+            parent_path=HERE/release.get('engineering_parent_relative_path','label_alignment_20260917/release_v2.json')
+            prior=read(parent_path)
+            assert sha(parent_path)==release['engineering_parent_release_sha256']
             for n,h in prior['source_sha256'].items():
                 if n not in ('run_label_alignment.py','grade_label_alignment.py'):
                     assert release['source_sha256'][n]==h,n
@@ -71,10 +73,11 @@ def main():
         assert Path(vllm.__file__).resolve().is_relative_to(args.runtime_root/'sources/EasySteer/vllm-steer')
         tok=AutoTokenizer.from_pretrained(assets['model_path'],local_files_only=True)
         boundaries=sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s)
-        llm=LLM(model=assets['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=32768,
-            max_num_seqs=256,max_num_batched_tokens=32768,gpu_memory_utilization=.90,
+        rt=plan.get('execution',{});sync_replay=rt.get('sync_replay',False)
+        llm=LLM(model=assets['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=rt.get('max_model_len',32768),
+            max_num_seqs=rt.get('max_num_seqs',256),max_num_batched_tokens=rt.get('max_num_batched_tokens',32768),gpu_memory_utilization=rt.get('gpu_memory_utilization',.90),
             enable_steer_vector=True,steer_algorithms=['rebalance'],steer_graph_mode='in_graph',
-            enforce_eager=False,enable_chunked_prefill=False,enable_prefix_caching=False,async_scheduling=True,seed=42)
+            enforce_eager=False,enable_chunked_prefill=rt.get('chunked_prefill',False),enable_prefix_caching=False,async_scheduling=not sync_replay,seed=42)
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         names=[a['name'] for a in plan['arms']]
         if args.phase=='engineering':names=['RC14','RC14_extension_off']+names
@@ -82,7 +85,7 @@ def main():
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         cap=512 if args.phase=='engineering' else 16000
         prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
-        assert max(map(len,prompts))+cap<=32768
+        assert max(map(len,prompts))+cap<=rt.get('max_model_len',32768)
         save(args.output/'identity.json',dict(vllm=str(vllm.__file__),torch=torch.__version__,
             model=assets['model_path'],phase=args.phase,startup_seconds=time.monotonic()-began))
         reference=None
@@ -91,16 +94,27 @@ def main():
             calib='T14' if name in ('T14_T14','T14_L27') else 'CV' if name=='CV_CV' else None
             vp=HERE/'label_alignment_20260917'/calib/'auto_vector.pt' if calib else Path(assets['vector']['path'])
             fp=HERE/'label_alignment_20260917'/calib/'fit.json' if calib else Path(assets['fit']['path'])
-            steer=SteeringSpec(vectors=[VectorSpec(name='label_alignment_'+(calib or 'L27'),data=from_pt_direction(str(vp),layers=[20]),
-                algorithm='rebalance',scale=1.,layers=[20],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
+            layer=assets['decoder_output_layer']
+            assert read(fp)['decoder_output_layer']==layer
+            steer=SteeringSpec(vectors=[VectorSpec(name='label_alignment_'+(calib or 'L27'),data=from_pt_direction(str(vp),layers=[layer]),
+                algorithm='rebalance',scale=1.,layers=[layer],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
             large=name in ('L27_L27','T14_L27');lexical=name=='L27_L27_control'
             if large or lexical:
                 table=HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
                 with np.load(table) as z:tables={k:z[k] for k in z.files}
-                adapter=AlignmentAdapter(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True)
-            else:adapter=Adapter(llm,tok,mode='negative',gate_on=True)
+                AdapterType=AlignmentAdapter
+                if sync_replay:
+                    from replay_label_alignment import ReplayAlignmentAdapter
+                    AdapterType=ReplayAlignmentAdapter
+                adapter=AdapterType(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True)
+            else:
+                AdapterType=Adapter
+                if sync_replay:
+                    from replay_adapter import ReplayAdapter
+                    AdapterType=ReplayAdapter
+                adapter=AdapterType(llm,tok,mode='negative',gate_on=True)
             if name=='RC14_extension_off':
                 sampler=runner.sampler;unused=AlignmentAdapter(llm,tok,enabled=False)
                 assert runner.sampler is sampler;unused.close();assert runner.sampler is sampler
@@ -108,7 +122,9 @@ def main():
             stream_gpu=(folder/'gpu.csv').open('x')
             monitor=subprocess.Popen(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used,power.draw',
                 '--format=csv,noheader,nounits','--loop-ms=1000'],stdout=stream_gpu,stderr=subprocess.DEVNULL)
-            generated={};io=0.;torch.cuda.synchronize();start=time.monotonic()
+            generated={};io=0.;forced=False;steps=0
+            replay_before=dict(runner.steer_vector_state.replay_counts) if sync_replay else {}
+            torch.cuda.synchronize();start=time.monotonic()
             try:
                 ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=SamplingParams(
                     temperature=.7,top_p=.95,seed=42,max_tokens=cap,skip_special_tokens=False),steering=steer,use_tqdm=False)
@@ -116,7 +132,7 @@ def main():
                 mapping={ops[r].external_req_id:r for r in ids};rowmap=dict(zip(ids,rows))
                 with (folder/'partial.jsonl').open('x',encoding='utf8') as f:
                     while llm.llm_engine.has_unfinished_requests() or core.batch_queue:
-                        if time.monotonic()-start>(150 if args.phase=='engineering' else plan.get('hard_stop_seconds_per_arm',1500)):raise TimeoutError(name)
+                        if time.monotonic()-start>(240 if args.phase=='engineering' else plan.get('hard_stop_seconds_per_arm',1500)):raise TimeoutError(name)
                         for output in llm.llm_engine.step():
                             assert output.finished
                             rid=mapping[output.request_id];ans=output.outputs[0];ts=list(ans.token_ids)
@@ -124,6 +140,12 @@ def main():
                             rec=dict(rowmap[rid],token_ids=ts,tokens=len(ts),thinking_tokens=ts.index(151649) if 151649 in ts else len(ts),
                                 text=tok.decode(ts,skip_special_tokens=True),finish_reason=ans.finish_reason)
                             generated[rid]=rec;ts0=time.monotonic();f.write(json.dumps(rec,ensure_ascii=False)+'\n');f.flush();io+=time.monotonic()-ts0
+                        steps+=1
+                        if sync_replay and args.phase=='engineering' and not forced and steps>=32:
+                            req=core.scheduler.requests.get(ids[0])
+                            if req is not None and req in core.scheduler.running and req.num_output_tokens>=16:
+                                assert req.num_output_placeholders==0
+                                core.scheduler.running.remove(req);core.scheduler._preempt_request(req,time.monotonic());forced=True
                     llm.llm_engine.step()
                     for rid in ids:
                         if rid in runner.req_states.req_id_to_index:runner._remove_request(rid)
@@ -131,9 +153,16 @@ def main():
                 records=[generated[r] for r in ids];assert len(records)==len(rows)
                 result=dict(status='complete',records=records,generation_seconds=seconds,setup_seconds=setup,checkpoint_io_seconds=io,
                     events=adapter.completed,extra_model_forward_count=0,probe_count=0,
+                    replay_counts={k:runner.steer_vector_state.replay_counts[k]-v for k,v in replay_before.items()},
+                    replay_events=getattr(adapter,'replay_events',[]),forced_preemption=forced,
                     control_gpu_seconds=None,timing_note='Generation includes adapter kernels and partial I/O; control overhead not independently isolated.')
+                if sync_replay:
+                    result['extra_model_forward_count']=None
+                    result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
                 save(folder/'result.json',result)
                 if args.phase=='engineering':
+                    if sync_replay:assert forced and result['replay_counts']['restored']>=1
+                    if sync_replay and large:assert sum(e['changed'] for e in adapter.completed.values())>0
                     if name=='RC14':reference=records
                     elif name=='RC14_extension_off':
                         assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'Disabled extension changed generation'
