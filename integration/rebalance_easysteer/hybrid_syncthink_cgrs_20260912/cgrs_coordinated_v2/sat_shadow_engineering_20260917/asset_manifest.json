@@ -1,0 +1,45 @@
+{
+  "upstream_commit": "88a6c3e864948099afe3097c4fa8c2c33eb60224",
+  "files": [
+    {
+      "path": ".codex_work/sat_compatibility_20260917/step_seq_prm_gte_small_logits_gru_best_psr2.pt",
+      "bytes": 613968,
+      "sha256": "628c182133004afee4aa07077afc899d0abbf126b3630c99585d17863b29f629"
+    },
+    {
+      "path": ".codex_work/literature_broadening_20260917/sat/zstats.json",
+      "bytes": 882,
+      "sha256": "c68a4d9b578244b4232d9d7b5dfd2d54ca71629f4efc846dab1c0bdad0a86ff5"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/config.json",
+      "bytes": 661,
+      "sha256": "b4b0a3a1ff4d4fb17f2a8db641c64b512dc60eb257fc94a9c3ff572f9e9a011f"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/pytorch_model.bin",
+      "bytes": 66751231,
+      "sha256": "2a49cc04b5a7f3358b9579f27c7f0148134042e162091faeecfcd3ce027c3f74"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/README.md",
+      "bytes": 9444,
+      "sha256": "bb43ff9e1e4f51394fc196bd87408e4817576fe79d1ea729cd8e78a14338dbe6"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/special_tokens_map.json",
+      "bytes": 125,
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    },
+    {
+      "path": ".codex_work/sat_compatibility_20260917/Gte-Small/vocab.txt",
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+  ]
+}

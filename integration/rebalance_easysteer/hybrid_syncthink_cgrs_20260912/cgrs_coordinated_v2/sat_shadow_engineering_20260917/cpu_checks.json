@@ -1,0 +1,21 @@
+{
+  "checks": [
+    {
+      "script": "test_sat_process_cpu.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_default_off_has_no_hooks_or_buffers (__main__.Contracts) ... ok\ntest_feature_and_checkpoint_parity (__main__.Contracts) ... ok\ntest_invalid_latches_and_new_request_resets (__main__.Contracts) ... ok\ntest_protection_hysteresis_invalid_and_reset (__main__.Contracts) ... ok\ntest_shadow_matches_RC14_bfloat16_and_partial_prefill (__main__.Contracts) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 0.068s\n\nOK\n"
+    },
+    {
+      "script": "test_native.py",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_lexical_only_control_needs_no_R_state (__main__.TensorTests) ... ok\ntest_routing_partial_prefill_and_closed_answer (__main__.TensorTests) ... ok\ntest_shadow_is_byte_exact (__main__.TensorTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.010s\n\nOK\n"
+    }
+  ],
+  "unauthorized_entry_stops_before_model_or_output": true,
+  "syntax_files": 10,
+  "gpu_used": false,
+  "new_answers": 0,
+  "model_embeddings_validated": false
+}
