@@ -1,9 +1,16 @@
 """Parser and input isolation checks for fixed scalar sanity, no model imports."""
 import json,hashlib
 from pathlib import Path
-from run_sufficiency_sanity import parse_score
+from run_sufficiency_sanity import parse_score,input_ids
 
 def main():
+    from collections import UserDict
+    for value in ([1,2],{'input_ids':[1,2]},UserDict(input_ids=[1,2])):
+        assert input_ids(value)==[1,2]
+    for value in ([[1,2]],{'input_ids':[[1,2]]},['1']):
+        try:input_ids(value)
+        except ValueError:pass
+        else:raise AssertionError('Invalid token-ID layout accepted')
     for s,finish,expected in [('100','stop',100),(' 0\n','stop',0),('95','stop',95),
         ('100','length',None),('101','stop',None),('-1','stop',None),('100 because correct','stop',None),
         ('99.9','stop',None),('Confidence: 100','stop',None),('','stop',None),('1e2','stop',None)]:

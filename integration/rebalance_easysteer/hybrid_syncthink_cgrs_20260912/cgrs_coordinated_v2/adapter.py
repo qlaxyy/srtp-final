@@ -10,7 +10,7 @@ from policy import PENALTY, token_flags, trigger_vocabulary, validate_penalty, d
 
 
 class Adapter:
-    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14', history_gate='none', penalty_mode='fixed', lower_bound=None, constant_scale=None):
+    def __init__(self, llm, tokenizer, mode='off', gate_on=False, *, trigger_profile='original14', history_gate='none', penalty_mode='fixed', lower_bound=None, constant_scale=None, lexical_mode='original'):
         self.mode = mode
         self.enabled = mode != 'off'
         if mode not in ('off', 'shadow', 'negative', 'always'):
@@ -19,6 +19,11 @@ class Adapter:
             return  # Strict default-off path: install no hooks or device buffers.
         if not gate_on:
             raise ValueError('Explicit experimental gate_on is required')
+        if lexical_mode not in ('original','but_wait'):
+            raise ValueError('Unknown lexical mode')
+        if lexical_mode != 'original' and (mode != 'negative' or trigger_profile != 'original14' or history_gate != 'none' or penalty_mode != 'fixed'):
+            raise ValueError('Phrase candidate requires fixed original14 negative mode without other variants')
+        self.lexical_mode=lexical_mode
         validate_penalty(penalty_mode, lower_bound, constant_scale)
         if penalty_mode != 'fixed' and (mode not in ('negative','shadow') or trigger_profile != 'original14' or history_gate != 'none'):
             raise ValueError('Penalty candidate requires original14, negative/shadow, no history gate')
@@ -62,6 +67,13 @@ class Adapter:
         self.white = torch.tensor(white, device=device)
         self.boundary = torch.tensor(boundary, device=device)
         self.ids = torch.tensor(list(triggers), device=device)
+        if lexical_mode == 'but_wait':
+            self.after_but = torch.zeros_like(self.opening)
+            self.but_lookup = torch.zeros(size,dtype=torch.bool,device=device)
+            self.but_lookup[torch.tensor([3983,1988,8088,714],device=device)] = True
+            self.but_columns = torch.tensor([i in (3983,1988,8088,714) for i in triggers],device=device)
+            self.wait_columns = torch.tensor([i in (14190,13824,11489,3783) for i in triggers],device=device)
+            self.phrase_count = torch.zeros_like(self.count)
         if history_gate != 'none':
             self.first_reflection = torch.full_like(self.count, -1)
             self.reflection_lookup = torch.zeros(size, dtype=torch.bool, device=device)
@@ -109,6 +121,9 @@ class Adapter:
             self.count[slot] = self.eligible_count[slot] = self.changed_count[slot] = 0
             self.first_change[slot] = -1
             self.prompt_len[slot] = len(r.prompt_token_ids)
+            if getattr(self,'lexical_mode','original') == 'but_wait':
+                self.after_but[slot] = False
+                self.phrase_count[slot] = 0
             if getattr(self,'history_gate','none') != 'none':
                 self.first_reflection[slot] = -1
 
@@ -125,6 +140,8 @@ class Adapter:
                                           .cpu().numpy().tobytes()).hexdigest()
             self.completed[rid] = dict(zip(('tokens','eligible','changed','first_change'),values),
                                        R_history_sha256=history)
+            if getattr(self,'lexical_mode','original') == 'but_wait':
+                self.completed[rid]['phrase_positions'] = int(self.phrase_count[slot].cpu())
             if getattr(self,'history_gate','none') != 'none':
                 self.completed[rid]['first_reflection'] = int(self.first_reflection[slot].cpu())
         return self.original_remove(rid)
@@ -162,6 +179,12 @@ class Sampler:
             mask &= t.isfinite(coefficient) & t.isfinite(mean) & (coefficient < 0)
         if history_on:
             mask &= o.first_reflection[idx] >= 0
+        phrase_on = getattr(o,'lexical_mode','original') == 'but_wait'
+        if phrase_on:
+            delayed = o.after_but[idx] & o.thinking[idx] & valid & t.isfinite(coefficient) & t.isfinite(mean) & (coefficient<0)
+            lexical_mask = (mask[:,None] & ~o.but_columns[None,:]) | (delayed[:,None] & o.wait_columns[None,:])
+            o.phrase_count[idx] += delayed.to(t.int64)
+            mask = mask | delayed
         o.eligible_count[idx] += mask.to(t.int64)
         if o.mode != 'shadow':
             # Raw R maximum probability was already computed by model_runner.
@@ -169,7 +192,10 @@ class Sampler:
             values = logits[:, o.ids]
             penalty_mode = getattr(o, 'penalty_mode', 'fixed')
             if penalty_mode == 'fixed':
-                logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
+                if phrase_on:
+                    logits[:, o.ids] = t.where(lexical_mask, values-PENALTY, values)
+                else:
+                    logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
             else:
                 amount = device_penalty(t, coefficient, penalty_mode, o.lower_bound, o.constant_scale)
                 adjusted = (values-amount[:,None]).to(values.dtype)
@@ -183,6 +209,10 @@ class Sampler:
         # Invalid partial prefill dummy samples are never used as token IDs.
         safe = t.where(valid, token, t.zeros_like(token))
         t._assert_async(((safe>=0)&(safe<o.clean.numel())).all(), 'Invalid tokenizer ID')
+        if phrase_on:
+            after = (o.opening[idx] & o.but_lookup[safe]) | (o.after_but[idx] & o.white[safe])
+            after &= o.thinking[idx] & (safe!=151648) & (safe!=151649) & ~o.boundary[safe]
+            o.after_but[idx] = t.where(valid,after,o.after_but[idx])
         if history_on:
             # Observe the ACTUAL sampled marker at an already clean opening.
             # Interior words, boundary+word mixed tokens and prompt text do not count.

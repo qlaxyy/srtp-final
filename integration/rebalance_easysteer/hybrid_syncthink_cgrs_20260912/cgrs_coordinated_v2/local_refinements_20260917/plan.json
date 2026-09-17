@@ -1,0 +1,26 @@
+{
+  "phase": "CPU coverage before any new intervention",
+  "questions": [
+    647,
+    1837,
+    4972,
+    1441,
+    4432,
+    3497,
+    1483,
+    229
+  ],
+  "source": "saved complete native RC14 eight engineering trajectories; exposed, not independent",
+  "arithmetic": {
+    "rule": "Only complete exact integer/rational + - * / equations in delimited math or whole lines; false equality in immediately completed step can release next clean negative-R lexical window",
+    "eligibility": "At least 2 different questions with an actionable site; every selected first site must be a genuine asserted error under prefix-only manual review, not quotation/reductio/case split",
+    "scope": "No varying-variable inconsistency heuristic, no generic prompt, no correction token forcing"
+  },
+  "boundary": {
+    "rule": "Causal decoded suffix blank line plus horizontal whitespace; compare with original single-token-boundary opening",
+    "eligibility": "At least 2 different questions with a newly actionable negative-R opening; no suppression of already accepted mixed boundary+word tokens",
+    "scope": "No expanding trigger dictionary; no retrospective edits"
+  },
+  "stop": "If coverage or assertion validity fails, stop this fixed rule; no threshold widening on these 8 cases. Coverage alone never proves benefit.",
+  "GPU": "Not yet authorized by this plan for efficacy; user authorizes exploration but concrete generation batch to be specified if gate passes."
+}

@@ -1,6 +1,13 @@
 """Scorer-only controlled-input check. Not an early-exit implementation."""
 import argparse,hashlib,json,os,re,signal,subprocess,sys,time
 from pathlib import Path
+from collections.abc import Mapping
+
+def input_ids(value):
+    ids=value['input_ids'] if isinstance(value,Mapping) else value
+    if not isinstance(ids,list) or not all(type(i) is int for i in ids):
+        raise ValueError('Expected one flat token-ID sequence')
+    return list(ids)
 
 def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def parse_score(text,finish_reason):
@@ -33,7 +40,7 @@ def main():
         prompts=[]
         for row in plan['rows']:
             content=plan['prompt']+'\n\nProblem:\n'+row['problem']+'\n\nProposed reasoning:\n'+row['thought']
-            ids=tokenizer.apply_chat_template([dict(role='user',content=content)],tokenize=True,add_generation_prompt=True)
+            ids=input_ids(tokenizer.apply_chat_template([dict(role='user',content=content)],tokenize=True,add_generation_prompt=True))
             assert ids.count(151648)==1 and not tokenizer.decode(ids[ids.index(151648)+1:]).strip(), 'Expected native open-thought prefix, optionally followed by whitespace'
             ids+=tokenizer.encode('</think>\n\nScore: ',add_special_tokens=False)
             assert ids.count(151648)==1 and ids.count(151649)==1 and len(ids)+8<4096

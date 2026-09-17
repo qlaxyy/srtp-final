@@ -1,0 +1,19 @@
+{
+  "remote_sha256_verified": {
+    "inputs.json": "0bf60a71341e584c44fac1c58c0cffff0ca5747bdad38e56637c1ba218396244",
+    "plan.json": "cf7f99db7cc940c704c06e30d4fa5c4569bf6cee9cd6a4d7973cedba6645d3af",
+    "result.json": "f3f34d374b216f356ff7c2f95169728f715c800bd47a66b4800a5cb6ccb0c04f"
+  },
+  "attempt1": "Tokenizer Mapping/list interface failed before model load; preserved failure; no score observed before retry",
+  "attempt2": "Fixed interface only; unchanged16cases, prompt, budget and gate",
+  "generated_tokens": 128,
+  "input_tokens": 3598,
+  "distinct_outputs": [
+    "0\n\n**Step-by-Step Explanation",
+    "100\n\n**Step-by-"
+  ],
+  "all16_capped": true,
+  "decision": "Stop fixed scalar scorer. Do not parse initial100 as valid; even that prefix occurs on unsafe cases. No early-exit implementation or prompt tuning.",
+  "generation_seconds": 0.23130197823047638,
+  "wall_seconds": 27.918870881199837
+}

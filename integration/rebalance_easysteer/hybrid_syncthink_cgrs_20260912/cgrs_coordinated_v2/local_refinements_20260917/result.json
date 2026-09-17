@@ -1,0 +1,93 @@
+{
+  "plan_sha256": "c08c205b443b8202c625c2bd9babde9beee6b4c81e5f1e980ed93b4cc62670cb",
+  "source_sha256": "f23c544a2529150a24af5cd31ef86c6c9b6a321944456d549dee0855eb9cf826",
+  "rows": [
+    {
+      "train_index": 647,
+      "problem_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
+      "thinking_tokens": 6417,
+      "eligible_sampling_positions": 158,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 1837,
+      "problem_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
+      "thinking_tokens": 2325,
+      "eligible_sampling_positions": 70,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 4972,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "thinking_tokens": 1534,
+      "eligible_sampling_positions": 25,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 1441,
+      "problem_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "thinking_tokens": 4886,
+      "eligible_sampling_positions": 199,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 4432,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "thinking_tokens": 7851,
+      "eligible_sampling_positions": 216,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 3497,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "thinking_tokens": 1779,
+      "eligible_sampling_positions": 38,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 1483,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "thinking_tokens": 4568,
+      "eligible_sampling_positions": 108,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    },
+    {
+      "train_index": 229,
+      "problem_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
+      "thinking_tokens": 7696,
+      "eligible_sampling_positions": 274,
+      "arithmetic_release_cases": [],
+      "split_newline_missed_positions": [],
+      "mixed_boundary_tokens": []
+    }
+  ],
+  "arithmetic_coverage_questions": 0,
+  "split_boundary_coverage_questions": 0,
+  "input_sha256": {
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\647_control.npy": "0609840e29b2db5d60be2e2a3bd71e57dddcdce18830cefbe756c784b71ed734",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\1837_control.npy": "76c6ab269b05942195fea56c2cb68e405697034ceb03a2f1476ab0a7c59941bd",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\4972_control.npy": "09970d680fb5a71269f95618140bb8938c54c0ab8ded46f99829a68d53dcf79e",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\1441_control.npy": "2b9cc96b786dd68d039b710e99a99214a6b4dfde2e24db85656d4ba0d102580d",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\4432_control.npy": "0ca3bfc57df0b4860443c14431f7a9296fed29c818ed590fce2adeae76cdb8e4",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\3497_control.npy": "e5905e1b65f5678bdbd076225169605059766a82edbd4c3d0878d0bab3fa245a",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\1483_control.npy": "dc2def615e678e0216c5d6d721a9bbfdf8d6e1424c5abe373c8c4f7c8a3e384e",
+    ".codex_work\\wsc_native_long_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_native_long_20260917\\wsc_native_long8_cap16000_run1_20260917\\RC14_wsc_shadow\\229_control.npy": "4f7eca495da1531667fb7a2c9e8c80a912f13eb363244c6a41deb559bdd50d43"
+  },
+  "new_generations": 0,
+  "new_forwards": 0,
+  "limitation": "Eight exposed engineering trajectories only. No counterfactual savings. False arithmetic can be quoted or a reductio premise; manual prefix-only assertion review is required before intervention."
+}
