@@ -1,0 +1,24 @@
+{
+  "source": "https://arxiv.org/abs/2604.06787v1",
+  "publication_record": "https://aclanthology.org/2026.acl-long.1080/",
+  "status": "ACL2026 metadata verified; mechanism read from pinned arXiv v1, not an asserted version diff",
+  "full_text": {
+    "pages": 16,
+    "lines": 961,
+    "sentinel": "END-OF-PAPER:220f0008951c",
+    "all_sections_and_references_read": true,
+    "pdf_sha256": "70c7dfbbe34d659e467dc13731a71236808ede2df6fd57fab0549930274d2357",
+    "parsed_sha256": "d0141209c8e560b3739271627812259e699a59165565f8996acfaab5cde34088",
+    "figure8_visual_checked": true
+  },
+  "mechanism": "Section2.2/Algorithm1: reflection cues trigger a separate question-plus-trace scalar judgment; >=100 permits thought termination; interval64 limits probes. Section4.4/Fig8-9: externally framed judgment differs from inserting a self-check into the ongoing trace.",
+  "boundary": "Section3: Qwen3 8/14/32B, temperature0.6, top_p0.95,16k, three runs. No evidence here for DeepSeek distill1.5B+RC14. Figure7 uses answer correctness to locate an offline optimum; it is not an online oracle.",
+  "gaps": [
+    "No confirmed official code link found on audited arXiv/ACL landing pages or targeted GitHub search. This is an inspired adaptation.",
+    "Malformed-score handling, precise scorer decoding, and probe-token accounting need implementation choices; we reject capped/malformed scores.",
+    "Figure8 prints role users; use the actual tokenizer user role rather than copying that literal delimiter.",
+    "Figure7 initial thought discusses a different geometry problem; illustrative excerpts are not our prefix labels."
+  ],
+  "our_choices": "Paraphrased fixed prompt, native DeepSeek chat and empty-thought closure, greedy8-token scalar,16 synthetic cases; no actual stopping or reflection monitor. Twelve unsafe full-score false positives must be zero; >=3/4 complete-correct cases must reach100.",
+  "next_limits": "Even a sanity pass is insufficient: natural prefix labels, held-out validation and net cost must follow. Fresh judging re-encodes the prefix as user text, so original reasoning KV/steering states are not reusable unchanged. RC14 may suppress the very reflection cues a future monitor would await."
+}
