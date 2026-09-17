@@ -1,0 +1,40 @@
+{
+  "questions": 500,
+  "steps": 83657,
+  "clean_negative_step_boundaries": 59103,
+  "descriptive_variance_q75": 0.030877059396336313,
+  "eligible_above_variance_q75": 20915,
+  "eligible_high_variance_questions": 500,
+  "mean_within_variance_correlation": -0.8866803916676911,
+  "mean_length_between_projection_question_weighted_out_of_fold_r2": 0.888166938086847,
+  "projection_basis": [
+    "1",
+    "mean",
+    "mean_squared",
+    "log1p_length",
+    "log1p_length_squared",
+    "mean_x_log1p_length",
+    "between_step_variance"
+  ],
+  "projection_folds": "fixed question ordinal modulo5; analytical predictability only, not correctness validation",
+  "minimum_token_categories": {
+    "word": 19064,
+    "number": 163,
+    "punctuation_or_mixed": 1688
+  },
+  "limitations": [
+    "No reasoning-correctness labels at steps. Next reflection occurrence is not necessary reflection.",
+    "Greedy saved trajectories under no intervention, analytical float64 controller. Not live RC14 or counterfactual gate replay.",
+    "Variance q75 is a descriptive stratum; NOT a chosen intervention threshold.",
+    "Mean constrains variance to at most mean*(1-mean). Explained variance is not gate efficacy.",
+    "No GPU, no new answers, no test-set threshold selection."
+  ],
+  "input_sha256": {
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\.codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz": "4107b807450a0a810c4df483846ba9be4255fe96c9615c4a1984e0c0c7954ada",
+    "E:\\srtp\\srtp-final\\.codex_work\\label_audit_30_20260910\\tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\EasySteer\\vllm-steer\\vllm\\steer_vectors\\rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109"
+  },
+  "source_sha256": "57a113f868f26054e95f6f92641d715b796f581a718db9522ef9d46c3f507600",
+  "manual_case_selection": "4 next-reflection and4 non-reflection examples, hash order, distinct questions within each stratum; not representative prevalence"
+}
