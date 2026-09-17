@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-18",
+  "question": "Replace a corresponding ReBalance module while retaining frozen L27 and avoiding new threshold searches",
+  "search_scope": "arXiv official papers and author-linked repositories; confidence aggregation, reasoning compression, attention steering, contrastive decoding, step quality. Discovery is not full-text evidence.",
+  "reading_protocol_exception": "Canonical fetch_and_parse attempts for 2602.18232, 2510.03223, 2508.15260 and 2502.14634 returned HTTP 0 with no parsed_path/read_plan/sentinel. Used official arXiv HTML fallback; no fabricated END-OF-PAPER sentinel. Figure images were not independently visually checked; do not base numerical claims on them.",
+  "shortlist": [
+    {
+      "title": "Attention-Aligned Reasoning for Large Language Models",
+      "authors": "Hongxiang Zhang; Yuan Tian; Tianyi Zhang",
+      "version": "arXiv:2510.03223v2, 2026-03-27; v1 was Self-Anchor",
+      "url": "https://arxiv.org/html/2510.03223v2",
+      "depth": "Official HTML main text, references and appendices read; v1 also consulted; formula/table evidence, not visual figure audit",
+      "evidence": "Section 2 Eq 3 and Appendix A.2 Eq 5: harmonic aggregation; Table 7 compares aggregation choices. Appendix B explicitly describes an extra masked forward for full ATAR. Appendix E uses greedy decoding and mostly NF4 quantization; base models are non-reasoning models.",
+      "decision": "Borrow aggregation alone. Retain raw maximum probabilities and original ReBalance coefficient direction, boundaries, vector and L27 suppression. Recalibrate signal quantiles/tau from old 500 trajectories; no regenerated calibration answers.",
+      "limits": "Not official ATAR/CGRS, not its full attention mechanism, not a theorem that harmonic improves compression. Table 7 geometric vs arithmetic ranking is not uniform despite prose. Do not transfer its benchmark gains. No official ATAR implementation confirmed in this search."
+    },
+    {
+      "title": "Thinking by Subtraction: Confidence-Driven Contrastive Decoding for LLM Reasoning",
+      "authors": "Lexiang Tang; Weihao Gao; Bingchen Zhao; Lu Ma; Qiao Jin; Bang Yang; Yuexian Zou",
+      "version": "arXiv:2602.18232v1",
+      "url": "https://arxiv.org/html/2602.18232v1",
+      "code": "https://github.com/bolo-web/CCD",
+      "depth": "Official HTML main text, algorithm, references and appendix read; linked ccd.py read end-to-end",
+      "evidence": "Section 2.2 uses negative mean top-k log probability, not entropy. Algorithm 1 maintains two contexts. Current ccd.py lines 178-192 runs both model contexts EVERY token, even when contrast is inactive; top_k_conf=20, window=2048, warmup=512. Threshold window excludes current score in code.",
+      "decision": "Defer complete integration: dual KV histories, extra model work and different signal; not a cheap drop-in lexical penalty.",
+      "limits": "Section 2.5 no-extra-forward wording conflicts with public implementation. Runtime cost must be measured, not inferred from paper efficiency claims. AIME Mean@8 conditions are not our MATH/GSM single-seed protocol. Mutable main code URL not pinned for execution; no code executed."
+    }
+  ],
+  "discovery_only": [
+    {"id":"2508.15260","name":"Deep Think with Confidence","decision":"Multiple-trajectory filtering/voting is a different resource budget; full-text parse failed, not used for implementation."},
+    {"id":"2502.14634","name":"CER","decision":"Critical intermediate answer confidence may require answer extraction and path aggregation; not used as verified step-quality labels."},
+    {"id":"2601.04973","name":"ConMax","decision":"Discovery/abstract only; no implementation claim."},
+    {"id":"2509.15888","name":"SVD","decision":"Training-dependent vector direction candidate; full text not completed, not scheduled."},
+    {"id":"2604.08299","name":"SeLaR","decision":"Latent/explicit switching changes inference interface; not shortlisted for this batch."},
+    {"id":"2506.12353","name":"Self-Affirmation","decision":"Full-text access still incomplete; no implementation based on abstract."},
+    {"id":"2511.14258","name":"Entropy-guided compression","decision":"Discovery only; not evidence to reverse the current controller sign."},
+    {"id":"2510.13940v4","name":"Less is More: Improving LLM Reasoning with Minimal Test-Time Intervention","decision":"Official abstract and author-code link verified. Selective CFG/KV reuse is a future code-audit question, not a validated zero-cost substitution."}
+  ],
+  "negative_prior": "CHECK7 and SWITCH5 full MATH500 arms both failed the previously fixed gate. Do not repartition lexicons against those outcomes or claim semantic categorization itself has been disproved."
+}
