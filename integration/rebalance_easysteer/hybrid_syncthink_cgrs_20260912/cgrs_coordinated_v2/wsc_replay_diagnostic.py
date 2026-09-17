@@ -49,11 +49,12 @@ def main():
     a=p.parse_args()
     if not a.gpu_authorized:raise ValueError('Separate bounded GPU authorization required')
     plan=json.loads(a.plan.read_text(encoding='utf8'));root=Path(__file__).resolve().parents[4]
-    assert plan['kind']=='unsteered_saved_prefix_probe_diagnostic' and len(plan['cases'])==8
+    precision_check=plan['kind']=='unsteered_saved_prefix_fp32_diagnostic'
+    assert plan['kind'] in ('unsteered_saved_prefix_probe_diagnostic','unsteered_saved_prefix_fp32_diagnostic')
     assert plan['generated_tokens']==0 and plan['layer_index']==27
-    assert [c['train_index'] for c in plan['cases']]==[3241,5353,759,7012,26,64,76,385]
+    assert [c['train_index'] for c in plan['cases']]==([5353,26] if precision_check else [3241,5353,759,7012,26,64,76,385])
     assert plan['partition_checks']==[5353,26]
-    assert sum(len(c['token_ids'])+len(c['prompt_token_ids']) for c in plan['cases'])==14715
+    assert sum(len(c['token_ids'])+len(c['prompt_token_ids']) for c in plan['cases'])==(3583 if precision_check else 14715)
     assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
     for name,digest in plan['source_sha256'].items():
         assert hashlib.sha256((root/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==digest,name
@@ -68,8 +69,14 @@ def main():
         import torch
         from transformers import AutoModelForCausalLM
         torch.manual_seed(42)
+        if precision_check:
+            torch.backends.cuda.matmul.allow_tf32=False
+            torch.backends.cudnn.allow_tf32=False
+            torch.set_float32_matmul_precision('highest')
         lm=AutoModelForCausalLM.from_pretrained(plan['model_path'],local_files_only=True,
-            torch_dtype=torch.bfloat16,attn_implementation='sdpa').eval().to('cuda')
+            torch_dtype=torch.float32 if precision_check else torch.bfloat16,
+            attn_implementation='sdpa').eval().to('cuda')
+        assert next(lm.parameters()).dtype==(torch.float32 if precision_check else torch.bfloat16)
         assert lm.config.num_hidden_layers==28 and lm.config.hidden_size==1536
         model=lm.model
         startup=time.monotonic()-start
