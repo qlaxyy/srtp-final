@@ -1,0 +1,23 @@
+{
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.4999999999999999,
+    "low_val_2": -0.9486222321613421,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "positives": 12778,
+  "negatives": 14087,
+  "excluded": 57143,
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "vector_norm": 95.0567102219408,
+  "vector_sha256": "6aad2011421a8f97f9b03c594f35b1eae2b683065fb04ddcd548b7676f845a28",
+  "curve_grid_points": 125751,
+  "curve_finite": true,
+  "method": "Original raw mean difference and diagonal-LDA crossing fit; only class masks changed"
+}

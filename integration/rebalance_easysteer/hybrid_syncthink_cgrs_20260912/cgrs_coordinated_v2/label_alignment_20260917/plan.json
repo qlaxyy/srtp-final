@@ -1,0 +1,122 @@
+{
+  "run_id": "label_alignment_1p5b_train200_v1_20260917",
+  "status": "CPU assets prepared; native adapters and new data registration pending; not GPU-ready",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH train",
+  "proposed_unique_questions": 200,
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "arms": [
+    {
+      "name": "R",
+      "calibration": "frozen L27",
+      "controller": "original confidence+variance",
+      "suppression": "off"
+    },
+    {
+      "name": "RC14",
+      "calibration": "frozen L27",
+      "controller": "original confidence+variance",
+      "suppression": "original T14"
+    },
+    {
+      "name": "L27_L27",
+      "calibration": "frozen L27",
+      "controller": "original confidence+variance",
+      "suppression": "L27 opening phrase completion"
+    },
+    {
+      "name": "T14_T14",
+      "calibration": "T14 vector and LDA fit",
+      "controller": "original confidence+variance",
+      "suppression": "original T14"
+    },
+    {
+      "name": "CV_CV",
+      "calibration": "confidence+variance vector and LDA fit",
+      "controller": "original confidence+variance",
+      "suppression": "original T14"
+    },
+    {
+      "name": "L27_L27_control",
+      "calibration": "frozen L27",
+      "controller": "lexical+confidence reference",
+      "suppression": "original T14"
+    }
+  ],
+  "new_answers_if_no_matching_references": 1200,
+  "comparison": "Each candidate versus RC14 and R on exactly the same new questions; not a synergy test",
+  "selection": "Screen only; candidate selection and independent confirmation must use disjoint registered data",
+  "data_status": "No new IDs reserved. Reconcile local/remote usage and A-line reservations before freezing.",
+  "assets_sha256": {
+    "T14/auto_vector.pt": "7d71a037e2f1a801fb5d3b14a94e261dcbbe8ad396f1d2c774a9759ba882b29a",
+    "T14/fit.json": "352c2432f4c9ec36dcf394a01f361fae3d7f6e84de36ccc2f125bed090bb15bd",
+    "CV/auto_vector.pt": "6aad2011421a8f97f9b03c594f35b1eae2b683065fb04ddcd548b7676f845a28",
+    "CV/fit.json": "727f14aafffe45d1ee1a33a3fdafcf8660fe3724abae3ba8af1e0bcdb7754b50"
+  },
+  "runtime_target": {
+    "engine": "Existing vLLM/EasySteer; no environment installation",
+    "dtype": "bfloat16",
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "gpu_memory_utilization": 0.9,
+    "async_scheduling": "Only after native acceptance tests",
+    "prefix_caching": false,
+    "chunked_prefill": false,
+    "context": "Round actual largest prompt + 16000 up to 512; no truncation"
+  },
+  "inference_order": [
+    "Native R observes raw pre-penalty max probability.",
+    "R updates coefficient after accepting a complete step.",
+    "Optional lexical controller uses only that completed step; preserve prefill and initial behavior.",
+    "At next clean opening, apply penalty only when current coefficient is negative.",
+    "Subtract log(2) before temperature/top-p; no claim final probability halves."
+  ],
+  "lexical_control_spec": {
+    "rule": "O=lexical OR c<q25; U=not lexical AND c>q75; else middle",
+    "coefficients": "O=low_val_2; U=high_val_2; middle=original confidence baseline",
+    "warning": "New hard-gated controller, not an equivalent curve refit; no author formula implied",
+    "reset": "Per request; clear lexical prefix/hit at each accepted boundary and think end; reject preemption until validated"
+  },
+  "large_lexicon_spec": {
+    "policy": "Same author 27 regex entries including morphology; clean opening only",
+    "phrases": "Penalize a completing token, not every constituent token; do not blanket-penalize I/Let/make",
+    "limitation": "Calibration detects anywhere in a complete step; suppression only prospectively at opening. Same inventory is not identical observation scope.",
+    "integration": "Compile finite-state transitions on CPU; device state per request. CPU reference is implemented, native hook pending."
+  },
+  "required_before_gpu": [
+    "Data reconciliation and exact row hashes",
+    "Pinned model/runtime/source hashes",
+    "Instance-only native adapter with default-off exact behavior; do not fork the shared controller",
+    "CPU phrase automaton versus regex oracle including token segmentation and resets",
+    "Native short-prefix engineering checks before efficacy; do not tune on them"
+  ],
+  "expected_time": "Provisional 10-25 minutes generation for 1200 answers on prior 4090D profile; add native engineering and grading; not a measured estimate",
+  "hard_stop_seconds_per_arm": 600,
+  "batch_generation_hard_stop_seconds": 3600,
+  "stop_conditions": [
+    "Any input hash mismatch, prefix-history gate failure, NaN, unsupported preemption, OOM, or time cap: preserve partials and stop; no automatic retries"
+  ],
+  "decision": {
+    "accuracy_margin_pp": -2,
+    "margin_reference": "R; also report RC14 difference",
+    "observed_candidate": "Both mean thinking and total tokens lower than RC14; cap count not higher; observed accuracy difference versus R >= -2pp",
+    "uncertainty": "20000 paired question bootstraps for token ratios and paired accuracy interval; label unconfirmed if interval crosses accuracy margin or zero compression",
+    "report": [
+      "accuracy",
+      "thinking tokens",
+      "total tokens",
+      "caps",
+      "wrong-to-right/right-to-wrong",
+      "generation time",
+      "new forward passes",
+      "judgment/adapter overhead",
+      "all partial/failure costs"
+    ],
+    "multiplicity": "Four exploratory candidates; no confirmed superiority claim from choosing the best; independent confirmation required"
+  },
+  "ssh_status": "20403 handshake failed; no remote process started",
+  "source_parent_commit": "914c76bed4ff23bf83ff84feac2e59cfdb6c55e1"
+}
