@@ -1,0 +1,9 @@
+{
+  "method": "Live native reproduction and byte-verified disjoint KV clone, no chunked prefix replay",
+  "reason": "Avoid known BF16 historical replay discrepancy without relaxing its gate",
+  "trajectory_forward_tokens": 40814,
+  "main_outputs_used_only_for_exact_reference_check": true,
+  "max_probe_tokens": 5568,
+  "wall_limit_seconds": 600,
+  "source_sha256": "c18c9cd41452470b79628315e0e2eb0c8a5a19c0708f1f46046e80cd9ae76871"
+}
