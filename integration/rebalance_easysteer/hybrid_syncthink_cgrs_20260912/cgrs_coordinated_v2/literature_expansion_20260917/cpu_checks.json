@@ -1,0 +1,38 @@
+{
+  "scope": "synthetic math and source-contract audit; not predictive or generation validation",
+  "checks_passed": 6,
+  "checks": {
+    "equal_max_probability_does_not_determine_entropy": {
+      "max_probability": 0.8,
+      "entropy_p": 0.639031859650177,
+      "entropy_q": 0.5066982367276213
+    },
+    "eat_paper_public_initialization_and_debiasing_differ": {
+      "paper_value_at_observation_26": 0.002417851639229258,
+      "public_value_at_observation_26": 0.0
+    },
+    "eat_public_sliced_index_needs_alignment_audit": {
+      "returned_zero_based_index": 25,
+      "matched_original_index": 26
+    },
+    "projection_and_additive_rebalance_need_fixed_order": {
+      "rebalance_then_projection": [
+        1.0499999999999998,
+        2.5
+      ],
+      "projection_then_rebalance": [
+        0.8999999999999999,
+        2.5
+      ],
+      "predicted_difference": [
+        0.15000000000000002,
+        0.0
+      ]
+    },
+    "projection_off_identity_and_local_norm_bound": true,
+    "orthogonality_removes_local_order_difference_only": true
+  },
+  "gpu_used": false,
+  "new_answers": 0,
+  "empirical_compression_claim": false
+}
