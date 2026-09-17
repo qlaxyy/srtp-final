@@ -1,0 +1,29 @@
+{
+  "calibration_steps_checked": 84008,
+  "token_stream_parity": true,
+  "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+  "tables": {
+    "search": {
+      "states": 235,
+      "vocabulary": 151665,
+      "candidate_columns": 0,
+      "token_classes": 470,
+      "sha256": "ac81d04b714c1808adaa99db0bea467551f9a086f552c22a1ffcd5aa851b14e6",
+      "device_table_bytes": 1159145
+    },
+    "opening": {
+      "states": 235,
+      "vocabulary": 151665,
+      "candidate_columns": 335,
+      "token_classes": 466,
+      "sha256": "eec19d87a37332051aaaf192bcfe7f5024bc98ec61a31292d0c68932edf569ed",
+      "device_table_bytes": 1155785
+    }
+  },
+  "seconds": 84.31200000000536,
+  "source_sha256": {
+    "lexicon_automaton.py": "cf038999caa36706173abd12340664894ea5a0bcd08a9ef3dc660562beb7b41d",
+    "compile_label_tables.py": "7af1be49dc6206727c4b6e274d106c1b56bc6a2877b98184de227f5b5aeeb84e"
+  },
+  "limitation": "Native device acceptance and async history checks remain pending."
+}

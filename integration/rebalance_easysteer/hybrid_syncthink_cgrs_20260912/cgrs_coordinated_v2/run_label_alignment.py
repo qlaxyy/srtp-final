@@ -1,0 +1,149 @@
+"""Bounded engineering/full runner for the fixed five-arm MATH500 ablation."""
+import argparse,hashlib,json,os,signal,subprocess,sys,time
+from pathlib import Path
+import numpy as np
+from prepare_label_alignment import sha,save
+
+HERE=Path(__file__).resolve().parent
+
+
+def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
+
+
+def validate(plan,release,phase):
+    assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==500
+    assert [a['name'] for a in plan['arms']]==['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control']
+    assert release['plan_sha256']==sha(HERE/'label_alignment_20260917/plan_v2_math500.json')
+    assert release['table_schema']=='compact-token-classes-v1'
+    assert release['source_hash_mode']=='lf-normalized'
+    for n,h in release['source_sha256'].items():
+        assert hashlib.sha256((HERE/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==h,n
+    for n,h in release['artifact_sha256'].items():assert sha(HERE/'label_alignment_20260917'/n)==h,n
+    assert phase in ('engineering','full')
+
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('--release',type=Path,required=True)
+    p.add_argument('--runtime-root',type=Path,required=True)
+    p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--phase',choices=['engineering','full'],required=True)
+    p.add_argument('--engineering-result',type=Path)
+    args=p.parse_args();release=read(args.release)
+    plan=read(HERE/'label_alignment_20260917/plan_v2_math500.json');validate(plan,release,args.phase)
+    if args.phase=='full':
+        gate=read(args.engineering_result/'complete.json')
+        assert gate['phase']=='engineering' and gate['passed']
+        assert gate['release_sha256']==sha(args.release)
+    assert not subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip()
+    args.output.mkdir(parents=True,exist_ok=False)
+    save(args.output/'plan.json',plan);save(args.output/'release.json',release)
+    began=time.monotonic();done=[];monitor=None
+    def timeout(*_):raise TimeoutError('Fixed batch ceiling; preserve partial results')
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(1200 if args.phase=='engineering' else 9000)
+    try:
+        assets=release['assets']
+        for name,meta in assets['model_files'].items():assert sha(Path(assets['model_path'])/name)==meta['sha256'],name
+        for key in ('fit','vector'):assert sha(assets[key]['path'])==assets[key]['sha256'],key
+        for name,h in release['runtime_source_sha256'].items():
+            import hashlib
+            assert hashlib.sha256((args.runtime_root/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==h,name
+        sys.path[1:1]=[str(args.runtime_root/'sources/EasySteer/vllm-steer'),str(args.runtime_root/'sources/EasySteer'),
+            str(args.runtime_root/'integration/rebalance_easysteer/eval')]
+        os.environ.update(VLLM_ENABLE_V1_MULTIPROCESSING='0',PYTHONNOUSERSITE='1')
+        import torch,vllm
+        from transformers import AutoTokenizer
+        from vllm import LLM,SamplingParams
+        from vllm.steer_vectors import SteeringSpec,VectorSpec,ApplySpec
+        from easysteer.vectors import from_pt_direction
+        from rebalance_static_eval import build_prompt
+        from adapter import Adapter
+        from label_alignment_adapter import AlignmentAdapter
+        assert Path(vllm.__file__).resolve().is_relative_to(args.runtime_root/'sources/EasySteer/vllm-steer')
+        tok=AutoTokenizer.from_pretrained(assets['model_path'],local_files_only=True)
+        boundaries=sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s)
+        llm=LLM(model=assets['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=32768,
+            max_num_seqs=256,max_num_batched_tokens=32768,gpu_memory_utilization=.90,
+            enable_steer_vector=True,steer_algorithms=['rebalance'],steer_graph_mode='in_graph',
+            enforce_eager=False,enable_chunked_prefill=False,enable_prefix_caching=False,async_scheduling=True,seed=42)
+        core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
+        names=[a['name'] for a in plan['arms']]
+        if args.phase=='engineering':names=['RC14','RC14_extension_off']+names
+        rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
+        assert len(rows)==(8 if args.phase=='engineering' else 500)
+        cap=512 if args.phase=='engineering' else 16000
+        prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
+        assert max(map(len,prompts))+cap<=32768
+        save(args.output/'identity.json',dict(vllm=str(vllm.__file__),torch=torch.__version__,
+            model=assets['model_path'],phase=args.phase,startup_seconds=time.monotonic()-began))
+        reference=None
+        for name in names:
+            folder=args.output/name;folder.mkdir()
+            calib='T14' if name in ('T14_T14','T14_L27') else 'CV' if name=='CV_CV' else None
+            vp=HERE/'label_alignment_20260917'/calib/'auto_vector.pt' if calib else Path(assets['vector']['path'])
+            fp=HERE/'label_alignment_20260917'/calib/'fit.json' if calib else Path(assets['fit']['path'])
+            steer=SteeringSpec(vectors=[VectorSpec(name='label_alignment_'+(calib or 'L27'),data=from_pt_direction(str(vp),layers=[20]),
+                algorithm='rebalance',scale=1.,layers=[20],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
+                params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
+            setup_start=time.monotonic()
+            large=name in ('L27_L27','T14_L27');lexical=name=='L27_L27_control'
+            if large or lexical:
+                table=HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
+                with np.load(table) as z:tables={k:z[k] for k in z.files}
+                adapter=AlignmentAdapter(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True)
+            else:adapter=Adapter(llm,tok,mode='negative',gate_on=True)
+            if name=='RC14_extension_off':
+                sampler=runner.sampler;unused=AlignmentAdapter(llm,tok,enabled=False)
+                assert runner.sampler is sampler;unused.close();assert runner.sampler is sampler
+            setup=time.monotonic()-setup_start
+            stream_gpu=(folder/'gpu.csv').open('x')
+            monitor=subprocess.Popen(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used,power.draw',
+                '--format=csv,noheader,nounits','--loop-ms=1000'],stdout=stream_gpu,stderr=subprocess.DEVNULL)
+            generated={};io=0.;torch.cuda.synchronize();start=time.monotonic()
+            try:
+                ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=SamplingParams(
+                    temperature=.7,top_p=.95,seed=42,max_tokens=cap,skip_special_tokens=False),steering=steer,use_tqdm=False)
+                ops=llm.llm_engine.output_processor.request_states
+                mapping={ops[r].external_req_id:r for r in ids};rowmap=dict(zip(ids,rows))
+                with (folder/'partial.jsonl').open('x',encoding='utf8') as f:
+                    while llm.llm_engine.has_unfinished_requests() or core.batch_queue:
+                        if time.monotonic()-start>(150 if args.phase=='engineering' else 1500):raise TimeoutError(name)
+                        for output in llm.llm_engine.step():
+                            assert output.finished
+                            rid=mapping[output.request_id];ans=output.outputs[0];ts=list(ans.token_ids)
+                            assert rid not in generated and len(ts)<=cap
+                            rec=dict(rowmap[rid],token_ids=ts,tokens=len(ts),thinking_tokens=ts.index(151649) if 151649 in ts else len(ts),
+                                text=tok.decode(ts,skip_special_tokens=True),finish_reason=ans.finish_reason)
+                            generated[rid]=rec;ts0=time.monotonic();f.write(json.dumps(rec,ensure_ascii=False)+'\n');f.flush();io+=time.monotonic()-ts0
+                    llm.llm_engine.step()
+                    for rid in ids:
+                        if rid in runner.req_states.req_id_to_index:runner._remove_request(rid)
+                torch.cuda.synchronize();seconds=time.monotonic()-start
+                records=[generated[r] for r in ids];assert len(records)==len(rows)
+                result=dict(status='complete',records=records,generation_seconds=seconds,setup_seconds=setup,checkpoint_io_seconds=io,
+                    events=adapter.completed,extra_model_forward_count=0,probe_count=0,
+                    control_gpu_seconds=None,timing_note='Generation includes adapter kernels and partial I/O; control overhead not independently isolated.')
+                save(folder/'result.json',result)
+                if args.phase=='engineering':
+                    if name=='RC14':reference=records
+                    elif name=='RC14_extension_off':
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'Disabled extension changed generation'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history,'Disabled extension changed history'
+                    else:
+                        for base,rec in zip(reference,records):
+                            first=next((i for i,t in enumerate(base['token_ids']) if t in boundaries),len(base['token_ids'])-1)
+                            assert base['token_ids'][:first+1]==rec['token_ids'][:first+1], 'Divergence before first possible intervention'
+                        if lexical:assert sum(e['lexical_control_changes'] for e in adapter.completed.values())>0
+                    if name=='RC14':history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                done.append(name);print(json.dumps(dict(arm=name,count=len(records),seconds=seconds)),flush=True)
+            finally:
+                monitor.terminate();monitor.wait(timeout=10);monitor=None;stream_gpu.close();adapter.close()
+        save(args.output/'complete.json',dict(phase=args.phase,passed=True,arms=done,
+            release_sha256=sha(args.release),wall_seconds=time.monotonic()-began))
+    except BaseException as e:
+        save(args.output/'failure.json',dict(error=repr(e),completed_arms=done,wall_seconds=time.monotonic()-began));raise
+    finally:
+        if monitor is not None:monitor.terminate();monitor.wait(timeout=10)
+        signal.alarm(0)
+
+
+if __name__=='__main__':main()

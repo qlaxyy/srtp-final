@@ -180,6 +180,10 @@ class Sampler:
         if history_on:
             mask &= o.first_reflection[idx] >= 0
         phrase_on = getattr(o,'lexical_mode','original') == 'but_wait'
+        extended = getattr(o, 'candidate_mask', None)
+        if extended is not None:
+            lexical_mask = extended(idx, valid)
+            mask = lexical_mask.any(dim=1)
         if phrase_on:
             delayed = o.after_but[idx] & o.thinking[idx] & valid & t.isfinite(coefficient) & t.isfinite(mean) & (coefficient<0)
             lexical_mask = (mask[:,None] & ~o.but_columns[None,:]) | (delayed[:,None] & o.wait_columns[None,:])
@@ -192,7 +196,7 @@ class Sampler:
             values = logits[:, o.ids]
             penalty_mode = getattr(o, 'penalty_mode', 'fixed')
             if penalty_mode == 'fixed':
-                if phrase_on:
+                if phrase_on or extended is not None:
                     logits[:, o.ids] = t.where(lexical_mask, values-PENALTY, values)
                 else:
                     logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
@@ -209,6 +213,9 @@ class Sampler:
         # Invalid partial prefill dummy samples are never used as token IDs.
         safe = t.where(valid, token, t.zeros_like(token))
         t._assert_async(((safe>=0)&(safe<o.clean.numel())).all(), 'Invalid tokenizer ID')
+        accepted = getattr(o, 'accept_lexical_sample', None)
+        if accepted is not None:
+            accepted(idx, safe, valid)
         if phrase_on:
             after = (o.opening[idx] & o.but_lookup[safe]) | (o.after_but[idx] & o.white[safe])
             after &= o.thinking[idx] & (safe!=151648) & (safe!=151649) & ~o.boundary[safe]
