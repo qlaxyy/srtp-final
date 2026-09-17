@@ -1,0 +1,14 @@
+{
+  "archive": ".codex_work\\mti_stage0_20260918_run1.tar.gz",
+  "sha256": "51773bddf6fb57a6db08fa49646935bedd2198d6767ebbaec10476c9fb826965",
+  "files": {
+    "mti_branch.py": "a92890bd3c251e5c544b4f300bb2e582a57d1fd82ae9acd2f87d3c1ad5958ea3",
+    "mti_branch_diagnostic.py": "f65c4be8a43c0750f5e16f5084f980689c99fbff04b828611c1e5d7682895404",
+    "stage0_plan.json": "d46e64aa7752a5225a8f18a7a6a0fb996079dc9a6c1853727c77812268e8f997",
+    "run_stage0.sh": "20b8a44ae73d253fe31d84193df65183ce90526465ded2681c71fa7af2da48e6"
+  },
+  "gpu_executed": false,
+  "launch": "bash run_stage0.sh",
+  "remote_stage_directory": "/root/autodl-tmp/projects/mti_stage0_20260918_run1",
+  "output_directory": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/mti_context_20260918/mti_stage0_prefix8_20260918_run1"
+}

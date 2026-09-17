@@ -1,5 +1,8 @@
 {
-  "status": "reference_ready_runtime_not_implemented",
+  "status": "stage0_hf_cache_oracle_ready_native_runtime_not_implemented",
+  "stage0_plan": "stage0_plan.json",
+  "stage0_scope": "8 existing calibration prefixes, HF unsteered,40 forwards,zero generated answers. This is an additional preliminary cache oracle; it does NOT satisfy the native dynamic-steering gate below.",
+  "stage0_cpu_checks": "branch_cpu_checks.json: six categories including18 block-boundary plans, causal attention equivalence,parent cache/RNG isolation,and failure cleanup",
   "candidate": "ReBalance + temporary negative-context contrast + frozen L27",
   "classification": "按MTI描述借鉴的适配，非官方MTI复现，非已验证优化",
   "paper": "https://arxiv.org/html/2510.13940v4",
@@ -65,6 +68,7 @@
     "stop": "OOM/preemption/branch integrity failure stop; no automatic threshold retuning or 7B expansion"
   },
   "current_gpu_runs": 0,
-  "current_data_reserved": [],
+  "current_data_reserved": [3241,5353,759,7012,26,64,76,385],
+  "data_registry": "stage0_plan.json cases: normalized problem hashes,exact prefix IDs and hashes; already exposed calibration engineering only, not new development or confirmation data",
   "main_risk": "May increase useful reflection and tokens; contrast may undo lexical suppression, so improvement is only a hypothesis"
 }
