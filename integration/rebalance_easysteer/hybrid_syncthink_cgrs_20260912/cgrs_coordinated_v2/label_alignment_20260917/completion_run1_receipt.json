@@ -1,0 +1,92 @@
+{
+  "status": "verified complete 2500 generations and author labels",
+  "archive_sha256": "1d2fab6d36c31d1eba2104f6590a15b09e398c72f80192e9c322317b88f76766",
+  "analysis_sha256": "be5ca3e14ada3e5ee9173f3fd947135ecd0c6edb2440173bf3fe95096820fd57",
+  "arms": {
+    "L27_L27": {
+      "passed": true,
+      "count": 500,
+      "gpu_utilization_sample_mean": 75.41432225063939,
+      "gpu_samples": 391,
+      "generation_seconds": 391.6180171966553,
+      "checkpoint_io_seconds": 0.19181251525878906,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    },
+    "T14_T14": {
+      "passed": true,
+      "count": 500,
+      "gpu_utilization_sample_mean": 77.95887445887446,
+      "gpu_samples": 462,
+      "generation_seconds": 463.29126764833927,
+      "checkpoint_io_seconds": 0.22139276564121246,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    },
+    "T14_L27": {
+      "passed": true,
+      "count": 500,
+      "gpu_utilization_sample_mean": 76.35597189695551,
+      "gpu_samples": 427,
+      "generation_seconds": 425.94003930687904,
+      "checkpoint_io_seconds": 0.21137051284313202,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    },
+    "CV_CV": {
+      "passed": true,
+      "count": 500,
+      "gpu_utilization_sample_mean": 79.83333333333333,
+      "gpu_samples": 480,
+      "generation_seconds": 479.33911971747875,
+      "checkpoint_io_seconds": 0.2300935834646225,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    },
+    "L27_L27_control": {
+      "passed": true,
+      "count": 500,
+      "gpu_utilization_sample_mean": 75.67684478371501,
+      "gpu_samples": 393,
+      "generation_seconds": 392.4998374283314,
+      "checkpoint_io_seconds": 0.18970485031604767,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    }
+  },
+  "generation_seconds": 2152.6882812976837,
+  "full_process_wall_seconds": 2190.5531291365623,
+  "grading_and_analysis_seconds": 165.365442186594,
+  "files_sha256": {
+    "analysis.json": "be5ca3e14ada3e5ee9173f3fd947135ecd0c6edb2440173bf3fe95096820fd57",
+    "complete.json": "8f101cc8a8e3c14f2458b8e5da41c2de7a35c1dcbad844882497033d4083fbe0",
+    "identity.json": "a0fb53beb1248454d3323a979eccca51970a32de6f600cf2841adcac1ff30414",
+    "plan.json": "8db70aa19b66ed1ca750a6855ccdb35ef30c135fd0bf6d3e095549b9355b7fda",
+    "release.json": "01a889025b6c9233635e5eaca81b9a177b4ebefd2dda3a5d3b402f8594990b51",
+    "CV_CV\\author_partial.jsonl": "980193dd19bc87f0fab6c9a8c7f2d5c950326d379b7a57cf8cf82f3cff41364d",
+    "CV_CV\\gpu.csv": "561c9645f90c2c37dbbfe3480c2b1f6844a651ed52a2c41741fb551be271a330",
+    "CV_CV\\partial.jsonl": "23c58fd49a6550a6c803d5a851c029c731ee4f35c1f725f26bfbafb075762d1a",
+    "CV_CV\\result.json": "0e13a0196ba78d35cd0783d35d43b43e45023b610b47dee3087bb8439c0e1598",
+    "L27_L27\\author_partial.jsonl": "5f85ee8961539f2d47c6db9e3a500ef6a3f5c19acaf1b531638287368ad3f0a5",
+    "L27_L27\\gpu.csv": "f0727733e19f417a7fd758edc7b981daab6951fdcad2685d168d8f2649aee737",
+    "L27_L27\\partial.jsonl": "1c5a510d4dbe50eb18015c045587c97eadf3d1ad38c71af0ddc5683e7e822988",
+    "L27_L27\\result.json": "2c250afc3f2411cfec29ad24c9b31c02d5037b311f49e0294f0d7d8a2b98ceb1",
+    "L27_L27_control\\author_partial.jsonl": "30a1a1835e86a666919a7cc243d6e6f76c7c5b816d870ff03daef55326ddf317",
+    "L27_L27_control\\gpu.csv": "06cbf6634c456480c9e31de0e5c6b63a3252dca3d2f862c60ad7f2ba55ff8756",
+    "L27_L27_control\\partial.jsonl": "bbbe47ad956759a47992fcae38cb1fe6c425667589d0dcda7e170aa5c2ed2071",
+    "L27_L27_control\\result.json": "772f12e269f343528fc6d4936fa95322d7806577b10ac682c72fb1fafe01caa5",
+    "T14_L27\\author_partial.jsonl": "fb3fe42cdf7f41cb7047f2883a8f05c3d724213050b9bb7638470231d69ff090",
+    "T14_L27\\gpu.csv": "60eb62c5b7f0a18dffa7845cbbd151677ff5a226f6e248fcc91b5b8606fde11a",
+    "T14_L27\\partial.jsonl": "70489d003985cf94459ba31b4c3ea32941c28fc7f8a306cf8c2b9760fd94f9cc",
+    "T14_L27\\result.json": "664a0125477e70a1cf970c6e4053c7511766ec1ed13891816a03e8e4a2d9d8d9",
+    "T14_T14\\author_partial.jsonl": "ab98b48c2b1530cf9a37e6649cf4ecd7f15f45765279871b29ba142f9a3f7799",
+    "T14_T14\\gpu.csv": "6b1ff61476654c95087a92ffcb3ad974b90f4297a0087545eb96a41aba076cb6",
+    "T14_T14\\partial.jsonl": "aecd6eea7b0fa06bd04790674dea24d3c7799eb8ab85e705c538744fbb0ff958",
+    "T14_T14\\result.json": "beaa6d9b63731b1d7aa062cb882298317f596a1a3cd6562f2a251833059e88a3"
+  }
+}
