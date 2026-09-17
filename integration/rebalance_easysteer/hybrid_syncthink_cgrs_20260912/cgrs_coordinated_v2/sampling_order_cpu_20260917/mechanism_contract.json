@@ -1,0 +1,49 @@
+{
+  "classification": "New sampling-order hypothesis, not a validated optimization; no live sampler/controller changed",
+  "adverse_example": {
+    "target_column": 0,
+    "probabilities": {
+      "R": [
+        1.0,
+        0.0
+      ],
+      "RC14_order": [
+        0.8991525769233704,
+        0.10084744542837143
+      ],
+      "support_preserving_order": [
+        1.0,
+        0.0
+      ]
+    },
+    "meaning": "Original nucleus contains only reflection. Candidate cannot choose an alternative, while originalRC14 admits one."
+  },
+  "change": "Keep nucleus computed from ReBalance logits before lexical penalty. For surviving14 entries, use exactly original BF16 raw subtraction then temperature rounding. Other entries and excluded -inf unchanged.",
+  "preserved": [
+    "14 IDs",
+    "ln2 penalty",
+    "negative-R gate",
+    "R pre-lexical raw maximum-probability confidence",
+    "actual accepted-token boundary updates",
+    "temperature.7 and top_p.95",
+    "no added sampler draw or model forward"
+  ],
+  "interface": {
+    "placement": "B-line Adapter opt-in mode using existing original_sampler(...,after_filter=callback); no S64 activation or shared-vLLM edits.",
+    "call_state": "Immutable per-call slot-mapped mask and14 adjusted values; no global pending ticket. Replace only finite active target logits, release captures after call.",
+    "default_off": "Do not pass callback or allocate buffers. Preserve original subtraction branch.",
+    "reset": "No new request history. Existing opening/thinking/accepted clock; reject competing callbacks, greedy, other top_k/min_p/penalties, speculation and unsupported preemption.",
+    "precision": "Do not replace rounded subtract-then-temperature with a simple post-temperature ln2/T subtraction.",
+    "backend": "Seed42 already selects non-FlashInfer Gumbel path. Native invariants still required."
+  },
+  "limitations": [
+    "Scores/probabilities do not establish correctness or necessary correction.",
+    "Post-filter variant may lose compression on concentrated reflection nuclei.",
+    "Old7B captures contain zero actual eligible openings, so empirical frequency is unknown."
+  ],
+  "cpu_repairs": [
+    "Primary-source annotations postponed for localPython3.9; filter body unchanged.",
+    "Adverse one-token toy compares normalized probabilities, not absolute logits (which differ by an additive constant)."
+  ],
+  "gpu_calls": 0
+}
