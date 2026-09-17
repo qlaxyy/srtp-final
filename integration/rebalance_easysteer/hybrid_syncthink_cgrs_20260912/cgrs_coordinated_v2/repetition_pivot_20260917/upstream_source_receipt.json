@@ -1,0 +1,30 @@
+{
+  "commit": "81396f9351f3393ad9e1070d1719d729cd3d8258",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "6b8dd7159231790bad726565c70a98f8783f2498445f982de7809c39f4fe96ba",
+      "bytes": 7515
+    },
+    {
+      "path": "wscgen/chopper.py",
+      "sha256": "4e59212a56baebfba28dadfc3da4a666b3124143348d0b27db70f411892de9b2",
+      "bytes": 3894
+    },
+    {
+      "path": "wscgen/prober.py",
+      "sha256": "783f6bcd0f997b0f89e118c558f022ff66d8ad41e3fcc25a79b6cb63686480ad",
+      "bytes": 8184
+    },
+    {
+      "path": "wscgen/generate.py",
+      "sha256": "913a33d4542dbdc811f82a7c88dc3290eaf155e21eeeb136cea57bbf3b7b9dca",
+      "bytes": 19497
+    },
+    {
+      "path": "wscgen/utils.py",
+      "sha256": "78087d063e2f5d321ff1c0fa77d8d1c48a2488f0573d99f79447f9b6f2292680",
+      "bytes": 22397
+    }
+  ]
+}
