@@ -1,0 +1,25 @@
+{
+  "status": "replay_completed_partition_gate_failed",
+  "generated_tokens": 0,
+  "total_input_tokens": 18298,
+  "gpu_forward_seconds": 1.5381539564132691,
+  "startup_seconds": 7.03279535472393,
+  "wall_seconds": 8.633139535784721,
+  "partition": [
+    {
+      "train_index": 5353,
+      "max_score_difference": 0.012001216411590576,
+      "min_cosine": 0.9999164342880249,
+      "passed": true
+    },
+    {
+      "train_index": 26,
+      "max_score_difference": 0.033748507499694824,
+      "min_cosine": 0.9996190667152405,
+      "passed": false
+    }
+  ],
+  "decision": "Do not promote semantic conclusions or tune thresholds. No retry/expansion. Threshold-side and streak-trigger decisions happened to be unchanged for both checked prefixes; fixed score tolerance still failed.",
+  "limits": "Failure concerns numerical stability of this BF16 HF replay/probe combination, not proof that WSC cannot detect loops or that RC14 combination is ineffective.",
+  "gpu_idle": true
+}
