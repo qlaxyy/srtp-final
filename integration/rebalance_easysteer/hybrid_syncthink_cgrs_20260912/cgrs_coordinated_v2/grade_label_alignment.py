@@ -54,7 +54,7 @@ def main():
     release=read(a.run/'release.json');plan=read(a.run/'plan.json')
     assert not (a.run/'analysis.json').exists()
     refs_name=release.get('references_artifact','historical_compact.json')
-    refs_path=Path(__file__).parent/'label_alignment_20260917'/refs_name
+    refs_path=Path(__file__).parent/release.get('artifact_root','label_alignment_20260917')/refs_name
     assert sha(refs_path)==release['artifact_sha256'][refs_name]
     refs=read(refs_path);groups={k:v['records'] for k,v in refs['groups'].items()}
     for name,h in refs['grader_sha256'].items():assert sha(a.runtime_root/'sources/ReBalance/utils'/name)==h
@@ -83,12 +83,12 @@ def main():
                 labels.append(dict(label,tokens=r['tokens'],thinking_tokens=r['thinking_tokens']))
         assert len(previous)<=len(plan['rows'])
         groups[name]=labels
-        results[name]=dict(summary=summary(labels),comparisons={k:compare(groups[k],labels) for k in ('U','R','RC14')},
+        results[name]=dict(summary=summary(labels),comparisons={k:compare(groups[k],labels) for k in refs['groups']},
             generation_seconds=data['generation_seconds'],setup_seconds=data['setup_seconds'],
             extra_model_forward_count=data['extra_model_forward_count'],control_gpu_seconds=data['control_gpu_seconds'],
             source_result_sha256=sha(folder/'result.json'),labels_sha256=sha(path))
     save(a.run/'analysis.json',dict(status='complete exploratory full benchmark, no independent confirmation',
-        candidates=results,references={k:summary(groups[k]) for k in ('U','R','RC14')},
+        candidates=results,references={k:summary(groups[k]) for k in refs['groups']},
         factorial_interaction=interaction(groups) if all(k in groups for k in ('T14_L27','T14_T14','L27_L27','RC14')) else None,bootstrap_replicates=20000,
         generation_seed=42,analysis_rng_seed=20260917,grading_and_analysis_seconds=time.monotonic()-started,
         limitations=['Same seed is not numerical equivalence across historical runtimes.',

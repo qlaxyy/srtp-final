@@ -1,0 +1,40 @@
+{
+  "groups": {
+    "CHECK7": [
+      "wait",
+      "think again",
+      "make sure",
+      "let me check",
+      "hold on",
+      "double check",
+      "any errors"
+    ],
+    "SWITCH5": [
+      "alternatively",
+      "alternative",
+      "another",
+      "differently",
+      "alternate"
+    ]
+  },
+  "unclassified_not_suppressed": [
+    "perhaps",
+    "maybe",
+    "but",
+    "just to ensure",
+    "there any other",
+    "some other",
+    "should consider",
+    "about whether",
+    "if they have",
+    "i was",
+    "or something",
+    "however",
+    "confusing",
+    "careful",
+    "sometimes"
+  ],
+  "status": "Fixed before outcome inspection; lexical categories are weak proxies, not semantic truth",
+  "source": "ATLAS A.2 motivates separation; this exact partition is our adaptation, not its algorithm",
+  "ambiguity": "wait/another/differently can be ordinary discourse; no claim that checking is redundant or switching useful"
+}

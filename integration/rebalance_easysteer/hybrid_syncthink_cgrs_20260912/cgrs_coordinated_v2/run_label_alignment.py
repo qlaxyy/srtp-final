@@ -13,13 +13,17 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    assert [a['name'] for a in plan['arms']]==(['L27_L27'] if gsm or plan.get('single_transfer') else ['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control'])
+    if plan.get('experiment_kind')=='type_split_v1':
+        assert [a['name'] for a in plan['arms']] in (['CHECK7','SWITCH5'],['CHECK7'],['SWITCH5'])
+        assert all(a['suppression_table'].startswith('type_split_20260917/') for a in plan['arms'])
+    else:
+        assert [a['name'] for a in plan['arms']]==(['L27_L27'] if gsm or plan.get('single_transfer') else ['L27_L27','T14_T14','T14_L27','CV_CV','L27_L27_control'])
     assert release['plan_sha256']==sha(HERE/release.get('plan_relative_path','label_alignment_20260917/plan_v2_math500.json'))
     assert release['table_schema']=='compact-token-classes-v1'
     assert release['source_hash_mode']=='lf-normalized'
     for n,h in release['source_sha256'].items():
         assert hashlib.sha256((HERE/n).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==h,n
-    for n,h in release['artifact_sha256'].items():assert sha(HERE/'label_alignment_20260917'/n)==h,n
+    for n,h in release['artifact_sha256'].items():assert sha(HERE/release.get('artifact_root','label_alignment_20260917')/n)==h,n
     assert phase in ('engineering','full')
 
 
@@ -100,9 +104,10 @@ def main():
                 algorithm='rebalance',scale=1.,layers=[layer],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
-            large=name in ('L27_L27','T14_L27');lexical=name=='L27_L27_control'
+            arm=next((a for a in plan['arms'] if a['name']==name),{})
+            large=name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
-                table=HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
+                table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
                 with np.load(table) as z:tables={k:z[k] for k in z.files}
                 AdapterType=AlignmentAdapter
                 if sync_replay:
