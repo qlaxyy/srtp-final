@@ -1,0 +1,200 @@
+{
+  "status": "complete exploratory full benchmark, no independent confirmation",
+  "candidates": {
+    "L27_L27": {
+      "summary": {
+        "count": 500,
+        "correct": 461,
+        "accuracy_percent": 92.2,
+        "mean_tokens": 3019.122,
+        "mean_thinking_tokens": 2628.6,
+        "capped": 9
+      },
+      "comparisons": {
+        "U": {
+          "accuracy_delta_pp": 0.4,
+          "ci95": {
+            "accuracy": [
+              -1.4000000000000001,
+              2.1999999999999997
+            ],
+            "tokens": [
+              -26.085809929569066,
+              -16.57637815059291
+            ],
+            "thinking_tokens": [
+              -28.99046767257753,
+              -18.49832121081832
+            ]
+          },
+          "tokens_percent": -21.41902295960597,
+          "thinking_tokens_percent": -23.865189888083048,
+          "wrong_to_right": [
+            26,
+            43,
+            94,
+            103,
+            119,
+            126,
+            217,
+            303,
+            352,
+            398,
+            425,
+            490
+          ],
+          "right_to_wrong": [
+            9,
+            11,
+            12,
+            25,
+            138,
+            168,
+            219,
+            288,
+            320,
+            432
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": true
+        },
+        "R": {
+          "accuracy_delta_pp": 0.2,
+          "ci95": {
+            "accuracy": [
+              -1.6,
+              2.0
+            ],
+            "tokens": [
+              -12.2621725455063,
+              -0.539240501276504
+            ],
+            "thinking_tokens": [
+              -13.94613196549929,
+              -0.4664865391495126
+            ]
+          },
+          "tokens_percent": -6.648093923249842,
+          "thinking_tokens_percent": -7.513873270854942,
+          "wrong_to_right": [
+            43,
+            64,
+            71,
+            119,
+            126,
+            166,
+            232,
+            236,
+            302,
+            303,
+            478
+          ],
+          "right_to_wrong": [
+            11,
+            12,
+            18,
+            138,
+            219,
+            264,
+            288,
+            320,
+            351,
+            432
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": true
+        },
+        "RC14": {
+          "accuracy_delta_pp": 1.7999999999999998,
+          "ci95": {
+            "accuracy": [
+              0.0,
+              3.8
+            ],
+            "tokens": [
+              -12.955192806851834,
+              -1.1018716657769252
+            ],
+            "thinking_tokens": [
+              -14.866865330134623,
+              -1.3732771658097556
+            ]
+          },
+          "tokens_percent": -7.215337155206281,
+          "thinking_tokens_percent": -8.340249252034681,
+          "wrong_to_right": [
+            43,
+            94,
+            101,
+            103,
+            119,
+            166,
+            184,
+            248,
+            349,
+            385,
+            394,
+            412,
+            425,
+            478,
+            491,
+            498
+          ],
+          "right_to_wrong": [
+            100,
+            168,
+            288,
+            320,
+            351,
+            369,
+            432
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": true
+        }
+      },
+      "generation_seconds": 1485.1022342592478,
+      "setup_seconds": 0.6203716099262238,
+      "extra_model_forward_count": null,
+      "control_gpu_seconds": null,
+      "source_result_sha256": "8b0651e05af68ea77e3b9d180b66f0f9fffc7cc5d08c9e48861e75fbfb7a0e1c",
+      "labels_sha256": "ff1d9e73c332bae5a9eba72d9cb183a08832eced1515dda2ee148ba8a7a59987"
+    }
+  },
+  "references": {
+    "U": {
+      "count": 500,
+      "correct": 459,
+      "accuracy_percent": 91.8,
+      "mean_tokens": 3842.052,
+      "mean_thinking_tokens": 3452.56,
+      "capped": 18
+    },
+    "R": {
+      "count": 500,
+      "correct": 460,
+      "accuracy_percent": 92.0,
+      "mean_tokens": 3234.13,
+      "mean_thinking_tokens": 2842.156,
+      "capped": 12
+    },
+    "RC14": {
+      "count": 500,
+      "correct": 452,
+      "accuracy_percent": 90.4,
+      "mean_tokens": 3253.902,
+      "mean_thinking_tokens": 2867.78,
+      "capped": 13
+    }
+  },
+  "factorial_interaction": null,
+  "bootstrap_replicates": 20000,
+  "generation_seed": 42,
+  "analysis_rng_seed": 20260917,
+  "grading_and_analysis_seconds": 16.180512949824333,
+  "limitations": [
+    "Same seed is not numerical equivalence across historical runtimes.",
+    "Candidate selection history and exposed test sets: intervals are descriptive and unadjusted; this is not untouched independent confirmation.",
+    "Calibration and inference lexical scopes differ; same inventory alone does not guarantee benefit."
+  ]
+}
