@@ -30,7 +30,10 @@ for a,z in zip(new['records'],old['records']):
     control_diff=int(np.where(~eq)[0][0]) if not eq.all() else (n if n<prefix else None)
     h=np.load(arm/f'{i}_R_history.npy');rh=np.load(oldarm/f'{i}_R_history.npy')
     assert hashlib.sha256(h.tobytes()).hexdigest()==a['R_history_sha256']
-    nh=min(prefix,len(h),len(rh));r_match=np.array_equal(h[:nh],rh[:nh],equal_nan=True) and nh==prefix
+    # R history uses absolute model positions, unlike generated-call control rows.
+    with np.load(arm/f'{i}.npz') as metadata:prompt_tokens=int(metadata['prompt_tokens'])
+    history_end=prompt_tokens+prefix
+    nh=min(history_end,len(h),len(rh));r_match=np.array_equal(h[:nh],rh[:nh],equal_nan=True) and nh==history_end
     assert all(ids[e['position']]==e['token'] for e in c['forced'])
     if start is not None:assert ids[start:start+len(plan['cue_ids'])]==plan['cue_ids']
     with np.load(arm/f'{i}.npz') as data:scored=score_capture(data,plan['boundary_ids'],w,bias)
