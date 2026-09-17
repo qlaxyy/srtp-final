@@ -1,0 +1,66 @@
+{
+  "scope": "CPU synthetic compatibility only; no semantic score validation",
+  "checkpoint_sha256": "628c182133004afee4aa07077afc899d0abbf126b3630c99585d17863b29f629",
+  "parameter_count": 152705,
+  "tensor_shapes": {
+    "input_proj.weight": [
+      128,
+      417
+    ],
+    "input_proj.bias": [
+      128
+    ],
+    "gru.weight_ih_l0": [
+      384,
+      128
+    ],
+    "gru.weight_hh_l0": [
+      384,
+      128
+    ],
+    "gru.bias_ih_l0": [
+      384
+    ],
+    "gru.bias_hh_l0": [
+      384
+    ],
+    "out_head.weight": [
+      1,
+      128
+    ],
+    "out_head.bias": [
+      1
+    ]
+  },
+  "checks": {
+    "checkpoint_strict_load_33_plus_384": true,
+    "independent_11_features_80_tokens_max_abs_error": {
+      "canonical_entropy": 1.595422638445143e-06,
+      "canonical_margin": 5.539281960204034e-09,
+      "canonical_z_logp": 1.2064340882966818e-06,
+      "canonical_selected_rank": 0.0,
+      "canonical_logprobs": 4.3119275439096327e-07,
+      "canonical_logit_gap": 0.0,
+      "canonical_topk_mass@5": 2.5554156152240992e-08,
+      "canonical_topk_mass@10": 5.378736839256604e-08,
+      "canonical_d_entropy": 1.9379889453219334e-06,
+      "canonical_d_margin": 1.034277708270026e-08,
+      "canonical_d_logp": 6.297246635256215e-07
+    },
+    "public_missing_top512_repeats_previous_value": true,
+    "incremental_gru_matches_full_prefix_max_abs_error": 2.384185791015625e-07,
+    "future_step_does_not_change_prefix_score": true
+  },
+  "gpu_used": false,
+  "new_answers": 0,
+  "real_gte_embeddings_used": false,
+  "feature_tolerance": 5e-05,
+  "gru_tolerance": 1e-05,
+  "blocking_gaps": [
+    "Training question IDs and split not supplied in audited files",
+    "Real GTE tokenizer/weights equivalence not tested",
+    "No pre-CGRS top512 logits in old calibration logs",
+    "Code/GRU license not established by encoder model card",
+    "No evidence yet for incremental correction-value prediction"
+  ]
+}
