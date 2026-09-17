@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='type_split_v1':
+    if plan.get('experiment_kind')=='harmonic_v1':
+        assert [a['name'] for a in plan['arms']]==['HARMONIC_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='type_split_v1':
         assert [a['name'] for a in plan['arms']] in (['CHECK7','SWITCH5'],['CHECK7'],['SWITCH5'])
         assert all(a['suppression_table'].startswith('type_split_20260917/') for a in plan['arms'])
     else:
@@ -98,6 +101,7 @@ def main():
             calib='T14' if name in ('T14_T14','T14_L27') else 'CV' if name=='CV_CV' else None
             vp=HERE/'label_alignment_20260917'/calib/'auto_vector.pt' if calib else Path(assets['vector']['path'])
             fp=HERE/'label_alignment_20260917'/calib/'fit.json' if calib else Path(assets['fit']['path'])
+            if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
             steer=SteeringSpec(vectors=[VectorSpec(name='label_alignment_'+(calib or 'L27'),data=from_pt_direction(str(vp),layers=[layer]),
@@ -110,6 +114,9 @@ def main():
                 table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
                 with np.load(table) as z:tables={k:z[k] for k in z.files}
                 AdapterType=AlignmentAdapter
+                if name=='HARMONIC_L27':
+                    from harmonic_adapter import HarmonicAdapter
+                    AdapterType=HarmonicAdapter
                 if sync_replay:
                     from replay_label_alignment import ReplayAlignmentAdapter
                     AdapterType=ReplayAlignmentAdapter
@@ -123,6 +130,11 @@ def main():
             if name=='RC14_extension_off':
                 sampler=runner.sampler;unused=AlignmentAdapter(llm,tok,enabled=False)
                 assert runner.sampler is sampler;unused.close();assert runner.sampler is sampler
+                if plan.get('experiment_kind')=='harmonic_v1':
+                    from harmonic_adapter import HarmonicAdapter
+                    observe=runner.steer_vector_state.observe_sample
+                    unused=HarmonicAdapter(llm,tok,enabled=False);unused.close()
+                    assert runner.sampler is sampler and runner.steer_vector_state.observe_sample==observe
             setup=time.monotonic()-setup_start
             stream_gpu=(folder/'gpu.csv').open('x')
             monitor=subprocess.Popen(['nvidia-smi','--query-gpu=timestamp,utilization.gpu,memory.used,power.draw',
@@ -177,6 +189,7 @@ def main():
                             first=next((i for i,t in enumerate(base['token_ids']) if t in boundaries),len(base['token_ids'])-1)
                             assert base['token_ids'][:first+1]==rec['token_ids'][:first+1], 'Divergence before first possible intervention'
                         if lexical:assert sum(e['lexical_control_changes'] for e in adapter.completed.values())>0
+                        if name=='HARMONIC_L27':assert sum(e['harmonic_step_updates'] for e in adapter.completed.values())>0
                     if name=='RC14':history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                 done.append(name);print(json.dumps(dict(arm=name,count=len(records),seconds=seconds)),flush=True)
             finally:
