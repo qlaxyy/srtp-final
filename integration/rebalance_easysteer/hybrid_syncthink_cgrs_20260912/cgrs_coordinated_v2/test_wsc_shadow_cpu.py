@@ -12,6 +12,10 @@ class Layer(torch.nn.Module):
 
 
 class Model(torch.nn.Module):
+    def __call__(self, *args, **kwargs):
+        # Mirrors vLLM support_torch_compile bypass of nn.Module pre-hooks.
+        return self.forward(*args, **kwargs)
+
     def __init__(self):
         super().__init__()
         self.layers = torch.nn.ModuleList([Layer() for _ in range(28)])
@@ -24,21 +28,28 @@ class Model(torch.nn.Module):
         return h+r
 
 
+class Outer(torch.nn.Module):
+    def __init__(self):
+        super().__init__();self.model=Model()
+    def forward(self,input_ids,positions):
+        return self.model(input_ids,positions)
+
+
 def test():
     WSCShadow(object()).close()  # Disabled mode cannot even inspect runner.
-    model = Model()
+    outer = Outer();model=outer.model
     def sampler(logits,batch,**kwargs):
         return NS(sampled_token_ids=torch.tensor([[91],[92]]))
-    runner = NS(model=NS(model=model),sampler=sampler,vllm_config=NS(
+    runner = NS(model=outer,sampler=sampler,vllm_config=NS(
         model_config=NS(enforce_eager=True),compilation_config=NS(mode=0),parallel_config=NS(tensor_parallel_size=1,pipeline_parallel_size=1),
         speculative_config=None,scheduler_config=NS(async_scheduling=False),cache_config=NS(enable_prefix_caching=False)))
     ids=torch.tensor([11,12,13,21,22]);pos=torch.tensor([0,1,2,0,1])
-    reference=model(ids,pos).clone()
+    reference=outer(ids,pos).clone()
     obs=WSCShadow(runner,enabled=True,max_calls=2)
     batch=NS(num_draft_tokens=0,num_reqs=2,logits_indices=torch.tensor([2,4]),
         idx_mapping=torch.tensor([7,3]),num_computed_tokens_np=np.array([0,0]),
         num_scheduled_tokens=np.array([3,2]),prefill_len_np=np.array([3,2]),seq_lens=torch.tensor([3,2]))
-    assert torch.equal(model(ids,pos),reference)
+    assert torch.equal(outer(ids,pos),reference)
     logits=torch.zeros(2,100);before=logits.clone()
     assert torch.equal(runner.sampler(logits,batch).sampled_token_ids,torch.tensor([[91],[92]]))
     ids.fill_(999);pos.fill_(999)
@@ -50,11 +61,11 @@ def test():
     except RuntimeError:pass
     else:raise AssertionError('Missing forward accepted')
     obs.close();assert runner.sampler is sampler
-    assert not model._forward_pre_hooks and not model.layers[26]._forward_hooks
+    assert not outer._forward_pre_hooks and not model.layers[26]._forward_hooks
     assert not model.layers[27]._forward_pre_hooks
     # Request ordering changes: mapping follows batch slots, not row number.
     obs=WSCShadow(runner,enabled=True,max_calls=1)
-    model(torch.tensor([91,92]),torch.tensor([3,2]))
+    outer(torch.tensor([91,92]),torch.tensor([3,2]))
     batch.logits_indices=torch.tensor([0,1]);batch.idx_mapping=torch.tensor([3,7]);batch.seq_lens=torch.tensor([4,3])
     runner.sampler(logits,batch);assert obs.export()[3][0]['input_id']==91
     obs.close()

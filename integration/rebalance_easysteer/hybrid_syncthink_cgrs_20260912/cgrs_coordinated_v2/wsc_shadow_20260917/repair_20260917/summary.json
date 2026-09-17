@@ -1,0 +1,367 @@
+{
+  "status": "native_observer_engineering_passed",
+  "per_question_checks": [
+    {
+      "train_index": 647,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 1837,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 4972,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 1441,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 4432,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 3497,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 1483,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    },
+    {
+      "train_index": 229,
+      "tokens": 512,
+      "exact_control_array_equal": true
+    }
+  ],
+  "total_generated_run3": 8192,
+  "RC14_generation_seconds": 8.667817205190659,
+  "shadow_generation_seconds": 8.743402928113937,
+  "wall_seconds": 41.86950536072254,
+  "cpu_scoring_seconds": 0.0470000000204891,
+  "scored_boundaries": 72,
+  "score_above_half": 1,
+  "would_trigger_requests": 0,
+  "scope": "No active recovery. Scores do not establish semantic validity. Truncated engineering prefixes cannot establish accuracy or compression benefits.",
+  "repairs": [
+    "Process-only VLLM_STEER_EAGER_IN_GRAPH=1 retains the same steering kernel",
+    "Input hook moved to outer QwenForCausalLM; inner decorated __call__ bypasses standard pre-hooks; added CPU regression reproduction"
+  ],
+  "failed_run2": {
+    "completed_baseline_tokens": 4096,
+    "shadow_completed_questions": 0,
+    "wall_seconds": 31.089575618505478
+  },
+  "gpu_idle_verified": true,
+  "raw_cache": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\wsc_repair_complete_20260917",
+  "raw_files": [
+    {
+      "path": "projects/hybrid_wsc_hookfix_20260917/generation_hookfix.log",
+      "bytes": 10791,
+      "sha256": "3f7bd8052b8f6138f4d71673a0e750dfd282212d1ce0c397b75c1cdcb7bd7bbf"
+    },
+    {
+      "path": "projects/hybrid_wsc_hookfix_20260917/hookfix_launch_receipt.json",
+      "bytes": 788,
+      "sha256": "08eeb87d35fc5e115aede9028c102f04f23d5f6f497f9a2218ef073e9bc955a0"
+    },
+    {
+      "path": "projects/hybrid_wsc_shadow_20260917/generation_startupfix.log",
+      "bytes": 17187,
+      "sha256": "5b8fd6504151e71593fe0a8eb20683f00b67d22d829c536a30563b50c16e648f"
+    },
+    {
+      "path": "projects/hybrid_wsc_shadow_20260917/startupfix_launch_receipt.json",
+      "bytes": 770,
+      "sha256": "9d9c7ee305fc3f3aba0f6a1d037b663e33064e491973ac189dd4bcb695d845f1"
+    },
+    {
+      "path": "raw.tar.gz",
+      "bytes": 12147275,
+      "sha256": "701dac8a1bf56e8d3be7d23bdbc8cebf6fcdf7a3f2604fe9b3d8dd6d782b4eeb"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 114,
+      "sha256": "1963d3c5eee725201e90bf4917ea923ef6bcfeb45edf0bcfa3d4e6ba1951cb78"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/engineering_gate.json",
+      "bytes": 303,
+      "sha256": "793b26404c145b11f153b3ee328b96cdb6a723c4d00968eb832779250a40ad07"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/native_cpu_check.json",
+      "bytes": 427,
+      "sha256": "29d75031f9309642d7958246d2e8db061f75cf0b972d07d32481c0d6d365aa74"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/plan.json",
+      "bytes": 340933,
+      "sha256": "3b5a4d23b21de073731033a6fba26ad0d4022e35875518e5e4bb8ee58230b7da"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/1441_control.npy",
+      "bytes": 20608,
+      "sha256": "f8d10f5e7b3d150e49503949662e803d56f4aa5802979189913ec40d89998a04"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/1483_control.npy",
+      "bytes": 20608,
+      "sha256": "cdf88c3d2e6c57ad57394725b6b378e90f442faf883ec30798370247d14bbf2d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/1837_control.npy",
+      "bytes": 20608,
+      "sha256": "cd482da6b51b13e199b5772a2750cd0d628fd74d366d23a6925847bc6aea96c8"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/229_control.npy",
+      "bytes": 20608,
+      "sha256": "6ad794efc9baf5e0489628adbaf923f74d1b4d15ad7d86168845748a139598a6"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/3497_control.npy",
+      "bytes": 20608,
+      "sha256": "053c6b695c50f88b3d5c872e5822cfb4ac08a47295e3ed79007840cfe53043d3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/4432_control.npy",
+      "bytes": 20608,
+      "sha256": "abab2284ebc1144bc9f8f710688f85c54735e5883eed1d28739c5aeb13c35f27"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/4972_control.npy",
+      "bytes": 20608,
+      "sha256": "eae84e0e46e72a9e7a5bd3468b782556c55b972be800af325625cc018e5ebb42"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/647_control.npy",
+      "bytes": 20608,
+      "sha256": "305c60d371972dcc342e9b5d83faaa042611508fbe3c184564f2ccbbe27b795d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/partial.jsonl",
+      "bytes": 21640,
+      "sha256": "b6a26de26a37fdf10b10f8209b556114a642c9b2f66dd5f2c52ad386deac20a4"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/requests.json",
+      "bytes": 1096,
+      "sha256": "3d266f654b9df379e33392431d7e3f9f6ea8f9b1d2721f806e3a0adbaa8c0c70"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14/result.json",
+      "bytes": 58672,
+      "sha256": "d4c04b9402c9166e95d92a62b2a96918caeb5690b7db21d39f2a406ea37788fc"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1441.npz",
+      "bytes": 3159296,
+      "sha256": "a15590dc3f93c6c29d3f1c08ea8a767ea6024e710197b4c6e1c6c71530e03605"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1441_control.npy",
+      "bytes": 20608,
+      "sha256": "f8d10f5e7b3d150e49503949662e803d56f4aa5802979189913ec40d89998a04"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1483.npz",
+      "bytes": 3159296,
+      "sha256": "b7a26a27b46dc94d794ad6b149b3b79f833da1f6f28dbf303d6d8152d79c6868"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1483_control.npy",
+      "bytes": 20608,
+      "sha256": "cdf88c3d2e6c57ad57394725b6b378e90f442faf883ec30798370247d14bbf2d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1837.npz",
+      "bytes": 3159296,
+      "sha256": "3d69196a1f5fe4429ecae40a918e54ad203700f290896e0d149c550f0bddb216"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/1837_control.npy",
+      "bytes": 20608,
+      "sha256": "cd482da6b51b13e199b5772a2750cd0d628fd74d366d23a6925847bc6aea96c8"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/229.npz",
+      "bytes": 3159296,
+      "sha256": "d69d80be3e80bc2b47778851fc822893e8165049649da77853da22c321e2d3a7"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/229_control.npy",
+      "bytes": 20608,
+      "sha256": "6ad794efc9baf5e0489628adbaf923f74d1b4d15ad7d86168845748a139598a6"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/3497.npz",
+      "bytes": 3159296,
+      "sha256": "a649c49c5fc6260315c9b51e4116d9b9b077303dd41200f4a22d9a26bc8d7fd6"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/3497_control.npy",
+      "bytes": 20608,
+      "sha256": "053c6b695c50f88b3d5c872e5822cfb4ac08a47295e3ed79007840cfe53043d3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/4432.npz",
+      "bytes": 3159296,
+      "sha256": "89960b084b8cfa27e584333689cffa0838a25d5c348e6d882d556ea4cba131e3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/4432_control.npy",
+      "bytes": 20608,
+      "sha256": "abab2284ebc1144bc9f8f710688f85c54735e5883eed1d28739c5aeb13c35f27"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/4972.npz",
+      "bytes": 3159296,
+      "sha256": "d79c09c0e114807b3483bcb4a1e1d4a74d0027168f3f7f54404499cc45c305f8"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/4972_control.npy",
+      "bytes": 20608,
+      "sha256": "eae84e0e46e72a9e7a5bd3468b782556c55b972be800af325625cc018e5ebb42"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/647.npz",
+      "bytes": 3159296,
+      "sha256": "078927379727de8aacaa9e4ffeab9dcd8b03220b3df29ca91bb9c6e7723f1e67"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/647_control.npy",
+      "bytes": 20608,
+      "sha256": "305c60d371972dcc342e9b5d83faaa042611508fbe3c184564f2ccbbe27b795d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/export.json",
+      "bytes": 228,
+      "sha256": "029240347ca1dc70318f88ddd70c32cdcb9dd476de16641112e6b0f1b16afe2e"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/partial.jsonl",
+      "bytes": 21646,
+      "sha256": "4876855edf63aaeb903d21dde2295ef5eb2d2a6bb91e3f75a83bc73d7c73cadc"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/requests.json",
+      "bytes": 1102,
+      "sha256": "a9bd8ad14285c418d9dedfa586bc7c21ae999f2616b13d62b18657ef720304d3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/RC14_wsc_shadow/result.json",
+      "bytes": 58678,
+      "sha256": "ab678ff21dbf3a626d80a0c46b82d75ea8f6862b935bbf65c93699c795dde7bd"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_hookfix_run3_20260917/tokenizer_boundaries.json",
+      "bytes": 6337,
+      "sha256": "e6541d6a3f4700e1489bedf7169ad81511af429889cb84b2d2b30bdb040e5b50"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/failure.json",
+      "bytes": 143,
+      "sha256": "eef859a56afd33619a4c5353093dd49ad52c264d3f2fe3636830d06618539530"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/native_cpu_check.json",
+      "bytes": 427,
+      "sha256": "29d75031f9309642d7958246d2e8db061f75cf0b972d07d32481c0d6d365aa74"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/plan.json",
+      "bytes": 340825,
+      "sha256": "860550e1526b293363f35cfcecfbc02f1d468a10c623a3c1a27baf4b21d19bfe"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/1441_control.npy",
+      "bytes": 20608,
+      "sha256": "f8d10f5e7b3d150e49503949662e803d56f4aa5802979189913ec40d89998a04"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/1483_control.npy",
+      "bytes": 20608,
+      "sha256": "cdf88c3d2e6c57ad57394725b6b378e90f442faf883ec30798370247d14bbf2d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/1837_control.npy",
+      "bytes": 20608,
+      "sha256": "cd482da6b51b13e199b5772a2750cd0d628fd74d366d23a6925847bc6aea96c8"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/229_control.npy",
+      "bytes": 20608,
+      "sha256": "6ad794efc9baf5e0489628adbaf923f74d1b4d15ad7d86168845748a139598a6"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/3497_control.npy",
+      "bytes": 20608,
+      "sha256": "053c6b695c50f88b3d5c872e5822cfb4ac08a47295e3ed79007840cfe53043d3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/4432_control.npy",
+      "bytes": 20608,
+      "sha256": "abab2284ebc1144bc9f8f710688f85c54735e5883eed1d28739c5aeb13c35f27"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/4972_control.npy",
+      "bytes": 20608,
+      "sha256": "eae84e0e46e72a9e7a5bd3468b782556c55b972be800af325625cc018e5ebb42"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/647_control.npy",
+      "bytes": 20608,
+      "sha256": "305c60d371972dcc342e9b5d83faaa042611508fbe3c184564f2ccbbe27b795d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/partial.jsonl",
+      "bytes": 21640,
+      "sha256": "4045e65446085570c99e5659bc34a1247d630c9f42fb3160b2d5c862d40e522d"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/requests.json",
+      "bytes": 1096,
+      "sha256": "4ef69f65dc6cceb2a10f0ccd822de87d2da30ae247425b64781d52cb0eb02cb3"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14/result.json",
+      "bytes": 58672,
+      "sha256": "32414be2b90ae153a38cc9227ad08baf29e87c8c90cdf357b0e69b167c29c814"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14_wsc_shadow/partial.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14_wsc_shadow/partial_slots.json",
+      "bytes": 166,
+      "sha256": "bbc739794bd04059f4fa543948170e0329ea219be420570905b23652cf42ab99"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/RC14_wsc_shadow/requests.json",
+      "bytes": 1102,
+      "sha256": "3aa3c80df9006264245c5deed3125b71186d5d5d261d0f3545d10f50664087a7"
+    },
+    {
+      "path": "results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917/wsc_shadow_1p5b_mathtrain8x2_seed42_startupfix_run2_20260917/tokenizer_boundaries.json",
+      "bytes": 6337,
+      "sha256": "e6541d6a3f4700e1489bedf7169ad81511af429889cb84b2d2b30bdb040e5b50"
+    },
+    {
+      "path": "scores.json",
+      "bytes": 17536,
+      "sha256": "bc0edf312186e2afcf842686ade49b411eac5c15dc9c54a850151ba2396ebfca"
+    }
+  ]
+}

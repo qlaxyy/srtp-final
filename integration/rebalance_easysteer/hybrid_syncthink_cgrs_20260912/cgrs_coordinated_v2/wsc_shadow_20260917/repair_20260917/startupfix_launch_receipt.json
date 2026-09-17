@@ -1,0 +1,22 @@
+{
+  "pid": 5081,
+  "start_unix": 1789618792.4188821,
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "600s",
+    "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "-u",
+    "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/run_wsc_shadow.py",
+    "--plan",
+    "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/startupfix_plan.json",
+    "--output-root",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_shadow_20260917",
+    "--gpu-authorized"
+  ],
+  "environment_override": {
+    "VLLM_STEER_EAGER_IN_GRAPH": "1"
+  },
+  "authorization": "User explicitly requested repair and retry; same 8x2 engineering scope"
+}

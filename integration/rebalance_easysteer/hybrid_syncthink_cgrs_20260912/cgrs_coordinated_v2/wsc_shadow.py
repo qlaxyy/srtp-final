@@ -28,7 +28,7 @@ class WSCShadow:
             raise ValueError('Fixed 28-layer Qwen contract')
         self.torch, self.max_calls = torch, max_calls
         self.frames, self.pending, self.handles = [], None, []
-        self.handles.append(self.model.register_forward_pre_hook(self.before_model, with_kwargs=True))
+        self.handles.append(runner.model.register_forward_pre_hook(self.before_model, with_kwargs=True))
         self.handles.append(self.model.layers[26].register_forward_hook(self.after_layer))
         self.handles.append(self.model.layers[27].register_forward_pre_hook(self.before_last))
         runner.sampler = self

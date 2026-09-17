@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\n  \"default_off_no_access\": true,\n  \"output_and_logits_unchanged\": true,\n  \"mapped_slots\": true,\n  \"buffer_copy\": true,\n  \"missing_forward_rejected\": true,\n  \"hooks_removed\": true,\n  \"residual_boundary_checked\": true,\n  \"processed_boundary_scoring\": true,\n  \"shift_rejected\": true,\n  \"gpu_used\": false,\n  \"native_vllm_validated\": false\n}\n",
+  "stderr": ""
+}
