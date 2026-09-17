@@ -29,6 +29,9 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
     p.add_argument('--resume',action='store_true');args=p.parse_args();folder=args.output
     plan=read(folder/'resolved_plan.json');history=read(folder/'historical_reference.json')
+    if plan.get('candidate_kind')=='strength_full':
+        from strength_full import validate
+        validate(plan,read(folder/'execution_receipt.json'))
     assert read(folder/'batch_status.json')['status']=='complete' and not (folder/'analysis.json').exists()
     for name,digest in plan['source_sha256'].items():assert sha(ROOT/name,True)==digest,name
     sys.path.insert(0,str(ROOT/'sources/ReBalance'))
@@ -51,7 +54,7 @@ def main():
                 if i<len(previous):
                     label=previous[i];assert all(label[k]==v for k,v in identity.items()) and type(label['correct']) is bool
                 else:
-                    _,gold=parse_ground_truth(row,sub['dataset']);answer=extract_answer(rec['text'],sub['dataset'])
+                    _,gold=parse_ground_truth(row,sub['dataset']);answer=extract_answer(rec['text'])
                     label=dict(identity,correct=bool(check_is_correct(answer,gold)))
                     f.write(json.dumps(label)+'\n');f.flush()
                 labels.append(label)

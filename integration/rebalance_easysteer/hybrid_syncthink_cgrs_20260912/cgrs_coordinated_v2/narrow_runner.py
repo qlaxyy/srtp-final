@@ -16,6 +16,11 @@ from prepare_screen import phash
 def validate_receipt(plan, receipt, plan_path):
     assert receipt['gpu_authorized'] is True
     assert receipt['plan_sha256'] == sha(plan_path)
+    if plan.get('candidate_kind')=='strength_full':
+        from strength_full import validate
+        validate(plan,receipt)
+        assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()==receipt['execution_commit']
+        return
     if plan.get('candidate_kind')=='strength_screen':
         from strength_screen import validate_authorization
         validate_authorization(plan,receipt)
@@ -79,6 +84,9 @@ def validate_receipt(plan, receipt, plan_path):
 
 
 def cases(plan, phase):
+    if plan.get('candidate_kind')=='strength_full':
+        assert phase=='full'
+        return [('math_test','negative','original14','none')]
     if plan.get('candidate_kind')=='strength_screen':
         from strength_screen import ARMS
         assert phase=='screen'
@@ -120,7 +128,7 @@ def cases(plan, phase):
 def validate_engineering_gate(plan, plan_path, gate_path):
     gate=read(gate_path)
     assert gate['passed']
-    if plan.get('candidate_kind')=='strength_screen':
+    if plan.get('candidate_kind') in ('strength_screen','strength_full'):
         evidence=plan['engineering_evidence']
         assert sha(gate_path)==evidence['gate_sha256'] and gate['plan_sha256']==evidence['plan_sha256']
         for name,digest in evidence['unchanged_mechanism_sources'].items():assert sha(ROOT/name,True)==digest,name
@@ -151,6 +159,7 @@ def main():
     p.add_argument('--gpu-authorized',action='store_true');args=p.parse_args()
     if not args.gpu_authorized:raise ValueError('Explicit fixed-batch GPU authorization required')
     plan=read(args.plan);receipt=read(args.receipt)
+    if plan.get('candidate_kind')=='strength_full':assert args.phase=='full'
     if plan.get('candidate_kind')=='strength_screen':assert args.phase=='screen'
     if plan.get('candidate_kind')=='strength_engineering':assert args.phase=='engineering'
     if plan.get('candidate_kind')=='first_reflection':assert args.phase=='engineering'
@@ -179,7 +188,7 @@ def main():
     started=time.perf_counter();results={};monitor=None;active=None
     try:
         tests=('test_native.py','test_narrow_native.py')
-        if plan.get('candidate_kind') in ('strength_engineering','strength_screen'):tests+=('test_penalty_native.py',)
+        if plan.get('candidate_kind') in ('strength_engineering','strength_screen','strength_full'):tests+=('test_penalty_native.py',)
         if plan.get('candidate_kind') in ('first_reflection','first_reflection_screen','first_reflection_full','history_repeatability'):tests+=('test_history_native.py',)
         if plan.get('candidate_kind')=='history_repeatability':tests+=('test_repeatability_cpu.py',)
         for test in tests:
@@ -199,13 +208,13 @@ def main():
         from replay_adapter import ReplayAdapter
         from adapter import Adapter
         a=plan['assets'];tok=AutoTokenizer.from_pretrained(a['model_path'],local_files_only=True)
-        if plan.get('candidate_kind') in ('strength_engineering','strength_screen'):
+        if plan.get('candidate_kind') in ('strength_engineering','strength_screen','strength_full'):
             from strength_engineering import tokenizer_gate
             save(out/'tokenizer_gate.json',tokenizer_gate(tok,a))
         cap={'engineering':plan.get('engineering_cap',256),'screen':16000,'speed':1024,'full':16000}[args.phase]
         if args.phase=='full':
             prepared={role:[tok.encode(build_prompt(tok,r['problem'])) for r in sub['rows']] for role,sub in plan['datasets'].items()}
-            if plan.get('model_family')=='1p5b':
+            if plan.get('model_family')=='1p5b' and plan.get('candidate_kind')!='strength_full':
                 prepared['async_gate']=[tok.encode(build_prompt(tok,r['problem'])) for r in plan['async_engineering_rows']]
             maximum=max(validate_prompt_capacity(p,cap,runtime['max_model_len']) for p in prepared.values())
         else:
@@ -249,9 +258,9 @@ def main():
             folder.mkdir(parents=True);active=folder
             before=time.perf_counter();kw={} if profile is None else {'trigger_profile':profile}
             if history_gate!='none':kw['history_gate']=history_gate
-            if plan.get('candidate_kind') in ('strength_engineering','strength_screen'):
+            if plan.get('candidate_kind') in ('strength_engineering','strength_screen','strength_full'):
                 from strength_engineering import adapter_options
-                kw.update(adapter_options(plan,name))
+                kw.update(adapter_options(plan,plan['primary_candidate'] if plan.get('candidate_kind')=='strength_full' else name))
             adapter_type=Adapter if runtime['async_scheduling'] else ReplayAdapter
             adapter=adapter_type(llm,tok,mode=mode,gate_on=True,**kw)
             setup=time.perf_counter()-before
@@ -289,7 +298,7 @@ def main():
                             rec=dict(rowmap[rid],request_id=rid,token_ids=ts,tokens=len(ts),
                                 thinking_tokens=ts.index(151649) if 151649 in ts else len(ts),
                                 text=tok.decode(ts,skip_special_tokens=True),finish_reason=ans.finish_reason)
-                            if plan.get('candidate_kind') in ('history_repeatability','strength_screen'):rec['completed_seconds']=time.perf_counter()-began
+                            if plan.get('candidate_kind') in ('history_repeatability','strength_screen','strength_full'):rec['completed_seconds']=time.perf_counter()-began
                             generated[rid]=rec;t=time.perf_counter()
                             stream.write(json.dumps(rec,ensure_ascii=False)+'\n');stream.flush();io+=time.perf_counter()-t
                         steps+=1
@@ -316,7 +325,7 @@ def main():
                     replay_events=getattr(adapter,'replay_events',[]) if adapter.enabled else [],trigger_profile=profile or 'original14',
                     extra_probe_forwards=0,control_gpu_seconds=None)
                 if plan.get('candidate_kind')=='history_repeatability':result['sampling_seed']=sampling_seed
-                if plan.get('candidate_kind') in ('strength_engineering','strength_screen'):result['adapter_options']=kw
+                if plan.get('candidate_kind') in ('strength_engineering','strength_screen','strength_full'):result['adapter_options']=kw
                 save(folder/'result.json',result);results[name]=result
                 print(json.dumps(dict(arm=name,n=len(rows),seconds=seconds)),flush=True)
             except BaseException:
