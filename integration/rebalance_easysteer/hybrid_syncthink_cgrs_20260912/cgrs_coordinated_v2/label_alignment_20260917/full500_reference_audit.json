@@ -1,0 +1,35 @@
+{
+  "count": 500,
+  "unique_hashes": 500,
+  "canonical_source_order_equal": true,
+  "rc14_question_hash_set_equal": true,
+  "original_eval_and_grading_sha_match": true,
+  "seed": 42,
+  "sampling_keys_equal": [
+    "temperature",
+    "top_p",
+    "max_tokens",
+    "max_model_len"
+  ],
+  "rc14_generation_seconds": 400.0541088283062,
+  "runtime": {
+    "async_scheduling": true,
+    "max_num_seqs": 256,
+    "max_num_batched_tokens": 32768,
+    "dtype": "bfloat16",
+    "max_model_len": 32768,
+    "max_tokens": 16000,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.95
+  },
+  "files": {
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\cgrs_v2_full_run1_verified\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913\\resolved_plan.json": "8b799f5e0bd54431402c9496b2db0e22a7438a03e7595d1320267ae5ac8bc9b8",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\cgrs_v2_full_run1_verified\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913\\math_test\\RCnegative\\result.json": "b22b7844068a5b080d4a59345aa09c5201bea0b3d828f74e8f3f0fc01234e011",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\ReBalance\\Data\\Math_Math500\\test.jsonl": "100fce760278f90091a30779ca998a7feba602e8e60de1fa4f99d5a244bdccf9",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\math500_eval.json": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\math500_author_grading.json": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483"
+  },
+  "new_generation": false,
+  "limitation": "Current server runtime not checked; no assertion that seed implies identical execution."
+}
