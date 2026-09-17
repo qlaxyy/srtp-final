@@ -1,0 +1,81 @@
+{
+  "status": "CPU compatibility audit complete; native shadow integration not implemented; GPU batch not ready",
+  "base_commit": "19cc224",
+  "gpu_used": false,
+  "ssh_used": false,
+  "llm_forward_calls": 0,
+  "new_generated_answers": 0,
+  "decision": "Retain frozenRC14. Investigate semantic-loop detection with the published WSC probe before bounded recovery. No efficacy claim.",
+  "feature": {
+    "hf_hidden_index": 27,
+    "decoder_layers_both_models": 28,
+    "source": "public runtime hidden_states[-2] and reproduced layer27_full.yaml agree; not inferred from weight dimensions",
+    "position": "state of an actually accepted and processed delimiter token, not the logits position predicting that token",
+    "native_geometry": "Qwen2 decoder26 output hidden plus residual, before decoder27; match raw residual stream rather than normalized final hidden",
+    "dtype": "capture BF16 native stream; probe FP32; real numerical equivalence unverified",
+    "request_lifecycle": "exclude prompt prefill; end at accepted </think> token151649; fresh ledger on each request; immutable capture; reject duplicate/out-of-order/future positions; invalid vector disables observer for request",
+    "boundary_token_ids": "must validate tokenizer delimiter handling and cumulative chunk positions before GPU readiness; no guessed vocabulary IDs in runtime"
+  },
+  "provenance_gaps": [
+    "Checkpoint has no trained layer, source commit, token-position or split receipt. Modern training defaults to -1, unlike older layer27 and current inference.",
+    "Modern labeler factory defaults mpnet/.9/window100 while paper uses MiniLM/.99; checkpoint does not identify its label pipeline. Do not claim exact official-paper reproduction.",
+    "Only 1.5B published training source has been reconciled. Exact normalized matches are a lower bound; paraphrases remain possible."
+  ],
+  "data_policy": {
+    "MATH500_exact_overlap": 3,
+    "Olympiad_exact_overlap": 1,
+    "MathTrain_exact_overlap": 124,
+    "GSM8K_exact_overlap": 0,
+    "use": "Published-source questions are exposure exclusions, not development/confirmation reservations. Check shared registry before freezing any new split.",
+    "frozen_results": "preserve all previous results unchanged; report future probe results with overlap disclosure and separate eligible subset; full MATH500 is not wholly independent of the probe source",
+    "ScienceGPQA": "two malformed local lines; audit incomplete"
+  },
+  "native_shadow_interface": {
+    "default": "off; disabled branch must execute existing code without observer allocations or sampling changes",
+    "input": [
+      "request_id",
+      "absolute input-token position",
+      "accepted input-token ID",
+      "HF27-equivalent hidden/residual stream",
+      "prompt length",
+      "thinking-active status"
+    ],
+    "output": [
+      "boundary position",
+      "chunk length excluding delimiter",
+      "probe score",
+      "long/short streak",
+      "would_trigger",
+      "disable reason"
+    ],
+    "forbidden_side_effects": [
+      "logit edits",
+      "R coefficient/history edits",
+      "RC14 penalty changes",
+      "KV rollback",
+      "new tokens or cue injection"
+    ],
+    "reset": "request completion/abort releases all state; preemption or unsupported scheduling invalidates the affected audit rather than silently reconstructing R history",
+    "implementation_location": "B-owned observer adapter plus a separately reviewed default-off shared Qwen2 hook; do not copy or replace the full controller"
+  },
+  "gates_before_recovery": [
+    "Finalize actual tokenizer boundary mapping and native integration; CPU tests alone do not establish HF/vLLM feature identity.",
+    "On a predeclared engineering batch, verify accepted-token mapping and native/HF feature agreement under replayed identical R history. Teacher forcing without the original steering schedule is insufficient.",
+    "Verify shadow-on versus shadow-off accepted tokens and full R/RC14 control history are identical; save complete and partial output on failure.",
+    "Evaluate semantic-loop classification under RC14 with independent annotations including necessary corrective reasoning. Do not change layer/threshold to manufacture activations."
+  ],
+  "recovery_future_contract": {
+    "score_threshold": 0.5,
+    "comparison": "strictly greater",
+    "long_chunk_min_tokens": 10,
+    "long_streak": 2,
+    "short_streak": 5,
+    "max_rescues": 1,
+    "global_generated_and_cue_cap": 16000,
+    "rescue_allowance_cap": 4096,
+    "discarded_tokens_count": true,
+    "rollback": "must restore KV and R coefficient/accumulator/history plus RC14 clocks/thinking state together; unsteered re-prefill is not equivalent",
+    "state": "not implemented"
+  },
+  "next_batch": "No runnable GPU batch yet. Once native observer is ready, freeze model/questions/arms/token caps/commands/paths/time limit before requesting GPU. No automatic full benchmark run."
+}
