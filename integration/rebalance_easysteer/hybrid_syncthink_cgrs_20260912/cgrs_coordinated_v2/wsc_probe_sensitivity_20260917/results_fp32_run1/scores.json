@@ -1,0 +1,561 @@
+{
+  "partition_gate": true,
+  "partition": [
+    {
+      "train_index": 5353,
+      "max_score_difference": 1.430511474609375e-06,
+      "min_cosine": 0.9999998211860657,
+      "passed": true
+    },
+    {
+      "train_index": 26,
+      "max_score_difference": 4.76837158203125e-06,
+      "min_cosine": 0.9999997615814209,
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "train_index": 5353,
+      "annotation": "clear_observable_loop",
+      "events": [
+        {
+          "position": 82,
+          "chunk_tokens": 82,
+          "score": 0.0001916301844175905,
+          "would_trigger": false
+        },
+        {
+          "position": 154,
+          "chunk_tokens": 71,
+          "score": 8.784024976193905e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 214,
+          "chunk_tokens": 59,
+          "score": 4.0588993215351366e-06,
+          "would_trigger": false
+        },
+        {
+          "position": 319,
+          "chunk_tokens": 104,
+          "score": 2.9323425678740023e-06,
+          "would_trigger": false
+        },
+        {
+          "position": 403,
+          "chunk_tokens": 83,
+          "score": 1.4695071968162665e-06,
+          "would_trigger": false
+        },
+        {
+          "position": 462,
+          "chunk_tokens": 58,
+          "score": 5.0963208195753396e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 527,
+          "chunk_tokens": 64,
+          "score": 3.964369170716964e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 592,
+          "chunk_tokens": 64,
+          "score": 0.00032682347227819264,
+          "would_trigger": false
+        },
+        {
+          "position": 657,
+          "chunk_tokens": 64,
+          "score": 0.006778278388082981,
+          "would_trigger": false
+        },
+        {
+          "position": 722,
+          "chunk_tokens": 64,
+          "score": 0.10307591408491135,
+          "would_trigger": false
+        },
+        {
+          "position": 787,
+          "chunk_tokens": 64,
+          "score": 0.6312242746353149,
+          "would_trigger": false
+        },
+        {
+          "position": 852,
+          "chunk_tokens": 64,
+          "score": 0.9056212306022644,
+          "would_trigger": true
+        },
+        {
+          "position": 917,
+          "chunk_tokens": 64,
+          "score": 0.9662984609603882,
+          "would_trigger": false
+        },
+        {
+          "position": 982,
+          "chunk_tokens": 64,
+          "score": 0.9919372797012329,
+          "would_trigger": false
+        },
+        {
+          "position": 1047,
+          "chunk_tokens": 64,
+          "score": 0.9962767958641052,
+          "would_trigger": false
+        },
+        {
+          "position": 1112,
+          "chunk_tokens": 64,
+          "score": 0.9982847571372986,
+          "would_trigger": false
+        }
+      ],
+      "post_review_start_boundaries": 8,
+      "trigger_positions": [
+        852
+      ]
+    },
+    {
+      "train_index": 26,
+      "annotation": "productive_early_span",
+      "events": [
+        {
+          "position": 51,
+          "chunk_tokens": 51,
+          "score": 3.656843091448536e-06,
+          "would_trigger": false
+        },
+        {
+          "position": 121,
+          "chunk_tokens": 69,
+          "score": 0.0001298713468713686,
+          "would_trigger": false
+        },
+        {
+          "position": 129,
+          "chunk_tokens": 7,
+          "score": 0.00028710172045975924,
+          "would_trigger": false
+        },
+        {
+          "position": 223,
+          "chunk_tokens": 93,
+          "score": 0.11674544960260391,
+          "would_trigger": false
+        },
+        {
+          "position": 293,
+          "chunk_tokens": 69,
+          "score": 0.0003924303164239973,
+          "would_trigger": false
+        },
+        {
+          "position": 301,
+          "chunk_tokens": 7,
+          "score": 3.7487290683202446e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 378,
+          "chunk_tokens": 76,
+          "score": 2.4317767383763567e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 402,
+          "chunk_tokens": 23,
+          "score": 3.0131759558571503e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 454,
+          "chunk_tokens": 51,
+          "score": 0.004614103585481644,
+          "would_trigger": false
+        },
+        {
+          "position": 564,
+          "chunk_tokens": 109,
+          "score": 8.030803292058408e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 573,
+          "chunk_tokens": 8,
+          "score": 0.006006689742207527,
+          "would_trigger": false
+        },
+        {
+          "position": 610,
+          "chunk_tokens": 36,
+          "score": 1.7609377209737431e-06,
+          "would_trigger": false
+        },
+        {
+          "position": 618,
+          "chunk_tokens": 7,
+          "score": 0.00014062071568332613,
+          "would_trigger": false
+        },
+        {
+          "position": 638,
+          "chunk_tokens": 19,
+          "score": 3.901272430084646e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 663,
+          "chunk_tokens": 24,
+          "score": 0.5816383361816406,
+          "would_trigger": false
+        },
+        {
+          "position": 682,
+          "chunk_tokens": 18,
+          "score": 0.007114524021744728,
+          "would_trigger": false
+        },
+        {
+          "position": 706,
+          "chunk_tokens": 23,
+          "score": 0.15721416473388672,
+          "would_trigger": false
+        },
+        {
+          "position": 721,
+          "chunk_tokens": 14,
+          "score": 0.021928593516349792,
+          "would_trigger": false
+        },
+        {
+          "position": 743,
+          "chunk_tokens": 21,
+          "score": 0.00013828532246407121,
+          "would_trigger": false
+        },
+        {
+          "position": 772,
+          "chunk_tokens": 28,
+          "score": 0.06042194738984108,
+          "would_trigger": false
+        },
+        {
+          "position": 809,
+          "chunk_tokens": 36,
+          "score": 4.9694393965182826e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 827,
+          "chunk_tokens": 17,
+          "score": 5.8162942877970636e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 870,
+          "chunk_tokens": 42,
+          "score": 0.0374661348760128,
+          "would_trigger": false
+        },
+        {
+          "position": 910,
+          "chunk_tokens": 39,
+          "score": 0.011449270881712437,
+          "would_trigger": false
+        },
+        {
+          "position": 948,
+          "chunk_tokens": 37,
+          "score": 0.017066925764083862,
+          "would_trigger": false
+        },
+        {
+          "position": 973,
+          "chunk_tokens": 24,
+          "score": 7.237792306113988e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 1059,
+          "chunk_tokens": 85,
+          "score": 5.386243719840422e-05,
+          "would_trigger": false
+        },
+        {
+          "position": 1147,
+          "chunk_tokens": 87,
+          "score": 0.0014085760340094566,
+          "would_trigger": false
+        },
+        {
+          "position": 1190,
+          "chunk_tokens": 42,
+          "score": 0.10459344834089279,
+          "would_trigger": false
+        },
+        {
+          "position": 1235,
+          "chunk_tokens": 44,
+          "score": 0.03270828723907471,
+          "would_trigger": false
+        },
+        {
+          "position": 1283,
+          "chunk_tokens": 47,
+          "score": 0.7524237632751465,
+          "would_trigger": false
+        },
+        {
+          "position": 1307,
+          "chunk_tokens": 23,
+          "score": 0.057362206280231476,
+          "would_trigger": false
+        },
+        {
+          "position": 1330,
+          "chunk_tokens": 22,
+          "score": 0.07420526444911957,
+          "would_trigger": false
+        },
+        {
+          "position": 1339,
+          "chunk_tokens": 8,
+          "score": 0.027566147968173027,
+          "would_trigger": false
+        },
+        {
+          "position": 1346,
+          "chunk_tokens": 6,
+          "score": 0.8036022782325745,
+          "would_trigger": false
+        },
+        {
+          "position": 1352,
+          "chunk_tokens": 5,
+          "score": 0.36316490173339844,
+          "would_trigger": false
+        },
+        {
+          "position": 1360,
+          "chunk_tokens": 7,
+          "score": 0.6271507740020752,
+          "would_trigger": false
+        },
+        {
+          "position": 1368,
+          "chunk_tokens": 7,
+          "score": 0.005128529388457537,
+          "would_trigger": false
+        },
+        {
+          "position": 1377,
+          "chunk_tokens": 8,
+          "score": 0.0034682585392147303,
+          "would_trigger": false
+        },
+        {
+          "position": 1386,
+          "chunk_tokens": 8,
+          "score": 0.7933319807052612,
+          "would_trigger": false
+        },
+        {
+          "position": 1392,
+          "chunk_tokens": 5,
+          "score": 0.4938933551311493,
+          "would_trigger": false
+        },
+        {
+          "position": 1417,
+          "chunk_tokens": 24,
+          "score": 0.0002020930260187015,
+          "would_trigger": false
+        },
+        {
+          "position": 1422,
+          "chunk_tokens": 4,
+          "score": 0.004650505725294352,
+          "would_trigger": false
+        },
+        {
+          "position": 1432,
+          "chunk_tokens": 9,
+          "score": 0.25757262110710144,
+          "would_trigger": false
+        },
+        {
+          "position": 1443,
+          "chunk_tokens": 10,
+          "score": 0.10570146888494492,
+          "would_trigger": false
+        },
+        {
+          "position": 1453,
+          "chunk_tokens": 9,
+          "score": 0.055985115468502045,
+          "would_trigger": false
+        },
+        {
+          "position": 1463,
+          "chunk_tokens": 9,
+          "score": 0.06009426712989807,
+          "would_trigger": false
+        },
+        {
+          "position": 1473,
+          "chunk_tokens": 9,
+          "score": 0.022389786317944527,
+          "would_trigger": false
+        },
+        {
+          "position": 1483,
+          "chunk_tokens": 9,
+          "score": 0.36249253153800964,
+          "would_trigger": false
+        },
+        {
+          "position": 1525,
+          "chunk_tokens": 41,
+          "score": 0.000627526780590415,
+          "would_trigger": false
+        },
+        {
+          "position": 1608,
+          "chunk_tokens": 82,
+          "score": 0.06833794713020325,
+          "would_trigger": false
+        },
+        {
+          "position": 1671,
+          "chunk_tokens": 62,
+          "score": 0.0022564586251974106,
+          "would_trigger": false
+        },
+        {
+          "position": 1700,
+          "chunk_tokens": 28,
+          "score": 0.0008700672769919038,
+          "would_trigger": false
+        },
+        {
+          "position": 1750,
+          "chunk_tokens": 49,
+          "score": 0.004768129903823137,
+          "would_trigger": false
+        },
+        {
+          "position": 1766,
+          "chunk_tokens": 15,
+          "score": 0.06279495358467102,
+          "would_trigger": false
+        },
+        {
+          "position": 1790,
+          "chunk_tokens": 23,
+          "score": 0.00017996775568462908,
+          "would_trigger": false
+        },
+        {
+          "position": 1820,
+          "chunk_tokens": 29,
+          "score": 0.0017371376743540168,
+          "would_trigger": false
+        },
+        {
+          "position": 1834,
+          "chunk_tokens": 13,
+          "score": 0.0034962010104209185,
+          "would_trigger": false
+        },
+        {
+          "position": 1849,
+          "chunk_tokens": 14,
+          "score": 0.0012793428031727672,
+          "would_trigger": false
+        },
+        {
+          "position": 1859,
+          "chunk_tokens": 9,
+          "score": 0.01773901656270027,
+          "would_trigger": false
+        },
+        {
+          "position": 1869,
+          "chunk_tokens": 9,
+          "score": 0.3178902566432953,
+          "would_trigger": false
+        },
+        {
+          "position": 1880,
+          "chunk_tokens": 10,
+          "score": 0.0007129411096684635,
+          "would_trigger": false
+        },
+        {
+          "position": 1892,
+          "chunk_tokens": 11,
+          "score": 0.06763588637113571,
+          "would_trigger": false
+        },
+        {
+          "position": 1905,
+          "chunk_tokens": 12,
+          "score": 0.016301918774843216,
+          "would_trigger": false
+        },
+        {
+          "position": 1918,
+          "chunk_tokens": 12,
+          "score": 0.001022261567413807,
+          "would_trigger": false
+        },
+        {
+          "position": 1929,
+          "chunk_tokens": 10,
+          "score": 0.03565043956041336,
+          "would_trigger": false
+        },
+        {
+          "position": 1938,
+          "chunk_tokens": 8,
+          "score": 0.008943688124418259,
+          "would_trigger": false
+        },
+        {
+          "position": 1990,
+          "chunk_tokens": 51,
+          "score": 0.08511006087064743,
+          "would_trigger": false
+        },
+        {
+          "position": 2009,
+          "chunk_tokens": 18,
+          "score": 0.024800188839435577,
+          "would_trigger": false
+        },
+        {
+          "position": 2027,
+          "chunk_tokens": 17,
+          "score": 0.2118893712759018,
+          "would_trigger": false
+        },
+        {
+          "position": 2042,
+          "chunk_tokens": 14,
+          "score": 0.00013159286754671484,
+          "would_trigger": false
+        }
+      ],
+      "post_review_start_boundaries": 71,
+      "trigger_positions": []
+    }
+  ],
+  "interpretation": "Qualitative exposed unsteered diagnostics. No accuracy/compression or RC14-domain claim. Review individual labeled spans; never pool ambiguous or boundary-blind cases into classifier sensitivity.",
+  "next_step": "If partition gate fails, stop interpretation and preserve output. If clear observable loops are missed or productive spans trigger, do not tune layer/threshold; reassess probe. Passing does not authorize recovery or full tests."
+}

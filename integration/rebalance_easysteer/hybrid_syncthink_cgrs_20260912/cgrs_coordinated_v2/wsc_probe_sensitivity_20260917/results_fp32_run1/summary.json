@@ -1,0 +1,30 @@
+{
+  "status": "precision_diagnostic_passed",
+  "generated_tokens": 0,
+  "input_tokens": 7166,
+  "gpu_forward_seconds": 1.4891235790252686,
+  "startup_seconds": 25.130164086818695,
+  "wall_seconds": 26.68091894686222,
+  "criterion": {
+    "cases": [
+      {
+        "train_index": 5353,
+        "old_delta": 0.012001216411590576,
+        "new_delta": 1.430511474609375e-06,
+        "passed": true
+      },
+      {
+        "train_index": 26,
+        "old_delta": 0.033748507499694824,
+        "new_delta": 4.76837158203125e-06,
+        "passed": true
+      }
+    ],
+    "numerical_convergence": true,
+    "original_bf16_gate": "failed_unchanged",
+    "interpretation": "Convergence supports precision/kernel-path sensitivity only; not semantic accuracy, BF16 deployment readiness, or compression gains."
+  },
+  "scope": "Only two fixed unsteered prefixes. Supports precision/kernel-path sensitivity; does not identify a single upstream operation or validate deployed BF16 probe under RC14.",
+  "next": "No automatic GPU expansion. Keep production baseline BF16. Plan future diagnosis against the actual native accepted-token path; do not substitute FP32 scores for prior failed BF16 gate or report compression.",
+  "gpu_idle_verified": true
+}

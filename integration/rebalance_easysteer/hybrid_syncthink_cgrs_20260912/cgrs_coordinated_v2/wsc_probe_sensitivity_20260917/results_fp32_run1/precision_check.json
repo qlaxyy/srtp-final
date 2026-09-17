@@ -1,0 +1,19 @@
+{
+  "cases": [
+    {
+      "train_index": 5353,
+      "old_delta": 0.012001216411590576,
+      "new_delta": 1.430511474609375e-06,
+      "passed": true
+    },
+    {
+      "train_index": 26,
+      "old_delta": 0.033748507499694824,
+      "new_delta": 4.76837158203125e-06,
+      "passed": true
+    }
+  ],
+  "numerical_convergence": true,
+  "original_bf16_gate": "failed_unchanged",
+  "interpretation": "Convergence supports precision/kernel-path sensitivity only; not semantic accuracy, BF16 deployment readiness, or compression gains."
+}

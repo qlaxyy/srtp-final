@@ -1,0 +1,40 @@
+{
+  "completed": [
+    {
+      "train_index": 5353,
+      "chunk_size": 256,
+      "input_tokens": 1393,
+      "boundaries": 16,
+      "gpu_forward_seconds": 0.49948764038085935,
+      "wall_seconds": 0.5285282582044601
+    },
+    {
+      "train_index": 5353,
+      "chunk_size": 128,
+      "input_tokens": 1393,
+      "boundaries": 16,
+      "gpu_forward_seconds": 0.24899401473999022,
+      "wall_seconds": 0.25826047360897064
+    },
+    {
+      "train_index": 26,
+      "chunk_size": 256,
+      "input_tokens": 2190,
+      "boundaries": 71,
+      "gpu_forward_seconds": 0.28470697593688965,
+      "wall_seconds": 0.29503537714481354
+    },
+    {
+      "train_index": 26,
+      "chunk_size": 128,
+      "input_tokens": 2190,
+      "boundaries": 71,
+      "gpu_forward_seconds": 0.4559349479675293,
+      "wall_seconds": 0.4663402736186981
+    }
+  ],
+  "startup_seconds": 25.130164086818695,
+  "wall_seconds": 26.68091894686222,
+  "generated_tokens": 0,
+  "scope": "Saved unsteered prefixes only; not RC14 replay or efficacy evaluation"
+}
