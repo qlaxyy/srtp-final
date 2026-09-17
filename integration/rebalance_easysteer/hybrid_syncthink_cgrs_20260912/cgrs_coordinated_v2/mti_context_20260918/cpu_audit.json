@@ -1,0 +1,35 @@
+{
+  "status": "cpu_reference_only_not_gpu_integrated",
+  "source_sha256": "7dbc882ffe15df3e8cd5a85db31d37a033e82d726b48497354bba55f22673c5a",
+  "upstream_commit": "ac848621b601fef1b61807513dce3f2023bb0e82",
+  "checks_passed": [
+    "upstream_subset_position_mismatch_reproduced",
+    "selected_order_and_variable_cue_lengths",
+    "empty_selection",
+    "disabled_scale_one_and_empty_exact_identity",
+    "paper_distribution_equivalence_and_input_isolation",
+    "full_vocab_entropy_natural_log",
+    "lexical_penalty_order_changes_strength"
+  ],
+  "reproduction": {
+    "main_last_positions": [
+      9,
+      49,
+      99
+    ],
+    "selected_rows": [
+      1
+    ],
+    "official_cue_positions": [
+      10,
+      11
+    ],
+    "required_cue_positions": [
+      50,
+      51
+    ]
+  },
+  "kv_finding": "Static only: skips cue KV writes while advancing seq_lens and reading cache. No GPU equivalence test performed.",
+  "gpu_runs": 0,
+  "efficacy_claim": null
+}

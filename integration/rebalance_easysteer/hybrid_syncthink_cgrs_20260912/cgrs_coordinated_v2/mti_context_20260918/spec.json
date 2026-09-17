@@ -1,0 +1,70 @@
+{
+  "status": "reference_ready_runtime_not_implemented",
+  "candidate": "ReBalance + temporary negative-context contrast + frozen L27",
+  "classification": "按MTI描述借鉴的适配，非官方MTI复现，非已验证优化",
+  "paper": "https://arxiv.org/html/2510.13940v4",
+  "read_sentinel": "END-OF-PAPER:d03fa5566c7a",
+  "official_repository": "https://github.com/EnVision-Research/MTI",
+  "official_commit": "ac848621b601fef1b61807513dce3f2023bb0e82",
+  "evidence": {
+    "section_3_1_eq_1": "log probabilities combined as omega*main+(1-omega)*negative",
+    "section_3_1_eq_2": "Full vocabulary Shannon entropy; natural log, not normalized top-5 entropy",
+    "section_3_2": "Intervene only above entropy threshold",
+    "section_3_3": "Temporary negative cue with shared prefix; extra forward still required",
+    "section_4_1": "Paper sampling/context differ from our seed42/T0.7/cap16000; do not transplant gains",
+    "appendix_A_6": "Negative cue choice studied; do not tune cue on repeatedly exposed MATH500",
+    "limitations": "Meaningless/positive cues can also help, so semantic negative-guidance explanation remains incomplete"
+  },
+  "retained_reference": "easysteer-rebalance-l27-v1-20260917",
+  "primary_change": "A conditional contrast correction before existing L27 penalty; no vector/curve/lexicon change",
+  "candidate_fixed_values_not_launched": {"negative_cue": "OUTPUT ERROR", "scale": 1.5, "entropy_threshold_nats": 0.5},
+  "execution_order": [
+    "Main forward with current ReBalance steering",
+    "Save raw pmax for existing ReBalance observer and full-vocabulary entropy before any logit penalty or temperature",
+    "Select active decode rows with H>0.5; exclude prefill and post-think rows",
+    "Append tokenized cue to an isolated temporary branch of the exact same accepted prefix",
+    "Freeze current steering coefficient/layer on cue; do not update any control history or RNG",
+    "Combine raw main and auxiliary logits at scale1.5",
+    "Apply existing frozen L27 penalty exactly once",
+    "Apply original temperature/top-p and sample once",
+    "Update original ReBalance state from saved raw pmax and accepted token only"
+  ],
+  "state_contract": [
+    "Auxiliary rows keyed by active request identity, never Python requests dict iteration order",
+    "Support variable cue token lengths and batch row reordering; cue token count is tokenizer-dependent",
+    "Temporary cue must causally attend its own earlier tokens and self plus prefix at every layer",
+    "No accepted-token count, lexical FSM, control-history, sampler RNG or prefix KV mutation",
+    "Prefix last partially filled block requires copy-on-write; scratch blocks released on success/error/cancel",
+    "No auxiliary answer scoring; this is not a correctness verifier",
+    "Feature disabled must bypass all transforms/forwards and reproduce native tokens plus control history"
+  ],
+  "integration_targets": {
+    "shared_runner": "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py: raw-logit pre-sampler extension; no modification yet",
+    "line_adapter": "cgrs_coordinated_v2/adapter.py: preserve existing lexical penalty; no modification yet",
+    "reference": "cgrs_coordinated_v2/mti_reference.py",
+    "official_port_rejected": "Do not wholesale replace execute_model/FlashAttention.forward or install vllm0.10.2"
+  },
+  "engineering_gate_before_any_effectiveness_run": [
+    "CPU mapping/order/identity/distribution tests pass (completed)",
+    "Implement temporary-branch KV semantics without changing frozen native path (pending)",
+    "Select and register exactly 8 existing calibration prefixes; no answer regeneration, no new efficacy sample (pending)",
+    "GPU 1.5B: compare temporary-branch logits against independent full-prefix replay at same fixed steering; include mixed batches and KV block boundaries",
+    "Gate max probability error<=0.002, top1 agreement 8/8, accepted prefix/state hashes identical, disabled-path tokens/history identical",
+    "If gate fails stop before MATH500; preserve all partial records"
+  ],
+  "effectiveness_plan_after_gate": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "dataset": "MATH-500 all500, exploratory reused test set",
+    "arms": "one candidate arm, reuse frozen U/R/RC14/L27 only after config/seed/grader identity checks",
+    "seed": 42,
+    "max_new_tokens": 16000,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "decision": "Expand GSM only if think and total tokens both below L27, caps no higher, and observed accuracy losses versus L27 and R each<=2pp. Report paired bootstrap CIs and all flips; no synergy claim without corresponding single-method control.",
+    "cost": "Unknown until auxiliary-forward microbenchmark; previous L27 391.618s is reference only, not this candidate estimate",
+    "stop": "OOM/preemption/branch integrity failure stop; no automatic threshold retuning or 7B expansion"
+  },
+  "current_gpu_runs": 0,
+  "current_data_reserved": [],
+  "main_risk": "May increase useful reflection and tokens; contrast may undo lexical suppression, so improvement is only a hypothesis"
+}
