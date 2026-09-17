@@ -6,12 +6,13 @@ def load(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--rebalance',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--rebalance',type=Path,required=True);p.add_argument('--selected-data',type=Path,required=True);a=p.parse_args()
     sys.path.insert(0,str(a.rebalance))
     from utils.parser import parse_ground_truth,extract_answer
     from utils.grader import check_is_correct
     started=time.monotonic();done=load(a.run/'completed.json');plan=load(a.run/'plan.json')
-    dataset=a.rebalance/'Data/Math_Train/test.jsonl';data=[json.loads(x) for x in dataset.read_text().splitlines()]
+    dataset=a.selected_data;selected=[json.loads(x) for x in dataset.read_text(encoding='utf8').splitlines()]
+    data={r['train_index']:r for r in selected};assert len(data)==len(selected)==8
     results={};arms={};grades={}
     for arm in plan['arms']:
         d=load(a.run/arm/'result.json');results[arm]=d;grades[arm]=[]
