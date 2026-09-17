@@ -20,7 +20,7 @@ class WSCShadow:
                 cfg.scheduler_config.async_scheduling or
                 cfg.cache_config.enable_prefix_caching):
             raise ValueError('WSC capture requires synchronous eager TP1/PP1 without speculation/cache')
-        if not 1 <= max_calls <= 512:
+        if not 1 <= max_calls <= 16000:
             raise ValueError('Engineering capture limit')
         self.runner, self.original = runner, runner.sampler
         self.model = runner.model.model

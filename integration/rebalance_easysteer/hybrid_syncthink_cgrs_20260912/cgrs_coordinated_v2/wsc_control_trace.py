@@ -1,6 +1,8 @@
 """Identical control tracing in both engineering arms, no sampler mutation."""
 class ControlTrace:
-    def __init__(self, adapter):
+    def __init__(self, adapter, max_calls=512):
+        if not 1 <= max_calls <= 16000:raise ValueError('Capture budget')
+        self.max_calls=max_calls
         self.adapter=adapter;self.runner=adapter.runner
         self.original=self.runner.sampler;self.frames=[]
         self.runner.sampler=self
@@ -10,7 +12,7 @@ class ControlTrace:
 
     def __call__(self,logits,batch,**kwargs):
         import torch
-        if len(self.frames)>=512:raise RuntimeError('Control trace limit')
+        if len(self.frames)>=self.max_calls:raise RuntimeError('Control trace limit')
         a=self.adapter;s=self.runner.steer_vector_state
         idx=batch.idx_mapping[:batch.num_reqs].long().clone()
         pre=torch.stack([s._coefs[idx],s._prev_step_mean[idx],a.opening[idx].float(),
