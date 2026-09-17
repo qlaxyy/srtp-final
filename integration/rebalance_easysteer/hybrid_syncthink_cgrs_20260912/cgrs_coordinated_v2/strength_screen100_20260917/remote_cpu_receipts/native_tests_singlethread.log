@@ -1,0 +1,13 @@
+test_lexical_only_control_needs_no_R_state (test_native.TensorTests.test_lexical_only_control_needs_no_R_state) ... ok
+test_routing_partial_prefill_and_closed_answer (test_native.TensorTests.test_routing_partial_prefill_and_closed_answer) ... ok
+test_shadow_is_byte_exact (test_native.TensorTests.test_shadow_is_byte_exact) ... ok
+test_exact_released_columns_and_original_default (test_narrow_native.NativeNarrowTests.test_exact_released_columns_and_original_default) ... ok
+test_actual_tensor_snapshot_and_slot_restore (test_history_native.NativeHistoryTests.test_actual_tensor_snapshot_and_slot_restore) ... ok
+test_first_marker_then_later_mask (test_history_native.NativeHistoryTests.test_first_marker_then_later_mask) ... ok
+test_modes_fp32_bf16 (test_penalty_native.NativePenaltyTests.test_modes_fp32_bf16) ... ok
+test_scaled_shadow_and_near_zero (test_penalty_native.NativePenaltyTests.test_scaled_shadow_and_near_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.120s
+
+OK
