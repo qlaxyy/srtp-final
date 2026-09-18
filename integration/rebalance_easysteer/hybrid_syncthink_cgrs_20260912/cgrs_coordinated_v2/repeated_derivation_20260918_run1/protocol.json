@@ -1,0 +1,9 @@
+{
+  "status": "retrieval only, not step labels or a deployable vector",
+  "parents": "All231 existing CC length-gap-selected training pairs",
+  "retrieval": "Long-side blank-line spans >=32 tokens; nonadjacent step pair; shared consecutive block >=24 tokens; total exact matched tokens >=50% of shorter span; no confidence filter",
+  "reference": "Highest exact-token overlap short-side span >=32 tokens, retrieval only",
+  "sample": "Up to6 parents per long-source stratum ordered by problem SHA; highest overlap candidate per question",
+  "exclusions": "No automatic classification of necessary correction, repeated numbers or answer mentions as redundant.",
+  "data": "Reuse saved tokens and states; no generation, GPU, test-set fit or function change."
+}

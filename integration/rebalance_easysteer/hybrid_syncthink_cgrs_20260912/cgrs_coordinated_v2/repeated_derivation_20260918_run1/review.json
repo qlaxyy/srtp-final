@@ -1,0 +1,30 @@
+{
+  "status": "Assistant qualitative review of fixed12 retrieval sample; exploratory and not independent annotation",
+  "items": [
+    {"question": 127, "decision": "retain_repetition_seed", "reason": "此前已用最大和证明只有(6,6,6)，后续再次逐项排除较小点数；短侧也有该最大和证明。改用long4为首次成立结论、long11为重复段起点、short4为相同子任务参考。"},
+    {"question": 301, "decision": "exclude_correction_context", "reason": "首次公式周围存在5/4与1/4矛盾，重复发生在纠错过程中，不能作为可省略检查。"},
+    {"question": 167, "decision": "exclude_invalid_reasoning", "reason": "第一次已明确组合计数式不正确，第二次重复类似错误结构，不符合正确结论后再检查。"},
+    {"question": 273, "decision": "defer_whole_proof_review", "reason": "重复矩阵只是相同输入，可能用于另一种行列式验证；短侧检索到通用公式，未对齐具体结果。"},
+    {"question": 247, "decision": "exclude_summary_only", "reason": "重复目标主要是最终因数总结，不能据此构造完成推导与重复计算的状态对。"},
+    {"question": 485, "decision": "exclude_necessary_formula_reuse", "reason": "第一次是分项，第二次把该分项代入总和；是组合计算而非重新推导。"},
+    {"question": 215, "decision": "exclude_input_restatement", "reason": "重复顶点坐标用于随后鞋带公式；未证明此前已经完成面积推导。"},
+    {"question": 105, "decision": "defer_local_error_context", "reason": "两次都修正局部算术表达后得到1980²=3920400，存在重复计算，但首次与重复均混有错误开头，暂不加入干净种子。"},
+    {"question": 481, "decision": "exclude_problem_restatement", "reason": "只是重复题目方程并开始配方，尚未得到目标面积。"},
+    {"question": 338, "decision": "retain_repetition_seed", "reason": "首次直接乘法得到64后再次计算相同乘方；改用long2为首次正确乘法、long8为重复、short2为正确直接乘法参考。long5的结合律表述有局部错误，保留在上下文记录，不称整条推导无错。"},
+    {"question": 87, "decision": "retain_repetition_seed", "reason": "long4首次正确得到64+625=689，long8再次执行相同正确计算，short4也完成相同子任务。"},
+    {"question": 117, "decision": "exclude_invalid_reasoning", "reason": "重复试除涉及错误近似和非整数，且邻接文本明确混乱，不是正确结论后稳定复核。"}
+  ],
+  "seeds": [
+    {"question": 127, "first_long_step": 4, "repeat_long_step": 11, "repeat_span_steps": [11,12], "reference_short_step": 4, "task": "Prove three dice sum18 only when all show6"},
+    {"question": 338, "first_long_step": 2, "repeat_long_step": 8, "repeat_span_steps": [8], "reference_short_step": 2, "task": "Compute (2^2)^3=4^3=64"},
+    {"question": 87, "first_long_step": 4, "repeat_long_step": 8, "repeat_span_steps": [8], "reference_short_step": 4, "task": "Compute 8^2+25^2=689"}
+  ],
+  "limits": [
+    "Seeds identify observed correct subtask repetition, not proof that deleting it preserves future generation correctness.",
+    "First derivation is not automatically an efficient continuation endpoint; moving toward it could induce recomputation.",
+    "Only3 questions: no pooled steering vector fitted, no stability or performance claim.",
+    "Candidate retrieval is lexical and conservative; misses paraphrases and does not estimate all redundant reasoning.",
+    "No benchmark outcomes used for selecting span identities; the labels are development assets and not independent confirmation."
+  ],
+  "next_gate": "Expand content-audited task-aligned spans before considering a candidate; no GPU release or test command is authorized by this retrieval artifact. Existing user GPU authorization is unchanged, but no run is ready."
+}
