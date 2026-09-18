@@ -1,0 +1,395 @@
+{
+  "status": "complete exploratory full benchmark, no independent confirmation",
+  "candidates": {
+    "FEEDBACK_NORM_L27": {
+      "summary": {
+        "count": 500,
+        "correct": 412,
+        "accuracy_percent": 82.39999999999999,
+        "mean_tokens": 3472.762,
+        "mean_thinking_tokens": 3090.446,
+        "capped": 21
+      },
+      "comparisons": {
+        "U": {
+          "accuracy_delta_pp": -2.0,
+          "ci95": {
+            "accuracy": [
+              -5.0,
+              1.0
+            ],
+            "tokens": [
+              -27.232620639354803,
+              -16.782725067613164
+            ],
+            "thinking_tokens": [
+              -30.276493819900068,
+              -18.707426485347227
+            ]
+          },
+          "tokens_percent": -22.150287814844425,
+          "thinking_tokens_percent": -24.668871185784603,
+          "wrong_to_right": [
+            10,
+            68,
+            82,
+            101,
+            156,
+            166,
+            176,
+            210,
+            217,
+            224,
+            232,
+            239,
+            242,
+            248,
+            301,
+            309,
+            320,
+            349,
+            351,
+            352,
+            398,
+            409,
+            421,
+            497
+          ],
+          "right_to_wrong": [
+            17,
+            24,
+            64,
+            71,
+            105,
+            119,
+            126,
+            128,
+            130,
+            145,
+            152,
+            170,
+            184,
+            189,
+            200,
+            213,
+            214,
+            216,
+            222,
+            267,
+            296,
+            317,
+            333,
+            358,
+            372,
+            380,
+            382,
+            401,
+            426,
+            432,
+            445,
+            453,
+            475,
+            491
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": false
+        },
+        "R": {
+          "accuracy_delta_pp": 0.2,
+          "ci95": {
+            "accuracy": [
+              -2.8000000000000003,
+              3.2
+            ],
+            "tokens": [
+              -9.01545400187883,
+              4.862685772619669
+            ],
+            "thinking_tokens": [
+              -10.483252417047341,
+              5.233789088872465
+            ]
+          },
+          "tokens_percent": -2.2913722967912387,
+          "thinking_tokens_percent": -2.896411393351661,
+          "wrong_to_right": [
+            10,
+            18,
+            39,
+            41,
+            104,
+            108,
+            123,
+            140,
+            210,
+            217,
+            224,
+            239,
+            242,
+            246,
+            248,
+            301,
+            323,
+            347,
+            349,
+            351,
+            352,
+            394,
+            398,
+            418,
+            443,
+            458,
+            466,
+            494,
+            495,
+            498
+          ],
+          "right_to_wrong": [
+            17,
+            71,
+            105,
+            128,
+            130,
+            145,
+            152,
+            168,
+            170,
+            184,
+            189,
+            200,
+            216,
+            219,
+            236,
+            267,
+            296,
+            317,
+            358,
+            372,
+            382,
+            425,
+            426,
+            445,
+            453,
+            475,
+            486,
+            490,
+            491
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": false
+        },
+        "RC14": {
+          "accuracy_delta_pp": 1.2,
+          "ci95": {
+            "accuracy": [
+              -1.6,
+              4.0
+            ],
+            "tokens": [
+              -1.0813826166774874,
+              15.00308028530248
+            ],
+            "thinking_tokens": [
+              -1.2274919708002028,
+              17.529872326296505
+            ]
+          },
+          "tokens_percent": 6.611011065833194,
+          "thinking_tokens_percent": 7.680219872879013,
+          "wrong_to_right": [
+            18,
+            21,
+            41,
+            108,
+            123,
+            136,
+            164,
+            177,
+            210,
+            228,
+            242,
+            248,
+            279,
+            294,
+            309,
+            349,
+            365,
+            371,
+            396,
+            411,
+            412,
+            419,
+            431,
+            443,
+            448,
+            454,
+            462,
+            473,
+            478,
+            495
+          ],
+          "right_to_wrong": [
+            17,
+            64,
+            71,
+            94,
+            105,
+            128,
+            130,
+            152,
+            170,
+            189,
+            200,
+            216,
+            267,
+            285,
+            296,
+            333,
+            358,
+            372,
+            380,
+            425,
+            426,
+            445,
+            453,
+            475
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": true
+        },
+        "L27_L27": {
+          "accuracy_delta_pp": -0.6,
+          "ci95": {
+            "accuracy": [
+              -3.5999999999999996,
+              2.4
+            ],
+            "tokens": [
+              5.192971053334249,
+              20.102755143199797
+            ],
+            "thinking_tokens": [
+              5.660133718452945,
+              23.214063502581524
+            ]
+          },
+          "tokens_percent": 12.443013744048837,
+          "thinking_tokens_percent": 14.15587082818659,
+          "wrong_to_right": [
+            18,
+            41,
+            60,
+            83,
+            120,
+            156,
+            176,
+            177,
+            210,
+            224,
+            239,
+            242,
+            246,
+            248,
+            279,
+            327,
+            338,
+            349,
+            352,
+            385,
+            398,
+            431,
+            454,
+            458,
+            466,
+            478,
+            495
+          ],
+          "right_to_wrong": [
+            14,
+            17,
+            50,
+            94,
+            105,
+            119,
+            128,
+            130,
+            145,
+            152,
+            168,
+            170,
+            184,
+            200,
+            213,
+            216,
+            236,
+            267,
+            285,
+            296,
+            303,
+            333,
+            358,
+            401,
+            426,
+            445,
+            453,
+            475,
+            486,
+            490
+          ],
+          "accuracy_observed_within_2pp": true,
+          "nominal_accuracy_ci_within_2pp": false
+        }
+      },
+      "generation_seconds": 467.36137095093727,
+      "setup_seconds": 0.6362406313419342,
+      "extra_model_forward_count": 0,
+      "control_gpu_seconds": null,
+      "source_result_sha256": "accf323e1271ea9839466f0c1588ec557d0d020b7aeca63aedbdab85727a7a3d",
+      "labels_sha256": "90edaf6c723ff6fad988e825336370bcc9fa0e273054bccdf5e966ba99883d4c"
+    }
+  },
+  "references": {
+    "U": {
+      "count": 500,
+      "correct": 422,
+      "accuracy_percent": 84.39999999999999,
+      "mean_tokens": 4460.854,
+      "mean_thinking_tokens": 4102.482,
+      "capped": 35
+    },
+    "R": {
+      "count": 500,
+      "correct": 411,
+      "accuracy_percent": 82.19999999999999,
+      "mean_tokens": 3554.202,
+      "mean_thinking_tokens": 3182.628,
+      "capped": 22
+    },
+    "RC14": {
+      "count": 500,
+      "correct": 406,
+      "accuracy_percent": 81.2,
+      "mean_tokens": 3257.414,
+      "mean_thinking_tokens": 2870.022,
+      "capped": 15
+    },
+    "L27_L27": {
+      "count": 500,
+      "correct": 415,
+      "accuracy_percent": 83.0,
+      "mean_tokens": 3088.464,
+      "mean_thinking_tokens": 2707.216,
+      "capped": 12
+    }
+  },
+  "factorial_interaction": null,
+  "bootstrap_replicates": 20000,
+  "generation_seed": 42,
+  "analysis_rng_seed": 20260917,
+  "grading_and_analysis_seconds": 37.03984433412552,
+  "limitations": [
+    "Same seed is not numerical equivalence across historical runtimes.",
+    "Candidate selection history and exposed test sets: intervals are descriptive and unadjusted; this is not untouched independent confirmation.",
+    "Calibration and inference lexical scopes differ; same inventory alone does not guarantee benefit."
+  ]
+}
