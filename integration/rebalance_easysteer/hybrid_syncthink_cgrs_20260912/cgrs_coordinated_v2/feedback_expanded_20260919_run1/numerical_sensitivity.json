@@ -1,0 +1,36 @@
+{
+  "status": "Posthoc sensitivity only; exclusions are not a new accepted dataset and do not revise primary decision",
+  "excluded_parents": [
+    83,
+    129,
+    279,
+    288,
+    414,
+    477,
+    486
+  ],
+  "threshold": "Either response max native-HF target logp difference > 0.5",
+  "groups": {
+    "development_check:U": {
+      "n": 8,
+      "positive": 1,
+      "negative": 7
+    },
+    "development_check:L27": {
+      "n": 36,
+      "positive": 36,
+      "negative": 0
+    },
+    "correctness_guard_only:U": {
+      "n": 3,
+      "positive": 0,
+      "negative": 3
+    },
+    "correctness_guard_only:L27": {
+      "n": 1,
+      "positive": 1,
+      "negative": 0
+    }
+  },
+  "limitation": "Does not explain numerical discrepancies; no assurance remaining gradients are exact native derivatives"
+}
