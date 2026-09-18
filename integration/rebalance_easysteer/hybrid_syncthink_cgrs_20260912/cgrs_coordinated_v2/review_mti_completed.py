@@ -8,7 +8,7 @@ from grade_label_alignment import compare,summary
 def main():
     p=argparse.ArgumentParser();p.add_argument('--archive',type=Path,required=True)
     p.add_argument('--root',default='mti_native_20260918_run4/full/')
-    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27','LENGTH_L27','LENGTH_NORM_L27','LENGTH_REFIT_L27','OLD_NONPOS_L27','LENGTH_NONPOS_L27','AND_NORM_L27'])
+    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27','LENGTH_L27','LENGTH_NORM_L27','LENGTH_REFIT_L27','OLD_NONPOS_L27','LENGTH_NONPOS_L27','AND_NORM_L27','QCENTER_NORM_L27'])
     p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     root=a.root
     with tarfile.open(a.archive) as t:
