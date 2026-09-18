@@ -36,6 +36,9 @@ def main():
         import torch
         from transformers import AutoModelForCausalLM,AutoTokenizer
         from feedback_fixed_history import FixedHistoryScorer
+        if plan.get('query_chunk'):
+            from feedback_chunked_attention import install
+            install(plan['query_chunk'])
         torch.manual_seed(42)
         model=AutoModelForCausalLM.from_pretrained(assets['model_path'],torch_dtype=getattr(torch,plan.get('hf_dtype','bfloat16')),
             attn_implementation=plan.get('hf_attention','sdpa'),local_files_only=True).to('cuda').eval()
