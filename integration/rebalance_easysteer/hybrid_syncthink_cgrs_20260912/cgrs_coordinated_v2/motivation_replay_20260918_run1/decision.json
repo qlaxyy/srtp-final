@@ -1,0 +1,22 @@
+{
+  "status": "Engineering incomplete; full 572-trajectory replay NOT launched",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "train_indices": [5238,912,204,6074,2253,2006,1828,1143],
+  "scope": "First eight existing calibration rows; saved512-token prefixes, U and R, no new answers",
+  "frozen_L27_unchanged": true,
+  "package_sha256": "405cced9d104cb60ba7ab3a00b4389c7b48f07bc079f5c796ad7caf342288f1c",
+  "evidence_archive": ".codex_work/motivation_replay_20260918_run1_evidence.tar.gz",
+  "evidence_sha256": "a1d3239fec67eac73bf4cb58acad14e2744d9b2cfe0230f1f3f6ca5600961615",
+  "completed_checks": ["All8192 output tokens exactly forced", "R native raw probability matched logged exp(logmax) for512 batched steps", "CPU slot permutation, invalid prefill, reset and prefix mismatch checks"],
+  "U_replay_seconds": 3.646550551056862,
+  "R_replay_seconds": 4.683953508734703,
+  "successful_replay_process_seconds": 26.46965804696083,
+  "independent_forward_seconds": 2.7298338413238525,
+  "failed_gate": "HF SDPA BF16 independent full forward:5of8 prefixes exceed preregistered0.03 maximum absolute probability tolerance; maximum0.0522582. All aligned errors much lower than one-token-shift errors, but that does not clear magnitude gate.",
+  "historical_calibration_comparison": "Current U vs original saved max probabilities over512 tokens:per-question max absolute errors0.03240-0.05969; mean0.00224-0.00551. Cannot call current replay exact historical probabilities.",
+  "pending": ["Separate cross-engine numerical variation from replay faults", "Validate original R online step aggregation; source implementation added but NOT deployed or GPU checked", "Resolve engineering failure before full and statistical plots"],
+  "launch_failures": "First startup missing ninja PATH; second malformed PATH attempt failed before model; source activate absent; fourth explicit existing bin PATH worked. No installs or environment changes.",
+  "source_note": "release.json pins actually deployed source. Working run_motivation_replay.py has subsequent unvalidated step logging changes; it deliberately fails old release hash. Build a new release for any further deployment; never mutate archived release.",
+  "cost_note": "Successful process timings exclude failed startup, transfer and idle billing; do not present as all GPU costs.",
+  "final_gpu_processes": 0
+}
