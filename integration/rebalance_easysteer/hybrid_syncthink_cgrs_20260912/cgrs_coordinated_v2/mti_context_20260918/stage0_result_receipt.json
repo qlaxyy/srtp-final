@@ -1,0 +1,85 @@
+{
+  "archive_sha256": "0e5ec7eb5b52bf77d4f8956d2247257215b856be7bd6fc6f76953cfb6202fa57",
+  "results": {
+    "mti_context_20260918/mti_stage0_prefix8_20260918_run1/failure.json": {
+      "error": "TypeError('Unsupported cache fingerprint format')",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/projects/mti_stage0_20260918_run1/mti_branch_diagnostic.py\", line 83, in main\n    before_hash=cache_hash(cache)\n  File \"/root/autodl-tmp/projects/mti_stage0_20260918_run1/mti_branch_diagnostic.py\", line 29, in cache_hash\n    else: raise TypeError('Unsupported cache fingerprint format')\nTypeError: Unsupported cache fingerprint format\n",
+      "completed_cases": 0,
+      "wall_seconds": 8.219473421573639
+    },
+    "mti_context_20260918/mti_stage0_prefix8_20260918_run1_attempt2/failure.json": {
+      "error": "RuntimeError('Stage0 equivalence gate failed; stop')",
+      "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/projects/mti_stage0_20260918_attempt2/mti_branch_diagnostic.py\", line 108, in main\n    if not record['passed']:raise RuntimeError('Stage0 equivalence gate failed; stop')\nRuntimeError: Stage0 equivalence gate failed; stop\n",
+      "completed_cases": 1,
+      "wall_seconds": 8.004513055086136
+    },
+    "mti_context_20260918/mti_stage0_failed_case_fp32_20260918_run1/complete.json": {
+      "stage0_passed": false,
+      "precision_diagnostic_passed": true,
+      "cases": 1,
+      "generated_tokens": 0,
+      "steering": false,
+      "startup_seconds": 10.34612537920475,
+      "wall_seconds": 10.694834187626839,
+      "cue_ids": [
+        30301,
+        12874
+      ],
+      "forward_calls": 5,
+      "native_vllm_validated": false,
+      "full_evaluation_allowed": false,
+      "next": "Implement native paged branch plus dynamic steering-history equivalence separately"
+    }
+  },
+  "stage0_passed": false,
+  "decision": "Stop BF16 expansion; FP32 single-case pass supports numerical precision sensitivity, not full native integration or effectiveness. Preserve 0.002 gate.",
+  "gpu_idle_after": true,
+  "generated_answers": 0,
+  "case_records": {
+    "mti_context_20260918/mti_stage0_prefix8_20260918_run1_attempt2/records.jsonl": [
+      {
+        "train_index": 3241,
+        "prefix_tokens": 255,
+        "cue_tokens": 2,
+        "branch_max_probability_error": 0.0044977106153965,
+        "branch_top1_equal": true,
+        "parent_continuation_probability_error": 8.058547973632812e-05,
+        "parent_continuation_top1_equal": true,
+        "parent_cache_sha_before": "588504c064a52fdf770976429bba89783ca9ee0fea4b4a0a25e069d366c074b9",
+        "parent_cache_sha_after": "588504c064a52fdf770976429bba89783ca9ee0fea4b4a0a25e069d366c074b9",
+        "rng_unchanged": true,
+        "seconds": {
+          "prefix": 0.2251620888710022,
+          "branch_including_copy": 0.041843757033348083,
+          "full_cue_reference": 0.013345032930374146,
+          "parent_continuation": 0.01131872832775116,
+          "full_continuation_reference": 0.012184351682662964
+        },
+        "passed": false
+      }
+    ],
+    "mti_context_20260918/mti_stage0_failed_case_fp32_20260918_run1/records.jsonl": [
+      {
+        "train_index": 3241,
+        "prefix_tokens": 255,
+        "cue_tokens": 2,
+        "branch_max_probability_error": 7.003545761108398e-07,
+        "branch_top1_equal": true,
+        "parent_continuation_probability_error": 5.960464477539062e-07,
+        "parent_continuation_top1_equal": true,
+        "parent_cache_sha_before": "e72bc3342e71037ed46c7e95fc4b43c7b68fedb0c09c8863a5300d52e444fbf9",
+        "parent_cache_sha_after": "e72bc3342e71037ed46c7e95fc4b43c7b68fedb0c09c8863a5300d52e444fbf9",
+        "rng_unchanged": true,
+        "seconds": {
+          "prefix": 0.1606951355934143,
+          "branch_including_copy": 0.04547758400440216,
+          "full_cue_reference": 0.03001980483531952,
+          "parent_continuation": 0.015529632568359375,
+          "full_continuation_reference": 0.024707749485969543
+        },
+        "passed": true
+      }
+    ]
+  },
+  "process_wall_seconds_sum": 26.918820664286613
+}

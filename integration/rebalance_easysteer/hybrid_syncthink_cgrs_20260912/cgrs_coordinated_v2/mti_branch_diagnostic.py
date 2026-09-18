@@ -43,8 +43,10 @@ def main():
     a=p.parse_args()
     if not a.gpu_authorized: raise ValueError('GPU execution must be explicitly enabled')
     plan=json.loads(a.plan.read_text(encoding='utf8'))
-    assert plan['kind']=='mti_stage0_unsteered_cache_oracle'
-    assert len(plan['cases'])==8 and plan['generated_tokens']==0
+    precision_diagnostic=plan['kind']=='mti_stage0_fp32_failed_case_diagnostic'
+    assert plan['kind'] in ('mti_stage0_unsteered_cache_oracle','mti_stage0_fp32_failed_case_diagnostic')
+    assert len(plan['cases'])==(1 if precision_diagnostic else 8) and plan['generated_tokens']==0
+    if precision_diagnostic: assert plan['cases'][0]['train_index']==3241
     out=a.output_root/plan['run_id'];out.mkdir(parents=True,exist_ok=False)
     (out/'plan.json').write_text(json.dumps(plan,ensure_ascii=False,indent=2),encoding='utf8')
     records=[];start=time.monotonic()
@@ -52,7 +54,7 @@ def main():
     signal.signal(signal.SIGALRM,stop);signal.alarm(600)
     try:
         import torch
-        from transformers import AutoModelForCausalLM,AutoTokenizer
+        from transformers import AutoModelForCausalLM,AutoTokenizer,DynamicCache
         from mti_branch import isolated_cue
         for name,digest in plan['source_sha256_lf'].items():
             actual=hashlib.sha256((Path(__file__).parent/name).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
@@ -60,15 +62,21 @@ def main():
         for name,meta in plan['model_files'].items():
             assert sha(Path(plan['model_path'])/name)==meta['sha256'],name
         torch.manual_seed(42)
+        if precision_diagnostic:
+            torch.backends.cuda.matmul.allow_tf32=False
+            torch.backends.cudnn.allow_tf32=False
+            torch.set_float32_matmul_precision('highest')
         tokenizer=AutoTokenizer.from_pretrained(plan['model_path'],local_files_only=True)
         cue_ids=tokenizer.encode(plan['cue'],add_special_tokens=False)
         assert cue_ids and len(cue_ids)<=16
         lm=AutoModelForCausalLM.from_pretrained(plan['model_path'],local_files_only=True,
-                    torch_dtype=torch.bfloat16,attn_implementation='sdpa').eval().to('cuda')
+                    torch_dtype=torch.float32 if precision_diagnostic else torch.bfloat16,
+                    attn_implementation='sdpa').eval().to('cuda')
         assert lm.config.num_hidden_layers==28 and lm.config.hidden_size==1536
         decoder=lm.model;cue=torch.tensor([cue_ids],device='cuda')
         startup=time.monotonic()-start
         def forward(ids,cache=None):
+            if cache is None: cache=DynamicCache()
             result=decoder(input_ids=ids,past_key_values=cache,use_cache=True,return_dict=True)
             return result
         def probs(hidden):return lm.lm_head(hidden[:,-1,:]).float().softmax(-1)
@@ -106,9 +114,10 @@ def main():
                 with (out/'records.jsonl').open('a',encoding='utf8') as f:f.write(json.dumps(record)+'\n')
                 if not record['passed']:raise RuntimeError('Stage0 equivalence gate failed; stop')
                 del prefix,cache,ref,continuation,contref,branch
-        result=dict(stage0_passed=True,cases=len(records),generated_tokens=0,steering=False,
+        result=dict(stage0_passed=not precision_diagnostic,precision_diagnostic_passed=precision_diagnostic,
+            cases=len(records),generated_tokens=0,steering=False,
             startup_seconds=startup,wall_seconds=time.monotonic()-start,cue_ids=cue_ids,
-            forward_calls=40,native_vllm_validated=False,full_evaluation_allowed=False,
+            forward_calls=5*len(records),native_vllm_validated=False,full_evaluation_allowed=False,
             next='Implement native paged branch plus dynamic steering-history equivalence separately')
         (out/'complete.json').write_text(json.dumps(result,indent=2),encoding='utf8')
     except BaseException as exc:

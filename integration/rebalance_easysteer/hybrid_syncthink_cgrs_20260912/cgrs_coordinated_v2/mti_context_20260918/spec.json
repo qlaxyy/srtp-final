@@ -1,5 +1,5 @@
 {
-  "status": "stage0_hf_cache_oracle_ready_native_runtime_not_implemented",
+  "status": "bf16_stage0_failed_first_case_fp32_single_case_passed",
   "stage0_plan": "stage0_plan.json",
   "stage0_scope": "8 existing calibration prefixes, HF unsteered,40 forwards,zero generated answers. This is an additional preliminary cache oracle; it does NOT satisfy the native dynamic-steering gate below.",
   "stage0_cpu_checks": "branch_cpu_checks.json: six categories including18 block-boundary plans, causal attention equivalence,parent cache/RNG isolation,and failure cleanup",
@@ -20,7 +20,11 @@
   },
   "retained_reference": "easysteer-rebalance-l27-v1-20260917",
   "primary_change": "A conditional contrast correction before existing L27 penalty; no vector/curve/lexicon change",
-  "candidate_fixed_values_not_launched": {"negative_cue": "OUTPUT ERROR", "scale": 1.5, "entropy_threshold_nats": 0.5},
+  "candidate_fixed_values_not_launched": {
+    "negative_cue": "OUTPUT ERROR",
+    "scale": 1.5,
+    "entropy_threshold_nats": 0.5
+  },
   "execution_order": [
     "Main forward with current ReBalance steering",
     "Save raw pmax for existing ReBalance observer and full-vocabulary entropy before any logit penalty or temperature",
@@ -67,8 +71,18 @@
     "cost": "Unknown until auxiliary-forward microbenchmark; previous L27 391.618s is reference only, not this candidate estimate",
     "stop": "OOM/preemption/branch integrity failure stop; no automatic threshold retuning or 7B expansion"
   },
-  "current_gpu_runs": 0,
-  "current_data_reserved": [3241,5353,759,7012,26,64,76,385],
+  "current_gpu_runs": 3,
+  "current_data_reserved": [
+    3241,
+    5353,
+    759,
+    7012,
+    26,
+    64,
+    76,
+    385
+  ],
   "data_registry": "stage0_plan.json cases: normalized problem hashes,exact prefix IDs and hashes; already exposed calibration engineering only, not new development or confirmation data",
-  "main_risk": "May increase useful reflection and tokens; contrast may undo lexical suppression, so improvement is only a hypothesis"
+  "main_risk": "May increase useful reflection and tokens; contrast may undo lexical suppression, so improvement is only a hypothesis",
+  "stage0_result": "stage0_result_receipt.json"
 }
