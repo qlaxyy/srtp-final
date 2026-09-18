@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='question_centered_vector_v1':
+    if plan.get('experiment_kind')=='norm_preserving_v1':
+        assert [a['name'] for a in plan['arms']]==['NORM_STATE_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='question_centered_vector_v1':
         assert [a['name'] for a in plan['arms']]==['QCENTER_NORM_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='strict_and_vector_v1':
@@ -57,6 +60,8 @@ def main():
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--phase',choices=['engineering','full'],required=True)
     p.add_argument('--engineering-result',type=Path)
+    p.add_argument('--norm-reference',action='store_true')
+    p.add_argument('--norm-reference-result',type=Path)
     args=p.parse_args();release=read(args.release)
     plan=read(HERE/release.get('plan_relative_path','label_alignment_20260917/plan_v2_math500.json'));validate(plan,release,args.phase)
     if args.phase=='full':
@@ -102,6 +107,11 @@ def main():
         tok=AutoTokenizer.from_pretrained(assets['model_path'],local_files_only=True)
         boundaries=sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s)
         rt=plan.get('execution',{});sync_replay=rt.get('sync_replay',False)
+        norm=plan.get('experiment_kind')=='norm_preserving_v1'
+        norm_adapter=None
+        if norm and not args.norm_reference:
+            from norm_graph_adapter import NormGraphAdapter
+            norm_adapter=NormGraphAdapter()
         llm=LLM(model=assets['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=rt.get('max_model_len',32768),
             max_num_seqs=rt.get('max_num_seqs',256),max_num_batched_tokens=rt.get('max_num_batched_tokens',32768),gpu_memory_utilization=rt.get('gpu_memory_utilization',.90),
             enable_steer_vector=True,steer_algorithms=['rebalance'],steer_graph_mode='in_graph',
@@ -121,6 +131,12 @@ def main():
             candidate_name=plan['arms'][0]['name']
             names=['L27_REFERENCE',candidate_name,candidate_name.removesuffix('_L27')+'_REPEAT']
         if args.phase=='engineering' and nonpositive:names=['OLD_SIGN_REFERENCE','OLD_SIGN_OFF','OLD_SIGN_SHADOW','OLD_NONPOS_L27','LENGTH_SIGN_REFERENCE','LENGTH_SIGN_OFF','LENGTH_SIGN_SHADOW','LENGTH_NONPOS_L27']
+        if norm and args.phase=='engineering':
+            names=['L27_REFERENCE'] if args.norm_reference else ['NORM_OFF','NORM_STATE_L27','NORM_REPEAT']
+            if not args.norm_reference:
+                oldgate=read(args.norm_reference_result/'complete.json')
+                assert oldgate['passed'] and oldgate['release_sha256']==sha(args.release)
+                old_result=read(args.norm_reference_result/'L27_REFERENCE/result.json')
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
@@ -155,7 +171,7 @@ def main():
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
             arm=next((a for a in plan['arms'] if a['name']==name),{})
-            if mti or margin:arm=plan['arms'][0]
+            if mti or margin or norm:arm=plan['arms'][0]
             if length_vector:arm=plan['arms'][0]
             if strict_and:arm=plan['arms'][0]
             if nonpositive:arm=plan['arms'][0]
@@ -209,6 +225,7 @@ def main():
                 '--format=csv,noheader,nounits','--loop-ms=1000'],stdout=stream_gpu,stderr=subprocess.DEVNULL)
             generated={};io=0.;forced=False;steps=0
             replay_before=dict(runner.steer_vector_state.replay_counts) if sync_replay else {}
+            if norm_adapter is not None:norm_adapter.set_mode(name not in ('NORM_OFF','L27_REFERENCE'))
             torch.cuda.synchronize();start=time.monotonic()
             try:
                 ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=SamplingParams(
@@ -247,8 +264,27 @@ def main():
                 if sync_replay:
                     result['extra_model_forward_count']=None
                     result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
+                if norm:result['control_history_ordered']=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                if norm_adapter is not None:
+                    result['norm_state']=norm_adapter.report()
+                    assert result['norm_state']['fallback_rows']==0,'Invalid norm state'
+                    if name!='NORM_OFF':assert result['norm_state']['active_rows']>0,'No norm intervention'
                 save(folder/'result.json',result)
-                if args.phase=='engineering' and nonpositive:
+                if args.phase=='engineering' and norm:
+                    current_history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    if name=='NORM_OFF':
+                        assert [r['token_ids'] for r in records]==[r['token_ids'] for r in old_result['records']],'Norm disabled changed tokens'
+                        assert current_history==old_result['control_history_ordered'],'Norm disabled changed history'
+                        original_reference=records
+                    elif name=='NORM_STATE_L27':
+                        reference=records;history=current_history
+                        for base,rec in zip(original_reference,records):
+                            first=next((i for i,t in enumerate(base['token_ids']) if t in boundaries),len(base['token_ids'])-1)
+                            assert base['token_ids'][:first+1]==rec['token_ids'][:first+1],'Norm diverged before injection'
+                    elif name=='NORM_REPEAT':
+                        assert [r['token_ids'] for r in records]==[r['token_ids'] for r in reference],'Norm repeat changed tokens'
+                        assert current_history==history,'Norm repeat changed history'
+                elif args.phase=='engineering' and nonpositive:
                     if name.endswith('REFERENCE'):
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                     elif name.endswith('OFF') or name.endswith('SHADOW'):
@@ -325,6 +361,7 @@ def main():
         save(args.output/'failure.json',dict(error=repr(e),completed_arms=done,wall_seconds=time.monotonic()-began));raise
     finally:
         if monitor is not None:monitor.terminate();monitor.wait(timeout=10)
+        if 'norm_adapter' in locals() and norm_adapter is not None:norm_adapter.close()
         signal.alarm(0)
 
 
