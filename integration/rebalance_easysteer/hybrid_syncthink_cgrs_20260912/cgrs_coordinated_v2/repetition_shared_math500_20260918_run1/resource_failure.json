@@ -1,0 +1,11 @@
+{
+  "prior_run": "repetition_shared_math500_20260918_run1",
+  "prior_completed": 240,
+  "prior_wall_seconds": 169.3635875582695,
+  "reason": "KV preemption rejected by adapter; prior results remain partial and ungraded",
+  "action": "Fresh uniform500 cohort; do not pool240 partial outputs",
+  "max_prompt_tokens": 811,
+  "worst_reserved_tokens": 522640,
+  "observed_cache_tokens": 591008,
+  "margin_tokens": 68368
+}
