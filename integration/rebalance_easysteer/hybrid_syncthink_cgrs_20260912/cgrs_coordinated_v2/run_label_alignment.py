@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='mti_v1':
+    if plan.get('experiment_kind')=='margin_v1':
+        assert [a['name'] for a in plan['arms']]==['MARGIN_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='mti_v1':
         assert [a['name'] for a in plan['arms']]==['MTI_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='harmonic_v1':
@@ -91,7 +94,8 @@ def main():
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         names=[a['name'] for a in plan['arms']]
         mti=plan.get('experiment_kind')=='mti_v1'
-        if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti else ['RC14','RC14_extension_off'])+names
+        margin=plan.get('experiment_kind')=='margin_v1'
+        if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
@@ -118,8 +122,8 @@ def main():
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
             arm=next((a for a in plan['arms'] if a['name']==name),{})
-            if mti:arm=plan['arms'][0]
-            large=mti or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
+            if mti or margin:arm=plan['arms'][0]
+            large=mti or margin or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
                 table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
                 with np.load(table) as z:tables={k:z[k] for k in z.files}
@@ -130,7 +134,12 @@ def main():
                 if sync_replay:
                     from replay_label_alignment import ReplayAlignmentAdapter
                     AdapterType=ReplayAlignmentAdapter
-                adapter=AdapterType(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True)
+                extra={}
+                if margin and name!='L27_REFERENCE':
+                    from reflection_margin_adapter import MarginAdapter
+                    AdapterType=MarginAdapter
+                    extra['margin_mode']='off' if name=='L27_OFF' else 'shadow' if name=='L27_SHADOW' else 'active'
+                adapter=AdapterType(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True,**extra)
             else:
                 AdapterType=Adapter
                 if sync_replay:
@@ -199,7 +208,19 @@ def main():
                     result['extra_model_forward_count']=None
                     result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
                 save(folder/'result.json',result)
-                if args.phase=='engineering' and mti:
+                if args.phase=='engineering' and margin:
+                    if name=='L27_REFERENCE':
+                        reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    elif name in ('L27_OFF','L27_SHADOW'):
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'Margin off/shadow changed tokens'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history, 'Margin off/shadow changed history'
+                    else:
+                        assert sum(e['margin_changes'] for e in adapter.completed.values())>0,'No real margin intervention'
+                        for base,rec,rid in zip(reference,records,ids):
+                            first=adapter.completed[rid]['margin_first']
+                            if first<0:first=len(rec['token_ids'])
+                            assert base['token_ids'][:first]==rec['token_ids'][:first], 'Margin diverged before intervention'
+                elif args.phase=='engineering' and mti:
                     if name=='L27_REFERENCE':
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                     elif name in ('L27_OFF','L27_SHADOW'):

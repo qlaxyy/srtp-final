@@ -197,7 +197,9 @@ class Sampler:
             penalty_mode = getattr(o, 'penalty_mode', 'fixed')
             if penalty_mode == 'fixed':
                 if phrase_on or extended is not None:
-                    logits[:, o.ids] = t.where(lexical_mask, values-PENALTY, values)
+                    provider = getattr(o, 'penalty_provider', None)
+                    adjusted = values-PENALTY if provider is None else provider(logits, lexical_mask, idx)
+                    logits[:, o.ids] = t.where(lexical_mask, adjusted, values)
                 else:
                     logits[:, o.ids] = t.where(mask[:,None], values-PENALTY, values)
             else:

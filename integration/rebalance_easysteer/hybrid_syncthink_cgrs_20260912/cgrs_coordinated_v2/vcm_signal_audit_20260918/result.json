@@ -1,0 +1,2663 @@
+{
+  "status": "CPU audit complete; no candidate efficacy run justified by these captures",
+  "plan_sha256": "c0caaac4eef922557bf94b4e8e36359e05a9dfdc141fabc48337388d66ee2464",
+  "script_sha256": "125a4fc59aee2934dd7fca89106876de5b081a9b33310cedb93ad51d08e6edba",
+  "upstream_sha256": "fcfb0e54b179ad5bd6119671995e7c8f7ab3870cc372f510685ced4e817e43ea",
+  "model": "DeepSeek-R1-Distill-Qwen-7B",
+  "capture_batches": 14,
+  "positions": 112,
+  "questions": 8,
+  "original_rc14_eligible_positions": 0,
+  "nonfinite_rows": 0,
+  "descriptive_pearson_sigma_pmax": -0.021115248522674126,
+  "sigma_range": [
+    1.4876584015366585,
+    2.44475226828093
+  ],
+  "tail_stress_max_probability_tv": 2.4597907492995123e-05,
+  "tail_stress_median_sigma_ratio": 9.231041440450213,
+  "checks": {
+    "checks_passed": 6,
+    "upstream_formula": "sample std correction=1; paper Eq5 population correction=0",
+    "masked_logit_produces_nan": true,
+    "tail_counterexample": {
+      "original": {
+        "pmax": 0.7310585786300037,
+        "entropy": 0.5822031088883437,
+        "sigma_finite": 1.764867983731374,
+        "finite_count": 1000,
+        "vocabulary_width": 1000
+      },
+      "perturbed": {
+        "pmax": 0.7310585786300045,
+        "entropy": 0.5822031088882806,
+        "sigma_finite": 50.10976909745293,
+        "finite_count": 1000,
+        "vocabulary_width": 1000
+      },
+      "probability_tv": 1.3300075702484333e-15
+    },
+    "confidence_order_counterexample": {
+      "certain": {
+        "pmax": 0.7489923252324355,
+        "entropy": 2.2970879403437623,
+        "sigma_finite": 0.25285569006846936,
+        "finite_count": 1000,
+        "vocabulary_width": 1000
+      },
+      "uncertain": {
+        "pmax": 0.5,
+        "entropy": 0.6931471805599453,
+        "sigma_finite": 4.467661580737833,
+        "finite_count": 1000,
+        "vocabulary_width": 1000
+      }
+    },
+    "prior_counterexample_probability_tv": 0.23105857863000487
+  },
+  "rows": [
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6224102444134905,
+        "entropy": 0.8561588040270769,
+        "sigma_finite": 1.5191650776996466,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6224122806617732,
+        "entropy": 0.8560806435322252,
+        "sigma_finite": 17.176541537002493,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.271542689127105e-06,
+      "probability_tv": 3.2715426379753363e-06,
+      "sigma_ratio": 11.306566869619983
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6402410882803725,
+        "entropy": 0.7495136436785798,
+        "sigma_finite": 1.5073447508140358,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6402425528418101,
+        "entropy": 0.7494579262973572,
+        "sigma_finite": 17.16481644802079,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.2875103482539675e-06,
+      "probability_tv": 2.2875103268072623e-06,
+      "sigma_ratio": 11.387452298985348
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5585472948466638,
+        "entropy": 0.7309130137368016,
+        "sigma_finite": 1.4970657496145245,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5585480599457966,
+        "entropy": 0.7308789151195951,
+        "sigma_finite": 17.160756128523296,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.3698000378509484e-06,
+      "probability_tv": 1.369800019207329e-06,
+      "sigma_ratio": 11.462927485277099
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5595242806241371,
+        "entropy": 0.7187057102006763,
+        "sigma_finite": 1.4876584015366585,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5595249563389676,
+        "entropy": 0.7186754829608009,
+        "sigma_finite": 17.153428178560027,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.2076581363151116e-06,
+      "probability_tv": 1.207658104637916e-06,
+      "sigma_ratio": 11.530488558960581
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5910978654379687,
+        "entropy": 0.6954974518899332,
+        "sigma_finite": 1.4985344270592968,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5910983023984897,
+        "entropy": 0.6954785670591692,
+        "sigma_finite": 17.165142502651697,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.392349356551677e-07,
+      "probability_tv": 7.392349402765111e-07,
+      "sigma_ratio": 11.454620055901108
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6167583708810856,
+        "entropy": 0.7228292611492608,
+        "sigma_finite": 1.4991617888478208,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6167595371311565,
+        "entropy": 0.7227827855291646,
+        "sigma_finite": 17.156731135887206,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.8909315963027137e-06,
+      "probability_tv": 1.890931575827568e-06,
+      "sigma_ratio": 11.444215870171687
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.550797940853785,
+        "entropy": 0.9370955862984911,
+        "sigma_finite": 1.540862370332341,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5507993542140972,
+        "entropy": 0.937033875418086,
+        "sigma_finite": 17.186908873706813,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.566016708282781e-06,
+      "probability_tv": 2.566016677802969e-06,
+      "sigma_ratio": 11.154084365107737
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 0,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5887138069181937,
+        "entropy": 0.7199561715256129,
+        "sigma_finite": 1.4965579635460153,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5887146178340077,
+        "entropy": 0.7199218744357616,
+        "sigma_finite": 17.157896719475392,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.3774344849143042e-06,
+      "probability_tv": 1.3774344828500828e-06,
+      "sigma_ratio": 11.464906229773192
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9947064076797065,
+        "entropy": 0.03631309415220813,
+        "sigma_finite": 1.8387106511122946,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9947064282784542,
+        "entropy": 0.036312478714497144,
+        "sigma_finite": 17.49110813491584,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.0708268800297622e-08,
+      "probability_tv": 2.0708318872450554e-08,
+      "sigma_ratio": 9.512702895550701
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9990409255118644,
+        "entropy": 0.008715145927975168,
+        "sigma_finite": 2.0343574317687763,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9990409330242606,
+        "entropy": 0.008714914825032212,
+        "sigma_finite": 17.63440939598638,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.519535973528875e-09,
+      "probability_tv": 7.519571965348532e-09,
+      "sigma_ratio": 8.668294529075999
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999820145299708,
+        "entropy": 0.00024087545416908424,
+        "sigma_finite": 1.7897417565778748,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999820172688789,
+        "entropy": 0.00024078842410855706,
+        "sigma_finite": 17.445655203728855,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.7388432895333014e-09,
+      "probability_tv": 2.7389003218935214e-09,
+      "sigma_ratio": 9.747582375843038
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9464037198273918,
+        "entropy": 0.21048502687433465,
+        "sigma_finite": 1.9028818372738525,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9464037248273797,
+        "entropy": 0.2104848636724592,
+        "sigma_finite": 17.53817113792135,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.283105284157437e-09,
+      "probability_tv": 5.283125019010174e-09,
+      "sigma_ratio": 9.216636994679218
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.952815740075908,
+        "entropy": 0.23486403595763627,
+        "sigma_finite": 1.9216099885940723,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.95281582987561,
+        "entropy": 0.23486139840556505,
+        "sigma_finite": 17.54035875960842,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 9.424670001677246e-08,
+      "probability_tv": 9.424667604537259e-08,
+      "sigma_ratio": 9.127949408944142
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999969163435515,
+        "entropy": 4.975690320719596e-05,
+        "sigma_finite": 1.8975048376547607,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999969176600758,
+        "entropy": 4.9714125401101956e-05,
+        "sigma_finite": 17.543278295380045,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.3165055538247269e-09,
+      "probability_tv": 1.3165169729033606e-09,
+      "sigma_ratio": 9.245445886221205
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9917550114949955,
+        "entropy": 0.054029784342085996,
+        "sigma_finite": 1.841512740464729,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9917550420393674,
+        "entropy": 0.05402888181786141,
+        "sigma_finite": 17.4904980306133,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.079825895393955e-08,
+      "probability_tv": 3.0798280792550106e-08,
+      "sigma_ratio": 9.4978968357283
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 5,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9826243119509647,
+        "entropy": 0.09490267446816181,
+        "sigma_finite": 1.6268290255328766,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9826253501048439,
+        "entropy": 0.09487548844292082,
+        "sigma_finite": 17.297414918308423,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.056510345614077e-06,
+      "probability_tv": 1.0565103613601277e-06,
+      "sigma_ratio": 10.63259546444505
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5303665906876022,
+        "entropy": 0.7057201523824732,
+        "sigma_finite": 1.7461891009596138,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5303668891260435,
+        "entropy": 0.7057056671527897,
+        "sigma_finite": 17.381039388073862,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.627018081571916e-07,
+      "probability_tv": 5.627018400227921e-07,
+      "sigma_ratio": 9.953698244091752
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6404024749560621,
+        "entropy": 0.969299518983532,
+        "sigma_finite": 1.8744076667602638,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6404025480878452,
+        "entropy": 0.9692964304954096,
+        "sigma_finite": 17.48433066155263,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.1419666379389409e-07,
+      "probability_tv": 1.1419662375023126e-07,
+      "sigma_ratio": 9.32792314692814
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7764783041881024,
+        "entropy": 0.5382399390327549,
+        "sigma_finite": 1.8738356194710863,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7764783055132508,
+        "entropy": 0.5382398850037262,
+        "sigma_finite": 17.479668332692626,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.706588135330809e-09,
+      "probability_tv": 1.706600868310366e-09,
+      "sigma_ratio": 9.328282668480004
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7795748207849826,
+        "entropy": 0.653975874119271,
+        "sigma_finite": 1.9003055515174891,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7795748243802185,
+        "entropy": 0.6539757331225382,
+        "sigma_finite": 17.483868838421518,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.611785709459156e-09,
+      "probability_tv": 4.61178817675038e-09,
+      "sigma_ratio": 9.200556628622051
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9922619734287907,
+        "entropy": 0.04623575075834659,
+        "sigma_finite": 1.9182541709397247,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9922619769132451,
+        "entropy": 0.046235640254214734,
+        "sigma_finite": 17.555055052222613,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.5115307501015253e-09,
+      "probability_tv": 3.51157909830375e-09,
+      "sigma_ratio": 9.151579242297515
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9434948076127774,
+        "entropy": 0.23330053019280647,
+        "sigma_finite": 2.075188188711606,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9434948096153506,
+        "entropy": 0.2333004628963144,
+        "sigma_finite": 17.651302899637926,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.122468967921638e-09,
+      "probability_tv": 2.1224873890574508e-09,
+      "sigma_ratio": 8.50588057297919
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9909943148777451,
+        "entropy": 0.05875945596388585,
+        "sigma_finite": 1.7001158136232093,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9909944265160918,
+        "entropy": 0.05875630164346497,
+        "sigma_finite": 17.34210804961361,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.126530897362377e-07,
+      "probability_tv": 1.1265296996753976e-07,
+      "sigma_ratio": 10.200545110309221
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 6,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9832468679832987,
+        "entropy": 0.08887886971457096,
+        "sigma_finite": 1.7209271826130943,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9832469063837398,
+        "entropy": 0.08887773610567608,
+        "sigma_finite": 17.36539483098199,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.905473040578703e-08,
+      "probability_tv": 3.905472949020146e-08,
+      "sigma_ratio": 10.090720285220893
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9932148803439619,
+        "entropy": 0.04562455607343695,
+        "sigma_finite": 2.2454900780303046,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9932148807053672,
+        "entropy": 0.04562454382814118,
+        "sigma_finite": 17.76938243055807,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.638842548210134e-10,
+      "probability_tv": 3.6387926743345335e-10,
+      "sigma_ratio": 7.913364928401283
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999978841404398,
+        "entropy": 3.6842746799015325e-05,
+        "sigma_finite": 1.569201930807053,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999978937644867,
+        "entropy": 3.654931111391187e-05,
+        "sigma_finite": 17.285769119220493,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 9.623906564823907e-09,
+      "probability_tv": 9.623986864064442e-09,
+      "sigma_ratio": 11.015643544569363
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9901668829376664,
+        "entropy": 0.06545284621709387,
+        "sigma_finite": 2.0234532228647244,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9901668856690389,
+        "entropy": 0.06545275892808726,
+        "sigma_finite": 17.646260282937725,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.758222298007305e-09,
+      "probability_tv": 2.7583596881130815e-09,
+      "sigma_ratio": 8.720863958473354
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.8700601085153711,
+        "entropy": 0.6125164869571077,
+        "sigma_finite": 2.0105981077423256,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.8700602473530563,
+        "entropy": 0.6125121704025103,
+        "sigma_finite": 17.610557515979096,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.5957255833423982e-07,
+      "probability_tv": 1.5957252710537482e-07,
+      "sigma_ratio": 8.75886506018538
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9435193176769273,
+        "entropy": 0.28990673592156285,
+        "sigma_finite": 2.0226842135606655,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9435194580335957,
+        "entropy": 0.2899026482084701,
+        "sigma_finite": 17.576743994032913,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.487586950508777e-07,
+      "probability_tv": 1.4875866594119389e-07,
+      "sigma_ratio": 8.689811230143237
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9696175367080624,
+        "entropy": 0.17136642631924393,
+        "sigma_finite": 2.0977838632553505,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9696175388220141,
+        "entropy": 0.171366357029545,
+        "sigma_finite": 17.667582784602818,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.1799732101216277e-09,
+      "probability_tv": 2.180082234072581e-09,
+      "sigma_ratio": 8.422022446671976
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.8814671933081565,
+        "entropy": 0.44697732425650266,
+        "sigma_finite": 1.604379808170949,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.8814672247646609,
+        "entropy": 0.44697629767314184,
+        "sigma_finite": 17.202977643938272,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.568668211853284e-08,
+      "probability_tv": 3.568660483799582e-08,
+      "sigma_ratio": 10.722509443415577
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 43,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999998085181165,
+        "entropy": 3.825329871361295e-06,
+        "sigma_finite": 2.209072916773492,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999998086314112,
+        "entropy": 3.821384090705441e-06,
+        "sigma_finite": 17.743205875344778,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.1337378648090022e-10,
+      "probability_tv": 1.1333425755563565e-10,
+      "sigma_ratio": 8.03196931193199
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999979004038687,
+        "entropy": 3.464335471762924e-05,
+        "sigma_finite": 1.810894876322161,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999979009345881,
+        "entropy": 3.4625642981107506e-05,
+        "sigma_finite": 17.422608326390797,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.305682131606577e-10,
+      "probability_tv": 5.306443422638219e-10,
+      "sigma_ratio": 9.620993771750717
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999984988224588,
+        "entropy": 2.4356043405309957e-05,
+        "sigma_finite": 1.5389254755391693,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999985030988395,
+        "entropy": 2.4222107497449144e-05,
+        "sigma_finite": 17.232370802457396,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.27631145283826e-09,
+      "probability_tv": 4.276349274084261e-09,
+      "sigma_ratio": 11.197664264034591
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.8096404173536784,
+        "entropy": 0.6652690459268125,
+        "sigma_finite": 1.7250150726819824,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.8096405884326879,
+        "entropy": 0.6652633951283082,
+        "sigma_finite": 17.308654439259957,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.1130232622329119e-07,
+      "probability_tv": 2.1130236931236914e-07,
+      "sigma_ratio": 10.033914899276315
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9233425699326034,
+        "entropy": 0.4239757321717235,
+        "sigma_finite": 2.1465701736249985,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9233425905759777,
+        "entropy": 0.4239750790502925,
+        "sigma_finite": 17.662678941859827,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.2357041191313955e-08,
+      "probability_tv": 2.2357131030422176e-08,
+      "sigma_ratio": 8.22832589350301
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.48662649999354973,
+        "entropy": 0.8086083061901113,
+        "sigma_finite": 1.9970863079510544,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.4866265309113555,
+        "entropy": 0.8086065384838049,
+        "sigma_finite": 17.617452106222835,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.353495590612788e-08,
+      "probability_tv": 6.353496677177689e-08,
+      "sigma_ratio": 8.821577733562135
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5717636975903182,
+        "entropy": 0.8323727653687852,
+        "sigma_finite": 1.874154262105456,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5717637012201499,
+        "entropy": 0.8323725743335778,
+        "sigma_finite": 17.483578019500296,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.348442441172581e-09,
+      "probability_tv": 6.348462287574219e-09,
+      "sigma_ratio": 9.328782786460147
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9921870914008827,
+        "entropy": 0.046924247688140144,
+        "sigma_finite": 1.7916194150554712,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9921870957675102,
+        "entropy": 0.04692411022871764,
+        "sigma_finite": 17.442869456744017,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.400990465781307e-09,
+      "probability_tv": 4.401001328249445e-09,
+      "sigma_ratio": 9.73581180811437
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 44,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9998180138526005,
+        "entropy": 0.0017682885852976242,
+        "sigma_finite": 2.01468194691375,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9998180144370985,
+        "entropy": 0.0017682691827993241,
+        "sigma_finite": 17.587993442859556,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.844768960613039e-10,
+      "probability_tv": 5.845406455884786e-10,
+      "sigma_ratio": 8.729910678855411
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999996553393946,
+        "entropy": 5.973740815059653e-06,
+        "sigma_finite": 2.2401685218046814,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999996553447894,
+        "entropy": 5.973523049202779e-06,
+        "sigma_finite": 17.801039940354002,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.7681458788172485e-12,
+      "probability_tv": 5.581471729715657e-12,
+      "sigma_ratio": 7.946295007311981
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999699066919598,
+        "entropy": 0.00037432277104596076,
+        "sigma_finite": 1.8561597424304566,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999699081031458,
+        "entropy": 0.0003742770919153358,
+        "sigma_finite": 17.45977319295119,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.4110546536105675e-09,
+      "probability_tv": 1.411141533013901e-09,
+      "sigma_ratio": 9.406395793332612
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7770494952421949,
+        "entropy": 0.5333515693789752,
+        "sigma_finite": 1.9980636964571086,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7770494957948056,
+        "entropy": 0.5333515462404911,
+        "sigma_finite": 17.590176242593042,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.110700162522142e-10,
+      "probability_tv": 7.111177226553135e-10,
+      "sigma_ratio": 8.803611353223264
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999999730053198,
+        "entropy": 5.431355333482444e-07,
+        "sigma_finite": 1.931130868801625,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999999730057197,
+        "entropy": 5.431141791280197e-07,
+        "sigma_finite": 17.531753651997505,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.336219523333242e-13,
+      "probability_tv": 4.667621482992206e-13,
+      "sigma_ratio": 9.078490709890076
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7204787603289983,
+        "entropy": 0.9906159047466552,
+        "sigma_finite": 2.000759626965582,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7204789484688475,
+        "entropy": 0.9906090628394937,
+        "sigma_finite": 17.56986869160691,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.6113165227704263e-07,
+      "probability_tv": 2.611316460449516e-07,
+      "sigma_ratio": 8.781598976111864
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9148755649042465,
+        "entropy": 0.2913785521657123,
+        "sigma_finite": 2.1442210433227915,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.914875565138043,
+        "entropy": 0.29137854353678144,
+        "sigma_finite": 17.73906510078529,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.55518073944333e-10,
+      "probability_tv": 2.5553408463015327e-10,
+      "sigma_ratio": 8.27296474681358
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999990332881472,
+        "entropy": 1.5793637757893533e-05,
+        "sigma_finite": 1.8266720284087399,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999990333249312,
+        "entropy": 1.5792314839203137e-05,
+        "sigma_finite": 17.45595638891006,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.6680291012069835e-11,
+      "probability_tv": 3.673217342223422e-11,
+      "sigma_ratio": 9.55615245508324
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 47,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.33824616934814705,
+        "entropy": 1.5719051993503628,
+        "sigma_finite": 1.7259965629546625,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.33824713434217524,
+        "entropy": 1.5718389198729943,
+        "sigma_finite": 17.322720882548573,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.8529259621617085e-06,
+      "probability_tv": 2.852925957705623e-06,
+      "sigma_ratio": 10.036358851662207
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9992755905924583,
+        "entropy": 0.006330856125283242,
+        "sigma_finite": 2.1443549650169724,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9992755910625427,
+        "entropy": 0.006330840385558409,
+        "sigma_finite": 17.73178818174349,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.704477640947083e-10,
+      "probability_tv": 4.704364800382708e-10,
+      "sigma_ratio": 8.269054550678433
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9959224793655744,
+        "entropy": 0.02657824048783772,
+        "sigma_finite": 1.6019734258379326,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9959224931133861,
+        "entropy": 0.026577824714613254,
+        "sigma_finite": 17.283196569784245,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.3804016199600458e-08,
+      "probability_tv": 1.3804057085513234e-08,
+      "sigma_ratio": 10.788691179907712
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7966326826904992,
+        "entropy": 0.5187988098320043,
+        "sigma_finite": 1.9408105222314664,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.796632687756359,
+        "entropy": 0.5187986167796562,
+        "sigma_finite": 17.554615722514466,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.359029524314296e-09,
+      "probability_tv": 6.359060247091731e-09,
+      "sigma_ratio": 9.044992038857492
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9656322412150223,
+        "entropy": 0.15652200677577566,
+        "sigma_finite": 2.024843638718819,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9656322413353444,
+        "entropy": 0.15652200245844036,
+        "sigma_finite": 17.569391206505045,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.2454128983432268e-10,
+      "probability_tv": 1.2457287443780132e-10,
+      "sigma_ratio": 8.67691256280003
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9887977624818389,
+        "entropy": 0.06279528702279864,
+        "sigma_finite": 1.7851296529183973,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9887978035425135,
+        "entropy": 0.0627940826783312,
+        "sigma_finite": 17.45746178700819,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.152587797900547e-08,
+      "probability_tv": 4.1525866647554724e-08,
+      "sigma_ratio": 9.779380314739644
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9660192610061874,
+        "entropy": 0.15360376689542507,
+        "sigma_finite": 2.2224003060189736,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9660192611946692,
+        "entropy": 0.15360376023195266,
+        "sigma_finite": 17.758005961201377,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.9510675882268935e-10,
+      "probability_tv": 1.9510929516728945e-10,
+      "sigma_ratio": 7.990462345198115
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9761478554140369,
+        "entropy": 0.1165344010485309,
+        "sigma_finite": 1.7913594930271226,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9761478557628556,
+        "entropy": 0.11653438901195626,
+        "sigma_finite": 17.398120127457954,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.573571083206752e-10,
+      "probability_tv": 3.5734956083409663e-10,
+      "sigma_ratio": 9.712243798735116
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 48,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5327282889055103,
+        "entropy": 1.3822394487252114,
+        "sigma_finite": 1.8770203799563512,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5327287856352321,
+        "entropy": 1.3822165669481676,
+        "sigma_finite": 17.466854134089623,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 9.324251394310049e-07,
+      "probability_tv": 9.324251484157613e-07,
+      "sigma_ratio": 9.3056283888062
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9961508960833156,
+        "entropy": 0.02647881913339342,
+        "sigma_finite": 2.0295061525583846,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9961508974098048,
+        "entropy": 0.02647877593980111,
+        "sigma_finite": 17.587847695070778,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.331460907392014e-09,
+      "probability_tv": 1.3315377847781833e-09,
+      "sigma_ratio": 8.666072617173212
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999914910802157,
+        "entropy": 0.00011712667412891922,
+        "sigma_finite": 1.5487823620649979,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999914962072994,
+        "entropy": 0.0001169670453105891,
+        "sigma_finite": 17.233617290657737,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.127148677256116e-09,
+      "probability_tv": 5.127138017417078e-09,
+      "sigma_ratio": 11.127203997648891
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999999960829913,
+        "entropy": 8.350789316157442e-08,
+        "sigma_finite": 2.44475226828093,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999999960829962,
+        "entropy": 8.350760122350233e-08,
+        "sigma_finite": 17.96096972538918,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.5883021592979925e-15,
+      "probability_tv": 5.736641743310316e-15,
+      "sigma_ratio": 7.346744272792411
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6612195852663494,
+        "entropy": 0.8318737661610061,
+        "sigma_finite": 2.04209626888612,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6612195885169907,
+        "entropy": 0.8318736171002031,
+        "sigma_finite": 17.651249247664545,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.916106123864679e-09,
+      "probability_tv": 4.916117977103266e-09,
+      "sigma_ratio": 8.643691052475493
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999931831590853,
+        "entropy": 9.084465886204339e-05,
+        "sigma_finite": 1.6593052140781375,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999931832645876,
+        "entropy": 9.084096598692247e-05,
+        "sigma_finite": 17.296641961400447,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.0556332276937099e-10,
+      "probability_tv": 1.0553321328137741e-10,
+      "sigma_ratio": 10.424026764123662
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.39076380114140513,
+        "entropy": 1.0966786120726661,
+        "sigma_finite": 2.054602959357704,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.39076380506512104,
+        "entropy": 1.0966783174457388,
+        "sigma_finite": 17.673255112257188,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.004119234796726e-08,
+      "probability_tv": 1.0041168506877004e-08,
+      "sigma_ratio": 8.601786068575546
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9243775159143827,
+        "entropy": 0.2982008189834715,
+        "sigma_finite": 1.7246595744118878,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9243775446579012,
+        "entropy": 0.29819991560461606,
+        "sigma_finite": 17.341792937573004,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.109510956820214e-08,
+      "probability_tv": 3.1095054143547506e-08,
+      "sigma_ratio": 10.055197671973374
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 63,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7772147268960072,
+        "entropy": 0.5316961782078157,
+        "sigma_finite": 1.859822381513347,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7772147905610078,
+        "entropy": 0.5316939013338279,
+        "sigma_finite": 17.47305445303397,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 8.191427968165558e-08,
+      "probability_tv": 8.191428667380564e-08,
+      "sigma_ratio": 9.395012462865436
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6729482761167216,
+        "entropy": 0.6832150924784568,
+        "sigma_finite": 1.8408209082353608,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6729483215475609,
+        "entropy": 0.6832132108724772,
+        "sigma_finite": 17.41879825307421,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.75101949396963e-08,
+      "probability_tv": 6.751017039548475e-08,
+      "sigma_ratio": 9.462516519204543
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999980100064497,
+        "entropy": 3.353051571079835e-05,
+        "sigma_finite": 1.6574902645145388,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999980150997431,
+        "entropy": 3.3371958448939534e-05,
+        "sigma_finite": 17.32928473660312,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.0931596340670275e-09,
+      "probability_tv": 5.093231543203168e-09,
+      "sigma_ratio": 10.455135156814139
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999994881445426,
+        "entropy": 7.973779462179356e-06,
+        "sigma_finite": 1.8794816872488667,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999994881445693,
+        "entropy": 7.973777946492081e-06,
+        "sigma_finite": 17.505246351703384,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.546919089948575e-14,
+      "probability_tv": 3.1057278568539905e-14,
+      "sigma_ratio": 9.313869068512755
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.774063448754765,
+        "entropy": 0.6868711780598332,
+        "sigma_finite": 2.0810499856735594,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7740634620002587,
+        "entropy": 0.6868706779314382,
+        "sigma_finite": 17.646695189893098,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.711166516559416e-08,
+      "probability_tv": 1.711165155257955e-08,
+      "sigma_ratio": 8.479707508890764
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9998707105908334,
+        "entropy": 0.001350336724527306,
+        "sigma_finite": 1.8901165176926986,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9998707106110427,
+        "entropy": 0.0013503359803789742,
+        "sigma_finite": 17.505705613838785,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.0320606226304533e-11,
+      "probability_tv": 2.026624905482057e-11,
+      "sigma_ratio": 9.261707122272194
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.2956792096999727,
+        "entropy": 1.9302856713477519,
+        "sigma_finite": 2.1986026725655914,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.2956792214164112,
+        "entropy": 1.930284596413322,
+        "sigma_finite": 17.706681458243178,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.96254900052123e-08,
+      "probability_tv": 3.962549752556614e-08,
+      "sigma_ratio": 8.053606810902725
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9023560930135267,
+        "entropy": 0.43065327120968927,
+        "sigma_finite": 2.0087535715995615,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9023560977987415,
+        "entropy": 0.43065310867311746,
+        "sigma_finite": 17.595424969019064,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.3030869879690575e-09,
+      "probability_tv": 5.303054797181273e-09,
+      "sigma_ratio": 8.759374578240529
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 64,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7372153385088747,
+        "entropy": 0.674634626878156,
+        "sigma_finite": 1.8961757182970578,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7372153417719269,
+        "entropy": 0.6746344914972844,
+        "sigma_finite": 17.46965369902374,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.42618607772489e-09,
+      "probability_tv": 4.426186065941446e-09,
+      "sigma_ratio": 9.213098517427023
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999003927976492,
+        "entropy": 0.0010760582750534713,
+        "sigma_finite": 2.101793425058267,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999003931591578,
+        "entropy": 0.0010760460745456047,
+        "sigma_finite": 17.674274739125398,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.614352202457246e-10,
+      "probability_tv": 3.6148991669916065e-10,
+      "sigma_ratio": 8.40913979861528
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.999921143022635,
+        "entropy": 0.001120785098741727,
+        "sigma_finite": 1.5083027688121924,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999216372072804,
+        "entropy": 0.0011076453421674539,
+        "sigma_finite": 17.220798529884174,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.942233250330518e-07,
+      "probability_tv": 4.942233495922583e-07,
+      "sigma_ratio": 11.41733535598146
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9992854551661511,
+        "entropy": 0.0059255282580459295,
+        "sigma_finite": 1.6762104251166916,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9992854572506004,
+        "entropy": 0.005925461454663591,
+        "sigma_finite": 17.373097285445557,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.085596656454157e-09,
+      "probability_tv": 2.0857682147167712e-09,
+      "sigma_ratio": 10.364508551625375
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9995692142829675,
+        "entropy": 0.0037715181631649214,
+        "sigma_finite": 1.6512508504347168,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9995692143277617,
+        "entropy": 0.003771516552190004,
+        "sigma_finite": 17.334571790314214,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.4927912568378504e-11,
+      "probability_tv": 4.487069296210933e-11,
+      "sigma_ratio": 10.497842763109327
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999979999160962,
+        "entropy": 3.2645668883858305e-05,
+        "sigma_finite": 1.7871516748680085,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999980008106837,
+        "entropy": 3.2616312846584156e-05,
+        "sigma_finite": 17.476198677609645,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 8.94305101786299e-10,
+      "probability_tv": 8.944472027081674e-10,
+      "sigma_ratio": 9.778799932524118
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9997024620620842,
+        "entropy": 0.002729802524740617,
+        "sigma_finite": 2.037111411163256,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9997024632019429,
+        "entropy": 0.002729765394739904,
+        "sigma_finite": 17.676907478012602,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.1399864184208288e-09,
+      "probability_tv": 1.1400921605809135e-09,
+      "sigma_ratio": 8.677437758751998
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999556185478966,
+        "entropy": 0.0005175543511029693,
+        "sigma_finite": 1.56658842257007,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999556188997423,
+        "entropy": 0.0005175424438696918,
+        "sigma_finite": 17.251968873317185,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.518651360224549e-10,
+      "probability_tv": 3.51863207865105e-10,
+      "sigma_ratio": 11.01244502050796
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 85,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.35290089034891037,
+        "entropy": 2.0111359675267426,
+        "sigma_finite": 2.085653128687734,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.35290113765831893,
+        "entropy": 2.0111190402050636,
+        "sigma_finite": 17.643230230074487,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.007895058089069e-07,
+      "probability_tv": 7.007894982977551e-07,
+      "sigma_ratio": 8.459331030359483
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6160605193031521,
+        "entropy": 0.7154158064230074,
+        "sigma_finite": 2.024544037205113,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6160605256798873,
+        "entropy": 0.7154154992045066,
+        "sigma_finite": 17.60812321057969,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.0350737782230755e-08,
+      "probability_tv": 1.0350781850925149e-08,
+      "sigma_ratio": 8.69732783629036
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9998670986200371,
+        "entropy": 0.0015435733831780356,
+        "sigma_finite": 1.7156389342594858,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9998671558377453,
+        "entropy": 0.0015419309779453078,
+        "sigma_finite": 17.352128519473897,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.7225332944604086e-08,
+      "probability_tv": 5.7225321615539866e-08,
+      "sigma_ratio": 10.114091125452061
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999994816498501,
+        "entropy": 8.122958444596049e-06,
+        "sigma_finite": 1.5421222425523284,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999994817238741,
+        "entropy": 8.120339039573897e-06,
+        "sigma_finite": 17.233298796839904,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.403288470830027e-11,
+      "probability_tv": 7.40284661089281e-11,
+      "sigma_ratio": 11.175053650946307
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999995134991932,
+        "entropy": 8.645048571993872e-06,
+        "sigma_finite": 1.5823939352749705,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999995152097491,
+        "entropy": 8.58991544549605e-06,
+        "sigma_finite": 17.2879392862306,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.7103135986468905e-09,
+      "probability_tv": 1.7104351180089065e-09,
+      "sigma_ratio": 10.925180450231249
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.986822201496593,
+        "entropy": 0.0791451418974141,
+        "sigma_finite": 2.073552739572485,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9868222091120145,
+        "entropy": 0.07914490588861858,
+        "sigma_finite": 17.711992909979994,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.717004847191177e-09,
+      "probability_tv": 7.717060396007507e-09,
+      "sigma_ratio": 8.54185792912688
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9023306989300922,
+        "entropy": 0.40478897745712356,
+        "sigma_finite": 1.7968484280732826,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.902330765766171,
+        "entropy": 0.40478689943673346,
+        "sigma_finite": 17.341733841925848,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 7.40706187439471e-08,
+      "probability_tv": 7.407055260999267e-08,
+      "sigma_ratio": 9.651194597710711
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999946602883064,
+        "entropy": 7.332189618710433e-05,
+        "sigma_finite": 1.7569696680952243,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999946604502916,
+        "entropy": 7.331629746304329e-05,
+        "sigma_finite": 17.403794599603838,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.6195988120976272e-10,
+      "probability_tv": 1.6197297458558257e-10,
+      "sigma_ratio": 9.905574874534821
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 86,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999951624131949,
+        "entropy": 7.608013400152867e-05,
+        "sigma_finite": 1.755551396367127,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999951651838437,
+        "entropy": 7.599213187319775e-05,
+        "sigma_finite": 17.42998528833784,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.7704777718866177e-09,
+      "probability_tv": 2.7705699945054245e-09,
+      "sigma_ratio": 9.928496154773255
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9668928854938779,
+        "entropy": 0.1620102365210243,
+        "sigma_finite": 1.940570899695229,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9668928967046603,
+        "entropy": 0.16200988673168554,
+        "sigma_finite": 17.53255648897171,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.1594510040333322e-08,
+      "probability_tv": 1.1594578825605608e-08,
+      "sigma_ratio": 9.034741524633416
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.3148077960699143,
+        "entropy": 1.789837926071969,
+        "sigma_finite": 2.1308057137744183,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.31480782927226014,
+        "entropy": 1.7898351516429327,
+        "sigma_finite": 17.68472085981973,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.0546873671688535e-07,
+      "probability_tv": 1.0546867596203488e-07,
+      "sigma_ratio": 8.299546385434537
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.999815683061663,
+        "entropy": 0.0017969278292939202,
+        "sigma_finite": 1.9488478665072824,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9998156838636296,
+        "entropy": 0.0017969014210075065,
+        "sigma_finite": 17.60049127583684,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 8.02091544780669e-10,
+      "probability_tv": 8.02102995828649e-10,
+      "sigma_ratio": 9.031228952406826
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9134215455068472,
+        "entropy": 0.3035433942498051,
+        "sigma_finite": 2.245224888886854,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9134215457949353,
+        "entropy": 0.3035433836661965,
+        "sigma_finite": 17.7815342689215,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.1540231113266484e-10,
+      "probability_tv": 3.153983942776635e-10,
+      "sigma_ratio": 7.919711899210817
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6875631246565433,
+        "entropy": 1.165665839469095,
+        "sigma_finite": 2.0290376135847823,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6875635756784351,
+        "entropy": 1.1656493653960265,
+        "sigma_finite": 17.575217239012336,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.559712605237561e-07,
+      "probability_tv": 6.559712214654302e-07,
+      "sigma_ratio": 8.661848908735355
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9995291451093051,
+        "entropy": 0.004504581248942355,
+        "sigma_finite": 2.082952232930358,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9995291459439475,
+        "entropy": 0.004504553774259833,
+        "sigma_finite": 17.67965899295389,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 8.349129234069563e-10,
+      "probability_tv": 8.349742292411126e-10,
+      "sigma_ratio": 8.48778897252081
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.2525605095100437,
+        "entropy": 2.2188018720258844,
+        "sigma_finite": 2.030223884961466,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.25256066119683146,
+        "entropy": 2.218787388281241,
+        "sigma_finite": 17.58439032066325,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.005954462120371e-07,
+      "probability_tv": 6.005954555800735e-07,
+      "sigma_ratio": 8.661306002218076
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 94,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.999999842486983,
+        "entropy": 2.879726717737695e-06,
+        "sigma_finite": 2.3936296895329185,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999998424888276,
+        "entropy": 2.879632540213987e-06,
+        "sigma_finite": 17.890179058062735,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.4554729219106726e-12,
+      "probability_tv": 2.1499988727789652e-12,
+      "sigma_ratio": 7.474079694237808
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.8712363314616751,
+        "entropy": 0.4321285503670213,
+        "sigma_finite": 1.9935301507380945,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.8712363549213402,
+        "entropy": 0.4321277680673843,
+        "sigma_finite": 17.56078692972743,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.6926869949557248e-08,
+      "probability_tv": 2.6926868272154483e-08,
+      "sigma_ratio": 8.808889558668394
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.8791175826472903,
+        "entropy": 0.49551280797176994,
+        "sigma_finite": 2.0196106771711193,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.8791176343828546,
+        "entropy": 0.49551115091418785,
+        "sigma_finite": 17.62323433565646,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 5.8849550555279056e-08,
+      "probability_tv": 5.8849486065469124e-08,
+      "sigma_ratio": 8.726055241667384
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9666612844718986,
+        "entropy": 0.14784038865599344,
+        "sigma_finite": 2.057608300195229,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9666612859270753,
+        "entropy": 0.14784034028008375,
+        "sigma_finite": 17.695783751114917,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.50522565500759e-09,
+      "probability_tv": 1.5052946475457064e-09,
+      "sigma_ratio": 8.600171251951071
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999998369344751,
+        "entropy": 2.829150818179907e-06,
+        "sigma_finite": 2.1052600958948324,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999998369354022,
+        "entropy": 2.82910231153448e-06,
+        "sigma_finite": 17.68944485061151,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.2389319260568021e-12,
+      "probability_tv": 1.0829841513838157e-12,
+      "sigma_ratio": 8.402498525054066
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.3705022418032708,
+        "entropy": 1.6838535511538197,
+        "sigma_finite": 2.033528176623457,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.3705023720283599,
+        "entropy": 1.6838446831336251,
+        "sigma_finite": 17.57363490519015,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.5148247242054756e-07,
+      "probability_tv": 3.5148247153850415e-07,
+      "sigma_ratio": 8.641943154370274
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5650963236573745,
+        "entropy": 1.3567925082284322,
+        "sigma_finite": 2.1395826001790925,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5650963510792342,
+        "entropy": 1.356791175282712,
+        "sigma_finite": 17.72014076190457,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.852605142039786e-08,
+      "probability_tv": 4.852602052683661e-08,
+      "sigma_ratio": 8.282054995409533
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9997022129923573,
+        "entropy": 0.0032276532705726823,
+        "sigma_finite": 1.9721642006063917,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9997022168720766,
+        "entropy": 0.003227531360949586,
+        "sigma_finite": 17.55739843335514,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.880591876736939e-09,
+      "probability_tv": 3.880733429712751e-09,
+      "sigma_ratio": 8.902604777004203
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 95,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9398761247872919,
+        "entropy": 0.2879969322005626,
+        "sigma_finite": 1.606946989826634,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9398992443419463,
+        "entropy": 0.287446760383234,
+        "sigma_finite": 17.285918250421208,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.4597907504344894e-05,
+      "probability_tv": 2.4597907492995123e-05,
+      "sigma_ratio": 10.756993453957124
+    },
+    {
+      "train_index": 1726,
+      "problem_sha256": "5bcf0911a54f4d8816688d790ef8fdfdbfc5ef61a05211fdc316f305135e6e55",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999940135833586,
+        "entropy": 8.199517202329949e-05,
+        "sigma_finite": 1.960978152922388,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999940139315623,
+        "entropy": 8.198340665452278e-05,
+        "sigma_finite": 17.59260834077566,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.4815080496532816e-10,
+      "probability_tv": 3.4817828872734744e-10,
+      "sigma_ratio": 8.971343364819191
+    },
+    {
+      "train_index": 6746,
+      "problem_sha256": "5643cab681b65f54ab5451c106f3d206114b98a059dd21814c186fd42bd299cf",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9999710084558612,
+        "entropy": 0.00034412954001803445,
+        "sigma_finite": 1.5437519407402478,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9999710152112354,
+        "entropy": 0.0003439209505249941,
+        "sigma_finite": 17.215970577002672,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 6.755589038478299e-09,
+      "probability_tv": 6.7555795536147845e-09,
+      "sigma_ratio": 11.152031698011927
+    },
+    {
+      "train_index": 7311,
+      "problem_sha256": "93f028cb385f7f7e688ec0c492b8506850ecae4043b6a5e72da6a9c8d1f4e57a",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9998560319882261,
+        "entropy": 0.001591259157682496,
+        "sigma_finite": 1.7838526757697584,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9998560328361864,
+        "entropy": 0.0015912312308183217,
+        "sigma_finite": 17.364987687366156,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 8.479836425180215e-10,
+      "probability_tv": 8.480329980477888e-10,
+      "sigma_ratio": 9.734541379586132
+    },
+    {
+      "train_index": 7123,
+      "problem_sha256": "5a119342d280d6ab5ffdc62702cd02ffb7b935d56b46ede5eb37350c775afa21",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.5886018011451911,
+        "entropy": 0.7184735266936653,
+        "sigma_finite": 1.6350203223848285,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.5886019114380598,
+        "entropy": 0.7184684960165079,
+        "sigma_finite": 17.265259692497356,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 1.8738109889134843e-07,
+      "probability_tv": 1.873810952996774e-07,
+      "sigma_ratio": 10.559660608569303
+    },
+    {
+      "train_index": 3694,
+      "problem_sha256": "a5c6ba06ce6acba6bb9e126cf316676b32b2c74cae4cecd9f82a87063f6f013a",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.4707053657202745,
+        "entropy": 1.1563548234268173,
+        "sigma_finite": 2.149394321728157,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.47070537920145067,
+        "entropy": 1.1563540144129063,
+        "sigma_finite": 17.748578472286592,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 2.864033744731395e-08,
+      "probability_tv": 2.8640353699405898e-08,
+      "sigma_ratio": 8.257478999021627
+    },
+    {
+      "train_index": 4550,
+      "problem_sha256": "e55bdb307ba1d573310257d082051ac7b8c7f038e473720ad515d66bb1ba0c23",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.9986732936506072,
+        "entropy": 0.010130574299769542,
+        "sigma_finite": 1.6679049574627571,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.9986732940449542,
+        "entropy": 0.01013056098880253,
+        "sigma_finite": 17.343735212890916,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 3.9488466786579575e-10,
+      "probability_tv": 3.948777724631879e-10,
+      "sigma_ratio": 10.398515296263929
+    },
+    {
+      "train_index": 5380,
+      "problem_sha256": "9177bd7979234811d597e8614398948805597f59058ea41849579b8ff9a75ef1",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.7318502184237874,
+        "entropy": 0.789265369394139,
+        "sigma_finite": 2.036456096253524,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.7318502509475447,
+        "entropy": 0.7892641169952521,
+        "sigma_finite": 17.597644393391974,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.444047250354862e-08,
+      "probability_tv": 4.444046320828963e-08,
+      "sigma_ratio": 8.641308018260952
+    },
+    {
+      "train_index": 2667,
+      "problem_sha256": "0e64c34ba3342ee043090049759a5ded1de78383281fac9961f865882d067cfc",
+      "generated_position": 127,
+      "original_rc14_eligible": false,
+      "original": {
+        "pmax": 0.6914953892702145,
+        "entropy": 1.0840039303355755,
+        "sigma_finite": 2.0258894958780718,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "tail_stress": {
+        "pmax": 0.6914957125948618,
+        "entropy": 1.0839919877749264,
+        "sigma_finite": 17.59698567088317,
+        "finite_count": 152064,
+        "vocabulary_width": 152064
+      },
+      "original_tail_mass": 4.6757275700256137e-07,
+      "probability_tv": 4.6757282242720844e-07,
+      "sigma_ratio": 8.686054055113303
+    }
+  ],
+  "input_sha256": {
+    "capture_000.pt": "bee2c2747fcd48ff22f36f3e46ac68dc15a599b6470c389b762f2be21ab26626",
+    "capture_001.pt": "a761d549dc971ff2a439999219d9f738d75eca3b4968283cae29acf8e77791cd",
+    "capture_002.pt": "01497586d270e15c93af4f4624ea8c8c7ccc8220c58f47d33e7e5d0b71b7767f",
+    "capture_003.pt": "d6d6b2175ad9c55a2c707044a86f9ff4ccd9072337bf2dedf3aa84048e2b316b",
+    "capture_004.pt": "e19e9aebdfcdefff99125cab65286e9cf8d7f14e7736a4390a031abc37e6afba",
+    "capture_005.pt": "a87798d4eb9a6799053a52a9e67ce3b8bf4a219dd4e6ca6395fc3ebe7ee9fe7a",
+    "capture_006.pt": "1253cdb6197a113ea22ae3b83899738e2b5bc858e8b75ad83c6593f03678c445",
+    "capture_007.pt": "40070e668eec5d429d330d69468980a587b1f14e7844b9d3a7a5bf7e1bd25e09",
+    "capture_008.pt": "814a479569d078734c60ca127f409ba3ff69b47dc7362d66aba6dd8f16c6bd02",
+    "capture_009.pt": "4f55c27cdc3b98fbd8a0a6dfa617a5a6b93c96fb4b8adf91f113a36990dfdec5",
+    "capture_010.pt": "d8cd5bbca5c35b01de6416c7b24b16b61fcb82fe940c8ab9425b382932144c81",
+    "capture_011.pt": "f3ebdb85ed0ea8ecff6099322668a6ecd5f4ef7f8c157f69ae6c5f090502c245",
+    "capture_012.pt": "95220d9d2ce96664da2e0d4098bb8822fa26d2fe6dd9bc6eaf357884b1690996",
+    "capture_013.pt": "7de8511a0c0243c070a36ea3ba73f9452a43dba15f5faec4b2a981dd58546bd4"
+  },
+  "new_model_forwards": 0,
+  "new_answers": 0,
+  "cpu_seconds": 116.875,
+  "decision": "Do not directly replace L27 strength with global sigma as a confidence score. No statement that full VCM is ineffective.",
+  "limitations": [
+    "Engineering captures from7B early R trajectories, not 1.5B L27 long trajectories or independent evaluation.",
+    "Tail subtraction is an artificial sensitivity stress, not a naturally observed event or estimate of its frequency.",
+    "Correlations are descriptive with dependent token positions and cannot establish correctness or redundancy.",
+    "No new model calls, generated answers, grading, or compression estimates.",
+    "Global sigma can be a scale statistic without being a correctness or confidence measure; this audit does not refute the complete VCM method."
+  ]
+}
