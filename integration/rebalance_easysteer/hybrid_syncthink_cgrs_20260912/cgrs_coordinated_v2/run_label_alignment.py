@@ -95,6 +95,9 @@ def main():
         sys.path[1:1]=[str(args.runtime_root/'sources/EasySteer/vllm-steer'),str(args.runtime_root/'sources/EasySteer'),
             str(args.runtime_root/'integration/rebalance_easysteer/eval')]
         os.environ.update(VLLM_ENABLE_V1_MULTIPROCESSING='0',PYTHONNOUSERSITE='1')
+        if plan.get('experiment_kind')=='norm_preserving_v1' and not args.norm_reference:
+            # vLLM cache hashing does not track our process-local monkeypatch.
+            os.environ['VLLM_CACHE_ROOT']=str(args.output.parent/('norm_compile_'+sha(HERE/'norm_graph_adapter.py')[:16]))
         import torch,vllm
         from transformers import AutoTokenizer
         from vllm import LLM,SamplingParams
@@ -135,7 +138,7 @@ def main():
             names=['L27_REFERENCE'] if args.norm_reference else ['NORM_OFF','NORM_STATE_L27','NORM_REPEAT']
             if not args.norm_reference:
                 oldgate=read(args.norm_reference_result/'complete.json')
-                assert oldgate['passed'] and oldgate['release_sha256']==sha(args.release)
+                assert oldgate['passed'] and oldgate['release_sha256']==release.get('norm_reference_release_sha256',sha(args.release))
                 old_result=read(args.norm_reference_result/'L27_REFERENCE/result.json')
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))

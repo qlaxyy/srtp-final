@@ -4,7 +4,7 @@ from prepare_length_vector import HERE,read,save,sha
 from check_norm_graph import check
 
 def main():
-    run='norm_preserving_math_20260918_run1';out=HERE/run;out.mkdir(exist_ok=False)
+    run='norm_preserving_math_20260918_run2';out=HERE/run;out.mkdir(exist_ok=False)
     (out/'.gitattributes').write_text('*.json -text\n*.npz binary -text\n',encoding='utf8')
     previous=HERE/'question_centered_math_20260918_run1'
     plan=read(previous/'plan.json');release=read(previous/'release.json')
@@ -28,6 +28,7 @@ def main():
         artifact_root=run,plan_relative_path=run+'/plan.json',plan_sha256=sha(out/'plan.json'),
         artifact_sha256={n:sha(out/n) for n in ('opening.npz','historical_compact.json','plan.json','cpu_checks.json')},
         source_sha256={n:hashlib.sha256(b).hexdigest() for n,b in files.items()})
+    release['norm_reference_release_sha256']=sha(HERE/'norm_preserving_math_20260918_run1/release.json')
     save(out/'release.json',release)
     for n in ('release.json','plan.json','cpu_checks.json','opening.npz','historical_compact.json'):files[run+'/'+n]=(out/n).read_bytes()
     package=HERE.parents[3]/('.codex_work/'+run+'.tar.gz')
