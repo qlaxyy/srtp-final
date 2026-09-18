@@ -94,6 +94,11 @@ def main():
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti else ['RC14','RC14_extension_off'])+names
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
+        if args.phase=='full' and plan.get('recovery_indices') is not None:
+            indices=plan['recovery_indices']
+            assert mti and indices==sorted(set(indices)) and 0<len(indices)<len(rows)
+            rows=[rows[i] for i in indices]
+            assert [r['dataset_index'] for r in rows]==indices
         cap=(64 if mti else 512) if args.phase=='engineering' else 16000
         prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
         assert max(map(len,prompts))+cap<=rt.get('max_model_len',32768)
@@ -136,6 +141,11 @@ def main():
             if mti and name!='L27_REFERENCE':
                 from mti_native_adapter import MTIAdapter
                 mti_adapter=MTIAdapter(adapter,tok,mode='off' if name=='L27_OFF' else 'shadow' if name=='L27_SHADOW' else 'active')
+                if mti_adapter.mode!='off':
+                    bs=mti_adapter.block_size
+                    worst_blocks=((max(map(len,prompts))+cap+bs-1)//bs)*min(len(rows),runner.max_num_reqs)
+                    available=mti_adapter.pool.get_num_free_blocks()
+                    assert worst_blocks<=available, f'KV worst-case reservation unsafe: {worst_blocks}>{available}'
             if name=='RC14_extension_off':
                 sampler=runner.sampler;unused=AlignmentAdapter(llm,tok,enabled=False)
                 assert runner.sampler is sampler;unused.close();assert runner.sampler is sampler

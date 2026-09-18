@@ -1,0 +1,14 @@
+{
+  "execution_commit": "20b52fb",
+  "release_sha256": "2267050db176ad44f077924baf40f612e9dc7d46592c9928e226be4e42243e78",
+  "deployment_sha256": "f89ba72c38ae7e7ba124826a5dadfed8926438fdad2689f440548e5a891f9f3f",
+  "status": "corrected full500 running",
+  "output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/mti_native_20260918_run4/full",
+  "supersedes_invalid_partial": {
+    "run": "native_run3",
+    "completed_rows": 399,
+    "process_wall_seconds": 493.47723534703255,
+    "reason": "Whole-batch FP32 conversion altered unselected lexical penalty precision; terminated without grading or threshold tuning"
+  },
+  "correction": "Compute selected contrast in FP32 and assign back to native dtype; unselected rows retain native precision"
+}
