@@ -1,14 +1,16 @@
 """Package each supported endpoint design as one frozen MATH500 arm."""
-import ast,hashlib,io,json,tarfile
+import ast,hashlib,io,json,tarfile,argparse
 from prepare_length_vector import HERE,read,save,sha
 from outcome_efficient_adapter import cpu_checks
 
 def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--audited-under',action='store_true');args=parser.parse_args()
     source=HERE/'outcome_endpoints_20260918_run1';checks=cpu_checks()
     for arm,mode in [('EFFICIENT','efficient'),('UNDER_REFIT','under')]:
-        fitdir=source/'fitted'/arm;report=read(fitdir/'report.json')
+        if args.audited_under and arm=='EFFICIENT':continue
+        fitdir=source/('fitted_audited' if args.audited_under else 'fitted')/arm;report=read(fitdir/'report.json')
         if not report['supported']:continue
-        run='outcome_'+mode+'_math500_20260918_run1';out=HERE/run;out.mkdir(exist_ok=False)
+        run='outcome_'+mode+'_math500_20260918_run'+('2' if args.audited_under else '1');out=HERE/run;out.mkdir(exist_ok=False)
         (out/'.gitattributes').write_text('*.json -text\n*.pt binary -text\n*.npz binary -text\n')
         prev=HERE/'self_feedback_math500_20260918_run1';plan=read(prev/'plan.json');rel=read(prev/'release.json')
         name=arm+'_L27'
@@ -19,6 +21,9 @@ def main():
             decision=dict(training_protocol_sha256=sha(source/'protocol.json'),fit_report_sha256=sha(fitdir/'report.json'),advance_to_gsm=plan['advancement']),
             expected_cost='One1.5B MATH500 arm7-12min estimate plus engineering; no probe forwards. Two endpoint designs independently stopped if criteria fail.',
             hard_stop_seconds_per_arm=1200,process_hard_stop_seconds=1500)
+        if args.audited_under:
+            assert report['excluded_short_error_parents']==[67,262,284]
+            plan['training_label_audit']=dict(path='outcome_endpoints_20260918_run1/short_error_audit.json',sha256=sha(source/'short_error_audit.json'),excluded=[67,262,284],reason='Semantically correct answers mis-scored by formatting parser, excluded before any B benchmark run; frozen scores unchanged')
         save(out/'plan.json',plan);save(out/'cpu_checks.json',dict(controller_checks=checks,fit=report))
         for n in ['opening.npz','historical_compact.json']:(out/n).write_bytes((prev/n).read_bytes())
         for n in ['auto_vector.pt','fit.json']:(out/n).write_bytes((fitdir/n).read_bytes())

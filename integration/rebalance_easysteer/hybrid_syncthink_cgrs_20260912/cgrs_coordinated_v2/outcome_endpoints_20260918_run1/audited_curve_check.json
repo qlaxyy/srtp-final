@@ -1,0 +1,27 @@
+{
+  "E_vector_unchanged": true,
+  "B_native_baseline_anchors": [
+    -0.5,
+    0.0,
+    0.010000000000000009
+  ],
+  "B_parameters": {
+    "q25c": 0.806383764785197,
+    "q75c": 0.963637113182441,
+    "q25v": 0.00021053623796034283,
+    "q75v": 0.00630999841750307,
+    "low_val_1": -0.5,
+    "low_val_2": -1.1833675334668357,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.01
+  },
+  "B_short_error_parents": [
+    285,
+    348,
+    395,
+    486,
+    494
+  ],
+  "B_step_weight_concentration_note": "43 of64 short-error steps come from question395; retained original step weighting, no outcome-based reweighting"
+}

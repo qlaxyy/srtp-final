@@ -10,7 +10,8 @@ def save(p,x):
     with Path(p).open('x',encoding='utf8') as f:json.dump(x,f,indent=2,allow_nan=False)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--features',type=Path,required=True);p.add_argument('--runtime',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--features',type=Path,required=True);p.add_argument('--runtime',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
+    p.add_argument('--exclude-short-error-parent',type=int,nargs='*',default=[]);a=p.parse_args()
     complete=read(a.features/'complete.json');assert complete['passed'] and complete['phase']=='full'
     spec=importlib.util.spec_from_file_location('outcome_native_rebalance',a.runtime);rt=importlib.util.module_from_spec(spec)
     import sys
@@ -23,7 +24,7 @@ def main():
     a.output.mkdir(exist_ok=False);reports={}
     for arm in ['EFFICIENT','UNDER_REFIT']:
         dest=a.output/arm;dest.mkdir()
-        pool=[z for z in data.values() if (z[0]['kind']=='CC' if arm=='EFFICIENT' else (z[0]['kind']=='CC' and z[0]['side']=='long') or (z[0]['kind']=='CW' and z[0]['side']=='short'))]
+        pool=[z for z in data.values() if (z[0]['kind']=='CC' if arm=='EFFICIENT' else (z[0]['kind']=='CC' and z[0]['side']=='long') or (z[0]['kind']=='CW' and z[0]['side']=='short' and z[0]['question'] not in a.exclude_short_error_parent))]
         cl,ch=np.quantile(np.concatenate([z[2] for z in pool]),[.25,.75]);vl,vh=np.quantile(np.concatenate([z[3] for z in pool]),[.25,.75]);assert 0<cl<ch<1 and 0<=vl<vh
         over=[];other=[];op=[];up=[]
         for q in sorted({k[0] for k in data}):
@@ -34,9 +35,9 @@ def main():
                     over.append(lx[om].mean(0,dtype=np.float64));other.append(sx[um].mean(0,dtype=np.float64));op.append(q);up.append(q)
             else:
                 if lr['kind']=='CC' and om.any():over.append(lx[om].astype(np.float64));op.append(q)
-                if sr['kind']=='CW' and um.any():other.append(sx[um].astype(np.float64));up.append(q)
+                if sr['kind']=='CW' and q not in a.exclude_short_error_parent and um.any():other.append(sx[um].astype(np.float64));up.append(q)
         supported=(len(op)>=30 if arm=='EFFICIENT' else len(op)>=30 and len(up)>=3 and sum(len(x) for x in other)>=20)
-        report=dict(supported=bool(supported),over_parents=op,other_parents=up,quantiles=dict(confidence=[float(cl),float(ch)],variance=[float(vl),float(vh)]))
+        report=dict(supported=bool(supported),over_parents=op,other_parents=up,excluded_short_error_parents=a.exclude_short_error_parent if arm=='UNDER_REFIT' else [],quantiles=dict(confidence=[float(cl),float(ch)],variance=[float(vl),float(vh)]))
         if not supported:save(dest/'report.json',report);reports[arm]=report;continue
         xo=np.array(over) if arm=='EFFICIENT' else np.concatenate(over);xu=np.array(other) if arm=='EFFICIENT' else np.concatenate(other)
         mo,mu=xo.mean(0),xu.mean(0);d=mo-mu;assert np.isfinite(d).all() and np.linalg.norm(d)>0
