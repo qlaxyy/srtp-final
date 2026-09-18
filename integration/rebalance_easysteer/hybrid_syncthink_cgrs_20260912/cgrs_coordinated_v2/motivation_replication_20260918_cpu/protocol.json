@@ -1,0 +1,30 @@
+{
+  "paper": "https://arxiv.org/html/2603.12372v3",
+  "locations": [
+    "2.1 Eq1-2",
+    "2.2 Figure2b",
+    "A.2 Table6",
+    "C.6 Table19"
+  ],
+  "goal": "First audit existing evidence; no inference that length alone defines thinking mode.",
+  "figure2_pair_proxy": "Same question U vs current R adaptation: O pair iff both correct and R thinking tokens<U; U pair iff U correct,R wrong and R thinking tokens<U. No confidence-based selection.",
+  "figure2_missing_details": [
+    "Exact mitigation method(s) used for Figure2b",
+    "Pair IDs and count",
+    "Aggregation weighting",
+    "Figure2 length unit",
+    "Whether Figure2 variance is whole-trajectory or averaged sliding variance",
+    "Probability distribution before/after sampling warpers"
+  ],
+  "supplement": "500 training trajectories, not MATH500; recompute geometric and arithmetic step confidence on frozen greedy raw max logprobs and old step boundaries. Parent equal weighting.",
+  "stats": "Spearman length vs minimum/mean confidence, whole-step variance and mean W2 variance. 2000 paired-parent percentile bootstrap, seed20260918. Report all and completed-only, no statistical efficacy claims.",
+  "no_new_gpu": true,
+  "no_new_generation": true,
+  "inputs": {
+    "E:\\srtp\\srtp-final\\.codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz": "4107b807450a0a810c4df483846ba9be4255fe96c9615c4a1984e0c0c7954ada",
+    "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\math500_artifacts.tar.gz": "ed8f7853bfdb05485f947f0bcb151509a8fd74cd4f17007ff074c603a5da635e",
+    "E:\\srtp\\srtp-final\\.codex_work\\label_audit_30_20260910\\tokenizer.json": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+  },
+  "generation_member_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+}

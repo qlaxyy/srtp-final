@@ -1,0 +1,37 @@
+{
+  "status": "Needs probability-logging replay implementation and engineering; NOT launched",
+  "frozen_L27": {
+    "tag": "easysteer-rebalance-l27-v1-20260917",
+    "commit": "3489a752e84ce24b32f2edefe3b6751b7e2e58c9",
+    "action": "Keep existing tag/assets/results unchanged; pause norm-preservation optimization per user"
+  },
+  "paper_read": {
+    "version": "2603.12372v3",
+    "sentinel": "158b6d35c378",
+    "parsed_sha256": "d6d79dba36e76230a7536d444e83671309c909831dc0b00b6f8266c4d7803fd1",
+    "image": "sources/ReBalance/assets/motivation.png"
+  },
+  "primary_design": "Outcome/length paired proxy adapted from Section2.2, using frozen U vs R1.5B on MATH500. Not exact author Figure2 reproduction: exact mitigation and figure aggregation are unspecified. Do not claim semantic gold labels.",
+  "next_gpu": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "dataset": "Frozen MATH500: all500 screened, fixed275 over-proxy pairs+11 under-proxy pairs",
+    "trajectories": 572,
+    "total_existing_generated_tokens": 1586422,
+    "operation": "Teacher-force saved outputs under their corresponding original U/R controller, capture raw max probability before sampling and before lexical intervention. No free regeneration; fixed outputs and author labels unchanged. Re-scoring both traces under an unsteered model alone is not equivalent and must not substitute silently.",
+    "confidence": "Geometric step mean primary, arithmetic secondary. Original double-newline token boundaries, thinking region only; report boundary handling and final partial step.",
+    "variance": "Primary within-trajectory variance of geometric step means (A2); secondary mean W2 local variance (Eq2). Figure2 aggregation not specified: report both without selecting whichever matches.",
+    "weighting": "Question pair equal weight. Also report pooled step-weighted sensitivity separately.",
+    "engineering": "8 existing training traces replay, token-forcing checks, correct one-token alignment against direct forward on bounded prefix, logged-vs-online R confidence/variance equality, request reset, no cross-question contamination. Freeze implementation and receipt before full collection.",
+    "stats": "Over: long-U minus short-R confidence expected negative, variance positive. Under: short-wrong-R minus long-correct-U confidence expected positive, variance negative. Pair bootstrap20000; within-pair direction counts. All11 under pairs retained, no topping up until significant.",
+    "costs": "1.586M replayed output tokens; provisional6-15min generation-equivalent plus load/logging; implementation-dependent, not measured. No GPU job until engineering ready.",
+    "stopping": "Engineering mismatch, NaN, token misalignment, input hash mismatch or >1800sec stop and save partial. Do not tune methods on analysis outcomes."
+  },
+  "limitations": [
+    "Length contrast is forced by grouping, not an independent validation result.",
+    "Longer sequences have more chances to contain a low minimum; minimum-confidence correlation alone is not behavioral proof.",
+    "149 censored training traces differ from completed subset; report both, no hidden exclusion.",
+    "Training greedy confidence is not sampling0.7 MATH500 confidence.",
+    "R itself responds to confidence, so paired confidence association is not proof of an intervention-independent detector.",
+    "Outcome-based underthinking proxy is not a proof that more reasoning would repair every individual error."
+  ]
+}
