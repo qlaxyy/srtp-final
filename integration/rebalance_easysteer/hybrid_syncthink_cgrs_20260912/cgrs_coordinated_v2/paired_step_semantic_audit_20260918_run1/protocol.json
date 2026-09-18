@@ -1,0 +1,16 @@
+{
+  "status": "fixed sample before semantic review",
+  "count": 12,
+  "strata": "6 long-U and 6 long-L27; smallest normalized problem SHA256 within source",
+  "pair_selection": "median matched pair sorted by long step index",
+  "decoding": "ByteLevel inverse; all478 full saved thinking prefixes exactly verified against original answer text",
+  "labels": [
+    "same_subproblem",
+    "same_stage_different_subproblem",
+    "different_stage",
+    "unclear"
+  ],
+  "redundancy": "Only record plausible redundant repetition with explicit content evidence; no causal deletion claim.",
+  "limits": "Small source-balanced diagnostic sample, not population prevalence or a trained semantic judge.",
+  "source_script_sha256": "6888e9f0890725eebb53550db37157b038995842a2176e3a343a5d0a8e0193a7"
+}
