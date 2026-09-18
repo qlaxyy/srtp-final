@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "path": "/root/autodl-tmp/results/self_feedback_train500_20260918_run1/full/L27_L27/partial.jsonl",
+      "sha256": "b755ff41fdff8d56f87644bd11d094e80926f52752125abcb640f82106a4d5f9"
+    },
+    {
+      "path": "/root/autodl-tmp/results/self_feedback_train500_20260918_run1/full/failure.json",
+      "sha256": "d1cefbdd76dad969bf07e1c46031488c529049b15d1ec24de8ad8310aefcfa80"
+    },
+    {
+      "path": "/root/autodl-tmp/projects/self_feedback_train500_20260918_run1/self_feedback_train500_20260918_run1/release.json",
+      "sha256": "e164f2afb8f8d3313e696ea1a68b83be3660652536dd14f3b2ad3226bb4e7658"
+    },
+    {
+      "path": "/root/autodl-tmp/results/self_feedback_train500_20260918_recovery1/full/L27_L27/result.json",
+      "sha256": "f82346e6efb90871d20e385d48baae46c7a6f65bf52285fa41f6a5f2dd9d4c9f"
+    },
+    {
+      "path": "/root/autodl-tmp/projects/self_feedback_train500_20260918_recovery1/self_feedback_train500_20260918_recovery1/release.json",
+      "sha256": "d276bb11f932f1124b12bff2becaded1b6eae2ec3738cba8d82e519db7556b31"
+    },
+    {
+      "path": "/root/autodl-tmp/results/self_feedback_train500_20260918_recovery1/full/complete.json",
+      "sha256": "514136c649c86d08bae05306f98b2930d6b8dd0740bff2b56712cf657dc47797"
+    }
+  ],
+  "batch_counts": [
+    404,
+    96
+  ],
+  "max_num_seqs": [
+    256,
+    32
+  ],
+  "interpretation": "One training collection across two schedules, not a single-run evaluation",
+  "failed_process_wall_seconds": 262.5028024017811,
+  "recovery_generation_seconds": 602.5291348546743,
+  "merge_script_sha256": "5a69d575957db0974ae172a5a8ed670b2e0f8a15ca606d2cfe6252d5a562942a"
+}

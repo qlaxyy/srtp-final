@@ -13,8 +13,15 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='norm_preserving_v1':
+    if plan.get('experiment_kind')=='self_feedback_collection_v1':
+        assert [a['name'] for a in plan['arms']]==['L27_L27']
+        assert plan['temperature']==0 and plan['top_p']==1
+        assert all(r['split']=='train' and 'prompt_token_ids' in r for r in plan['rows'])
+    elif plan.get('experiment_kind')=='norm_preserving_v1':
         assert [a['name'] for a in plan['arms']]==['NORM_STATE_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='self_feedback_vector_v1':
+        assert [a['name'] for a in plan['arms']]==['FEEDBACK_NORM_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='question_centered_vector_v1':
         assert [a['name'] for a in plan['arms']]==['QCENTER_NORM_L27']
@@ -111,6 +118,7 @@ def main():
         boundaries=sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s)
         rt=plan.get('execution',{});sync_replay=rt.get('sync_replay',False)
         norm=plan.get('experiment_kind')=='norm_preserving_v1'
+        feedback=plan.get('experiment_kind')=='self_feedback_collection_v1'
         norm_adapter=None
         if norm and not args.norm_reference:
             from norm_graph_adapter import NormGraphAdapter
@@ -125,7 +133,7 @@ def main():
         margin=plan.get('experiment_kind')=='margin_v1'
         length_refit=plan.get('experiment_kind')=='length_refit_v1'
         nonpositive=plan.get('experiment_kind')=='nonpositive_v1'
-        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1')
+        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1','self_feedback_vector_v1')
         length_vector=plan.get('experiment_kind') in ('length_vector_v1','length_refit_v1')
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
         if args.phase=='engineering' and length_vector:names=['L27_REFERENCE','LENGTH_L27','LENGTH_REPEAT','LENGTH_NORM_L27','LENGTH_NORM_REPEAT']
@@ -140,15 +148,16 @@ def main():
                 oldgate=read(args.norm_reference_result/'complete.json')
                 assert oldgate['passed'] and oldgate['release_sha256']==release.get('norm_reference_release_sha256',sha(args.release))
                 old_result=read(args.norm_reference_result/'L27_REFERENCE/result.json')
+        if feedback and args.phase=='engineering':names=['L27_L27','L27_REPEAT']
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
             indices=plan['recovery_indices']
-            assert mti and indices==sorted(set(indices)) and 0<len(indices)<len(rows)
+            assert (mti or feedback) and indices==sorted(set(indices)) and 0<len(indices)<len(rows)
             rows=[rows[i] for i in indices]
             assert [r['dataset_index'] for r in rows]==indices
         cap=(64 if mti else 512) if args.phase=='engineering' else 16000
-        prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
+        prompts=[r['prompt_token_ids'] if feedback else tok.encode(build_prompt(tok,r['problem'])) for r in rows]
         assert max(map(len,prompts))+cap<=rt.get('max_model_len',32768)
         save(args.output/'identity.json',dict(vllm=str(vllm.__file__),torch=torch.__version__,
             model=assets['model_path'],phase=args.phase,startup_seconds=time.monotonic()-began))
@@ -174,6 +183,7 @@ def main():
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
             arm=next((a for a in plan['arms'] if a['name']==name),{})
+            if feedback:arm=plan['arms'][0]
             if mti or margin or norm:arm=plan['arms'][0]
             if length_vector:arm=plan['arms'][0]
             if strict_and:arm=plan['arms'][0]
@@ -232,7 +242,7 @@ def main():
             torch.cuda.synchronize();start=time.monotonic()
             try:
                 ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=SamplingParams(
-                    temperature=.7,top_p=.95,seed=42,max_tokens=cap,skip_special_tokens=False),steering=steer,use_tqdm=False)
+                    temperature=0 if feedback else .7,top_p=1 if feedback else .95,seed=42,max_tokens=cap,skip_special_tokens=False),steering=steer,use_tqdm=False)
                 ops=llm.llm_engine.output_processor.request_states
                 mapping={ops[r].external_req_id:r for r in ids};rowmap=dict(zip(ids,rows))
                 with (folder/'partial.jsonl').open('x',encoding='utf8') as f:
@@ -273,7 +283,13 @@ def main():
                     assert result['norm_state']['fallback_rows']==0,'Invalid norm state'
                     if name!='NORM_OFF':assert result['norm_state']['active_rows']>0,'No norm intervention'
                 save(folder/'result.json',result)
-                if args.phase=='engineering' and norm:
+                if args.phase=='engineering' and feedback:
+                    current_history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    if name=='L27_L27':reference=records;history=current_history
+                    else:
+                        assert [r['token_ids'] for r in records]==[r['token_ids'] for r in reference]
+                        assert current_history==history
+                elif args.phase=='engineering' and norm:
                     current_history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                     if name=='NORM_OFF':
                         assert [r['token_ids'] for r in records]==[r['token_ids'] for r in old_result['records']],'Norm disabled changed tokens'

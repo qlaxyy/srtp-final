@@ -1,0 +1,20 @@
+{
+  "method": "Outcome-conditioned original class means, one iteration only",
+  "input_generation_member_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "label": "Eligible parent iff U and L27 both author-correct, both naturally closed, L27 thinking AND total tokens strictly smaller, and no benchmark overlap",
+  "benchmark_overlap_excluded_indices": [],
+  "extraction": "Reuse ONLY original unsteered saved step states, original OR over/AND under labels and old quantiles; restrict both classes to eligible parents; preserve original step weighting; raw mean_over-minus-mean_under then match original vector norm",
+  "intent": "First minimal outcome-feedback candidate; not direct long-short hidden-state contrast, not gold per-step overthinking labels",
+  "incorrect_short": "Record all correctness flips and harmful shortening; never treat wrong-short states as desired target",
+  "confidence_variance": "No additional confidence/variance hard gate in first candidate; no thresholds tuned on outcome",
+  "gate": "At least30 eligible parents contributing to each class; finite nonzero vector; exact old vector reproduction; keep failures and caps in collection report",
+  "unchanged": [
+    "decoder output layer20",
+    "old fit and dynamic curve",
+    "L27 suppression",
+    "old vector norm"
+  ],
+  "stop": "No repeated iterations or alternative masks if support fails. New candidate evaluated later against frozen L27 on separate questions; calibration results are not efficacy evidence.",
+  "historical_limit": "Greedy settings and exact original prompt IDs matched, but historical batch/runtime numerics can differ; pairs are observed preferences, not causal labels",
+  "coordination": "Original500 calibration parents already shared training assets; no new holdout claimed. Existing test275+11 pairs are excluded from all fitting."
+}
