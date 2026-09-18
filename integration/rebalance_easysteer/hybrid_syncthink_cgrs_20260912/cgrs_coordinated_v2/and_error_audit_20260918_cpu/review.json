@@ -1,0 +1,170 @@
+{
+  "test_review": [
+    {
+      "dataset_index": 459,
+      "problem_sha256": "193f086ee6ae83778e399a61c6403f538d62167cc60f1d1583af9621750a10dd",
+      "original_flip": "loss",
+      "category": "arithmetic_error",
+      "evidence_arm": "new_text",
+      "evidence_quote": "which amounts to 3,300 pounds.",
+      "interpretation": "42*75=3150, not3300. Candidate is longer, not simply cut short."
+    },
+    {
+      "dataset_index": 841,
+      "problem_sha256": "708ce4ccedb34968edb22e31acab5c982a73f35e9818c1ba16c53f5d3e487a36",
+      "original_flip": "loss",
+      "category": "answer_extraction_issue",
+      "evidence_arm": "new_text",
+      "evidence_quote": "Gabriel still needs **\\$5,600**.",
+      "interpretation": "Both derive5600. Candidate has no boxed answer; original extractor returns empty. Do not alter frozen label."
+    },
+    {
+      "dataset_index": 1292,
+      "problem_sha256": "e2707559f3ae3e307a043c1fc4ed8a2ce0695367ad3e828a7fbc89b30a124a6d",
+      "original_flip": "loss",
+      "category": "harmful_revision_visible",
+      "evidence_arm": "new_text",
+      "evidence_quote": "So, before summer, Jackie was 67 inches tall.",
+      "interpretation": "Candidate first reaches67, then repeatedly reverses shorter-than and ends71. Extra reflection is visible; not evidence of missing reflection."
+    },
+    {
+      "dataset_index": 694,
+      "problem_sha256": "78425fdd9e3eb325e1c10b98204f9c4100cf1c44c829905723005c7f3dce8193",
+      "original_flip": "loss",
+      "category": "missing_or_wrong_operation",
+      "evidence_arm": "new_text",
+      "evidence_quote": "48 - 8 = 40",
+      "interpretation": "Candidate fails to use the57 attendees in final subtraction. Old trace explicitly corrects from available48 seats to required57; local necessary adjustment is visible."
+    },
+    {
+      "dataset_index": 322,
+      "problem_sha256": "75672dfb13a7ebb74b85ff63c7988052e9e2dbb1c17e1edf17e19745dc495ba5",
+      "original_flip": "gain",
+      "category": "missing_or_wrong_operation",
+      "evidence_arm": "new_text",
+      "evidence_quote": "3x + 2 = 26",
+      "interpretation": "Candidate uses loose-pencil condition and obtains9. Old output incorrectly treats box capacity as unspecified and answers7."
+    },
+    {
+      "dataset_index": 626,
+      "problem_sha256": "118b23778cf2a58917808ec5de8bbf6a2b6722dc8f290ba5ce3ea1320dc438fa",
+      "original_flip": "gain",
+      "category": "answer_format_sensitivity",
+      "evidence_arm": "old_text",
+      "evidence_quote": "\\boxed{72\\ \\text{Mb/h}}",
+      "interpretation": "Both compute72. Old/new author labels differ despite same numeric answer; units/spacing diagnostic, actual grader root cause not executed locally."
+    },
+    {
+      "dataset_index": 1075,
+      "problem_sha256": "ac6da2c5df5009cbb215519923b1d048554f8dce2cba71aed606f4f3b15c9df9",
+      "original_flip": "gain",
+      "category": "necessary_correction_visible",
+      "evidence_arm": "new_text",
+      "evidence_quote": "15 + 6 = $21",
+      "interpretation": "Candidate notices unaffordable30, uses dozen pricing, corrects quarter count to16. Intermediate half-dozen and unit statements remain wrong; correct final answer is not valid entire reasoning."
+    },
+    {
+      "dataset_index": 680,
+      "problem_sha256": "eca83c8a0a34627f8e3746061dbb42fed84afe6746d3c8796f3018e746eee145",
+      "original_flip": "gain",
+      "category": "answer_extraction_issue",
+      "evidence_arm": "old_text",
+      "evidence_quote": "exceeded the maximum load by 20 kg.",
+      "interpretation": "Both compute20. Old final response lacks boxed content and extracts empty; candidate boxes20."
+    }
+  ],
+  "calibration_review": [
+    {
+      "train_index": 4158,
+      "problem_sha256": "ae85bf14a5179c812f389ceb4815faa99171d6ce3595ae79c826a7fd413ad68b",
+      "step_index": 38295,
+      "category": "valid_new_inference",
+      "evidence_quote": "0 to any positive exponent is still 0",
+      "interpretation": "Applies positive exponent to already derived zero; not a false calculation or purely repeated premise."
+    },
+    {
+      "train_index": 4042,
+      "problem_sha256": "c20de7e65846bfa41325b47561dd6c369cb6dfedd2fe20715d751b8d477025b5",
+      "step_index": 30919,
+      "category": "necessary_constraint_adjustment",
+      "evidence_quote": "A has a minimum value of 1",
+      "interpretation": "Identifies restriction required for stars-and-bars, followed by A-prime=A-1 and15 solutions."
+    },
+    {
+      "train_index": 563,
+      "problem_sha256": "8c85bdd59472596c687aefaaca61bf79a2b8014089fde4c8734b8a7a6c35da00",
+      "step_index": 79032,
+      "category": "ordinary_task_restatement",
+      "evidence_quote": "some other pet",
+      "interpretation": "Opening restatement of pet categories. Phrase is in the problem itself, not evidence of reflection."
+    },
+    {
+      "train_index": 7012,
+      "problem_sha256": "24f85a7f36b81f7547a4c03dfdaf8383279cb7ebe8e2d13b58413ea6169f7c5b",
+      "step_index": 60141,
+      "category": "unfounded_self_correction",
+      "evidence_quote": "Wait, no, that's not right.",
+      "interpretation": "The preceding reciprocal multiplication (-5/3)*(-5/3) is correct; unsupported rejection is followed by repeated doubt. Mixed step, not a clean redundant-only label."
+    },
+    {
+      "train_index": 458,
+      "problem_sha256": "f078553f1f02647df7a4d0009bf29f79010240d34787f5a6a3b66029f6638f0a",
+      "step_index": 25014,
+      "category": "valid_new_inference",
+      "evidence_quote": "the two draws are independent events",
+      "interpretation": "Replacement justifies independence; different is ordinary description of colors."
+    },
+    {
+      "train_index": 465,
+      "problem_sha256": "c4168cd8b8bc67ff46aff2c263e0e868b47dff05ee1be71d4dae98179a245fe2",
+      "step_index": 71532,
+      "category": "ordinary_task_restatement",
+      "evidence_quote": "two different probabilities",
+      "interpretation": "Organizes given conditional probabilities before total-probability calculation. Different is not a metacognitive trigger here."
+    },
+    {
+      "train_index": 2152,
+      "problem_sha256": "8ba9c6be7d4bf507e96f56542e68882761588e17bc21616766be0d24248464c8",
+      "step_index": 29413,
+      "category": "valid_plan",
+      "evidence_quote": "convert all the binary numbers to decimal",
+      "interpretation": "A valid initial solution strategy; maybe alone does not establish unnecessary exploration."
+    },
+    {
+      "train_index": 3789,
+      "problem_sha256": "1e57528d40b28f32fb0810b5d9452888cfd981993787a0e961bfa15a9342fbda",
+      "step_index": 58507,
+      "category": "conclusion_interpretation",
+      "evidence_quote": "Steve needs to keep 4 people",
+      "interpretation": "Maps derived x=4 to requested headcount. Rechecking follows, but target itself cannot safely be called pure redundancy."
+    }
+  ],
+  "sources": {
+    "protocol.json": "6a07a40876905eedc9e9fbc21bc954f5d0149f3e64b10627ec9a300f35f59a9b",
+    "test_registry.json": "9bf0ad5d2626e534fc9137ee1124dbd54bdf961b54a170d613651f06d2db39ad",
+    "test_cases.json": "70ba255d2cb92cd707d276efa59b344b95cde5f7f9cc2eaaffd466b79db75ea6",
+    "calibration_cases.json": "0b91ba2d12a6425f12598694f825ca68ed9ae2d1b8aaad2e04045e475915ebed",
+    "surface_audit.json": "f7c4b9ff4ad244f4f0521a8aefcaca9c0406e3b9952abd294941dbc104a8bbc0"
+  },
+  "conclusions": [
+    "No support for a single blanket missing-reflection explanation; observed losses include arithmetic error, omitted condition, harmful revision and answer formatting.",
+    "Do not retrofit empty extraction to correct: 23 candidate-empty losses and18 baseline-empty gains only identify formatting-sensitive pools.",
+    "All10636 strict-AND lexical flags reproduce exactly; mixed labels reflect proxy semantics, not discovered tokenizer or index corruption.",
+    "Eight earliest matching calibration steps include useful reasoning and ordinary phrases. Selection favors early steps, so do not estimate population purity.",
+    "No reviewed calibration category is automatically a safe deletion intervention. No new vector, semantic classifier or GPU release is justified by these16 reviewed cases."
+  ],
+  "next_spec": {
+    "evaluation": "Before causal claims about accuracy, audit all U/R/L27/AND saved GSM final answers with one predefined supplemental extraction policy; preserve frozen author scores and publish all unresolved cases, not only flips. No regeneration.",
+    "process_labels": "Train-side annotation must record prior premise, claimed new inference, mathematical validity, and explicit earlier support for any alleged repetition. Distinguish necessary correction, harmful revision, valid advancement, restatement and uncertain.",
+    "alignment": "Each annotation binds train_index, normalized problem hash, generation hash, step start/stop and saved feature row. New on-policy prefixes cannot inherit old calibration features.",
+    "fitting": "No semantic direction from this early-step sample. Establish cross-question coverage and annotation consistency before specifying training/development fit. Test-flip IDs excluded from extraction or threshold tuning.",
+    "gpu": "None queued; current L27 stays frozen. Do not rerun AND full datasets or previous engineering."
+  },
+  "limitations": [
+    "Single assistant review, not independent human adjudication. Original correctness labels and method identities were visible.",
+    "Local evidence spans establish examples, not complete proof validity or controlled causal effects. Test cohort decomposition is posthoc accounting.",
+    "One initial CPU attempt failed before parsing due to utf8-sig codec spelling; fixed to utf-8-sig without changing selection or data."
+  ],
+  "gpu_calls": 0,
+  "new_answers": 0
+}
