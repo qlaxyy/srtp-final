@@ -1,14 +1,21 @@
 {
-  "status": "CPU reference only; native integration and engineering validation required before full generation",
+  "status": "Native adapter implemented and CPU parity passed; GPU engineering then conditional full500 launched",
   "name": "L27 reflection-alternative margin protection",
   "attribution": "Own design prompted by VCM scale audit; not official VCM, CGRS, or proof of necessary reflection",
   "hypothesis": "The prior-step negative ReBalance coefficient may permit suppression even when the current token distribution strongly prefers a reflection phrase. Reduce suppression at that moment to limit accuracy damage.",
   "only_changed_factor": "Magnitude of the existing L27 logit penalty on exactly the same eligible tokens",
   "formula": "a=max raw logit among currently masked L27 candidates; b=max raw logit among all other finite tokens; d=max(0,a-b); lambda=max(0,ln2-d). If no finite alternative, lambda=0. Subtract lambda once from currently masked candidates.",
   "fixed_parameters": "Reuse ln2 as existing magnitude and gap width. No new tuned scalar. Threshold choice is our design, not validated by the paper.",
-  "execution_order": ["Native ReBalance forward and raw pmax capture unchanged", "Obtain unchanged L27 phrase mask and negative-R gate", "Measure a,b from raw logits before any penalty, temperature, or top-p", "Apply the single replacement penalty in native dtype", "Original temperature0.7/top_p0.95 sampling", "Original accepted-token lexical and ReBalance updates"],
+  "execution_order": [
+    "Native ReBalance forward and raw pmax capture unchanged",
+    "Obtain unchanged L27 phrase mask and negative-R gate",
+    "Measure a,b from raw logits before any penalty, temperature, or top-p",
+    "Apply the single replacement penalty in native dtype",
+    "Original temperature0.7/top_p0.95 sampling",
+    "Original accepted-token lexical and ReBalance updates"
+  ],
   "state": "No new recurrent state or history. Use existing request mapping and masks. No new model forward or probe. Preserve original reset/removal/replay rules.",
-  "integration": "Opt-in penalty-provider callback in B-line adapter.py only, default None preserves exact fixed path. Do not modify shared vLLM. CPU reference contains synchronous assertions and is NOT the production hot path; use device reductions/async assertions in native implementation.",
+  "integration": "B-line adapter.py optional penalty_provider defaults to None, exact legacy arithmetic retained; reflection_margin_adapter.py implements device reductions with native dtype and per-request diagnostics. No shared vLLM changes.",
   "engineering": "Before effectiveness: native finite and masked logit checks; exact disabled parity; no pre-intervention divergence; complete existing replay/reset invariants. Existing112 captures have zero original RC14-eligible positions and cannot validate real L27 opportunities.",
   "effectiveness_plan": {
     "model": "DeepSeek-R1-Distill-Qwen-1.5B",
@@ -17,6 +24,6 @@
     "promotion": "Relative L27 thinking and total tokens both lower, caps no higher; accuracy loss <=2pp versus both L27 and R. Report uncertainty separately. Otherwise stop without retuning or GSM expansion.",
     "cost": "No auxiliary model calls; no numerical time promise before native benchmark. Keep validated no-branch vLLM batch settings subject to KV capacity and preemption support.",
     "stop": "Engineering mismatch, OOM, unsupported preemption, generation1800sec or process2400sec. Preserve partial output. No new seed or baseline rerun.",
-    "limitations": "Only weakens suppression, so compression may worsen. Dominant reflection can still be redundant or wrong. Existing repeatedly exposed MATH is exploratory, not independent confirmation or strict synergy proof. No GPU launch package exists yet."
+    "limitations": "Only weakens suppression, so compression may worsen. Dominant reflection can still be redundant or wrong. Repeatedly exposed MATH is exploratory, not independent confirmation or strict synergy proof. Hash-fixed launch package in margin_run1."
   }
 }

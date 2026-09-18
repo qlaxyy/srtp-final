@@ -1,0 +1,16 @@
+{
+  "status": "launched_engineering_then_conditional_full",
+  "commit": "687ac50",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH500",
+  "new_answers": 500,
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "archive_sha256": "2bca403c7a22b646bd6df04f533b21ec7df00cfe3ccc8ab9be02e51a4b785236",
+  "release_sha256": "c4d50d600fd7d3a066be492cf268151cde31e72ce0fa060f29c6bb67d240ebed",
+  "remote_output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/reflection_margin_20260918_run1",
+  "log": "/root/autodl-tmp/projects/reflection_margin_20260918_run1.log",
+  "extra_model_forwards": 0,
+  "engineering": "8 existing registered training prompts x4 arms x512, consistency only",
+  "no_baseline_rerun": true
+}

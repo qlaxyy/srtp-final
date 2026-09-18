@@ -1,0 +1,21 @@
+{
+  "paper": "https://arxiv.org/html/2606.22511v1",
+  "read_status": "Full body references and appendices read using parser read_plan plus supplemental reads for truncated outputs",
+  "sentinel": "END-OF-PAPER:55664ad0bbc1",
+  "parsed_sha256": "b85541cb1e74a5b66db3c2f12befead911b2097f363ea4e211998c60494e9240",
+  "source_commit": "81221639c8949d6b9e4c3b4c91152231c6b9d86b",
+  "source_path": "vcm_processors.py",
+  "paper_mechanism": "Eq5-8: global population logit std scales window128 repetition costs; static prior contrast also sharpens logits. Table3 uses Llama3-8B-Instruct T1/2. Table9 repetition-only GSM slightly lower than baseline. No reasoning-token compression result established here.",
+  "source_difference": "torch.std defaults to sample rather than population std; loops batch in Python; assumes finite logits. Sample correction is negligible at full vocabulary width, not a claimed cause of failure.",
+  "audit": "Artificial tail stress refutes equivalence of global sigma and confidence, not full VCM efficacy. Saved112 positions are all ineligible under original RC14; no real intervention coverage claim. No observed nonfinite rows; NaN hazard is a synthetic robustness test.",
+  "new_design": "Reflection vs best non-reflection margin, not sigma. Own bounded suppression protection, not paper reproduction; ln2 inherited as both maximum penalty and margin width. Hypothesis only.",
+  "discovery_only": [
+    "https://arxiv.org/abs/2606.13982",
+    "https://arxiv.org/abs/2510.01218",
+    "https://arxiv.org/abs/2604.11012",
+    "https://arxiv.org/abs/2511.14258",
+    "https://arxiv.org/abs/2602.12113",
+    "https://arxiv.org/abs/2602.01698"
+  ],
+  "discovery_limitation": "These additional sources were screened by metadata/abstract only, not used as implementation evidence."
+}

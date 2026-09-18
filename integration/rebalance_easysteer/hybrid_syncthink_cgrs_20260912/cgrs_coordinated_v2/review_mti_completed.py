@@ -8,6 +8,7 @@ from grade_label_alignment import compare,summary
 def main():
     p=argparse.ArgumentParser();p.add_argument('--archive',type=Path,required=True)
     p.add_argument('--root',default='mti_native_20260918_run4/full/')
+    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27'])
     p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     root=a.root
     with tarfile.open(a.archive) as t:
@@ -17,8 +18,8 @@ def main():
         plan=read('plan.json');release=read('release.json');analysis=read('analysis.json')
         assert hashlib.sha256(raw('release.json')).hexdigest()==complete['release_sha256']
         assert hashlib.sha256(raw('plan.json')).hexdigest()==release['plan_sha256']
-        data=read('MTI_L27/result.json');assert data['status']=='complete'
-        labels=[json.loads(x) for x in raw('MTI_L27/author_partial.jsonl').decode().splitlines()]
+        data=read(a.arm+'/result.json');assert data['status']=='complete'
+        labels=[json.loads(x) for x in raw(a.arm+'/author_partial.jsonl').decode().splitlines()]
         assert len(labels)==len(data['records'])==len(plan['rows'])==500
         candidate=[]
         for i,(r,label,q) in enumerate(zip(data['records'],labels,plan['rows'])):
@@ -33,10 +34,10 @@ def main():
         assert hashlib.sha256(refpath.read_bytes()).hexdigest()==release['artifact_sha256']['historical_compact.json']
         refs=json.loads(refpath.read_text(encoding='utf8'))['groups']
         s=summary(candidate);comparisons={k:compare(v['records'],candidate) for k,v in refs.items()}
-        saved=analysis['candidates']['MTI_L27']
+        saved=analysis['candidates'][a.arm]
         assert s==saved['summary'] and comparisons==saved['comparisons']
-        assert saved['source_result_sha256']==hashlib.sha256(raw('MTI_L27/result.json')).hexdigest()
-        assert saved['labels_sha256']==hashlib.sha256(raw('MTI_L27/author_partial.jsonl')).hexdigest()
+        assert saved['source_result_sha256']==hashlib.sha256(raw(a.arm+'/result.json')).hexdigest()
+        assert saved['labels_sha256']==hashlib.sha256(raw(a.arm+'/author_partial.jsonl')).hexdigest()
         l27=summary(refs['L27_L27']['records'])
         eligible=(comparisons['L27_L27']['accuracy_observed_within_2pp']
             and comparisons['R']['accuracy_observed_within_2pp']
@@ -50,7 +51,7 @@ def main():
             utilization=[]
         else:
             provenance=None
-            gpu=list(csv.reader(io.StringIO(raw('MTI_L27/gpu.csv').decode())))
+            gpu=list(csv.reader(io.StringIO(raw(a.arm+'/gpu.csv').decode())))
             utilization=[float(row[1].strip()) for row in gpu if len(row)>=4]
         report=dict(status='Full500 identity/length/labels and paired statistics verified locally',
             archive_sha256=hashlib.sha256(a.archive.read_bytes()).hexdigest(),summary=s,
@@ -59,11 +60,16 @@ def main():
             recovery_provenance=provenance,
             generation_seconds=data['generation_seconds'],full_process_seconds=complete['wall_seconds'],
             grading_and_analysis_seconds=analysis['grading_and_analysis_seconds'],
-            gpu_mean_utilization_percent=float(np.mean(utilization)) if utilization else None,mti=data['mti'],
+            gpu_mean_utilization_percent=float(np.mean(utilization)) if utilization else None,mti=data.get('mti'),
+            arm=a.arm,extra_model_forward_count=data.get('extra_model_forward_count'),
+            margin_changes=sum(e.get('margin_changes',0) for e in data['events'].values()),
+            margin_changed_questions=sum(e.get('margin_changes',0)>0 for e in data['events'].values()),
             limitations=['Repeatedly exposed test set; not independent confirmation.',
-                'No standalone MTI arm, so no additive synergy claim.',
+                'No standalone candidate-mechanism arm, so no additive synergy claim.']+
+                ([
                 'Branch host interval overlaps main-forward synchronization; not isolated additional GPU time.',
-                'Invalid partial run3 is preserved and excluded from all metrics.']+
+                'Invalid partial run3 is preserved and excluded from all metrics.'] if a.arm=='MTI_L27' else
+                ['Historical controls; one seed; no claim that probability dominance proves useful reflection.'])+
                 (['458 original plus42 recovered with changed concurrency; not a uniform-schedule confirmation.'] if recovered else []))
     with a.output.open('x',encoding='utf8') as f:json.dump(report,f,ensure_ascii=False,indent=2)
     print(json.dumps({k:report[k] for k in ('summary','generation_seconds','advance_to_gsm_observed_rule')},indent=2))
