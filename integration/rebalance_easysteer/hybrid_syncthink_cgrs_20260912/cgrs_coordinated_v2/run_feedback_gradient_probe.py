@@ -21,7 +21,7 @@ def main():
     plan=json.loads((a.input/'plan.json').read_text());a.output.mkdir(exist_ok=False,parents=True)
     start=time.monotonic()
     def timeout(*_): raise TimeoutError('900s fixed gradient engineering ceiling')
-    signal.signal(signal.SIGALRM,timeout);signal.alarm(900)
+    signal.signal(signal.SIGALRM,timeout);signal.alarm(plan.get('process_ceiling_seconds',900))
     try:
         for name,h in plan['input_sha256'].items(): assert sha(a.input/name)==h,name
         replay=Path(plan['replay_directory']); complete=json.loads((replay/'complete.json').read_text())
@@ -37,8 +37,8 @@ def main():
         from transformers import AutoModelForCausalLM,AutoTokenizer
         from feedback_fixed_history import FixedHistoryScorer
         torch.manual_seed(42)
-        model=AutoModelForCausalLM.from_pretrained(assets['model_path'],torch_dtype=torch.bfloat16,
-            attn_implementation='sdpa',local_files_only=True).to('cuda').eval()
+        model=AutoModelForCausalLM.from_pretrained(assets['model_path'],torch_dtype=getattr(torch,plan.get('hf_dtype','bfloat16')),
+            attn_implementation=plan.get('hf_attention','sdpa'),local_files_only=True).to('cuda').eval()
         for p in model.parameters(): p.requires_grad_(False)
         tok=AutoTokenizer.from_pretrained(assets['model_path'],local_files_only=True)
         boundaries=torch.tensor(sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s),device='cuda')
@@ -59,6 +59,17 @@ def main():
             values.sum().backward()
             assert delta.grad is not None and torch.isfinite(delta.grad).all() and delta.grad.norm()>0,(key,'gradient invalid')
             assert all(p.grad is None for p in model.parameters()),'Model weights received gradients'
+            finite_difference = None
+            if plan.get('finite_difference_epsilon'):
+                eps = plan['finite_difference_epsilon']
+                step = eps * delta.grad.detach() / delta.grad.norm()
+                with torch.no_grad():
+                    shifted = scorer.score(row['prompt_token_ids'],row['token_ids'],trace,step)
+                actual = float((shifted.double()-reference.double()).sum())
+                predicted = float((step.double()*delta.grad.double()).sum())
+                finite_difference = dict(epsilon=eps,actual_logp_change=actual,predicted_logp_change=predicted,
+                    relative_error=abs(actual-predicted)/abs(predicted))
+                del shifted
             torch.cuda.synchronize();elapsed=time.monotonic()-t0
             ref=reference.cpu().numpy();grad=delta.grad.detach().cpu().numpy()
             name=key+'.npz';np.savez_compressed(a.output/name,logp=ref,gradient=grad)
@@ -68,19 +79,19 @@ def main():
                 gradient_norm=float(delta.grad.norm()),zero_residual_exact=True,
                 native_vllm_vs_fixed_hf_mean_abs_logp=float(np.abs(difference).mean()),
                 native_vllm_vs_fixed_hf_max_abs_logp=float(np.abs(difference).max()),
-                seconds=elapsed,file=name,sha256=sha(a.output/name),
+                finite_difference=finite_difference,seconds=elapsed,file=name,sha256=sha(a.output/name),
                 peak_allocated_GiB=torch.cuda.max_memory_allocated()/2**30))
             save(a.output/'progress.json',reports)
             print(key,'complete',elapsed,flush=True)
             del values,reference,delta
         scorer.close()
         save(a.output/'complete.json',dict(status='Gradient engineering complete, NO optimization or efficacy result',
-            model_forward_count=2*len(rows),backward_count=len(rows),new_answer_count=0,optimizer_steps=0,
+            model_forward_count=(3 if plan.get('finite_difference_epsilon') else 2)*len(rows),backward_count=len(rows),new_answer_count=0,optimizer_steps=0,
             rows=reports,wall_seconds=time.monotonic()-start,
             limits=['Fixed native histories and lexical masks, not updated online policy',
                     'HF is a numerical surrogate, not exact vLLM replay; score discrepancies recorded',
                     'Nonzero gradients do not establish helpful direction or compression',
-                    'BF16 autograd measures surrogate derivatives; no full-model finite-difference equivalence claim'],
+                    'Autograd and finite differences describe only this configured fixed-history surrogate'],
             plan_sha256=sha(a.input/'plan.json')))
     except BaseException:
         save(a.output/'failure.json',dict(error=traceback.format_exc(),wall_seconds=time.monotonic()-start));raise

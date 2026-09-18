@@ -1,0 +1,80 @@
+{
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "input_sha256": {
+    "rows.json": "e9326cf5fda7a180d63a7b2f9a92a0d66816a99d7f436786c3b252b73b1cefa9",
+    "opening.npz": "eec19d87a37332051aaaf192bcfe7f5024bc98ec61a31292d0c68932edf569ed",
+    "run_feedback_gradient_probe.py": "1a2fe0510a275d1c0249dad76e90b6d1eac7bc5ea0d1705d56277208756b94ad",
+    "feedback_fixed_history.py": "6286eb1d13cfe3930eeab6edad1c6f385cef70c67bb41df1f274e6e345c56767"
+  },
+  "replay_directory": "/root/autodl-tmp/results/feedback_expanded_20260919_run1",
+  "replay_complete_sha256": "56784fb15a8c04df5d8cfc7d5184546ecac3f57f9b26c888f26f9a59f15d3cf6",
+  "questions": 226,
+  "responses": 452,
+  "forward_count": 904,
+  "backward_count": 452,
+  "optimizer_steps": 0,
+  "new_generations": 0,
+  "seed": 42,
+  "process_ceiling_seconds": 600,
+  "scope": "Full response fixed-history gradients only; split and decision fixed before GPU",
+  "source_plan_sha256": "4bec6b5b3af5ccc831050c9be1e1845fc4033cbbba6f74e9c51a0ec119b95ebb",
+  "hf_dtype": "float32",
+  "hf_attention": "eager",
+  "finite_difference_epsilon": 0.01,
+  "purpose": "Six full saved answers: precision sensitivity and local finite-difference engineering, no deployed update",
+  "selection": "Shortest complete pair per chosen source plus shortest complete correctness guard; technical samples, no efficacy claim",
+  "gate": {
+    "max_relative_fd_error": 0.1,
+    "all_actual_changes_positive": true
+  }
+}

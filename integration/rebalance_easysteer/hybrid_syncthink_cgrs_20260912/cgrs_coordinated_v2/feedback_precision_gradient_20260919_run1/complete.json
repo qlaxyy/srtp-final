@@ -1,0 +1,149 @@
+{
+  "status": "Gradient engineering complete, NO optimization or efficacy result",
+  "model_forward_count": 18,
+  "backward_count": 6,
+  "new_answer_count": 0,
+  "optimizer_steps": 0,
+  "rows": [
+    {
+      "key": "275_U",
+      "question": 275,
+      "chosen": true,
+      "source": "U",
+      "response_tokens": 862,
+      "sequence_logp": -127.30862426757812,
+      "gradient_norm": 0.17957070469856262,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.00504279974848032,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.10484695434570312,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.001758575439453125,
+        "predicted_logp_change": 0.001795707035302361,
+        "relative_error": 0.020677980939682494
+      },
+      "seconds": 0.9343329519033432,
+      "file": "275_U.npz",
+      "sha256": "c9130c34b173c6f4808b3f4a96ccdec3a99d65322209278b7f96a2e3999e8324",
+      "peak_allocated_GiB": 8.034982681274414
+    },
+    {
+      "key": "275_L27",
+      "question": 275,
+      "chosen": false,
+      "source": "L27",
+      "response_tokens": 1143,
+      "sequence_logp": -172.23794555664062,
+      "gradient_norm": 0.2036694586277008,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.004446101374924183,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.07735633850097656,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.00196075439453125,
+        "predicted_logp_change": 0.0020366944572286294,
+        "relative_error": 0.03728593772514734
+      },
+      "seconds": 0.47582416236400604,
+      "file": "275_L27.npz",
+      "sha256": "8481c168bb61414b01a409c3bb01dc7b5e89320ccf07dfbdf2cedd0ae1bf8c8e",
+      "peak_allocated_GiB": 8.465344905853271
+    },
+    {
+      "key": "295_U",
+      "question": 295,
+      "chosen": false,
+      "source": "U",
+      "response_tokens": 952,
+      "sequence_logp": -177.94337463378906,
+      "gradient_norm": 0.5109174251556396,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.0060303290374577045,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.08994483947753906,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.005207061767578125,
+        "predicted_logp_change": 0.005109174403564402,
+        "relative_error": 0.019159135367434795
+      },
+      "seconds": 0.389096662402153,
+      "file": "295_U.npz",
+      "sha256": "413b3dcda47ab88d11b9d3233f905aed92ad7a2c5537c4546cebeff56076da74",
+      "peak_allocated_GiB": 8.465344905853271
+    },
+    {
+      "key": "295_L27",
+      "question": 295,
+      "chosen": true,
+      "source": "L27",
+      "response_tokens": 675,
+      "sequence_logp": -99.42207336425781,
+      "gradient_norm": 0.22599057853221893,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.00454694963991642,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.06733894348144531,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.0021457672119140625,
+        "predicted_logp_change": 0.0022599059483526945,
+        "relative_error": 0.0505059675256976
+      },
+      "seconds": 0.28252747654914856,
+      "file": "295_L27.npz",
+      "sha256": "9b21ccdb083f00776c6b35ccaefb5749c07721bcd7f571b56ff4fdb290c15226",
+      "peak_allocated_GiB": 8.465344905853271
+    },
+    {
+      "key": "486_U",
+      "question": 486,
+      "chosen": true,
+      "source": "U",
+      "response_tokens": 3218,
+      "sequence_logp": -767.5693359375,
+      "gradient_norm": 0.7137956023216248,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.007068833336234093,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.1508922576904297,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.0071392059326171875,
+        "predicted_logp_change": 0.007137954986968672,
+        "relative_error": 0.00017525266701728725
+      },
+      "seconds": 1.5623300522565842,
+      "file": "486_U.npz",
+      "sha256": "6d5dc6e7cec7544fc545b95f05e2c8d56013311641b156f76a8ef2b37b6cb61b",
+      "peak_allocated_GiB": 14.172572612762451
+    },
+    {
+      "key": "486_L27",
+      "question": 486,
+      "chosen": false,
+      "source": "L27",
+      "response_tokens": 1823,
+      "sequence_logp": -391.5440673828125,
+      "gradient_norm": 0.29081395268440247,
+      "zero_residual_exact": true,
+      "native_vllm_vs_fixed_hf_mean_abs_logp": 0.006327538751065731,
+      "native_vllm_vs_fixed_hf_max_abs_logp": 0.13987350463867188,
+      "finite_difference": {
+        "epsilon": 0.01,
+        "actual_logp_change": 0.002925872802734375,
+        "predicted_logp_change": 0.0029081394635985113,
+        "relative_error": 0.006097829680396629
+      },
+      "seconds": 0.7902667373418808,
+      "file": "486_L27.npz",
+      "sha256": "a4f2373327a352dc51d9fcba2fa8e673420028debbc36a83237004cc87cb8c48",
+      "peak_allocated_GiB": 14.172572612762451
+    }
+  ],
+  "wall_seconds": 28.732250347733498,
+  "limits": [
+    "Fixed native histories and lexical masks, not updated online policy",
+    "HF is a numerical surrogate, not exact vLLM replay; score discrepancies recorded",
+    "Nonzero gradients do not establish helpful direction or compression",
+    "BF16 autograd measures surrogate derivatives; no full-model finite-difference equivalence claim"
+  ],
+  "plan_sha256": "e087730056caaf2eef9d14959def552d547a17c833f5e23c19dea07cecd8e894"
+}
