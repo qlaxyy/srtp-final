@@ -1,0 +1,17 @@
+{
+  "status": "CPU candidate not advanced to GPU",
+  "same_question_same_content_matching": true,
+  "pairs_all": 1523,
+  "questions_all": 153,
+  "pairs_same_confidence_quartile": 1049,
+  "questions_same_confidence_quartile": 148,
+  "reasons": [
+    "Same-quartile matching still leaves mean repeat-minus-first confidence +0.0289934 and cosine -0.70384 with the low-minus-high confidence direction.",
+    "First occurrence and recurrence remain position-confounded, and neither validity nor redundancy is semantically verified.",
+    "Raw matched difference norm is 10.1198; norm matching to the old83.619 vector would amplify this natural difference about8.26 times. The saved normalized vector is a feasibility artifact, not a calibrated intervention.",
+    "Current two full sign-ablation arms do not support removing all positive control to rescue the earlier length vector."
+  ],
+  "next_research_scope": "Improve offline state labels and distinguish adequate correct short reasoning from insufficient reasoning. Do not keep tuning the global length threshold or deploy this confounded matched vector as a proven semantic direction.",
+  "new_model_forward_count": 0,
+  "new_generation_count": 0
+}

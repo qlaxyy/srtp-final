@@ -1,0 +1,322 @@
+{
+  "status": "complete paired four-cell descriptive mechanism comparison",
+  "summaries": {
+    "LENGTH_NONPOS_L27": {
+      "count": 500,
+      "correct": 413,
+      "accuracy_percent": 82.6,
+      "mean_tokens": 3692.274,
+      "mean_thinking_tokens": 3320.978,
+      "capped": 25
+    },
+    "LENGTH_NORM_L27": {
+      "count": 500,
+      "correct": 421,
+      "accuracy_percent": 84.2,
+      "mean_tokens": 3435.646,
+      "mean_thinking_tokens": 3052.61,
+      "capped": 19
+    },
+    "OLD_NONPOS_L27": {
+      "count": 500,
+      "correct": 400,
+      "accuracy_percent": 80.0,
+      "mean_tokens": 3267.692,
+      "mean_thinking_tokens": 2880.154,
+      "capped": 14
+    },
+    "L27_L27": {
+      "count": 500,
+      "correct": 415,
+      "accuracy_percent": 83.0,
+      "mean_tokens": 3088.464,
+      "mean_thinking_tokens": 2707.216,
+      "capped": 12
+    }
+  },
+  "interaction": {
+    "tokens": {
+      "difference_in_differences": 77.4,
+      "ci95": [
+        -211.5413,
+        367.1720999999988
+      ]
+    },
+    "thinking_tokens": {
+      "difference_in_differences": 95.43,
+      "ci95": [
+        -204.75404999999998,
+        394.6659499999996
+      ]
+    },
+    "correct": {
+      "difference_in_differences": 1.4,
+      "ci95": [
+        -2.4,
+        5.2
+      ]
+    }
+  },
+  "length_vs_old_with_positive_removed": {
+    "accuracy_delta_pp": 2.6,
+    "ci95": {
+      "accuracy": [
+        -0.6,
+        5.800000000000001
+      ],
+      "tokens": [
+        5.296365560926297,
+        21.33389773222197
+      ],
+      "thinking_tokens": [
+        6.336481315513898,
+        25.114448883271255
+      ]
+    },
+    "tokens_percent": 12.993329848712797,
+    "thinking_tokens_percent": 15.305570466023699,
+    "wrong_to_right": [
+      21,
+      24,
+      60,
+      68,
+      71,
+      75,
+      80,
+      88,
+      108,
+      121,
+      123,
+      145,
+      152,
+      170,
+      189,
+      214,
+      219,
+      228,
+      242,
+      246,
+      279,
+      296,
+      347,
+      352,
+      357,
+      368,
+      371,
+      380,
+      382,
+      393,
+      396,
+      408,
+      411,
+      428,
+      431,
+      441,
+      466,
+      470,
+      478
+    ],
+    "right_to_wrong": [
+      4,
+      10,
+      12,
+      64,
+      82,
+      104,
+      147,
+      166,
+      184,
+      213,
+      224,
+      236,
+      239,
+      248,
+      282,
+      292,
+      309,
+      351,
+      412,
+      419,
+      421,
+      432,
+      445,
+      474,
+      486,
+      493
+    ],
+    "accuracy_observed_within_2pp": true,
+    "nominal_accuracy_ci_within_2pp": true
+  },
+  "removing_positive_old": {
+    "accuracy_delta_pp": -3.0,
+    "ci95": {
+      "accuracy": [
+        -5.800000000000001,
+        -0.2
+      ],
+      "tokens": [
+        -0.7147824655796178,
+        12.693237850699424
+      ],
+      "thinking_tokens": [
+        -1.2121930694953702,
+        14.536727610922712
+      ]
+    },
+    "tokens_percent": 5.80314356910101,
+    "thinking_tokens_percent": 6.388038486770187,
+    "wrong_to_right": [
+      41,
+      64,
+      83,
+      120,
+      156,
+      176,
+      177,
+      222,
+      224,
+      239,
+      248,
+      282,
+      338,
+      372,
+      385,
+      398,
+      432,
+      454,
+      458,
+      495
+    ],
+    "right_to_wrong": [
+      14,
+      21,
+      68,
+      75,
+      88,
+      94,
+      108,
+      121,
+      123,
+      130,
+      145,
+      152,
+      168,
+      170,
+      228,
+      232,
+      296,
+      301,
+      303,
+      347,
+      355,
+      357,
+      368,
+      371,
+      393,
+      396,
+      401,
+      408,
+      411,
+      428,
+      441,
+      470,
+      473,
+      490,
+      497
+    ],
+    "accuracy_observed_within_2pp": false,
+    "nominal_accuracy_ci_within_2pp": false
+  },
+  "removing_positive_length": {
+    "accuracy_delta_pp": -1.6,
+    "ci95": {
+      "accuracy": [
+        -4.6,
+        1.4000000000000001
+      ],
+      "tokens": [
+        0.358684066633759,
+        14.908556110984165
+      ],
+      "thinking_tokens": [
+        0.5913928970823149,
+        17.49879840726433
+      ]
+    },
+    "tokens_percent": 7.469570497076816,
+    "thinking_tokens_percent": 8.791427663540375,
+    "wrong_to_right": [
+      21,
+      32,
+      41,
+      60,
+      63,
+      71,
+      101,
+      109,
+      119,
+      120,
+      145,
+      156,
+      176,
+      217,
+      222,
+      242,
+      246,
+      279,
+      294,
+      296,
+      333,
+      338,
+      352,
+      372,
+      380
+    ],
+    "right_to_wrong": [
+      4,
+      10,
+      12,
+      14,
+      64,
+      82,
+      104,
+      126,
+      130,
+      147,
+      166,
+      184,
+      213,
+      232,
+      236,
+      239,
+      292,
+      301,
+      309,
+      317,
+      327,
+      349,
+      351,
+      355,
+      401,
+      412,
+      419,
+      421,
+      425,
+      473,
+      474,
+      486,
+      493
+    ],
+    "accuracy_observed_within_2pp": true,
+    "nominal_accuracy_ci_within_2pp": false
+  },
+  "bootstrap_replicates": 20000,
+  "analysis_seed": 20260917,
+  "archive_sha256": "2d449320a9d9f29663802abc29c63fd442e4a371c0cd6bfd4f106577d3e015d4",
+  "script_sha256": "fb0973ec70cd6e2f42431b2a5a9603e8e793b1b121e3ae62c9fcf3f9eb3e79f7",
+  "limitations": [
+    "Two reused historical arms, two current arms; single generation seed and exposed benchmark.",
+    "Interaction is additive mean token count or accuracy percentage points, not ReBalance x CGRS synergy.",
+    "Exact-repeat calibration audit does not provide gold overthinking labels or establish causality."
+  ]
+}
