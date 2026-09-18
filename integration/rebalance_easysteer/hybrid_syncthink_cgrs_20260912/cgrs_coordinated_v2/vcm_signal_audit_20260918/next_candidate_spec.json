@@ -1,5 +1,5 @@
 {
-  "status": "Native adapter implemented and CPU parity passed; GPU engineering then conditional full500 launched",
+  "status": "Full MATH500 completed; accuracy-length tradeoff, no promotion under predeclared compression criterion",
   "name": "L27 reflection-alternative margin protection",
   "attribution": "Own design prompted by VCM scale audit; not official VCM, CGRS, or proof of necessary reflection",
   "hypothesis": "The prior-step negative ReBalance coefficient may permit suppression even when the current token distribution strongly prefers a reflection phrase. Reduce suppression at that moment to limit accuracy damage.",
@@ -25,5 +25,16 @@
     "cost": "No auxiliary model calls; no numerical time promise before native benchmark. Keep validated no-branch vLLM batch settings subject to KV capacity and preemption support.",
     "stop": "Engineering mismatch, OOM, unsupported preemption, generation1800sec or process2400sec. Preserve partial output. No new seed or baseline rerun.",
     "limitations": "Only weakens suppression, so compression may worsen. Dominant reflection can still be redundant or wrong. Repeatedly exposed MATH is exploratory, not independent confirmation or strict synergy proof. Hash-fixed launch package in margin_run1."
+  },
+  "completion": {
+    "decision": "decision_math500_run1.json",
+    "correct": 418,
+    "count": 500,
+    "mean_thinking_tokens": 2973.952,
+    "mean_total_tokens": 3354.974,
+    "capped": 15,
+    "advance_to_gsm": false,
+    "retained": "frozen L27",
+    "no_retuning": true
   }
 }
