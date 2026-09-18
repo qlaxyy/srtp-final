@@ -1,0 +1,23 @@
+{
+  "status": "Native L27 forced-scoring trace complete; no fitting or efficacy claim",
+  "groups": [
+    {
+      "mode": "legacy_forcer_reused",
+      "directory": "/root/autodl-tmp/results/feedback_policy_replay_20260918_run1",
+      "manifest_sha256": "abd58e7c77891fd930169e5e0e2528e2fe97ef455a0c3b993883ab99e0e82044",
+      "seconds": 81.53113169968128,
+      "original_plan_sha256": "9811b44952a356c04368cab4b83a47dd0b69f13abcac3deacf1e4f07632d9648"
+    },
+    {
+      "mode": "scoring_capture",
+      "responses": 16,
+      "seconds": 84.1517519056797,
+      "saved_tokens": 42657
+    }
+  ],
+  "history_exact": true,
+  "raw_confidence_exact": true,
+  "wall_seconds": 124.13050080835819,
+  "new_generation_count": 0,
+  "plan_sha256": "b581f3ac1dee59b12db22a02b5b08566a2195e4960026815068186129c8b4d7e"
+}

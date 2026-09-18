@@ -2,6 +2,17 @@
 import torch
 
 
+class OuterCapture:
+    def __init__(self, capture):
+        self.capture = capture
+
+    def __getattr__(self, name):
+        return getattr(self.capture.l27, name)
+
+    def __call__(self, logits, batch, **kwargs):
+        return self.capture.outer(logits, batch, **kwargs)
+
+
 class FeedbackCapture:
     def __init__(self, adapter, cap):
         self.owner = adapter
@@ -32,7 +43,7 @@ class FeedbackCapture:
 
     def install(self):
         self.owner.original_sampler = self
-        self.runner.sampler = self.outer
+        self.runner.sampler = OuterCapture(self)
 
     def __getattr__(self, name):
         return getattr(self.native, name)

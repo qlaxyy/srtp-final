@@ -12,9 +12,11 @@ def sha(b):
 
 
 def main():
+    import argparse
+    ap=argparse.ArgumentParser();ap.add_argument('--run-id',default='feedback_policy_replay_20260918_run1');ap.add_argument('--legacy-manifest',type=Path);args=ap.parse_args()
     home = Path(__file__).resolve().parent
     root = next(p for p in home.parents if (p/'.codex_work').is_dir())
-    out = home/'feedback_policy_replay_20260918_run1'
+    out = home/args.run_id
     out.mkdir(exist_ok=False)
     audit = home/'feedback_preference_audit_20260918_run1'
     proposal = json.loads((audit/'probe_proposal.json').read_text())
@@ -61,6 +63,11 @@ def main():
         stop=['Any forced token mismatch','Any raw confidence or complete native history mismatch','KV preemption','Missing/nonfinite trace','Source/model/asset hash mismatch','900s ceiling'],
         scope='No residual hook, backward, optimizer, benchmark, new answer or efficacy claim. Native trace is a prerequisite to subsequent fixed-history HF gradient engineering, not proof of HF/vLLM equivalence.',
         data_registry=[dict(question=r['question'],source=r['source'],problem_sha256=r['problem_sha256'],purpose='Existing development training answer replay') for r in rows])
+    if args.legacy_manifest:
+        plan['legacy_reference']=dict(directory='/root/autodl-tmp/results/feedback_policy_replay_20260918_run1',
+            manifest_sha256=sha(args.legacy_manifest.read_bytes()),seconds=81.53113169968128,
+            original_plan_sha256='9811b44952a356c04368cab4b83a47dd0b69f13abcac3deacf1e4f07632d9648')
+        plan['groups']=['scoring_capture'];plan['purpose']+=' Reuse completed original legacy pass; preserve failed wrapper run.'
     files['plan.json'] = (json.dumps(plan, ensure_ascii=False, indent=2)+'\n').encode()
     for name, raw in files.items():
         (out/name).write_bytes(raw)

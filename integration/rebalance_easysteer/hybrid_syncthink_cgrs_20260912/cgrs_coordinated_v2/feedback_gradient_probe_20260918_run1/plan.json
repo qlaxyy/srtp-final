@@ -1,0 +1,87 @@
+{
+  "status": "Locked gradient engineering only, no optimization",
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "replay_directory": "/root/autodl-tmp/results/feedback_policy_replay_20260918_run2",
+  "replay_complete_sha256": "ba92fa62689196718d3224ae2a6944989e707e3417d2aea0d6830f55c653d66f",
+  "input_sha256": {
+    "feedback_fixed_history.py": "6286eb1d13cfe3930eeab6edad1c6f385cef70c67bb41df1f274e6e345c56767",
+    "run_feedback_gradient_probe.py": "e650e5383cc4ed1dbca22f747c1ebc43a7121f1aa989f3540740aa719c4981ec",
+    "rows.json": "c7f9b86bfa6f28e4b6ec7bf07c1071b66ebb527e6bdb671049a3c4b817c3cb06",
+    "opening.npz": "eec19d87a37332051aaaf192bcfe7f5024bc98ec61a31292d0c68932edf569ed"
+  },
+  "questions": 8,
+  "responses": 16,
+  "forward_count": 32,
+  "backward_count": 16,
+  "model_weights_frozen": true,
+  "optimizer_steps": 0,
+  "new_generations": 0,
+  "full_context_tokens_per_pass": 43957,
+  "seed": 42,
+  "process_ceiling_seconds": 900,
+  "expected_minutes": [
+    2,
+    6
+  ],
+  "max_sequence_tokens": 8647,
+  "vocabulary_chunk": 128,
+  "position_mask": "Generated boundary token IDs only, intersect recorded in-think coefficient history; prompts excluded",
+  "scope": "Recorded native histories and L27 masks held fixed. HF numerical surrogate; record differences from native vLLM, never claim equivalence.",
+  "stop": [
+    "any changed zero-residual score",
+    "any invalid/zero gradient",
+    "any base-model gradient",
+    "OOM or 900s; no truncation fallback"
+  ],
+  "code_commit_base": "d12f217"
+}

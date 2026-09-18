@@ -1,0 +1,17 @@
+{
+  "sequence_sum": {
+    "source_mean_cosine": -0.649232662364336,
+    "source_mean_cosine_with_strengthening_original_compression": {
+      "U": -0.3313727154309422,
+      "L27": 0.2972791884539249
+    }
+  },
+  "per_token_mean_diagnostic_only": {
+    "source_mean_cosine": -0.5133391849629233,
+    "source_mean_cosine_with_strengthening_original_compression": {
+      "U": -0.31181214139155744,
+      "L27": 0.2797007298572875
+    }
+  },
+  "scope": "Post-engineering CPU diagnosis from SAME saved gradients. Per-token normalization changes the objective and is NOT adopted, tuned, or proof of improvement."
+}

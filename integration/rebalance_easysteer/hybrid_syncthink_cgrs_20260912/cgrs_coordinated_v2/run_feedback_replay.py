@@ -72,7 +72,19 @@ def main():
         cap = max(len(r['token_ids']) for r in rows)
         summaries = []
         histories = {}
-        for mode in ['legacy_forcer', 'scoring_capture']:
+        modes = ['legacy_forcer', 'scoring_capture']
+        if plan.get('legacy_reference'):
+            ref = plan['legacy_reference']
+            directory = Path(ref['directory'])
+            assert sha(directory/'legacy_forcer_manifest.json') == ref['manifest_sha256']
+            manifest = json.loads((directory/'legacy_forcer_manifest.json').read_text())
+            assert {r['key'] for r in manifest} == {r['key'] for r in rows}
+            for item in manifest:
+                assert sha(directory/item['file']) == item['sha256']
+                histories[item['key']] = np.load(directory/item['file'])['history']
+            modes = ['scoring_capture']
+            summaries.append(dict(mode='legacy_forcer_reused', **ref))
+        for mode in modes:
             adapter = AlignmentAdapter(llm, tok, tables=tables, large_suppression=True, enabled=True)
             capture = FeedbackCapture(adapter, cap) if mode == 'scoring_capture' else None
             buffers = ReplayBuffers(runner.max_num_reqs, cap, runner.device) if capture is None else None
