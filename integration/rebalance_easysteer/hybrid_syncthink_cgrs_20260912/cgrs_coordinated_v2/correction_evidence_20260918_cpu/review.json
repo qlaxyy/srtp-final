@@ -1,0 +1,214 @@
+{
+  "reading_sha256": "bfe981b26d5cc44bb397f45833abec4eabeff07e86acd75a104f77be159b66ee",
+  "reviewer": "single assistant; not independent human gold",
+  "rows": [
+    {
+      "train_index": 4139,
+      "status": "error_detected_no_repair_in_window",
+      "old": "Smaller angle180-x substituted into a full360-degree partition.",
+      "replacement": null,
+      "reason": "The closing sector must instead be the reflex180+x. Target admits error; next3 steps supply no corrected equation.",
+      "repetition": "Next approach considers the same four rays; insufficient evidence of a correction-versus-repetition pair.",
+      "evidence": {
+        "train_index": 4139,
+        "problem": "In the diagram shown, $\\overrightarrow{OA}\\perp\\overrightarrow{OC}$ and $\\overrightarrow{OB}\\perp\\overrightarrow{OD}$. If $\\angle{AOD}$ is 3.5 times $\\angle{BOC}$, what is $\\angle{AOD}$? [asy]\nunitsize(1.5cm);\ndefaultpen(linewidth(.7pt)+fontsize(10pt));\ndotfactor=4;\n\npair O=(0,0), A=dir(0), B=dir(50), C=dir(90), D=dir(140);\npair[] dots={O,A,B,C,D};\n\ndot(dots);\ndraw(O--1.2*D,EndArrow(4));\ndraw(O--1.2*B,EndArrow(4));\ndraw(O--1.2*C,EndArrow(4));\ndraw(O--1.2*A,EndArrow(4));\n\nlabel(\"$D$\",D,SW);\nlabel(\"$C$\",C,W);\nlabel(\"$B$\",B,E);\nlabel(\"$A$\",A,N);\nlabel(\"$O$\",O,S);\n[/asy]",
+        "before": " = 360\n\nSo, angle DOA = 360 - 180 + x = 180 + x degrees.\n\nWait, that seems a bit odd because angle DOA is 180 + x, which would be more than 180 degrees, but in reality, the angle between two rays is the smaller angle, so it should be the minimum between 180 + x and 360 - (180 + x). But since x is an angle between 0 and 90 degrees, 180 + x is between 180 and 270 degrees, so the smaller angle is 180 + x.\n\nWait, but in reality, the angle between two rays is the smallest angle between them, so if the angle is more than 180, we take the smaller one, which is 360 - angle. So, in this case, angle DOA is 180 + x, which is more than 180, so the smaller angle is 360 - (180 + x) = 180 - x degrees.\n\nWait, that's conflicting with my earlier conclusion. Let me clarify.\n\nThe angle between two rays is the smallest angle between them, so if the angle is more than 180, we subtract it from 360 to get the smaller angle. So, angle DOA is 180 + x, which is more than 180, so the smaller angle is 360 - (180 + x) = 180 - x degrees.\n\nSo, angle DOA is 180 - x degrees.\n\nSo, now, let's go back to the total angles:\n\nangle AOB + angle BOC + angle COD + angle DOA = 360\n\nWhich is:\n\n(90 - x) + x + (90 - x) + (180 - x) = 360\n\nLet me compute each term:\n\n(90 - x) = 90 - x\n\nx = x\n\n(90 - x) = 90 - x\n\n(180 - x) = 180 - x\n\nSo, adding them up:\n\n90 - x + x + 90 - x + 180 - x\n\nSimplify:\n\n90 + 90 + 180 - x - x - x - x\n\nWait, no, let's do it step by step.\n\nFirst, 90 - x + x is 90.\n\nThen, 90 - x + 180 - x is 270 - 2x.\n\nSo, total is 90 + 270 - 2x = 360 - 2x.\n\nSo, 360 - 2x = 360.\n\nWait, that can't be. 360 - 2x = 360 implies that -2x = 0, so x = 0. That doesn't make sense because angle BOC can't be zero.\n\nHmm, so I must have made a mistake in my calculations.\n\nLet me go back.\n\nI had:\n\nangle AOB = 90 - x\n\nangle BOC = x\n\nangle COD = 90 - x\n\nangle DOA = 180 + x\n\nBut since angle DOA is the smaller angle, it's 180 - x.\n\nSo, angle DOA = 180 - x.\n\nSo, plugging back into the total angles:\n\n(90 - x) + x + (90 - x) + (180 - x) = 360\n\nCompute each term:\n\n90 - x + x = 90\n\n90 - x + 180 - x = 270 - 2x\n\nSo, total is 90 + 270 - 2x = 360 - 2x\n\nSo, 360 - 2x = 360\n\nWhich implies that -2x = 0, so x = 0.\n\nBut that's impossible because angle BOC can't be zero.\n\n",
+        "target": {
+          "step_index": 4763,
+          "text": "So, clearly, I made a mistake in my reasoning"
+        },
+        "following": [
+          {
+            "step_index": 4764,
+            "text": "Let me try a different approach"
+          },
+          {
+            "step_index": 4765,
+            "text": "Perhaps I should consider the angles around point O"
+          },
+          {
+            "step_index": 4766,
+            "text": "We have OA, OB, OC, OD"
+          }
+        ]
+      }
+    },
+    {
+      "train_index": 4543,
+      "status": "mixed_partial_repair_in_window",
+      "old": "20 percent relative diameter error becomes10 percent relative radius error; then linear approximation treated as exact.",
+      "replacement": "Following3 recognizes radius error20 percent and that linearization is approximate for finite errors.",
+      "reason": "Exact44/36 percent errors were already correct before the doubt. Following1 repeats them, following2 repeats the mistaken10 percent premise, following3 partially resolves the conflict.",
+      "repetition": "Following1 repeats established areas; following3 provides a valid approximation caveat but mixes a previously known radius error. Not a clean single-step semantic pair.",
+      "evidence": {
+        "train_index": 4543,
+        "problem": "In order to compute the area of a particular circle, Juan first measures the length of its diameter. The actual diameter is 20 cm, but Juan's measurement has an error of up to $20\\%$. What is the largest possible percent error, in percent, in Juan's computed area of the circle?",
+        "before": "Okay, so I have this problem where Juan is trying to compute the area of a circle, but his measurement of the diameter has an error. The actual diameter is 20 cm, but Juan's measurement could be off by up to 20%. I need to figure out what the largest possible percent error in the computed area could be. Hmm, let me think about how to approach this.\n\nFirst, I remember that the area of a circle is given by the formula A = πr², where r is the radius. Since the diameter is twice the radius, if the diameter is measured incorrectly, the radius will also be incorrect, which will affect the area. So, Juan's measurement of the diameter will lead to an incorrect radius, and that in turn will lead to an incorrect area.\n\nThe actual diameter is 20 cm, so the actual radius is 10 cm. But Juan's measurement could be off by up to 20%. That means his measured diameter could be either 20% more or 20% less than the actual diameter. So, the measured diameter could be 24 cm (20% more) or 16 cm (20% less). Therefore, the measured radius would be either 12 cm or 8 cm.\n\nNow, let's compute the actual area and the computed areas based on Juan's possible measurements. The actual area is A = π*(10 cm)² = 100π cm². \n\nIf Juan measures the diameter as 24 cm, then his computed radius is 12 cm, so his computed area would be A' = π*(12 cm)² = 144π cm². \n\nIf Juan measures the diameter as 16 cm, then his computed radius is 8 cm, so his computed area would be A'' = π*(8 cm)² = 64π cm².\n\nNow, let's find the percent error for both cases. The percent error is calculated as (|Experimental Value - Theoretical Value| / |Theoretical Value|) * 100%.\n\nFirst, when Juan measures 24 cm diameter:\n\nPercent error = (|144π - 100π| / |100π|) * 100% = (44π / 100π) * 100% = 44%.\n\nSecond, when Juan measures 16 cm diameter:\n\nPercent error = (|64π - 100π| / |100π|) * 100% = (36π / 100π) * 100% = 36%.\n\nSo, the percent error in the computed area is either 44% or 36% depending on whether Juan's measurement is 20% too high or too low. Therefore, the largest possible percent error is 44%.\n\nWait, let me double-check that. The area is proportional to the square of the radius, so the percent error in the area should be approximately twice the percent error in the radius. Since the radius is directly measured, a 20% error in the diameter (which is twice the radius) would result in a 10% error in the radius. Then, the area, being proportional to the square of the radius, would have a 20% error in the area. But wait, that contradicts my earlier calculation.\n\n",
+        "target": {
+          "step_index": 82270,
+          "text": "Hmm, maybe I made a mistake in my initial reasoning. Let me think again"
+        },
+        "following": [
+          {
+            "step_index": 82271,
+            "text": "The diameter is 20 cm, so the radius is 10 cm. If Juan's measurement is off by 20%, that's 2 cm. So, the measured radius is either 12 cm or 8 cm. The actual area is 100π, and the computed areas are 144π and 64π. So, the percent errors are 44% and 36%, as I found earlier"
+          },
+          {
+            "step_index": 82272,
+            "text": "But according to the formula for percent error in area, if the radius is off by a certain percentage, the area is off by approximately twice that percentage. So, if the radius is off by 10%, the area is off by 20%. But in my calculation, the area is off by 44% when the radius is off by 20%. That seems inconsistent"
+          },
+          {
+            "step_index": 82273,
+            "text": "Wait, maybe the formula is not exactly twice the percent error in radius. Let me recall the formula for percent error in a function. If you have a function A = πr², then the percent error in A is approximately 2*(percent error in r), assuming small errors. But in this case, the percent error in r is 20%, so the percent error in A should be approximately 40%. But in my calculation, it's 44%. Hmm, that's close but not exactly 40%. Maybe because the error is not small, so the approximation isn't perfect"
+          }
+        ]
+      }
+    },
+    {
+      "train_index": 3063,
+      "status": "valid_calculation_rechecked",
+      "old": null,
+      "replacement": null,
+      "reason": "All three preceding vector components are algebraically correct. Following1-3 repeat those subtractions; no wrong proposition repaired.",
+      "repetition": "Three explicit correct restatements, but no necessary-correction counterpart.",
+      "evidence": {
+        "train_index": 3063,
+        "problem": "Let $\\mathbf{a} = \\begin{pmatrix} 1 \\\\ -2 \\\\ -5 \\end{pmatrix},$ $\\mathbf{b} = \\begin{pmatrix} \\sqrt{7} \\\\ 4 \\\\ -1 \\end{pmatrix},$ and $\\mathbf{c} = \\begin{pmatrix} 13 \\\\ -4 \\\\ 17 \\end{pmatrix}.$  Find the angle between the vectors $\\mathbf{a}$ and $(\\mathbf{a} \\cdot \\mathbf{c}) \\mathbf{b} - (\\mathbf{a} \\cdot \\mathbf{b}) \\mathbf{c},$ in degrees.",
+        "before": " those, I can compute the second vector by multiplying each component by the respective scalar and then subtracting the two products. After that, I can find the angle between **a** and this new vector using the dot product formula.\n\nSo, let's start with computing a · c. The dot product of two vectors is the sum of the products of their corresponding components. So, for **a** and **c**, that would be:\n\na · c = (1)(13) + (-2)(-4) + (-5)(17)\n\nLet me compute each term:\n\n1 * 13 = 13\n\n-2 * -4 = 8\n\n-5 * 17 = -85\n\nNow, adding them up: 13 + 8 = 21, and 21 + (-85) = -64. So, a · c is -64.\n\nNext, I need to compute a · b. Again, using the dot product formula:\n\na · b = (1)(√7) + (-2)(4) + (-5)(-1)\n\nCalculating each term:\n\n1 * √7 = √7\n\n-2 * 4 = -8\n\n-5 * -1 = 5\n\nAdding them up: √7 - 8 + 5. Simplifying that, √7 - 3. So, a · b is √7 - 3.\n\nNow, the second vector we need is (a · c) times **b** minus (a · b) times **c**. Let me write that out:\n\nVector V = (a · c) * **b** - (a · b) * **c**\n\nPlugging in the values we just found:\n\nVector V = (-64) * **b** - (√7 - 3) * **c**\n\nSo, let's compute each term separately.\n\nFirst, (-64) * **b**:\n\n**b** is [√7, 4, -1], so multiplying each component by -64:\n\n-64 * √7 = -64√7\n\n-64 * 4 = -256\n\n-64 * (-1) = 64\n\nSo, (-64) * **b** is [-64√7, -256, 64]\n\nNext, compute (√7 - 3) * **c**:\n\n**c** is [13, -4, 17], so multiplying each component by (√7 - 3):\n\n(√7 - 3) * 13 = 13√7 - 39\n\n(√7 - 3) * (-4) = -4√7 + 12\n\n(√7 - 3) * 17 = 17√7 - 51\n\nSo, (√7 - 3) * **c** is [13√7 - 39, -4√7 + 12, 17√7 - 51]\n\nNow, Vector V is (-64√7, -256, 64) minus [13√7 - 39, -4√7 + 12, 17√7 - 51]. Let me subtract each corresponding component:\n\nFirst component: -64√7 - (13√7 - 39) = -64√7 -13√7 + 39 = (-64 -13)√7 + 39 = -77√7 + 39\n\nSecond component: -256 - (-4√7 + 12) = -256 +4√7 -12 = (-256 -12) +4√7 = -268 +4√7\n\nThird component: 64 - (17√7 -51) = 64 -17√7 +51 = (64 +51) -17√7 = 115 -17√7\n\nSo, Vector V is [-77√7 + 39, -268 +4√7, 115 -17√7]\n\n",
+        "target": {
+          "step_index": 39199,
+          "text": "Hmm, that seems a bit complicated. Maybe I made a mistake in the subtraction? Let me double-check"
+        },
+        "following": [
+          {
+            "step_index": 39200,
+            "text": "First component: (-64√7) - (13√7 -39) = -64√7 -13√7 +39 = (-77√7) +39. That seems right"
+          },
+          {
+            "step_index": 39201,
+            "text": "Second component: (-256) - (-4√7 +12) = -256 +4√7 -12 = (-268) +4√7. Correct"
+          },
+          {
+            "step_index": 39202,
+            "text": "Third component: 64 - (17√7 -51) = 64 -17√7 +51 = 115 -17√7. Correct"
+          }
+        ]
+      }
+    },
+    {
+      "train_index": 3104,
+      "status": "wrong_calculation_repeated",
+      "old": "k_basis cross i_basis equals minus j_basis.",
+      "replacement": null,
+      "reason": "Correct cross product is plus j_basis. Following2 repeats wrong sign and following3 propagates it; admission of error does not repair it.",
+      "repetition": "Repeated incorrect computation, no valid replacement in window.",
+      "evidence": {
+        "train_index": 3104,
+        "problem": "There exists a scalar $k$ such that for any vectors $\\mathbf{a},$ $\\mathbf{b},$ and $\\mathbf{c}$ such that $\\mathbf{a} + \\mathbf{b} + \\mathbf{c} = \\mathbf{0},$ the equation\n\\[k (\\mathbf{b} \\times \\mathbf{a}) + \\mathbf{b} \\times \\mathbf{c} + \\mathbf{c} \\times \\mathbf{a} = \\mathbf{0}\\]holds.  Find $k.$",
+        "before": "{i} \\times \\mathbf{i}) - (\\mathbf{k} \\times \\mathbf{i}) = - \\mathbf{0} - \\mathbf{j} = - \\mathbf{j} \\)\n\nAdding them up:\n\n1. \\( -k \\mathbf{j} \\)\n\n2. \\( \\mathbf{j} \\)\n\n3. \\( - \\mathbf{j} \\)\n\nTotal:\n\n\\[ (-k + 1 - 1) \\mathbf{j} = (-k) \\mathbf{j} \\]\n\nSet equal to zero:\n\n\\[ -k \\mathbf{j} = \\mathbf{0} \\implies k = 0 \\]\n\nWait, hold on. That's conflicting with my previous result. Hmm, that can't be right. Did I make a mistake?\n\nWait, let me recalculate.\n\nWait, in this case, \\( \\mathbf{a} = \\mathbf{i} \\), \\( \\mathbf{b} = \\mathbf{k} \\), so \\( \\mathbf{c} = -\\mathbf{i} - \\mathbf{k} \\).\n\nCompute \\( \\mathbf{b} \\times \\mathbf{a} = \\mathbf{k} \\times \\mathbf{i} = -\\mathbf{j} \\). So, \\( k (\\mathbf{b} \\times \\mathbf{a}) = -k \\mathbf{j} \\).\n\nCompute \\( \\mathbf{b} \\times \\mathbf{c} = \\mathbf{k} \\times (-\\mathbf{i} - \\mathbf{k}) = - (\\mathbf{k} \\times \\mathbf{i}) - (\\mathbf{k} \\times \\mathbf{k}) = - (-\\mathbf{j}) - \\mathbf{0} = \\mathbf{j} \\).\n\nCompute \\( \\mathbf{c} \\times \\mathbf{a} = (-\\mathbf{i} - \\mathbf{k}) \\times \\mathbf{i} = - (\\mathbf{i} \\times \\mathbf{i}) - (\\mathbf{k} \\times \\mathbf{i}) = - \\mathbf{0} - \\mathbf{j} = - \\mathbf{j} \\).\n\nSo, adding them up:\n\n1. \\( -k \\mathbf{j} \\)\n\n2. \\( \\mathbf{j} \\)\n\n3. \\( - \\mathbf{j} \\)\n\nTotal:\n\n\\[ (-k + 1 - 1) \\mathbf{j} = (-k) \\mathbf{j} \\]\n\nSet equal to zero:\n\n\\[ -k \\mathbf{j} = \\mathbf{0} \\implies k = 0 \\]\n\nWait, that's different from the previous result. So, now I have \\( k = 2 \\) from the first substitution and \\( k = 0 \\) from this substitution. That's a problem because \\( k \\) can't be both 2 and 0.\n\nHmm, so I must have made a mistake somewhere. Let me check my calculations again.\n\nWait, in the first substitution, I had \\( \\mathbf{c} = -\\mathbf{a} - \\mathbf{b} \\), and I substituted into the equation, which led me to \\( k = 2 \\). But in the second substitution, I chose \\( \\mathbf{a} = \\mathbf{i} \\), \\( \\mathbf{b} = \\mathbf{k} \\), which is a different vector, so perhaps that substitution is not general enough?\n\nWait, no, the problem states that the equation must hold for any vectors \\( \\mathbf{a}, \\mathbf{b}, \\mathbf{c} \\) such that \\( \\mathbf{a} + \\mathbf{b} + \\mathbf{c} = \\mathbf{0} \\). So, the substitution must hold for all such vectors, not just specific ones.\n\nBut in the second substitution, I chose \\( \\mathbf{a} = \\mathbf{i} \\), \\( \\mathbf{b} = \\mathbf{k} \\), which is a specific case, but perhaps in that case, the equation doesn't hold unless \\( k = 0 \\). But that contradicts the first substitution.\n\n",
+        "target": {
+          "step_index": 63415,
+          "text": "Wait, perhaps I made a mistake in the second substitution. Let me recompute"
+        },
+        "following": [
+          {
+            "step_index": 63416,
+            "text": "Wait, in the second substitution, \\( \\mathbf{a} = \\mathbf{i} \\), \\( \\mathbf{b} = \\mathbf{k} \\), so \\( \\mathbf{c} = -\\mathbf{i} - \\mathbf{k} \\"
+          },
+          {
+            "step_index": 63417,
+            "text": "Compute \\( \\mathbf{b} \\times \\mathbf{a} = \\mathbf{k} \\times \\mathbf{i} = -\\mathbf{j} \\). So, \\( k (\\mathbf{b} \\times \\mathbf{a}) = -k \\mathbf{j} \\"
+          },
+          {
+            "step_index": 63418,
+            "text": "Compute \\( \\mathbf{b} \\times \\mathbf{c} = \\mathbf{k} \\times (-\\mathbf{i} - \\mathbf{k}) = - (\\mathbf{k} \\times \\mathbf{i}) - (\\mathbf{k} \\times \\mathbf{k}) = - (-\\mathbf{j}) - \\mathbf{0} = \\mathbf{j} \\"
+          }
+        ]
+      }
+    },
+    {
+      "train_index": 3307,
+      "status": "error_detected_no_repair_in_window",
+      "old": "1/k^2 rewritten as25k^2/(25k^2).",
+      "replacement": null,
+      "reason": "Numerator should be25; correct equation is75-10k=0 for k nonzero. Following3 ends at restated vector equation, before denominator repair.",
+      "repetition": "Local window is too short to determine later repair; do not label the entire trajectory unsuccessful.",
+      "evidence": {
+        "train_index": 3307,
+        "problem": "Let $\\mathbf{a} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}$ and $\\mathbf{b} = \\begin{pmatrix} -1 \\\\ 1 \\\\ -1 \\end{pmatrix}.$  Find the unit vector $\\mathbf{v}$ so that $\\mathbf{b}$ bisects the angle between $\\mathbf{a}$ and $\\mathbf{v}.$",
+        "before": " v1 = (-1)/k => v1 = (-1/k) - 3/5\n\nFrom equation 2:\n\n4/5 + v2 = 1/k => v2 = (1/k) - 4/5\n\nFrom equation 3:\n\nv3 = (-1)/k\n\nSo, now, substitute these into the unit vector condition:\n\nv1² + v2² + v3² = 1\n\nLet me compute each term:\n\nv1 = (-1/k) - 3/5 = (-5 - 3k)/(5k)\n\nWait, let me compute that again:\n\nv1 = (-1/k) - 3/5 = (-5 - 3k)/(5k). Hmm, is that correct? Wait, no, that's not the right way to combine them. Let me compute it as:\n\nv1 = (-1/k) - 3/5 = (-5 - 3k)/(5k). Wait, that seems correct.\n\nSimilarly, v2 = (1/k) - 4/5 = (5 - 4k)/(5k)\n\nAnd v3 = (-1)/k = (-1)/k\n\nSo, now, let's compute v1² + v2² + v3²:\n\n[(-5 - 3k)/(5k)]² + [(5 - 4k)/(5k)]² + [(-1)/k]² = 1\n\nLet me compute each term:\n\nFirst term: [(-5 - 3k)/(5k)]² = (25 + 30k + 9k²)/(25k²)\n\nSecond term: [(5 - 4k)/(5k)]² = (25 - 40k + 16k²)/(25k²)\n\nThird term: [(-1)/k]² = 1/k²\n\nSo, adding them up:\n\n(25 + 30k + 9k² + 25 - 40k + 16k²)/(25k²) + 1/k² = 1\n\nSimplify numerator:\n\n25 + 25 = 50\n\n30k - 40k = -10k\n\n9k² + 16k² = 25k²\n\nSo, numerator is 50 - 10k + 25k²\n\nDenominator is 25k²\n\nSo, the first two terms add up to (50 - 10k + 25k²)/(25k²)\n\nThen, adding the third term:\n\n(50 - 10k + 25k²)/(25k²) + 1/k² = 1\n\nLet me write 1/k² as (25k²)/(25k²) to have the same denominator.\n\nSo, total becomes:\n\n(50 - 10k + 25k² + 25k²)/(25k²) = 1\n\nSimplify numerator:\n\n50 - 10k + 50k²\n\nSo, (50k² - 10k + 50)/(25k²) = 1\n\nMultiply both sides by 25k²:\n\n50k² - 10k + 50 = 25k²\n\nBring all terms to left side:\n\n50k² - 10k + 50 - 25k² = 0\n\nSimplify:\n\n25k² - 10k + 50 = 0\n\nDivide all terms by 5:\n\n5k² - 2k + 10 = 0\n\nWait, that's a quadratic equation: 5k² - 2k + 10 = 0\n\nLet me compute discriminant D = b² - 4ac = (-2)^2 - 4*5*10 = 4 - 200 = -196\n\nUh-oh, discriminant is negative, which means no real solutions. That can't be right because we were given that **b** bisects the angle between **a** and **v**, so such a vector **v** should exist.\n\n",
+        "target": {
+          "step_index": 73723,
+          "text": "Hmm, maybe I made a mistake in my calculations. Let me go back step by step"
+        },
+        "following": [
+          {
+            "step_index": 73724,
+            "text": "First, let's re-examine the equations"
+          },
+          {
+            "step_index": 73725,
+            "text": "From **b** = k*(**a_hat** + **v**"
+          },
+          {
+            "step_index": 73726,
+            "text": "So, **b** = k*( [3/5, 4/5, 0] + [v1, v2, v3]"
+          }
+        ]
+      }
+    },
+    {
+      "train_index": 5977,
+      "status": "restoration_of_previously_known_result",
+      "old": "Fixed4-dollar reduction treated as multiplier0.84 even after price becomes20.",
+      "replacement": "Following3 computes25*0.8-4=16.",
+      "reason": "Valid repair of the most recent mistaken computation, but16 was already explicitly known in prior context. Restoration is distinct from novel information.",
+      "repetition": "Local correct repair revisits earlier correct result. A novelty-only suppression rule could wrongly block recovery.",
+      "evidence": {
+        "train_index": 5977,
+        "problem": "The new Perry Hotter book will have a cover price of $\\$25$. The local bookstore is offering two discounts $\\$4.00$ off and $20\\%$ off. A clever shopper realizes that the prices will be different depending on the order in which she claims her discounts. How much more money will she save by taking the better valued approach rather than the other approach? Express your answer in cents.",
+        "before": " a $4.00 flat discount: This is subtracting $4.00\n\nSo, the total multiplier is (0.80) * (1 - 4/25) = 0.80 * 0.84 = 0.672\n\nWait, that's the same as the first method? That can't be right.\n\nWait, no, actually, in the second method, the order is different, so the multipliers are applied in a different order.\n\nWait, let me clarify.\n\nIn the first method, the order is:\n\n1. Subtract $4.00: which is equivalent to multiplying by (1 - 4/25) = 21/25 = 0.84\n2. Then, subtract 20%: which is multiplying by 0.80\n\nSo, total multiplier: 0.84 * 0.80 = 0.672\n\nIn the second method, the order is:\n\n1. Subtract 20%: which is multiplying by 0.80\n2. Then, subtract $4.00: which is subtracting $4.00, not multiplying by (1 - 4/25)\n\nSo, the total multiplier is 0.80 * (1 - 4/25) = 0.80 * 0.84 = 0.672\n\nWait, so both orders result in the same total multiplier? That seems odd.\n\nBut let me think about it.\n\nWait, actually, in the first method, the $4.00 discount is applied after the 20% discount, so the total multiplier is 0.84 * 0.80 = 0.672\n\nIn the second method, the 20% discount is applied first, then the $4.00 discount, so the total multiplier is 0.80 * 0.84 = 0.672\n\nSo, both orders result in the same total multiplier, which is 0.672.\n\nTherefore, both orders result in the same final price, which is $16.80.\n\nWait, that can't be right because in the first method, the final price is $16.80, and in the second method, it's $16.00.\n\nWait, so perhaps my initial calculation was wrong.\n\nWait, no, let me recast this.\n\nWait, in the first method, the order is Flat $4.00 off then 20% off.\n\nSo, the first discount is $4.00, which is 4/25 of the original price.\n\nThen, the second discount is 20% off, which is 0.20 of the reduced price.\n\nSo, the total discount is 4/25 + (20% of (25 - 4)).\n\nWait, but that's not the same as multiplying by 0.84 * 0.80.\n\nWait, perhaps I need to think in terms of multipliers.\n\nWait, the first method:\n\n1. Subtract $4.00: which is equivalent to multiplying by (1 - 4/25) = 21/25 = 0.84\n2. Then, subtract 20%: which is multiplying by 0.80\n\nSo, total multiplier: 0.84 * 0.80 = 0.672\n\nTherefore, final price: 0.672 * 25 = 16.80\n\nSecond method:\n\n1. Subtract 20%: which is multiplying by 0.80\n2. Then, subtract $4.00: which is subtracting 4/25\n\nSo, total multiplier: 0.80 * (1 - 4/25) = 0.80 * 0.84 = 0.672\n\nWait, so both orders result in the same total multiplier? That would mean the final price is the same, which is $16.80.\n\nBut that contradicts my earlier calculation where the second method resulted in $16.00.\n\n",
+        "target": {
+          "step_index": 14180,
+          "text": "Wait, so perhaps I made a mistake in the second method"
+        },
+        "following": [
+          {
+            "step_index": 14181,
+            "text": "Wait, let me recast the second method"
+          },
+          {
+            "step_index": 14182,
+            "text": "Second method: 20% off then $4.00 off"
+          },
+          {
+            "step_index": 14183,
+            "text": "1. Start with $25\n2. Apply 20% off: 20% of 25 is 5, so 25 - 5 = 20\n3. Apply $4.00 off: 20 - 4 = 16"
+          }
+        ]
+      }
+    }
+  ],
+  "exact_checks": {
+    "vector3063": "components valid; dot product zero",
+    "cross3104": "basis cross sign positive; scalar2 satisfies",
+    "unit3307": "correct denominator gives k=15/2; vector(-11/15,-2/3,-2/15) has norm1",
+    "angle4139": "using diagram order: BOC40 and AOD140",
+    "area4543": "44 and36 percent exact; equal relative diameter/radius error",
+    "discount5977": "16.8 versus16; difference80 cents",
+    "digits4042": "enumerated15"
+  },
+  "prior_anchor_correction": {
+    "train_index": 4042,
+    "old_category": "necessary_constraint_adjustment",
+    "refinement": "valid preventive constraint handling, not demonstrated repair of an already asserted false proposition; A>=1 was known before target"
+  },
+  "conclusion": "Zero clean novel necessary-correction plus repetition pairs in the reviewed windows. One restoration of previously known correct information; one mixed partial repair. Does not imply no later repairs or no feasible pairs among500.",
+  "design_implication": "Novelty alone is insufficient: restoring a valid proposition after a later error may be useful even when not new. Need a status distinction between active erroneous claim and historical resolved claim. No cue-only semantic labels, no feature fitting, no GPU.",
+  "limitations": [
+    "Repair-cue-enriched sample, not prevalence",
+    "Three following steps often too short; non-repair labels restricted to window",
+    "Outcome interpretation cannot be assigned as knowledge available at first-token feature",
+    "No quantitative effect or causal deletion-safety claim"
+  ]
+}

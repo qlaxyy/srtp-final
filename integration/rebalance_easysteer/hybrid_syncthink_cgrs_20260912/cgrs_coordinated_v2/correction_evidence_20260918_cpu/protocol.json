@@ -1,0 +1,8 @@
+{
+  "pattern": "\\b(?:I (?:made a mistake|forgot|overlooked|misread)|that(?:'s| is) (?:wrong|incorrect)|this (?:is|was) (?:wrong|incorrect))\\b",
+  "selection": "First matching step per parent; six parents ordered by SHA256(correction-evidence-v1:normalized_problem_hash). No confidence, correctness, cap or test selection.",
+  "reading": "Up to900 preceding tokens, selected step and next3 steps; later context cannot justify classification available at target start.",
+  "matching": "Review next3 steps for repetition; require explicit old wrong proposition, valid replacement and rationale for correction. Compare only within-parent observed window, not global prevalence.",
+  "stop": "Feasibility diagnosis only: no direction fitting or GPU from six parents. No adaptive resampling of this batch.",
+  "gpu_calls": 0
+}
