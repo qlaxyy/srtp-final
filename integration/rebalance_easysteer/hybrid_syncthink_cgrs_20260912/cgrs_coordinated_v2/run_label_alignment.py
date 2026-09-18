@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='nonpositive_v1':
+    if plan.get('experiment_kind')=='strict_and_vector_v1':
+        assert [a['name'] for a in plan['arms']]==['AND_NORM_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='nonpositive_v1':
         assert [a['name'] for a in plan['arms']]==['OLD_NONPOS_L27','LENGTH_NONPOS_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='length_refit_v1':
@@ -106,10 +109,12 @@ def main():
         margin=plan.get('experiment_kind')=='margin_v1'
         length_refit=plan.get('experiment_kind')=='length_refit_v1'
         nonpositive=plan.get('experiment_kind')=='nonpositive_v1'
+        strict_and=plan.get('experiment_kind')=='strict_and_vector_v1'
         length_vector=plan.get('experiment_kind') in ('length_vector_v1','length_refit_v1')
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
         if args.phase=='engineering' and length_vector:names=['L27_REFERENCE','LENGTH_L27','LENGTH_REPEAT','LENGTH_NORM_L27','LENGTH_NORM_REPEAT']
         if args.phase=='engineering' and length_refit:names=['L27_REFERENCE','LENGTH_REFIT_L27','LENGTH_REFIT_REPEAT']
+        if args.phase=='engineering' and strict_and:names=['L27_REFERENCE','AND_NORM_L27','AND_NORM_REPEAT']
         if args.phase=='engineering' and nonpositive:names=['OLD_SIGN_REFERENCE','OLD_SIGN_OFF','OLD_SIGN_SHADOW','OLD_NONPOS_L27','LENGTH_SIGN_REFERENCE','LENGTH_SIGN_OFF','LENGTH_SIGN_SHADOW','LENGTH_NONPOS_L27']
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
@@ -136,6 +141,7 @@ def main():
                 vp=HERE/vector_arm['vector']
                 if 'fit' in vector_arm:fp=HERE/vector_arm['fit']
             if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
+            if strict_and and name!='L27_REFERENCE':vp=HERE/plan['arms'][0]['vector']
             if nonpositive and name.startswith('LENGTH'):vp=HERE/plan['arms'][1]['vector']
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
@@ -146,6 +152,7 @@ def main():
             arm=next((a for a in plan['arms'] if a['name']==name),{})
             if mti or margin:arm=plan['arms'][0]
             if length_vector:arm=plan['arms'][0]
+            if strict_and:arm=plan['arms'][0]
             if nonpositive:arm=plan['arms'][0]
             large=mti or margin or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
@@ -248,6 +255,16 @@ def main():
                             first=adapter.completed[rid]['first_positive_change']
                             if first<0:first=len(rec['token_ids'])
                             assert base['token_ids'][:first]==rec['token_ids'][:first], 'Sign divergence before intervention'
+                elif args.phase=='engineering' and strict_and:
+                    if name=='L27_REFERENCE':original_reference=records
+                    elif name=='AND_NORM_L27':
+                        reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                        for base,rec in zip(original_reference,records):
+                            first=next((i for i,t in enumerate(base['token_ids']) if t in boundaries),len(base['token_ids'])-1)
+                            assert base['token_ids'][:first+1]==rec['token_ids'][:first+1], 'Vector diverged before injection'
+                    else:
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'AND repeat tokens differ'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history, 'AND repeat histories differ'
                 elif args.phase=='engineering' and length_vector:
                     if name in ('LENGTH_L27','LENGTH_NORM_L27','LENGTH_REFIT_L27'):
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
