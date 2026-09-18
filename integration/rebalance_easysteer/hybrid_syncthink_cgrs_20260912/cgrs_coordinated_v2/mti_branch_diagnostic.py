@@ -44,7 +44,8 @@ def main():
     if not a.gpu_authorized: raise ValueError('GPU execution must be explicitly enabled')
     plan=json.loads(a.plan.read_text(encoding='utf8'))
     precision_diagnostic=plan['kind']=='mti_stage0_fp32_failed_case_diagnostic'
-    assert plan['kind'] in ('mti_stage0_unsteered_cache_oracle','mti_stage0_fp32_failed_case_diagnostic')
+    matched=plan['kind']=='mti_matched_partition_oracle'
+    assert plan['kind'] in ('mti_stage0_unsteered_cache_oracle','mti_stage0_fp32_failed_case_diagnostic','mti_matched_partition_oracle')
     assert len(plan['cases'])==(1 if precision_diagnostic else 8) and plan['generated_tokens']==0
     if precision_diagnostic: assert plan['cases'][0]['train_index']==3241
     out=a.output_root/plan['run_id'];out.mkdir(parents=True,exist_ok=False)
@@ -96,28 +97,50 @@ def main():
                 ref,tref=timed(lambda:forward(torch.cat((ids,cue),1)))
                 bp=probs(branch);rp=probs(ref.last_hidden_state)
                 error=(bp-rp).abs().max().item();same=bp.argmax(-1).item()==rp.argmax(-1).item()
+                matched_error=None;matched_same=None
+                if matched:
+                    fresh=forward(ids)
+                    direct=decoder(input_ids=cue,past_key_values=fresh.past_key_values,
+                        position_ids=torch.arange(ids.shape[1],ids.shape[1]+cue.shape[1],device='cuda').unsqueeze(0),
+                        attention_mask=torch.ones((1,ids.shape[1]+cue.shape[1]),device='cuda',dtype=torch.long),
+                        use_cache=True,return_dict=True)
+                    mp=probs(direct.last_hidden_state)
+                    matched_error=(bp-mp).abs().max().item();matched_same=bp.argmax(-1).item()==mp.argmax(-1).item()
+                    del fresh,direct,mp
                 # Continue the parent with an existing saved token, never sample.
                 nxt=torch.tensor([[case['next_saved_token']]],device='cuda')
                 continuation,tcont=timed(lambda:forward(nxt,cache))
                 contref,tcontref=timed(lambda:forward(torch.cat((ids,nxt),1)))
                 cp=probs(continuation.last_hidden_state);crp=probs(contref.last_hidden_state)
                 cont_error=(cp-crp).abs().max().item();cont_same=cp.argmax(-1).item()==crp.argmax(-1).item()
+                matched_cont_error=None;matched_cont_same=None
+                if matched:
+                    fresh=forward(ids);direct=forward(nxt,fresh.past_key_values);mp=probs(direct.last_hidden_state)
+                    matched_cont_error=(cp-mp).abs().max().item();matched_cont_same=cp.argmax(-1).item()==mp.argmax(-1).item()
+                    del fresh,direct,mp
                 record=dict(train_index=case['train_index'],prefix_tokens=ids.shape[1],cue_tokens=len(cue_ids),
                     branch_max_probability_error=error,branch_top1_equal=same,
                     parent_continuation_probability_error=cont_error,parent_continuation_top1_equal=cont_same,
                     parent_cache_sha_before=before_hash,parent_cache_sha_after=after_hash,rng_unchanged=rng_ok,
+                    matched_branch_error=matched_error,matched_branch_top1_equal=matched_same,
+                    matched_continuation_error=matched_cont_error,matched_continuation_top1_equal=matched_cont_same,
                     seconds=dict(prefix=tpre,branch_including_copy=tbranch,full_cue_reference=tref,
                                  parent_continuation=tcont,full_continuation_reference=tcontref))
                 record['passed']=bool(before_hash==after_hash and rng_ok and same and cont_same
                     and error<=plan['max_probability_error'] and cont_error<=plan['max_probability_error'])
+                record['original_full_prefill_gate_passed']=record['passed']
+                if matched:
+                    record['passed']=bool(before_hash==after_hash and rng_ok and matched_same and matched_cont_same
+                        and matched_error<=plan['max_probability_error'] and matched_cont_error<=plan['max_probability_error'])
                 records.append(record)
                 with (out/'records.jsonl').open('a',encoding='utf8') as f:f.write(json.dumps(record)+'\n')
                 if not record['passed']:raise RuntimeError('Stage0 equivalence gate failed; stop')
                 del prefix,cache,ref,continuation,contref,branch
-        result=dict(stage0_passed=not precision_diagnostic,precision_diagnostic_passed=precision_diagnostic,
+        result=dict(stage0_passed=not precision_diagnostic and not matched,precision_diagnostic_passed=precision_diagnostic,
+            matched_partition_gate_passed=matched,
             cases=len(records),generated_tokens=0,steering=False,
             startup_seconds=startup,wall_seconds=time.monotonic()-start,cue_ids=cue_ids,
-            forward_calls=5*len(records),native_vllm_validated=False,full_evaluation_allowed=False,
+            forward_calls=(9 if matched else 5)*len(records),native_vllm_validated=False,full_evaluation_allowed=False,
             next='Implement native paged branch plus dynamic steering-history equivalence separately')
         (out/'complete.json').write_text(json.dumps(result,indent=2),encoding='utf8')
     except BaseException as exc:

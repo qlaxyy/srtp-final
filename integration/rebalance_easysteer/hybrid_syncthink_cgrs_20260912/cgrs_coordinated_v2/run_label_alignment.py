@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='harmonic_v1':
+    if plan.get('experiment_kind')=='mti_v1':
+        assert [a['name'] for a in plan['arms']]==['MTI_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='harmonic_v1':
         assert [a['name'] for a in plan['arms']]==['HARMONIC_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='type_split_v1':
@@ -87,10 +90,11 @@ def main():
             enforce_eager=False,enable_chunked_prefill=rt.get('chunked_prefill',False),enable_prefix_caching=False,async_scheduling=not sync_replay,seed=42)
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         names=[a['name'] for a in plan['arms']]
-        if args.phase=='engineering':names=['RC14','RC14_extension_off']+names
+        mti=plan.get('experiment_kind')=='mti_v1'
+        if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti else ['RC14','RC14_extension_off'])+names
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
-        cap=512 if args.phase=='engineering' else 16000
+        cap=(64 if mti else 512) if args.phase=='engineering' else 16000
         prompts=[tok.encode(build_prompt(tok,r['problem'])) for r in rows]
         assert max(map(len,prompts))+cap<=rt.get('max_model_len',32768)
         save(args.output/'identity.json',dict(vllm=str(vllm.__file__),torch=torch.__version__,
@@ -109,7 +113,8 @@ def main():
                 params=dict(read(fp)['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
             setup_start=time.monotonic()
             arm=next((a for a in plan['arms'] if a['name']==name),{})
-            large=name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
+            if mti:arm=plan['arms'][0]
+            large=mti or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
                 table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
                 with np.load(table) as z:tables={k:z[k] for k in z.files}
@@ -127,6 +132,10 @@ def main():
                     from replay_adapter import ReplayAdapter
                     AdapterType=ReplayAdapter
                 adapter=AdapterType(llm,tok,mode='negative',gate_on=True)
+            mti_adapter=None
+            if mti and name!='L27_REFERENCE':
+                from mti_native_adapter import MTIAdapter
+                mti_adapter=MTIAdapter(adapter,tok,mode='off' if name=='L27_OFF' else 'shadow' if name=='L27_SHADOW' else 'active')
             if name=='RC14_extension_off':
                 sampler=runner.sampler;unused=AlignmentAdapter(llm,tok,enabled=False)
                 assert runner.sampler is sampler;unused.close();assert runner.sampler is sampler
@@ -173,11 +182,26 @@ def main():
                     replay_counts={k:runner.steer_vector_state.replay_counts[k]-v for k,v in replay_before.items()},
                     replay_events=getattr(adapter,'replay_events',[]),forced_preemption=forced,
                     control_gpu_seconds=None,timing_note='Generation includes adapter kernels and partial I/O; control overhead not independently isolated.')
+                if mti_adapter is not None:
+                    result['mti']=mti_adapter.report()
+                    result['extra_model_forward_count']=mti_adapter.calls
                 if sync_replay:
                     result['extra_model_forward_count']=None
                     result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
                 save(folder/'result.json',result)
-                if args.phase=='engineering':
+                if args.phase=='engineering' and mti:
+                    if name=='L27_REFERENCE':
+                        reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    elif name in ('L27_OFF','L27_SHADOW'):
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'MTI off/shadow changed tokens'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history, 'MTI off/shadow changed control history'
+                        if name=='L27_SHADOW':assert mti_adapter.calls>0
+                    else:
+                        assert mti_adapter.calls>0
+                        for base,rec,rid in zip(reference,records,ids):
+                            first=mti_adapter.first.get(rid,len(rec['token_ids']))
+                            assert base['token_ids'][:first]==rec['token_ids'][:first], 'MTI diverged before intervention'
+                elif args.phase=='engineering':
                     if sync_replay:assert forced and result['replay_counts']['restored']>=1
                     if sync_replay and large:assert sum(e['changed'] for e in adapter.completed.values())>0
                     if name=='RC14':reference=records
@@ -193,7 +217,9 @@ def main():
                     if name=='RC14':history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                 done.append(name);print(json.dumps(dict(arm=name,count=len(records),seconds=seconds)),flush=True)
             finally:
-                monitor.terminate();monitor.wait(timeout=10);monitor=None;stream_gpu.close();adapter.close()
+                monitor.terminate();monitor.wait(timeout=10);monitor=None;stream_gpu.close()
+                if mti_adapter is not None:mti_adapter.close()
+                adapter.close()
         save(args.output/'complete.json',dict(phase=args.phase,passed=True,arms=done,
             release_sha256=sha(args.release),wall_seconds=time.monotonic()-began))
     except BaseException as e:
