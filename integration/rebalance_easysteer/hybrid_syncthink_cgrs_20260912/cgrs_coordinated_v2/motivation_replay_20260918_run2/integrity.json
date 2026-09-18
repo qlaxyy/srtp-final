@@ -1,0 +1,14 @@
+{
+  "archive_sha256": "1272fb17b657db3a533248b189c11e20436ab478a640c80d4150562d1b8f4006",
+  "trajectories": 572,
+  "tokens": 1586422,
+  "R_boundary_steps_verified": 12399,
+  "max_step_mean_error": 1.2759522781680133e-06,
+  "final_GPU_processes": 0,
+  "metadata_note": "full same_schedule_probability_passed=false means not performed in full phase; engineering true under identical release; not a failed check",
+  "analysis_hashes": {
+    "paired_confidence.png": "05efe02c888de474bb25934ffd095e431986705c4909bec76a1e33d7f20396ac",
+    "parents.json": "02e3e8af69d39ff8021a5d1238432a83f5b6675e6add1c846dff681b0a81f0b4",
+    "result.json": "3b8a6467b91f91182032769ccf5e815fab86262664e2e276671847f04b674e50"
+  }
+}

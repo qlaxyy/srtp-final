@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "same_schedule_probability_passed": true,
+  "interpretation": "Current-runtime saved-text reconstruction; not exact historical generation probabilities",
+  "status": "Same-schedule reference/replay and native online steps checked",
+  "groups": [
+    {
+      "group": "U_reference",
+      "rows": 8,
+      "tokens": 4096,
+      "replay_seconds": 3.7298609167337418,
+      "native_raw_checks": 0
+    },
+    {
+      "group": "U",
+      "rows": 8,
+      "tokens": 4096,
+      "replay_seconds": 3.694487899541855,
+      "native_raw_checks": 0
+    },
+    {
+      "group": "R_reference",
+      "rows": 8,
+      "tokens": 4096,
+      "replay_seconds": 4.412841156125069,
+      "native_raw_checks": 512
+    },
+    {
+      "group": "R",
+      "rows": 8,
+      "tokens": 4096,
+      "replay_seconds": 4.4245285987854,
+      "native_raw_checks": 512
+    }
+  ],
+  "total_seconds": 36.47867815196514,
+  "release_sha256": "5df898c9b418d66b5b9907b5689729fd634484d5c95b663f7d05844098728093"
+}

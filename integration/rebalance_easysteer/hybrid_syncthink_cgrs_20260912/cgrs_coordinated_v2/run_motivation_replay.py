@@ -19,7 +19,7 @@ def main():
     if args.phase=='full':
         gate=read(args.engineering_result/'complete.json')
         assert gate['passed'] and gate['release_sha256']==sha(home/'release.json')
-        assert read(args.forward_check)['passed']
+        assert gate['same_schedule_probability_passed']
     args.output.mkdir(exist_ok=False,parents=True)
     def timeout(*_):raise TimeoutError('Fixed replay time ceiling')
     signal.signal(signal.SIGALRM,timeout);signal.alarm(600 if args.phase=='engineering' else 1800)
@@ -47,9 +47,11 @@ def main():
             algorithm='rebalance',scale=1.,layers=[layer],normalize=False,apply=ApplySpec(generation_tokens=boundaries),
             params=dict(fit['parameters'],boundary_token_ids=boundaries,think_start_token_id=151648,think_end_token_id=151649))])
         allrows=read(home/('engineering.json' if args.phase=='engineering' else 'rows.json'))
-        summary=[]
-        for group in ['U','R']:
-            rows=allrows if args.phase=='engineering' else [r for r in allrows if r['group']==group]
+        summary=[];reference={};reference_rows={};replay_errors=[]
+        groups=['U_reference','U','R_reference','R'] if args.phase=='engineering' else ['U','R']
+        for name in groups:
+            group=name[0];is_reference=name.endswith('_reference')
+            rows=(allrows if is_reference else reference_rows[group]) if args.phase=='engineering' else [r for r in allrows if r['group']==group]
             prompts=[r.get('prompt_token_ids') or tok.encode(build_prompt(tok,r['problem']),add_special_tokens=False) for r in rows]
             buffers=ReplayBuffers(runner.max_num_reqs,max(len(r['token_ids']) for r in rows),runner.device)
             native=runner.sampler;original_add=runner.add_requests;original_remove=runner._remove_request
@@ -68,7 +70,7 @@ def main():
             def remove(rid):
                 if rid in active:
                     slot=active.pop(rid);completed[rid]=dict(logmax=buffers.completed(slot))
-                    if group=='R':
+                    if group=='R' and not is_reference:
                         # Only boundary means are exported; other positions can be NaN.
                         ids0=pending[rid]['token_ids'];stop=ids0.index(151649) if 151649 in ids0 else len(ids0)
                         positions=[j for j in range(stop) if ids0[j] in boundaries]
@@ -93,31 +95,43 @@ def main():
                 online_means[idx,pos]=torch.where(valid,runner.steer_vector_state._prev_step_mean[idx],online_means[idx,pos])
                 return result
             runner.add_requests=add;runner._remove_request=remove
-            runner.sampler=MotivationReplaySampler(native,buffers)
+            runner.sampler=MotivationReplaySampler(native,buffers,force=not is_reference)
             runner.steer_vector_state.observe_sample=observe
             params=[SamplingParams(temperature=.7,top_p=.95,seed=42,max_tokens=len(r['token_ids']),ignore_eos=True,skip_special_tokens=False) for r in rows]
             t0=time.monotonic()
             ids=llm.enqueue([dict(prompt_token_ids=x) for x in prompts],sampling_params=params,steering=steer if group=='R' else None,use_tqdm=False)
             pending.update(zip(ids,rows));ops=llm.llm_engine.output_processor.request_states
             mapping={ops[r].external_req_id:r for r in ids};answers={}
-            with (args.output/(group+'_partial.jsonl')).open('x') as f:
+            with (args.output/(name+'_partial.jsonl')).open('x') as f:
                 while llm.llm_engine.has_unfinished_requests() or core.batch_queue:
                     for output in llm.llm_engine.step():
                         assert output.finished;rid=mapping[output.request_id];tokens=list(output.outputs[0].token_ids)
-                        assert tokens==pending[rid]['token_ids'];answers[rid]=tokens
+                        if not is_reference:assert tokens==pending[rid]['token_ids']
+                        answers[rid]=tokens
                         # Preserve every finished trajectory even if a later one fails.
                         f.write(json.dumps(dict(request_id=rid,token_ids=tokens,status='tokens_complete'))+'\n');f.flush()
                 llm.llm_engine.step()
                 for rid in ids:
                     if rid in runner.req_states.req_id_to_index:runner._remove_request(rid)
-                    rec=dict(pending[rid],**completed[rid]);f.write(json.dumps(rec)+'\n');f.flush()
+                    rec=dict(pending[rid],**completed[rid]);rec['token_ids']=answers[rid]
+                    f.write(json.dumps(rec)+'\n');f.flush()
             torch.cuda.synchronize();elapsed=time.monotonic()-t0
             assert len(answers)==len(rows) and not active
             runner.sampler=native;runner.add_requests=original_add;runner._remove_request=original_remove
             runner.steer_vector_state.observe_sample=original_observe
-            summary.append(dict(group=group,rows=len(rows),tokens=sum(map(len,answers.values())),replay_seconds=elapsed,native_raw_checks=len(raw_checks)))
+            if is_reference:
+                reference[group]=[completed[r] for r in ids]
+                reference_rows[group]=[dict(pending[r],token_ids=answers[r]) for r in ids]
+            elif args.phase=='engineering':
+                error=max(float(np.abs(np.exp(completed[r]['logmax'])-np.exp(ref['logmax'])).max()) for r,ref in zip(ids,reference[group]))
+                replay_errors.append(dict(group=group,max_probability_error=error))
+                save(args.output/'same_schedule_check.json',replay_errors)
+                assert error<=1e-6,('Same-schedule replay mismatch',group,error)
+            summary.append(dict(group=name,rows=len(rows),tokens=sum(map(len,answers.values())),replay_seconds=elapsed,native_raw_checks=len(raw_checks)))
             save(args.output/'progress.json',summary)
-        save(args.output/'complete.json',dict(passed=True,status='token and native step checks passed; full also requires separate independent forward receipt',
+        save(args.output/'complete.json',dict(passed=True,same_schedule_probability_passed=args.phase=='engineering',
+            interpretation='Current-runtime saved-text reconstruction; not exact historical generation probabilities',
+            status='Same-schedule reference/replay and native online steps checked' if args.phase=='engineering' else 'Full saved-text reconstruction complete',
             groups=summary,total_seconds=time.monotonic()-started,release_sha256=sha(home/'release.json')))
     except BaseException:
         save(args.output/'failure.json',dict(error=traceback.format_exc()));raise

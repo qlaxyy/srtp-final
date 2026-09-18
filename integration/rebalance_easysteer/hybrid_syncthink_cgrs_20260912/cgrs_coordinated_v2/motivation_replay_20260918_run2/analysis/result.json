@@ -1,0 +1,249 @@
+{
+  "results": {
+    "over_proxy": {
+      "n": 275,
+      "normal": "R",
+      "proxy": "U",
+      "modes": {
+        "geometric": {
+          "mean": {
+            "normal": 0.8236716366341269,
+            "proxy": 0.7962880006729641,
+            "delta_proxy_minus_normal": -0.027383635961162747,
+            "ci95": [
+              -0.031980475845228125,
+              -0.022807662398318666
+            ],
+            "positive": 64,
+            "negative": 211,
+            "zero": 0
+          },
+          "minimum": {
+            "normal": 0.5492272106146212,
+            "proxy": 0.4741315091742436,
+            "delta_proxy_minus_normal": -0.07509570144037744,
+            "ci95": [
+              -0.08897080647618506,
+              -0.061225092262350796
+            ],
+            "positive": 67,
+            "negative": 208,
+            "zero": 0
+          },
+          "variance": {
+            "normal": 0.01350814805093931,
+            "proxy": 0.017211922117623266,
+            "delta_proxy_minus_normal": 0.003703774066683956,
+            "ci95": [
+              0.0029317328514672854,
+              0.004451041306544019
+            ],
+            "positive": 204,
+            "negative": 71,
+            "zero": 0
+          },
+          "local_w2": {
+            "normal": 0.006068138157988138,
+            "proxy": 0.00668696965400901,
+            "delta_proxy_minus_normal": 0.0006188314960208723,
+            "ci95": [
+              0.0002319264534900902,
+              0.000997498840621497
+            ],
+            "positive": 167,
+            "negative": 108,
+            "zero": 0
+          },
+          "pooled_step_confidence": {
+            "U": 0.7941071676459993,
+            "R": 0.8247448832560732
+          }
+        },
+        "arithmetic": {
+          "mean": {
+            "normal": 0.8535880386399035,
+            "proxy": 0.8306696270942062,
+            "delta_proxy_minus_normal": -0.02291841154569722,
+            "ci95": [
+              -0.026761566919633616,
+              -0.019097724093143465
+            ],
+            "positive": 63,
+            "negative": 212,
+            "zero": 0
+          },
+          "minimum": {
+            "normal": 0.6028171655719713,
+            "proxy": 0.5264068778650632,
+            "delta_proxy_minus_normal": -0.07641028770690804,
+            "ci95": [
+              -0.09153597582425174,
+              -0.06144700173106024
+            ],
+            "positive": 71,
+            "negative": 204,
+            "zero": 0
+          },
+          "variance": {
+            "normal": 0.010011166325244574,
+            "proxy": 0.012925922708575522,
+            "delta_proxy_minus_normal": 0.0029147563833309457,
+            "ci95": [
+              0.0022819935290189085,
+              0.003533101158866349
+            ],
+            "positive": 201,
+            "negative": 74,
+            "zero": 0
+          },
+          "local_w2": {
+            "normal": 0.004613236238112946,
+            "proxy": 0.0052385423314786645,
+            "delta_proxy_minus_normal": 0.0006253060933657182,
+            "ci95": [
+              0.00029747516389757526,
+              0.0009446254769905839
+            ],
+            "positive": 176,
+            "negative": 99,
+            "zero": 0
+          },
+          "pooled_step_confidence": {
+            "U": 0.8282057205065791,
+            "R": 0.8538125430773919
+          }
+        }
+      },
+      "length": {
+        "U": 2926.298181818182,
+        "R": 1619.3454545454545
+      }
+    },
+    "under_proxy": {
+      "n": 11,
+      "normal": "U",
+      "proxy": "R",
+      "modes": {
+        "geometric": {
+          "mean": {
+            "normal": 0.7915313354814159,
+            "proxy": 0.8085597108127979,
+            "delta_proxy_minus_normal": 0.017028375331382017,
+            "ci95": [
+              0.003959259041457593,
+              0.030380587944247618
+            ],
+            "positive": 8,
+            "negative": 3,
+            "zero": 0
+          },
+          "minimum": {
+            "normal": 0.38480358031579626,
+            "proxy": 0.4011666067133387,
+            "delta_proxy_minus_normal": 0.016363026397542398,
+            "ci95": [
+              -0.04207492104637013,
+              0.06604943169228367
+            ],
+            "positive": 8,
+            "negative": 3,
+            "zero": 0
+          },
+          "variance": {
+            "normal": 0.02148171232416427,
+            "proxy": 0.020890432420817454,
+            "delta_proxy_minus_normal": -0.0005912799033468134,
+            "ci95": [
+              -0.0028784769380925863,
+              0.0018992766036382822
+            ],
+            "positive": 4,
+            "negative": 7,
+            "zero": 0
+          },
+          "local_w2": {
+            "normal": 0.008134456838880543,
+            "proxy": 0.00990471371964312,
+            "delta_proxy_minus_normal": 0.0017702568807625755,
+            "ci95": [
+              0.00022344050250425106,
+              0.0034778865656459475
+            ],
+            "positive": 8,
+            "negative": 3,
+            "zero": 0
+          },
+          "pooled_step_confidence": {
+            "U": 0.787968486600329,
+            "R": 0.8028006100719389
+          }
+        },
+        "arithmetic": {
+          "mean": {
+            "normal": 0.8260686729869829,
+            "proxy": 0.8392348327149112,
+            "delta_proxy_minus_normal": 0.01316615972792831,
+            "ci95": [
+              0.0025671266611821926,
+              0.023780911435777846
+            ],
+            "positive": 7,
+            "negative": 4,
+            "zero": 0
+          },
+          "minimum": {
+            "normal": 0.42939851165996923,
+            "proxy": 0.42399915138825883,
+            "delta_proxy_minus_normal": -0.0053993602717103,
+            "ci95": [
+              -0.07413115577364843,
+              0.05379704868227541
+            ],
+            "positive": 7,
+            "negative": 4,
+            "zero": 0
+          },
+          "variance": {
+            "normal": 0.016093591711118314,
+            "proxy": 0.01628617364287149,
+            "delta_proxy_minus_normal": 0.00019258193175317767,
+            "ci95": [
+              -0.0018810159503573375,
+              0.0025689885445266654
+            ],
+            "positive": 5,
+            "negative": 6,
+            "zero": 0
+          },
+          "local_w2": {
+            "normal": 0.006376754499681752,
+            "proxy": 0.008031080592854017,
+            "delta_proxy_minus_normal": 0.0016543260931722664,
+            "ci95": [
+              0.00014679787541192437,
+              0.00328983374381487
+            ],
+            "positive": 8,
+            "negative": 3,
+            "zero": 0
+          },
+          "pooled_step_confidence": {
+            "U": 0.8228117431056604,
+            "R": 0.8339488798017138
+          }
+        }
+      },
+      "length": {
+        "U": 7415.818181818182,
+        "R": 3978.3636363636365
+      }
+    }
+  },
+  "interpretation": "Current-runtime original-controller reconstruction of frozen texts; historical probabilities unavailable. Outcome/length proxy groups, not semantic ground truth. R confidence is intervention-dependent. Length contrast selected by construction.",
+  "inputs": {
+    "U_partial.jsonl": "03bdba67d987993f68bf3a8bf30b11f8169db510d57bbc30d50d6a12d4fce017",
+    "R_partial.jsonl": "68e3e1d63b0bd42e045c9ac3660bce6d60430c55a27a0ee17b64e838d36ebbb0",
+    "complete.json": "42d59ecede916fe69a81a6c1c010f6a9e75fe25ea3b02db4b426583ac0e76270"
+  },
+  "statistics": "Equal-question pairs;20000 paired bootstrap,seed20260918; geometric primary, arithmetic sensitivity; all11 under pairs retained"
+}

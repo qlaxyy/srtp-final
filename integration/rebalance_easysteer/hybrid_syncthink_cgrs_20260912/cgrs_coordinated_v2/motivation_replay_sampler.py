@@ -53,8 +53,9 @@ class ReplayBuffers:
 
 
 class MotivationReplaySampler:
-    def __init__(self, original, buffers):
+    def __init__(self, original, buffers, force=True):
         self.original, self.buffers = original, buffers
+        self.force = force
 
     def __getattr__(self, name):
         return getattr(self.original, name)
@@ -72,6 +73,7 @@ class MotivationReplaySampler:
         if output.sampled_token_ids.shape != (batch.num_reqs, 1):
             raise RuntimeError('Unexpected sampler ABI')
         # Preserve native prefill/count metadata; change only accepted token IDs.
-        output.sampled_token_ids[:, 0] = torch.where(
-            valid, forced.to(output.sampled_token_ids.dtype), output.sampled_token_ids[:, 0])
+        if self.force:
+            output.sampled_token_ids[:, 0] = torch.where(
+                valid, forced.to(output.sampled_token_ids.dtype), output.sampled_token_ids[:, 0])
         return output
