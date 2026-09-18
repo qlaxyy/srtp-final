@@ -1,0 +1,16 @@
+{
+  "kind": "CPU descriptive diagnostics, no new performance claim",
+  "variants": [
+    "old_selection",
+    "post_divergence_all",
+    "post_divergence_matched"
+  ],
+  "matching": "Within question, after exact common token prefix, confidence difference <=0.025, normalized token position difference <=0.10, same lexical-hit flag; greedy smallest standardized distance, no reuse",
+  "weights": "Equal question weights, equal selected steps within each question",
+  "stability": "Leave-one-question-out cosine and 200 random equal splits; source-stratified long-U versus long-L27 cosine",
+  "limits": [
+    "Position/confidence matching does not establish semantic equivalence or causal redundancy.",
+    "These are diagnostics on previously used training data, not an independent confirmation.",
+    "No thresholds are selected using MATH500 outcomes; no GPU run or deployable vector."
+  ]
+}

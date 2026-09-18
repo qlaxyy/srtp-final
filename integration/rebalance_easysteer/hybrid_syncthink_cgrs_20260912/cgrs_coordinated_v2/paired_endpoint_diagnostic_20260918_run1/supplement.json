@@ -1,0 +1,77 @@
+{
+  "old_selection": {
+    "cosine_with_within_trajectory_low_minus_high_axis": 0.9474921075862185,
+    "source_equal_mean_cosine_with_original": 0.9967273229852717,
+    "source_equal_norm": 96.52961163196038,
+    "source_equal_split_cos_quantiles": [
+      0.9149727716986374,
+      0.9612521261249829,
+      0.9847651520955619,
+      0.9899791806348659,
+      0.9915228417640464
+    ]
+  },
+  "post_divergence_all": {
+    "cosine_with_within_trajectory_low_minus_high_axis": 0.3417659653947632,
+    "source_equal_mean_cosine_with_original": 0.8532992492991536,
+    "source_equal_norm": 9.960239750225414,
+    "source_equal_split_cos_quantiles": [
+      0.5544625969024816,
+      0.6102944012639604,
+      0.734528385028332,
+      0.7922093499668268,
+      0.8320451048720833
+    ]
+  },
+  "post_divergence_matched": {
+    "cosine_with_within_trajectory_low_minus_high_axis": 0.0882605048143504,
+    "source_equal_mean_cosine_with_original": 0.9213990099909649,
+    "source_equal_norm": 9.553300931421292,
+    "source_equal_split_cos_quantiles": [
+      0.25485929411284003,
+      0.4202103556502908,
+      0.5413297825923622,
+      0.6224792476017632,
+      0.6708150625249479
+    ]
+  },
+  "under_refit": {
+    "raw_norm": 104.12154904684965,
+    "short_parent_counts": {
+      "285": 7,
+      "348": 11,
+      "395": 43,
+      "486": 1,
+      "494": 2
+    },
+    "equal_parent_cosine": 0.8748503576805433,
+    "remove_parent": [
+      {
+        "question": 285,
+        "cosine": 0.995489416675508
+      },
+      {
+        "question": 348,
+        "cosine": 0.9916788079011909
+      },
+      {
+        "question": 395,
+        "cosine": 0.8530564610538438
+      },
+      {
+        "question": 486,
+        "cosine": 0.999660337819459
+      },
+      {
+        "question": 494,
+        "cosine": 0.9991614001262787
+      }
+    ]
+  },
+  "limits": [
+    "Within-trajectory confidence axis is descriptive and shares training data.",
+    "Source-balanced checks are diagnostic, not a new selected deployment recipe.",
+    "No semantic step labels or causal intervention effects are inferred."
+  ],
+  "script_sha256": "c82b43725d756cf140d862cb55bf1ced8fefda42519e7e412c028e171fb5f82a"
+}

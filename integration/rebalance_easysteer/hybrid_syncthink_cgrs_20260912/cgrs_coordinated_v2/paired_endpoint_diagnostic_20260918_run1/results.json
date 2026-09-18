@@ -1,0 +1,106 @@
+{
+  "status": "CPU diagnostics complete; no generation or GPU",
+  "source_archive_sha256": "ba391343b8b86e28514f4dc638a7bc189979883727a17b3fe0f1b757bfce22ff",
+  "script_sha256": "f62b607b403962317059d3c43de1847943bc68d18eac927e42534a11e12766b2",
+  "rows_sha256": "d65191e022b7661f4094b6560f6df54fcf063d9296fd99101b004cba9a90cfcb",
+  "common_prefix": {
+    "pairs": 231,
+    "token_quantiles": [
+      3.0,
+      125.0,
+      298.0,
+      1023.0
+    ],
+    "selected_long_states": 205,
+    "selected_short_states": 71
+  },
+  "variants": {
+    "old_selection": {
+      "parents": 217,
+      "raw_norm": 96.14703396421788,
+      "long_steps": 4970,
+      "short_steps": 2148,
+      "confidence_question_mean": [
+        0.7602127011446542,
+        0.9852582814214533
+      ],
+      "loo_cos_min": 0.9999503385456292,
+      "loo_worst_question": 483,
+      "split_cos_quantiles": [
+        0.958157242721643,
+        0.9739229744761438,
+        0.9886177583172622,
+        0.9923265486438101,
+        0.9936687333762879
+      ],
+      "source_counts": {
+        "U": 173,
+        "L27": 44
+      },
+      "source_mean_cos": 0.9639611078745732,
+      "source_norms": {
+        "U": 96.24886662250064,
+        "L27": 98.57337835834852
+      },
+      "cosine_with_old_selection": 1.0
+    },
+    "post_divergence_all": {
+      "parents": 231,
+      "raw_norm": 12.20347441420719,
+      "long_steps": 14058,
+      "short_steps": 7792,
+      "confidence_question_mean": [
+        0.8605662435733162,
+        0.8743507763630592
+      ],
+      "loo_cos_min": 0.9992376958303616,
+      "loo_worst_question": 110,
+      "split_cos_quantiles": [
+        0.6644021023383104,
+        0.7978765727939251,
+        0.8714066022030738,
+        0.9039795463393532,
+        0.9192893368899242
+      ],
+      "source_counts": {
+        "U": 187,
+        "L27": 44
+      },
+      "source_mean_cos": -0.034096375569557046,
+      "source_norms": {
+        "U": 14.83154920669759,
+        "L27": 13.81383440691618
+      },
+      "cosine_with_old_selection": 0.4682127327931956
+    },
+    "post_divergence_matched": {
+      "parents": 231,
+      "raw_norm": 10.821429413701122,
+      "long_steps": 4849,
+      "short_steps": 4849,
+      "confidence_question_mean": [
+        0.896334682386115,
+        0.8963916321730262
+      ],
+      "loo_cos_min": 0.9976976401016983,
+      "loo_worst_question": 267,
+      "split_cos_quantiles": [
+        0.5828155136032522,
+        0.6315056277700436,
+        0.7212105090448016,
+        0.7824237570513535,
+        0.8041147644532154
+      ],
+      "source_counts": {
+        "U": 187,
+        "L27": 44
+      },
+      "source_mean_cos": 0.32536110893634806,
+      "source_norms": {
+        "U": 12.278337603555363,
+        "L27": 11.179553232973667
+      },
+      "cosine_with_old_selection": 0.17202276840729447
+    }
+  }
+}
