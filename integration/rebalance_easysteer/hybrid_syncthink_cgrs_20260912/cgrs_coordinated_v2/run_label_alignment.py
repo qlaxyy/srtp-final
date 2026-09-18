@@ -23,6 +23,9 @@ def validate(plan,release,phase):
     elif plan.get('experiment_kind')=='outcome_endpoint_v1':
         assert [a['name'] for a in plan['arms']] in (['EFFICIENT_L27'],['UNDER_REFIT_L27'])
         assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='reviewed_repetition_vector_v1':
+        assert [a['name'] for a in plan['arms']]==['REPETITION_NORM_L27']
+        assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='self_feedback_vector_v1':
         assert [a['name'] for a in plan['arms']]==['FEEDBACK_NORM_L27']
         assert not plan['execution'].get('sync_replay',False)
@@ -136,7 +139,7 @@ def main():
         margin=plan.get('experiment_kind')=='margin_v1'
         length_refit=plan.get('experiment_kind')=='length_refit_v1'
         nonpositive=plan.get('experiment_kind')=='nonpositive_v1'
-        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1','self_feedback_vector_v1','outcome_endpoint_v1')
+        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1','self_feedback_vector_v1','outcome_endpoint_v1','reviewed_repetition_vector_v1')
         efficient=plan.get('experiment_kind')=='outcome_endpoint_v1' and plan.get('endpoint_mode')=='efficient'
         length_vector=plan.get('experiment_kind') in ('length_vector_v1','length_refit_v1')
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names

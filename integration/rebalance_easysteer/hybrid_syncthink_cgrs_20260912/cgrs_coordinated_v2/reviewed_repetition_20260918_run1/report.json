@@ -1,0 +1,32 @@
+{
+  "status": "failed CPU readiness; no GPU run",
+  "gates": {
+    "parents": true,
+    "source_counts": true,
+    "loo": true,
+    "split_median": false,
+    "source_cos": true
+  },
+  "raw_norm": 42.62434934170803,
+  "original_norm": 83.6191365562794,
+  "cosine_with_original": -0.032683694374820445,
+  "source_counts": {
+    "U": 27,
+    "L27": 6
+  },
+  "source_cos": 0.3760192464357671,
+  "loo_min": 0.9855823174553532,
+  "loo_worst_question": 176,
+  "split_cos_quantiles": [
+    0.138412392517456,
+    0.2262729774506006,
+    0.39488357198788426,
+    0.5373627900488306,
+    0.5819199896160856
+  ],
+  "earlier_repeat_confidence": [
+    0.909151434944425,
+    0.9002097331855629
+  ],
+  "script_sha256": "18a110a32c6993adf86224934a283cefff70f04643f96f30757513a882303c78"
+}
