@@ -1,5 +1,5 @@
 {
-  "status": "bf16_stage0_failed_first_case_fp32_single_case_passed",
+  "status": "full500_recovered_negative_do_not_expand",
   "stage0_plan": "stage0_plan.json",
   "stage0_scope": "8 existing calibration prefixes, HF unsteered,40 forwards,zero generated answers. This is an additional preliminary cache oracle; it does NOT satisfy the native dynamic-steering gate below.",
   "stage0_cpu_checks": "branch_cpu_checks.json: six categories including18 block-boundary plans, causal attention equivalence,parent cache/RNG isolation,and failure cleanup",
@@ -84,5 +84,27 @@
   ],
   "data_registry": "stage0_plan.json cases: normalized problem hashes,exact prefix IDs and hashes; already exposed calibration engineering only, not new development or confirmation data",
   "main_risk": "May increase useful reflection and tokens; contrast may undo lexical suppression, so improvement is only a hypothesis",
-  "stage0_result": "stage0_result_receipt.json"
+  "stage0_result": "stage0_result_receipt.json",
+  "previous_status": "bf16_stage0_failed_first_case_fp32_single_case_passed",
+  "historical_fields_note": "Preparation and stage0 fields are historical snapshots, not current pending tasks. completed_execution supersedes them for current status; original failed gates remain failed.",
+  "completed_execution": {
+    "decision": "decision_math500_recovered.json",
+    "execution_commit": "2c0e2aa",
+    "coverage": 500,
+    "original_completed": 458,
+    "recovered": 42,
+    "uniform_schedule": false,
+    "native_adapter": "../mti_native_adapter.py",
+    "shared_vllm_source_modified": false,
+    "cue_steering": "Cue has no original step boundary; temporary graph steering masks zero and restored; main prefix retains ReBalance history.",
+    "dtype": "Only selected rows corrected in FP32 then cast back; unselected values and dtype preserved.",
+    "engineering": "Matched-partition HF8 and native off/shadow identity passed; original BF16 whole-prefill comparison remains failed.",
+    "invalid_run3": "399 dtype-confounded records excluded, preserved without grading.",
+    "run4": "458 completed before preemption guard stopped execution.",
+    "recovery": "42 unfinished indices selected without grading; max_num_seqs32 instead of256.",
+    "outcome": "Reject fixed candidate; retain L27; no GSM expansion or threshold retuning.",
+    "aggregate_generation_seconds": null,
+    "aggregate_auxiliary_forwards": null,
+    "archive_sha256": "940931d7681991627eb868f775078f48fa8d9c86d8121cf34ba6bf25058535b6"
+  }
 }
