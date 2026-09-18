@@ -1,0 +1,189 @@
+{
+  "status": "Counterfactual CPU diagnostic; NOT recorded online control",
+  "timing": "At step start coefficient comes from previous completed step, not confidence of the current step itself",
+  "runtime_sha256": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+  "summary": {
+    "earlier": {
+      "negative": 33,
+      "nonnegative": 0,
+      "mean": -0.6633533618666909,
+      "min": -1.5353449583053589,
+      "max": -0.041001319885253906
+    },
+    "repeat": {
+      "negative": 33,
+      "nonnegative": 0,
+      "mean": -0.7744982170336174,
+      "min": -1.5353449583053589,
+      "max": -0.004810616374015808
+    }
+  },
+  "records": [
+    {
+      "question": 8,
+      "earlier_incoming_coefficient_from_saved_reference": -0.39583683013916016,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5505771040916443
+    },
+    {
+      "question": 18,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5631426572799683
+    },
+    {
+      "question": 21,
+      "earlier_incoming_coefficient_from_saved_reference": -0.35508400201797485,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5385177135467529
+    },
+    {
+      "question": 48,
+      "earlier_incoming_coefficient_from_saved_reference": -0.2999401092529297,
+      "repeat_incoming_coefficient_from_saved_reference": -0.542410135269165
+    },
+    {
+      "question": 71,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5573752522468567
+    },
+    {
+      "question": 87,
+      "earlier_incoming_coefficient_from_saved_reference": -0.2954026162624359,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 127,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5439767837524414,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 176,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5339834094047546,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 179,
+      "earlier_incoming_coefficient_from_saved_reference": -0.4261310398578644,
+      "repeat_incoming_coefficient_from_saved_reference": -0.43550699949264526
+    },
+    {
+      "question": 204,
+      "earlier_incoming_coefficient_from_saved_reference": -0.041001319885253906,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 211,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5567092299461365,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 217,
+      "earlier_incoming_coefficient_from_saved_reference": -0.3385142683982849,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 219,
+      "earlier_incoming_coefficient_from_saved_reference": -0.502234160900116,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5099020004272461
+    },
+    {
+      "question": 221,
+      "earlier_incoming_coefficient_from_saved_reference": -0.04554544389247894,
+      "repeat_incoming_coefficient_from_saved_reference": -0.004810616374015808
+    },
+    {
+      "question": 250,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5594717264175415,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 257,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.553027868270874
+    },
+    {
+      "question": 279,
+      "earlier_incoming_coefficient_from_saved_reference": -0.15868522226810455,
+      "repeat_incoming_coefficient_from_saved_reference": -0.08400660753250122
+    },
+    {
+      "question": 304,
+      "earlier_incoming_coefficient_from_saved_reference": -0.36848965287208557,
+      "repeat_incoming_coefficient_from_saved_reference": -0.0550629198551178
+    },
+    {
+      "question": 313,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.32825136184692383
+    },
+    {
+      "question": 329,
+      "earlier_incoming_coefficient_from_saved_reference": -0.045433297753334045,
+      "repeat_incoming_coefficient_from_saved_reference": -0.026898697018623352
+    },
+    {
+      "question": 338,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5627564787864685,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5656567811965942
+    },
+    {
+      "question": 340,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 367,
+      "earlier_incoming_coefficient_from_saved_reference": -0.4144441783428192,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 401,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5577733516693115,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5082011222839355
+    },
+    {
+      "question": 413,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 418,
+      "earlier_incoming_coefficient_from_saved_reference": -0.31805041432380676,
+      "repeat_incoming_coefficient_from_saved_reference": -0.15598049759864807
+    },
+    {
+      "question": 431,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5591180324554443,
+      "repeat_incoming_coefficient_from_saved_reference": -0.531920313835144
+    },
+    {
+      "question": 449,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5653656721115112
+    },
+    {
+      "question": 453,
+      "earlier_incoming_coefficient_from_saved_reference": -0.1678682118654251,
+      "repeat_incoming_coefficient_from_saved_reference": -0.44991999864578247
+    },
+    {
+      "question": 456,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5599344372749329,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5337880849838257
+    },
+    {
+      "question": 462,
+      "earlier_incoming_coefficient_from_saved_reference": -1.5353449583053589,
+      "repeat_incoming_coefficient_from_saved_reference": -0.0438237190246582
+    },
+    {
+      "question": 469,
+      "earlier_incoming_coefficient_from_saved_reference": -0.5465782880783081,
+      "repeat_incoming_coefficient_from_saved_reference": -1.5353449583053589
+    },
+    {
+      "question": 483,
+      "earlier_incoming_coefficient_from_saved_reference": -0.45493876934051514,
+      "repeat_incoming_coefficient_from_saved_reference": -0.5655004978179932
+    }
+  ],
+  "limits": "Unsteered HF replay probabilities; actual new-vector vLLM control will differ. No configuration change."
+}
