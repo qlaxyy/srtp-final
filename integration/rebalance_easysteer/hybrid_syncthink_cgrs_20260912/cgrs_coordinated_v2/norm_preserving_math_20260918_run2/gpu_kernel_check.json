@@ -1,0 +1,18 @@
+[
+  {
+    "dtype": "torch.float32",
+    "device": "cuda",
+    "relative_norm_error": 6.968905807980263e-08,
+    "off_exact": true,
+    "masked_exact": true,
+    "mode_reset": true
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "relative_norm_error": 0.00040495654684491456,
+    "off_exact": true,
+    "masked_exact": true,
+    "mode_reset": true
+  }
+]

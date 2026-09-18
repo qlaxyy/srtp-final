@@ -1,0 +1,20 @@
+[
+  {
+    "downstream": false,
+    "eager_equal": true,
+    "compiled_equal": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0,
+    "original_compile_vs_eager": 4817,
+    "wrapper_compile_vs_eager": 4817
+  },
+  {
+    "downstream": true,
+    "eager_equal": true,
+    "compiled_equal": false,
+    "differing_elements": 11395,
+    "max_abs_diff": 0.015625,
+    "original_compile_vs_eager": 18706,
+    "wrapper_compile_vs_eager": 20588
+  }
+]
