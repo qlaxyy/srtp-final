@@ -1,0 +1,35 @@
+{
+  "results": {
+    "original": {
+      "cosine_to_full_vector_quantiles": [
+        0.9677051160045311,
+        0.9865401762262156,
+        0.9944846606825861
+      ],
+      "norm_quantiles": [
+        79.06597864276749,
+        84.2778156269685,
+        92.33545029955425
+      ],
+      "full_norm": 83.61913616775803
+    },
+    "length": {
+      "cosine_to_full_vector_quantiles": [
+        0.9901792423763297,
+        0.9950612015355603,
+        0.9971687029879018
+      ],
+      "norm_quantiles": [
+        118.25141493452547,
+        122.01829154378632,
+        125.90256095051457
+      ],
+      "full_norm": 121.43210874934636
+    }
+  },
+  "replicates": 512,
+  "seed": 20260918,
+  "method": "Resample questions with replacement; retain all selected steps within sampled questions and fixed original thresholds. No state-level independence assumption.",
+  "limitations": "Conditional on current masks/layer and greedy calibration; does not verify semantics or generation efficacy.",
+  "script_sha256": "bc69e9a5eb6c4907c4b2e5437c4df7e2526399e0af76706539d52428df6714eb"
+}
