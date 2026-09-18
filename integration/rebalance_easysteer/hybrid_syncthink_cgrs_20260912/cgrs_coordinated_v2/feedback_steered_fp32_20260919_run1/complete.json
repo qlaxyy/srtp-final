@@ -1,0 +1,100 @@
+{
+  "status": "Inference-only prefix diagnostic; no new answers/gradients/update",
+  "rows": [
+    {
+      "key": "486_U",
+      "index": 2316,
+      "prefix_input_tokens": 2401,
+      "target_id": 21,
+      "context": " and 20*8.333333333 is 166.66666666, so total is 5833.",
+      "native_logp": -1.9073486328125e-05,
+      "native_rawmax": 0.9999809265136719,
+      "saved_full_hf_logp": -7.2512664794921875,
+      "results": {
+        "full": {
+          "target_logp": -1.9073486328125e-05,
+          "raw_max_probability": 0.9999802112579346,
+          "top5_ids": [
+            21,
+            13,
+            22,
+            20,
+            24
+          ],
+          "top5_logp": [
+            -1.9073486328125e-05,
+            -10.991209030151367,
+            -13.468221664428711,
+            -14.442516326904297,
+            -14.851064682006836
+          ],
+          "seconds": 0.6264203041791916
+        }
+      }
+    },
+    {
+      "key": "129_U",
+      "index": 4610,
+      "prefix_input_tokens": 4661,
+      "target_id": 21,
+      "context": " divisible. 577 \u00f7 17: 17\u00d733=561, 577-561=16, not divisible. 5",
+      "native_logp": -3.814697265625e-06,
+      "native_rawmax": 0.9999962449073792,
+      "saved_full_hf_logp": -5.419496536254883,
+      "results": {
+        "full": {
+          "target_logp": -3.814697265625e-06,
+          "raw_max_probability": 0.9999966621398926,
+          "top5_ids": [
+            21,
+            22,
+            20,
+            19,
+            24
+          ],
+          "top5_logp": [
+            -3.814697265625e-06,
+            -12.904973983764648,
+            -14.66421127319336,
+            -15.356927871704102,
+            -17.088844299316406
+          ],
+          "seconds": 0.6417326480150223
+        }
+      }
+    },
+    {
+      "key": "414_L27",
+      "index": 2588,
+      "prefix_input_tokens": 2652,
+      "target_id": 9834,
+      "context": "\nk=47: yes\nk=48: yes\nk=49: yes\n\nLet me count these:\n\nFrom k=2 to k=49, every 3",
+      "native_logp": -0.0003032684326171875,
+      "native_rawmax": 0.9996968507766724,
+      "saved_full_hf_logp": -4.388910293579102,
+      "results": {
+        "full": {
+          "target_logp": -0.00029754638671875,
+          "raw_max_probability": 0.9997021555900574,
+          "top5_ids": [
+            9834,
+            7414,
+            9693,
+            902,
+            379
+          ],
+          "top5_logp": [
+            -0.00029754638671875,
+            -9.405179977416992,
+            -9.77945327758789,
+            -10.206842422485352,
+            -10.541431427001953
+          ],
+          "seconds": 0.2933049350976944
+        }
+      }
+    }
+  ],
+  "wall_seconds": 26.20209988951683,
+  "plan_sha256": "35dcf622c2251f52a3115319361bc3e5e2b8b475a7af3ad661f506aa747d06c4"
+}

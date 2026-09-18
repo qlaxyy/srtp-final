@@ -18,7 +18,7 @@ def main():
   sys.path.insert(0,str(original))
   from transformers import AutoModelForCausalLM,AutoTokenizer
   from feedback_fixed_history import FixedHistoryScorer,effective_scales
-  model=AutoModelForCausalLM.from_pretrained(assets['model_path'],torch_dtype=torch.bfloat16,attn_implementation='sdpa',local_files_only=True).cuda().eval()
+  model=AutoModelForCausalLM.from_pretrained(assets['model_path'],torch_dtype=getattr(torch,plan.get('hf_dtype','bfloat16')),attn_implementation=plan.get('hf_attention','sdpa'),local_files_only=True).cuda().eval()
   for p in model.parameters():p.requires_grad_(False)
   tok=AutoTokenizer.from_pretrained(assets['model_path'],local_files_only=True)
   boundaries=torch.tensor(sorted(i for s,i in tok.get_vocab().items() if 'ĊĊ' in s),device='cuda')
@@ -33,7 +33,7 @@ def main():
     trace=dict(np.load(trace_path));ids=torch.tensor(row['prompt_token_ids']+row['token_ids'][:i],device='cuda')
     scales=effective_scales(ids,torch.as_tensor(trace['history'][:len(ids)],device='cuda'),p,boundaries)
     target=row['token_ids'][i];results={}
-    for mode in ['full','full_repeat','cached_128','cached_1']:
+    for mode in plan.get('modes',['full','full_repeat','cached_128','cached_1']):
      torch.cuda.synchronize();t=time.monotonic();past=None
      if mode.startswith('full'):
       scorer.scales=scales;h=model.model(input_ids=ids[None],use_cache=False,return_dict=True).last_hidden_state[0,-1]

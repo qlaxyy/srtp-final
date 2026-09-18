@@ -1,0 +1,30 @@
+{
+  "original": "/root/autodl-tmp/projects/feedback_expanded_gradient_20260919_run1",
+  "original_plan_sha256": "e4c26e2ae7a0a04f4df9d26b55f4fcb1df795afed946b89c0fca4ba25f29774c",
+  "runtime": "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917",
+  "targets": [
+    {
+      "key": "486_U",
+      "index": 2316,
+      "saved_full_hf_logp": -7.2512664794921875,
+      "trace_sha256": "7c436c7ba7d1230eecf77d7e9b12a8fdde143f2487b3fd178ee158d963328d8e"
+    },
+    {
+      "key": "129_U",
+      "index": 4610,
+      "saved_full_hf_logp": -5.419496536254883,
+      "trace_sha256": "ec3da09a1b33f6e5502bb139cd48f9cb098b5a555253b319e8b369f091b2a4e6"
+    },
+    {
+      "key": "414_L27",
+      "index": 2588,
+      "saved_full_hf_logp": -4.388910293579102,
+      "trace_sha256": "ce5987323b4d6b78c84f4936d0c821e88c3817f219622e28045bf40f1a681c39"
+    }
+  ],
+  "script_sha256": "1666051c44e01f5917013afce4ab7875029a21413ece8cfafc0260ee382a89f9",
+  "purpose": "Base-model same-prefix next-token scoring without steering or lexical penalty",
+  "ceiling_per_engine_seconds": 300,
+  "complete_answers_generated": 0,
+  "hf_attention": "eager"
+}
