@@ -1,0 +1,30 @@
+{
+  "questions": 145,
+  "source_sha256": "0916da6caaa79ca14f7cd9948290857357318d1472cf67f71def3bf640d905ba",
+  "features_sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+  "raw_norm": 13.917627644208817,
+  "old_norm": 83.6191365562794,
+  "cosine_original": -0.2712664768446681,
+  "cosine_low_minus_high_confidence": -0.697154724654152,
+  "confidence_delta_mean": 0.04354545008921996,
+  "absolute_confidence_delta_quantiles": [
+    0.016400419453669213,
+    0.03313568180108761,
+    0.06066428243356525,
+    0.09986881212914864
+  ],
+  "position_gap_quantiles": [
+    81.0,
+    352.0,
+    1293.1999999999994,
+    3455.0
+  ],
+  "question_bootstrap_cosine_quantiles": [
+    0.9557412024679162,
+    0.9709069913505357,
+    0.9802261155635483
+  ],
+  "repeated_end_low_confidence_questions": 26,
+  "repeated_end_high_confidence_questions": 5,
+  "note": "End of third step; all 145 pairs equally weighted. No scaling, vector export, fit, GPU or causal claim. Positive repeat-minus-first aligns with higher confidence if cosine to low-minus-high is negative. Stability does not establish semantic specificity."
+}

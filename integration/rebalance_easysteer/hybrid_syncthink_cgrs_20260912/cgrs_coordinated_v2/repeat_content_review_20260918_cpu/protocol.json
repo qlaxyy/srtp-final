@@ -1,0 +1,24 @@
+{
+  "input_sha256": "813cdd9d067ae6cc7eb25eb2007ca3b0a5fb5fafe1b5597a78ba157f97f74baf",
+  "selection": "Four per capped/not-capped stratum, SHA256(repeat-review-v1:problem_sha256) ascending; earliest repeat >=16 tokens per question; fixed before content reading.",
+  "populations": {
+    "capped": 138,
+    "not_capped": 89
+  },
+  "selected_train_indices": [
+    2152,
+    5201,
+    5417,
+    1667,
+    556,
+    2430,
+    5972,
+    2962
+  ],
+  "rubric": [
+    "mechanical_restatement: repeats established material with no visible new inference in local context",
+    "verification_or_reuse: repeated statement supports a new check, application, or inference",
+    "uncertain: context insufficient or mixed"
+  ],
+  "limits": "Single assistant qualitative review of eight stratified cases; not independent human labels, prevalence estimate, proof of correctness, or GPU efficacy evidence."
+}
