@@ -1,0 +1,70 @@
+{
+  "over": 48251,
+  "under": 11309,
+  "both_class_parents": 283,
+  "effective_parents": 74.52264506814386,
+  "old_norm": 83.61913616775803,
+  "within_norm": 52.4400538690907,
+  "between_norm": 32.945038253770385,
+  "old_within_cosine": 0.9870877332931284,
+  "within_between_cosine": 0.9136237596332526,
+  "between_projection_fraction_on_old": 0.3809678468387587,
+  "note": "Projection fraction is an exact directional decomposition, not variance explained, semantic contamination percentage, or expected compression.",
+  "folds": [
+    {
+      "fold": 0,
+      "parents": 100,
+      "both_class_parents": 57,
+      "train_test_within_cosine": 0.9638358975481628,
+      "train_original_test_within_cosine": 0.9554215524822366,
+      "within_positive_parent_fraction": 1.0,
+      "original_positive_parent_fraction": 1.0
+    },
+    {
+      "fold": 1,
+      "parents": 100,
+      "both_class_parents": 50,
+      "train_test_within_cosine": 0.8563272832818107,
+      "train_original_test_within_cosine": 0.8383911138027969,
+      "within_positive_parent_fraction": 1.0,
+      "original_positive_parent_fraction": 1.0
+    },
+    {
+      "fold": 2,
+      "parents": 100,
+      "both_class_parents": 58,
+      "train_test_within_cosine": 0.9583901255670643,
+      "train_original_test_within_cosine": 0.947315740080074,
+      "within_positive_parent_fraction": 1.0,
+      "original_positive_parent_fraction": 1.0
+    },
+    {
+      "fold": 3,
+      "parents": 100,
+      "both_class_parents": 54,
+      "train_test_within_cosine": 0.9210554118543599,
+      "train_original_test_within_cosine": 0.9160233256595531,
+      "within_positive_parent_fraction": 1.0,
+      "original_positive_parent_fraction": 1.0
+    },
+    {
+      "fold": 4,
+      "parents": 100,
+      "both_class_parents": 64,
+      "train_test_within_cosine": 0.9224117891667157,
+      "train_original_test_within_cosine": 0.9121898258040706,
+      "within_positive_parent_fraction": 1.0,
+      "original_positive_parent_fraction": 1.0
+    }
+  ],
+  "cpu_screen_pass": true,
+  "gpu_run_started": false,
+  "original_vector_exact": true,
+  "decomposition_verified": true,
+  "candidate_sha256": "241fb0871cb5134d84da7722d310d6a833de8beb22f7a95262794b1df9747583",
+  "input_hashes": {
+    "steps": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "features": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+    "original_vector": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+  }
+}

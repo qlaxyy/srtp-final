@@ -1,0 +1,10 @@
+{
+  "hypothesis": "Remove additive between-question offsets from original OR-label mean difference. Not semantic relabeling, not equal-parent prototypes, not confidence residualization.",
+  "formula": "m_q=(nO_q*muO_q+nU_q*muU_q)/(nO_q+nU_q); within=mean_O(h-m_q)-mean_U(h-m_q); old=within+between. Equivalently within=sum_q[nO_q*nU_q/(nO_q+nU_q)*(1/NO+1/NU)*(muO_q-muU_q)].",
+  "inclusion": "All original over/under rows; unused steps excluded from centering; single-class parents cancel within exactly, not synthetically imputed.",
+  "validation": "Five parent-disjoint folds: sort SHA256(qcenter-v1:normalized_problem_hash), round-robin. Recompute on train; test only alignment with held-out class differences. No benchmark files, threshold tuning or seed search.",
+  "admission": "CPU candidate only if exact decomposition and finite vectors pass, effective parent count>=30, and all five train/heldout within-direction cosines>0. This is an engineering/stability screen, not statistical power or GPU efficacy authorization.",
+  "export": "If passed: match frozen original norm; retain output layer20, raw OR labels, controller fit, L27 suppression and all generation settings. No runtime changes or generation in this script.",
+  "limitations": "Removes additive question mean only. Label semantics, within-question position/confidence/content and difficulty-selection confounding remain. Fixed effects do not identify causal overthinking.",
+  "gpu_calls": 0
+}
