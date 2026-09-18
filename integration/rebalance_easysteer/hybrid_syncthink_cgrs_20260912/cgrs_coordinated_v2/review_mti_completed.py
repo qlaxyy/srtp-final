@@ -20,7 +20,7 @@ def main():
         assert hashlib.sha256(raw('plan.json')).hexdigest()==release['plan_sha256']
         data=read(a.arm+'/result.json');assert data['status']=='complete'
         labels=[json.loads(x) for x in raw(a.arm+'/author_partial.jsonl').decode().splitlines()]
-        assert len(labels)==len(data['records'])==len(plan['rows'])==500
+        assert len(labels)==len(data['records'])==len(plan['rows'])==(1319 if plan.get('dataset_key')=='gsm8k' else 500)
         candidate=[]
         for i,(r,label,q) in enumerate(zip(data['records'],labels,plan['rows'])):
             assert r['dataset_index']==label['dataset_index']==q['dataset_index']==i
@@ -53,7 +53,7 @@ def main():
             provenance=None
             gpu=list(csv.reader(io.StringIO(raw(a.arm+'/gpu.csv').decode())))
             utilization=[float(row[1].strip()) for row in gpu if len(row)>=4]
-        report=dict(status='Full500 identity/length/labels and paired statistics verified locally',
+        report=dict(status='Full dataset identity/length/labels and paired statistics verified locally',
             archive_sha256=hashlib.sha256(a.archive.read_bytes()).hexdigest(),summary=s,
             comparisons=comparisons,advance_to_gsm_observed_rule=bool(eligible),
             eligible_without_uniform_schedule_recheck=bool(eligible and not recovered),

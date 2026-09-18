@@ -14,7 +14,7 @@ def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
     if plan.get('experiment_kind')=='length_vector_v1':
-        assert [a['name'] for a in plan['arms']]==['LENGTH_L27','LENGTH_NORM_L27']
+        assert [a['name'] for a in plan['arms']] in ([['LENGTH_L27'],['LENGTH_NORM_L27']] if gsm else [['LENGTH_L27','LENGTH_NORM_L27']])
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='margin_v1':
         assert [a['name'] for a in plan['arms']]==['MARGIN_L27']
@@ -119,7 +119,9 @@ def main():
             calib='T14' if name in ('T14_T14','T14_L27') else 'CV' if name=='CV_CV' else None
             vp=HERE/'label_alignment_20260917'/calib/'auto_vector.pt' if calib else Path(assets['vector']['path'])
             fp=HERE/'label_alignment_20260917'/calib/'fit.json' if calib else Path(assets['fit']['path'])
-            if length_vector and name!='L27_REFERENCE':vp=HERE/plan['arms'][int('NORM' in name)]['vector']
+            if length_vector and name!='L27_REFERENCE':
+                arm_name='LENGTH_NORM_L27' if 'NORM' in name else 'LENGTH_L27'
+                vp=HERE/next(a for a in plan['arms'] if a['name']==arm_name)['vector']
             if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
