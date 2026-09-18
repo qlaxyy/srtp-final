@@ -1,0 +1,283 @@
+{
+  "status": "retrospective_label_feasibility_not_new_generation",
+  "counts": {
+    "censored_or_unfinished": 5,
+    "apply_shorter_both_correct": 6,
+    "skip_shorter_both_correct": 5,
+    "grading_ambiguous": 1,
+    "length_objectives_disagree": 2,
+    "equal_lengths": 1
+  },
+  "counts_by_sign": {
+    "strong_negative": {
+      "censored_or_unfinished": 1,
+      "apply_shorter_both_correct": 3,
+      "skip_shorter_both_correct": 3,
+      "grading_ambiguous": 1,
+      "length_objectives_disagree": 2
+    },
+    "positive": {
+      "apply_shorter_both_correct": 3,
+      "censored_or_unfinished": 4,
+      "skip_shorter_both_correct": 2,
+      "equal_lengths": 1
+    }
+  },
+  "rows": [
+    {
+      "case_id": "B01",
+      "train_index": 1307,
+      "stratum": "strong_negative",
+      "prefix_sha256": "90b9c935ea83bc9af6c4b0ec8d1e016cb1326422fa78c38d5edc523ec8e325f3",
+      "coefficient": -1.5353449583053589,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "censored_or_unfinished"
+    },
+    {
+      "case_id": "B02",
+      "train_index": 3100,
+      "stratum": "strong_negative",
+      "prefix_sha256": "ec7b82b9acee3df13384027983cd59dc8a89b398e2c31e11e1d39865850a7d3c",
+      "coefficient": -0.5271120071411133,
+      "apply_minus_skip_thinking": -68,
+      "apply_minus_skip_total": -59,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B03",
+      "train_index": 3714,
+      "stratum": "strong_negative",
+      "prefix_sha256": "1633b205af8b0108dac0fdc45fcc11b133b8a8bc05df2d76b19956c8b8b5dea5",
+      "coefficient": -0.5522459745407104,
+      "apply_minus_skip_thinking": 622,
+      "apply_minus_skip_total": 705,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "case_id": "B04",
+      "train_index": 5369,
+      "stratum": "strong_negative",
+      "prefix_sha256": "69be95dd933fa929d42dea9a69e177004a24cb10289613bfa049c690a417854d",
+      "coefficient": -0.5645012259483337,
+      "apply_minus_skip_thinking": -422,
+      "apply_minus_skip_total": -327,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "grading_ambiguous"
+    },
+    {
+      "case_id": "B05",
+      "train_index": 5584,
+      "stratum": "strong_negative",
+      "prefix_sha256": "5f7daccd57e3bd99a372cc50be0c7df500547454003f75561f2c01ef94d0fdf6",
+      "coefficient": -0.5611929893493652,
+      "apply_minus_skip_thinking": 466,
+      "apply_minus_skip_total": 432,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "case_id": "B06",
+      "train_index": 1295,
+      "stratum": "strong_negative",
+      "prefix_sha256": "ea178604b0be57f86ad35e922ce5cae9d4681f128bafe912ff6d7d68012a6bfd",
+      "coefficient": -0.5635417699813843,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": -37,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "length_objectives_disagree"
+    },
+    {
+      "case_id": "B07",
+      "train_index": 7083,
+      "stratum": "strong_negative",
+      "prefix_sha256": "03bfb6fb6ed56503ea566879edfc8a50a8acdc6a6edbe05a45848249ae9859e4",
+      "coefficient": -1.5353449583053589,
+      "apply_minus_skip_thinking": 9,
+      "apply_minus_skip_total": 18,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "case_id": "B08",
+      "train_index": 3986,
+      "stratum": "strong_negative",
+      "prefix_sha256": "64d48d41e94ea47b97379b6d10a32ef6ce4bdbc8767acd44ada63a525d4877d7",
+      "coefficient": -1.5353449583053589,
+      "apply_minus_skip_thinking": -8,
+      "apply_minus_skip_total": 106,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "length_objectives_disagree"
+    },
+    {
+      "case_id": "B09",
+      "train_index": 64,
+      "stratum": "strong_negative",
+      "prefix_sha256": "4503391670791745e2ae0d65f84b51e3d74c1ca6a575de39d4998b167d0f6894",
+      "coefficient": -1.5353449583053589,
+      "apply_minus_skip_thinking": -47,
+      "apply_minus_skip_total": -120,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B10",
+      "train_index": 6693,
+      "stratum": "strong_negative",
+      "prefix_sha256": "74f2ebb53c23a5d136cc0b36b7a9484cac7ac2f337733b69434977fc09e7b56b",
+      "coefficient": -0.559463620185852,
+      "apply_minus_skip_thinking": -138,
+      "apply_minus_skip_total": -159,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B11",
+      "train_index": 7253,
+      "stratum": "positive",
+      "prefix_sha256": "8497788664f005d7748e33e778632399d46d409cc19fd2e01f08150810da4274",
+      "coefficient": 0.0023110508918762207,
+      "apply_minus_skip_thinking": -308,
+      "apply_minus_skip_total": -312,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B12",
+      "train_index": 2277,
+      "stratum": "positive",
+      "prefix_sha256": "338e2ad16a7b8350a4cb58df585c022a3f5c6a1b4b70f733b0807b9f55a23315",
+      "coefficient": 0.001941382884979248,
+      "apply_minus_skip_thinking": -325,
+      "apply_minus_skip_total": -325,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B13",
+      "train_index": 1401,
+      "stratum": "positive",
+      "prefix_sha256": "fadb7f50b8c9fabef79fac5f2f6fe1d4e2291ae95a283dc27dacaca278f4ea20",
+      "coefficient": 0.0004665553569793701,
+      "apply_minus_skip_thinking": -823,
+      "apply_minus_skip_total": -784,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "case_id": "B14",
+      "train_index": 5574,
+      "stratum": "positive",
+      "prefix_sha256": "56387e0e095dda5ce63794cce0b325b6932454beae3e6e7e8c49a0483e7fed50",
+      "coefficient": 0.002298871986567974,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "censored_or_unfinished"
+    },
+    {
+      "case_id": "B15",
+      "train_index": 913,
+      "stratum": "positive",
+      "prefix_sha256": "5d23e9e3599e5bc517cc985e679a9086d26a2c56f8cba878615e9b3612f19035",
+      "coefficient": 0.0024252235889434814,
+      "apply_minus_skip_thinking": 93,
+      "apply_minus_skip_total": 100,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "case_id": "B16",
+      "train_index": 1323,
+      "stratum": "positive",
+      "prefix_sha256": "e67f72f3fcb6422c541b2c69b40822e9fefe9134716c2079386fed39742555d1",
+      "coefficient": 0.09987897425889969,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "equal_lengths"
+    },
+    {
+      "case_id": "B17",
+      "train_index": 1990,
+      "stratum": "positive",
+      "prefix_sha256": "67c7712116eea1db469feeec4c6822304e1886ed83754cec0a6af603bc874228",
+      "coefficient": 0.0998520627617836,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "censored_or_unfinished"
+    },
+    {
+      "case_id": "B18",
+      "train_index": 4742,
+      "stratum": "positive",
+      "prefix_sha256": "b1db7f2fe16fb1e89b69cd771057bf53ac3d6b580990e2ca2e135ebc314f9bcb",
+      "coefficient": 0.09825951606035233,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "censored_or_unfinished"
+    },
+    {
+      "case_id": "B19",
+      "train_index": 819,
+      "stratum": "positive",
+      "prefix_sha256": "0322784c6569d0b5e0192056cdf9da5dee0ecdaa6f7e3c1f94e55fc0106eaec6",
+      "coefficient": 0.0022856295108795166,
+      "apply_minus_skip_thinking": 957,
+      "apply_minus_skip_total": 928,
+      "apply_correct": true,
+      "skip_correct": true,
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "case_id": "B20",
+      "train_index": 2334,
+      "stratum": "positive",
+      "prefix_sha256": "acc132529f4263d903c10dbcb6bf524f844b90ff673597b4c3377107a013c741",
+      "coefficient": 0.0023176968097686768,
+      "apply_minus_skip_thinking": 0,
+      "apply_minus_skip_total": 0,
+      "apply_correct": false,
+      "skip_correct": false,
+      "label": "censored_or_unfinished"
+    }
+  ],
+  "source_sha256": {
+    ".codex_work\\boundary_ablation20_20260910\\run2\\summary.json": "199528411e2712deb702f613cb9a2d1b6cb42cb507164febec764a7c2ec5cf6b",
+    ".codex_work\\boundary_ablation20_20260910\\run2\\continuations.jsonl": "66777ed6d1bea2c26bb176f3b7f4594bc76f0f0c7a34ca5332a28296a2fc347b",
+    ".codex_work\\boundary_ablation20_20260910\\manifest.json": "65af63ee007c9ad0a995ab2c861de560c6ffc911b620dd20917c3ce41e050b84",
+    "integration\\rebalance_easysteer\\configs\\boundary_failure_review6_20260910.json": "2d5c6d4790eb7eaee6bfc4019c91f0ac86848311aa113c964eb52052baea64bb"
+  },
+  "decision": "Action preference labels are conditional on the signed original displacement, one greedy continuation, and an unsteered saved prefix. They cannot be treated as semantic over/under classes or directly converted to a new steering direction.",
+  "limitations": [
+    "Both final answers correct does not prove full reasoning valid. B04 is quarantined for known option-mapping issue, without rewriting author scores.",
+    "Positive and negative coefficients must not be pooled as one intervention. Single sampled counterfactual is not expected treatment effect.",
+    "This predates L27 and has no L27 suppression; no claim of current combination benefit.",
+    "A new vector would itself change the intervention used to create these labels; transport must be tested separately."
+  ],
+  "new_answers": 0,
+  "new_forward": 0
+}
