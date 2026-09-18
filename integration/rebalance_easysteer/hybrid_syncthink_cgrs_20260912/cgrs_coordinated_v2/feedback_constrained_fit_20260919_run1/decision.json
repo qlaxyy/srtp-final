@@ -1,0 +1,21 @@
+{
+  "status": "STOP: predeclared correctness development gate failed; no MATH500 or GSM8K new generation",
+  "compression_development_positive": [
+    6,
+    29
+  ],
+  "compression_development_count": [
+    8,
+    37
+  ],
+  "correctness_development_positive": 0,
+  "correctness_development_count": 4,
+  "fit_correctness_question": 486,
+  "limits": [
+    "Preference margin is a fixed-history surrogate, not accuracy or generated token count",
+    "All evaluation items were previously exposed; not independent confirmation",
+    "No threshold/sign/step tuning after failure"
+  ],
+  "next": "Keep L27 frozen. Do not broaden this candidate. If self-feedback is pursued further, obtain separate correctness-sensitive training and evaluation examples rather than reuse these four as both constraints and evidence.",
+  "evidence_sha256": "45cdd914021889e5fdb56070b5d7514b269155bd64d1499b1b151564964d231e"
+}
