@@ -1,0 +1,327 @@
+{
+  "status": "Full dataset identity/length/labels and paired statistics verified locally",
+  "archive_sha256": "442220e1b6192a89ed30b444f3a63a60d489ff01ef407b2597292fec61ed2f1b",
+  "summary": {
+    "count": 500,
+    "correct": 421,
+    "accuracy_percent": 84.2,
+    "mean_tokens": 3435.646,
+    "mean_thinking_tokens": 3052.61,
+    "capped": 19
+  },
+  "source_input_hashes_verified": true,
+  "run_json_copies_equal_after_newline_conversion": true,
+  "comparisons": {
+    "U": {
+      "accuracy_delta_pp": -0.2,
+      "ci95": {
+        "accuracy": [
+          -2.8000000000000003,
+          2.4
+        ],
+        "tokens": [
+          -27.540717365306936,
+          -18.117882536203744
+        ],
+        "thinking_tokens": [
+          -30.587170057513863,
+          -20.23003777910263
+        ]
+      },
+      "tokens_percent": -22.982325805776206,
+      "thinking_tokens_percent": -25.591142142732124,
+      "wrong_to_right": [
+        10,
+        14,
+        50,
+        68,
+        80,
+        82,
+        166,
+        219,
+        232,
+        236,
+        239,
+        285,
+        301,
+        309,
+        320,
+        349,
+        351,
+        398,
+        409,
+        421,
+        425,
+        486
+      ],
+      "right_to_wrong": [
+        18,
+        21,
+        32,
+        41,
+        60,
+        63,
+        71,
+        109,
+        119,
+        120,
+        145,
+        222,
+        246,
+        279,
+        294,
+        296,
+        333,
+        338,
+        372,
+        380,
+        432,
+        445,
+        491
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": false
+    },
+    "R": {
+      "accuracy_delta_pp": 2.0,
+      "ci95": {
+        "accuracy": [
+          -0.8,
+          4.8
+        ],
+        "tokens": [
+          -9.775227732305657,
+          3.655679336636737
+        ],
+        "thinking_tokens": [
+          -11.371297422078502,
+          3.898185287953442
+        ]
+      },
+      "tokens_percent": -3.3356573430547876,
+      "thinking_tokens_percent": -4.085240247996314,
+      "wrong_to_right": [
+        10,
+        14,
+        24,
+        39,
+        50,
+        64,
+        80,
+        104,
+        108,
+        123,
+        126,
+        140,
+        213,
+        214,
+        239,
+        285,
+        301,
+        323,
+        347,
+        349,
+        351,
+        394,
+        398,
+        401,
+        418,
+        443,
+        458,
+        466,
+        494,
+        495,
+        498
+      ],
+      "right_to_wrong": [
+        21,
+        32,
+        60,
+        63,
+        71,
+        101,
+        109,
+        120,
+        145,
+        156,
+        168,
+        176,
+        279,
+        294,
+        296,
+        338,
+        372,
+        445,
+        490,
+        491,
+        497
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    },
+    "RC14": {
+      "accuracy_delta_pp": 3.0,
+      "ci95": {
+        "accuracy": [
+          0.0,
+          6.0
+        ],
+        "tokens": [
+          -1.704741048325151,
+          13.302219553192105
+        ],
+        "thinking_tokens": [
+          -1.9330116175526337,
+          15.539809068434815
+        ]
+      },
+      "tokens_percent": 5.471579602715537,
+      "thinking_tokens_percent": 6.361902452315693,
+      "wrong_to_right": [
+        14,
+        24,
+        50,
+        80,
+        108,
+        123,
+        126,
+        136,
+        164,
+        177,
+        184,
+        213,
+        214,
+        219,
+        228,
+        236,
+        309,
+        317,
+        349,
+        365,
+        371,
+        382,
+        396,
+        401,
+        411,
+        412,
+        419,
+        431,
+        443,
+        448,
+        454,
+        462,
+        473,
+        478,
+        486,
+        495
+      ],
+      "right_to_wrong": [
+        32,
+        60,
+        63,
+        71,
+        94,
+        101,
+        109,
+        120,
+        156,
+        176,
+        217,
+        224,
+        246,
+        296,
+        333,
+        338,
+        352,
+        372,
+        380,
+        445,
+        497
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    },
+    "L27_L27": {
+      "accuracy_delta_pp": 1.2,
+      "ci95": {
+        "accuracy": [
+          -1.2,
+          3.8
+        ],
+        "tokens": [
+          4.524677514564504,
+          18.43970982668109
+        ],
+        "thinking_tokens": [
+          4.964644314841345,
+          21.18731189923547
+        ]
+      },
+      "tokens_percent": 11.241251314569322,
+      "thinking_tokens_percent": 12.758272705244078,
+      "wrong_to_right": [
+        24,
+        64,
+        80,
+        83,
+        126,
+        177,
+        189,
+        214,
+        219,
+        239,
+        317,
+        327,
+        349,
+        382,
+        385,
+        398,
+        425,
+        431,
+        454,
+        458,
+        466,
+        478,
+        495
+      ],
+      "right_to_wrong": [
+        21,
+        32,
+        63,
+        94,
+        101,
+        109,
+        119,
+        145,
+        168,
+        217,
+        294,
+        296,
+        303,
+        333,
+        445,
+        490,
+        497
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    }
+  },
+  "advance_to_gsm_observed_rule": false,
+  "eligible_without_uniform_schedule_recheck": false,
+  "recovery_provenance": null,
+  "generation_seconds": 458.58091439306736,
+  "full_process_seconds": 1005.2912753522396,
+  "grading_and_analysis_seconds": 73.35635371506214,
+  "gpu_mean_utilization_percent": 74.33115468409586,
+  "mti": null,
+  "arm": "LENGTH_NORM_L27",
+  "extra_model_forward_count": 0,
+  "margin_changes": 0,
+  "margin_changed_questions": 0,
+  "limitations": [
+    "Repeatedly exposed test set; not independent confirmation.",
+    "No standalone candidate-mechanism arm, so no additive synergy claim.",
+    "Historical controls; one seed; proxy states do not establish semantic overthinking or necessary reflection."
+  ]
+}

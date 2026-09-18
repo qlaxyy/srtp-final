@@ -8,7 +8,7 @@ from grade_label_alignment import compare,summary
 def main():
     p=argparse.ArgumentParser();p.add_argument('--archive',type=Path,required=True)
     p.add_argument('--root',default='mti_native_20260918_run4/full/')
-    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27','LENGTH_L27','LENGTH_NORM_L27'])
+    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27','LENGTH_L27','LENGTH_NORM_L27','LENGTH_REFIT_L27'])
     p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     root=a.root
     with tarfile.open(a.archive) as t:
@@ -16,8 +16,15 @@ def main():
         def read(name):return json.loads(raw(name))
         complete=read('complete.json');assert complete['passed'] and complete['phase']=='full'
         plan=read('plan.json');release=read('release.json');analysis=read('analysis.json')
-        assert hashlib.sha256(raw('release.json')).hexdigest()==complete['release_sha256']
-        assert hashlib.sha256(raw('plan.json')).hexdigest()==release['plan_sha256']
+        source_dir=Path(__file__).parent/release['artifact_root']
+        source_release=(source_dir/'release.json').read_bytes()
+        source_plan=(Path(__file__).parent/release['plan_relative_path']).read_bytes()
+        assert hashlib.sha256(source_release).hexdigest()==complete['release_sha256']
+        assert hashlib.sha256(source_plan).hexdigest()==release['plan_sha256']
+        # Runner reserializes input JSON on Linux. Verify exact content as well
+        # as the hash of the original input, accepting only newline conversion.
+        assert source_release.replace(b'\r\n',b'\n')==raw('release.json').replace(b'\r\n',b'\n')
+        assert source_plan.replace(b'\r\n',b'\n')==raw('plan.json').replace(b'\r\n',b'\n')
         data=read(a.arm+'/result.json');assert data['status']=='complete'
         labels=[json.loads(x) for x in raw(a.arm+'/author_partial.jsonl').decode().splitlines()]
         assert len(labels)==len(data['records'])==len(plan['rows'])==(1319 if plan.get('dataset_key')=='gsm8k' else 500)
@@ -55,6 +62,7 @@ def main():
             utilization=[float(row[1].strip()) for row in gpu if len(row)>=4]
         report=dict(status='Full dataset identity/length/labels and paired statistics verified locally',
             archive_sha256=hashlib.sha256(a.archive.read_bytes()).hexdigest(),summary=s,
+            source_input_hashes_verified=True,run_json_copies_equal_after_newline_conversion=True,
             comparisons=comparisons,advance_to_gsm_observed_rule=bool(eligible),
             eligible_without_uniform_schedule_recheck=bool(eligible and not recovered),
             recovery_provenance=provenance,
