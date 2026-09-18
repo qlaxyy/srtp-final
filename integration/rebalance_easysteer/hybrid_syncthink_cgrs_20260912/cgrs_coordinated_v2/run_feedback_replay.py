@@ -86,7 +86,7 @@ def main():
             summaries.append(dict(mode='legacy_forcer_reused', **ref))
         for mode in modes:
             adapter = AlignmentAdapter(llm, tok, tables=tables, large_suppression=True, enabled=True)
-            capture = FeedbackCapture(adapter, cap) if mode == 'scoring_capture' else None
+            capture = FeedbackCapture(adapter, cap, audit_inputs=plan.get('audit_inputs',False)) if mode == 'scoring_capture' else None
             buffers = ReplayBuffers(runner.max_num_reqs, cap, runner.device) if capture is None else None
             if capture:
                 capture.install()
@@ -170,7 +170,7 @@ def main():
                 adapter.original_sampler = adapter.original_sampler.original
             adapter.close()
         save(a.output/'complete.json', dict(status='Native L27 forced-scoring trace complete; no fitting or efficacy claim',
-            groups=summaries, history_exact=None if plan.get('capture_only') else True, native_history_recorded=True, raw_confidence_exact=True, wall_seconds=time.monotonic()-start,
+            groups=summaries, history_exact=None if plan.get('capture_only') else True, native_history_recorded=True, model_inputs_checked=plan.get('audit_inputs',False), raw_confidence_exact=True, wall_seconds=time.monotonic()-start,
             new_generation_count=0, plan_sha256=sha(a.input/'plan.json')))
     except BaseException:
         save(a.output/'failure.json', dict(error=traceback.format_exc(), wall_seconds=time.monotonic()-start))

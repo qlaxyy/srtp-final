@@ -14,7 +14,7 @@ class OuterCapture:
 
 
 class FeedbackCapture:
-    def __init__(self, adapter, cap):
+    def __init__(self, adapter, cap, audit_inputs=False):
         self.owner = adapter
         self.runner = adapter.runner
         n, device = self.runner.max_num_reqs, self.runner.device
@@ -25,6 +25,7 @@ class FeedbackCapture:
         self.native = adapter.original_sampler
         self.l27 = self.runner.sampler
         self.last_raw = None
+        self.audit_inputs = audit_inputs
 
     def register(self, slot, ids):
         if not ids or len(ids) > self.targets.shape[1]:
@@ -61,6 +62,12 @@ class FeedbackCapture:
         torch._assert_async((~valid | (pos < self.length[idx])).all(), 'Saved response exhausted')
         safe = pos.clamp(max=self.targets.shape[1]-1)
         target = self.targets[idx, safe]
+        if self.audit_inputs:
+            actual = batch.input_ids[batch.logits_indices].long()
+            expected = self.targets[idx, (safe-1).clamp_min(0)]
+            torch._assert_async((~valid | (pos == 0) | (actual == expected)).all(), 'Model consumed wrong saved prefix token')
+            expected_pos = torch.as_tensor(batch.prefill_len_np, device=logits.device) + pos - 1
+            torch._assert_async((~valid | (batch.positions[batch.logits_indices] == expected_pos)).all(), 'Model consumed wrong prefix position')
         z = logits.float()
         lp = z.gather(1, target[:, None]).squeeze(1)-torch.logsumexp(z, -1)
         state = self.runner.steer_vector_state

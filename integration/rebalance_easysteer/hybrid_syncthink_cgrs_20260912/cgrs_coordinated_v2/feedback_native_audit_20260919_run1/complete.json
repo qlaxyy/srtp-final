@@ -1,0 +1,18 @@
+{
+  "status": "Native L27 forced-scoring trace complete; no fitting or efficacy claim",
+  "groups": [
+    {
+      "mode": "scoring_capture",
+      "responses": 3,
+      "seconds": 100.83707764744759,
+      "saved_tokens": 17995
+    }
+  ],
+  "history_exact": null,
+  "native_history_recorded": true,
+  "model_inputs_checked": true,
+  "raw_confidence_exact": true,
+  "wall_seconds": 141.3499544262886,
+  "new_generation_count": 0,
+  "plan_sha256": "fafdb58b0973d98e503e8a8bdd5c162c64fd4ea448d08289c291edaf65719839"
+}
