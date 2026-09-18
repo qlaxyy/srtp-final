@@ -1,11 +1,13 @@
 """Fail-closed transfer preparation: only a predeclared MATH-pass may transfer."""
-import copy,hashlib,io,json,tarfile
+import argparse,copy,hashlib,io,json,tarfile
 from pathlib import Path
 from prepare_length_vector import HERE,read,sha,save
 
 def main():
-    parent=HERE/'trajectory_length_vector_20260918_run2'
-    decisions=[read(parent/(name+'_decision.json')) for name in ('LENGTH_L27','LENGTH_NORM_L27')]
+    ap=argparse.ArgumentParser();ap.add_argument('--parent',default='trajectory_length_vector_20260918_run2');ap.add_argument('--run',default='trajectory_length_gsm_20260918_run1');args=ap.parse_args()
+    assert Path(args.parent).name==args.parent and Path(args.run).name==args.run
+    parent=HERE/args.parent
+    decisions=[read(parent/(a['name']+'_decision.json')) for a in read(parent/'plan.json')['arms']]
     candidates=[d for d in decisions if d['eligible_without_uniform_schedule_recheck']]
     if not candidates:raise SystemExit('No eligible candidate; GSM transfer forbidden by fixed rule')
     chosen=min(candidates,key=lambda d:(d['summary']['mean_tokens'],-d['summary']['accuracy_percent']))
@@ -27,16 +29,16 @@ def main():
     assert len(records)==1319
     refs['groups']['L27_L27']=dict(records=records,generation_seconds=data['generation_seconds'])
     refs['source_sha256'].update({str(prior/'L27_L27/result.json'):sha(prior/'L27_L27/result.json'),str(prior/'L27_L27/author_partial.jsonl'):hashlib.sha256(raw).hexdigest()})
-    rel='trajectory_length_gsm_20260918_run1';out=HERE/rel;out.mkdir(exist_ok=False)
+    rel=args.run;out=HERE/rel;out.mkdir(exist_ok=False)
+    (out/'.gitattributes').write_text('*.json -text\n*.npz binary -text\n*.pt binary -text\n',encoding='utf8')
     plan=copy.deepcopy(oldplan);plan.update(run_id=rel,dataset_key='gsm8k',dataset='GSM8K',rows=priorplan['rows'],new_answers=1319,
         arms=[a for a in oldplan['arms'] if a['name']==name],hard_stop_seconds_per_arm=1200,process_hard_stop_seconds=1500,
         interpretation='Fixed MATH-selected direction transferred without tuning; exposed benchmark, not independent confirmation')
     release=copy.deepcopy(oldrelease)
-    for n in oldrelease['artifact_sha256']:(out/n).write_bytes((parent/n).read_bytes())
-    # plan and reference copies are superseded only inside a newly-created unpublished directory.
-    (out/'plan.json').unlink();(out/'historical_compact.json').unlink()
+    for n in oldrelease['artifact_sha256']:
+        if n not in ('plan.json','historical_compact.json'):(out/n).write_bytes((parent/n).read_bytes())
     save(out/'plan.json',plan);save(out/'historical_compact.json',refs)
-    save(out/'selection.json',dict(rule=oldplan['decision'],selected=name,decisions=decisions))
+    save(out/'selection.json',dict(rule=oldplan['advancement'],selected=name,decisions=decisions))
     release.update(artifact_root=rel,plan_relative_path=rel+'/plan.json',plan_sha256=sha(out/'plan.json'),
         engineering_parent_release_sha256=sha(parent/'release.json'),
         engineering_parent_relative_path=parent.name+'/release.json',
@@ -45,7 +47,7 @@ def main():
     release['source_sha256']['run_label_alignment.py']=hashlib.sha256((HERE/'run_label_alignment.py').read_bytes().replace(b'\r\n',b'\n')).hexdigest()
     save(out/'release.json',release)
     files={}
-    with tarfile.open(root/'.codex_work/trajectory_length_vector_20260918_run2.tar.gz') as tf:
+    with tarfile.open(root/('.codex_work/'+parent.name+'.tar.gz')) as tf:
         for member in tf.getmembers():
             if member.isfile():files[member.name]=tf.extractfile(member).read()
     files['run_label_alignment.py']=(HERE/'run_label_alignment.py').read_bytes().replace(b'\r\n',b'\n')

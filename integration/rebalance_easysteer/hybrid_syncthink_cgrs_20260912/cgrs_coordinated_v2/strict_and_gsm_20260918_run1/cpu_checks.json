@@ -1,0 +1,27 @@
+{
+  "old_over": {
+    "steps": 48251,
+    "questions": 500,
+    "largest_question_fraction": 0.016517792377360056
+  },
+  "new_over": {
+    "steps": 10636,
+    "questions": 498,
+    "largest_question_fraction": 0.014667168108311396
+  },
+  "under": {
+    "steps": 11309,
+    "questions": 283,
+    "largest_question_fraction": 0.07825625607922894
+  },
+  "removed": 37615,
+  "raw_norm": 116.66968233274966,
+  "deployed_norm": 83.61913600854703,
+  "original_norm": 83.61913655627941,
+  "cosine_old": 0.9201095462514891,
+  "original_exact_reproduction": true,
+  "feature_sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+  "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+  "vector_sha256": "17110c275e3d82a04c720f1dde72c83903b5863710d0502e08f051be51789ff1",
+  "limitation": "Cue agreement is weak-label precision hypothesis, not semantic overthinking ground truth. Useful corrections can satisfy both cues; recall may fall. No length or final correctness filter."
+}
