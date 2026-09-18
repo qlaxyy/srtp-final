@@ -20,6 +20,9 @@ def validate(plan,release,phase):
     elif plan.get('experiment_kind')=='norm_preserving_v1':
         assert [a['name'] for a in plan['arms']]==['NORM_STATE_L27']
         assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='outcome_endpoint_v1':
+        assert [a['name'] for a in plan['arms']] in (['EFFICIENT_L27'],['UNDER_REFIT_L27'])
+        assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='self_feedback_vector_v1':
         assert [a['name'] for a in plan['arms']]==['FEEDBACK_NORM_L27']
         assert not plan['execution'].get('sync_replay',False)
@@ -133,7 +136,8 @@ def main():
         margin=plan.get('experiment_kind')=='margin_v1'
         length_refit=plan.get('experiment_kind')=='length_refit_v1'
         nonpositive=plan.get('experiment_kind')=='nonpositive_v1'
-        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1','self_feedback_vector_v1')
+        strict_and=plan.get('experiment_kind') in ('strict_and_vector_v1','question_centered_vector_v1','self_feedback_vector_v1','outcome_endpoint_v1')
+        efficient=plan.get('experiment_kind')=='outcome_endpoint_v1' and plan.get('endpoint_mode')=='efficient'
         length_vector=plan.get('experiment_kind') in ('length_vector_v1','length_refit_v1')
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
         if args.phase=='engineering' and length_vector:names=['L27_REFERENCE','LENGTH_L27','LENGTH_REPEAT','LENGTH_NORM_L27','LENGTH_NORM_REPEAT']
@@ -149,6 +153,7 @@ def main():
                 assert oldgate['passed'] and oldgate['release_sha256']==release.get('norm_reference_release_sha256',sha(args.release))
                 old_result=read(args.norm_reference_result/'L27_REFERENCE/result.json')
         if feedback and args.phase=='engineering':names=['L27_L27','L27_REPEAT']
+        if efficient and args.phase=='engineering':names=['L27_REFERENCE','E_NATIVE','E_OFF','E_SHADOW','EFFICIENT_L27','EFFICIENT_REPEAT']
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
@@ -174,7 +179,9 @@ def main():
                 vp=HERE/vector_arm['vector']
                 if 'fit' in vector_arm:fp=HERE/vector_arm['fit']
             if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
-            if strict_and and name!='L27_REFERENCE':vp=HERE/plan['arms'][0]['vector']
+            if strict_and and name!='L27_REFERENCE':
+                vp=HERE/plan['arms'][0]['vector']
+                if 'fit' in plan['arms'][0]:fp=HERE/plan['arms'][0]['fit']
             if nonpositive and name.startswith('LENGTH'):vp=HERE/plan['arms'][1]['vector']
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
@@ -200,6 +207,10 @@ def main():
                     from replay_label_alignment import ReplayAlignmentAdapter
                     AdapterType=ReplayAlignmentAdapter
                 extra={}
+                if efficient and name not in ('L27_REFERENCE','E_NATIVE'):
+                    from outcome_efficient_adapter import OutcomeEfficientAdapter
+                    AdapterType=OutcomeEfficientAdapter
+                    extra['control_mode']='off' if name=='E_OFF' else 'shadow' if name=='E_SHADOW' else 'active'
                 if margin and name!='L27_REFERENCE':
                     from reflection_margin_adapter import MarginAdapter
                     AdapterType=MarginAdapter
@@ -315,9 +326,16 @@ def main():
                             first=adapter.completed[rid]['first_positive_change']
                             if first<0:first=len(rec['token_ids'])
                             assert base['token_ids'][:first]==rec['token_ids'][:first], 'Sign divergence before intervention'
+                elif args.phase=='engineering' and efficient and name in ('E_NATIVE','E_OFF','E_SHADOW'):
+                    current_history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    if name=='E_NATIVE':native_reference=records;native_history=current_history
+                    else:
+                        assert [r['token_ids'] for r in records]==[r['token_ids'] for r in native_reference],'Endpoint off/shadow changed tokens'
+                        assert current_history==native_history,'Endpoint off/shadow changed history'
                 elif args.phase=='engineering' and strict_and:
                     if name=='L27_REFERENCE':original_reference=records
                     elif name==plan['arms'][0]['name']:
+                        if efficient:assert sum(e['endpoint_updates'] for e in adapter.completed.values())>0,'No efficient updates'
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                         for base,rec in zip(original_reference,records):
                             first=next((i for i,t in enumerate(base['token_ids']) if t in boundaries),len(base['token_ids'])-1)

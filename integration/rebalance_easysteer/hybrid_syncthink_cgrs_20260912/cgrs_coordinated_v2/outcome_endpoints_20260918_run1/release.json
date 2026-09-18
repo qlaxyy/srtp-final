@@ -1,0 +1,65 @@
+{
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "artifact_sha256": {
+    "rows.json": "d65191e022b7661f4094b6560f6df54fcf063d9296fd99101b004cba9a90cfcb",
+    "pairs.json": "d05ebe581c6176e3bc412fe3f9800caf3a5c2f56f3c403894ab35dd576413636",
+    "engineering.json": "c30677ab6f498dbccdcb7fb3e316b0d1ff660924edd31c5e918d69ccebb14c02",
+    "protocol.json": "ee3779b864dd2fd35acdd322c5babe0aa6e0b4efbdb2574bd43c289bda4a7525"
+  },
+  "source_sha256": {
+    "collect_outcome_endpoints.py": "195f5a43a364afa6f4b8aa123848f5809dc5749edc9f6898d60f673a06611a77",
+    "fit_outcome_endpoints.py": "d081613123ef2569350489c7a88a221848d07c1130f5c06a2190976bf31695ca",
+    "author_labels.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641"
+  },
+  "label_sha256": "194fcb92205dd3a7275be0cbd9116ffa028d8ec57e64a245c826fbda1a5a1869"
+}

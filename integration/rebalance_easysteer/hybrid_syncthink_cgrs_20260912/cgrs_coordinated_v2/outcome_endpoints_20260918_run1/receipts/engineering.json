@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "phase": "engineering",
+  "release_sha256": "632a9e7e33e2c031742717b0ddeb738c096c071ac1a37e3177e5d428b8547899",
+  "rows": 8,
+  "forward_seconds": 0.9533010721206665,
+  "wall_seconds": 3.7747672647237778,
+  "torch": "2.11.0+cu129",
+  "new_generation_count": 0,
+  "measurement": "Current unsteered HF SDPA reconstruction, not historical or online vLLM probability equivalence"
+}
