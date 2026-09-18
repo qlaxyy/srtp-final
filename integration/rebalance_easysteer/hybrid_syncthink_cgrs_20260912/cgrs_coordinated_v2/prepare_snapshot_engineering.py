@@ -3,7 +3,8 @@ from prepare_length_vector import HERE,read,save,sha
 from test_counterfactual_snapshot import main as check
 
 def main():
-    check();run='counterfactual_capture_20260918_run1';out=HERE/run;out.mkdir(exist_ok=False)
+    import sys
+    check();run=sys.argv[1] if len(sys.argv)>1 else 'counterfactual_capture_20260918_run1';out=HERE/run;out.mkdir(exist_ok=False)
     (out/'.gitattributes').write_text('*.json -text\n*.npz binary -text\n',encoding='utf8')
     parent=HERE/'length_sign_ablation_20260918_run1';old=read(parent/'release.json')
     (out/'opening.npz').write_bytes((parent/'opening.npz').read_bytes())
