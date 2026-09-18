@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='length_refit_v1':
+    if plan.get('experiment_kind')=='nonpositive_v1':
+        assert [a['name'] for a in plan['arms']]==['OLD_NONPOS_L27','LENGTH_NONPOS_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='length_refit_v1':
         assert [a['name'] for a in plan['arms']]==['LENGTH_REFIT_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='length_vector_v1':
@@ -102,10 +105,12 @@ def main():
         mti=plan.get('experiment_kind')=='mti_v1'
         margin=plan.get('experiment_kind')=='margin_v1'
         length_refit=plan.get('experiment_kind')=='length_refit_v1'
+        nonpositive=plan.get('experiment_kind')=='nonpositive_v1'
         length_vector=plan.get('experiment_kind') in ('length_vector_v1','length_refit_v1')
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
         if args.phase=='engineering' and length_vector:names=['L27_REFERENCE','LENGTH_L27','LENGTH_REPEAT','LENGTH_NORM_L27','LENGTH_NORM_REPEAT']
         if args.phase=='engineering' and length_refit:names=['L27_REFERENCE','LENGTH_REFIT_L27','LENGTH_REFIT_REPEAT']
+        if args.phase=='engineering' and nonpositive:names=['OLD_SIGN_REFERENCE','OLD_SIGN_OFF','OLD_SIGN_SHADOW','OLD_NONPOS_L27','LENGTH_SIGN_REFERENCE','LENGTH_SIGN_OFF','LENGTH_SIGN_SHADOW','LENGTH_NONPOS_L27']
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
@@ -131,6 +136,7 @@ def main():
                 vp=HERE/vector_arm['vector']
                 if 'fit' in vector_arm:fp=HERE/vector_arm['fit']
             if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
+            if nonpositive and name.startswith('LENGTH'):vp=HERE/plan['arms'][1]['vector']
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
             steer=SteeringSpec(vectors=[VectorSpec(name='label_alignment_'+(calib or 'L27'),data=from_pt_direction(str(vp),layers=[layer]),
@@ -140,6 +146,7 @@ def main():
             arm=next((a for a in plan['arms'] if a['name']==name),{})
             if mti or margin:arm=plan['arms'][0]
             if length_vector:arm=plan['arms'][0]
+            if nonpositive:arm=plan['arms'][0]
             large=mti or margin or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
                 table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
@@ -156,6 +163,10 @@ def main():
                     from reflection_margin_adapter import MarginAdapter
                     AdapterType=MarginAdapter
                     extra['margin_mode']='off' if name=='L27_OFF' else 'shadow' if name=='L27_SHADOW' else 'active'
+                if nonpositive and not name.endswith('REFERENCE'):
+                    from nonpositive_adapter import NonpositiveAdapter
+                    AdapterType=NonpositiveAdapter
+                    extra['sign_mode']='off' if name.endswith('OFF') else 'shadow' if name.endswith('SHADOW') else 'active'
                 adapter=AdapterType(llm,tok,tables=tables,large_suppression=large,lexical_control=lexical,enabled=True,**extra)
             else:
                 AdapterType=Adapter
@@ -225,7 +236,19 @@ def main():
                     result['extra_model_forward_count']=None
                     result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
                 save(folder/'result.json',result)
-                if args.phase=='engineering' and length_vector:
+                if args.phase=='engineering' and nonpositive:
+                    if name.endswith('REFERENCE'):
+                        reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    elif name.endswith('OFF') or name.endswith('SHADOW'):
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'Sign off/shadow changed tokens'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history, 'Sign off/shadow changed history'
+                    else:
+                        assert sum(e['positive_record_calls'] for e in adapter.completed.values())>0,'No positive sign intervention'
+                        for base,rec,rid in zip(reference,records,ids):
+                            first=adapter.completed[rid]['first_positive_change']
+                            if first<0:first=len(rec['token_ids'])
+                            assert base['token_ids'][:first]==rec['token_ids'][:first], 'Sign divergence before intervention'
+                elif args.phase=='engineering' and length_vector:
                     if name in ('LENGTH_L27','LENGTH_NORM_L27','LENGTH_REFIT_L27'):
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                     elif name in ('LENGTH_REPEAT','LENGTH_NORM_REPEAT','LENGTH_REFIT_REPEAT'):
