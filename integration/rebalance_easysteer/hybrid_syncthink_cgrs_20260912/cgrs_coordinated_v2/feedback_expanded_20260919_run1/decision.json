@@ -1,0 +1,27 @@
+{
+  "status": "Stop pooled initial preference-gradient direction; retain frozen L27",
+  "implementation_commit": "634d561",
+  "result_commit": "2183e42",
+  "new_vector": false,
+  "optimizer_steps": 0,
+  "new_generations": 0,
+  "reason": [
+    "Development U-short group 7 of 8 projections negative",
+    "Correctness guards 4 of 5 projections negative",
+    "Predeclared equal-source weighting also fails"
+  ],
+  "evidence_archive_sha256": "363c6e382d1d860cd5290c39c34aa2595f3b1761427824f5c07ce37ca6a48719",
+  "release_sha256": "e2f4a6a9a27b69710176fb39b2253a41a457b2f01a14b9360edda9a4868be34d",
+  "limits": [
+    "Surrogate first-order diagnostic, not accuracy or generation result",
+    "No proof that all optimized or state-conditioned vectors must fail",
+    "Native versus HF outlier score differences remain unexplained",
+    "No fresh independent confirmation data"
+  ],
+  "next_research": "Separate concise-correct preference from policy source; consider same-policy pairs on separately registered training questions. Resolve scoring outliers before treating surrogate as native.",
+  "no_automatic_expansion": [
+    "No benchmark generation",
+    "No sign or strength tuning on exposed development results",
+    "No changes to frozen L27 or original 500 calibration answers"
+  ]
+}
