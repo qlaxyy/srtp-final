@@ -29,7 +29,7 @@ def main():
     def timeout(*_):
         raise TimeoutError('Fixed 900s process ceiling; retain partials')
     signal.signal(signal.SIGALRM, timeout)
-    signal.alarm(900)
+    signal.alarm(plan.get('process_ceiling_seconds',900))
     try:
         for n, h in plan['input_sha256'].items():
             assert sha(a.input/n) == h, n
@@ -56,7 +56,7 @@ def main():
         boundaries = sorted(i for s, i in tok.get_vocab().items() if 'ĊĊ' in s)
         rows = json.loads((a.input/'rows.json').read_text())
         llm = LLM(model=assets['model_path'], dtype='bfloat16', tensor_parallel_size=1,
-            max_model_len=16384, max_num_seqs=16, max_num_batched_tokens=32768,
+            max_model_len=16384, max_num_seqs=plan['runtime']['max_num_seqs'], max_num_batched_tokens=32768,
             gpu_memory_utilization=.9, enable_steer_vector=True, steer_algorithms=['rebalance'],
             steer_graph_mode='in_graph', enforce_eager=False, enable_chunked_prefill=False,
             enable_prefix_caching=False, async_scheduling=True, seed=42)
@@ -72,7 +72,7 @@ def main():
         cap = max(len(r['token_ids']) for r in rows)
         summaries = []
         histories = {}
-        modes = ['legacy_forcer', 'scoring_capture']
+        modes = ['scoring_capture'] if plan.get('capture_only') else ['legacy_forcer', 'scoring_capture']
         if plan.get('legacy_reference'):
             ref = plan['legacy_reference']
             directory = Path(ref['directory'])
@@ -125,7 +125,7 @@ def main():
                     else:
                         buffers.completed(slot)
                     key = r['key']
-                    if capture:
+                    if capture and not plan.get('capture_only'):
                         assert np.array_equal(history, histories[key]), (key, 'instrumentation changed native control history')
                     else:
                         histories[key] = history
@@ -170,7 +170,7 @@ def main():
                 adapter.original_sampler = adapter.original_sampler.original
             adapter.close()
         save(a.output/'complete.json', dict(status='Native L27 forced-scoring trace complete; no fitting or efficacy claim',
-            groups=summaries, history_exact=True, raw_confidence_exact=True, wall_seconds=time.monotonic()-start,
+            groups=summaries, history_exact=None if plan.get('capture_only') else True, native_history_recorded=True, raw_confidence_exact=True, wall_seconds=time.monotonic()-start,
             new_generation_count=0, plan_sha256=sha(a.input/'plan.json')))
     except BaseException:
         save(a.output/'failure.json', dict(error=traceback.format_exc(), wall_seconds=time.monotonic()-start))

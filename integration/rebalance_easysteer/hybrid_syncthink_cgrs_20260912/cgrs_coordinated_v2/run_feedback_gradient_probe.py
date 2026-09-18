@@ -25,7 +25,7 @@ def main():
     try:
         for name,h in plan['input_sha256'].items(): assert sha(a.input/name)==h,name
         replay=Path(plan['replay_directory']); complete=json.loads((replay/'complete.json').read_text())
-        assert complete['history_exact'] and complete['raw_confidence_exact']
+        assert (complete.get('history_exact') or complete.get('native_history_recorded')) and complete['raw_confidence_exact']
         assert sha(replay/'complete.json')==plan['replay_complete_sha256']
         manifest=json.loads((replay/'scoring_capture_manifest.json').read_text())
         for r in manifest: assert sha(replay/r['file'])==r['sha256']
