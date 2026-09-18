@@ -1,0 +1,2882 @@
+[
+  {
+    "arm": "U",
+    "dataset_index": 51,
+    "problem_sha256": "13a669242272f3f6940007b6c58ccaf73570e07d5c1125312ee6b91bf7c3f818",
+    "text_sha256": "5649a4ba00f443af17369b89578cc231be286360119898e8c20e3befbb9c67df",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "5",
+      "span": "5\\ \\text{hours}"
+    },
+    "gold": "5",
+    "tokens": 378,
+    "thinking_tokens": 126,
+    "final_region": "\n\nTo determine how long it takes Tom's ship to return, follow these steps:\n\n1. **Calculate the Distance:**\n   \n   - **Speed:** \\(10\\) miles per hour\n   - **Time Sailing Forward:** From **1 PM** to **4 PM**, which is **3 hours**\n   - **Distance:** \n     \\[\n     \\text{Distance} = \\text{Speed} \\times \\text{Time} = 10 \\, \\text{mph} \\times 3 \\, \\text{hours} = 30 \\, \\text{miles}\n     \\]\n\n2. **Calculate the Time to Return:**\n   \n   - **Speed Returning:** \\(6\\) miles per hour\n   - **Distance to Cover:** \\(30\\) miles\n   - **Time to Return:** \n     \\[\n     \\text{Time} = \\frac{\\text{Distance}}{\\text{Speed}} = \\frac{30 \\, \\text{miles}}{6 \\, \\text{mph}} = 5 \\, \\text{hours}\n     \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{5\\ \\text{hours}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 90,
+    "problem_sha256": "b181673a183a4ac7dba6af1f9a0f79fcbac1ba90b2e716eab1f57ea51351bd03",
+    "text_sha256": "f0b37dd61ed56794fce5efdcbf07fe5480fd39c09d87e4fdedd584e01935fa4d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "225",
+      "span": "**Answer:** Ted needs to bring **225 pounds** of potato salad."
+    },
+    "gold": "225",
+    "tokens": 723,
+    "thinking_tokens": 516,
+    "final_region": "\n\nTed needs to bring a total of 225 pounds of potato salad to the picnic. \n\n**Step-by-Step Explanation:**\n\n1. **Determine the potato salad consumption per person:**\n   - **Adult:** 10 lbs\n   - **Child:** 10 lbs / 2 = 5 lbs\n\n2. **Calculate the total potato salad for adults:**\n   - Number of adults = 20\n   - Total for adults = 20 * 10 lbs = 200 lbs\n\n3. **Calculate the total potato salad for children:**\n   - Number of children = 5\n   - Total for children = 5 * 5 lbs = 25 lbs\n\n4. **Add both totals to find the overall amount needed:**\n   - Total potato salad = 200 lbs + 25 lbs = 225 lbs\n\n**Answer:** Ted needs to bring **225 pounds** of potato salad."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 103,
+    "problem_sha256": "1c54190459ade0e851d32cd65c6e548cb05f185eedebd89bc202227c2579366e",
+    "text_sha256": "b8dd534f7fdba66904c07e9b15bfde6864b5a45035615acf95b7c03a3a53bfb1",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "140",
+      "span": "140\\ \\text{minutes}"
+    },
+    "gold": "140",
+    "tokens": 348,
+    "thinking_tokens": 147,
+    "final_region": "\n\nTo determine how long it will take for the fog bank to cover the entire city, follow these steps:\n\n1. **Understand the Rate:**\n   - The fog bank covers **3 miles** every **10 minutes**.\n\n2. **Calculate the Total Distance:**\n   - The city is **42 miles** across.\n\n3. **Determine the Number of 3-Mile Segments:**\n   - **Number of segments** = Total distance / Distance per segment\n   - **Number of segments** = 42 miles / 3 miles = 14 segments\n\n4. **Calculate the Total Time:**\n   - **Time per segment** = 10 minutes\n   - **Total time** = Number of segments × Time per segment\n   - **Total time** = 14 segments × 10 minutes = 140 minutes\n\n**Final Answer:**\n\\boxed{140\\ \\text{minutes}}"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 220,
+    "problem_sha256": "069cb44640a925a0f2897cd2b6a6c19d3ea0bc4326d59a59c1cf113983ef65f7",
+    "text_sha256": "755f13914f81b104ebd3157847284418b6817448eb3a523a7bd0e76a04fa8e6d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "70",
+      "span": "70\\ \\text{minutes}"
+    },
+    "gold": "70",
+    "tokens": 395,
+    "thinking_tokens": 152,
+    "final_region": "\n\nTo determine the total time Carmen spent playing crossword and sudoku puzzles over the weekend, follow these steps:\n\n1. **Calculate the time spent on crossword puzzles:**\n   - Carmen takes **10 minutes** to complete one crossword puzzle.\n   - She solved **3 crossword puzzles**.\n   - **Total time for crossword puzzles** = \\( 3 \\text{ puzzles} \\times 10 \\text{ minutes/puzzle} = 30 \\text{ minutes} \\).\n\n2. **Calculate the time spent on sudoku puzzles:**\n   - Carmen takes **5 minutes** to complete one sudoku puzzle.\n   - She solved **8 sudoku puzzles**.\n   - **Total time for sudoku puzzles** = \\( 8 \\text{ puzzles} \\times 5 \\text{ minutes/puzzle} = 40 \\text{ minutes} \\).\n\n3. **Add the times together to find the total time spent:**\n   - **Total time** = \\( 30 \\text{ minutes} + 40 \\text{ minutes} = 70 \\text{ minutes} \\).\n\n\\[\n\\boxed{70\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 327,
+    "problem_sha256": "b458cd0dea55ba01d56a5996ab03993bcb8f3fe552cf42cdcd1e7fa4ca16de96",
+    "text_sha256": "dc3f6a665ef1f8e5b9c780a6a5332317e219812af58861c318364dd9618c2659",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Oscar has 31 lollipops left."
+    },
+    "gold": "31",
+    "tokens": 1450,
+    "thinking_tokens": 1325,
+    "final_region": "\n\nOscar starts with 24 lollipops. After eating 2 on the way to school, he has 22 left. He gives 14 to his friends, leaving him with 8. He then buys 28 more (twice the 14 he gave away), bringing his total to 36. He eats 3 more that night, reducing the count to 33. Finally, he eats 2 more in the morning, leaving him with 31 lollipops.\n\n**Answer:** Oscar has 31 lollipops left."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 331,
+    "problem_sha256": "8076a013cf612d8f455b14c1599344cba05aa8a26e1520927d948d5512009120",
+    "text_sha256": "8ad5e7469978d1de41ba44c3a39d3c10911f55b60a1797e88adb22570db72e37",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "8400",
+      "span": "**Answer:** At Job B, Nick will make $8,400 more than at Job A."
+    },
+    "gold": "8400",
+    "tokens": 1908,
+    "thinking_tokens": 1465,
+    "final_region": "\n\nNick will make $8,400 more at the job with the higher net pay rate, which is Job B compared to Job A.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Gross Pay for Job A:**\n   - Hourly wage: $15/hour\n   - Hours worked: 2000 hours\n   - Gross Pay = $15/hour × 2000 hours = $30,000\n\n2. **Calculate Tax for Job A:**\n   - Tax rate: 20%\n   - Tax = $30,000 × 0.20 = $6,000\n\n3. **Calculate Net Pay for Job A:**\n   - Net Pay = Gross Pay - Tax = $30,000 - $6,000 = $24,000\n\n4. **Calculate Net Income After Property Tax for Job B:**\n   - Annual salary: $42,000\n   - Property tax: $6,000\n   - Net Income After Property Tax = $42,000 - $6,000 = $36,000\n\n5. **Calculate Tax on Net Income for Job B:**\n   - Tax rate: 10%\n   - Tax = $36,000 × 0.10 = $3,600\n\n6. **Calculate Net Pay for Job B:**\n   - Net Pay = Net Income After Property Tax - Tax = $36,000 - $3,600 = $32,400\n\n7. **Compare Net PAYS:**\n   - Net Pay for Job A: $24,000\n   - Net Pay for Job B: $32,400\n   - Difference = $32,400 - $24,000 = $8,400\n\n**Answer:** At Job B, Nick will make $8,400 more than at Job A."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 391,
+    "problem_sha256": "683f25892247216d4ed9c50e5ec9a7ba0f0ad2824b218982aba3c67073c98a27",
+    "text_sha256": "a6cebcdc6234bdee3c0b33026ba60b8dd77660133bff15c3254521c85c437986",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "15",
+      "span": "**Answer:** Sam has 15 more popsicles than Betty."
+    },
+    "gold": "15",
+    "tokens": 831,
+    "thinking_tokens": 573,
+    "final_region": "\n\nSam has 15 more popsicles than Betty.\n\n**Step-by-Step Explanation:**\n\n1. **Understand the Ratio:**\n   - The ratio of popsicles that Betty and Sam have is 5:6.\n   - This means for every 5 popsicles Betty has, Sam has 6.\n\n2. **Determine the Total Parts:**\n   - The total number of parts in the ratio is 5 + 6 = 11.\n\n3. **Calculate the Value of Each Part:**\n   - The total number of popsicles is 165.\n   - Each part is equal to 165 ÷ 11 = 15 popsicles.\n\n4. **Find the Number of Popsicles Each Has:**\n   - Betty has 5 parts: 5 × 15 = 75 popsicles.\n   - Sam has 6 parts: 6 × 15 = 90 popsicles.\n\n5. **Calculate the Difference:**\n   - Sam has 90 popsicles, Betty has 75.\n   - Difference = 90 - 75 = 15 popsicles.\n\n**Answer:** Sam has 15 more popsicles than Betty."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 410,
+    "problem_sha256": "dba808a14c439d8c981d7f573e2ace457909fcde6556b7dcac5bab0c66ee3d7b",
+    "text_sha256": "8b9d556397870b9925a7166f24d555a38a9f1f4d49ecd982dcf6e4c4cbece9ff",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** Sally has $3.00 left."
+    },
+    "gold": "3",
+    "tokens": 823,
+    "thinking_tokens": 677,
+    "final_region": "\n\nSally started with $10.00. She spent $4.50 on the trinket shop (1 pound at $3.00 and 1 pound at $1.50). She also bought a mixed bag of seashells for $1.50 and 4 magnets for $1.00. In total, Sally spent $4.50 + $1.50 + $1.00 = $7.00. \n\nSubtracting her total expenditure from her initial amount: $10.00 - $7.00 = $3.00.\n\n**Answer:** Sally has $3.00 left."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 460,
+    "problem_sha256": "eb6abff01b32a974d8abb419f706ba40ac7b658f432cbb4f43d7226a36ab6271",
+    "text_sha256": "9a6aa75dd374853d4e2fc10d6f62aeefd280d3d706d522cbf6347f58e62a0af9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "84",
+      "span": "**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+    },
+    "gold": "84",
+    "tokens": 775,
+    "thinking_tokens": 584,
+    "final_region": "\n\nGrayson earns 84 cents from recycling in a four-week month.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the value of each item:**\n   - Each aluminum can is worth 2 cents.\n   - Each plastic bottle is worth 3 cents.\n\n2. **Calculate weekly earnings:**\n   - **Aluminum cans:** 3 cans * 2 cents per can = 6 cents.\n   - **Plastic bottles:** 5 bottles * 3 cents per bottle = 15 cents.\n\n3. **Total weekly earnings:**\n   - 6 cents (from cans) + 15 cents (from bottles) = 21 cents.\n\n4. **Calculate earnings for a four-week month:**\n   - 21 cents/week * 4 weeks = 84 cents.\n\n**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 522,
+    "problem_sha256": "891211881f4184dc83190ac51ec04acd58d3acf6db3add9f235a3b8fd6131715",
+    "text_sha256": "9932389d0249b0713295e6f53a0450f5c6154676a1067116ac5b96b7f1caf4ea",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "29",
+      "span": "**Answer:** They can pick **29 quarts of strawberries** per hour on Grandma Concetta's farm."
+    },
+    "gold": "29",
+    "tokens": 698,
+    "thinking_tokens": 493,
+    "final_region": "\n\nTo determine the total number of quarts of strawberries picked per hour by Tony, Bobby, Ricky, and Kathy, we'll break down each person's rate and sum them up.\n\n1. **Tony** picks **6 quarts per hour**.\n2. **Bobby** picks **1 less than Tony**, which is **5 quarts per hour**.\n3. **Kathy** picks **twice as many as Bobby**, resulting in **10 quarts per hour**.\n4. **Ricky** picks **2 fewer than Kathy**, totaling **8 quarts per hour**.\n\nAdding these together:\n\\[ 6 \\text{ (Tony)} + 5 \\text{ (Bobby)} + 10 \\text{ (Kathy)} + 8 \\text{ (Ricky)} = 29 \\text{ quarts per hour} \\]\n\n**Answer:** They can pick **29 quarts of strawberries** per hour on Grandma Concetta's farm."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 545,
+    "problem_sha256": "b91910a05c73d0a0c1f8d0b7ef0092818041812609a80659266e6be02a9aa988",
+    "text_sha256": "b9718ea308d6390e00261586327841de348d73a6d8e6bce8fd594ba7b3daf233",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{miles}"
+    },
+    "gold": "30",
+    "tokens": 329,
+    "thinking_tokens": 88,
+    "final_region": "\n\nLet's break down the problem step by step.\n\n**Given:**\n- Distance to Jeff's work: **3 miles**\n- Jeff walks **to and from** work each day.\n- He works **5 times a week**.\n\n**Objective:**\nFind the total miles Jeff walks in a week.\n\n**Step-by-Step Solution:**\n\n1. **Calculate the daily walking distance:**\n   - **One way** to work: **3 miles**\n   - **Return** from work: **3 miles**\n   \n   **Total daily distance:**\n   \\[\n   3 \\text{ miles (to work)} + 3 \\text{ miles (return)} = 6 \\text{ miles}\n   \\]\n\n2. **Determine the weekly walking distance:**\n   - **Number of workdays in a week:** **5**\n   \n   **Total weekly distance:**\n   \\[\n   6 \\text{ miles/day} \\times 5 \\text{ days/week} = 30 \\text{ miles/week}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{30\\ \\text{miles}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 548,
+    "problem_sha256": "e03936787cc83a5589b8b10da2313d7ac03caab05e91688f147c99fa78695b7a",
+    "text_sha256": "77965713f5b58b7cd58a249f5ae52fc8b5184df53c62377682c8e302657dc24d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "100",
+      "span": "100\\ \\text{pounds}"
+    },
+    "gold": "100",
+    "tokens": 323,
+    "thinking_tokens": 99,
+    "final_region": "\n\nTo determine Mark's initial weight, let's break down the information provided:\n\n1. **Weight Loss per Month:** Mark lost **10 pounds** each month for **3 months**.\n   \n   \\[\n   \\text{Total Weight Loss} = 10\\, \\text{pounds/month} \\times 3\\, \\text{months} = 30\\, \\text{pounds}\n   \\]\n\n2. **Final Weight:** Mark's weight after losing 30 pounds is **70 pounds**.\n\n3. **Initial Weight:** To find Mark's initial weight, add the total weight loss to his final weight.\n\n   \\[\n   \\text{Initial Weight} = \\text{Final Weight} + \\text{Total Weight Loss} = 70\\, \\text{pounds} + 30\\, \\text{pounds} = 100\\, \\text{pounds}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{100\\ \\text{pounds}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 575,
+    "problem_sha256": "a6300726564198e3fe76d3fabec6b5560291722aca884a79f297380ac4f243ab",
+    "text_sha256": "7c59be3e96765d79ff688f82e11301a526895643744882e890f8842aae27a8d9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "36",
+      "span": "**Answer:** Kate can make $36 from selling the muffin crayons."
+    },
+    "gold": "36",
+    "tokens": 859,
+    "thinking_tokens": 662,
+    "final_region": "\n\nKate can make $36 from selling the muffin crayons.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Total Crayons:**\n   - Kate has 3 boxes of crayons, each containing 64 pieces.\n   - Total crayons = 3 × 64 = 192 pieces.\n\n2. **Determine Number of Muffins:**\n   - Each muffin requires 8 small pieces of crayons.\n   - Number of muffins = Total crayons / Crayons per muffin = 192 / 8 = 24 muffins.\n\n3. **Calculate Total Revenue:**\n   - Each muffin sells for $1.50.\n   - Total revenue = Number of muffins × Price per muffin = 24 × $1.50 = $36.\n\n**Answer:** Kate can make $36 from selling the muffin crayons."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 592,
+    "problem_sha256": "cc40f31c88659414cbd04f89b86b8a55983e5c589c3e124e99c9e30fbd0737b3",
+    "text_sha256": "3f9181e99354c1aeb6e0c9ab6521d86f208c27b7dc2be96c9928f05aedc9f272",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "1",
+      "span": "**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+    },
+    "gold": "1",
+    "tokens": 383,
+    "thinking_tokens": 187,
+    "final_region": "\n\nTo determine how much more expensive the boots are on eBay compared to Amazon, follow these steps:\n\n1. **Calculate the total cost on Amazon:**\n   - **Price of the boots:** \\$16\n   - **Shipping cost on Amazon:** \\$4\n   - **Total cost on Amazon:** \\$16 + \\$4 = **\\$20**\n\n2. **Calculate the shipping cost on eBay:**\n   - **Shipping cost on Amazon:** \\$4\n   - **Shipping cost on eBay:** 2 × \\$4 = **\\$8**\n   - **Total cost on eBay:** \\$13 (boots) + \\$8 (shipping) = **\\$21**\n\n3. **Determine the difference in total costs:**\n   - **Difference:** \\$21 (eBay) - \\$20 (Amazon) = **\\$1**\n\n**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 684,
+    "problem_sha256": "eab802db1b550dfd47cfbe0b076f9829640753d054adf76e04022d0e8ed7d05e",
+    "text_sha256": "6ddd56874eb1db131019d8df3151dcab7a68800ce1d439963f3a9118f4f193b8",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "11",
+      "span": "11\\ \\text{minutes}"
+    },
+    "gold": "11",
+    "tokens": 363,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\nJohn and Jack have a total of **30 minutes** to reach school together. \n\n1. **Time to the Corner with the Library:**\n   - They take **6 minutes** to reach the corner where the library is located.\n\n2. **Time from the Library to the Fire Station:**\n   - It takes them **13 minutes** to travel from the library to the fire station.\n\n3. **Total Time Spent:**\n   \\[\n   \\text{Total Time} = 6\\ \\text{minutes} + 13\\ \\text{minutes} = 19\\ \\text{minutes}\n   \\]\n\n4. **Remaining Time to School:**\n   \\[\n   \\text{Remaining Time} = \\text{Total Time} - \\text{Total Time Spent} = 30\\ \\text{minutes} - 19\\ \\text{minutes} = 11\\ \\text{minutes}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{11\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 713,
+    "problem_sha256": "02256ac5575ecdfa651fa55ef8a0429e7742cb37de6697c4ac6a9e716be85a76",
+    "text_sha256": "7aacc60f79afac79de3a10e3690c814e18b86e7fc228719fa2303676b6b2ee98",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "576",
+      "span": "**Answer:** Mr. Boarden needs 576 mosaic tiles."
+    },
+    "gold": "576",
+    "tokens": 1633,
+    "thinking_tokens": 1466,
+    "final_region": "\n\nMr. Boarden needs 576 mosaic tiles to cover two-thirds of his 36-square-foot bathroom.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the area to be covered:**\n   - Total area of the bathroom = 36 square feet.\n   - Fraction to be covered = 2/3.\n   - Area to be covered = 36 * (2/3) = 24 square feet.\n\n2. **Calculate the number of tiles needed:**\n   - Tiling requirement per square foot = 24 tiles.\n   - Total tiles = Area to be covered * Tiling requirement per square foot = 24 * 24 = 576 tiles.\n\n**Answer:** Mr. Boarden needs 576 mosaic tiles."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 853,
+    "problem_sha256": "56772be6857095aaa371b571130d8b7fa78f8c4217dad84ea3d074c2d9ee7886",
+    "text_sha256": "38154de84e18eb6cdfab74261ad3e812fe87de649af2dd30b4d69c7131ea24d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "15",
+      "span": "15\\ \\text{hours}"
+    },
+    "gold": "15",
+    "tokens": 379,
+    "thinking_tokens": 137,
+    "final_region": "\n\nTo determine how many hours it would take to clean half of the 90 rooms at the KozyInn Motel, follow these steps:\n\n1. **Calculate the number of rooms to be cleaned:**\n   \n   \\[\n   \\text{Number of rooms to clean} = \\frac{90}{2} = 45 \\text{ rooms}\n   \\]\n\n2. **Determine the total time required to clean 45 rooms:**\n   \n   Each room takes 20 minutes to clean.\n   \n   \\[\n   \\text{Total cleaning time (in minutes)} = 45 \\text{ rooms} \\times 20 \\text{ minutes/room} = 900 \\text{ minutes}\n   \\]\n\n3. **Convert the total cleaning time from minutes to hours:**\n   \n   \\[\n   \\text{Total cleaning time (in hours)} = \\frac{900 \\text{ minutes}}{60 \\text{ minutes/hour}} = 15 \\text{ hours}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{15\\ \\text{hours}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 904,
+    "problem_sha256": "f3393a36fce6f3fee9bf6a1381397ddf91ba498e86bd483a9b60380ac628b951",
+    "text_sha256": "53b9ff797bf657b346101c53cb63640eb1cf0fba2c35c60feb324a6346135e00",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "8",
+      "span": "Therefore, the average price Deepa paid per ticket is $8."
+    },
+    "gold": "8",
+    "tokens": 941,
+    "thinking_tokens": 856,
+    "final_region": "\n\nThe average price Deepa paid per ticket is calculated by dividing the total amount spent by the number of tickets. \n\nTotal tickets seen = 9 movies * 3 tickets/motion = 27 tickets  \nTotal amount spent = $216  \n\nAverage price per ticket = $216 / 27 = $8\n\nTherefore, the average price Deepa paid per ticket is $8."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 945,
+    "problem_sha256": "60d0c42f75005b64c7831c596aab00b83ce0387d42cf74811e238a24f02360ab",
+    "text_sha256": "60f11198812389d1a913ea9e77180222dccb8bdebf1d8be913c245156017e2b0",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "17",
+      "span": "**Answer:** It took James 17 hours to swim across the lake."
+    },
+    "gold": "17",
+    "tokens": 794,
+    "thinking_tokens": 515,
+    "final_region": "\n\nJames took a total of 17 hours to swim across the lake.\n\n**Step-by-Step Explanation:**\n\n1. **Swimming 60% of the Distance:**\n   - Total lake distance = 20 miles.\n   - 60% of 20 miles = 0.6 × 20 = 12 miles.\n   - Swimming speed = 2 miles per hour.\n   - Time = Distance / Speed = 12 miles / 2 mph = 6 hours.\n\n2. **Resting Time:**\n   - Resting time is half the swimming time.\n   - Swimming time = 6 hours.\n   - Resting time = 6 / 2 = 3 hours.\n\n3. **Remaining Distance and Speed:**\n   - Remaining distance = Total lake distance - First swimming distance = 20 - 12 = 8 miles.\n   - Finishing speed = Half of swimming speed = 2 mph / 2 = 1 mph.\n   - Time = Distance / Speed = 8 miles / 1 mph = 8 hours.\n\n4. **Total Time:**\n   - Swimming time + Resting time + Remaining distance time = 6 + 3 + 8 = 17 hours.\n\n**Answer:** It took James 17 hours to swim across the lake."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 951,
+    "problem_sha256": "fee9b0db8212827ddcf6dd73b3a0cf6a38d518dcc1ca060000453cd24c0f6519",
+    "text_sha256": "7cc10ac34103c884d13ec94b0df2636403f812359a0a16707a1349b0e621535b",
+    "original_correct": true,
+    "supplemental_correct": false,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "3",
+      "span": "3"
+    },
+    "gold": "300",
+    "tokens": 9375,
+    "thinking_tokens": 9029,
+    "final_region": "\n\nThe problem involves determining the number of pages in a book given that each paper is printed on both sides and the thickness of the book is 1.5 inches. Each paper, when stacked, is 100 pages thick.\n\n1. Each sheet of paper is printed on both sides, so each sheet can hold 2 pages.\n2. The thickness of the book is 1.5 inches, which is 1.5 times the thickness of a single sheet.\n3. The thickness of each sheet when stacked is 100 pages.\n4. The number of sheets required to make the book is calculated by dividing the thickness of the book by the thickness per sheet. However, since the problem states the thickness of the book is 1.5 inches, we need to consider the number of pages directly.\n5. Each inch of the book corresponds to 100 pages when stacked. Therefore, 1.5 inches would correspond to 1.5 times 100 pages, which is 150 pages.\n6. Each sheet can hold 2 pages, so the number of sheets needed is 150 pages divided by 2 pages per sheet, which is 75 sheets.\n7. Each sheet is 100 pages thick, so the total number of pages is 75 sheets multiplied by 100 pages per sheet, which is 7500 pages. However, this contradicts the given thickness of 1.5 inches.\n\nAfter considering the given information and the relationships between the number of pages and sheets, the final conclusion is that the book contains 3 pages.\n\n\\[\n\\boxed{3}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 967,
+    "problem_sha256": "62a0969a876547112f71d527bea4aed2a356fe939680566a311e91d424e99a0e",
+    "text_sha256": "7c6398fd584d3e33e7f4451aad3759390c8d2769168909987e0e35c3d9cc3df6",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "30",
+      "span": "**Answer:** 30 years."
+    },
+    "gold": "30",
+    "tokens": 900,
+    "thinking_tokens": 696,
+    "final_region": "\n\nThe total age of all three family members is 30 years.\n\n**Step-by-Step Explanation:**\n\n1. **Nani's Age:**\n   - Nani is 8 years old.\n\n2. **Brother's Age:**\n   - Brother is twice Nani's age.\n   - Calculation: \\( 2 \\times 8 = 16 \\)\n   - Brother is 16 years old.\n\n3. **Sister's Age:**\n   - Sister is 25% younger than Nani.\n   - Calculation: 25% of 8 is \\( 0.25 \\times 8 = 2 \\)\n   - Sister's age: \\( 8 - 2 = 6 \\)\n   - Sister is 6 years old.\n\n4. **Total Age Calculation:**\n   - Add the ages together: \\( 8 + 16 + 6 = 30 \\)\n\n**Answer:** 30 years."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1019,
+    "problem_sha256": "c223b2b5cce26e9f6a83fd2c507f9119c323f7b73f7ed27dbdc2840cf7363d6e",
+    "text_sha256": "a4954b9bf1f95877b549894e43d3ba9d37109f9d76181adb7746043b27161957",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "98",
+      "span": "**Answer:** The hotel now has 98 guests."
+    },
+    "gold": "98",
+    "tokens": 970,
+    "thinking_tokens": 742,
+    "final_region": "\n\nThe hotel now has 98 guests.\n\n**Step-by-Step Explanation:**\n\n1. **Total Guests Initially:** 100 guests.\n\n2. **Early Checkout:** 24 guests checked out early.\n   - Remaining guests: 100 - 24 = 76 guests.\n\n3. **Late Checkout:** 15 guests checked out late.\n   - Remaining guests: 76 - 15 = 61 guests.\n\n4. **Afternoon Check-ins:**\n   - Twice as many people checked in as those who opted for a late checkout.\n     - Twice 15 = 30 people.\n   - Additionally, 7 more people checked in after dinner.\n     - Total check-ins in the afternoon: 30 + 7 = 37 people.\n\n5. **Total Guests Now:**\n   - Initial remaining guests: 61\n   - Afternoon check-ins: 37\n   - Total guests: 61 + 37 = 98.\n\n**Answer:** The hotel now has 98 guests."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1031,
+    "problem_sha256": "53addba1375fb22058c5676f4db6dace32de3463879a4e6c96e171ea70d3917f",
+    "text_sha256": "b654776c3594ba434ea8d69015b78ab05f041e0cfa2faaf26fca1b2a4f859237",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "**Answer:** Each graduate would receive 5 tickets."
+    },
+    "gold": "5",
+    "tokens": 8488,
+    "thinking_tokens": 8315,
+    "final_region": "\n\nThe problem involves determining how many tickets each graduate would receive if the total number of tickets for the Fine Arts Center is split equally. \n\n1. **Total number of seats available**: 6000\n2. **Seats reserved for graduates**: 950\n3. **Seats reserved for faculty**: 300\n\nFirst, calculate the number of seats reserved for friends and family:\n\\[\n6000 - 950 - 300 = 4750\n\\]\n\nNext, determine how many tickets each graduate would receive if the 4750 tickets for friends and family are split equally among the 950 graduates:\n\\[\n\\frac{4750}{950} = 5\n\\]\n\n**Answer:** Each graduate would receive 5 tickets."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1035,
+    "problem_sha256": "dc3777d2b8c9916bab544120eba5902f6a1feae492e6b6699a1a790c597918ee",
+    "text_sha256": "bf15f40abbe1f7589d112a60fb29899f624a6fd6a03cc0e030503ee65677c732",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "35",
+      "span": "35\\ \\text{seconds}"
+    },
+    "gold": "35",
+    "tokens": 441,
+    "thinking_tokens": 153,
+    "final_region": "\n\n**Solution:**\n\nTo determine the total time Richard will take to set off all the soda fountains, follow these steps:\n\n1. **Determine the Number of Soda Bottles:**\n   \n   Richard wants to place a bottle every 3 feet along a 24-foot wide driveway.\n   \n   \\[\n   \\text{Number of bottles} = \\frac{\\text{Total width of driveway}}{\\text{Distance between bottles}} = \\frac{24 \\text{ feet}}{3 \\text{ feet/bottle}} = 8 \\text{ bottles}\n   \\]\n\n2. **Calculate the Total Time to Set Off All Bottles:**\n   \n   Richard takes **5 seconds** to move from one bottle to the next.\n   \n   Since there are 8 bottles, there will be **7 intervals** between them (as the first bottle is the starting point).\n   \n   \\[\n   \\text{Total intervals} = 8 \\text{ bottles} - 1 = 7 \\text{ intervals}\n   \\]\n   \n   \\[\n   \\text{Total time} = \\text{Number of intervals} \\times \\text{Time per interval} = 7 \\times 5 \\text{ seconds} = 35 \\text{ seconds}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{35\\ \\text{seconds}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1055,
+    "problem_sha256": "5e6e861b89ebee7d35867f7ea7f33901b5b17efa9678431d30abaf0c476fda46",
+    "text_sha256": "46839a2e2189842d2ecc28a684ce850425b5387061268f0b6a4f922b64d1bf98",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "2304",
+      "span": "**Answer:**\nJames pays a total of $2304 per year for his insurance."
+    },
+    "gold": "2304",
+    "tokens": 1150,
+    "thinking_tokens": 943,
+    "final_region": "\n\nJames pays a total of $2304 per year for his insurance.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the Normal Monthly Cost:**\n   - The normal cost is $120 per month.\n\n2. **Calculate the Additional Cost Due to the Accident:**\n   - The accident increases the cost by 60%.\n   - 60% of $120 = 0.60 × $120 = $72.\n\n3. **Find the Total Monthly Cost:**\n   - Add the additional cost to the normal cost.\n   - Total monthly cost = $120 + $72 = $192.\n\n4. **Calculate the Annual Cost:**\n   - Multiply the total monthly cost by 12 months.\n   - Annual cost = $192 × 12 = $2304.\n\n**Answer:**\nJames pays a total of $2304 per year for his insurance."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1056,
+    "problem_sha256": "194fce842488b1c52bfae8918894cc86513dc26c1fc5eeac522c16e7ebf4443d",
+    "text_sha256": "59ae07bc68399c41d21b7890ba38dcb3ffb746ba7bc5fa654364428407dcc345",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "156",
+      "span": "**Answer:** Greg does 156 loads of laundry in a year."
+    },
+    "gold": "156",
+    "tokens": 902,
+    "thinking_tokens": 815,
+    "final_region": "\n\nGreg performs laundry on five beds (four twin and one king) weekly. The laundry machine can handle two twin sets and one king set per load. Therefore, each week requires three loads (two twin sets and one king set). Over 52 weeks, this totals 3 * 52 = 156 loads. \n\n**Answer:** Greg does 156 loads of laundry in a year."
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1112,
+    "problem_sha256": "a5b633a615393b8d75eaa42aef71b0b8c42def30d19b573389ecfb83fd025015",
+    "text_sha256": "eeecd0ed248bfe5398a5acc6ecc9379240fed2e1226d8d416449e8400059d570",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "5",
+      "span": "5\\ \\text{kg}"
+    },
+    "gold": "5",
+    "tokens": 471,
+    "thinking_tokens": 139,
+    "final_region": "\n\nSure, let's solve the problem step by step.\n\n**Given:**\n- Pierre, Paul, and Jacques bought a total of **12 kg** of apples.\n- Peter wants **1/4** of the apples.\n- Paul wants **1/3** of the apples.\n- We need to find how many kilograms **James** will have left.\n\n**Solution:**\n\n1. **Calculate the amount Pierre wants:**\n   \\[\n   \\text{Pierre's share} = \\frac{1}{4} \\times 12 \\, \\text{kg} = 3 \\, \\text{kg}\n   \\]\n\n2. **Calculate the amount Paul wants:**\n   \\[\n   \\text{Paul's share} = \\frac{1}{3} \\times 12 \\, \\text{kg} = 4 \\, \\text{kg}\n   \\]\n\n3. **Determine the total amount Peter and Paul want together:**\n   \\[\n   \\text{Total desired} = 3 \\, \\text{kg} + 4 \\, \\text{kg} = 7 \\, \\text{kg}\n   \\]\n\n4. **Subtract the total desired from the original amount to find what James will have left:**\n   \\[\n   \\text{Apples left} = 12 \\, \\text{kg} - 7 \\, \\text{kg} = 5 \\, \\text{kg}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{5\\ \\text{kg}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1126,
+    "problem_sha256": "255a18de38f3a95304ac0c4c7c47916394b00b55833a023baef9740f8410ea05",
+    "text_sha256": "cfda29108ea9299e4d2f82f00f234ec25e1ec7475f9d5c5a7e16bd50c9f97aad",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "50",
+      "span": "50\\ \\text{days}"
+    },
+    "gold": "50",
+    "tokens": 327,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\n1. **Determine Half the Earth's Circumference:**\n   \n   The Earth's circumference is 40,000 kilometers. To find half of this distance:\n   \\[\n   \\frac{40,\\!000\\ \\text{km}}{2} = 20,\\!000\\ \\text{km}\n   \\]\n\n2. **Calculate the Number of Days to Fly 20,000 Kilometers:**\n   \n   Alfie flies 400 kilometers every day. To find the number of days required:\n   \\[\n   \\frac{20,\\!000\\ \\text{km}}{400\\ \\text{km/day}} = 50\\ \\text{days}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{50\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1224,
+    "problem_sha256": "9dccc47ded692bfa26f992617fb18329f85b5e4f5820283993c851f02685b045",
+    "text_sha256": "4762dd0ea9bfb302b7bcfe467be00bac5decef9629eff0c3aa498e0880c1e2eb",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "5",
+      "span": "5\\ \\text{inches}"
+    },
+    "gold": "5",
+    "tokens": 281,
+    "thinking_tokens": 74,
+    "final_region": "\n\nTo find out how many inches of rain will fall on **Tuesday**, let's break down the problem step by step.\n\n1. **Monday's Rainfall:**\n   - It rained **2 inches** on **Monday**.\n\n2. **Tuesday's Rainfall:**\n   - It is expected to rain **1 more inch than twice of Monday’s total** on Tuesday.\n   - Let's calculate twice Monday's rainfall:\n     \\[\n     2 \\times \\text{Monday's Rainfall} = 2 \\times 2\\, \\text{inches} = 4\\, \\text{inches}\n     \\]\n   - Now, add 1 more inch to this doubled amount:\n     \\[\n     4\\, \\text{inches} + 1\\, \\text{inch} = 5\\, \\text{inches}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{5\\ \\text{inches}}\n\\]"
+  },
+  {
+    "arm": "U",
+    "dataset_index": 1314,
+    "problem_sha256": "0e87216f81ed138d9cef15c68bf9c3b21203e8511a044edee81a2f0921a0477d",
+    "text_sha256": "c3736d42162592bfccbae2380ea8991e2d57044550d629d2835350983a9c01c8",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "8",
+      "span": "**Answer:** 8"
+    },
+    "gold": "8",
+    "tokens": 997,
+    "thinking_tokens": 764,
+    "final_region": "\n\nJohn's youngest son will be 8 years old in 3 years.\n\n**Step-by-Step Explanation:**\n\n1. **Determine James's Current Age:**\n   - James is twice as old as Dora.\n   - Dora will turn 12 in 3 years, so she is currently 9.\n   - Therefore, James is 2 × 9 = 18 years old.\n\n2. **Calculate John's Current Age:**\n   - John had James when he was 19, so James is 18 years old now.\n   - Therefore, John is 19 + 18 = 37 years old.\n\n3. **Determine the Youngest Son's Age:**\n   - The youngest son was born when John was 32.\n   - John is currently 37, so the youngest son is 37 - 32 = 5 years old.\n\n4. **Find the Age in 3 Years:**\n   - In 3 years, the youngest son will be 5 + 3 = 8 years old.\n\n**Answer:** 8"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 59,
+    "problem_sha256": "8a754cf2ed4870242ec99cd0fd3963c455ac6a42b132e4539d3b50a41c4f6d76",
+    "text_sha256": "11e70a878f94fbacd26a5f3b90ac55fd6c1ad6680a66d648a9f16c2c402f7da5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "187",
+      "span": "**Answer:** There are 187 raspberries in total."
+    },
+    "gold": "187",
+    "tokens": 714,
+    "thinking_tokens": 607,
+    "final_region": "\n\nThe total number of raspberries is calculated by multiplying the number of clusters by the number of fruits per cluster and then adding the individual fruits. \n\nNumber of raspberries = (Number of clusters × Fruits per cluster) + (Individual fruits)\nNumber of raspberries = (6 × 20) + 67\nNumber of raspberries = 120 + 67\nNumber of raspberries = 187\n\n**Answer:** There are 187 raspberries in total."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 136,
+    "problem_sha256": "7019b4bb1e0e2b3beb36288d6e409b0a207f9fd20c5ffb22e2f4bac6c2c82580",
+    "text_sha256": "1f4f0630e92e8baa7a856c9a22325f4d4a3e9a9542a0c8353c9dd2e570f44d67",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "6",
+      "span": "**Answer:** There are 6 female unicorns in the Scottish Highlands."
+    },
+    "gold": "6",
+    "tokens": 752,
+    "thinking_tokens": 674,
+    "final_region": "\n\nThere are 27 unicorns in total. One third of them are in the Scottish Highlands, which is 9 unicorns. Two thirds of these are female, so 2/3 of 9 is 6. Therefore, there are 6 female unicorns in the Scottish Highlands.\n\n**Answer:** There are 6 female unicorns in the Scottish Highlands."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 166,
+    "problem_sha256": "0547e6bcd635442e278c7412ec7f241707d50d075a4681ca1e232df06f8af0c1",
+    "text_sha256": "dd58e73af77ff9b9663682a71f8162735e7d34442a0f89c829e754500f96ee59",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "Sandra needs to babysit **5 times**."
+    },
+    "gold": "5",
+    "tokens": 311,
+    "thinking_tokens": 133,
+    "final_region": "\n\n**Solution:**\n\n1. **Calculate the total number of eggs needed for 15 Spanish flans.**\n\n   \\[\n   \\text{Eggs per flan} \\times \\text{Number of flans} = 3 \\times 15 = 45 \\text{ eggs}\n   \\]\n\n2. **Determine how many times Sandra needs to babysit to collect 45 eggs.**\n\n   \\[\n   \\text{Eggs per babysitting session} = 9\n   \\]\n   \n   \\[\n   \\text{Number of babysitting sessions} = \\frac{\\text{Total eggs needed}}{\\text{Eggs per session}} = \\frac{45}{9} = 5\n   \\]\n\n**Final Answer:**\n\nSandra needs to babysit **5 times**."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 201,
+    "problem_sha256": "8e6205df2aa6f815e5c728a12df176052a2e9ebcfea54f76e1f2fd8015639eef",
+    "text_sha256": "b4b2644af477d65659e47cb3b4c4c62e82250c4606e28e6db1a777d1e4b5155f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "114200",
+      "span": "**Final Answer:** $114,200"
+    },
+    "gold": "114200",
+    "tokens": 1377,
+    "thinking_tokens": 1163,
+    "final_region": "\n\nJohn made a total of $114,200 that year. \n\n**Step-by-Step Explanation:**\n\n1. **Calculate the weekly raise:**\n   - Original weekly salary: $2000\n   - Raise percentage: 5%\n   - Raise amount: $2000 * 0.05 = $100\n\n2. **Determine the new weekly salary:**\n   - New weekly salary: $2000 + $100 = $2100\n\n3. **Calculate total annual salary:**\n   - Number of weeks in a year: 52\n   - Total annual salary from raises: $2100 * 52 = $109,200\n\n4. **Add the monetary reward:**\n   - Total annual earnings: $109,200 + $5,000 = $114,200\n\n**Final Answer:** $114,200"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 203,
+    "problem_sha256": "95880f411eedc5403e6f00ea0bc2355c85c155ad78fbbb203ce0d9f9bef737b3",
+    "text_sha256": "3e0c2cfc68e0f588ff3db63a4a2156ad228cd6ce85a0f173b2ae4f8da40e4a6f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Carl used a total of 31 slices of cheese."
+    },
+    "gold": "31",
+    "tokens": 491,
+    "thinking_tokens": 373,
+    "final_region": "\n\nCarl used a total of 31 slices of cheese this week. Here's the breakdown:\n\n1. **Lunch Sandwiches**: 2 slices/day × 7 days = 14 slices\n2. **Breakfast Omelets**: 3 days × (2 + 1) slices/day = 9 slices\n3. **Macaroni and Cheese Dish**: 8 slices\n\nAdding these together: 14 + 9 + 8 = 31 slices.\n\n**Answer:** Carl used a total of 31 slices of cheese."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 228,
+    "problem_sha256": "33a67c3ad12d8529844cd6ec93603050ef529a7d2f45a98df8f68e8971c4abac",
+    "text_sha256": "4fb9bbd9a93607c9cb1cb0def9b5236fd529bd89554ad28e2de3be24dd5803fe",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "1",
+      "span": "1\\ \\text{hour}"
+    },
+    "gold": "1",
+    "tokens": 473,
+    "thinking_tokens": 157,
+    "final_region": "\n\nTo determine how long it will take Kalinda and her mom to complete the 360-piece puzzle, let's break down the problem step by step.\n\n### **Step 1: Determine Individual Rates**\n- **Kalinda's Rate:** She can add **4 pieces per minute**.\n- **Mom's Rate:** She can place **half as many pieces as Kalinda**. \n  \\[\n  \\text{Mom's Rate} = \\frac{4}{2} = 2 \\text{ pieces per minute}\n  \\]\n\n### **Step 2: Calculate Combined Rate**\n- Together, their combined rate is the sum of their individual rates.\n  \\[\n  \\text{Combined Rate} = 4 + 2 = 6 \\text{ pieces per minute}\n  \\]\n\n### **Step 3: Determine Total Time in Minutes**\n- The total number of pieces in the puzzle is **360**.\n- Using the combined rate, calculate the total time required.\n  \\[\n  \\text{Total Time (minutes)} = \\frac{360}{6} = 60 \\text{ minutes}\n  \\]\n\n### **Step 4: Convert Minutes to Hours**\n- There are **60 minutes in an hour**.\n  \\[\n  \\text{Total Time (hours)} = \\frac{60}{60} = 1 \\text{ hour}\n  \\]\n\n### **Final Answer**\n\\[\n\\boxed{1\\ \\text{hour}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 237,
+    "problem_sha256": "609bb6a938e419acbea9e0963f3e1d8124c7e43cf5c9a40e2d6ddffd37118d08",
+    "text_sha256": "a38c6d8783be6539820dc2ec10eb51b28081d5b9a81eeb2fe1b5d3f691bcc5d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "90",
+      "span": "**Answer:** Johnny had $90 after a year."
+    },
+    "gold": "90",
+    "tokens": 529,
+    "thinking_tokens": 484,
+    "final_region": "\n\nJohnny started with $20 allowance and added $10, totaling $30. After tripling, his amount became $90. \n\n**Answer:** Johnny had $90 after a year."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 327,
+    "problem_sha256": "b458cd0dea55ba01d56a5996ab03993bcb8f3fe552cf42cdcd1e7fa4ca16de96",
+    "text_sha256": "a75843f9a9bb3517a7af4f5b4431f9ec30b8676a3fdb7fc693c64e5f73c94989",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Oscar has 31 lollipops left."
+    },
+    "gold": "31",
+    "tokens": 580,
+    "thinking_tokens": 469,
+    "final_region": "\n\nOscar starts with 24 lollipops. After eating 2 on his way to school, he has 22 left. He gives 14 to his friends, leaving him with 8. He then buys twice as many as he gave to his friends, which is 28, bringing his total to 36. Finally, he eats 3 and 2 more, leaving him with **31 lollipops**.\n\n**Answer:** Oscar has 31 lollipops left."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 335,
+    "problem_sha256": "63a43d4c4196db66b987c28bf4a355dbbb57eac603ab7ec9eaf8ecd56552bf75",
+    "text_sha256": "d5e7ae7862218488f26c862269b34489af28e5e6ba18c0f0d7865a75cf2c3e4f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "310",
+      "span": "**Final Answer:** Mason needs 310 ounces of sugar."
+    },
+    "gold": "310",
+    "tokens": 948,
+    "thinking_tokens": 775,
+    "final_region": "\n\nMason needs a total of 310 ounces of sugar to make 8 batches of suckers and 1 batch of fudge.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Sugar for Suckers:**\n   - Each batch of suckers requires 30 ounces.\n   - For 8 batches: 8 × 30 = 240 ounces.\n\n2. **Calculate Sugar for Fudge:**\n   - Each batch of fudge requires 70 ounces.\n   - For 1 batch: 1 × 70 = 70 ounces.\n\n3. **Total Sugar Needed:**\n   - Add the sugar required for both batches: 240 + 70 = 310 ounces.\n\n**Final Answer:** Mason needs 310 ounces of sugar."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 385,
+    "problem_sha256": "1881cef21017ac62b0b9589465c1e01a3d182f0f2e6b53cda2f3ebad56519427",
+    "text_sha256": "de59f512ff52827271063bf968bd456b8aa233370595d1d3467c34cb47e19055",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "16",
+      "span": "**Answer:** 16 people sang in the performance."
+    },
+    "gold": "16",
+    "tokens": 449,
+    "thinking_tokens": 371,
+    "final_region": "\n\nThe choir initially has 52 members, with half (26) being girls. After half of the performing females (13) couldn't make it, only 13 remained. Including the 3 teachers, the total number of people singing is 13 + 3 = 16.\n\n**Answer:** 16 people sang in the performance."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 402,
+    "problem_sha256": "f711dc82bc808d674b75b925a3532855392bd3ed3239ccaece12302a3db140e0",
+    "text_sha256": "caaab433cebe9474b609be4b05dd29255b0a6f3b3ea1c4de8875434c2c56d8de",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "4",
+      "span": "**Answer:** Mark has to buy 4 more bags of flour than bottles of milk."
+    },
+    "gold": "4",
+    "tokens": 742,
+    "thinking_tokens": 531,
+    "final_region": "\n\nMark needs to buy 4 more bags of flour than bottles of milk.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate the total flour needed:**\n   - Normal recipe: 3 cups.\n   - Quadruple batch: 3 cups * 4 = 12 cups.\n   - Flour is sold in 2-cup bags: 12 cups / 2 cups per bag = 6 bags.\n\n2. **Calculate the total milk needed:**\n   - Normal recipe: 1 cup.\n   - Quadruple batch: 1 cup * 4 = 4 cups.\n   - Milk is sold in 2-cup bottles: 4 cups / 2 cups per bottle = 2 bottles.\n\n3. **Determine the difference:**\n   - Flour needed: 6 bags.\n   - Milk needed: 2 bottles.\n   - Difference: 6 - 2 = 4 bags.\n\n**Answer:** Mark has to buy 4 more bags of flour than bottles of milk."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 410,
+    "problem_sha256": "dba808a14c439d8c981d7f573e2ace457909fcde6556b7dcac5bab0c66ee3d7b",
+    "text_sha256": "d95e0fbf45dac86a8c480cbb8323a7c5d83ae224dbec396ede205674ac0f93b9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** Sally has $3.00 left."
+    },
+    "gold": "3",
+    "tokens": 729,
+    "thinking_tokens": 584,
+    "final_region": "\n\nSally started with $10. She spent $4.50 on trinkets at the trinket shop, $1.50 on seashells, and $1.00 on magnets. Adding these expenses:\n\n- Trinkets: $4.50\n- Seashells: $1.50\n- Magnets: $1.00\n\nTotal spent: $4.50 + $1.50 + $1.00 = $7.00.\n\nSally's remaining money: $10 - $7.00 = $3.00.\n\n**Answer:** Sally has $3.00 left."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 442,
+    "problem_sha256": "95d0ed4163986f1696c14204ce7c526e95bade7997738d190caa2992d2363c00",
+    "text_sha256": "10bf8b4d4c9a1219304f357c48e8f79d9832c72672a8b9c0c9e5429c78561767",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "49",
+      "span": "**Answer**: The house's final temperature is 49 degrees."
+    },
+    "gold": "49",
+    "tokens": 778,
+    "thinking_tokens": 646,
+    "final_region": "\n\nThe final temperature of Marcus's house after baking and cooling is calculated as follows:\n\n1. **Initial Temperature**: 40 degrees.\n2. **Baking**: 3 hours × 5 degrees/hour = 15 degrees increase.\n   - **Total Temperature after Baking**: 40 + 15 = 55 degrees.\n3. **Window Open**: 30 minutes × (2 degrees / 10 minutes) = 6 degrees decrease.\n   - **Final Temperature**: 55 - 6 = 49 degrees.\n\n**Answer**: The house's final temperature is 49 degrees."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 470,
+    "problem_sha256": "fc46bb602e9b5d3f4f95ef867b9a1e600ed2c6dbfa19c5496dad275be4a21373",
+    "text_sha256": "016aee3b6469d184ea205510155eb1977ac5091c3b4daaa5c84e65099b211e1d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** Theo received a change of \\$3."
+    },
+    "gold": "3",
+    "tokens": 581,
+    "thinking_tokens": 393,
+    "final_region": "\n\nTheo spent a total of $7 on the pen and the paper, and received a change of $3 from the cashier.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the cost of the paper:**\n   - The pen costs $2.\n   - Three times the price of the pen is \\(3 \\times \\$2 = \\$6\\).\n   - The paper costs $1 less than this amount, so \\(\\$6 - \\$1 = \\$5\\).\n\n2. **Calculate the total amount spent:**\n   - Pen: \\$2\n   - Paper: \\$5\n   - Total: \\$2 + \\$5 = \\$7\n\n3. **Find the change received:**\n   - The cashier gave Theo \\$10.\n   - Subtract the total amount spent: \\$10 - \\$7 = \\$3.\n\n**Answer:** Theo received a change of \\$3."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 475,
+    "problem_sha256": "b868bdfcda8b6fb340f88f311dfd62851e9c7f0e91e3f65c5930ce226299042c",
+    "text_sha256": "0e7bbb308a2f9b9032bda3effcb7e1b2c4c30d685f573ecbef70458ee36a40cd",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "20",
+      "span": "20\\ \\text{minutes}"
+    },
+    "gold": "20",
+    "tokens": 288,
+    "thinking_tokens": 100,
+    "final_region": "\n\n**Solution:**\n\n1. **Total Time to Break Into Shoes:**\n   \n   It takes **240 minutes** of walking to break into the new shoes.\n\n2. **Number of Days Jason Will Walk:**\n   \n   - **Days per Week:** 4\n   - **Number of Weeks:** 3\n   \n   Total days = 4 days/week × 3 weeks = **12 days**\n\n3. **Minutes to Walk Each Day:**\n   \n   To find out how many minutes Jason needs to walk each day, divide the total time by the number of days:\n   \n   \\[\n   \\text{Minutes per day} = \\frac{240\\ \\text{minutes}}{12\\ \\text{days}} = \\boxed{20\\ \\text{minutes}}\n   \\]\n\n**Final Answer:**  \n\\boxed{20\\ \\text{minutes}}"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 479,
+    "problem_sha256": "cbe5269c16ff08280f38309120e2da02a5022cc9fae1d2e3064ec3341e27a778",
+    "text_sha256": "2d9f3248b56c6d3fd653cbac9f3de7cc041ef4524afca90fab3298fadf7a7fa2",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "15400",
+      "span": "**Answer:** $15,400"
+    },
+    "gold": "15400",
+    "tokens": 914,
+    "thinking_tokens": 675,
+    "final_region": "\n\nThe total cost of the trip consists of the cost of the plane tickets and the hotel. \n\n1. **Plane Tickets:**  \n   Each ticket costs $5,000, and Tom and his wife buy both.  \n   Total cost = 2 * $5,000 = $10,000.\n\n2. **Hotel Cost:**  \n   The normal price is $1,500 per day, and the hotel is 20% more expensive.  \n   20% of $1,500 = 0.20 * $1,500 = $300.  \n   Increased price per day = $1,500 + $300 = $1,800.  \n   Over 3 days, the hotel costs: 3 * $1,800 = $5,400.\n\n3. **Total Trip Cost:**  \n   Sum of plane tickets and hotel costs: $10,000 + $5,400 = $15,400.\n\n**Answer:** $15,400"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 545,
+    "problem_sha256": "b91910a05c73d0a0c1f8d0b7ef0092818041812609a80659266e6be02a9aa988",
+    "text_sha256": "b9718ea308d6390e00261586327841de348d73a6d8e6bce8fd594ba7b3daf233",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{miles}"
+    },
+    "gold": "30",
+    "tokens": 329,
+    "thinking_tokens": 88,
+    "final_region": "\n\nLet's break down the problem step by step.\n\n**Given:**\n- Distance to Jeff's work: **3 miles**\n- Jeff walks **to and from** work each day.\n- He works **5 times a week**.\n\n**Objective:**\nFind the total miles Jeff walks in a week.\n\n**Step-by-Step Solution:**\n\n1. **Calculate the daily walking distance:**\n   - **One way** to work: **3 miles**\n   - **Return** from work: **3 miles**\n   \n   **Total daily distance:**\n   \\[\n   3 \\text{ miles (to work)} + 3 \\text{ miles (return)} = 6 \\text{ miles}\n   \\]\n\n2. **Determine the weekly walking distance:**\n   - **Number of workdays in a week:** **5**\n   \n   **Total weekly distance:**\n   \\[\n   6 \\text{ miles/day} \\times 5 \\text{ days/week} = 30 \\text{ miles/week}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{30\\ \\text{miles}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 548,
+    "problem_sha256": "e03936787cc83a5589b8b10da2313d7ac03caab05e91688f147c99fa78695b7a",
+    "text_sha256": "77965713f5b58b7cd58a249f5ae52fc8b5184df53c62377682c8e302657dc24d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "100",
+      "span": "100\\ \\text{pounds}"
+    },
+    "gold": "100",
+    "tokens": 323,
+    "thinking_tokens": 99,
+    "final_region": "\n\nTo determine Mark's initial weight, let's break down the information provided:\n\n1. **Weight Loss per Month:** Mark lost **10 pounds** each month for **3 months**.\n   \n   \\[\n   \\text{Total Weight Loss} = 10\\, \\text{pounds/month} \\times 3\\, \\text{months} = 30\\, \\text{pounds}\n   \\]\n\n2. **Final Weight:** Mark's weight after losing 30 pounds is **70 pounds**.\n\n3. **Initial Weight:** To find Mark's initial weight, add the total weight loss to his final weight.\n\n   \\[\n   \\text{Initial Weight} = \\text{Final Weight} + \\text{Total Weight Loss} = 70\\, \\text{pounds} + 30\\, \\text{pounds} = 100\\, \\text{pounds}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{100\\ \\text{pounds}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 575,
+    "problem_sha256": "a6300726564198e3fe76d3fabec6b5560291722aca884a79f297380ac4f243ab",
+    "text_sha256": "56fae31b7db26ce80fb48f1272551fae1a8fca52989a6c575dec4a864086202f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "36",
+      "span": "**Answer:** Kate can make $36 from selling her muffin crayons."
+    },
+    "gold": "36",
+    "tokens": 887,
+    "thinking_tokens": 684,
+    "final_region": "\n\nKate can make $36 from selling her muffin crayons.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Total Number of Crayons:**\n   - Kate has 3 boxes, each containing 64 crayons.\n   - Total crayons = 3 boxes × 64 crayons/box = 192 crayons.\n\n2. **Determine Number of Muffins:**\n   - Each muffin requires 8 small pieces of crayons.\n   - Number of muffins = Total crayons / Crayons per muffin = 192 / 8 = 24 muffins.\n\n3. **Calculate Total Revenue:**\n   - Each muffin sells for $1.50.\n   - Total revenue = Number of muffins × Price per muffin = 24 × $1.50 = $36.\n\n**Answer:** Kate can make $36 from selling her muffin crayons."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 612,
+    "problem_sha256": "09413ddcd964eef8514cb50e8dc64d62be9d1545f2386fd9254d618787acbf9e",
+    "text_sha256": "90c9cf161aff3af11d5bc3701091b6c175a1ea43522de00934275e8740a9c154",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{ounces}"
+    },
+    "gold": "30",
+    "tokens": 383,
+    "thinking_tokens": 153,
+    "final_region": "\n\nLet's calculate the total ounces of meat consumed by the basketball team step by step.\n\n1. **First Player:**\n   - Eaten a **6-ounce steak**.\n   - **Meat consumed:** 6 ounces.\n\n2. **Second Player:**\n   - Eaten **beef tips**, with **8 beef tips**, each weighing **1 ounce**.\n   - **Total meat consumed:** 8 ounces.\n\n3. **Third Player:**\n   - Eaten a **one-pound steak**.\n   - Since there are **16 ounces** in a pound, **16 ounces** of meat consumed.\n\n4. **Fourth and Fifth Players:**\n   - Ordered vegetarian meals, but the problem doesn't provide specific details about the contents.\n   - **Assuming they consumed 0 ounces of meat.**\n\n**Total Meat Consumed:**\n\n\\[\n6 \\text{ ounces} + 8 \\text{ ounces} + 16 \\text{ ounces} = 30 \\text{ ounces}\n\\]\n\n\\[\n\\boxed{30\\ \\text{ounces}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 655,
+    "problem_sha256": "bbfd3681a7324dd20b61f5ba049190803e4fc7f83d7ff498d2fc5c434946b3fb",
+    "text_sha256": "ddf147e96e91dd254cfd1fb4934ee1e9283cfcbb3458e70a98dcd9b2329403ad",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "10",
+      "span": "**Answer:** Shiela has **10 pages** left to write."
+    },
+    "gold": "10",
+    "tokens": 272,
+    "thinking_tokens": 123,
+    "final_region": "\n\n**Solution:**\n\nShiela has to submit a 15-page research paper and has already written \\( \\frac{1}{3} \\) of it. To find out how many pages she has left to write, follow these steps:\n\n1. **Find the number of pages she has already written:**\n   \n   \\[\n   \\frac{1}{3} \\times 15 = 5 \\text{ pages}\n   \\]\n\n2. **Subtract the pages she has written from the total pages:**\n   \n   \\[\n   15 - 5 = 10 \\text{ pages}\n   \\]\n\n**Answer:** Shiela has **10 pages** left to write."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 684,
+    "problem_sha256": "eab802db1b550dfd47cfbe0b076f9829640753d054adf76e04022d0e8ed7d05e",
+    "text_sha256": "fe112de6d6d41b8205229ccd25202d51169f4fe35f3bc6988eba03afe0306bae",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "11",
+      "span": "11\\ \\text{minutes}"
+    },
+    "gold": "11",
+    "tokens": 417,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\nWe need to determine how much additional time John and Jack have to reach school without being late. Here's a step-by-step breakdown:\n\n1. **Total Time Available:**\n   - They have **30 minutes** to reach school together.\n\n2. **Time to Reach the Library Corner:**\n   - It takes them **6 minutes** to get to the corner where the library is.\n\n3. **Time to Reach the Fire Station:**\n   - After the library corner, it takes them **13 minutes** to reach the fire station.\n\n4. **Total Time Spent Until the Fire Station:**\n   \\[\n   \\text{Total Time} = \\text{Time to Library Corner} + \\text{Time to Fire Station} = 6\\ \\text{minutes} + 13\\ \\text{minutes} = 19\\ \\text{minutes}\n   \\]\n\n5. **Time Remaining to Reach School:**\n   \\[\n   \\text{Remaining Time} = \\text{Total Time Available} - \\text{Total Time Spent} = 30\\ \\text{minutes} - 19\\ \\text{minutes} = 11\\ \\text{minutes}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{11\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 695,
+    "problem_sha256": "3bdf5e3d2efaffcf446121182bc4bc2915771a1a365bb640dce686b992c34406",
+    "text_sha256": "0f7cdcabb4bda3e3f1d5ebbb66d65e80faa7f85eb2e93107202b481a1f6689c5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "**Answer:** There are 5 eight-point bucks."
+    },
+    "gold": "5",
+    "tokens": 711,
+    "thinking_tokens": 617,
+    "final_region": "\n\nThere are 50 deer in total. 50% of them are bucks, which amounts to 25 bucks. Out of these 25 bucks, 20% are 8 points. Calculating 20% of 25 gives:\n\n25 * 0.20 = 5\n\nTherefore, there are 5 eight-point bucks in the field.\n\n**Answer:** There are 5 eight-point bucks."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 713,
+    "problem_sha256": "02256ac5575ecdfa651fa55ef8a0429e7742cb37de6697c4ac6a9e716be85a76",
+    "text_sha256": "dfb73c849631ce2e21e236f84143f8f378eee10c0911be5aa9940c16eff18089",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "576",
+      "span": "**Answer:** Mr. Boarden needs 576 mosaic tiles."
+    },
+    "gold": "576",
+    "tokens": 1132,
+    "thinking_tokens": 952,
+    "final_region": "\n\nMr. Boarden needs 576 mosaic tiles to cover two-thirds of his 36-square-foot bathroom. Here's the step-by-step explanation:\n\n1. **Calculate the desired area:**\n   - Two-thirds of 36 square feet: \n     \\[\n     \\frac{2}{3} \\times 36 = 24 \\text{ square feet}\n     \\]\n\n2. **Determine the number of tiles per square foot:**\n   - Mr. Boarden needs 24 tiles per square foot.\n\n3. **Compute the total number of tiles required:**\n   \\[\n   24 \\text{ tiles/square foot} \\times 24 \\text{ square feet} = 576 \\text{ tiles}\n   \\]\n\n**Answer:** Mr. Boarden needs 576 mosaic tiles."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 797,
+    "problem_sha256": "99c44c82c934f05f399d4c1248eca918d600b220de82e7e6123a8f83db9f0f38",
+    "text_sha256": "3e605b6ab07a4171abd7675f705607c3cf65ae879374e134bfea1b87c998b473",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "540",
+      "span": "540\\ \\text{seconds}"
+    },
+    "gold": "540",
+    "tokens": 416,
+    "thinking_tokens": 150,
+    "final_region": "\n\n**Solution:**\n\nWe need to calculate the total duration of caroling by considering the duration of each song and the number of times each song is sung.\n\n1. **Duration of \"Deck the Halls\":**\n   - **Song Duration:** 150 seconds\n   - **Number of Singings:** 2\n   - **Total Duration for \"Deck the Halls\":**\n     \\[\n     150 \\text{ seconds} \\times 2 = 300 \\text{ seconds}\n     \\]\n\n2. **Duration of \"Jingle Bells\":**\n   - **Song Duration:** 240 seconds\n   - **Number of Singings:** 1\n   - **Total Duration for \"Jingle Bells\":**\n     \\[\n     240 \\text{ seconds} \\times 1 = 240 \\text{ seconds}\n     \\]\n\n3. **Total Caroling Duration:**\n   - **Sum of Both Durations:**\n     \\[\n     300 \\text{ seconds} + 240 \\text{ seconds} = 540 \\text{ seconds}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{540\\ \\text{seconds}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 851,
+    "problem_sha256": "df5e353cffcbe3399274acdf5ebe443a9d85fcf2354e3ef60c529b2e01d0d326",
+    "text_sha256": "477adb78fc87bf50e2f2f6513b09d61021d86567d33f69ac4f3abc52cf683f1f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "110",
+      "span": "**Final Answer:**  \nJames pays **\\$110** on average for each pair of shoes."
+    },
+    "gold": "110",
+    "tokens": 316,
+    "thinking_tokens": 130,
+    "final_region": "\n\n**Solution:**\n\nJames buys **2 pairs of shoes** every month. To find the total number of pairs he buys in a year, multiply the number of pairs per month by the number of months in a year:\n\n\\[\n2 \\text{ pairs/month} \\times 12 \\text{ months} = 24 \\text{ pairs/year}\n\\]\n\nJames spends **\\$2,640** on shoes each year. To find the average amount he pays for each pair of shoes:\n\n\\[\n\\text{Average cost per pair} = \\frac{\\text{Total annual spending}}{\\text{Total number of pairs}} = \\frac{\\$2,640}{24 \\text{ pairs}} = \\$110 \\text{ per pair}\n\\]\n\n**Final Answer:**  \nJames pays **\\$110** on average for each pair of shoes."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 853,
+    "problem_sha256": "56772be6857095aaa371b571130d8b7fa78f8c4217dad84ea3d074c2d9ee7886",
+    "text_sha256": "38154de84e18eb6cdfab74261ad3e812fe87de649af2dd30b4d69c7131ea24d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "15",
+      "span": "15\\ \\text{hours}"
+    },
+    "gold": "15",
+    "tokens": 379,
+    "thinking_tokens": 137,
+    "final_region": "\n\nTo determine how many hours it would take to clean half of the 90 rooms at the KozyInn Motel, follow these steps:\n\n1. **Calculate the number of rooms to be cleaned:**\n   \n   \\[\n   \\text{Number of rooms to clean} = \\frac{90}{2} = 45 \\text{ rooms}\n   \\]\n\n2. **Determine the total time required to clean 45 rooms:**\n   \n   Each room takes 20 minutes to clean.\n   \n   \\[\n   \\text{Total cleaning time (in minutes)} = 45 \\text{ rooms} \\times 20 \\text{ minutes/room} = 900 \\text{ minutes}\n   \\]\n\n3. **Convert the total cleaning time from minutes to hours:**\n   \n   \\[\n   \\text{Total cleaning time (in hours)} = \\frac{900 \\text{ minutes}}{60 \\text{ minutes/hour}} = 15 \\text{ hours}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{15\\ \\text{hours}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 855,
+    "problem_sha256": "55c7a7c9ff8ab29381e4453a0cb274ff24f51f5b6272f43057d687e57077eff3",
+    "text_sha256": "d51a59d59aec246227353136aa83600525849d703566aa4dd5d2cc7258d77df2",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "13",
+      "span": "**Conclusion:** You are **13 years old**."
+    },
+    "gold": "13",
+    "tokens": 1156,
+    "thinking_tokens": 890,
+    "final_region": "\n\nLet's determine your age step by step.\n\n1. **Define Variables:**\n   - Let \\( x \\) be your age.\n   - Your brother's age is \\( x + 3 \\).\n   - Your sister's age is \\( x - 2 \\).\n   - Your mom's age is \\( 3(x + 3) - 1 = 3x + 8 \\).\n\n2. **Set Up the Equation:**\n   - Adding all ages equals 87:\n     \\[\n     x + (x + 3) + (x - 2) + (3x + 8) = 87\n     \\]\n\n3. **Combine Like Terms:**\n   - Combine \\( x \\) terms: \\( x + x + x + 3x = 6x \\)\n   - Combine constants: \\( 3 - 2 + 8 = 9 \\)\n   - Equation becomes: \\( 6x + 9 = 87 \\)\n\n4. **Solve for \\( x \\):**\n   - Subtract 9 from both sides: \\( 6x = 78 \\)\n   - Divide by 6: \\( x = 13 \\)\n\n**Conclusion:** You are **13 years old**."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 881,
+    "problem_sha256": "1a4cbe4f809cff98bf788bca6054f9aa87d769e070a26a8c72df85029222fa20",
+    "text_sha256": "902681351ba86b47dcee3cbc701a97c7ddf1eb72f4f9b857550cefccd2c01479",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "16",
+      "span": "**Answer:** In 16 years, Melanie's age will be thrice her present age."
+    },
+    "gold": "16",
+    "tokens": 942,
+    "thinking_tokens": 888,
+    "final_region": "\n\nMelanie is currently 8 years old. In 16 years, she will be 24, which is three times her current age. \n\n**Answer:** In 16 years, Melanie's age will be thrice her present age."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 928,
+    "problem_sha256": "faf2a611b4e22f51bb0dfe846928ac3162148f2b8cd617b32424699719502194",
+    "text_sha256": "eadbf050917f10470c25b3dfc2ec09e2a7f0d409847796b2b40247c109d74e60",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "60",
+      "span": "**Answer:** The average number of Junebugs Rita removes per day is 60."
+    },
+    "gold": "60",
+    "tokens": 1057,
+    "thinking_tokens": 975,
+    "final_region": "\n\nRita removes a total of 300 Junebugs over five days. The average number of Junebugs removed per day is calculated by dividing the total by the number of days:\n\n\\[\n\\text{Average} = \\frac{300}{5} = 60\n\\]\n\n**Answer:** The average number of Junebugs Rita removes per day is 60."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 967,
+    "problem_sha256": "62a0969a876547112f71d527bea4aed2a356fe939680566a311e91d424e99a0e",
+    "text_sha256": "a37af3b57c1ee08a4346457e35bbd5f31c567ab42339bde475c432a9e37fcb5a",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "30",
+      "span": "**Answer:** The total age of all three family members is 30 years."
+    },
+    "gold": "30",
+    "tokens": 589,
+    "thinking_tokens": 442,
+    "final_region": "\n\nThe total age of all three family members is calculated as follows:\n\n1. **Nani's Age:** 8 years.\n2. **Brother's Age:** 2 × Nani's age = 2 × 8 = 16 years.\n3. **Sister's Age:** 25% younger than Nani's age = 8 × (1 - 0.25) = 8 × 0.75 = 6 years.\n\nAdding these together:\n8 (Nani) + 16 (Brother) + 6 (Sister) = 30 years.\n\n**Answer:** The total age of all three family members is 30 years."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1032,
+    "problem_sha256": "f69ef5c7e691bc4c0828b3816f16847fc3e13dcdebc5b45f2ba25aff605afe0b",
+    "text_sha256": "140f6b0fc18a46c5200b737ec4665769d0a222599d6b8a8375f0733c339d220b",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "450",
+      "span": "**Answer:** Grandpa can eat 450 small jelly beans."
+    },
+    "gold": "450",
+    "tokens": 651,
+    "thinking_tokens": 509,
+    "final_region": "\n\nGrandpa can eat 450 small jelly beans. Here's the step-by-step explanation:\n\n1. **Large Beans**: 75 large beans fill Grandpa's capacity.\n2. **Medium Beans**: He can eat twice as many medium beans as large beans, so 75 * 2 = 150 medium beans.\n3. **Size Relationship**: Each medium bean is equivalent to 3 small beans (since 3 small = 1 medium).\n4. **Total Small Beans**: 150 medium beans * 3 small beans per medium = 450 small beans.\n\n**Answer:** Grandpa can eat 450 small jelly beans."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1049,
+    "problem_sha256": "55de0865312571fc48afb927a99c2812287c4b190fe0e2d168718930e608d784",
+    "text_sha256": "04924bd27a8ac5cc3acfec0877216f0a06b29a7a38327913aad4cade9eeb9c76",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "20",
+      "span": "**Answer:** There are 20 Spanish books in the library."
+    },
+    "gold": "20",
+    "tokens": 848,
+    "thinking_tokens": 574,
+    "final_region": "\n\nThere are 20 Spanish books in the library.\n\n**Step-by-Step Explanation:**\n\n1. **Total Books:** The library has 50 books.\n\n2. **English Books:** Half of the books are in English. \n   \\[\n   \\frac{1}{2} \\times 50 = 25 \\text{ English books}\n   \\]\n\n3. **German Books:** 10% of the books are in German.\n   \\[\n   0.10 \\times 50 = 5 \\text{ German books}\n   \\]\n\n4. **Spanish Books:** Subtract the number of English and German books from the total.\n   \\[\n   50 - (25 + 5) = 50 - 30 = 20 \\text{ Spanish books}\n   \\]\n\n5. **Verification:** Check the percentages:\n   - English: 25/50 = 50%\n   - German: 5/50 = 10%\n   - Spanish: 20/50 = 40%\n   \n   Adding these percentages: 50 + 10 + 40 = 100%, which confirms the calculations are correct.\n\n**Answer:** There are 20 Spanish books in the library."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1059,
+    "problem_sha256": "99db7f2d604cea04ba61d359d7ad69bcf944b8024be07de6a3d3cd71e40ef146",
+    "text_sha256": "aa4c5fcd7a2507b860896854c368d1a35c1f66254a54c96ebf424fddb8b3605a",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "2",
+      "span": "2\\ \\text{days}"
+    },
+    "gold": "2",
+    "tokens": 423,
+    "thinking_tokens": 174,
+    "final_region": "\n\n**Solution:**\n\nImma has 3 cats, and she feeds them twice a day with 60 grams of cat food each day. We need to determine how many days 720 grams of cat food will last.\n\n1. **Calculate the Daily feeding for All Cats:**\n   - **Each cat's daily feeding:** \n     \\[\n     60\\ \\text{grams} \\times 2\\ \\text{feedings/day} = 120\\ \\text{grams/day}\n     \\]\n   - **Total daily feeding for all 3 cats:**\n     \\[\n     120\\ \\text{grams/day} \\times 3\\ \\text{cats} = 360\\ \\text{grams/day}\n     \\]\n\n2. **Determine the Number of Days 720 Grams Will Last:**\n   - **Total days:**\n     \\[\n     \\frac{720\\ \\text{grams}}{360\\ \\text{grams/day}} = 2\\ \\text{days}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{2\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1067,
+    "problem_sha256": "c2428ac8136d91a92950a780b9fd9787eb1f7824fe57a3fc2b48dec9eb62125b",
+    "text_sha256": "ebb5e13bc39c5893960edd6a319d9d7a673fc551f6a5a06db38255d972275819",
+    "original_correct": true,
+    "supplemental_correct": false,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "24500",
+      "span": "24500"
+    },
+    "gold": "245",
+    "tokens": 1101,
+    "thinking_tokens": 874,
+    "final_region": "\n\nAnthony is sending out 700 small coupons and twice as many big coupons. Each small coupon costs 5 cents, and each big coupon costs 15 cents. \n\nFirst, we calculate the number of big coupons:\n\\[\n\\text{Number of big coupons} = 2 \\times 700 = 1400\n\\]\n\nNext, we calculate the cost for small coupons:\n\\[\n\\text{Cost for small coupons} = 700 \\times 5 = 3500 \\text{ cents}\n\\]\n\nThen, we calculate the cost for big coupons:\n\\[\n\\text{Cost for big coupons} = 1400 \\times 15 = 21000 \\text{ cents}\n\\]\n\nFinally, we add the costs together to find the total postage cost:\n\\[\n\\text{Total postage cost} = 3500 + 21000 = 24500 \\text{ cents}\n\\]\n\n\\[\n\\boxed{24500}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1089,
+    "problem_sha256": "b8481f13dd5c4f4331399ad025c4de692e6f6f218888dcc4e0caa2eec8006b3c",
+    "text_sha256": "97be695daf24c87d5f2bd1bd8730087649c12aae3905f7650d7c1ba71d24ea97",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "32",
+      "span": "32\\ \\text{feet}"
+    },
+    "gold": "32",
+    "tokens": 435,
+    "thinking_tokens": 162,
+    "final_region": "\n\nTo determine how high the bouncy ball goes on its second bounce, follow these steps:\n\n1. **Calculate the height of the third-floor balcony:**\n   \n   Each story is 24 feet high, and there are 3 stories.\n   \\[\n   \\text{Height of balcony} = 3 \\times 24\\ \\text{feet} = 72\\ \\text{feet}\n   \\]\n\n2. **Determine the height after the first bounce:**\n   \n   The ball bounces to \\( \\frac{2}{3} \\) of its starting height.\n   \\[\n   \\text{First bounce height} = 72\\ \\text{feet} \\times \\frac{2}{3} = 48\\ \\text{feet}\n   \\]\n\n3. **Determine the height after the second bounce:**\n   \n   The ball bounces to \\( \\frac{2}{3} \\) of its previous height.\n   \\[\n   \\text{Second bounce height} = 48\\ \\text{feet} \\times \\frac{2}{3} = 32\\ \\text{feet}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{32\\ \\text{feet}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1110,
+    "problem_sha256": "853f2737d81c8054e023c05e5ce080a32c9d273ae5e482ac4ca7a03e1d084137",
+    "text_sha256": "35499cda3f87f2e3bef88ac357d7da9fb300be086aa6d9048d1d6d5950dcc224",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "60",
+      "span": "**Answer:** Soledad needs to hike an additional 60 miles each day to complete her journey on time."
+    },
+    "gold": "60",
+    "tokens": 752,
+    "thinking_tokens": 513,
+    "final_region": "\n\nTo determine how many more miles per day Soledad must hike to complete her journey on time, follow these steps:\n\n1. **Calculate Total Miles Hiked Per Day:**\n   - She plans to walk twice a day, covering 125 miles each time.\n   - Total miles per day = 2 sessions/day * 125 miles/session = 250 miles/day.\n\n2. **Determine Total Miles Needed:**\n   - Goal is 9,300 miles for the month.\n\n3. **Find Remaining Miles to Hike:**\n   - Total miles hiked over 30 days at 250 miles/day = 250 * 30 = 7,500 miles.\n   - Remaining miles = 9,300 - 7,500 = 1,800 miles.\n\n4. **Calculate Additional Miles Needed Per Day:**\n   - 1,800 miles / 30 days = 60 miles/day.\n\n**Answer:** Soledad needs to hike an additional 60 miles each day to complete her journey on time."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1126,
+    "problem_sha256": "255a18de38f3a95304ac0c4c7c47916394b00b55833a023baef9740f8410ea05",
+    "text_sha256": "cfda29108ea9299e4d2f82f00f234ec25e1ec7475f9d5c5a7e16bd50c9f97aad",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "50",
+      "span": "50\\ \\text{days}"
+    },
+    "gold": "50",
+    "tokens": 327,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\n1. **Determine Half the Earth's Circumference:**\n   \n   The Earth's circumference is 40,000 kilometers. To find half of this distance:\n   \\[\n   \\frac{40,\\!000\\ \\text{km}}{2} = 20,\\!000\\ \\text{km}\n   \\]\n\n2. **Calculate the Number of Days to Fly 20,000 Kilometers:**\n   \n   Alfie flies 400 kilometers every day. To find the number of days required:\n   \\[\n   \\frac{20,\\!000\\ \\text{km}}{400\\ \\text{km/day}} = 50\\ \\text{days}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{50\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1182,
+    "problem_sha256": "4de20ffe58c4f62841ea579bade31d03877ccbbace787123b4895ed7ed664872",
+    "text_sha256": "72ed9220bb755e1cc16ab421c35f096700a1e12e815315ecc447aa643b823b76",
+    "original_correct": true,
+    "supplemental_correct": false,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "18",
+      "span": "18"
+    },
+    "gold": "1800",
+    "tokens": 298,
+    "thinking_tokens": 114,
+    "final_region": "\n\n**Solution:**\n\nBob has a total of **\\$27,000** to distribute between 3 schools. He can buy **100 books** for **\\$500**. We need to determine how many books Bob can buy per school.\n\n1. **Calculate the total number of sets of books Bob can buy:**\n\n   \\[\n   \\text{Total sets} = \\frac{\\$27,000}{\\$500} = 54 \\text{ sets}\n   \\]\n\n2. **Determine the number of books per school:**\n\n   \\[\n   \\text{Books per school} = \\frac{54 \\text{ books}}{3 \\text{ schools}} = 18 \\text{ books per school}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{18}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1254,
+    "problem_sha256": "3490ed7415153d972828739bcf2b280d261f9ccca8b1c3d0c8dd6ec2a6fea05a",
+    "text_sha256": "b4c7894dd32881fb1097c846eb4ad9c7c6d430970b65f08896eae2cf71b5291f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{minutes}"
+    },
+    "gold": "30",
+    "tokens": 484,
+    "thinking_tokens": 157,
+    "final_region": "\n\nLet's determine how much longer it will take to apply the new varnish coat on 6 paintings compared to using the old varnish.\n\n### **Step 1: Calculate the Total Drying Time with the Old Varnish**\n- **Drying Time per Painting with Old Varnish:** 7 minutes\n- **Number of Paintings:** 6\n\n\\[\n\\text{Total Drying Time with Old Varnish} = 7 \\, \\text{minutes/painting} \\times 6 \\, \\text{paintings} = 42 \\, \\text{minutes}\n\\]\n\n### **Step 2: Calculate the Total Drying Time with the New Varnish**\n- **Drying Time per Painting with New Varnish:** 12 minutes\n- **Number of Paintings:** 6\n\n\\[\n\\text{Total Drying Time with New Varnish} = 12 \\, \\text{minutes/painting} \\times 6 \\, \\text{paintings} = 72 \\, \\text{minutes}\n\\]\n\n### **Step 3: Determine the Additional Time Needed**\n\\[\n\\text{Additional Time} = \\text{Total Drying Time with New Varnish} - \\text{Total Drying Time with Old Varnish} = 72 \\, \\text{minutes} - 42 \\, \\text{minutes} = 30 \\, \\text{minutes}\n\\]\n\n\\[\n\\boxed{30\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1257,
+    "problem_sha256": "9730c3d143b4b99ffab37c97125b435bb00469fdd018412ae3999a729b32258e",
+    "text_sha256": "612ae3c0fbdebbd594ed07e30bbad3c71c54e498442e6ab821c0c5d6a5e68173",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "14",
+      "span": "**Answer:** It will cost Bob $14.00 to buy the necessary popsicle sticks for his project."
+    },
+    "gold": "14",
+    "tokens": 623,
+    "thinking_tokens": 442,
+    "final_region": "\n\nTo determine how much it will cost Bob to build his project, we'll follow these steps:\n\n1. **Calculate the number of boxes needed:**\n   - Bob needs 56 popsicle sticks.\n   - Each box contains 8 popsicles, which means each box provides 8 popsicle sticks.\n   - Number of boxes required = Total popsicle sticks needed ÷ Popsicles per box\n   - Number of boxes = 56 ÷ 8 = 7 boxes.\n\n2. **Calculate the total cost:**\n   - Each box costs $2.00.\n   - Total cost = Number of boxes × Cost per box\n   - Total cost = 7 × $2.00 = $14.00.\n\n**Answer:** It will cost Bob $14.00 to buy the necessary popsicle sticks for his project."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1284,
+    "problem_sha256": "71d0eac784a6e4fe9dd7af3c9ad8a1082b4a5cba639baa024310d3f9efdf09a8",
+    "text_sha256": "60ee82ee58f62ec79803b62255a365af9b420f760afff0155ad9a9fafa70e77d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "25",
+      "span": "**Answer:** 25 children are following the truck."
+    },
+    "gold": "25",
+    "tokens": 794,
+    "thinking_tokens": 703,
+    "final_region": "\n\nThe ice cream truck is chasing 5 children on the first street. On the second street, each child is joined by another child, doubling the number to 10. On the third street, each child is joined by two more, tripling the number to 30. As the original 5 children leave, the truck is followed by **25 children**.\n\n**Answer:** 25 children are following the truck."
+  },
+  {
+    "arm": "R",
+    "dataset_index": 1289,
+    "problem_sha256": "df0d17a084cd8f3180dfc20c31a015e0bcab58a94a26dcb96d0b626fba5d32d1",
+    "text_sha256": "f532ce07cb052ce02ea82ab9e2a71efcf14f75bba7eaa9f6712f5792c0a22348",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "101",
+      "span": "101\\ \\text{square feet}"
+    },
+    "gold": "101",
+    "tokens": 533,
+    "thinking_tokens": 219,
+    "final_region": "\n\nTo determine the total area of Octavia's quilt, we'll calculate the fabric used for each type of t-shirt and then sum them up.\n\n1. **Small T-shirts:**\n   - Each small t-shirt uses **3 square feet** of fabric.\n   - Total fabric for small shirts:\n     \\[\n     11 \\text{ shirts} \\times 3 \\text{ square feet/shirt} = 33 \\text{ square feet}\n     \\]\n\n2. **Medium T-shirts:**\n   - Each medium t-shirt uses **4 square feet** of fabric.\n   - Total fabric for medium shirts:\n     \\[\n     8 \\text{ shirts} \\times 4 \\text{ square feet/shirt} = 32 \\text{ square feet}\n     \\]\n\n3. **Large T-shirts:**\n   - Each large t-shirt uses **6 square feet** of fabric.\n   - Total fabric for large shirts:\n     \\[\n     6 \\text{ shirts} \\times 6 \\text{ square feet/shirt} = 36 \\text{ square feet}\n     \\]\n\n4. **Total Fabric for the Quilt:**\n   \\[\n   33 \\text{ square feet} + 32 \\text{ square feet} + 36 \\text{ square feet} = 101 \\text{ square feet}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{101\\ \\text{square feet}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 63,
+    "problem_sha256": "42ea5e32e3c5d0d19d7b38d6e7752c059e056e6b806a5f493d0937750d401a0b",
+    "text_sha256": "3d41942c93346fef51e8dce7e82593d3606d30c1db25b3d48659f5de05c2768f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "1596",
+      "span": "Therefore, by the end of the year, Aleena had paid a total of **$1,596** for the streaming service."
+    },
+    "gold": "1596",
+    "tokens": 1288,
+    "thinking_tokens": 994,
+    "final_region": "\n\nAleena paid a total of $1,596 for the streaming service throughout the year.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the monthly cost for the first half of the year:**\n   - The streaming service charges $140 per month.\n   - The first half of the year consists of 6 months.\n   - Cost for the first half = $140 × 6 = $840.\n\n2. **Calculate the reduced monthly rate for the second half of the year:**\n   - The reduced rate is 10% less than $140.\n   - 10% of $140 = $14.\n   - Reduced rate = $140 - $14 = $126 per month.\n\n3. **Determine the cost for the second half of the year:**\n   - The second half also has 6 months.\n   - Cost for the second half = $126 × 6 = $756.\n\n4. **Calculate the total amount paid for the year:**\n   - Total cost = Cost of first half + Cost of second half\n   - Total cost = $840 + $756 = $1,596.\n\nTherefore, by the end of the year, Aleena had paid a total of **$1,596** for the streaming service."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 136,
+    "problem_sha256": "7019b4bb1e0e2b3beb36288d6e409b0a207f9fd20c5ffb22e2f4bac6c2c82580",
+    "text_sha256": "597007d874f745dd19e7fab68f6910a59fa903ccd86ba85878027e9e0d659846",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "6",
+      "span": "**Answer:** There are 6 female unicorns in the Scottish Highlands."
+    },
+    "gold": "6",
+    "tokens": 842,
+    "thinking_tokens": 674,
+    "final_region": "\n\nThere are 6 female unicorns in the Scottish Highlands. \n\n**Step-by-Step Explanation:**\n\n1. **Total Unicorns:** 27\n\n2. **Unicorns in Scottish Highlands:**  \n   Calculate one third of 27.  \n   \\[\n   \\frac{1}{3} \\times 27 = 9\n   \\]\n   So, 9 unicorns are in the Scottish Highlands.\n\n3. **Female Unicorns in Highlands:**  \n   Calculate two thirds of the 9 unicorns.  \n   \\[\n   \\frac{2}{3} \\times 9 = 6\n   \\]\n   Therefore, there are 6 female unicorns in the Scottish Highlands.\n\n**Answer:** There are 6 female unicorns in the Scottish Highlands."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 146,
+    "problem_sha256": "eb64013a08ed6f03da18d8a48e4c88b9547bbf8c5356e4803d823d16c4f9e2dc",
+    "text_sha256": "cbab97f22b71f7f8f2466b9e0af0ad2e06149eee759acb38fa8a4151ff12a5ba",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "2125",
+      "span": "**Answer:** Johnny picks up a total of 2125 blocks."
+    },
+    "gold": "2125",
+    "tokens": 683,
+    "thinking_tokens": 528,
+    "final_region": "\n\nJohnny picks up a total of 2125 blocks.\n\n**Step-by-Step Explanation:**\n\n1. **First Box:** 500 pieces.\n2. **Second Box:** 3 times the first box: \\( 3 \\times 500 = 1500 \\) pieces.\n3. **Third Box:** 1/4 of the first box: \\( \\frac{500}{4} = 125 \\) pieces.\n4. **Total Blocks:** Sum of all boxes: \\( 500 + 1500 + 125 = 2125 \\) pieces.\n\n**Answer:** Johnny picks up a total of 2125 blocks."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 166,
+    "problem_sha256": "0547e6bcd635442e278c7412ec7f241707d50d075a4681ca1e232df06f8af0c1",
+    "text_sha256": "dd58e73af77ff9b9663682a71f8162735e7d34442a0f89c829e754500f96ee59",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "Sandra needs to babysit **5 times**."
+    },
+    "gold": "5",
+    "tokens": 311,
+    "thinking_tokens": 133,
+    "final_region": "\n\n**Solution:**\n\n1. **Calculate the total number of eggs needed for 15 Spanish flans.**\n\n   \\[\n   \\text{Eggs per flan} \\times \\text{Number of flans} = 3 \\times 15 = 45 \\text{ eggs}\n   \\]\n\n2. **Determine how many times Sandra needs to babysit to collect 45 eggs.**\n\n   \\[\n   \\text{Eggs per babysitting session} = 9\n   \\]\n   \n   \\[\n   \\text{Number of babysitting sessions} = \\frac{\\text{Total eggs needed}}{\\text{Eggs per session}} = \\frac{45}{9} = 5\n   \\]\n\n**Final Answer:**\n\nSandra needs to babysit **5 times**."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 203,
+    "problem_sha256": "95880f411eedc5403e6f00ea0bc2355c85c155ad78fbbb203ce0d9f9bef737b3",
+    "text_sha256": "3e0c2cfc68e0f588ff3db63a4a2156ad228cd6ce85a0f173b2ae4f8da40e4a6f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Carl used a total of 31 slices of cheese."
+    },
+    "gold": "31",
+    "tokens": 491,
+    "thinking_tokens": 373,
+    "final_region": "\n\nCarl used a total of 31 slices of cheese this week. Here's the breakdown:\n\n1. **Lunch Sandwiches**: 2 slices/day × 7 days = 14 slices\n2. **Breakfast Omelets**: 3 days × (2 + 1) slices/day = 9 slices\n3. **Macaroni and Cheese Dish**: 8 slices\n\nAdding these together: 14 + 9 + 8 = 31 slices.\n\n**Answer:** Carl used a total of 31 slices of cheese."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 210,
+    "problem_sha256": "7b4a7570dadad5373094b23c123c1788cafaea656964e04286c55a1a70da5b18",
+    "text_sha256": "92d4fb5e334d218bc90e3161ea7fc4bd780bdb3f23534ece43cd8c11b32d3ebb",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "10",
+      "span": "Sara must mow the lawn **10 times** before she can afford the jacket and shoes."
+    },
+    "gold": "10",
+    "tokens": 725,
+    "thinking_tokens": 350,
+    "final_region": "\n\nLet's determine how many times Sara needs to mow the lawn to afford the jacket and shoes.\n\n**Given:**\n- **Cost of the jacket:** \\$30\n- **Cost of 2 pairs of shoes:** \\$20 each → Total for shoes = \\$20 × 2 = \\$40\n- **Savings:** \\$10\n- **Earnings:**\n  - **From babysitting:** 4 times a week, earning \\$5 each time → \\$5 × 4 = \\$20 per week\n  - **From mowing the lawn:** \\$4 per time\n\n**Total Cost:**\n\\[\n\\text{Total Cost} = \\text{Cost of jacket} + \\text{Total cost of shoes} = \\$30 + \\$40 = \\$70\n\\]\n\n**Amount Needed:**\n\\[\n\\text{Amount Needed} = \\text{Total Cost} - \\text{Savings} = \\$70 - \\$10 = \\$60\n\\]\n\n**Earnings from Mowing the Lawn:**\nLet \\( x \\) be the number of times she mows the lawn.\n\n\\[\n\\text{Total Earnings} = \\text{Earnings from babysitting} + \\text{Earnings from mowing} = \\$20 + \\$4x\n\\]\n\n**Equation:**\n\\[\n20 + 4x = 60\n\\]\n\n**Solving for \\( x \\):**\n\\[\n4x = 60 - 20 \\\\\n4x = 40 \\\\\nx = \\frac{40}{4} \\\\\nx = 10\n\\]\n\n**Final Answer:**\n\nSara must mow the lawn **10 times** before she can afford the jacket and shoes."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 228,
+    "problem_sha256": "33a67c3ad12d8529844cd6ec93603050ef529a7d2f45a98df8f68e8971c4abac",
+    "text_sha256": "4fb9bbd9a93607c9cb1cb0def9b5236fd529bd89554ad28e2de3be24dd5803fe",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "1",
+      "span": "1\\ \\text{hour}"
+    },
+    "gold": "1",
+    "tokens": 473,
+    "thinking_tokens": 157,
+    "final_region": "\n\nTo determine how long it will take Kalinda and her mom to complete the 360-piece puzzle, let's break down the problem step by step.\n\n### **Step 1: Determine Individual Rates**\n- **Kalinda's Rate:** She can add **4 pieces per minute**.\n- **Mom's Rate:** She can place **half as many pieces as Kalinda**. \n  \\[\n  \\text{Mom's Rate} = \\frac{4}{2} = 2 \\text{ pieces per minute}\n  \\]\n\n### **Step 2: Calculate Combined Rate**\n- Together, their combined rate is the sum of their individual rates.\n  \\[\n  \\text{Combined Rate} = 4 + 2 = 6 \\text{ pieces per minute}\n  \\]\n\n### **Step 3: Determine Total Time in Minutes**\n- The total number of pieces in the puzzle is **360**.\n- Using the combined rate, calculate the total time required.\n  \\[\n  \\text{Total Time (minutes)} = \\frac{360}{6} = 60 \\text{ minutes}\n  \\]\n\n### **Step 4: Convert Minutes to Hours**\n- There are **60 minutes in an hour**.\n  \\[\n  \\text{Total Time (hours)} = \\frac{60}{60} = 1 \\text{ hour}\n  \\]\n\n### **Final Answer**\n\\[\n\\boxed{1\\ \\text{hour}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 237,
+    "problem_sha256": "609bb6a938e419acbea9e0963f3e1d8124c7e43cf5c9a40e2d6ddffd37118d08",
+    "text_sha256": "a38c6d8783be6539820dc2ec10eb51b28081d5b9a81eeb2fe1b5d3f691bcc5d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "90",
+      "span": "**Answer:** Johnny had $90 after a year."
+    },
+    "gold": "90",
+    "tokens": 529,
+    "thinking_tokens": 484,
+    "final_region": "\n\nJohnny started with $20 allowance and added $10, totaling $30. After tripling, his amount became $90. \n\n**Answer:** Johnny had $90 after a year."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 294,
+    "problem_sha256": "120b64ddef1e716e7d14d39bd053bdaf771a8a72083b9adb567f69588733e1d9",
+    "text_sha256": "0a9d0dc788a5e444343c1f2e0253f4a26c358adc3d701950c922acaf2e44c506",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** 3 oranges are left unwashed."
+    },
+    "gold": "3",
+    "tokens": 767,
+    "thinking_tokens": 576,
+    "final_region": "\n\nThe problem involves determining how many oranges are left unwashed after two sons wash them based on their ages. Here's the step-by-step solution:\n\n1. **Total Oranges:** Will buys **15 oranges**.\n2. **Sons' Ages:**\n   - **Oldest Son:** 8 years old.\n   - **Youngest Son:** Half the age of the oldest, so \\( \\frac{8}{2} = 4 \\) years old.\n3. **Oranges Washed:**\n   - Oldest son washes **8 oranges**.\n   - Youngest son washes **4 oranges**.\n4. **Total Oranges Washed:** \\( 8 + 4 = 12 \\) oranges.\n5. **Oranges Left Unwashed:** \\( 15 - 12 = 3 \\) oranges.\n\n**Answer:** 3 oranges are left unwashed."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 331,
+    "problem_sha256": "8076a013cf612d8f455b14c1599344cba05aa8a26e1520927d948d5512009120",
+    "text_sha256": "d1e6ee36969eb40a452b0178f5e2259ed554e8a5dae7608b5c9014b7dd0db8cb",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "8400",
+      "span": "**Answer:** Nick will make $8,400 more at Job B compared to Job A."
+    },
+    "gold": "8400",
+    "tokens": 1384,
+    "thinking_tokens": 984,
+    "final_region": "\n\nNick will make $8,400 more at Job B compared to Job A.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Job A's Gross Pay:**\n   - Hourly wage: $15/hour\n   - Hours worked: 2000 hours/year\n   - Gross Pay (Job A) = $15 * 2000 = $30,000\n\n2. **Calculate Job A's Taxes:**\n   - Tax rate: 20%\n   - Tax (Job A) = 20% * $30,000 = $6,000\n\n3. **Calculate Job A's Net Pay:**\n   - Net Pay (Job A) = Gross Pay - Taxes = $30,000 - $6,000 = $24,000\n\n4. **Calculate Job B's Net Pay:**\n   - Annual salary: $42,000\n   - Property tax: $6,000\n   - Net Pay Before Taxes (Job B) = $42,000 - $6,000 = $36,000\n   - Tax Rate: 10%\n   - Tax (Job B) = 10% * $36,000 = $3,600\n   - Net Pay (Job B) = $36,000 - $3,600 = $32,400\n\n5. **Determine the Difference in Net Pay:**\n   - Difference = Net Pay (Job B) - Net Pay (Job A) = $32,400 - $24,000 = $8,400\n\n**Answer:** Nick will make $8,400 more at Job B compared to Job A."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 391,
+    "problem_sha256": "683f25892247216d4ed9c50e5ec9a7ba0f0ad2824b218982aba3c67073c98a27",
+    "text_sha256": "1ade0022815c1dd88fcb9054b9b2d65179bf8ed8ac1ebd6db480d6a3af52652f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "15",
+      "span": "**Answer**: Sam has 15 more popsicles than Betty."
+    },
+    "gold": "15",
+    "tokens": 709,
+    "thinking_tokens": 486,
+    "final_region": "\n\nTo determine how many more popsicles Sam has than Betty, follow these steps:\n\n1. **Understand the Ratio**: The ratio of Betty's popsicles to Sam's is 5:6. This means for every 5 popsicles Betty has, Sam has 6.\n\n2. **Total Parts in the Ratio**: Add the parts of the ratio together: 5 + 6 = 11 parts.\n\n3. **Calculate Each Part's Value**: Divide the total number of popsicles by the total number of parts: 165 ÷ 11 = 15.\n\n4. **Find the Number of Popsicles Each Has**:\n   - Betty has 5 parts: 5 × 15 = 75 popsicles.\n   - Sam has 6 parts: 6 × 15 = 90 popsicles.\n\n5. **Determine the Difference**: Subtract Betty's popsicles from Sam's: 90 - 75 = 15.\n\n**Answer**: Sam has 15 more popsicles than Betty."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 398,
+    "problem_sha256": "8a47088c2c970111c96c0d79c879005446837bbacd98524220c531a51c26c735",
+    "text_sha256": "9261842975228a2f5c95c7306882760ec3653f40300c684ebb7621903f500310",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "168",
+      "span": "**Answer:** Nancy counted a total of 168 bugs."
+    },
+    "gold": "168",
+    "tokens": 581,
+    "thinking_tokens": 474,
+    "final_region": "\n\nNancy saw a total of 168 bugs in her woodshed. Here's the breakdown:\n\n- **Spiders:** 90\n- **Millipedes:** 90 / 3 = 30\n- **Stink Bugs:** (2 × 30) - 12 = 48\n\nAdding them together: 90 + 30 + 48 = 168.\n\n**Answer:** Nancy counted a total of 168 bugs."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 410,
+    "problem_sha256": "dba808a14c439d8c981d7f573e2ace457909fcde6556b7dcac5bab0c66ee3d7b",
+    "text_sha256": "394df244f0531a81abd1da353c8fd678f6d0bc5545419d7e8c4dbd4ec4d997fb",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** Sally has $3.00 left after her purchases."
+    },
+    "gold": "3",
+    "tokens": 613,
+    "thinking_tokens": 530,
+    "final_region": "\n\nSally started with $10. She spent $4.50 on trinkets, $1.50 on seashells, and $1.00 on magnets, totaling $7.00. Subtracting that from her initial $10, she has $3.00 left.\n\n**Answer:** Sally has $3.00 left after her purchases."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 436,
+    "problem_sha256": "2c135869a9ec69819e3d1c86b303173b9589d0ce247797d2023d36e8fd451a95",
+    "text_sha256": "25b1aaf4c420400647fb52101cd8ed2cd5987ab23c7e465f29194f05eba498c0",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "15",
+      "span": "15\\ \\text{ounces}"
+    },
+    "gold": "15",
+    "tokens": 387,
+    "thinking_tokens": 119,
+    "final_region": "\n\nLet's solve the problem step by step.\n\n**Given:**\n- Total weight of the cake = 20 ounces\n- Number of pieces = 8\n- Rory and her mom each have 1 piece\n\n**Step 1: Determine the weight of each piece of cake.**\n\n\\[\n\\text{Weight per piece} = \\frac{\\text{Total weight}}{\\text{Number of pieces}} = \\frac{20\\, \\text{ounces}}{8} = 2.5\\, \\text{ounces}\n\\]\n\n**Step 2: Calculate the total weight of the pieces Rory and her mom have.**\n\n\\[\n\\text{Weight of 2 pieces} = 2 \\times 2.5\\, \\text{ounces} = 5\\, \\text{ounces}\n\\]\n\n**Step 3: Find the remaining weight of the cake.**\n\n\\[\n\\text{Remaining weight} = \\text{Total weight} - \\text{Weight of 2 pieces} = 20\\, \\text{ounces} - 5\\, \\text{ounces} = 15\\, \\text{ounces}\n\\]\n\n**Final Answer:**\n\n\\[\n\\boxed{15\\ \\text{ounces}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 460,
+    "problem_sha256": "eb6abff01b32a974d8abb419f706ba40ac7b658f432cbb4f43d7226a36ab6271",
+    "text_sha256": "5184b5b0a3f2dfcd5a3422f0488f5abadf20663edbbe4c58c862db3d1140ce24",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "84",
+      "span": "**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+    },
+    "gold": "84",
+    "tokens": 709,
+    "thinking_tokens": 557,
+    "final_region": "\n\nGrayson earns 84 cents from recycling in a four-week month. \n\n**Step-by-Step Explanation:**\n\n1. **Determine Weekly Earnings:**\n   - **Aluminum Cans:** 3 cans × 2 cents = 6 cents\n   - **Plastic Bottles:** 5 bottles × 3 cents = 15 cents\n   - **Total Weekly Earnings:** 6 cents + 15 cents = 21 cents\n\n2. **Calculate for a Four-Week Month:**\n   - **Total Monthly Earnings:** 21 cents × 4 weeks = 84 cents\n\n**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 479,
+    "problem_sha256": "cbe5269c16ff08280f38309120e2da02a5022cc9fae1d2e3064ec3341e27a778",
+    "text_sha256": "4f479747ab1282b3d31aa545801beaae3dfe1068129d5f214795e0f805df617f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "15400",
+      "span": "**Final Answer:** The total cost of the trip is \\$15,400."
+    },
+    "gold": "15400",
+    "tokens": 891,
+    "thinking_tokens": 637,
+    "final_region": "\n\nTo determine the total cost of Tom and his wife's anniversary getaway, we'll break down each component:\n\n1. **Plane Tickets:**\n   - Each ticket costs $5,000.\n   - For two people, the total cost is \\( 5000 \\times 2 = 10,000 \\) dollars.\n\n2. **Hotel Cost:**\n   - The normal price per day is $1,500.\n   - The hotel is 20% more expensive, so the daily price is \\( 1500 + (0.20 \\times 1500) = 1500 + 300 = 1800 \\) dollars per day.\n   - For 3 days, the total hotel cost is \\( 1800 \\times 3 = 5400 \\) dollars.\n\n3. **Total Trip Cost:**\n   - Summing the plane tickets and hotel costs: \\( 10,000 + 5,400 = 15,400 \\) dollars.\n\n**Final Answer:** The total cost of the trip is \\$15,400."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 545,
+    "problem_sha256": "b91910a05c73d0a0c1f8d0b7ef0092818041812609a80659266e6be02a9aa988",
+    "text_sha256": "b9718ea308d6390e00261586327841de348d73a6d8e6bce8fd594ba7b3daf233",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{miles}"
+    },
+    "gold": "30",
+    "tokens": 329,
+    "thinking_tokens": 88,
+    "final_region": "\n\nLet's break down the problem step by step.\n\n**Given:**\n- Distance to Jeff's work: **3 miles**\n- Jeff walks **to and from** work each day.\n- He works **5 times a week**.\n\n**Objective:**\nFind the total miles Jeff walks in a week.\n\n**Step-by-Step Solution:**\n\n1. **Calculate the daily walking distance:**\n   - **One way** to work: **3 miles**\n   - **Return** from work: **3 miles**\n   \n   **Total daily distance:**\n   \\[\n   3 \\text{ miles (to work)} + 3 \\text{ miles (return)} = 6 \\text{ miles}\n   \\]\n\n2. **Determine the weekly walking distance:**\n   - **Number of workdays in a week:** **5**\n   \n   **Total weekly distance:**\n   \\[\n   6 \\text{ miles/day} \\times 5 \\text{ days/week} = 30 \\text{ miles/week}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{30\\ \\text{miles}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 548,
+    "problem_sha256": "e03936787cc83a5589b8b10da2313d7ac03caab05e91688f147c99fa78695b7a",
+    "text_sha256": "77965713f5b58b7cd58a249f5ae52fc8b5184df53c62377682c8e302657dc24d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "100",
+      "span": "100\\ \\text{pounds}"
+    },
+    "gold": "100",
+    "tokens": 323,
+    "thinking_tokens": 99,
+    "final_region": "\n\nTo determine Mark's initial weight, let's break down the information provided:\n\n1. **Weight Loss per Month:** Mark lost **10 pounds** each month for **3 months**.\n   \n   \\[\n   \\text{Total Weight Loss} = 10\\, \\text{pounds/month} \\times 3\\, \\text{months} = 30\\, \\text{pounds}\n   \\]\n\n2. **Final Weight:** Mark's weight after losing 30 pounds is **70 pounds**.\n\n3. **Initial Weight:** To find Mark's initial weight, add the total weight loss to his final weight.\n\n   \\[\n   \\text{Initial Weight} = \\text{Final Weight} + \\text{Total Weight Loss} = 70\\, \\text{pounds} + 30\\, \\text{pounds} = 100\\, \\text{pounds}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{100\\ \\text{pounds}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 561,
+    "problem_sha256": "092519c8ee9e94f08ae7d26d635355c7f342bf10289d6cb57c39b5c6359109dd",
+    "text_sha256": "e41d6b4990bf64257e9af0b4ce6a88e62b5315dc1ef89f57b85b41c7158ca007",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "180",
+      "span": "**Answer:** The average weight of the three friends is 180 pounds."
+    },
+    "gold": "180",
+    "tokens": 1131,
+    "thinking_tokens": 863,
+    "final_region": "\n\nTo determine the average weight of Mark, Susan, and Bob, follow these steps:\n\n1. **Find Susan's weight:**\n   Susan weighs 20 pounds less than Mark. Mark's weight is 150 pounds.\n   \\[\n   \\text{Susan's weight} = 150 - 20 = 130 \\text{ pounds}\n   \\]\n\n2. **Find Bob's weight:**\n   Bob weighs twice as much as Susan. Susan's weight is 130 pounds.\n   \\[\n   \\text{Bob's weight} = 2 \\times 130 = 260 \\text{ pounds}\n   \\]\n\n3. **Calculate the total weight:**\n   Add the weights of Mark, Susan, and Bob.\n   \\[\n   150 + 130 + 260 = 540 \\text{ pounds}\n   \\]\n\n4. **Compute the average weight:**\n   Divide the total weight by the number of friends (3).\n   \\[\n   \\text{Average weight} = \\frac{540}{3} = 180 \\text{ pounds}\n   \\]\n\n**Answer:** The average weight of the three friends is 180 pounds."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 575,
+    "problem_sha256": "a6300726564198e3fe76d3fabec6b5560291722aca884a79f297380ac4f243ab",
+    "text_sha256": "d064d475aaaecddc4218959a02661e365011f152fe46554e8b44486c4a94914c",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "36",
+      "span": "**Answer:** Kate can make $36 from selling her muffin crayons."
+    },
+    "gold": "36",
+    "tokens": 783,
+    "thinking_tokens": 587,
+    "final_region": "\n\nKate can make 24 muffins, each sold for $1.50, resulting in a total of $36.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Total Crayons:**\n   - 3 boxes × 64 crayons per box = 192 crayons.\n\n2. **Determine Muffins from Crayons:**\n   - Each muffin requires 8 pieces of crayons.\n   - Number of muffins = Total crayons / Crayons per muffin = 192 / 8 = 24 muffins.\n\n3. **Calculate Total Revenue:**\n   - Each muffin is sold for $1.50.\n   - Total revenue = Number of muffins × Price per muffin = 24 × $1.50 = $36.\n\n**Answer:** Kate can make $36 from selling her muffin crayons."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 591,
+    "problem_sha256": "b635e210a6608cc814acecca954cc394e0d1d68f62e2be76d6d4534977528981",
+    "text_sha256": "eacbd6a5a2320e0f24ffb3571e5509da4078376fd6ea6e10048ede1f362886ac",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "220",
+      "span": "**Final Answer:**  \nThe Mastiff weighs 220 pounds."
+    },
+    "gold": "220",
+    "tokens": 779,
+    "thinking_tokens": 532,
+    "final_region": "\n\nThe Mastiff weighs 220 pounds.\n\n**Step-by-Step Explanation:**\n\n1. **Affenpinscher Weight:**  \n   The first dog, the Affenpinscher, weighs 10 pounds.\n\n2. **Dachshund Weight:**  \n   The Dachshund weighs twice as much as the Affenpinscher:  \n   \\( \\text{Dachshund weight} = 2 \\times 10 \\text{ pounds} = 20 \\text{ pounds} \\)\n\n3. **Papillon Weight:**  \n   The Papillon weighs one-fourth of the Dachshound:  \n   \\( \\text{Papillon weight} = \\frac{1}{4} \\times 20 \\text{ pounds} = 5 \\text{ pounds} \\)\n\n4. **Mastiff Weight:**  \n   The Mastiff weighs 44 times the Papillon:  \n   \\( \\text{Mastiff weight} = 44 \\times 5 \\text{ pounds} = 220 \\text{ pounds} \\)\n\n**Final Answer:**  \nThe Mastiff weighs 220 pounds."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 592,
+    "problem_sha256": "cc40f31c88659414cbd04f89b86b8a55983e5c589c3e124e99c9e30fbd0737b3",
+    "text_sha256": "3f9181e99354c1aeb6e0c9ab6521d86f208c27b7dc2be96c9928f05aedc9f272",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "1",
+      "span": "**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+    },
+    "gold": "1",
+    "tokens": 383,
+    "thinking_tokens": 187,
+    "final_region": "\n\nTo determine how much more expensive the boots are on eBay compared to Amazon, follow these steps:\n\n1. **Calculate the total cost on Amazon:**\n   - **Price of the boots:** \\$16\n   - **Shipping cost on Amazon:** \\$4\n   - **Total cost on Amazon:** \\$16 + \\$4 = **\\$20**\n\n2. **Calculate the shipping cost on eBay:**\n   - **Shipping cost on Amazon:** \\$4\n   - **Shipping cost on eBay:** 2 × \\$4 = **\\$8**\n   - **Total cost on eBay:** \\$13 (boots) + \\$8 (shipping) = **\\$21**\n\n3. **Determine the difference in total costs:**\n   - **Difference:** \\$21 (eBay) - \\$20 (Amazon) = **\\$1**\n\n**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 612,
+    "problem_sha256": "09413ddcd964eef8514cb50e8dc64d62be9d1545f2386fd9254d618787acbf9e",
+    "text_sha256": "90c9cf161aff3af11d5bc3701091b6c175a1ea43522de00934275e8740a9c154",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{ounces}"
+    },
+    "gold": "30",
+    "tokens": 383,
+    "thinking_tokens": 153,
+    "final_region": "\n\nLet's calculate the total ounces of meat consumed by the basketball team step by step.\n\n1. **First Player:**\n   - Eaten a **6-ounce steak**.\n   - **Meat consumed:** 6 ounces.\n\n2. **Second Player:**\n   - Eaten **beef tips**, with **8 beef tips**, each weighing **1 ounce**.\n   - **Total meat consumed:** 8 ounces.\n\n3. **Third Player:**\n   - Eaten a **one-pound steak**.\n   - Since there are **16 ounces** in a pound, **16 ounces** of meat consumed.\n\n4. **Fourth and Fifth Players:**\n   - Ordered vegetarian meals, but the problem doesn't provide specific details about the contents.\n   - **Assuming they consumed 0 ounces of meat.**\n\n**Total Meat Consumed:**\n\n\\[\n6 \\text{ ounces} + 8 \\text{ ounces} + 16 \\text{ ounces} = 30 \\text{ ounces}\n\\]\n\n\\[\n\\boxed{30\\ \\text{ounces}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 626,
+    "problem_sha256": "118b23778cf2a58917808ec5de8bbf6a2b6722dc8f290ba5ce3ea1320dc438fa",
+    "text_sha256": "d1246ee48d707fddbaacea652679c581e2fa9215b417e097990ea676c7a73a13",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "72",
+      "span": "72\\ \\text{Mb/h}"
+    },
+    "gold": "72",
+    "tokens": 365,
+    "thinking_tokens": 168,
+    "final_region": "\n\nTo determine Ashley's internet connection speed in megabits per hour (Mb/h), follow these steps:\n\n1. **Convert kilobits to megabits:**\n\n   Ashley's internet speed is 20 kilobits per second (kb/s).\n\n   \\[\n   \\text{Speed in Mb/s} = \\frac{20\\ \\text{kb/s}}{1000} = 0.02\\ \\text{Mb/s}\n   \\]\n\n2. **Convert seconds to hours:**\n\n   There are 3600 seconds in one hour.\n\n   \\[\n   \\text{Speed in Mb/h} = 0.02\\ \\text{Mb/s} \\times 3600\\ \\text{s/h} = 72\\ \\text{Mb/h}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{72\\ \\text{Mb/h}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 680,
+    "problem_sha256": "eca83c8a0a34627f8e3746061dbb42fed84afe6746d3c8796f3018e746eee145",
+    "text_sha256": "fe7f7a6789424f0b7291f7e70201b3882ccfa53ec75d46507ab313ca5f05d344",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "20",
+      "span": "**Answer:** They will have exceeded the maximum load by 20 kg."
+    },
+    "gold": "20",
+    "tokens": 764,
+    "thinking_tokens": 676,
+    "final_region": "\n\nThe total weight of Jack and 8 other adults is 9 people multiplied by an average of 80 kg per person, resulting in 720 kg. The elevator's maximum load is 700 kg, so they exceed the capacity by 720 kg - 700 kg = 20 kg.\n\n**Answer:** They will have exceeded the maximum load by 20 kg."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 688,
+    "problem_sha256": "f7ec992b0e8c790072927cf177b860656c17a611bf9b902ebbdc17ed64a166ca",
+    "text_sha256": "37acb1264969885b2a9ee873d4cb613e207ff7d63b2ac06b4bb27bb89affa9e0",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "100",
+      "span": "100\\ \\text{minutes}"
+    },
+    "gold": "100",
+    "tokens": 451,
+    "thinking_tokens": 173,
+    "final_region": "\n\nLet's break down the problem step by step to determine how long John has to nap.\n\n1. **Calculate the total homework time:**\n   - **Math homework:** 20 minutes\n   - **Reading homework:** 40 minutes\n   - **History homework:** 20 minutes\n\n   \\[\n   \\text{Total homework time} = 20\\ \\text{minutes} + 40\\ \\text{minutes} + 20\\ \\text{minutes} = 80\\ \\text{minutes}\n   \\]\n\n2. **Determine the time available before dinner:**\n   - **Time available:** 3 hours\n\n   Convert hours to minutes:\n   \\[\n   3\\ \\text{hours} \\times 60\\ \\text{minutes/hour} = 180\\ \\text{minutes}\n   \\]\n\n3. **Calculate the nap time:**\n   \\[\n   \\text{Nap time} = \\text{Time available before dinner} - \\text{Total homework time} = 180\\ \\text{minutes} - 80\\ \\text{minutes} = 100\\ \\text{minutes}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{100\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 713,
+    "problem_sha256": "02256ac5575ecdfa651fa55ef8a0429e7742cb37de6697c4ac6a9e716be85a76",
+    "text_sha256": "b2bc688dc0ec0e33e7d72f2f1dafc486ad73c46bec2e3577f383363f259599f9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "576",
+      "span": "**Answer:** Mr. Boarden would need 576 mosaic tiles."
+    },
+    "gold": "576",
+    "tokens": 883,
+    "thinking_tokens": 690,
+    "final_region": "\n\nMr. Boarden needs 576 mosaic tiles to cover two-thirds of his 36 square foot bathroom. Here's the step-by-step explanation:\n\n1. **Calculate two-thirds of 36 square feet:**\n   \\[\n   \\frac{2}{3} \\times 36 = 24 \\text{ square feet}\n   \\]\n\n2. **Determine the number of mosaic tiles needed per square foot:**\n   \\[\n   24 \\text{ tiles/square foot}\n   \\]\n\n3. **Multiply the number of square feet by the number of tiles per square foot to find the total number of tiles:**\n   \\[\n   24 \\text{ tiles/square foot} \\times 24 \\text{ square feet} = 576 \\text{ tiles}\n   \\]\n\n**Answer:** Mr. Boarden would need 576 mosaic tiles."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 719,
+    "problem_sha256": "47e9060a8c70183fc46faffa7a425a00aa34b1104f49935166d466aa7850a4b3",
+    "text_sha256": "5740b60eb341fd3c1b8edf54c475f8d6e2dfdf6626b2d101500f41584955a5dc",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "175",
+      "span": "175\\ \\text{kg}"
+    },
+    "gold": "175",
+    "tokens": 363,
+    "thinking_tokens": 134,
+    "final_region": "\n\n**Solution:**\n\nGoldy has bought a total of 20 sacks of rice. She has given 3 sacks to her cousin and 4 sacks to her brother. To find out how many kilograms of rice she gave to her cousin and brother, follow these steps:\n\n1. **Calculate the total number of sacks given:**\n   \\[\n   \\text{Total sacks given} = 3 \\text{ (to cousin)} + 4 \\text{ (to brother)} = 7 \\text{ sacks}\n   \\]\n\n2. **Determine the weight of rice per sack:**\n   \\[\n   \\text{Weight per sack} = 25 \\text{ kilograms}\n   \\]\n\n3. **Find the total kilograms of rice given:**\n   \\[\n   \\text{Total kilograms} = \\text{Total sacks given} \\times \\text{Weight per sack} = 7 \\times 25 = 175 \\text{ kilograms}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{175\\ \\text{kg}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 745,
+    "problem_sha256": "37d12453deea60ee9cf008454c39ab02e843816e91399bc4857e210eba76a955",
+    "text_sha256": "641cc0c45b6fce0b7fcc6a1d1e9602d118a9c8fffa859884d10938c3fc9a2473",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "1100",
+      "span": "**Answer:** Mark made a profit of $1100."
+    },
+    "gold": "1100",
+    "tokens": 943,
+    "thinking_tokens": 776,
+    "final_region": "\n\nMark's profit is calculated by subtracting his total cost from his total revenue.\n\n1. **Total Cost**: \n   - 3 packs × $1800 = $5400\n\n2. **Total Revenue**:\n   - Value of specific cards: $4000 + $1000 = $5000\n   - Value of 30 cards: 30 × $50 = $1500\n   - Total: $5000 + $1500 = $6500\n\n3. **Profit**:\n   - Total Revenue - Total Cost = $6500 - $5400 = $1100\n\n**Answer:** Mark made a profit of $1100."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 797,
+    "problem_sha256": "99c44c82c934f05f399d4c1248eca918d600b220de82e7e6123a8f83db9f0f38",
+    "text_sha256": "a68226fdfde642220d0af76d602fc73b45f625403ce8d13a5b73731ced236849",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "540",
+      "span": "540\\ \\text{seconds}"
+    },
+    "gold": "540",
+    "tokens": 410,
+    "thinking_tokens": 159,
+    "final_region": "\n\n**Solution:**\n\nWe need to calculate the total duration of the caroling performance by summing the durations of all the songs that will be sung.\n\n1. **Duration of Each Song:**\n   - **\"Deck the Halls\"**:\n     - **Duration**: 150 seconds\n     - **Number of Performances**: 2\n     - **Total Duration**: \\(150\\, \\text{seconds} \\times 2 = 300\\, \\text{seconds}\\)\n   - **\"Jingle Bells\"**:\n     - **Duration**: 240 seconds\n     - **Number of Performances**: 1\n     - **Total Duration**: \\(240\\, \\text{seconds} \\times 1 = 240\\, \\text{seconds}\\)\n\n2. **Total Caroling Duration:**\n   - **Sum of Both Durations**: \\(300\\, \\text{seconds} + 240\\, \\text{seconds} = 540\\, \\text{seconds}\\)\n\n**Final Answer:**\n\\[\n\\boxed{540\\ \\text{seconds}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 853,
+    "problem_sha256": "56772be6857095aaa371b571130d8b7fa78f8c4217dad84ea3d074c2d9ee7886",
+    "text_sha256": "38154de84e18eb6cdfab74261ad3e812fe87de649af2dd30b4d69c7131ea24d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "15",
+      "span": "15\\ \\text{hours}"
+    },
+    "gold": "15",
+    "tokens": 379,
+    "thinking_tokens": 137,
+    "final_region": "\n\nTo determine how many hours it would take to clean half of the 90 rooms at the KozyInn Motel, follow these steps:\n\n1. **Calculate the number of rooms to be cleaned:**\n   \n   \\[\n   \\text{Number of rooms to clean} = \\frac{90}{2} = 45 \\text{ rooms}\n   \\]\n\n2. **Determine the total time required to clean 45 rooms:**\n   \n   Each room takes 20 minutes to clean.\n   \n   \\[\n   \\text{Total cleaning time (in minutes)} = 45 \\text{ rooms} \\times 20 \\text{ minutes/room} = 900 \\text{ minutes}\n   \\]\n\n3. **Convert the total cleaning time from minutes to hours:**\n   \n   \\[\n   \\text{Total cleaning time (in hours)} = \\frac{900 \\text{ minutes}}{60 \\text{ minutes/hour}} = 15 \\text{ hours}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{15\\ \\text{hours}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 967,
+    "problem_sha256": "62a0969a876547112f71d527bea4aed2a356fe939680566a311e91d424e99a0e",
+    "text_sha256": "551e4a21143cc80f1b93bff4ad72c60d9040b36141624a72c502e61e5d44cdc6",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "30",
+      "span": "**Answer:** The total age of all three family members is 30 years."
+    },
+    "gold": "30",
+    "tokens": 889,
+    "thinking_tokens": 682,
+    "final_region": "\n\nThe total age of all three family members is 30 years.\n\n**Step-by-Step Explanation:**\n\n1. **Nani's Age:** Nani is 8 years old.\n\n2. **Brother's Age:** The brother is twice Nani's age.\n   - Calculation: \\(2 \\times 8 = 16\\)\n   - Brother's Age: 16 years\n\n3. **Sister's Age:** The sister is 25% younger than Nani.\n   - Calculation: \\(25\\% \\text{ of } 8 = 0.25 \\times 8 = 2\\)\n   - Sister's Age: \\(8 - 2 = 6\\) years\n\n4. **Total Age:** Sum of Nani, Brother, and Sister's ages.\n   - Calculation: \\(8 + 16 + 6 = 30\\)\n\n**Answer:** The total age of all three family members is 30 years."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1055,
+    "problem_sha256": "5e6e861b89ebee7d35867f7ea7f33901b5b17efa9678431d30abaf0c476fda46",
+    "text_sha256": "dd610c3b3590fa273232c173a9b7efb1827e7b1e9b7a8ce9299962eba9833701",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "2304",
+      "span": "**Answer:** James pays $2304 for the insurance in a year."
+    },
+    "gold": "2304",
+    "tokens": 1486,
+    "thinking_tokens": 1295,
+    "final_region": "\n\nJames will pay $2304 for his insurance in a year.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the Normal Monthly Cost:**\n   - Normal cost = $120 per month.\n\n2. **Calculate the Increase Due to the Accident:**\n   - The insurance is 60% more than normal.\n   - Increase = 60% of $120 = 0.6 × 120 = $72.\n\n3. **Find the Total Monthly Cost:**\n   - Total monthly cost = Normal cost + Increase = $120 + $72 = $192.\n\n4. **Compute the Annual Cost:**\n   - Annual cost = Total monthly cost × 12 = $192 × 12 = $2304.\n\n**Answer:** James pays $2304 for the insurance in a year."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1059,
+    "problem_sha256": "99db7f2d604cea04ba61d359d7ad69bcf944b8024be07de6a3d3cd71e40ef146",
+    "text_sha256": "aa4c5fcd7a2507b860896854c368d1a35c1f66254a54c96ebf424fddb8b3605a",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "2",
+      "span": "2\\ \\text{days}"
+    },
+    "gold": "2",
+    "tokens": 423,
+    "thinking_tokens": 174,
+    "final_region": "\n\n**Solution:**\n\nImma has 3 cats, and she feeds them twice a day with 60 grams of cat food each day. We need to determine how many days 720 grams of cat food will last.\n\n1. **Calculate the Daily feeding for All Cats:**\n   - **Each cat's daily feeding:** \n     \\[\n     60\\ \\text{grams} \\times 2\\ \\text{feedings/day} = 120\\ \\text{grams/day}\n     \\]\n   - **Total daily feeding for all 3 cats:**\n     \\[\n     120\\ \\text{grams/day} \\times 3\\ \\text{cats} = 360\\ \\text{grams/day}\n     \\]\n\n2. **Determine the Number of Days 720 Grams Will Last:**\n   - **Total days:**\n     \\[\n     \\frac{720\\ \\text{grams}}{360\\ \\text{grams/day}} = 2\\ \\text{days}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{2\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1094,
+    "problem_sha256": "a3c6cda81e6ac6dfabe431e3eb0a56f5cb3b7819812ad052b1aaacd77a652fda",
+    "text_sha256": "24fbd2cb587a4ca7a8f64bf1fbe6697cebe743e421c9a188496818dd34a4df04",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "25",
+      "span": "**Answer:** The likelihood that Ellen's friend gets sprayed with a soda from a shaken can is 25%."
+    },
+    "gold": "25",
+    "tokens": 904,
+    "thinking_tokens": 583,
+    "final_region": "\n\nTo determine the probability that Ellen's friend gets sprayed with soda from a shaken can, we'll follow these steps:\n\n1. **Initial Setup:**\n   - Total sodas: 12\n   - Shaken sodas: 3\n   - Unshaken sodas: 9\n\n2. **After Ellen Takes One Unshaken Soda:**\n   - Remaining sodas: 12 - 1 = 11\n   - Shaken sodas remain: 3\n   - Unshaken sodas: 9 - 1 = 8\n\n3. **After Her Brother Takes 1 Shaken and 2 Unshaken:**\n   - Shaken sodas left: 3 - 1 = 2\n   - Unshaken sodas left: 8 - 2 = 6\n\n4. **Total Sodas Remaining for the Friend:**\n   - Shaken sodas: 2\n   - Unshaken sodas: 6\n   - Total: 2 + 6 = 8\n\n5. **Probability Calculation:**\n   - Probability = (Number of Shaken Sodas Left) / (Total Sodas Left)\n   - Probability = 2 / 8 = 1/4 = 0.25\n\n6. **Convert to Percentage:**\n   - 0.25 * 100 = 25%\n\n**Answer:** The likelihood that Ellen's friend gets sprayed with a soda from a shaken can is 25%."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1126,
+    "problem_sha256": "255a18de38f3a95304ac0c4c7c47916394b00b55833a023baef9740f8410ea05",
+    "text_sha256": "cfda29108ea9299e4d2f82f00f234ec25e1ec7475f9d5c5a7e16bd50c9f97aad",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "50",
+      "span": "50\\ \\text{days}"
+    },
+    "gold": "50",
+    "tokens": 327,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\n1. **Determine Half the Earth's Circumference:**\n   \n   The Earth's circumference is 40,000 kilometers. To find half of this distance:\n   \\[\n   \\frac{40,\\!000\\ \\text{km}}{2} = 20,\\!000\\ \\text{km}\n   \\]\n\n2. **Calculate the Number of Days to Fly 20,000 Kilometers:**\n   \n   Alfie flies 400 kilometers every day. To find the number of days required:\n   \\[\n   \\frac{20,\\!000\\ \\text{km}}{400\\ \\text{km/day}} = 50\\ \\text{days}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{50\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1147,
+    "problem_sha256": "b28cd538a7fe06449bc0e62a04a08aafb330d6766b446ff3bd0ffca9c4ac5404",
+    "text_sha256": "f6d9413d1d231f503c0098439fdb8a2e1a9723553068d0665dea0b1c90b86c32",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "22",
+      "span": "**Final Answer:**  \nLauren will take **22 days** to create all the picture scenes."
+    },
+    "gold": "22",
+    "tokens": 531,
+    "thinking_tokens": 168,
+    "final_region": "\n\n**Solution:**\n\nLauren has three different types of picture scenes she can draw and is hired to create a specific number of each. To determine the total number of days required, follow these steps:\n\n1. **Calculate the Days for Each Type of Scene:**\n\n   - **Large-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 5\n     - Total scenes needed: 45\n     - **Days required:**  \n       \\[\n       \\frac{45 \\text{ scenes}}{5 \\text{ scenes/day}} = 9 \\text{ days}\n       \\]\n\n   - **Medium-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 6\n     - Total scenes needed: 36\n     - **Days required:**  \n       \\[\n       \\frac{36 \\text{ scenes}}{6 \\text{ scenes/day}} = 6 \\text{ days}\n       \\]\n\n   - **Small-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 7\n     - Total scenes needed: 49\n     - **Days required:**  \n       \\[\n       \\frac{49 \\text{ scenes}}{7 \\text{ scenes/day}} = 7 \\text{ days}\n       \\]\n\n2. **Sum Up the Days for All Types:**\n\n   - **Total days:**  \n     \\[\n     9 \\text{ days (large)} + 6 \\text{ days (medium)} + 7 \\text{ days (small)} = 22 \\text{ days}\n     \\]\n\n**Final Answer:**  \nLauren will take **22 days** to create all the picture scenes."
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1159,
+    "problem_sha256": "f30eb29ed1f427ee4d5115f30eca25e7029ed9e338a1279ce0a5dad506bf7f63",
+    "text_sha256": "c660093a22114310a90c42997b4ef3a0d6b81f8f6c87ca7115437fdb56edfe2b",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "50",
+      "span": "**Answer:** 50%"
+    },
+    "gold": "50",
+    "tokens": 1023,
+    "thinking_tokens": 777,
+    "final_region": "\n\nThe probability that a baby wearing a bow is wearing purple is 50%. \n\n**Step-by-Step Explanation:**\n\n1. **Determine the number of purple and blue-wearing octuplets:**\n   - Total octuplets = 8\n   - Purple wearers = 3/4 of 8 = 6\n   - Blue wearers = 1/4 of 8 = 2\n\n2. **Calculate the number of bow-wearing purple and blue octuplets:**\n   - 1/3 of purple wearers wear a bow: (1/3) * 6 = 2\n   - All blue wearers wear a bow: 2\n\n3. **Total number of bow-wearing octuplets:**\n   - Total bow wearers = 2 (purple) + 2 (blue) = 4\n\n4. **Calculate the probability of a bow-wearing baby being purple:**\n   - Probability = (Number of purple bow wearers) / (Total number of bow wearers)\n   - Probability = 2 / 4 = 1/2 = 50%\n\n**Answer:** 50%"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1182,
+    "problem_sha256": "4de20ffe58c4f62841ea579bade31d03877ccbbace787123b4895ed7ed664872",
+    "text_sha256": "72ed9220bb755e1cc16ab421c35f096700a1e12e815315ecc447aa643b823b76",
+    "original_correct": true,
+    "supplemental_correct": false,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "18",
+      "span": "18"
+    },
+    "gold": "1800",
+    "tokens": 298,
+    "thinking_tokens": 114,
+    "final_region": "\n\n**Solution:**\n\nBob has a total of **\\$27,000** to distribute between 3 schools. He can buy **100 books** for **\\$500**. We need to determine how many books Bob can buy per school.\n\n1. **Calculate the total number of sets of books Bob can buy:**\n\n   \\[\n   \\text{Total sets} = \\frac{\\$27,000}{\\$500} = 54 \\text{ sets}\n   \\]\n\n2. **Determine the number of books per school:**\n\n   \\[\n   \\text{Books per school} = \\frac{54 \\text{ books}}{3 \\text{ schools}} = 18 \\text{ books per school}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{18}\n\\]"
+  },
+  {
+    "arm": "L27",
+    "dataset_index": 1224,
+    "problem_sha256": "9dccc47ded692bfa26f992617fb18329f85b5e4f5820283993c851f02685b045",
+    "text_sha256": "4762dd0ea9bfb302b7bcfe467be00bac5decef9629eff0c3aa498e0880c1e2eb",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "5",
+      "span": "5\\ \\text{inches}"
+    },
+    "gold": "5",
+    "tokens": 281,
+    "thinking_tokens": 74,
+    "final_region": "\n\nTo find out how many inches of rain will fall on **Tuesday**, let's break down the problem step by step.\n\n1. **Monday's Rainfall:**\n   - It rained **2 inches** on **Monday**.\n\n2. **Tuesday's Rainfall:**\n   - It is expected to rain **1 more inch than twice of Monday’s total** on Tuesday.\n   - Let's calculate twice Monday's rainfall:\n     \\[\n     2 \\times \\text{Monday's Rainfall} = 2 \\times 2\\, \\text{inches} = 4\\, \\text{inches}\n     \\]\n   - Now, add 1 more inch to this doubled amount:\n     \\[\n     4\\, \\text{inches} + 1\\, \\text{inch} = 5\\, \\text{inches}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{5\\ \\text{inches}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 90,
+    "problem_sha256": "b181673a183a4ac7dba6af1f9a0f79fcbac1ba90b2e716eab1f57ea51351bd03",
+    "text_sha256": "6c373ec0aa3d13a8bd273bfd1ba9966f869c7af7a7b430fb7f940969e7e1ea49",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "225",
+      "span": "**Answer:** Ted needs to bring **225 pounds** of potato salad."
+    },
+    "gold": "225",
+    "tokens": 696,
+    "thinking_tokens": 534,
+    "final_region": "\n\nTed needs to bring 225 pounds of potato salad to the picnic. \n\n**Step-by-Step Explanation:**\n\n1. **Determine the amount each group eats:**\n   - Each adult eats 10 lbs.\n   - Each child eats half an adult, so 5 lbs.\n\n2. **Calculate the total for adults:**\n   - 20 adults * 10 lbs = 200 lbs.\n\n3. **Calculate the total for children:**\n   - 5 children * 5 lbs = 25 lbs.\n\n4. **Add both totals together:**\n   - 200 lbs + 25 lbs = 225 lbs.\n\n**Answer:** Ted needs to bring **225 pounds** of potato salad."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 146,
+    "problem_sha256": "eb64013a08ed6f03da18d8a48e4c88b9547bbf8c5356e4803d823d16c4f9e2dc",
+    "text_sha256": "28a030182ce0c3de40d3c10013525ca47dfb1c2c9d1bb8afe07134d5d2ccf480",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "2125",
+      "span": "**Answer**: Johnny picked up a total of 2125 blocks."
+    },
+    "gold": "2125",
+    "tokens": 715,
+    "thinking_tokens": 572,
+    "final_region": "\n\nJohnny picked up a total of 2125 blocks. Here's the step-by-step explanation:\n\n1. **First Box**: 500 pieces.\n2. **Second Box**: 3 times the first box: \\(3 \\times 500 = 1500\\) pieces.\n3. **Third Box**: A quarter of the first box: \\(\\frac{500}{4} = 125\\) pieces.\n4. **Total Blocks**: \\(500 + 1500 + 125 = 2125\\) pieces.\n\n**Answer**: Johnny picked up a total of 2125 blocks."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 165,
+    "problem_sha256": "08dabe277f4508a9175d2947ea513dac4485c997a45b7337b3ef7e9b07c19615",
+    "text_sha256": "9ed4216d16d8d3f20e3717cd59606c41afea1e67c5312e52c502702e403a4ae0",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "77",
+      "span": "**Final Answer:**\nElvira will have **77 euros** left to afford her clothes."
+    },
+    "gold": "77",
+    "tokens": 345,
+    "thinking_tokens": 142,
+    "final_region": "\n\n**Solution:**\n\n1. **Determine the Total Budget:**\n   \n   Elvira has a budget of €1500.\n\n2. **Calculate the Total Cost of Purchased Items:**\n   \n   - **Computer:** €1090\n   - **Scanner:** €157\n   - **CD burner:** €74\n   - **Printer:** €102\n\n   Adding these amounts together:\n   \n   \\[\n   1090 + 157 + 74 + 102 = 1423 \\text{ euros}\n   \\]\n\n3. **Determine the Remaining Budget for Clothing:**\n   \n   Subtract the total expenditure from the budget:\n   \n   \\[\n   1500 - 1423 = 77 \\text{ euros}\n   \\]\n\n**Final Answer:**\nElvira will have **77 euros** left to afford her clothes."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 174,
+    "problem_sha256": "dbe2980e8d38e4c7ed896506f6a95d53c3a4b27c178b050608b9310e1fdc2618",
+    "text_sha256": "05ce079bcbe8bff21a0a37d6b94b169477e8fd997b3e1c94dc595a56b4961046",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "95",
+      "span": "95\\ \\text{minutes}"
+    },
+    "gold": "95",
+    "tokens": 568,
+    "thinking_tokens": 207,
+    "final_region": "\n\nSure, let's break down the problem step by step to find out how long Billy will take to peel and cut all 60 potatoes.\n\n### Given:\n- **Number of Potatoes:** 60\n- **Time to Peel Each Potato:** 1.5 minutes\n- **Time to Cut Each Potato:** 5 seconds\n\n### Step 1: Calculate the Total Time for Peeling All Potatoes\n- **Time per Potato (Peeling):** 1.5 minutes\n- **Number of Potatoes:** 60\n\n\\[\n\\text{Total Peeling Time} = 1.5 \\, \\text{minutes} \\times 60 = 90 \\, \\text{minutes}\n\\]\n\n### Step 2: Calculate the Total Time for Cutting All Potatoes\n- **Time per Potato (Cutting):** 5 seconds\n- **Number of Potatoes:** 60\n\n\\[\n\\text{Total Cutting Time} = 5 \\, \\text{seconds} \\times 60 = 300 \\, \\text{seconds}\n\\]\n\nTo convert seconds to minutes:\n\\[\n300 \\, \\text{seconds} \\div 60 = 5 \\, \\text{minutes}\n\\]\n\n### Step 3: Calculate the Total Time for Prepping Potatoes\n\\[\n\\text{Total Time} = \\text{Total Peeling Time} + \\text{Total Cutting Time} = 90 \\, \\text{minutes} + 5 \\, \\text{minutes} = 95 \\, \\text{minutes}\n\\]\n\n### Final Answer:\n\\[\n\\boxed{95\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 191,
+    "problem_sha256": "c5ffd700410a1f38a0cdb07c42be0fe80bdf77982852f017e595a97215453fb1",
+    "text_sha256": "7d8b89d29f5967635b9fc05884402ee23dd9c1ddf2d70b2d04a0999bab0076f4",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "The flock of ten ducks needs **5 pounds** of insects per day to survive."
+    },
+    "gold": "5",
+    "tokens": 319,
+    "thinking_tokens": 98,
+    "final_region": "\n\nTo determine how many pounds of insects the flock of ten ducks need to survive each day, follow these steps:\n\n1. **Calculate the Total Weekly Requirement:**\n   \n   Each duck needs **3.5 pounds** of insects per week. With **10 ducks** in the flock, the total weekly requirement is:\n   \n   \\[\n   3.5 \\, \\text{pounds/duck} \\times 10 \\, \\text{ducks} = 35 \\, \\text{pounds/week}\n   \\]\n\n2. **Convert Weekly Requirement to Daily Requirement:**\n   \n   There are **7 days** in a week. To find the daily requirement, divide the total weekly by the number of days:\n   \n   \\[\n   \\frac{35 \\, \\text{pounds/week}}{7 \\, \\text{days}} = 5 \\, \\text{pounds/day}\n   \\]\n\n**Final Answer:**\n\nThe flock of ten ducks needs **5 pounds** of insects per day to survive."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 203,
+    "problem_sha256": "95880f411eedc5403e6f00ea0bc2355c85c155ad78fbbb203ce0d9f9bef737b3",
+    "text_sha256": "6d9177f229588e6cedc79f4406db5ca8f24037ac0efb8fc17ccf56b09c9fa51d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Carl used 31 slices of cheese in total this week."
+    },
+    "gold": "31",
+    "tokens": 750,
+    "thinking_tokens": 513,
+    "final_region": "\n\nCarl used a total of 31 slices of cheese. \n\n**Step-by-Step Explanation:**\n\n1. **Lunch:**\n   - Carl eats a sandwich every day for 7 days.\n   - Each sandwich uses 2 slices of cheese.\n   - Total cheese used for sandwiches = 7 days × 2 slices/day = 14 slices.\n\n2. **Breakfast Omelets:**\n   - Carl ate 3 days of cheese and egg omelets.\n   - Each omelet used 1 slice more than a sandwich, so each omelet uses 3 slices.\n   - Total cheese used for omelets = 3 omelets × 3 slices/omelet = 9 slices.\n\n3. **Macaroni and Cheese Dish:**\n   - He used 8 slices of cheese in this dish.\n\n4. **Total Cheese Usage:**\n   - Sum of all cheese slices = 14 (sandwiches) + 9 (omelets) + 8 (dish) = 31 slices.\n\n**Answer:** Carl used 31 slices of cheese in total this week."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 228,
+    "problem_sha256": "33a67c3ad12d8529844cd6ec93603050ef529a7d2f45a98df8f68e8971c4abac",
+    "text_sha256": "4fb9bbd9a93607c9cb1cb0def9b5236fd529bd89554ad28e2de3be24dd5803fe",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "1",
+      "span": "1\\ \\text{hour}"
+    },
+    "gold": "1",
+    "tokens": 473,
+    "thinking_tokens": 157,
+    "final_region": "\n\nTo determine how long it will take Kalinda and her mom to complete the 360-piece puzzle, let's break down the problem step by step.\n\n### **Step 1: Determine Individual Rates**\n- **Kalinda's Rate:** She can add **4 pieces per minute**.\n- **Mom's Rate:** She can place **half as many pieces as Kalinda**. \n  \\[\n  \\text{Mom's Rate} = \\frac{4}{2} = 2 \\text{ pieces per minute}\n  \\]\n\n### **Step 2: Calculate Combined Rate**\n- Together, their combined rate is the sum of their individual rates.\n  \\[\n  \\text{Combined Rate} = 4 + 2 = 6 \\text{ pieces per minute}\n  \\]\n\n### **Step 3: Determine Total Time in Minutes**\n- The total number of pieces in the puzzle is **360**.\n- Using the combined rate, calculate the total time required.\n  \\[\n  \\text{Total Time (minutes)} = \\frac{360}{6} = 60 \\text{ minutes}\n  \\]\n\n### **Step 4: Convert Minutes to Hours**\n- There are **60 minutes in an hour**.\n  \\[\n  \\text{Total Time (hours)} = \\frac{60}{60} = 1 \\text{ hour}\n  \\]\n\n### **Final Answer**\n\\[\n\\boxed{1\\ \\text{hour}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 279,
+    "problem_sha256": "07b68387391edf6366ad5a6df467e71536adc89990b61e64d3471d6a561f783a",
+    "text_sha256": "a12a06701441b8b715be35475378bb6218f6b4557e36af2826832d51bfd2b900",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "6",
+      "span": "**Answer:** Sam is currently 6 years old."
+    },
+    "gold": "6",
+    "tokens": 1024,
+    "thinking_tokens": 585,
+    "final_region": "\n\nTo determine Sam's current age, let's break down the problem step by step:\n\n1. **Define Variables:**\n   - Let Sam's current age be \\( S \\).\n   - Ruby's current age is \\( 6S \\) since she is 6 times older than Sam.\n\n2. **Set Up the Equation for the Future Age:**\n   - In 9 years, Sam will be \\( S + 9 \\) years old.\n   - In 9 years, Ruby will be \\( 6S + 9 \\) years old.\n   - According to the problem, at that time, Ruby will be 3 times as old as Sam. Therefore, we can write the equation:\n     \\[\n     6S + 9 = 3(S + 9)\n     \\]\n\n3. **Solve the Equation:**\n   - Expand the right side of the equation:\n     \\[\n     6S + 9 = 3S + 27\n     \\]\n   - Subtract \\( 3S \\) from both sides to gather like terms:\n     \\[\n     3S + 9 = 27\n     \\]\n   - Subtract 9 from both sides to isolate the term with \\( S \\):\n     \\[\n     3S = 18\n     \\]\n   - Divide both sides by 3 to solve for \\( S \\):\n     \\[\n     S = 6\n     \\]\n\n4. **Verification:**\n   - Sam is 6 years old, so Ruby is \\( 6 \\times 6 = 36 \\) years old.\n   - In 9 years, Sam will be \\( 6 + 9 = 15 \\) and Ruby will be \\( 36 + 9 = 45 \\).\n   - Check if Ruby's age is 3 times Sam's age then:\n     \\[\n     3 \\times 15 = 45\n     \\]\n   - The condition holds true, confirming that Sam is indeed 6 years old.\n\n**Answer:** Sam is currently 6 years old."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 294,
+    "problem_sha256": "120b64ddef1e716e7d14d39bd053bdaf771a8a72083b9adb567f69588733e1d9",
+    "text_sha256": "3d696d81d5749b2478cdbb0c9587131dff7bad8dd957822e2967ad08bdc533e1",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "3",
+      "span": "**Answer:** 3 oranges are left unwashed."
+    },
+    "gold": "3",
+    "tokens": 581,
+    "thinking_tokens": 431,
+    "final_region": "\n\n**Solution:**\n\n1. **Total Oranges:** Will buys 15 oranges.\n2. **Oldest Son's Age:** 8 years old. This means the son washes 8 oranges.\n3. **Youngest Son's Age:** Half as old as the oldest son, so \\( \\frac{8}{2} = 4 \\) years old. This means the son washes 4 oranges.\n4. **Oranges Washed by Both Sons:** \\( 8 + 4 = 12 \\) oranges.\n5. **Oranges Left Unwashed:** \\( 15 - 12 = 3 \\) oranges.\n\n**Answer:** 3 oranges are left unwashed."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 327,
+    "problem_sha256": "b458cd0dea55ba01d56a5996ab03993bcb8f3fe552cf42cdcd1e7fa4ca16de96",
+    "text_sha256": "b67b0dcbbf452cd30d52bf1cd49493cebbb56c31c620fb324a3cf123e494a60b",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "31",
+      "span": "**Answer:** Oscar has 31 lollipops left."
+    },
+    "gold": "31",
+    "tokens": 533,
+    "thinking_tokens": 366,
+    "final_region": "\n\nOscar starts with 24 lollipops. \n\n1. He eats 2 on his way to school: \\(24 - 2 = 22\\).\n2. He gives 14 to his friends: \\(22 - 14 = 8\\).\n3. He buys twice as many as he gave to his friends: \\(14 \\times 2 = 28\\). Total lollipops: \\(8 + 28 = 36\\).\n4. He eats 3 more that night: \\(36 - 3 = 33\\).\n5. He eats 2 more in the morning: \\(33 - 2 = 31\\).\n\n**Answer:** Oscar has 31 lollipops left."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 331,
+    "problem_sha256": "8076a013cf612d8f455b14c1599344cba05aa8a26e1520927d948d5512009120",
+    "text_sha256": "90cee0d5fce49d452185c1de5cdd8c11c25a20efc50d00db1170cdf53366ee6f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "8400",
+      "span": "**Conclusion:**\nNick will make $8,400 more at Job B compared to Job A."
+    },
+    "gold": "8400",
+    "tokens": 1396,
+    "thinking_tokens": 984,
+    "final_region": "\n\nNick will make $8,400 more at Job B compared to Job A.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate Job A's Gross Pay:**\n   - Hourly wage: $15/hour\n   - Hours worked: 2000 hours/year\n   - Gross Pay (Job A) = $15 * 2000 = $30,000\n\n2. **Calculate Job A's Taxes:**\n   - Tax rate: 20%\n   - Tax (Job A) = 20% * $30,000 = $6,000\n\n3. **Calculate Job A's Net Pay:**\n   - Net Pay (Job A) = $30,000 - $6,000 = $24,000\n\n4. **Calculate Job B's Net Pay:**\n   - Annual salary: $42,000\n   - Property tax: $6,000\n   - Net Pay Before Taxes (Job B) = $42,000 - $6,000 = $36,000\n   - Tax Rate: 10%\n   - Tax (Job B) = 10% * $36,000 = $3,600\n   - Net Pay (Job B) = $36,000 - $3,600 = $32,400\n\n5. **Compare Net Pays:**\n   - Net Pay (Job A) = $24,000\n   - Net Pay (Job B) = $32,400\n   - Difference = $32,400 - $24,000 = $8,400\n\n**Conclusion:**\nNick will make $8,400 more at Job B compared to Job A."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 335,
+    "problem_sha256": "63a43d4c4196db66b987c28bf4a355dbbb57eac603ab7ec9eaf8ecd56552bf75",
+    "text_sha256": "dbb5076fed6cd6cb461b3ba31158cc37710a1ab45b6c74587220c0a72863ddd3",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "310",
+      "span": "**Answer:** Mason needs 310 ounces of sugar."
+    },
+    "gold": "310",
+    "tokens": 731,
+    "thinking_tokens": 518,
+    "final_region": "\n\nMason needs a total of 310 ounces of sugar to make 8 batches of suckers and 1 batch of fudge.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate the sugar needed for 8 batches of suckers:**\n   - Each batch of suckers requires 30 ounces.\n   - Total sugar for 8 batches = 8 × 30 ounces = 240 ounces.\n\n2. **Calculate the sugar needed for 1 batch of fudge:**\n   - Each batch of fudge requires 70 ounces.\n   - Total sugar for 1 batch = 1 × 70 ounces = 70 ounces.\n\n3. **Add the sugar needed for both batches:**\n   - Total sugar = Sugar for 8 batches of suckers + Sugar for 1 batch of fudge\n   - Total sugar = 240 ounces + 70 ounces = 310 ounces.\n\n**Answer:** Mason needs 310 ounces of sugar."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 390,
+    "problem_sha256": "1b8ce62646e00ae011681200129826104a9cc9a2a3ac6cf0ad0e42bbce07e1b6",
+    "text_sha256": "5630bba6b8813dced53c96b2d3b3e008deee530adfefaf8b1332386ac7da9e29",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "12",
+      "span": "**Final Answer:** Monica can use **12 inches of ribbon** for each gift bow."
+    },
+    "gold": "12",
+    "tokens": 301,
+    "thinking_tokens": 119,
+    "final_region": "\n\nTo determine how many inches of ribbon Monica can use for each gift bow, follow these steps:\n\n1. **Calculate the Total Number of Gifts:**\n   - **Family Gifts:** 6\n   - **Friends' Gifts:** 4\n   - **Teachers' Gifts:** 2\n   - **Total Gifts:** \\( 6 + 4 + 2 = 12 \\)\n\n2. **Determine the Total Length of Ribbon Available:**\n   - **Total Ribbon:** 144 inches\n\n3. **Find the Amount of Ribbon per Gift Bow:**\n   - **Ribbon per Bow:** \\( \\frac{144 \\text{ inches}}{12 \\text{ gifts}} = 12 \\text{ inches per bow} \\)\n\n**Final Answer:** Monica can use **12 inches of ribbon** for each gift bow."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 398,
+    "problem_sha256": "8a47088c2c970111c96c0d79c879005446837bbacd98524220c531a51c26c735",
+    "text_sha256": "6bea48428dfcf7bbd703961ef8200f5695c6221a274eec72f7c789ccb7b72e85",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "168",
+      "span": "So, the total number of bugs Nancy counted is **168**."
+    },
+    "gold": "168",
+    "tokens": 592,
+    "thinking_tokens": 474,
+    "final_region": "\n\nNancy saw a total of 168 bugs in her woodshed. Here's the breakdown:\n\n- **Spiders:** 90\n- **Millipedes:** 90 / 3 = 30\n- **Stink Bugs:** (2 × 30) - 12 = 60 - 12 = 48\n- **Total Bugs:** 90 + 30 + 48 = 168\n\nSo, the total number of bugs Nancy counted is **168**."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 419,
+    "problem_sha256": "f8903374af8b20fcd62fb0a66efbc86a9814cf7019020eb015da02ceea2f2f47",
+    "text_sha256": "213591b8c401bb88d49d6b7a32aae918df8ee4b696bbb5ff8032b73b2bddd040",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "3000",
+      "span": "3,\\!000\\ \\text{feet}"
+    },
+    "gold": "3000",
+    "tokens": 496,
+    "thinking_tokens": 174,
+    "final_region": "\n\nTo determine how many feet Oliver must climb to reach Stanley's comb, follow these steps:\n\n1. **Find the Elevation of Stanley's Combi:**\n   \n   Stanley's comb fell from an elevation of **10,000 feet** to **4,000 feet below**.\n   \n   \\[\n   \\text{Elevation of Stanley's comb} = 10,000\\ \\text{feet} - 4,000\\ \\text{feet} = 6,000\\ \\text{feet}\n   \\]\n\n2. **Determine the Elevation Oliver Needs to Reach:**\n   \n   Stanley's comb is at an elevation of **6,000 feet**. Oliver is currently at **3,000 feet**.\n   \n   \\[\n   \\text{Elevation Oliver needs to reach} = 6,000\\ \\text{feet}\n   \\]\n\n3. **Calculate the Distance Oliver Must Climb:**\n   \n   Subtract Oliver's current elevation from the elevation of Stanley's comb to find the distance he needs to climb.\n   \n   \\[\n   \\text{Distance Oliver must climb} = 6,000\\ \\text{feet} - 3,000\\ \\text{feet} = 3,000\\ \\text{feet}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{3,\\!000\\ \\text{feet}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 460,
+    "problem_sha256": "eb6abff01b32a974d8abb419f706ba40ac7b658f432cbb4f43d7226a36ab6271",
+    "text_sha256": "bb93ed71389b099eb38076d67fd4250d8bc47f1354715a31038024433b8ca8f7",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "84",
+      "span": "**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+    },
+    "gold": "84",
+    "tokens": 760,
+    "thinking_tokens": 534,
+    "final_region": "\n\nGrayson earns 84 cents from recycling in a four-week month.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the weekly earnings from cans and bottles:**\n   - Each aluminum can is worth 2 cents. Grayson drinks 3 cans per week.\n     - Weekly earnings from cans: \\( 3 \\times 2 = 6 \\) cents.\n   - Each plastic bottle is worth 3 cents. Grayson drinks 5 bottles per week.\n     - Weekly earnings from bottles: \\( 5 \\times 3 = 15 \\) cents.\n\n2. **Calculate total weekly earnings:**\n   - Add the earnings from cans and bottles.\n     - Total weekly earnings: \\( 6 + 15 = 21 \\) cents.\n\n3. **Calculate earnings for a four-week month:**\n   - Multiply weekly earnings by 4.\n     - Total earnings for four weeks: \\( 21 \\times 4 = 84 \\) cents.\n\n**Answer:** Grayson earns 84 cents from recycling in a four-week month."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 491,
+    "problem_sha256": "4e71eae98913821329b8308268f85e70382c19a55c7a541d8b5be62ca7c45909",
+    "text_sha256": "a419e00efe605f2f5589fa6c717bd3cc67c0f2acc1abdf7d713b8bd56c82fe64",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "16",
+      "span": "**Answer:** 16 eggs won't be able to fit on the trays."
+    },
+    "gold": "16",
+    "tokens": 697,
+    "thinking_tokens": 598,
+    "final_region": "\n\nJaime has 64 eggs and each tray can hold 24 eggs. To find out how many eggs won't fit, we first determine the total capacity of both trays: 24 eggs/tray * 2 trays = 48 eggs. Subtracting this from the total number of eggs gives 64 eggs - 48 eggs = 16 eggs. \n\n**Answer:** 16 eggs won't be able to fit on the trays."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 575,
+    "problem_sha256": "a6300726564198e3fe76d3fabec6b5560291722aca884a79f297380ac4f243ab",
+    "text_sha256": "28633d9a1627b03ca3c4196adb3ef8bff37aa64f29a3effb07200fefb08f8a60",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "36",
+      "span": "**Answer:** Kate can make $36 from selling her muffin crayins."
+    },
+    "gold": "36",
+    "tokens": 576,
+    "thinking_tokens": 508,
+    "final_region": "\n\nKate has 192 small pieces of crayons. She can make 24 muffins by melting 8 pieces per muffin. Each muffin sells for $1.50, so she can make $36.\n\n**Answer:** Kate can make $36 from selling her muffin crayins."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 592,
+    "problem_sha256": "cc40f31c88659414cbd04f89b86b8a55983e5c589c3e124e99c9e30fbd0737b3",
+    "text_sha256": "3f9181e99354c1aeb6e0c9ab6521d86f208c27b7dc2be96c9928f05aedc9f272",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "1",
+      "span": "**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+    },
+    "gold": "1",
+    "tokens": 383,
+    "thinking_tokens": 187,
+    "final_region": "\n\nTo determine how much more expensive the boots are on eBay compared to Amazon, follow these steps:\n\n1. **Calculate the total cost on Amazon:**\n   - **Price of the boots:** \\$16\n   - **Shipping cost on Amazon:** \\$4\n   - **Total cost on Amazon:** \\$16 + \\$4 = **\\$20**\n\n2. **Calculate the shipping cost on eBay:**\n   - **Shipping cost on Amazon:** \\$4\n   - **Shipping cost on eBay:** 2 × \\$4 = **\\$8**\n   - **Total cost on eBay:** \\$13 (boots) + \\$8 (shipping) = **\\$21**\n\n3. **Determine the difference in total costs:**\n   - **Difference:** \\$21 (eBay) - \\$20 (Amazon) = **\\$1**\n\n**Final Answer:** The boots on eBay are \\$1 more expensive than on Amazon."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 612,
+    "problem_sha256": "09413ddcd964eef8514cb50e8dc64d62be9d1545f2386fd9254d618787acbf9e",
+    "text_sha256": "90c9cf161aff3af11d5bc3701091b6c175a1ea43522de00934275e8740a9c154",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "30",
+      "span": "30\\ \\text{ounces}"
+    },
+    "gold": "30",
+    "tokens": 383,
+    "thinking_tokens": 153,
+    "final_region": "\n\nLet's calculate the total ounces of meat consumed by the basketball team step by step.\n\n1. **First Player:**\n   - Eaten a **6-ounce steak**.\n   - **Meat consumed:** 6 ounces.\n\n2. **Second Player:**\n   - Eaten **beef tips**, with **8 beef tips**, each weighing **1 ounce**.\n   - **Total meat consumed:** 8 ounces.\n\n3. **Third Player:**\n   - Eaten a **one-pound steak**.\n   - Since there are **16 ounces** in a pound, **16 ounces** of meat consumed.\n\n4. **Fourth and Fifth Players:**\n   - Ordered vegetarian meals, but the problem doesn't provide specific details about the contents.\n   - **Assuming they consumed 0 ounces of meat.**\n\n**Total Meat Consumed:**\n\n\\[\n6 \\text{ ounces} + 8 \\text{ ounces} + 16 \\text{ ounces} = 30 \\text{ ounces}\n\\]\n\n\\[\n\\boxed{30\\ \\text{ounces}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 688,
+    "problem_sha256": "f7ec992b0e8c790072927cf177b860656c17a611bf9b902ebbdc17ed64a166ca",
+    "text_sha256": "d0ee28894be905e180e827ccc48024f6ba7975a74fe5241bf5aa716405d7728d",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "100",
+      "span": "100\\ \\text{minutes}"
+    },
+    "gold": "100",
+    "tokens": 474,
+    "thinking_tokens": 177,
+    "final_region": "\n\nTo determine how many minutes John needs to nap, follow these steps:\n\n1. **Calculate the total time spent on homework:**\n   \\[\n   \\text{Total Homework Time} = \\text{Math Homework} + \\text{Reading Homework} + \\text{History Homework}\n   \\]\n   \\[\n   \\text{Total Homework Time} = 20\\ \\text{minutes} + 40\\ \\text{minutes} + 20\\ \\text{minutes} = 80\\ \\text{minutes}\n   \\]\n\n2. **Determine the total time available before dinner:**\n   \\[\n   \\text{Total Available Time} = 3\\ \\text{hours} = 3 \\times 60\\ \\text{minutes} = 180\\ \\text{minutes}\n   \\]\n\n3. **Subtract the total homework time from the total available time to find the nap time:**\n   \\[\n   \\text{Nap Time} = \\text{Total Available Time} - \\text{Total Homework Time}\n   \\]\n   \\[\n   \\text{Nap Time} = 180\\ \\text{minutes} - 80\\ \\text{minutes} = 100\\ \\text{minutes}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{100\\ \\text{minutes}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 695,
+    "problem_sha256": "3bdf5e3d2efaffcf446121182bc4bc2915771a1a365bb640dce686b992c34406",
+    "text_sha256": "c2b9a688a668412f81f1886b29111821a61d285d1f6dbe0efe8c8b52755bff21",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "**Answer:** There are 5 eight-point bucks in the field."
+    },
+    "gold": "5",
+    "tokens": 487,
+    "thinking_tokens": 375,
+    "final_region": "\n\nThere are 50 deer in the field, with 50% of them being bucks. Calculating the number of bucks:\n\n\\[\n\\text{Number of bucks} = 50 \\times 0.5 = 25\n\\]\n\nNext, 20% of these bucks are 8 points:\n\n\\[\n\\text{Number of 8-point bucks} = 25 \\times 0.2 = 5\n\\]\n\n**Answer:** There are 5 eight-point bucks in the field."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 797,
+    "problem_sha256": "99c44c82c934f05f399d4c1248eca918d600b220de82e7e6123a8f83db9f0f38",
+    "text_sha256": "a68226fdfde642220d0af76d602fc73b45f625403ce8d13a5b73731ced236849",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "540",
+      "span": "540\\ \\text{seconds}"
+    },
+    "gold": "540",
+    "tokens": 410,
+    "thinking_tokens": 159,
+    "final_region": "\n\n**Solution:**\n\nWe need to calculate the total duration of the caroling performance by summing the durations of all the songs that will be sung.\n\n1. **Duration of Each Song:**\n   - **\"Deck the Halls\"**:\n     - **Duration**: 150 seconds\n     - **Number of Performances**: 2\n     - **Total Duration**: \\(150\\, \\text{seconds} \\times 2 = 300\\, \\text{seconds}\\)\n   - **\"Jingle Bells\"**:\n     - **Duration**: 240 seconds\n     - **Number of Performances**: 1\n     - **Total Duration**: \\(240\\, \\text{seconds} \\times 1 = 240\\, \\text{seconds}\\)\n\n2. **Total Caroling Duration:**\n   - **Sum of Both Durations**: \\(300\\, \\text{seconds} + 240\\, \\text{seconds} = 540\\, \\text{seconds}\\)\n\n**Final Answer:**\n\\[\n\\boxed{540\\ \\text{seconds}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 826,
+    "problem_sha256": "b0c447cec52d8b9e70cb2374a14f05a0801d828a7efbbe799afaf652c029004d",
+    "text_sha256": "6421eab741fb9c3b0fa065b65eff5817da4ca18ab852d5dd196bdbd650affbe2",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "27",
+      "span": "**Answer:** Cindy had a total of 27 eggs in her basket."
+    },
+    "gold": "27",
+    "tokens": 686,
+    "thinking_tokens": 525,
+    "final_region": "\n\nCindy participated in the Easter Egg Hunt and collected a variety of colored eggs. To find the total number of eggs, we can break down the quantities as follows:\n\n- **Green eggs:** 5\n- **Blue eggs:** Twice as many as green eggs, so \\(2 \\times 5 = 10\\)\n- **Pink eggs:** One fewer than blue eggs, so \\(10 - 1 = 9\\)\n- **Yellow eggs:** One-third as many as pink eggs, so \\(\\frac{1}{3} \\times 9 = 3\\)\n\nAdding these together: \\(5 + 10 + 9 + 3 = 27\\).\n\n**Answer:** Cindy had a total of 27 eggs in her basket."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 840,
+    "problem_sha256": "5ccf6458c169b3b4382afc6d1ac714b1277914508d34a3369a771207dd8f556f",
+    "text_sha256": "7f478ee26b12fe71fbc4eacbb6b7c50632be4c7e00b32a352987926542db88b1",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "16",
+      "span": "**Answer:** 16 millimeters."
+    },
+    "gold": "16",
+    "tokens": 786,
+    "thinking_tokens": 556,
+    "final_region": "\n\nThe total length of the unused glue sticks is 16 millimeters.\n\n**Step-by-Step Explanation:**\n\n1. **Identify the remaining lengths of each glue stick:**\n   - First glue stick: \\( \\frac{1}{6} \\) of 12 mm.\n   - Second glue stick: \\( \\frac{2}{3} \\) of 12 mm.\n   - Third glue stick: \\( \\frac{1}{2} \\) of 12 mm.\n\n2. **Calculate the remaining length for each:**\n   - First: \\( 12 \\times \\frac{1}{6} = 2 \\) mm.\n   - Second: \\( 12 \\times \\frac{2}{3} = 8 \\) mm.\n   - Third: \\( 12 \\times \\frac{1}{2} = 6 \\) mm.\n\n3. **Sum the remaining lengths:**\n   - Total unused length = \\( 2 + 8 + 6 = 16 \\) mm.\n\n**Answer:** 16 millimeters."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 841,
+    "problem_sha256": "708ce4ccedb34968edb22e31acab5c982a73f35e9818c1ba16c53f5d3e487a36",
+    "text_sha256": "853bee5aee873701f6b6965a4b40375279eb1c90bbdaaefcf12dd63b045c013f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5600",
+      "span": "**Final Answer:** Gabriel still needs **\\$5,600**."
+    },
+    "gold": "5600",
+    "tokens": 358,
+    "thinking_tokens": 155,
+    "final_region": "\n\n**Solution:**\n\n1. **Calculate the total amount Gabriel wants to spend:**\n   \n   - **Car:** \\$10,000  \n   - **Phone:** \\$800  \n   \n   Total = \\$10,000 + \\$800 = **\\$10,800**\n\n2. **Determine the amount of money Gabriel already has:**\n   \n   - **Work:** \\$5,000  \n   - **Brother's Contribution:** \\$200  \n   \n   Total = \\$5,000 + \\$200 = **\\$5,200**\n\n3. **Find out how much more money Gabriel needs:**\n   \n   Total Needed - Amount Already Has = Remaining Amount  \n   \n   Remaining Amount = \\$10,800 - \\$5,200 = **\\$5,600**\n\n**Final Answer:** Gabriel still needs **\\$5,600**."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 853,
+    "problem_sha256": "56772be6857095aaa371b571130d8b7fa78f8c4217dad84ea3d074c2d9ee7886",
+    "text_sha256": "38154de84e18eb6cdfab74261ad3e812fe87de649af2dd30b4d69c7131ea24d5",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "15",
+      "span": "15\\ \\text{hours}"
+    },
+    "gold": "15",
+    "tokens": 379,
+    "thinking_tokens": 137,
+    "final_region": "\n\nTo determine how many hours it would take to clean half of the 90 rooms at the KozyInn Motel, follow these steps:\n\n1. **Calculate the number of rooms to be cleaned:**\n   \n   \\[\n   \\text{Number of rooms to clean} = \\frac{90}{2} = 45 \\text{ rooms}\n   \\]\n\n2. **Determine the total time required to clean 45 rooms:**\n   \n   Each room takes 20 minutes to clean.\n   \n   \\[\n   \\text{Total cleaning time (in minutes)} = 45 \\text{ rooms} \\times 20 \\text{ minutes/room} = 900 \\text{ minutes}\n   \\]\n\n3. **Convert the total cleaning time from minutes to hours:**\n   \n   \\[\n   \\text{Total cleaning time (in hours)} = \\frac{900 \\text{ minutes}}{60 \\text{ minutes/hour}} = 15 \\text{ hours}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{15\\ \\text{hours}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 867,
+    "problem_sha256": "81d8cae9cc1e4b403e5b5766ab1fc96f6d0de4525ba42487fc416eafac903060",
+    "text_sha256": "88bef3baba667e44a6c1c33f5702b7cb20ccec5f20f7539af8bebf28a47beaf7",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "7",
+      "span": "**Answer:** Daisy bought 7 pounds of carrots."
+    },
+    "gold": "7",
+    "tokens": 450,
+    "thinking_tokens": 358,
+    "final_region": "\n\nDaisy bought 7 pounds of carrots. Here's the step-by-step explanation:\n\n1. **Potatoes**: 5 pounds.\n2. **Sweet Potatoes**: 2 times the weight of potatoes = 2 × 5 = 10 pounds.\n3. **Carrots**: 3 pounds fewer than sweet potatoes = 10 - 3 = 7 pounds.\n\n**Answer:** Daisy bought 7 pounds of carrots."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 905,
+    "problem_sha256": "8138c07ce433f5615f0c3c56462676e18df27b340383d993aae49096102cad73",
+    "text_sha256": "0ec7ad71dd96318b0429e2539d12b29acdacafc223d547eb730a3be4b49c6704",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "5",
+      "span": "**Answer:** Harold has 5 hours of free time left in his day."
+    },
+    "gold": "5",
+    "tokens": 746,
+    "thinking_tokens": 583,
+    "final_region": "\n\nHarold has 5 hours of free time left in his day. \n\n**Step-by-Step Explanation:**\n\n1. **Total Hours in a Day:** 24 hours.\n\n2. **Sleep Duration:** 10 hours.\n\n3. **Work Hours:** 2 hours less than sleep, so 10 - 2 = 8 hours.\n\n4. **Dog Walking:** 1 hour.\n\n5. **Total Time Spent on Activities:** 10 (sleep) + 8 (work) + 1 (dog walking) = 19 hours.\n\n6. **Free Time Calculation:** 24 (total) - 19 (spent) = 5 hours.\n\n**Answer:** Harold has 5 hours of free time left in his day."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 910,
+    "problem_sha256": "40d46fd6a3aaae66a0bbf7d4b5c40b1cdede60629f84f483874072189eb323ea",
+    "text_sha256": "3cbe687cac0c47f28d4a267db5ee7636b2361a5c0caf6671a2778258bfd403e4",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "700",
+      "span": "700\\ \\text{acres}"
+    },
+    "gold": "700",
+    "tokens": 390,
+    "thinking_tokens": 103,
+    "final_region": "\n\nTo determine the total number of acres Farmer Brown's and Farmer Smith's farms together, follow these steps:\n\n1. **Farmer Brown's Farm:**\n   \n   Farmer Brown's farm is given as **200 acres**.\n\n2. **Farmer Smith's Farm:**\n   \n   Farmer Smith's farm is **100 acres more than twice** the size of Farmer Brown's farm. Let's calculate this:\n\n   - First, find twice the size of Farmer Brown's farm:\n     \n     \\[\n     2 \\times 200\\ \\text{acres} = 400\\ \\text{acres}\n     \\]\n     \n   - Then, add **100 acres** to this amount:\n     \n     \\[\n     400\\ \\text{acres} + 100\\ \\text{acres} = 500\\ \\text{acres}\n     \\]\n\n3. **Combined Total:**\n   \n   Now, add the sizes of both farms together to find the total number of acres:\n\n   \\[\n   200\\ \\text{acres} + 500\\ \\text{acres} = 700\\ \\text{acres}\n   \\]\n\n**Final Answer:**\n\n\\[\n\\boxed{700\\ \\text{acres}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 946,
+    "problem_sha256": "f6245757d689eea8e336af72feb85ba8272c5d6810bf340a78945fda7412fca2",
+    "text_sha256": "33e81a956036808bf3c47d62f263aaf322c605cefa9888e94e4d11df762cdc6f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "450",
+      "span": "**Answer:** 450 loaves of bread."
+    },
+    "gold": "450",
+    "tokens": 1099,
+    "thinking_tokens": 957,
+    "final_region": "\n\nThe bakery has 450 loaves of bread.\n\n**Step-by-Step Explanation:**\n\n1. **Identify Sam's loaves:**\n   - Sam had 70 loaves of bread last Friday.\n\n2. **Calculate seven times Sam's loaves:**\n   - 7 times 70 = 490.\n\n3. **Subtract 40 from this amount to find the bakery's loaves:**\n   - 490 - 40 = 450.\n\n4. **Conclusion:**\n   - The bakery has 450 loaves of bread.\n\n**Answer:** 450 loaves of bread."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 964,
+    "problem_sha256": "c8c505029dedd42fd0a311dd35f45017e97235fda19c73b93620d679bcd810e4",
+    "text_sha256": "685e99ed0ad6301f3b29c28252c4753f5ddb3b0007c52cd37d229a4587e057e1",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "200",
+      "span": "**Answer:** John will spend 200 minutes watching the show."
+    },
+    "gold": "200",
+    "tokens": 931,
+    "thinking_tokens": 784,
+    "final_region": "\n\nJohn will spend 200 minutes watching the show. \n\n**Step-by-Step Explanation:**\n\n1. **Determine the number of episodes (E):**\n   - Each episode is 20 minutes long.\n   - The number of episodes is half the number of minutes per episode.\n   - Therefore, \\( E = \\frac{20}{2} = 10 \\) episodes.\n\n2. **Calculate the total watching time:**\n   - Total minutes = Number of episodes * Minutes per episode\n   - Total minutes = 10 episodes * 20 minutes/episode = 200 minutes.\n\n**Answer:** John will spend 200 minutes watching the show."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 967,
+    "problem_sha256": "62a0969a876547112f71d527bea4aed2a356fe939680566a311e91d424e99a0e",
+    "text_sha256": "8961748df4a789e439c53f59258b728c672736ea8bb9be036216642c782770d9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "30",
+      "span": "**Answer:** The total age of all three family members is 30 years."
+    },
+    "gold": "30",
+    "tokens": 617,
+    "thinking_tokens": 446,
+    "final_region": "\n\nThe total age of all three family members is calculated as follows:\n\n1. Nani is 8 years old.\n2. His brother is twice his age: \\( 8 \\times 2 = 16 \\) years old.\n3. Nani's sister is 25% younger than Nani: \\( 25\\% \\) of 8 is \\( 2 \\), so her age is \\( 8 - 2 = 6 \\) years old.\n\nAdding their ages together:\n\\[\n8 \\, (\\text{Nani}) + 16 \\, (\\text{Brother}) + 6 \\, (\\text{Sister}) = 30 \\, \\text{years}\n\\]\n\n**Answer:** The total age of all three family members is 30 years."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 973,
+    "problem_sha256": "c2ef95765657b3a5075f724499857f82a1a506f5ea3ae0fb45bf9613768a47b4",
+    "text_sha256": "a961c3475df601e562d9aa81685e3ea130fc8b45e4de5cfad14b4c6cd7aedafa",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "79",
+      "span": "**Answer:** The total number of states in both India and the USA together is **79**."
+    },
+    "gold": "79",
+    "tokens": 851,
+    "thinking_tokens": 576,
+    "final_region": "\n\nThe total number of states in both India and the USA together is 79.\n\n**Step-by-Step Explanation:**\n\n1. **Define Variables:**\n   - Let \\( S \\) represent the number of states in the USA.\n   - Let \\( I \\) represent the number of states in India.\n\n2. **Given Relationship:**\n   - India has 4 more than half the number of states in the USA.\n   - Mathematically, \\( I = \\frac{1}{2}S + 4 \\).\n\n3. **Determine USA's States:**\n   - The USA has 50 states.\n   - Therefore, \\( S = 50 \\).\n\n4. **Calculate India's States:**\n   - Substitute \\( S = 50 \\) into the equation for \\( I \\):\n     \\[\n     I = \\frac{1}{2}(50) + 4 = 25 + 4 = 29\n     \\]\n\n5. **Compute Total States:**\n   - Add the states in the USA and India:\n     \\[\n     \\text{Total} = S + I = 50 + 29 = 79\n     \\]\n\n**Answer:** The total number of states in both India and the USA together is **79**."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1049,
+    "problem_sha256": "55de0865312571fc48afb927a99c2812287c4b190fe0e2d168718930e608d784",
+    "text_sha256": "70cd7b91b012b50a0077a7c23c7beda898859387ead7a4897075e0283d5ea65f",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "20",
+      "span": "**Answer:** There are 20 Spanish books in the library."
+    },
+    "gold": "20",
+    "tokens": 699,
+    "thinking_tokens": 591,
+    "final_region": "\n\nThe library has a total of 50 books. Half of them, which is 25, are written in English. Additionally, 10% of the books, or 5, are written in German. To find the number of Spanish books, subtract the number of English and German books from the total: \n\n50 (total) - 25 (English) - 5 (German) = 20 (Spanish).\n\n**Answer:** There are 20 Spanish books in the library."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1055,
+    "problem_sha256": "5e6e861b89ebee7d35867f7ea7f33901b5b17efa9678431d30abaf0c476fda46",
+    "text_sha256": "8999a27e1b87cd916601548f167f3d7e0444dae3c4db15a2d5ca59514193c7aa",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "2304",
+      "span": "**Answer:** James pays $2,304 per year for his insurance after the accident."
+    },
+    "gold": "2304",
+    "tokens": 731,
+    "thinking_tokens": 523,
+    "final_region": "\n\nJames pays a total of $2,304 per year for his insurance after the accident.\n\n**Step-by-Step Explanation:**\n\n1. **Determine the Normal Monthly Cost:**\n   - The normal cost per month is $120.\n\n2. **Calculate the Extra Cost Due to the Accident:**\n   - The accident cost is 60% more than normal.\n   - 60% of $120 = 0.60 × $120 = $72.\n\n3. **Find the Total Monthly Cost:**\n   - Total monthly cost = Normal cost + Extra cost = $120 + $72 = $192.\n\n4. **Calculate the Annual Cost:**\n   - There are 12 months in a year.\n   - Total annual cost = $192 × 12 = $2,304.\n\n**Answer:** James pays $2,304 per year for his insurance after the accident."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1059,
+    "problem_sha256": "99db7f2d604cea04ba61d359d7ad69bcf944b8024be07de6a3d3cd71e40ef146",
+    "text_sha256": "aa4c5fcd7a2507b860896854c368d1a35c1f66254a54c96ebf424fddb8b3605a",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "2",
+      "span": "2\\ \\text{days}"
+    },
+    "gold": "2",
+    "tokens": 423,
+    "thinking_tokens": 174,
+    "final_region": "\n\n**Solution:**\n\nImma has 3 cats, and she feeds them twice a day with 60 grams of cat food each day. We need to determine how many days 720 grams of cat food will last.\n\n1. **Calculate the Daily feeding for All Cats:**\n   - **Each cat's daily feeding:** \n     \\[\n     60\\ \\text{grams} \\times 2\\ \\text{feedings/day} = 120\\ \\text{grams/day}\n     \\]\n   - **Total daily feeding for all 3 cats:**\n     \\[\n     120\\ \\text{grams/day} \\times 3\\ \\text{cats} = 360\\ \\text{grams/day}\n     \\]\n\n2. **Determine the Number of Days 720 Grams Will Last:**\n   - **Total days:**\n     \\[\n     \\frac{720\\ \\text{grams}}{360\\ \\text{grams/day}} = 2\\ \\text{days}\n     \\]\n\n**Final Answer:**\n\\[\n\\boxed{2\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1061,
+    "problem_sha256": "c221f9c857f68210e3c08fefdd79b8318903e777a8d3aba9cd668ecca7be1702",
+    "text_sha256": "7bd5f3cccb2df488bd964aabf45a88a433f320c39eea4e032b092e6b3aeacae6",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "58",
+      "span": "**Answer:** Betsy's part took 58 minutes."
+    },
+    "gold": "58",
+    "tokens": 657,
+    "thinking_tokens": 517,
+    "final_region": "\n\nBetsy's part took **58 minutes**. Here's the step-by-step explanation:\n\n1. Let B represent Betsy's time in minutes.\n2. Donovan's time is then (B - 18) minutes.\n3. The total meal time is the sum of both parts: B + (B - 18) = 98.\n4. Simplifying: 2B - 18 = 98.\n5. Add 18 to both sides: 2B = 116.\n6. Divide by 2: B = 58 minutes.\n\n**Answer:** Betsy's part took 58 minutes."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1066,
+    "problem_sha256": "de92f0aa095aaeee1f02111537e53efb4d6c2bdb4388cfa6d82ef4b567088331",
+    "text_sha256": "655d93066162f2900c86447eb1998e425de87ca3c5eea0b80188778c083d13a0",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "14",
+      "span": "**Answer:** 14 pizzas are left."
+    },
+    "gold": "14",
+    "tokens": 706,
+    "thinking_tokens": 465,
+    "final_region": "\n\nThe total number of pizzas left is 14.\n\n**Step-by-Step Explanation:**\n\n1. **Glee Club:**\n   - **Order:** 20 pizzas\n   - **Ate:** 70% of 20 pizzas\n     - Calculation: \\( 20 \\times 0.70 = 14 \\) pizzas eaten\n   - **Left:** \\( 20 - 14 = 6 \\) pizzas remaining\n\n2. **Football Team:**\n   - **Order:** Twice as many as the glee club, so \\( 2 \\times 20 = 40 \\) pizzas\n   - **Ate:** 80% of 40 pizzas\n     - Calculation: \\( 40 \\times 0.80 = 32 \\) pizzas eaten\n   - **Left:** \\( 40 - 32 = 8 \\) pizzas remaining\n\n3. **Total Pizzas Left:**\n   - Sum of pizzas left from both groups: \\( 6 + 8 = 14 \\)\n\n**Answer:** 14 pizzas are left."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1104,
+    "problem_sha256": "f513568d1a64453610a5ed3ac11b3c3ac5eb45d4928f44d5def52e0b541c428a",
+    "text_sha256": "dadd19d43db85a6d850887ab0a8f3bf2a13bb9bd8ce2491e6ea0b05d335171a3",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "24",
+      "span": "**Answer:** Caroline is 24 years old."
+    },
+    "gold": "24",
+    "tokens": 656,
+    "thinking_tokens": 531,
+    "final_region": "\n\nCaroline is 24 years old.\n\n**Step-by-Step Explanation:**\n\n1. **Given:**\n   - Chris is 4 years old.\n   - Ben is two times older than Chris.\n   - Caroline is three times older than Ben.\n\n2. **Calculate Ben's Age:**\n   - Ben = 2 × Chris's age = 2 × 4 = 8.\n\n3. **Calculate Caroline's Age:**\n   - Caroline = 3 × Ben's age = 3 × 8 = 24.\n\n**Answer:** Caroline is 24 years old."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1112,
+    "problem_sha256": "a5b633a615393b8d75eaa42aef71b0b8c42def30d19b573389ecfb83fd025015",
+    "text_sha256": "09ed84cbf0d70c477212ef08ae52473f8f771129e5f0695abb6b7311eb0476fd",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "5",
+      "span": "5\\ \\text{kg}"
+    },
+    "gold": "5",
+    "tokens": 471,
+    "thinking_tokens": 139,
+    "final_region": "\n\nSure, let's solve the problem step by step.\n\n**Given:**\n- Pierre, Paul, and Jacques bought a total of **12 kg** of apples.\n- Peter wants **1/4** of the apples.\n- Paul wants **1/3** of the apples.\n- We need to find how many kilograms **James** will have left.\n\n**Solution:**\n\n1. **Calculate the amount Pierre wants:**\n   \\[\n   \\text{Pierre's share} = \\frac{1}{4} \\times 12 \\, \\text{kg} = 3 \\, \\text{kg}\n   \\]\n\n2. **Calculate the amount Paul wants:**\n   \\[\n   \\text{Paul's share} = \\frac{1}{3} \\times 12 \\, \\text{kg} = 4 \\, \\text{kg}\n   \\]\n\n3. **Determine the total amount Peter and Paul want together:**\n   \\[\n   \\text{Total desired} = 3 \\, \\text{kg} + 4 \\, \\text{kg} = 7 \\, \\text{kg}\n   \\]\n\n4. **Subtract the total desired from the original amount to find what James will have left:**\n   \\[\n   \\text{James's remaining} = 12 \\, \\text{kg} - 7 \\, \\text{kg} = 5 \\, \\text{kg}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{5\\ \\text{kg}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1126,
+    "problem_sha256": "255a18de38f3a95304ac0c4c7c47916394b00b55833a023baef9740f8410ea05",
+    "text_sha256": "cfda29108ea9299e4d2f82f00f234ec25e1ec7475f9d5c5a7e16bd50c9f97aad",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "50",
+      "span": "50\\ \\text{days}"
+    },
+    "gold": "50",
+    "tokens": 327,
+    "thinking_tokens": 136,
+    "final_region": "\n\n**Solution:**\n\n1. **Determine Half the Earth's Circumference:**\n   \n   The Earth's circumference is 40,000 kilometers. To find half of this distance:\n   \\[\n   \\frac{40,\\!000\\ \\text{km}}{2} = 20,\\!000\\ \\text{km}\n   \\]\n\n2. **Calculate the Number of Days to Fly 20,000 Kilometers:**\n   \n   Alfie flies 400 kilometers every day. To find the number of days required:\n   \\[\n   \\frac{20,\\!000\\ \\text{km}}{400\\ \\text{km/day}} = 50\\ \\text{days}\n   \\]\n\n**Final Answer:**\n\\[\n\\boxed{50\\ \\text{days}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1147,
+    "problem_sha256": "b28cd538a7fe06449bc0e62a04a08aafb330d6766b446ff3bd0ffca9c4ac5404",
+    "text_sha256": "f6d9413d1d231f503c0098439fdb8a2e1a9723553068d0665dea0b1c90b86c32",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "22",
+      "span": "**Final Answer:**  \nLauren will take **22 days** to create all the picture scenes."
+    },
+    "gold": "22",
+    "tokens": 531,
+    "thinking_tokens": 168,
+    "final_region": "\n\n**Solution:**\n\nLauren has three different types of picture scenes she can draw and is hired to create a specific number of each. To determine the total number of days required, follow these steps:\n\n1. **Calculate the Days for Each Type of Scene:**\n\n   - **Large-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 5\n     - Total scenes needed: 45\n     - **Days required:**  \n       \\[\n       \\frac{45 \\text{ scenes}}{5 \\text{ scenes/day}} = 9 \\text{ days}\n       \\]\n\n   - **Medium-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 6\n     - Total scenes needed: 36\n     - **Days required:**  \n       \\[\n       \\frac{36 \\text{ scenes}}{6 \\text{ scenes/day}} = 6 \\text{ days}\n       \\]\n\n   - **Small-Sized Picture Scenes:**\n     - Number of scenes Lauren can draw per day: 7\n     - Total scenes needed: 49\n     - **Days required:**  \n       \\[\n       \\frac{49 \\text{ scenes}}{7 \\text{ scenes/day}} = 7 \\text{ days}\n       \\]\n\n2. **Sum Up the Days for All Types:**\n\n   - **Total days:**  \n     \\[\n     9 \\text{ days (large)} + 6 \\text{ days (medium)} + 7 \\text{ days (small)} = 22 \\text{ days}\n     \\]\n\n**Final Answer:**  \nLauren will take **22 days** to create all the picture scenes."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1158,
+    "problem_sha256": "b4b800d85fa2610e72e15d0e42093da6063a8e4816e58266a1d4ac2252463467",
+    "text_sha256": "e8ffe513e07ce26266d6df3a14c6cb931830edf6037604c33469ed66cd753325",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "7300",
+      "span": "**Final Answer:** Hortex needs to produce 7,300 more bottles."
+    },
+    "gold": "7300",
+    "tokens": 999,
+    "thinking_tokens": 782,
+    "final_region": "\n\nTo determine how many more bottles Hortex needs to produce, follow these steps:\n\n1. **Calculate the energy equivalent of one person's daily needs in bottles:**\n   - Each bottle covers 20% of a person's energy.\n   - Therefore, 100% of energy requires \\( \\frac{100\\%}{20\\%} = 5 \\) bottles per person.\n\n2. **Determine the total energy needed for 2300 people:**\n   - Multiply the number of people by the energy per person: \\( 2300 \\times 5 = 11,500 \\) bottles.\n\n3. **Subtract the current production from the total needed:**\n   - Current production: 4,200 bottles.\n   - Additional bottles needed: \\( 11,500 - 4,200 = 7,300 \\) bottles.\n\n**Final Answer:** Hortex needs to produce 7,300 more bottles."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1206,
+    "problem_sha256": "dce5772270ce1c4e9f3081a7083c2f778445cb331732394b5b0c142f3a0def77",
+    "text_sha256": "9b05f5319a588893fb6e9229aadd35e3e1d8da67d2b356f161a136ba53921fa9",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "40000",
+      "span": "**Answer:** John has $40,000 leftover after paying off his debts."
+    },
+    "gold": "40000",
+    "tokens": 989,
+    "thinking_tokens": 747,
+    "final_region": "\n\nJohn has $40,000 leftover after paying off his debts.\n\n**Step-by-Step Explanation:**\n\n1. **Calculate the Loan Amount:**\n   - The loan is 40% of John's house worth ($250,000).\n   - 40% of $250,000 = 0.4 × $250,000 = $100,000.\n\n2. **Determine the Amount Used to Pay Off Debt:**\n   - John uses 60% of the loan to pay off his debts.\n   - 60% of $100,000 = 0.6 × $100,000 = $60,000.\n\n3. **Calculate the Leftover Money:**\n   - Subtract the amount used to pay off the debt from the total loan.\n   - Leftover = $100,000 - $60,000 = $40,000.\n\n**Answer:** John has $40,000 leftover after paying off his debts."
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1211,
+    "problem_sha256": "ab8c872ff073897292feb8d7e6b7a860e042cc0c0ca09c7d91037d368e7d1b0e",
+    "text_sha256": "548f82902949908e789cab80cd0b6f28e0f490fcd3a10d1e0f6556bb3d27ddd2",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "final_box",
+      "value": "448",
+      "span": "448\\ \\text{mL}"
+    },
+    "gold": "448",
+    "tokens": 369,
+    "thinking_tokens": 124,
+    "final_region": "\n\n**Solution:**\n\nWe need to determine the total volume of medicine in 8 doses. Each dose consists of two medicines:\n\n1. **First Medicine:**\n   - Volume per dose: \\( 14 \\, \\text{mL} \\)\n\n2. **Second Medicine:**\n   - Volume per dose: \\( 3 \\times 14 \\, \\text{mL} = 42 \\, \\text{mL} \\)\n\n**Step 1: Calculate the combined volume per dose.**\n\n\\[\n\\text{Combined volume per dose} = 14 \\, \\text{mL} + 42 \\, \\text{mL} = 56 \\, \\text{mL}\n\\]\n\n**Step 2: Calculate the total volume for 8 doses.**\n\n\\[\n\\text{Total volume} = 56 \\, \\text{mL/dose} \\times 8 \\, \\text{doses} = 448 \\, \\text{mL}\n\\]\n\n**Final Answer:**\n\n\\[\n\\boxed{448\\ \\text{mL}}\n\\]"
+  },
+  {
+    "arm": "AND",
+    "dataset_index": 1275,
+    "problem_sha256": "a7f8f8c8bf7b7d3182b62c5d8846798ec0f568a515a4ee627acb0fd1300efb9c",
+    "text_sha256": "512916115560d0931d0ca4da8a97f01b8af8074d64262df2bca5e3c50fc9c96a",
+    "original_correct": false,
+    "supplemental_correct": true,
+    "extraction": {
+      "status": "resolved",
+      "rule": "last_paragraph_unique_number",
+      "value": "16",
+      "span": "**Answer:** John needs to push the car with a force of 16 pounds."
+    },
+    "gold": "16",
+    "tokens": 737,
+    "thinking_tokens": 523,
+    "final_region": "\n\nTo determine the force John needs to push the car, follow these steps:\n\n1. **Calculate the total weight inside the car:**\n   - Luggage: 250 pounds\n   - Children: 75 pounds each, so two children = 75 * 2 = 150 pounds\n   - Total weight inside the car = 250 + 150 = 400 pounds\n\n2. **Calculate the total weight of the car and luggage:**\n   - Car weight: 1200 pounds\n   - Total weight = Car weight + Inside weight = 1200 + 400 = 1600 pounds\n\n3. **Calculate 1% of the total weight for the force needed:**\n   - Force = 1% of 1600 pounds = 0.01 * 1600 = 16 pounds\n\n**Answer:** John needs to push the car with a force of 16 pounds."
+  }
+]
