@@ -8,7 +8,7 @@ from grade_label_alignment import compare,summary
 def main():
     p=argparse.ArgumentParser();p.add_argument('--archive',type=Path,required=True)
     p.add_argument('--root',default='mti_native_20260918_run4/full/')
-    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27'])
+    p.add_argument('--arm',default='MTI_L27',choices=['MTI_L27','MARGIN_L27','LENGTH_L27','LENGTH_NORM_L27'])
     p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     root=a.root
     with tarfile.open(a.archive) as t:
@@ -69,7 +69,7 @@ def main():
                 ([
                 'Branch host interval overlaps main-forward synchronization; not isolated additional GPU time.',
                 'Invalid partial run3 is preserved and excluded from all metrics.'] if a.arm=='MTI_L27' else
-                ['Historical controls; one seed; no claim that probability dominance proves useful reflection.'])+
+                ['Historical controls; one seed; proxy states do not establish semantic overthinking or necessary reflection.'])+
                 (['458 original plus42 recovered with changed concurrency; not a uniform-schedule confirmation.'] if recovered else []))
     with a.output.open('x',encoding='utf8') as f:json.dump(report,f,ensure_ascii=False,indent=2)
     print(json.dumps({k:report[k] for k in ('summary','generation_seconds','advance_to_gsm_observed_rule')},indent=2))

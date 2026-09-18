@@ -1,0 +1,23 @@
+{
+  "status": "engineering_passed_full_two_arms_running",
+  "implementation_commit": "2e1f761",
+  "binary_preservation_and_launcher_commit": "293e404",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH-500",
+  "arms": ["LENGTH_L27", "LENGTH_NORM_L27"],
+  "questions_per_arm": 500,
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "max_num_seqs": 256,
+  "max_num_batched_tokens": 32768,
+  "archive_sha256": "8a0659639755f4895a2cc71cb12c8763c4ba91bea9283b74cf2eedc062420e55",
+  "release_sha256": "f541149c010ee9a0adc883ae2b400f97c0c1f614b0cb692c272b8d9c4c94e2d1",
+  "remote_output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/trajectory_length_vector_20260918_run2",
+  "log": "/root/autodl-tmp/projects/trajectory_length_vector_20260918_retry1.log",
+  "initial_failure": "Existing ninja executable was not on PATH. Initial engineering directory and log retained. Existing venv bin added to PATH; no installation or environment upgrade. No formal outputs from initial attempt.",
+  "engineering": "8 registered old training prompts x5 x512; both candidate repeated generations and control histories identical after reset; original raw vector elementwise reproduced on CPU",
+  "engineering_seconds": 71.2563973814249,
+  "additional_model_forwards": 0,
+  "full_baselines_regenerated": false,
+  "run1_note": "CPU packaging only, superseded by run2 before any GPU generation to add norm-matched diagnostic."
+}
