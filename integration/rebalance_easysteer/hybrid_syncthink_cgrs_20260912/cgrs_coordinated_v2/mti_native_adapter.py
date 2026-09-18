@@ -9,6 +9,13 @@ import torch
 from mti_reference import entropy
 
 
+def selected_contrast(logits,aux,selected):
+    """Keep unselected rows AND downstream L27 rounding on the native path."""
+    result=logits.clone()
+    result[selected]=(1.5*logits[selected].float()-.5*aux.float()).to(logits.dtype)
+    return result
+
+
 class MTIAdapter:
     def __init__(self, lexical, tokenizer, mode='off'):
         self.mode=mode;self.calls=0;self.rows=0;self.cue_tokens=0;self.host_seconds=0.;self.first={}
@@ -119,7 +126,6 @@ class MTIAdapter:
             counts=o.count[idx[selected]].cpu().tolist()
             for row,count in zip(selected,counts):self.first.setdefault(batch.req_ids[row],count)
             if self.mode=='active':
-                logits=logits.float().clone()
-                logits[selected]=1.5*logits[selected]-.5*aux
+                logits=selected_contrast(logits,aux,selected)
         self.host_seconds+=time.monotonic()-began
         return self.original(logits,batch,**kwargs)
