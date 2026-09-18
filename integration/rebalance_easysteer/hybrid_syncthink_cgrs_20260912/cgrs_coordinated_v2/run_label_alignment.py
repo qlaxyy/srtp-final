@@ -13,7 +13,10 @@ def read(p):return json.loads(Path(p).read_text(encoding='utf8'))
 def validate(plan,release,phase):
     gsm=plan.get('dataset_key')=='gsm8k'
     assert plan['seed']==42 and plan['max_new_tokens']==16000 and len(plan['rows'])==(1319 if gsm else 500)
-    if plan.get('experiment_kind')=='margin_v1':
+    if plan.get('experiment_kind')=='length_vector_v1':
+        assert [a['name'] for a in plan['arms']]==['LENGTH_L27','LENGTH_NORM_L27']
+        assert not plan['execution'].get('sync_replay',False)
+    elif plan.get('experiment_kind')=='margin_v1':
         assert [a['name'] for a in plan['arms']]==['MARGIN_L27']
         assert not plan['execution'].get('sync_replay',False)
     elif plan.get('experiment_kind')=='mti_v1':
@@ -95,7 +98,9 @@ def main():
         names=[a['name'] for a in plan['arms']]
         mti=plan.get('experiment_kind')=='mti_v1'
         margin=plan.get('experiment_kind')=='margin_v1'
+        length_vector=plan.get('experiment_kind')=='length_vector_v1'
         if args.phase=='engineering':names=(['L27_REFERENCE','L27_OFF','L27_SHADOW'] if mti or margin else ['RC14','RC14_extension_off'])+names
+        if args.phase=='engineering' and length_vector:names=['L27_REFERENCE','LENGTH_L27','LENGTH_REPEAT','LENGTH_NORM_L27','LENGTH_NORM_REPEAT']
         rows=release['engineering_rows'] if args.phase=='engineering' else plan['rows']
         assert len(rows)==(8 if args.phase=='engineering' else len(plan['rows']))
         if args.phase=='full' and plan.get('recovery_indices') is not None:
@@ -114,6 +119,7 @@ def main():
             calib='T14' if name in ('T14_T14','T14_L27') else 'CV' if name=='CV_CV' else None
             vp=HERE/'label_alignment_20260917'/calib/'auto_vector.pt' if calib else Path(assets['vector']['path'])
             fp=HERE/'label_alignment_20260917'/calib/'fit.json' if calib else Path(assets['fit']['path'])
+            if length_vector and name!='L27_REFERENCE':vp=HERE/plan['arms'][int('NORM' in name)]['vector']
             if name=='HARMONIC_L27':fp=HERE/'harmonic_confidence_20260918/fit.json'
             layer=assets['decoder_output_layer']
             assert read(fp)['decoder_output_layer']==layer
@@ -123,6 +129,7 @@ def main():
             setup_start=time.monotonic()
             arm=next((a for a in plan['arms'] if a['name']==name),{})
             if mti or margin:arm=plan['arms'][0]
+            if length_vector:arm=plan['arms'][0]
             large=mti or margin or name in ('L27_L27','T14_L27') or 'suppression_table' in arm;lexical=name=='L27_L27_control'
             if large or lexical:
                 table=HERE/arm['suppression_table'] if 'suppression_table' in arm else HERE/'label_alignment_20260917/tables'/('opening.npz' if large else 'search.npz')
@@ -208,7 +215,13 @@ def main():
                     result['extra_model_forward_count']=None
                     result['timing_note']+=' KV replay is additional model work; restored request counts and replay-prefill token counts are recorded, forward calls not separately counted.'
                 save(folder/'result.json',result)
-                if args.phase=='engineering' and margin:
+                if args.phase=='engineering' and length_vector:
+                    if name in ('LENGTH_L27','LENGTH_NORM_L27'):
+                        reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
+                    elif name in ('LENGTH_REPEAT','LENGTH_NORM_REPEAT'):
+                        assert all(a['token_ids']==b['token_ids'] for a,b in zip(reference,records)), 'Length candidate reset changed tokens'
+                        assert [adapter.completed[r]['R_history_sha256'] for r in ids]==history, 'Length candidate reset changed history'
+                elif args.phase=='engineering' and margin:
                     if name=='L27_REFERENCE':
                         reference=records;history=[adapter.completed[r]['R_history_sha256'] for r in ids]
                     elif name in ('L27_OFF','L27_SHADOW'):

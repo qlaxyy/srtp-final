@@ -1,0 +1,26 @@
+{
+  "original_vector_exact": true,
+  "over": 39515,
+  "under": 854,
+  "mean_thinking_tokens": 6307.14,
+  "old_norm": 83.61913616775803,
+  "new_norm": 121.43210874934636,
+  "cosine": 0.7042717253218401,
+  "angle_degrees": 45.229262164621346,
+  "old_projection": {
+    "question_projection_vs_mean_confidence": -0.2036408273053863,
+    "question_projection_vs_log_length": -0.013603798873064897,
+    "projection_vs_log_length_after_linear_confidence_adjustment": 0.14728999970391912
+  },
+  "new_projection": {
+    "question_projection_vs_mean_confidence": 0.3726290819577241,
+    "question_projection_vs_log_length": 0.5692211544568702,
+    "projection_vs_log_length_after_linear_confidence_adjustment": 0.4644212791055232
+  },
+  "limitations": "In-sample descriptive geometry, linear adjustment is not causal disentanglement; truncated length and question difficulty remain confounded.",
+  "assets": {
+    "features_sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+    "audit_sha256": "ee976780971e8e04caa8692a839ac8fdec95f1ef4429654a0c1eb84e28a5253b",
+    "vector_sha256": "af90fb5255c08ed577fa19a0390a926a7924b0706803f2541a60bc6a8ce8baa2"
+  }
+}
