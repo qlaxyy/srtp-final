@@ -1,0 +1,231 @@
+{
+  "status": "complete; both candidates rejected; frozen L27 retained",
+  "results": [
+    {
+      "candidate": "EFFICIENT_L27",
+      "namespace": "outcome_efficient_math500_20260918_run1",
+      "summary": {
+        "count": 500,
+        "correct": 408,
+        "accuracy_percent": 81.6,
+        "mean_tokens": 3508.306,
+        "mean_thinking_tokens": 3102.066,
+        "capped": 18
+      },
+      "generation_seconds": 477.0561262369156,
+      "predeclared_checks": {
+        "thinking_lower": false,
+        "total_lower": false,
+        "caps_not_higher": false,
+        "accuracy_within_2pp_L27": true,
+        "accuracy_within_2pp_R": true
+      },
+      "advance": false,
+      "l27_comparison": {
+        "accuracy_delta_pp": -1.4000000000000001,
+        "ci95": {
+          "accuracy": [
+            -4.2,
+            1.4000000000000001
+          ],
+          "tokens": [
+            5.567790704470859,
+            22.23190153002247
+          ],
+          "thinking_tokens": [
+            5.51559716055009,
+            24.379639736537573
+          ]
+        },
+        "tokens_percent": 13.593877085826488,
+        "thinking_tokens_percent": 14.585094059727766,
+        "wrong_to_right": [
+          13,
+          41,
+          71,
+          80,
+          120,
+          126,
+          176,
+          177,
+          214,
+          219,
+          246,
+          248,
+          279,
+          324,
+          327,
+          338,
+          380,
+          382,
+          385,
+          398,
+          403,
+          431,
+          454,
+          458
+        ],
+        "right_to_wrong": [
+          10,
+          12,
+          21,
+          69,
+          101,
+          111,
+          119,
+          128,
+          142,
+          158,
+          164,
+          165,
+          166,
+          202,
+          228,
+          285,
+          298,
+          301,
+          303,
+          332,
+          333,
+          351,
+          358,
+          365,
+          401,
+          412,
+          450,
+          486,
+          490,
+          494,
+          497
+        ],
+        "accuracy_observed_within_2pp": true,
+        "nominal_accuracy_ci_within_2pp": false,
+        "wrong_to_right_count": 24,
+        "right_to_wrong_count": 31
+      }
+    },
+    {
+      "candidate": "UNDER_REFIT_L27",
+      "namespace": "outcome_under_math500_20260918_run2",
+      "summary": {
+        "count": 500,
+        "correct": 410,
+        "accuracy_percent": 82.0,
+        "mean_tokens": 3381.976,
+        "mean_thinking_tokens": 2992.578,
+        "capped": 15
+      },
+      "generation_seconds": 449.29148285090923,
+      "predeclared_checks": {
+        "thinking_lower": false,
+        "total_lower": false,
+        "caps_not_higher": false,
+        "accuracy_within_2pp_L27": true,
+        "accuracy_within_2pp_R": true
+      },
+      "advance": false,
+      "l27_comparison": {
+        "accuracy_delta_pp": -1.0,
+        "ci95": {
+          "accuracy": [
+            -4.0,
+            2.0
+          ],
+          "tokens": [
+            1.861293059790676,
+            17.8261001095423
+          ],
+          "thinking_tokens": [
+            1.6907366271586612,
+            20.259621754746522
+          ]
+        },
+        "tokens_percent": 9.503494293603554,
+        "thinking_tokens_percent": 10.540791721089127,
+        "wrong_to_right": [
+          41,
+          43,
+          60,
+          83,
+          138,
+          156,
+          176,
+          177,
+          214,
+          219,
+          224,
+          246,
+          279,
+          326,
+          327,
+          338,
+          349,
+          369,
+          380,
+          382,
+          385,
+          392,
+          431,
+          454,
+          458,
+          466,
+          495
+        ],
+        "right_to_wrong": [
+          14,
+          88,
+          94,
+          101,
+          104,
+          109,
+          166,
+          168,
+          190,
+          203,
+          217,
+          230,
+          232,
+          236,
+          301,
+          303,
+          333,
+          356,
+          358,
+          365,
+          368,
+          371,
+          396,
+          402,
+          409,
+          411,
+          412,
+          419,
+          445,
+          475,
+          482,
+          483
+        ],
+        "accuracy_observed_within_2pp": true,
+        "nominal_accuracy_ci_within_2pp": false,
+        "wrong_to_right_count": 27,
+        "right_to_wrong_count": 32
+      }
+    }
+  ],
+  "unrun": [
+    "GSM8K expansion",
+    "7B expansion"
+  ],
+  "label_audit_excluded": [
+    67,
+    262,
+    284
+  ],
+  "limits": [
+    "Exposed MATH500; descriptive bootstrap, not independent confirmation",
+    "Underthinking proxy has 5 parents and 64 states; 43 states from one parent",
+    "A and B change both vector and controller; no isolated causal attribution",
+    "Fixed-answer replay measures current unsteered probabilities, not historical exact probabilities"
+  ],
+  "gpu_idle_verified": true
+}
