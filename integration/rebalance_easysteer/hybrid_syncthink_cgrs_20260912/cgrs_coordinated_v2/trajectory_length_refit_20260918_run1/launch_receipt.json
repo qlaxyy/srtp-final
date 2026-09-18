@@ -1,0 +1,22 @@
+{
+  "status": "engineering_passed_full500_running",
+  "commit": "ddae43c",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH-500",
+  "questions": 500,
+  "arm": "LENGTH_REFIT_L27",
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "changed_parameter_only_relative_to_raw_length_arm": {"low_val_2": [-1.5353450143175593, -1.0867054731462702]},
+  "fit_source": "Original500 frozen calibration, same new class masks, original LDA maximum crossing formula. No benchmark-based scalar search.",
+  "archive_sha256": "9b2248cd58f9164ea2df7a1572016a2649b551acb7f69271088786cff37f3774",
+  "release_sha256": "0049f6b9a222b048095ab60fe6a73632c72fef8d652aecc09fa3513cbccda779",
+  "remote_output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/trajectory_length_refit_20260918_run1",
+  "engineering_seconds": 51.57059071958065,
+  "engineering": "8 registered training questions x3 x512; candidate repeat exact tokens and control histories",
+  "baseline_regeneration": false,
+  "new_calibration_generation": false,
+  "additional_model_forwards": 0,
+  "sequential_selection_disclosed": true,
+  "no_gsm_expansion_in_this_batch": true
+}
