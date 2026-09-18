@@ -1,0 +1,17 @@
+{
+  "source": "https://arxiv.org/html/2601.19375v1",
+  "sentinel": "END-OF-PAPER:3cef11e77ca3",
+  "question": "Does original additive steering change complete-state norm on frozen calibration states?",
+  "alphas": [
+    -1.5353450143175593,
+    -1.0,
+    0.1
+  ],
+  "selection": "All 84008 original step-start features; all 500 old calibration parents; no new split or reserved problems.",
+  "proposed_map": "y=x+alpha*v; z=y*norm(x)/norm(y); zero norm y falls back to x; alpha zero and disabled branch return old path exactly.",
+  "scope": "Fixed-coefficient stress audit, NOT actual online coefficient frequency or efficacy. Unsteered first-content-token complete states only.",
+  "inputs": {
+    "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "status": "CPU reference/spec only. No installed runtime patch, no GPU launch.",
+  "base_commit": "fe7828e0dc4c204c0cb65c006c53e167bb4836b8",
+  "source": "https://arxiv.org/html/2601.19375v1",
+  "attribution": "Own rescaled-addition adaptation, not official SS rotation/layer selection.",
+  "paper_audit": "Eq2 already preserves norm under orthonormal B; AppendixB.1 Eq18 incorrectly infers unequal norms from unequal vectors. Zero-angle identity fails but norm need not. Safety/tinyBenchmarks results do not establish reasoning compression. Official linked code exists, implementation not audited.",
+  "single_change": "Rescale complete decoder output after original dynamic addition; retain raw vector, layer20, original fit/labels/controller, sampling and L27.",
+  "interface": {
+    "flag": "rebalance_preserve_complete_norm, default false; distinct from generic normalize",
+    "files": [
+      "sources/EasySteer/vllm-steer/vllm/steer_vectors/api.py",
+      "sources/EasySteer/vllm-steer/vllm/steer_vectors/algorithms/rebalance.py"
+    ],
+    "runtime_requirement": "Verify actual deployed source and hashes before isolated patch. Both local API and algorithm reject normalize=True; do not merely remove guards or modify generic graph family. No shared files changed.",
+    "state": "No temporal state; option copied on request registration and cleared on slot reuse. Padding/nonsteered rows unchanged. Old coefficient and boundary history lifecycle unchanged.",
+    "complete_state": "x=hidden+residual; alter hidden only, preserve residual. Never normalize MLP output alone. Reductions float32, output dtype rounding reported.",
+    "fallback": "Zero/nonfinite norm returns original hidden row; log counts, unexpected fallback fails engineering. Alpha0 exact identity. Disabled branch original arithmetic, no norm reductions.",
+    "order": "Only decoder injection changes, before downstream logits. Existing confidence/boundary/suppression/sampling order unchanged; future confidence can change consequentially."
+  },
+  "rmsnorm_caveat": "Scaling approximately cancels in next RMSNorm attention input (epsilon aside), but residual carried to later addition changes. Not globally a no-op or guaranteed protection.",
+  "cpu_checks": [
+    {
+      "dtype": "torch.float32",
+      "max_relative_complete_norm_error": 2.1083681644995522e-07,
+      "disabled_exact": true,
+      "zero_exact": true,
+      "residual_unchanged": true
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "max_relative_complete_norm_error": 0.0006284457631409168,
+      "disabled_exact": true,
+      "zero_exact": true,
+      "residual_unchanged": true
+    }
+  ],
+  "local_source_sha256": {
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/api.py": "e58b5a9ebcc5ea77147cb2518be5238409bb3cdef3ed145314dad30896e487ef",
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/algorithms/rebalance.py": "edad5ff71a6baf06b02b4c4e5d8b42483cee746c3730a34cb2c9d660ec8c422a",
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/graph_kernels.py": "4d7ca8cc7ac704e418cfe8077c693cfc084398247509bd600e1b0719ad6b48ed",
+    "sources/EasySteer/vllm-steer/vllm/model_executor/models/qwen2.py": "8a4fab416b44bc2d3a9a00d37b809bf30e0d8843c147348099e639570cb18cbe"
+  },
+  "gpu_plan": {
+    "ready": false,
+    "prerequisite": "Isolated runtime integration, deployed identity check, disabled equivalence, GPU dtype and graph/batch-slot checks.",
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "dataset": "MATH-500 all500, exposed benchmark exploratory only",
+    "arms": "One new norm-preserving L27. Reuse hash-checked historical R and L27.",
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "max_new_tokens": 16000,
+    "engineering": "8 old training questions x old/new-disabled/new-enabled/enabled-repeat x512",
+    "execution": "vLLM concurrency256 batch32768 memory0.9 on validated matching hardware",
+    "estimate": "Generation8-15min plus load/engineering/grading; new overhead unmeasured.",
+    "stop": "Formal1800sec/process2100sec; save partial outputs. Engineering divergence or unexpected fallback stops formal test.",
+    "metrics": "Accuracy, thinking/total mean tokens, caps, paired flips and20000 bootstrap; generation/other times, utilization, fallback count. Extra model forwards0; reduction overhead not assumed0.",
+    "promotion": "Thinking and total tokens both lower than L27, caps<=12, accuracy loss<=2pp vs both R and L27. Report uncertainty; point criterion not statistical noninferiority. Fail: no alpha/mix sweep or expansion. Pass: consider GSM1319.",
+    "output": "norm_preserving_math_20260918_run1, exclusive creation; not yet created."
+  }
+}
