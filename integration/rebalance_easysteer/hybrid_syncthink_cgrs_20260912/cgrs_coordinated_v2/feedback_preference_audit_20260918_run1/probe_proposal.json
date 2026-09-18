@@ -1,0 +1,51 @@
+{
+  "status": "Proposed engineering inputs only, no GPU execution or data split freeze",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "questions": [
+    {
+      "question": 185,
+      "problem_sha256": "0ff207808063d17a4a3d5cc7ec6b7f7d0ce96f1b5885bfe582e44f0ec0cd8459",
+      "chosen_source": "U"
+    },
+    {
+      "question": 215,
+      "problem_sha256": "10b7f40129ae518afdc470ac7cf53bf7d2fe9bc191c9bef5284eebb7f992c76b",
+      "chosen_source": "U"
+    },
+    {
+      "question": 105,
+      "problem_sha256": "131f6349ef028626743fedfdf2342aa5eb9388140deaab214a6a9cf37fde68e4",
+      "chosen_source": "U"
+    },
+    {
+      "question": 481,
+      "problem_sha256": "1735f656cef1dff7df7ccf824cbf53ccef14a96e51c9d6327f253740b4ee65ba",
+      "chosen_source": "U"
+    },
+    {
+      "question": 349,
+      "problem_sha256": "00288506404f44ce9d1323671a7b66fb4e277c199c903cdfe08155b8e4919851",
+      "chosen_source": "L27"
+    },
+    {
+      "question": 55,
+      "problem_sha256": "007184730a11bee549ea79c5ebc501ccef8a02ff53b6a52d246ba462d1cb6258",
+      "chosen_source": "L27"
+    },
+    {
+      "question": 127,
+      "problem_sha256": "034e30f2197b2bc301bf495843c7182dc3ab06d320d3f30f3668c63ce6364e53",
+      "chosen_source": "L27"
+    },
+    {
+      "question": 301,
+      "problem_sha256": "0426b126d77c9a2e573ceb5911b08c17475eb1b4fe61d8ef749f003eacb4cf25",
+      "chosen_source": "L27"
+    }
+  ],
+  "saved_response_count": 16,
+  "prompt_plus_response_tokens": 43957,
+  "max_sequence_tokens": 8647,
+  "new_generations": 0,
+  "limit": "Runner and actual forward/backward pass budget not yet prepared; do not launch GPU from this proposal"
+}

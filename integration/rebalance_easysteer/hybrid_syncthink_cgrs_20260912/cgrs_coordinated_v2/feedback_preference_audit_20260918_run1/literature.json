@@ -1,0 +1,50 @@
+{
+  "scope": "Focused mechanism review, 2026-09-18, not an exhaustive systematic survey",
+  "queries": [
+    "Lean STaR learning to interleave thinking proving expert iteration arxiv",
+    "Steering Llama 2 via Contrastive Activation Addition arxiv",
+    "steering vectors direct preference optimization activation steering training paired responses"
+  ],
+  "papers": [
+    {
+      "arxiv": "2407.10040",
+      "url": "https://arxiv.org/abs/2407.10040",
+      "read_depth": "Full parsed text including appendices and references; no claims based on unread figure pixels",
+      "locations": [
+        "3.2.3",
+        "Appendix A.1",
+        "Appendix F"
+      ],
+      "evidence": "Successful self-generated proofs supervise a new model policy via fine-tuning; no hidden-state mean-difference guarantee.",
+      "parsed_sha256": "c73008deea9758bdc741472d8acbca575f28d1ffef5aeb89781f737dfc3c9b34",
+      "sentinel": "a61844d3c0f4"
+    },
+    {
+      "arxiv": "2406.00045",
+      "url": "https://arxiv.org/abs/2406.00045",
+      "read_depth": "Full parsed text including appendices and references; no claims based on unread figure pixels",
+      "locations": [
+        "3.1 Eq.1",
+        "3.2 Eq.2-3 Algorithm1",
+        "Appendix A.3"
+      ],
+      "evidence": "Explicit sequence-preference objective optimizes a frozen-model steering vector. No reasoning-compression experiment or 1.5B ReBalance compatibility guarantee.",
+      "parsed_sha256": "943c9c415d9bec658d27881663e133812be4585ffba7270c4207cefc5d43d76b",
+      "sentinel": "4813a28884bc"
+    }
+  ],
+  "official_code_entrypoint": {
+    "url": "https://raw.githubusercontent.com/CaoYuanpu/BiPO/main/train.py",
+    "sha256": "64eb5d19ab30864715a260ec2335e8120219758b65dddc87437b82b0e98652fd",
+    "commit": "unresolved: GitHub API rate limit403; file bytes pinned by hash",
+    "observed": [
+      "zero vector hardcoded4096",
+      "default max_length2048",
+      "all block-output positions receive vector",
+      "freezes non-vector parameters",
+      "separately allocates reference model",
+      "custom BiPOTrainer required; trainer implementation not yet audited"
+    ],
+    "status": "Read-only inspection, not installed or run; NOT proof of full code-paper equivalence"
+  }
+}
