@@ -1,0 +1,104 @@
+{
+  "measurement": "CPU counterfactual on saved BASE replay states; not actual online states",
+  "old_parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "sources": {
+    "R": {
+      "steps": 57300,
+      "lexical_hit": 19716,
+      "parameter_sets": {
+        "old": {
+          "over": 28953,
+          "under": 9967,
+          "under_questions": 275,
+          "over_questions": 499,
+          "mean_coefficient": -0.3516408690873415,
+          "negative_fraction": 0.7123385689354276,
+          "positive_fraction": 0.2876614310645724,
+          "coefficient_quantiles": [
+            -1.5353450143175593,
+            -0.5321846447946186,
+            -0.04853331010184207,
+            0.0026587133174810667,
+            0.09999836167335904
+          ],
+          "under_step_fraction": 0.17394415357766144,
+          "under_question_balanced_fraction": 0.05831606280124581
+        },
+        "new": {
+          "over": 28124,
+          "under": 9655,
+          "under_questions": 269,
+          "over_questions": 499,
+          "mean_coefficient": -0.30865714638538844,
+          "negative_fraction": 0.7194938917975567,
+          "positive_fraction": 0.28050610820244326,
+          "coefficient_quantiles": [
+            -1.4351873011575276,
+            -0.5008933417175625,
+            -0.04392668108442915,
+            0.0018807207964859603,
+            0.09999849526567686
+          ],
+          "under_step_fraction": 0.16849912739965095,
+          "under_question_balanced_fraction": 0.05581094622469305
+        }
+      },
+      "changed_under_labels": 312,
+      "changed_over_labels": 829
+    },
+    "L27": {
+      "steps": 40834,
+      "lexical_hit": 10006,
+      "parameter_sets": {
+        "old": {
+          "over": 18340,
+          "under": 5908,
+          "under_questions": 260,
+          "over_questions": 500,
+          "mean_coefficient": -0.4173982426217971,
+          "negative_fraction": 0.7842973992261351,
+          "positive_fraction": 0.2157026007738649,
+          "coefficient_quantiles": [
+            -1.5353450143175593,
+            -0.5580547910756332,
+            -0.1482688066399538,
+            -0.002404226966273261,
+            0.09999935892012321
+          ],
+          "under_step_fraction": 0.144683352108537,
+          "under_question_balanced_fraction": 0.050071579144113615
+        },
+        "new": {
+          "over": 16250,
+          "under": 7530,
+          "under_questions": 283,
+          "over_questions": 500,
+          "mean_coefficient": -0.36672885900626523,
+          "negative_fraction": 0.7350492236861439,
+          "positive_fraction": 0.2649507763138561,
+          "coefficient_quantiles": [
+            -1.7966243956337569,
+            -0.5006121159958596,
+            -0.10405783624374652,
+            0.0019475879047489305,
+            0.09999949463456267
+          ],
+          "under_step_fraction": 0.18440515256893766,
+          "under_question_balanced_fraction": 0.06399572468677339
+        }
+      },
+      "changed_under_labels": 1622,
+      "changed_over_labels": 2090
+    }
+  }
+}
