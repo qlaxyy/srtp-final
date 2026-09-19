@@ -1,0 +1,30 @@
+{
+  "version": "base-replay-q90-20260920",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 23,
+  "decoder_output_layer": 22,
+  "parameters": {
+    "q25c": 0.8586448025466367,
+    "q75c": 0.9996141532521982,
+    "q25v": 1.4349048418901794e-06,
+    "q75v": 0.003033079866672253,
+    "low_val_1": -0.5000000000000001,
+    "low_val_2": -1.6378721408221555,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.0006842741806475193
+  },
+  "vector_sha256": "58603dbf3cb6c937dea476ff7afd140a84852dea96c5d828bf1b3dd39e428057",
+  "vector_norm": 116.29191589355469,
+  "calibration_source_sha256": "7df06adaf4acecd5f9d356cba2cabaef8028699efa85bea8450729bdfb5f950b",
+  "positives": 16250,
+  "negatives": 3240,
+  "selection": {
+    "layer": 23,
+    "r2": 0.5994358658790588
+  },
+  "method": "Author mixed labels/raw vector/online arithmetic controller; automatic layer selection with question-group validation; original-token alignment; correct LDA midpoint sign; low1=-mean crossing, low2=-max crossing; tau=min(0.01, half the feasible F(1) ceiling). Fixed high2=0.1, initial=-1. These are explicit adaptation choices, not an exact author reproduction.",
+  "confidence_high_quantile": 0.9,
+  "legacy_parameter_note": "q75c runtime key contains confidence q90; variance q75v unchanged",
+  "layer_selection_note": "Reuse original automatic layer selection on the identical replay states; no layer search this run"
+}
