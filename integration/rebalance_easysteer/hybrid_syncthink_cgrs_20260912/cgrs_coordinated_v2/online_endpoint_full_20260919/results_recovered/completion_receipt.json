@@ -1,0 +1,23 @@
+{
+  "status": "1000 unique calibration traces recovered; not a single successful continuous run; no new-vector efficacy evaluation",
+  "base_commit": "962116e",
+  "gpu_process_wall_seconds": 3809.039866566658,
+  "main_completed_traces": 948,
+  "recovered_traces": 52,
+  "exact_recovery_overlap": 39,
+  "original_failure_preserved": true,
+  "gpu_idle_verified": true,
+  "analysis_cpu_boundary_tests": 4,
+  "source_sha256": {
+    "analyze_collection.py": "d869b2c9776334cb0e94586e31141e26889955cd4e8c93f17f5fc8d36d1522e6",
+    "run_recovery_last52.py": "e644f3562290e143f3059d08c2be1f3b55ff562393db9f87b6439f3e91278069"
+  },
+  "historical_R_exact_tokens": 7,
+  "historical_R_count": 500,
+  "limitations": [
+    "eager/split capture is not equivalent to historical in_graph/async generation",
+    "no paired unsteered replay on identical newly generated prefixes",
+    "strict U still dominated by some noncapped long repetitive traces",
+    "no new vector/function deployed"
+  ]
+}

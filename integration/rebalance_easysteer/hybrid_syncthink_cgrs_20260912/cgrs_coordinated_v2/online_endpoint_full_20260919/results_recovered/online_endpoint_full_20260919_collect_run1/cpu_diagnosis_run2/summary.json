@@ -1,0 +1,151 @@
+{
+  "groups": {
+    "R": {
+      "summary": {
+        "correct": 362,
+        "mean_tokens": 5063.842,
+        "mean_thinking_tokens": 4760.02,
+        "capped": 104,
+        "generation_seconds": 1783.0451180487871
+      },
+      "steps": 57219,
+      "confidence_quantiles": [
+        0.8731264802475998,
+        0.9986059975160342
+      ],
+      "variance_quantiles": [
+        5.379925817769647e-07,
+        0.0023776121001779504
+      ],
+      "over": {
+        "steps": 27157,
+        "questions": 499,
+        "from_capped": 18858,
+        "from_wrong": 20187,
+        "top10_steps": 4371,
+        "effective_questions": 136.00738863247875
+      },
+      "under_original": {
+        "steps": 8922,
+        "questions": 287,
+        "from_capped": 7712,
+        "from_wrong": 7903,
+        "top10_steps": 3400,
+        "effective_questions": 42.36943476608533
+      },
+      "under_exclude_capped": {
+        "steps": 1210,
+        "questions": 211,
+        "from_capped": 0,
+        "from_wrong": 191,
+        "top10_steps": 384,
+        "effective_questions": 50.364637082903336
+      },
+      "endpoints": {
+        "pre_original": {
+          "vector_norm": 75.28692408451923,
+          "over_norm": 125.02409009617331,
+          "under_norm": 121.94590060815808
+        },
+        "pre_exclude_capped": {
+          "vector_norm": 108.0767229621719,
+          "over_norm": 125.02409009617331,
+          "under_norm": 113.68874742615911
+        },
+        "post_original": {
+          "vector_norm": 75.28692408451923,
+          "over_norm": 125.02409009617331,
+          "under_norm": 121.94590060815808
+        },
+        "post_exclude_capped": {
+          "vector_norm": 108.0767229621719,
+          "over_norm": 125.02409009617331,
+          "under_norm": 113.68874742615911
+        }
+      },
+      "direction_cosines": {
+        "pre_original__pre_exclude_capped": 0.6923262761153304,
+        "pre_original__post_original": 0.9999999999999999,
+        "pre_exclude_capped__post_exclude_capped": 1.0
+      },
+      "max_native_step_mean_rounding_error": 1.3604098403341425e-06,
+      "limitation": "Training descriptive only. No new vector deployed; no dynamic fitting; different native trajectories cannot be paired with historical base replay states."
+    },
+    "L27": {
+      "summary": {
+        "correct": 369,
+        "mean_tokens": 4530.644,
+        "mean_thinking_tokens": 4192.296,
+        "capped": 88,
+        "generation_seconds": 1875.5412722080946
+      },
+      "steps": 50953,
+      "confidence_quantiles": [
+        0.872075432177746,
+        0.9984181308084064
+      ],
+      "variance_quantiles": [
+        9.111110480642837e-07,
+        0.0024036492415950095
+      ],
+      "over": {
+        "steps": 22038,
+        "questions": 499,
+        "from_capped": 14246,
+        "from_wrong": 15994,
+        "top10_steps": 4056,
+        "effective_questions": 118.9809179155814
+      },
+      "under_original": {
+        "steps": 8950,
+        "questions": 288,
+        "from_capped": 7737,
+        "from_wrong": 8157,
+        "top10_steps": 3441,
+        "effective_questions": 42.48063240603641
+      },
+      "under_exclude_capped": {
+        "steps": 1213,
+        "questions": 218,
+        "from_capped": 0,
+        "from_wrong": 420,
+        "top10_steps": 441,
+        "effective_questions": 23.608006417970316
+      },
+      "endpoints": {
+        "pre_original": {
+          "vector_norm": 73.19811962166175,
+          "over_norm": 122.65488572483699,
+          "under_norm": 123.2114354621356
+        },
+        "pre_exclude_capped": {
+          "vector_norm": 102.18916336136424,
+          "over_norm": 122.65488572483699,
+          "under_norm": 112.06935281586135
+        },
+        "post_original": {
+          "vector_norm": 73.19811962166175,
+          "over_norm": 122.65488572483699,
+          "under_norm": 123.2114354621356
+        },
+        "post_exclude_capped": {
+          "vector_norm": 102.18916336136424,
+          "over_norm": 122.65488572483699,
+          "under_norm": 112.06935281586135
+        }
+      },
+      "direction_cosines": {
+        "pre_original__pre_exclude_capped": 0.6868226734749664,
+        "pre_original__post_original": 1.0,
+        "pre_exclude_capped__post_exclude_capped": 1.0
+      },
+      "max_native_step_mean_rounding_error": 1.4211820519305363e-06,
+      "limitation": "Training descriptive only. No new vector deployed; no dynamic fitting; different native trajectories cannot be paired with historical base replay states."
+    }
+  },
+  "cpu_seconds": 112.31334902346134,
+  "collection_status": "Recovered training collection; not one continuous successful run",
+  "main_run": "/root/autodl-tmp/results/easysteer/online_endpoint_full_20260919_collect_run1",
+  "recovery_run": "/root/autodl-tmp/results/easysteer/online_endpoint_full_20260919_recovery52_run1",
+  "author_source_sha256": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641"
+}

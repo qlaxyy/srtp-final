@@ -1,0 +1,28 @@
+{
+  "question": 416,
+  "problem": "How many integers between $100$ and $999$, inclusive, have the property that some permutation of its digits is a multiple of $11$ between $100$ and $999?$ For example, both $121$ and $211$ have this property.\n$\\mathrm{\\textbf{(A)} \\ }226\\qquad \\mathrm{\\textbf{(B)} \\ } 243 \\qquad \\mathrm{\\textbf{(C)} \\ } 270 \\qquad \\mathrm{\\textbf{(D)} \\ }469\\qquad \\mathrm{\\textbf{(E)} \\ } 486$\n",
+  "selected_steps": 228,
+  "unique_exact_step_texts": 87,
+  "most_common": [
+    {
+      "text": "E4: b + a - c \u2261 0 mod 11",
+      "count": 15
+    },
+    {
+      "text": "E6: c + a - b \u2261 0 mod 11",
+      "count": 15
+    },
+    {
+      "text": "E5: c + b - a \u2261 0 mod 11",
+      "count": 14
+    },
+    {
+      "text": "E2: a + b - c \u2261 0 mod 11",
+      "count": 12
+    },
+    {
+      "text": "E3: b + c - a \u2261 0 mod 11",
+      "count": 12
+    }
+  ]
+}

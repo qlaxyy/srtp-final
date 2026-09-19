@@ -1,0 +1,196 @@
+{
+  "wrong_to_right": [
+    4,
+    10,
+    19,
+    38,
+    40,
+    41,
+    62,
+    64,
+    68,
+    94,
+    95,
+    102,
+    104,
+    113,
+    116,
+    165,
+    177,
+    182,
+    238,
+    245,
+    273,
+    285,
+    328,
+    344,
+    379,
+    389,
+    392,
+    410,
+    466,
+    467,
+    485
+  ],
+  "right_to_wrong": [
+    7,
+    22,
+    91,
+    92,
+    119,
+    157,
+    169,
+    175,
+    214,
+    216,
+    219,
+    262,
+    269,
+    279,
+    288,
+    293,
+    306,
+    316,
+    319,
+    335,
+    357,
+    365,
+    443,
+    487
+  ],
+  "state_checks": {
+    "R": {
+      "captured_first_positions": 60521,
+      "pre_post_changed": 0,
+      "top10_excluded_cap_questions": [
+        {
+          "question": 437,
+          "steps": 112,
+          "tokens": 5627,
+          "correct": true
+        },
+        {
+          "question": 209,
+          "steps": 69,
+          "tokens": 3732,
+          "correct": false
+        },
+        {
+          "question": 293,
+          "steps": 46,
+          "tokens": 8088,
+          "correct": true
+        },
+        {
+          "question": 216,
+          "steps": 29,
+          "tokens": 4672,
+          "correct": true
+        },
+        {
+          "question": 74,
+          "steps": 28,
+          "tokens": 3973,
+          "correct": true
+        },
+        {
+          "question": 362,
+          "steps": 24,
+          "tokens": 6978,
+          "correct": true
+        },
+        {
+          "question": 7,
+          "steps": 22,
+          "tokens": 5604,
+          "correct": true
+        },
+        {
+          "question": 175,
+          "steps": 19,
+          "tokens": 6237,
+          "correct": true
+        },
+        {
+          "question": 98,
+          "steps": 18,
+          "tokens": 2952,
+          "correct": true
+        },
+        {
+          "question": 460,
+          "steps": 17,
+          "tokens": 1996,
+          "correct": true
+        }
+      ]
+    },
+    "L27": {
+      "captured_first_positions": 54673,
+      "pre_post_changed": 0,
+      "top10_excluded_cap_questions": [
+        {
+          "question": 416,
+          "steps": 228,
+          "tokens": 15898,
+          "correct": false
+        },
+        {
+          "question": 74,
+          "steps": 31,
+          "tokens": 5458,
+          "correct": true
+        },
+        {
+          "question": 288,
+          "steps": 28,
+          "tokens": 7266,
+          "correct": false
+        },
+        {
+          "question": 175,
+          "steps": 25,
+          "tokens": 10937,
+          "correct": false
+        },
+        {
+          "question": 364,
+          "steps": 24,
+          "tokens": 8215,
+          "correct": false
+        },
+        {
+          "question": 111,
+          "steps": 23,
+          "tokens": 5152,
+          "correct": true
+        },
+        {
+          "question": 21,
+          "steps": 22,
+          "tokens": 3270,
+          "correct": true
+        },
+        {
+          "question": 113,
+          "steps": 21,
+          "tokens": 3771,
+          "correct": true
+        },
+        {
+          "question": 477,
+          "steps": 21,
+          "tokens": 11152,
+          "correct": false
+        },
+        {
+          "question": 460,
+          "steps": 18,
+          "tokens": 1996,
+          "correct": true
+        }
+      ]
+    }
+  },
+  "training_only": true
+}
