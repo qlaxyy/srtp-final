@@ -1,0 +1,4027 @@
+{
+  "scope": "Saved R-only full calibration500, production versus eager observer; CPU only",
+  "counts": {
+    "exact": 7,
+    "before_any_possible_R_effect": 128,
+    "at_first_possible_R_effect": 5,
+    "after_first_possible_R_effect": 360,
+    "prefix_only": 0
+  },
+  "details": [
+    {
+      "question": 0,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 157,
+      "first_shared_boundary": 62,
+      "old_tokens": 3824,
+      "new_tokens": 3548
+    },
+    {
+      "question": 1,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 308,
+      "first_shared_boundary": 68,
+      "old_tokens": 8989,
+      "new_tokens": 16000
+    },
+    {
+      "question": 2,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 130,
+      "first_shared_boundary": 117,
+      "old_tokens": 2639,
+      "new_tokens": 5415
+    },
+    {
+      "question": 3,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 144,
+      "first_shared_boundary": 53,
+      "old_tokens": 3734,
+      "new_tokens": 3331
+    },
+    {
+      "question": 4,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 188,
+      "first_shared_boundary": 57,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 5,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 34,
+      "first_shared_boundary": null,
+      "old_tokens": 2186,
+      "new_tokens": 2670
+    },
+    {
+      "question": 6,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 262,
+      "first_shared_boundary": 80,
+      "old_tokens": 2030,
+      "new_tokens": 1840
+    },
+    {
+      "question": 7,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 7,
+      "first_shared_boundary": null,
+      "old_tokens": 2735,
+      "new_tokens": 5604
+    },
+    {
+      "question": 8,
+      "category": "at_first_possible_R_effect",
+      "shared_prefix_tokens": 94,
+      "first_shared_boundary": 93,
+      "old_tokens": 2148,
+      "new_tokens": 1807
+    },
+    {
+      "question": 9,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 122,
+      "first_shared_boundary": 75,
+      "old_tokens": 809,
+      "new_tokens": 787
+    },
+    {
+      "question": 10,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 11,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 577,
+      "first_shared_boundary": 43,
+      "old_tokens": 2000,
+      "new_tokens": 1811
+    },
+    {
+      "question": 12,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 130,
+      "first_shared_boundary": 53,
+      "old_tokens": 1965,
+      "new_tokens": 1983
+    },
+    {
+      "question": 13,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 120,
+      "first_shared_boundary": 65,
+      "old_tokens": 1651,
+      "new_tokens": 16000
+    },
+    {
+      "question": 14,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 166,
+      "first_shared_boundary": 137,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 15,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 43,
+      "first_shared_boundary": null,
+      "old_tokens": 1481,
+      "new_tokens": 1239
+    },
+    {
+      "question": 16,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 52,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 17,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 63,
+      "first_shared_boundary": null,
+      "old_tokens": 2507,
+      "new_tokens": 16000
+    },
+    {
+      "question": 18,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 657,
+      "first_shared_boundary": 72,
+      "old_tokens": 1407,
+      "new_tokens": 1796
+    },
+    {
+      "question": 19,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 72,
+      "first_shared_boundary": null,
+      "old_tokens": 3049,
+      "new_tokens": 16000
+    },
+    {
+      "question": 20,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 174,
+      "first_shared_boundary": 72,
+      "old_tokens": 1571,
+      "new_tokens": 2071
+    },
+    {
+      "question": 21,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 235,
+      "first_shared_boundary": 67,
+      "old_tokens": 3844,
+      "new_tokens": 3799
+    },
+    {
+      "question": 22,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 242,
+      "first_shared_boundary": 80,
+      "old_tokens": 5524,
+      "new_tokens": 3047
+    },
+    {
+      "question": 23,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 233,
+      "first_shared_boundary": 74,
+      "old_tokens": 2275,
+      "new_tokens": 2807
+    },
+    {
+      "question": 24,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 104,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 2524
+    },
+    {
+      "question": 25,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 117,
+      "first_shared_boundary": 46,
+      "old_tokens": 1034,
+      "new_tokens": 1178
+    },
+    {
+      "question": 26,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 17,
+      "first_shared_boundary": null,
+      "old_tokens": 2671,
+      "new_tokens": 2487
+    },
+    {
+      "question": 27,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 651,
+      "first_shared_boundary": 60,
+      "old_tokens": 1332,
+      "new_tokens": 972
+    },
+    {
+      "question": 28,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 9,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 29,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 59,
+      "first_shared_boundary": 53,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 30,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 36,
+      "first_shared_boundary": null,
+      "old_tokens": 1247,
+      "new_tokens": 1722
+    },
+    {
+      "question": 31,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 120,
+      "first_shared_boundary": 51,
+      "old_tokens": 16000,
+      "new_tokens": 2649
+    },
+    {
+      "question": 32,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 37,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 7454
+    },
+    {
+      "question": 33,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 317,
+      "first_shared_boundary": 58,
+      "old_tokens": 3245,
+      "new_tokens": 2966
+    },
+    {
+      "question": 34,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 116,
+      "first_shared_boundary": 32,
+      "old_tokens": 1152,
+      "new_tokens": 1414
+    },
+    {
+      "question": 35,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 271,
+      "first_shared_boundary": 158,
+      "old_tokens": 5761,
+      "new_tokens": 1837
+    },
+    {
+      "question": 36,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 65,
+      "first_shared_boundary": 42,
+      "old_tokens": 1697,
+      "new_tokens": 1659
+    },
+    {
+      "question": 37,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 91,
+      "first_shared_boundary": 55,
+      "old_tokens": 1309,
+      "new_tokens": 1144
+    },
+    {
+      "question": 38,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 65,
+      "first_shared_boundary": 62,
+      "old_tokens": 3192,
+      "new_tokens": 16000
+    },
+    {
+      "question": 39,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 308,
+      "first_shared_boundary": 45,
+      "old_tokens": 791,
+      "new_tokens": 789
+    },
+    {
+      "question": 40,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 37,
+      "first_shared_boundary": null,
+      "old_tokens": 3344,
+      "new_tokens": 16000
+    },
+    {
+      "question": 41,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 12,
+      "first_shared_boundary": 10,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 42,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 50,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 3053
+    },
+    {
+      "question": 43,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 194,
+      "first_shared_boundary": 62,
+      "old_tokens": 1699,
+      "new_tokens": 1252
+    },
+    {
+      "question": 44,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 39,
+      "first_shared_boundary": null,
+      "old_tokens": 923,
+      "new_tokens": 1815
+    },
+    {
+      "question": 45,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 54,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 46,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 102,
+      "first_shared_boundary": 91,
+      "old_tokens": 761,
+      "new_tokens": 1122
+    },
+    {
+      "question": 47,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 192,
+      "first_shared_boundary": 10,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 48,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 140,
+      "first_shared_boundary": 62,
+      "old_tokens": 3594,
+      "new_tokens": 2310
+    },
+    {
+      "question": 49,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 212,
+      "first_shared_boundary": 59,
+      "old_tokens": 1329,
+      "new_tokens": 2424
+    },
+    {
+      "question": 50,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 68,
+      "first_shared_boundary": null,
+      "old_tokens": 2552,
+      "new_tokens": 2354
+    },
+    {
+      "question": 51,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 30,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 52,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 89,
+      "first_shared_boundary": null,
+      "old_tokens": 1169,
+      "new_tokens": 1637
+    },
+    {
+      "question": 53,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 466,
+      "first_shared_boundary": 84,
+      "old_tokens": 5364,
+      "new_tokens": 6097
+    },
+    {
+      "question": 54,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 237,
+      "first_shared_boundary": 62,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 55,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 132,
+      "first_shared_boundary": 75,
+      "old_tokens": 838,
+      "new_tokens": 872
+    },
+    {
+      "question": 56,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 69,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 3727
+    },
+    {
+      "question": 57,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 186,
+      "first_shared_boundary": 67,
+      "old_tokens": 2023,
+      "new_tokens": 1815
+    },
+    {
+      "question": 58,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 207,
+      "first_shared_boundary": 57,
+      "old_tokens": 2298,
+      "new_tokens": 1660
+    },
+    {
+      "question": 59,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 54,
+      "first_shared_boundary": null,
+      "old_tokens": 1419,
+      "new_tokens": 1535
+    },
+    {
+      "question": 60,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 269,
+      "first_shared_boundary": 104,
+      "old_tokens": 1209,
+      "new_tokens": 1244
+    },
+    {
+      "question": 61,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 205,
+      "first_shared_boundary": 49,
+      "old_tokens": 2203,
+      "new_tokens": 1839
+    },
+    {
+      "question": 62,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 39,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 63,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 103,
+      "first_shared_boundary": 52,
+      "old_tokens": 1113,
+      "new_tokens": 694
+    },
+    {
+      "question": 64,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 17,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 65,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 83,
+      "first_shared_boundary": 76,
+      "old_tokens": 1885,
+      "new_tokens": 1452
+    },
+    {
+      "question": 66,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 261,
+      "first_shared_boundary": 71,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 67,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 1054
+    },
+    {
+      "question": 68,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 154,
+      "first_shared_boundary": 61,
+      "old_tokens": 3811,
+      "new_tokens": 16000
+    },
+    {
+      "question": 69,
+      "category": "exact",
+      "shared_prefix_tokens": 1140,
+      "first_shared_boundary": 70,
+      "old_tokens": 1140,
+      "new_tokens": 1140
+    },
+    {
+      "question": 70,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 379,
+      "first_shared_boundary": 49,
+      "old_tokens": 1169,
+      "new_tokens": 1641
+    },
+    {
+      "question": 71,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 82,
+      "first_shared_boundary": 79,
+      "old_tokens": 1382,
+      "new_tokens": 1488
+    },
+    {
+      "question": 72,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 769,
+      "first_shared_boundary": 93,
+      "old_tokens": 1955,
+      "new_tokens": 1674
+    },
+    {
+      "question": 73,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 18,
+      "first_shared_boundary": null,
+      "old_tokens": 1321,
+      "new_tokens": 1686
+    },
+    {
+      "question": 74,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 24,
+      "first_shared_boundary": null,
+      "old_tokens": 3538,
+      "new_tokens": 3973
+    },
+    {
+      "question": 75,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 26,
+      "first_shared_boundary": null,
+      "old_tokens": 1301,
+      "new_tokens": 1680
+    },
+    {
+      "question": 76,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 71,
+      "old_tokens": 2297,
+      "new_tokens": 1934
+    },
+    {
+      "question": 77,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 829,
+      "first_shared_boundary": 35,
+      "old_tokens": 1763,
+      "new_tokens": 16000
+    },
+    {
+      "question": 78,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 14,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 79,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 150,
+      "first_shared_boundary": 51,
+      "old_tokens": 2786,
+      "new_tokens": 16000
+    },
+    {
+      "question": 80,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 56,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 4513
+    },
+    {
+      "question": 81,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 11,
+      "first_shared_boundary": null,
+      "old_tokens": 2154,
+      "new_tokens": 4205
+    },
+    {
+      "question": 82,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 53,
+      "first_shared_boundary": null,
+      "old_tokens": 1080,
+      "new_tokens": 1381
+    },
+    {
+      "question": 83,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 35,
+      "first_shared_boundary": null,
+      "old_tokens": 2137,
+      "new_tokens": 2196
+    },
+    {
+      "question": 84,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 22,
+      "first_shared_boundary": null,
+      "old_tokens": 1747,
+      "new_tokens": 1680
+    },
+    {
+      "question": 85,
+      "category": "exact",
+      "shared_prefix_tokens": 913,
+      "first_shared_boundary": 69,
+      "old_tokens": 913,
+      "new_tokens": 913
+    },
+    {
+      "question": 86,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 628,
+      "first_shared_boundary": 75,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 87,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 490,
+      "first_shared_boundary": 85,
+      "old_tokens": 1550,
+      "new_tokens": 2173
+    },
+    {
+      "question": 88,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 741,
+      "first_shared_boundary": 111,
+      "old_tokens": 2117,
+      "new_tokens": 1791
+    },
+    {
+      "question": 89,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 63,
+      "first_shared_boundary": null,
+      "old_tokens": 974,
+      "new_tokens": 1043
+    },
+    {
+      "question": 90,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 174,
+      "first_shared_boundary": 59,
+      "old_tokens": 777,
+      "new_tokens": 1001
+    },
+    {
+      "question": 91,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 312,
+      "first_shared_boundary": 54,
+      "old_tokens": 16000,
+      "new_tokens": 1420
+    },
+    {
+      "question": 92,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 77,
+      "first_shared_boundary": 66,
+      "old_tokens": 5209,
+      "new_tokens": 6356
+    },
+    {
+      "question": 93,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 165,
+      "first_shared_boundary": 76,
+      "old_tokens": 1188,
+      "new_tokens": 1988
+    },
+    {
+      "question": 94,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 182,
+      "first_shared_boundary": 74,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 95,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 303,
+      "first_shared_boundary": 78,
+      "old_tokens": 3657,
+      "new_tokens": 16000
+    },
+    {
+      "question": 96,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 41,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 97,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 428,
+      "first_shared_boundary": 56,
+      "old_tokens": 3169,
+      "new_tokens": 2128
+    },
+    {
+      "question": 98,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 3125,
+      "new_tokens": 2952
+    },
+    {
+      "question": 99,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 155,
+      "first_shared_boundary": 85,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 100,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 130,
+      "first_shared_boundary": 91,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 101,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 57,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 102,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 396,
+      "first_shared_boundary": 40,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 103,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 271,
+      "first_shared_boundary": 61,
+      "old_tokens": 1154,
+      "new_tokens": 1235
+    },
+    {
+      "question": 104,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 125,
+      "first_shared_boundary": 75,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 105,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 1217,
+      "first_shared_boundary": 151,
+      "old_tokens": 4103,
+      "new_tokens": 4482
+    },
+    {
+      "question": 106,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 43,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 107,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 180,
+      "first_shared_boundary": 68,
+      "old_tokens": 2159,
+      "new_tokens": 1784
+    },
+    {
+      "question": 108,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 126,
+      "first_shared_boundary": 76,
+      "old_tokens": 1795,
+      "new_tokens": 1542
+    },
+    {
+      "question": 109,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 68,
+      "first_shared_boundary": 60,
+      "old_tokens": 933,
+      "new_tokens": 914
+    },
+    {
+      "question": 110,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 119,
+      "first_shared_boundary": 11,
+      "old_tokens": 1793,
+      "new_tokens": 1602
+    },
+    {
+      "question": 111,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 187,
+      "first_shared_boundary": 145,
+      "old_tokens": 1702,
+      "new_tokens": 1705
+    },
+    {
+      "question": 112,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 355,
+      "first_shared_boundary": 62,
+      "old_tokens": 1101,
+      "new_tokens": 1152
+    },
+    {
+      "question": 113,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 4831,
+      "new_tokens": 16000
+    },
+    {
+      "question": 114,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 24,
+      "first_shared_boundary": null,
+      "old_tokens": 9083,
+      "new_tokens": 16000
+    },
+    {
+      "question": 115,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 4979,
+      "new_tokens": 4095
+    },
+    {
+      "question": 116,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 21,
+      "first_shared_boundary": null,
+      "old_tokens": 5541,
+      "new_tokens": 2546
+    },
+    {
+      "question": 117,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 73,
+      "first_shared_boundary": null,
+      "old_tokens": 2147,
+      "new_tokens": 2097
+    },
+    {
+      "question": 118,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 164,
+      "first_shared_boundary": 26,
+      "old_tokens": 6671,
+      "new_tokens": 2260
+    },
+    {
+      "question": 119,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 74,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 6272
+    },
+    {
+      "question": 120,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 821,
+      "first_shared_boundary": 74,
+      "old_tokens": 1825,
+      "new_tokens": 1717
+    },
+    {
+      "question": 121,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 49,
+      "old_tokens": 1052,
+      "new_tokens": 1155
+    },
+    {
+      "question": 122,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 183,
+      "first_shared_boundary": 104,
+      "old_tokens": 1334,
+      "new_tokens": 1698
+    },
+    {
+      "question": 123,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 209,
+      "first_shared_boundary": 120,
+      "old_tokens": 1398,
+      "new_tokens": 1226
+    },
+    {
+      "question": 124,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 269,
+      "first_shared_boundary": 27,
+      "old_tokens": 1689,
+      "new_tokens": 1354
+    },
+    {
+      "question": 125,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 73,
+      "first_shared_boundary": 70,
+      "old_tokens": 2487,
+      "new_tokens": 1798
+    },
+    {
+      "question": 126,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 113,
+      "first_shared_boundary": 58,
+      "old_tokens": 1881,
+      "new_tokens": 1654
+    },
+    {
+      "question": 127,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 406,
+      "first_shared_boundary": 48,
+      "old_tokens": 965,
+      "new_tokens": 1027
+    },
+    {
+      "question": 128,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 392,
+      "first_shared_boundary": 61,
+      "old_tokens": 1332,
+      "new_tokens": 1292
+    },
+    {
+      "question": 129,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 936,
+      "first_shared_boundary": 57,
+      "old_tokens": 5117,
+      "new_tokens": 16000
+    },
+    {
+      "question": 130,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 247,
+      "first_shared_boundary": 24,
+      "old_tokens": 16000,
+      "new_tokens": 2034
+    },
+    {
+      "question": 131,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 976,
+      "first_shared_boundary": 72,
+      "old_tokens": 1796,
+      "new_tokens": 1576
+    },
+    {
+      "question": 132,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 104,
+      "first_shared_boundary": 75,
+      "old_tokens": 1282,
+      "new_tokens": 1944
+    },
+    {
+      "question": 133,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 120,
+      "first_shared_boundary": 71,
+      "old_tokens": 1224,
+      "new_tokens": 1677
+    },
+    {
+      "question": 134,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 22,
+      "first_shared_boundary": null,
+      "old_tokens": 1572,
+      "new_tokens": 16000
+    },
+    {
+      "question": 135,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 71,
+      "first_shared_boundary": 39,
+      "old_tokens": 1510,
+      "new_tokens": 1475
+    },
+    {
+      "question": 136,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 159,
+      "first_shared_boundary": 75,
+      "old_tokens": 1647,
+      "new_tokens": 2078
+    },
+    {
+      "question": 137,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 164,
+      "first_shared_boundary": 58,
+      "old_tokens": 1025,
+      "new_tokens": 856
+    },
+    {
+      "question": 138,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 226,
+      "first_shared_boundary": 29,
+      "old_tokens": 1776,
+      "new_tokens": 1915
+    },
+    {
+      "question": 139,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 86,
+      "first_shared_boundary": 67,
+      "old_tokens": 1958,
+      "new_tokens": 3740
+    },
+    {
+      "question": 140,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 127,
+      "first_shared_boundary": 50,
+      "old_tokens": 2962,
+      "new_tokens": 2977
+    },
+    {
+      "question": 141,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 131,
+      "first_shared_boundary": 58,
+      "old_tokens": 970,
+      "new_tokens": 851
+    },
+    {
+      "question": 142,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 315,
+      "first_shared_boundary": 34,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 143,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 309,
+      "first_shared_boundary": 42,
+      "old_tokens": 904,
+      "new_tokens": 905
+    },
+    {
+      "question": 144,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 48,
+      "old_tokens": 1142,
+      "new_tokens": 1331
+    },
+    {
+      "question": 145,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 87,
+      "first_shared_boundary": 78,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 146,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 208,
+      "first_shared_boundary": 61,
+      "old_tokens": 1798,
+      "new_tokens": 1506
+    },
+    {
+      "question": 147,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 181,
+      "first_shared_boundary": 61,
+      "old_tokens": 2642,
+      "new_tokens": 2433
+    },
+    {
+      "question": 148,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 40,
+      "first_shared_boundary": 29,
+      "old_tokens": 1244,
+      "new_tokens": 1404
+    },
+    {
+      "question": 149,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 60,
+      "first_shared_boundary": null,
+      "old_tokens": 5869,
+      "new_tokens": 7453
+    },
+    {
+      "question": 150,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 409,
+      "first_shared_boundary": 42,
+      "old_tokens": 904,
+      "new_tokens": 904
+    },
+    {
+      "question": 151,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 192,
+      "first_shared_boundary": 48,
+      "old_tokens": 1027,
+      "new_tokens": 1096
+    },
+    {
+      "question": 152,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 78,
+      "first_shared_boundary": 57,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 153,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 138,
+      "first_shared_boundary": 82,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 154,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 551,
+      "first_shared_boundary": 74,
+      "old_tokens": 2744,
+      "new_tokens": 930
+    },
+    {
+      "question": 155,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 77,
+      "first_shared_boundary": 65,
+      "old_tokens": 1242,
+      "new_tokens": 1355
+    },
+    {
+      "question": 156,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 185,
+      "first_shared_boundary": 114,
+      "old_tokens": 3318,
+      "new_tokens": 1812
+    },
+    {
+      "question": 157,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 88,
+      "first_shared_boundary": 53,
+      "old_tokens": 16000,
+      "new_tokens": 2280
+    },
+    {
+      "question": 158,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 207,
+      "first_shared_boundary": 67,
+      "old_tokens": 1675,
+      "new_tokens": 1764
+    },
+    {
+      "question": 159,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 544,
+      "first_shared_boundary": 91,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 160,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 150,
+      "first_shared_boundary": 65,
+      "old_tokens": 2793,
+      "new_tokens": 3555
+    },
+    {
+      "question": 161,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 296,
+      "first_shared_boundary": 49,
+      "old_tokens": 2576,
+      "new_tokens": 2122
+    },
+    {
+      "question": 162,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 96,
+      "first_shared_boundary": 68,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 163,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 57,
+      "first_shared_boundary": null,
+      "old_tokens": 1205,
+      "new_tokens": 1134
+    },
+    {
+      "question": 164,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 298,
+      "first_shared_boundary": 34,
+      "old_tokens": 16000,
+      "new_tokens": 1378
+    },
+    {
+      "question": 165,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 108,
+      "first_shared_boundary": 67,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 166,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 148,
+      "first_shared_boundary": 76,
+      "old_tokens": 1257,
+      "new_tokens": 1814
+    },
+    {
+      "question": 167,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 3,
+      "first_shared_boundary": null,
+      "old_tokens": 3571,
+      "new_tokens": 5380
+    },
+    {
+      "question": 168,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 62,
+      "first_shared_boundary": null,
+      "old_tokens": 1108,
+      "new_tokens": 1840
+    },
+    {
+      "question": 169,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 86,
+      "first_shared_boundary": 71,
+      "old_tokens": 16000,
+      "new_tokens": 6983
+    },
+    {
+      "question": 170,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 46,
+      "first_shared_boundary": null,
+      "old_tokens": 8617,
+      "new_tokens": 16000
+    },
+    {
+      "question": 171,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 708,
+      "first_shared_boundary": 63,
+      "old_tokens": 1608,
+      "new_tokens": 2120
+    },
+    {
+      "question": 172,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 173,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 143,
+      "first_shared_boundary": 74,
+      "old_tokens": 1843,
+      "new_tokens": 2052
+    },
+    {
+      "question": 174,
+      "category": "at_first_possible_R_effect",
+      "shared_prefix_tokens": 113,
+      "first_shared_boundary": 112,
+      "old_tokens": 4636,
+      "new_tokens": 3315
+    },
+    {
+      "question": 175,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 251,
+      "first_shared_boundary": 25,
+      "old_tokens": 3038,
+      "new_tokens": 6237
+    },
+    {
+      "question": 176,
+      "category": "at_first_possible_R_effect",
+      "shared_prefix_tokens": 72,
+      "first_shared_boundary": 71,
+      "old_tokens": 1842,
+      "new_tokens": 2142
+    },
+    {
+      "question": 177,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 207,
+      "first_shared_boundary": 50,
+      "old_tokens": 2213,
+      "new_tokens": 16000
+    },
+    {
+      "question": 178,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 1054,
+      "new_tokens": 2731
+    },
+    {
+      "question": 179,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 157,
+      "first_shared_boundary": 107,
+      "old_tokens": 5181,
+      "new_tokens": 6133
+    },
+    {
+      "question": 180,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 47,
+      "first_shared_boundary": null,
+      "old_tokens": 2392,
+      "new_tokens": 1311
+    },
+    {
+      "question": 181,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 160,
+      "first_shared_boundary": 89,
+      "old_tokens": 1170,
+      "new_tokens": 987
+    },
+    {
+      "question": 182,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 443,
+      "first_shared_boundary": 32,
+      "old_tokens": 1725,
+      "new_tokens": 16000
+    },
+    {
+      "question": 183,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 458,
+      "first_shared_boundary": 56,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 184,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 114,
+      "first_shared_boundary": 27,
+      "old_tokens": 1308,
+      "new_tokens": 1560
+    },
+    {
+      "question": 185,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 160,
+      "first_shared_boundary": 95,
+      "old_tokens": 1158,
+      "new_tokens": 1350
+    },
+    {
+      "question": 186,
+      "category": "exact",
+      "shared_prefix_tokens": 612,
+      "first_shared_boundary": 50,
+      "old_tokens": 612,
+      "new_tokens": 612
+    },
+    {
+      "question": 187,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 124,
+      "first_shared_boundary": 105,
+      "old_tokens": 1572,
+      "new_tokens": 1732
+    },
+    {
+      "question": 188,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 32,
+      "first_shared_boundary": null,
+      "old_tokens": 3244,
+      "new_tokens": 16000
+    },
+    {
+      "question": 189,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 785,
+      "first_shared_boundary": 39,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 190,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": null,
+      "old_tokens": 2593,
+      "new_tokens": 2286
+    },
+    {
+      "question": 191,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 202,
+      "first_shared_boundary": 67,
+      "old_tokens": 1881,
+      "new_tokens": 1764
+    },
+    {
+      "question": 192,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 51,
+      "first_shared_boundary": 48,
+      "old_tokens": 961,
+      "new_tokens": 1601
+    },
+    {
+      "question": 193,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 255,
+      "first_shared_boundary": 48,
+      "old_tokens": 1384,
+      "new_tokens": 1526
+    },
+    {
+      "question": 194,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 210,
+      "first_shared_boundary": 87,
+      "old_tokens": 3521,
+      "new_tokens": 4365
+    },
+    {
+      "question": 195,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 96,
+      "first_shared_boundary": 65,
+      "old_tokens": 2565,
+      "new_tokens": 1090
+    },
+    {
+      "question": 196,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 298,
+      "first_shared_boundary": 75,
+      "old_tokens": 16000,
+      "new_tokens": 9020
+    },
+    {
+      "question": 197,
+      "category": "at_first_possible_R_effect",
+      "shared_prefix_tokens": 89,
+      "first_shared_boundary": 88,
+      "old_tokens": 1402,
+      "new_tokens": 1285
+    },
+    {
+      "question": 198,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 156,
+      "first_shared_boundary": 57,
+      "old_tokens": 1233,
+      "new_tokens": 1757
+    },
+    {
+      "question": 199,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 105,
+      "first_shared_boundary": 84,
+      "old_tokens": 6243,
+      "new_tokens": 16000
+    },
+    {
+      "question": 200,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 622,
+      "first_shared_boundary": 61,
+      "old_tokens": 2601,
+      "new_tokens": 2615
+    },
+    {
+      "question": 201,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 236,
+      "first_shared_boundary": 154,
+      "old_tokens": 2371,
+      "new_tokens": 2830
+    },
+    {
+      "question": 202,
+      "category": "exact",
+      "shared_prefix_tokens": 1125,
+      "first_shared_boundary": 61,
+      "old_tokens": 1125,
+      "new_tokens": 1125
+    },
+    {
+      "question": 203,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 375,
+      "first_shared_boundary": 51,
+      "old_tokens": 1636,
+      "new_tokens": 2511
+    },
+    {
+      "question": 204,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 308,
+      "first_shared_boundary": 71,
+      "old_tokens": 1601,
+      "new_tokens": 2014
+    },
+    {
+      "question": 205,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 514,
+      "first_shared_boundary": 97,
+      "old_tokens": 1134,
+      "new_tokens": 1361
+    },
+    {
+      "question": 206,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 457,
+      "first_shared_boundary": 101,
+      "old_tokens": 1849,
+      "new_tokens": 1649
+    },
+    {
+      "question": 207,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 116,
+      "first_shared_boundary": 68,
+      "old_tokens": 1577,
+      "new_tokens": 1438
+    },
+    {
+      "question": 208,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 201,
+      "first_shared_boundary": 38,
+      "old_tokens": 1199,
+      "new_tokens": 1302
+    },
+    {
+      "question": 209,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 159,
+      "first_shared_boundary": 144,
+      "old_tokens": 3885,
+      "new_tokens": 3732
+    },
+    {
+      "question": 210,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 752,
+      "first_shared_boundary": 76,
+      "old_tokens": 1282,
+      "new_tokens": 1299
+    },
+    {
+      "question": 211,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 140,
+      "first_shared_boundary": 61,
+      "old_tokens": 945,
+      "new_tokens": 1038
+    },
+    {
+      "question": 212,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 164,
+      "first_shared_boundary": 55,
+      "old_tokens": 909,
+      "new_tokens": 908
+    },
+    {
+      "question": 213,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 411,
+      "first_shared_boundary": 64,
+      "old_tokens": 3098,
+      "new_tokens": 1618
+    },
+    {
+      "question": 214,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 57,
+      "first_shared_boundary": 51,
+      "old_tokens": 4453,
+      "new_tokens": 3974
+    },
+    {
+      "question": 215,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 7,
+      "first_shared_boundary": null,
+      "old_tokens": 3390,
+      "new_tokens": 2874
+    },
+    {
+      "question": 216,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 100,
+      "first_shared_boundary": 55,
+      "old_tokens": 1628,
+      "new_tokens": 4672
+    },
+    {
+      "question": 217,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 104,
+      "first_shared_boundary": 62,
+      "old_tokens": 1100,
+      "new_tokens": 1400
+    },
+    {
+      "question": 218,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 53,
+      "first_shared_boundary": null,
+      "old_tokens": 6662,
+      "new_tokens": 16000
+    },
+    {
+      "question": 219,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 178,
+      "first_shared_boundary": 97,
+      "old_tokens": 2153,
+      "new_tokens": 1559
+    },
+    {
+      "question": 220,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 176,
+      "first_shared_boundary": 65,
+      "old_tokens": 1761,
+      "new_tokens": 16000
+    },
+    {
+      "question": 221,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 199,
+      "first_shared_boundary": 125,
+      "old_tokens": 2589,
+      "new_tokens": 2547
+    },
+    {
+      "question": 222,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 80,
+      "first_shared_boundary": 77,
+      "old_tokens": 930,
+      "new_tokens": 799
+    },
+    {
+      "question": 223,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 95,
+      "first_shared_boundary": 68,
+      "old_tokens": 3457,
+      "new_tokens": 3266
+    },
+    {
+      "question": 224,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 402,
+      "first_shared_boundary": 33,
+      "old_tokens": 967,
+      "new_tokens": 978
+    },
+    {
+      "question": 225,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 174,
+      "first_shared_boundary": 80,
+      "old_tokens": 929,
+      "new_tokens": 1010
+    },
+    {
+      "question": 226,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 24,
+      "first_shared_boundary": null,
+      "old_tokens": 1051,
+      "new_tokens": 1369
+    },
+    {
+      "question": 227,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 102,
+      "first_shared_boundary": 99,
+      "old_tokens": 5605,
+      "new_tokens": 5189
+    },
+    {
+      "question": 228,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 341,
+      "first_shared_boundary": 86,
+      "old_tokens": 2074,
+      "new_tokens": 2515
+    },
+    {
+      "question": 229,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 230,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 107,
+      "first_shared_boundary": 50,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 231,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 54,
+      "first_shared_boundary": 50,
+      "old_tokens": 995,
+      "new_tokens": 1116
+    },
+    {
+      "question": 232,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 234,
+      "first_shared_boundary": 59,
+      "old_tokens": 1298,
+      "new_tokens": 1091
+    },
+    {
+      "question": 233,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 956,
+      "first_shared_boundary": 91,
+      "old_tokens": 2013,
+      "new_tokens": 1729
+    },
+    {
+      "question": 234,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 511,
+      "first_shared_boundary": 72,
+      "old_tokens": 1064,
+      "new_tokens": 1349
+    },
+    {
+      "question": 235,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 193,
+      "first_shared_boundary": 41,
+      "old_tokens": 1485,
+      "new_tokens": 1486
+    },
+    {
+      "question": 236,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 329,
+      "first_shared_boundary": 124,
+      "old_tokens": 1137,
+      "new_tokens": 1211
+    },
+    {
+      "question": 237,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 197,
+      "first_shared_boundary": 45,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 238,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 1305,
+      "first_shared_boundary": 95,
+      "old_tokens": 3354,
+      "new_tokens": 16000
+    },
+    {
+      "question": 239,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 89,
+      "first_shared_boundary": 47,
+      "old_tokens": 2015,
+      "new_tokens": 2999
+    },
+    {
+      "question": 240,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 8,
+      "first_shared_boundary": null,
+      "old_tokens": 3056,
+      "new_tokens": 3015
+    },
+    {
+      "question": 241,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 798,
+      "first_shared_boundary": 16,
+      "old_tokens": 1532,
+      "new_tokens": 1528
+    },
+    {
+      "question": 242,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 64,
+      "first_shared_boundary": 40,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 243,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 26,
+      "first_shared_boundary": null,
+      "old_tokens": 1257,
+      "new_tokens": 1280
+    },
+    {
+      "question": 244,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 252,
+      "first_shared_boundary": 109,
+      "old_tokens": 6599,
+      "new_tokens": 5138
+    },
+    {
+      "question": 245,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 68,
+      "first_shared_boundary": 51,
+      "old_tokens": 2687,
+      "new_tokens": 16000
+    },
+    {
+      "question": 246,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 164,
+      "first_shared_boundary": 61,
+      "old_tokens": 1299,
+      "new_tokens": 1465
+    },
+    {
+      "question": 247,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 588,
+      "first_shared_boundary": 60,
+      "old_tokens": 2074,
+      "new_tokens": 1254
+    },
+    {
+      "question": 248,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 115,
+      "first_shared_boundary": 79,
+      "old_tokens": 1302,
+      "new_tokens": 1299
+    },
+    {
+      "question": 249,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 306,
+      "first_shared_boundary": 80,
+      "old_tokens": 1421,
+      "new_tokens": 1708
+    },
+    {
+      "question": 250,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 71,
+      "first_shared_boundary": null,
+      "old_tokens": 992,
+      "new_tokens": 1084
+    },
+    {
+      "question": 251,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 35,
+      "first_shared_boundary": null,
+      "old_tokens": 2267,
+      "new_tokens": 2152
+    },
+    {
+      "question": 252,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 36,
+      "first_shared_boundary": null,
+      "old_tokens": 1998,
+      "new_tokens": 2187
+    },
+    {
+      "question": 253,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 199,
+      "first_shared_boundary": 83,
+      "old_tokens": 4246,
+      "new_tokens": 16000
+    },
+    {
+      "question": 254,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 42,
+      "first_shared_boundary": null,
+      "old_tokens": 1470,
+      "new_tokens": 1394
+    },
+    {
+      "question": 255,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 267,
+      "first_shared_boundary": 59,
+      "old_tokens": 1310,
+      "new_tokens": 1339
+    },
+    {
+      "question": 256,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 243,
+      "first_shared_boundary": 109,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 257,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 1885,
+      "new_tokens": 1742
+    },
+    {
+      "question": 258,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 136,
+      "first_shared_boundary": 49,
+      "old_tokens": 997,
+      "new_tokens": 1051
+    },
+    {
+      "question": 259,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 360,
+      "first_shared_boundary": 40,
+      "old_tokens": 1476,
+      "new_tokens": 1287
+    },
+    {
+      "question": 260,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 99,
+      "first_shared_boundary": null,
+      "old_tokens": 1022,
+      "new_tokens": 834
+    },
+    {
+      "question": 261,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 386,
+      "first_shared_boundary": 38,
+      "old_tokens": 1027,
+      "new_tokens": 1039
+    },
+    {
+      "question": 262,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 563,
+      "first_shared_boundary": 93,
+      "old_tokens": 1562,
+      "new_tokens": 1577
+    },
+    {
+      "question": 263,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 82,
+      "first_shared_boundary": 79,
+      "old_tokens": 1091,
+      "new_tokens": 1102
+    },
+    {
+      "question": 264,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 313,
+      "first_shared_boundary": 85,
+      "old_tokens": 1617,
+      "new_tokens": 1425
+    },
+    {
+      "question": 265,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 156,
+      "first_shared_boundary": 67,
+      "old_tokens": 3745,
+      "new_tokens": 16000
+    },
+    {
+      "question": 266,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 144,
+      "first_shared_boundary": 111,
+      "old_tokens": 3945,
+      "new_tokens": 16000
+    },
+    {
+      "question": 267,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 9,
+      "first_shared_boundary": null,
+      "old_tokens": 1010,
+      "new_tokens": 1123
+    },
+    {
+      "question": 268,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 88,
+      "first_shared_boundary": 85,
+      "old_tokens": 1286,
+      "new_tokens": 1099
+    },
+    {
+      "question": 269,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 84,
+      "first_shared_boundary": 46,
+      "old_tokens": 1256,
+      "new_tokens": 1442
+    },
+    {
+      "question": 270,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 316,
+      "first_shared_boundary": 100,
+      "old_tokens": 1337,
+      "new_tokens": 1417
+    },
+    {
+      "question": 271,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 34,
+      "first_shared_boundary": null,
+      "old_tokens": 2725,
+      "new_tokens": 3031
+    },
+    {
+      "question": 272,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 69,
+      "first_shared_boundary": 63,
+      "old_tokens": 1141,
+      "new_tokens": 1555
+    },
+    {
+      "question": 273,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 73,
+      "first_shared_boundary": 70,
+      "old_tokens": 1798,
+      "new_tokens": 16000
+    },
+    {
+      "question": 274,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 439,
+      "first_shared_boundary": 50,
+      "old_tokens": 1091,
+      "new_tokens": 1001
+    },
+    {
+      "question": 275,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 206,
+      "first_shared_boundary": 52,
+      "old_tokens": 1477,
+      "new_tokens": 1496
+    },
+    {
+      "question": 276,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 173,
+      "first_shared_boundary": 67,
+      "old_tokens": 1191,
+      "new_tokens": 1398
+    },
+    {
+      "question": 277,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 107,
+      "first_shared_boundary": 42,
+      "old_tokens": 1385,
+      "new_tokens": 1090
+    },
+    {
+      "question": 278,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 197,
+      "first_shared_boundary": 74,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 279,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 267,
+      "first_shared_boundary": 81,
+      "old_tokens": 16000,
+      "new_tokens": 1139
+    },
+    {
+      "question": 280,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 45,
+      "first_shared_boundary": null,
+      "old_tokens": 1309,
+      "new_tokens": 1617
+    },
+    {
+      "question": 281,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 3672
+    },
+    {
+      "question": 282,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 500,
+      "first_shared_boundary": 96,
+      "old_tokens": 810,
+      "new_tokens": 1292
+    },
+    {
+      "question": 283,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 49,
+      "first_shared_boundary": null,
+      "old_tokens": 1252,
+      "new_tokens": 741
+    },
+    {
+      "question": 284,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 272,
+      "first_shared_boundary": 47,
+      "old_tokens": 865,
+      "new_tokens": 996
+    },
+    {
+      "question": 285,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 177,
+      "first_shared_boundary": 90,
+      "old_tokens": 5223,
+      "new_tokens": 16000
+    },
+    {
+      "question": 286,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 3,
+      "first_shared_boundary": null,
+      "old_tokens": 767,
+      "new_tokens": 750
+    },
+    {
+      "question": 287,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 473,
+      "first_shared_boundary": 87,
+      "old_tokens": 1730,
+      "new_tokens": 4563
+    },
+    {
+      "question": 288,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 7,
+      "first_shared_boundary": null,
+      "old_tokens": 3414,
+      "new_tokens": 4030
+    },
+    {
+      "question": 289,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 85,
+      "first_shared_boundary": 30,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 290,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 335,
+      "first_shared_boundary": 106,
+      "old_tokens": 1114,
+      "new_tokens": 1142
+    },
+    {
+      "question": 291,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 147,
+      "first_shared_boundary": 45,
+      "old_tokens": 16000,
+      "new_tokens": 1119
+    },
+    {
+      "question": 292,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 219,
+      "first_shared_boundary": 133,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 293,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 56,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 8088
+    },
+    {
+      "question": 294,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 126,
+      "first_shared_boundary": 115,
+      "old_tokens": 9812,
+      "new_tokens": 16000
+    },
+    {
+      "question": 295,
+      "category": "exact",
+      "shared_prefix_tokens": 768,
+      "first_shared_boundary": 44,
+      "old_tokens": 768,
+      "new_tokens": 768
+    },
+    {
+      "question": 296,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 249,
+      "first_shared_boundary": 104,
+      "old_tokens": 1564,
+      "new_tokens": 1346
+    },
+    {
+      "question": 297,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 90,
+      "first_shared_boundary": 60,
+      "old_tokens": 2085,
+      "new_tokens": 1446
+    },
+    {
+      "question": 298,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 125,
+      "first_shared_boundary": 84,
+      "old_tokens": 1805,
+      "new_tokens": 2569
+    },
+    {
+      "question": 299,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 310,
+      "first_shared_boundary": 74,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 300,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 700,
+      "first_shared_boundary": 98,
+      "old_tokens": 2139,
+      "new_tokens": 2257
+    },
+    {
+      "question": 301,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 398,
+      "first_shared_boundary": 18,
+      "old_tokens": 5714,
+      "new_tokens": 6020
+    },
+    {
+      "question": 302,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 451,
+      "first_shared_boundary": 55,
+      "old_tokens": 16000,
+      "new_tokens": 1200
+    },
+    {
+      "question": 303,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 115,
+      "first_shared_boundary": 61,
+      "old_tokens": 3741,
+      "new_tokens": 16000
+    },
+    {
+      "question": 304,
+      "category": "exact",
+      "shared_prefix_tokens": 936,
+      "first_shared_boundary": 29,
+      "old_tokens": 936,
+      "new_tokens": 936
+    },
+    {
+      "question": 305,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 197,
+      "first_shared_boundary": 101,
+      "old_tokens": 2739,
+      "new_tokens": 1628
+    },
+    {
+      "question": 306,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 129,
+      "first_shared_boundary": 68,
+      "old_tokens": 1741,
+      "new_tokens": 2398
+    },
+    {
+      "question": 307,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 37,
+      "first_shared_boundary": null,
+      "old_tokens": 814,
+      "new_tokens": 663
+    },
+    {
+      "question": 308,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 296,
+      "first_shared_boundary": 70,
+      "old_tokens": 2044,
+      "new_tokens": 1851
+    },
+    {
+      "question": 309,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 248,
+      "first_shared_boundary": 44,
+      "old_tokens": 1130,
+      "new_tokens": 859
+    },
+    {
+      "question": 310,
+      "category": "exact",
+      "shared_prefix_tokens": 1044,
+      "first_shared_boundary": 53,
+      "old_tokens": 1044,
+      "new_tokens": 1044
+    },
+    {
+      "question": 311,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 54,
+      "first_shared_boundary": 27,
+      "old_tokens": 963,
+      "new_tokens": 1953
+    },
+    {
+      "question": 312,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 486,
+      "first_shared_boundary": 30,
+      "old_tokens": 2718,
+      "new_tokens": 3032
+    },
+    {
+      "question": 313,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 36,
+      "first_shared_boundary": null,
+      "old_tokens": 1206,
+      "new_tokens": 1463
+    },
+    {
+      "question": 314,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 25,
+      "first_shared_boundary": null,
+      "old_tokens": 2371,
+      "new_tokens": 1245
+    },
+    {
+      "question": 315,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 27,
+      "first_shared_boundary": null,
+      "old_tokens": 1968,
+      "new_tokens": 1358
+    },
+    {
+      "question": 316,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 65,
+      "first_shared_boundary": 59,
+      "old_tokens": 16000,
+      "new_tokens": 4971
+    },
+    {
+      "question": 317,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 125,
+      "first_shared_boundary": 53,
+      "old_tokens": 2791,
+      "new_tokens": 2755
+    },
+    {
+      "question": 318,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 67,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 2356
+    },
+    {
+      "question": 319,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 80,
+      "first_shared_boundary": 70,
+      "old_tokens": 4615,
+      "new_tokens": 8611
+    },
+    {
+      "question": 320,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 513,
+      "first_shared_boundary": 88,
+      "old_tokens": 2933,
+      "new_tokens": 2924
+    },
+    {
+      "question": 321,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 155,
+      "first_shared_boundary": 61,
+      "old_tokens": 4875,
+      "new_tokens": 16000
+    },
+    {
+      "question": 322,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 25,
+      "first_shared_boundary": null,
+      "old_tokens": 1496,
+      "new_tokens": 721
+    },
+    {
+      "question": 323,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 40,
+      "first_shared_boundary": 35,
+      "old_tokens": 6211,
+      "new_tokens": 2676
+    },
+    {
+      "question": 324,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": 13,
+      "old_tokens": 3884,
+      "new_tokens": 3647
+    },
+    {
+      "question": 325,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 11,
+      "first_shared_boundary": null,
+      "old_tokens": 1897,
+      "new_tokens": 850
+    },
+    {
+      "question": 326,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 351,
+      "first_shared_boundary": 116,
+      "old_tokens": 1156,
+      "new_tokens": 1046
+    },
+    {
+      "question": 327,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 98,
+      "first_shared_boundary": 94,
+      "old_tokens": 1330,
+      "new_tokens": 1252
+    },
+    {
+      "question": 328,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 406,
+      "first_shared_boundary": 56,
+      "old_tokens": 986,
+      "new_tokens": 16000
+    },
+    {
+      "question": 329,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 10,
+      "first_shared_boundary": null,
+      "old_tokens": 2142,
+      "new_tokens": 2999
+    },
+    {
+      "question": 330,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 130,
+      "first_shared_boundary": 82,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 331,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 206,
+      "first_shared_boundary": 49,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 332,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 124,
+      "first_shared_boundary": 73,
+      "old_tokens": 1290,
+      "new_tokens": 1281
+    },
+    {
+      "question": 333,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 233,
+      "first_shared_boundary": 93,
+      "old_tokens": 16000,
+      "new_tokens": 2756
+    },
+    {
+      "question": 334,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 306,
+      "first_shared_boundary": 87,
+      "old_tokens": 1430,
+      "new_tokens": 2053
+    },
+    {
+      "question": 335,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 642,
+      "first_shared_boundary": 73,
+      "old_tokens": 16000,
+      "new_tokens": 1964
+    },
+    {
+      "question": 336,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 1214,
+      "new_tokens": 862
+    },
+    {
+      "question": 337,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 351,
+      "first_shared_boundary": 51,
+      "old_tokens": 1069,
+      "new_tokens": 1105
+    },
+    {
+      "question": 338,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 275,
+      "first_shared_boundary": 76,
+      "old_tokens": 1519,
+      "new_tokens": 1320
+    },
+    {
+      "question": 339,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 440,
+      "first_shared_boundary": 60,
+      "old_tokens": 5485,
+      "new_tokens": 4460
+    },
+    {
+      "question": 340,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 79,
+      "first_shared_boundary": null,
+      "old_tokens": 2668,
+      "new_tokens": 2609
+    },
+    {
+      "question": 341,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 516,
+      "first_shared_boundary": 66,
+      "old_tokens": 3388,
+      "new_tokens": 2139
+    },
+    {
+      "question": 342,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 656,
+      "first_shared_boundary": 61,
+      "old_tokens": 1358,
+      "new_tokens": 1524
+    },
+    {
+      "question": 343,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 3,
+      "first_shared_boundary": null,
+      "old_tokens": 885,
+      "new_tokens": 1429
+    },
+    {
+      "question": 344,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 105,
+      "first_shared_boundary": 73,
+      "old_tokens": 1375,
+      "new_tokens": 16000
+    },
+    {
+      "question": 345,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 150,
+      "first_shared_boundary": 45,
+      "old_tokens": 1424,
+      "new_tokens": 1755
+    },
+    {
+      "question": 346,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 85,
+      "first_shared_boundary": null,
+      "old_tokens": 1878,
+      "new_tokens": 2109
+    },
+    {
+      "question": 347,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 76,
+      "first_shared_boundary": null,
+      "old_tokens": 1360,
+      "new_tokens": 1610
+    },
+    {
+      "question": 348,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 30,
+      "first_shared_boundary": null,
+      "old_tokens": 7540,
+      "new_tokens": 3023
+    },
+    {
+      "question": 349,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 141,
+      "first_shared_boundary": 75,
+      "old_tokens": 1255,
+      "new_tokens": 1002
+    },
+    {
+      "question": 350,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 387,
+      "first_shared_boundary": 79,
+      "old_tokens": 16000,
+      "new_tokens": 2355
+    },
+    {
+      "question": 351,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 171,
+      "first_shared_boundary": 113,
+      "old_tokens": 3722,
+      "new_tokens": 3593
+    },
+    {
+      "question": 352,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 119,
+      "first_shared_boundary": 112,
+      "old_tokens": 2055,
+      "new_tokens": 2289
+    },
+    {
+      "question": 353,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 806,
+      "first_shared_boundary": 33,
+      "old_tokens": 1902,
+      "new_tokens": 1975
+    },
+    {
+      "question": 354,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 224,
+      "first_shared_boundary": 65,
+      "old_tokens": 1624,
+      "new_tokens": 2238
+    },
+    {
+      "question": 355,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 40,
+      "first_shared_boundary": null,
+      "old_tokens": 1032,
+      "new_tokens": 1917
+    },
+    {
+      "question": 356,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 222,
+      "first_shared_boundary": 58,
+      "old_tokens": 16000,
+      "new_tokens": 4037
+    },
+    {
+      "question": 357,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 198,
+      "first_shared_boundary": 63,
+      "old_tokens": 3462,
+      "new_tokens": 5883
+    },
+    {
+      "question": 358,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 56,
+      "first_shared_boundary": 41,
+      "old_tokens": 716,
+      "new_tokens": 756
+    },
+    {
+      "question": 359,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 139,
+      "first_shared_boundary": 65,
+      "old_tokens": 992,
+      "new_tokens": 983
+    },
+    {
+      "question": 360,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 57,
+      "first_shared_boundary": null,
+      "old_tokens": 946,
+      "new_tokens": 1097
+    },
+    {
+      "question": 361,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 326,
+      "first_shared_boundary": 30,
+      "old_tokens": 1259,
+      "new_tokens": 1331
+    },
+    {
+      "question": 362,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 205,
+      "first_shared_boundary": 119,
+      "old_tokens": 4735,
+      "new_tokens": 6978
+    },
+    {
+      "question": 363,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 151,
+      "first_shared_boundary": 48,
+      "old_tokens": 2592,
+      "new_tokens": 2134
+    },
+    {
+      "question": 364,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 24,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 5948
+    },
+    {
+      "question": 365,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 189,
+      "first_shared_boundary": 22,
+      "old_tokens": 3036,
+      "new_tokens": 3737
+    },
+    {
+      "question": 366,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": null,
+      "old_tokens": 4225,
+      "new_tokens": 5206
+    },
+    {
+      "question": 367,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 58,
+      "first_shared_boundary": null,
+      "old_tokens": 2062,
+      "new_tokens": 1712
+    },
+    {
+      "question": 368,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 22,
+      "first_shared_boundary": null,
+      "old_tokens": 1363,
+      "new_tokens": 1079
+    },
+    {
+      "question": 369,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 194,
+      "first_shared_boundary": 46,
+      "old_tokens": 1074,
+      "new_tokens": 923
+    },
+    {
+      "question": 370,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 9,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 1298
+    },
+    {
+      "question": 371,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 9,
+      "first_shared_boundary": null,
+      "old_tokens": 2513,
+      "new_tokens": 1754
+    },
+    {
+      "question": 372,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 325,
+      "first_shared_boundary": 73,
+      "old_tokens": 986,
+      "new_tokens": 697
+    },
+    {
+      "question": 373,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": null,
+      "old_tokens": 1295,
+      "new_tokens": 1237
+    },
+    {
+      "question": 374,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 64,
+      "first_shared_boundary": null,
+      "old_tokens": 3284,
+      "new_tokens": 4719
+    },
+    {
+      "question": 375,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 683,
+      "first_shared_boundary": 9,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 376,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 149,
+      "first_shared_boundary": 84,
+      "old_tokens": 3430,
+      "new_tokens": 3226
+    },
+    {
+      "question": 377,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 92,
+      "first_shared_boundary": null,
+      "old_tokens": 2573,
+      "new_tokens": 2481
+    },
+    {
+      "question": 378,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 12,
+      "first_shared_boundary": null,
+      "old_tokens": 1793,
+      "new_tokens": 2001
+    },
+    {
+      "question": 379,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 58,
+      "first_shared_boundary": 54,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 380,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 273,
+      "first_shared_boundary": 52,
+      "old_tokens": 16000,
+      "new_tokens": 1313
+    },
+    {
+      "question": 381,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 64,
+      "first_shared_boundary": 48,
+      "old_tokens": 1200,
+      "new_tokens": 1025
+    },
+    {
+      "question": 382,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 98,
+      "first_shared_boundary": 40,
+      "old_tokens": 1394,
+      "new_tokens": 990
+    },
+    {
+      "question": 383,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 2568
+    },
+    {
+      "question": 384,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 82,
+      "first_shared_boundary": 79,
+      "old_tokens": 2023,
+      "new_tokens": 1317
+    },
+    {
+      "question": 385,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 152,
+      "first_shared_boundary": 102,
+      "old_tokens": 2759,
+      "new_tokens": 6144
+    },
+    {
+      "question": 386,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 366,
+      "first_shared_boundary": 54,
+      "old_tokens": 1239,
+      "new_tokens": 1281
+    },
+    {
+      "question": 387,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 374,
+      "first_shared_boundary": 52,
+      "old_tokens": 16000,
+      "new_tokens": 4462
+    },
+    {
+      "question": 388,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 106,
+      "first_shared_boundary": 83,
+      "old_tokens": 1171,
+      "new_tokens": 979
+    },
+    {
+      "question": 389,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 29,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 390,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 297,
+      "first_shared_boundary": 49,
+      "old_tokens": 2081,
+      "new_tokens": 1899
+    },
+    {
+      "question": 391,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 21,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 1167
+    },
+    {
+      "question": 392,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 174,
+      "first_shared_boundary": 59,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 393,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 481,
+      "first_shared_boundary": 64,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 394,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 144,
+      "first_shared_boundary": 106,
+      "old_tokens": 3992,
+      "new_tokens": 16000
+    },
+    {
+      "question": 395,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 93,
+      "first_shared_boundary": 20,
+      "old_tokens": 3564,
+      "new_tokens": 7016
+    },
+    {
+      "question": 396,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 214,
+      "first_shared_boundary": 89,
+      "old_tokens": 5279,
+      "new_tokens": 16000
+    },
+    {
+      "question": 397,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 798,
+      "first_shared_boundary": 61,
+      "old_tokens": 1961,
+      "new_tokens": 1780
+    },
+    {
+      "question": 398,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 86,
+      "first_shared_boundary": 73,
+      "old_tokens": 16000,
+      "new_tokens": 3041
+    },
+    {
+      "question": 399,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 131,
+      "first_shared_boundary": 55,
+      "old_tokens": 16000,
+      "new_tokens": 1095
+    },
+    {
+      "question": 400,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 37,
+      "first_shared_boundary": null,
+      "old_tokens": 2102,
+      "new_tokens": 1798
+    },
+    {
+      "question": 401,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 42,
+      "first_shared_boundary": null,
+      "old_tokens": 1471,
+      "new_tokens": 2939
+    },
+    {
+      "question": 402,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 173,
+      "first_shared_boundary": 79,
+      "old_tokens": 2908,
+      "new_tokens": 2378
+    },
+    {
+      "question": 403,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 140,
+      "first_shared_boundary": 68,
+      "old_tokens": 16000,
+      "new_tokens": 2137
+    },
+    {
+      "question": 404,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 170,
+      "first_shared_boundary": 48,
+      "old_tokens": 2057,
+      "new_tokens": 1981
+    },
+    {
+      "question": 405,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 73,
+      "first_shared_boundary": 60,
+      "old_tokens": 1442,
+      "new_tokens": 1024
+    },
+    {
+      "question": 406,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 295,
+      "first_shared_boundary": 43,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 407,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 382,
+      "first_shared_boundary": 59,
+      "old_tokens": 889,
+      "new_tokens": 853
+    },
+    {
+      "question": 408,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 337,
+      "first_shared_boundary": 110,
+      "old_tokens": 921,
+      "new_tokens": 897
+    },
+    {
+      "question": 409,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 51,
+      "first_shared_boundary": null,
+      "old_tokens": 938,
+      "new_tokens": 907
+    },
+    {
+      "question": 410,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 355,
+      "first_shared_boundary": 79,
+      "old_tokens": 16000,
+      "new_tokens": 3579
+    },
+    {
+      "question": 411,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 97,
+      "first_shared_boundary": 36,
+      "old_tokens": 823,
+      "new_tokens": 895
+    },
+    {
+      "question": 412,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 60,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 413,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 95,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 2096
+    },
+    {
+      "question": 414,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 251,
+      "first_shared_boundary": 77,
+      "old_tokens": 2648,
+      "new_tokens": 4799
+    },
+    {
+      "question": 415,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 105,
+      "first_shared_boundary": 22,
+      "old_tokens": 2160,
+      "new_tokens": 2001
+    },
+    {
+      "question": 416,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 228,
+      "first_shared_boundary": 82,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 417,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 6,
+      "first_shared_boundary": null,
+      "old_tokens": 1402,
+      "new_tokens": 1554
+    },
+    {
+      "question": 418,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 8,
+      "first_shared_boundary": null,
+      "old_tokens": 2550,
+      "new_tokens": 3615
+    },
+    {
+      "question": 419,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 114,
+      "first_shared_boundary": null,
+      "old_tokens": 1186,
+      "new_tokens": 1167
+    },
+    {
+      "question": 420,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 242,
+      "first_shared_boundary": 102,
+      "old_tokens": 16000,
+      "new_tokens": 2373
+    },
+    {
+      "question": 421,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 233,
+      "first_shared_boundary": 11,
+      "old_tokens": 4151,
+      "new_tokens": 2454
+    },
+    {
+      "question": 422,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 85,
+      "first_shared_boundary": null,
+      "old_tokens": 4845,
+      "new_tokens": 16000
+    },
+    {
+      "question": 423,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 103,
+      "first_shared_boundary": null,
+      "old_tokens": 3375,
+      "new_tokens": 1447
+    },
+    {
+      "question": 424,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 763,
+      "first_shared_boundary": 57,
+      "old_tokens": 1166,
+      "new_tokens": 1643
+    },
+    {
+      "question": 425,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 195,
+      "first_shared_boundary": 52,
+      "old_tokens": 1572,
+      "new_tokens": 1293
+    },
+    {
+      "question": 426,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 37,
+      "old_tokens": 3053,
+      "new_tokens": 2259
+    },
+    {
+      "question": 427,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 401,
+      "first_shared_boundary": 62,
+      "old_tokens": 1368,
+      "new_tokens": 1834
+    },
+    {
+      "question": 428,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 111,
+      "first_shared_boundary": 58,
+      "old_tokens": 1923,
+      "new_tokens": 1233
+    },
+    {
+      "question": 429,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 97,
+      "first_shared_boundary": 91,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 430,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 222,
+      "first_shared_boundary": 61,
+      "old_tokens": 3530,
+      "new_tokens": 16000
+    },
+    {
+      "question": 431,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 169,
+      "first_shared_boundary": 72,
+      "old_tokens": 2589,
+      "new_tokens": 4041
+    },
+    {
+      "question": 432,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 255,
+      "first_shared_boundary": 74,
+      "old_tokens": 2291,
+      "new_tokens": 4376
+    },
+    {
+      "question": 433,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 84,
+      "first_shared_boundary": 65,
+      "old_tokens": 1212,
+      "new_tokens": 16000
+    },
+    {
+      "question": 434,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 53,
+      "first_shared_boundary": null,
+      "old_tokens": 1225,
+      "new_tokens": 1317
+    },
+    {
+      "question": 435,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 334,
+      "first_shared_boundary": 91,
+      "old_tokens": 1825,
+      "new_tokens": 1377
+    },
+    {
+      "question": 436,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 942,
+      "first_shared_boundary": 48,
+      "old_tokens": 2574,
+      "new_tokens": 2023
+    },
+    {
+      "question": 437,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 95,
+      "first_shared_boundary": null,
+      "old_tokens": 4754,
+      "new_tokens": 5627
+    },
+    {
+      "question": 438,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 269,
+      "first_shared_boundary": 46,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 439,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 420,
+      "first_shared_boundary": 83,
+      "old_tokens": 2174,
+      "new_tokens": 2358
+    },
+    {
+      "question": 440,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 218,
+      "first_shared_boundary": 76,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 441,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 67,
+      "first_shared_boundary": null,
+      "old_tokens": 1067,
+      "new_tokens": 845
+    },
+    {
+      "question": 442,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 441,
+      "first_shared_boundary": 62,
+      "old_tokens": 1041,
+      "new_tokens": 1332
+    },
+    {
+      "question": 443,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 150,
+      "first_shared_boundary": 78,
+      "old_tokens": 16000,
+      "new_tokens": 6525
+    },
+    {
+      "question": 444,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 233,
+      "first_shared_boundary": 61,
+      "old_tokens": 2623,
+      "new_tokens": 1514
+    },
+    {
+      "question": 445,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 64,
+      "first_shared_boundary": null,
+      "old_tokens": 4356,
+      "new_tokens": 1257
+    },
+    {
+      "question": 446,
+      "category": "at_first_possible_R_effect",
+      "shared_prefix_tokens": 42,
+      "first_shared_boundary": 41,
+      "old_tokens": 2520,
+      "new_tokens": 1989
+    },
+    {
+      "question": 447,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 131,
+      "first_shared_boundary": 110,
+      "old_tokens": 3529,
+      "new_tokens": 3187
+    },
+    {
+      "question": 448,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 191,
+      "first_shared_boundary": 87,
+      "old_tokens": 1683,
+      "new_tokens": 1695
+    },
+    {
+      "question": 449,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 93,
+      "first_shared_boundary": null,
+      "old_tokens": 1825,
+      "new_tokens": 2226
+    },
+    {
+      "question": 450,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 92,
+      "first_shared_boundary": null,
+      "old_tokens": 1833,
+      "new_tokens": 1563
+    },
+    {
+      "question": 451,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 25,
+      "first_shared_boundary": null,
+      "old_tokens": 1852,
+      "new_tokens": 1472
+    },
+    {
+      "question": 452,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 230,
+      "first_shared_boundary": 114,
+      "old_tokens": 961,
+      "new_tokens": 982
+    },
+    {
+      "question": 453,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 542,
+      "first_shared_boundary": 105,
+      "old_tokens": 1355,
+      "new_tokens": 1597
+    },
+    {
+      "question": 454,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 40,
+      "first_shared_boundary": null,
+      "old_tokens": 1239,
+      "new_tokens": 1231
+    },
+    {
+      "question": 455,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 503,
+      "first_shared_boundary": 105,
+      "old_tokens": 1317,
+      "new_tokens": 1750
+    },
+    {
+      "question": 456,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 305,
+      "first_shared_boundary": 53,
+      "old_tokens": 1679,
+      "new_tokens": 2620
+    },
+    {
+      "question": 457,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 119,
+      "first_shared_boundary": 77,
+      "old_tokens": 3200,
+      "new_tokens": 1879
+    },
+    {
+      "question": 458,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 47,
+      "first_shared_boundary": 28,
+      "old_tokens": 16000,
+      "new_tokens": 2204
+    },
+    {
+      "question": 459,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 119,
+      "first_shared_boundary": 41,
+      "old_tokens": 4075,
+      "new_tokens": 2898
+    },
+    {
+      "question": 460,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 152,
+      "first_shared_boundary": 32,
+      "old_tokens": 1970,
+      "new_tokens": 1996
+    },
+    {
+      "question": 461,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 7,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 462,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 1607,
+      "first_shared_boundary": 64,
+      "old_tokens": 2959,
+      "new_tokens": 3058
+    },
+    {
+      "question": 463,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 9,
+      "first_shared_boundary": null,
+      "old_tokens": 16000,
+      "new_tokens": 2143
+    },
+    {
+      "question": 464,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 83,
+      "first_shared_boundary": 57,
+      "old_tokens": 1064,
+      "new_tokens": 1128
+    },
+    {
+      "question": 465,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 353,
+      "first_shared_boundary": 85,
+      "old_tokens": 16000,
+      "new_tokens": 3661
+    },
+    {
+      "question": 466,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 89,
+      "first_shared_boundary": 68,
+      "old_tokens": 1301,
+      "new_tokens": 16000
+    },
+    {
+      "question": 467,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 127,
+      "first_shared_boundary": 102,
+      "old_tokens": 2634,
+      "new_tokens": 16000
+    },
+    {
+      "question": 468,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 26,
+      "first_shared_boundary": 16,
+      "old_tokens": 2194,
+      "new_tokens": 2264
+    },
+    {
+      "question": 469,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 77,
+      "first_shared_boundary": null,
+      "old_tokens": 3627,
+      "new_tokens": 2004
+    },
+    {
+      "question": 470,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 770,
+      "first_shared_boundary": 93,
+      "old_tokens": 16000,
+      "new_tokens": 5067
+    },
+    {
+      "question": 471,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 268,
+      "first_shared_boundary": 44,
+      "old_tokens": 5358,
+      "new_tokens": 1865
+    },
+    {
+      "question": 472,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 163,
+      "first_shared_boundary": 93,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 473,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 278,
+      "first_shared_boundary": 30,
+      "old_tokens": 1309,
+      "new_tokens": 1464
+    },
+    {
+      "question": 474,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 153,
+      "first_shared_boundary": 71,
+      "old_tokens": 1023,
+      "new_tokens": 1084
+    },
+    {
+      "question": 475,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 162,
+      "first_shared_boundary": 121,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 476,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 69,
+      "first_shared_boundary": null,
+      "old_tokens": 923,
+      "new_tokens": 877
+    },
+    {
+      "question": 477,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 348,
+      "first_shared_boundary": 102,
+      "old_tokens": 6053,
+      "new_tokens": 16000
+    },
+    {
+      "question": 478,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 117,
+      "first_shared_boundary": 85,
+      "old_tokens": 2257,
+      "new_tokens": 1682
+    },
+    {
+      "question": 479,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 79,
+      "first_shared_boundary": 44,
+      "old_tokens": 5689,
+      "new_tokens": 4118
+    },
+    {
+      "question": 480,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 154,
+      "first_shared_boundary": 54,
+      "old_tokens": 1134,
+      "new_tokens": 1369
+    },
+    {
+      "question": 481,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 274,
+      "first_shared_boundary": 123,
+      "old_tokens": 1275,
+      "new_tokens": 1470
+    },
+    {
+      "question": 482,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 140,
+      "first_shared_boundary": 80,
+      "old_tokens": 1530,
+      "new_tokens": 1487
+    },
+    {
+      "question": 483,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 4,
+      "first_shared_boundary": null,
+      "old_tokens": 1371,
+      "new_tokens": 1220
+    },
+    {
+      "question": 484,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 260,
+      "first_shared_boundary": 76,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 485,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 147,
+      "first_shared_boundary": 49,
+      "old_tokens": 2073,
+      "new_tokens": 16000
+    },
+    {
+      "question": 486,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 146,
+      "first_shared_boundary": 80,
+      "old_tokens": 2790,
+      "new_tokens": 2099
+    },
+    {
+      "question": 487,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 431,
+      "first_shared_boundary": 65,
+      "old_tokens": 6214,
+      "new_tokens": 2618
+    },
+    {
+      "question": 488,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 98,
+      "first_shared_boundary": 85,
+      "old_tokens": 2742,
+      "new_tokens": 2423
+    },
+    {
+      "question": 489,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 581,
+      "first_shared_boundary": 53,
+      "old_tokens": 1000,
+      "new_tokens": 1015
+    },
+    {
+      "question": 490,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 45,
+      "first_shared_boundary": null,
+      "old_tokens": 1824,
+      "new_tokens": 1639
+    },
+    {
+      "question": 491,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 187,
+      "first_shared_boundary": 47,
+      "old_tokens": 1526,
+      "new_tokens": 1661
+    },
+    {
+      "question": 492,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 394,
+      "first_shared_boundary": 90,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    },
+    {
+      "question": 493,
+      "category": "before_any_possible_R_effect",
+      "shared_prefix_tokens": 15,
+      "first_shared_boundary": null,
+      "old_tokens": 1849,
+      "new_tokens": 2028
+    },
+    {
+      "question": 494,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 353,
+      "first_shared_boundary": 80,
+      "old_tokens": 4934,
+      "new_tokens": 7198
+    },
+    {
+      "question": 495,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 317,
+      "first_shared_boundary": 51,
+      "old_tokens": 2344,
+      "new_tokens": 1768
+    },
+    {
+      "question": 496,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 189,
+      "first_shared_boundary": 104,
+      "old_tokens": 946,
+      "new_tokens": 1126
+    },
+    {
+      "question": 497,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 1061,
+      "first_shared_boundary": 90,
+      "old_tokens": 1564,
+      "new_tokens": 1565
+    },
+    {
+      "question": 498,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 311,
+      "first_shared_boundary": 113,
+      "old_tokens": 2147,
+      "new_tokens": 3656
+    },
+    {
+      "question": 499,
+      "category": "after_first_possible_R_effect",
+      "shared_prefix_tokens": 458,
+      "first_shared_boundary": 128,
+      "old_tokens": 16000,
+      "new_tokens": 16000
+    }
+  ],
+  "interpretation": "Divergence before any shared generated boundary cannot be caused by direct ReBalance injection in that request. Later divergence is not proof of a steering bug. Multiple execution settings changed together.",
+  "inputs": {
+    "production": {
+      "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\iterative_recalibration_20260919\\calibration_evidence.tar.gz",
+      "sha256": "a63dbcdce6b40efed1ac35d349f82c3a89b9afae8ba97dce2242936624a72768"
+    },
+    "observed": {
+      "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\online_endpoint_full_20260919\\evidence.tar.gz",
+      "sha256": "210462946624e2447ab13e7db9e9f9785b67edd4812a62403f04c02cbeeb2233"
+    },
+    "tokenizer": {
+      "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\wsc_weights_20260917\\tokenizer.json",
+      "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+    }
+  }
+}
