@@ -1,0 +1,8 @@
+{
+  "real_dense_traces": 16,
+  "token_positions": 8192,
+  "retained_step_starts": 184,
+  "chunk_size": 128,
+  "exact": true,
+  "GPU_sparse_gate": false
+}
