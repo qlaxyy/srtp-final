@@ -41,7 +41,7 @@ def main():
           params=dict(fit['parameters'],boundary_token_ids=bounds,think_start_token_id=151648,think_end_token_id=151649))])
         llm=LLM(model=assets['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=32768,
           max_num_seqs=32,max_num_batched_tokens=32768,gpu_memory_utilization=.90,
-          enable_steer_vector=True,steer_algorithms=['rebalance'],steer_graph_mode='in_graph',
+          enable_steer_vector=True,steer_algorithms=['rebalance'],steer_graph_mode='split',
           enforce_eager=True,compilation_config=0,enable_chunked_prefill=False,enable_prefix_caching=False,async_scheduling=False,seed=42)
         core=llm.llm_engine.engine_core.engine_core;runner=core.model_executor.driver_worker.worker.model_runner
         tables=dict(np.load(HERE/'iterative_recalibration_20260919/opening.npz'))
