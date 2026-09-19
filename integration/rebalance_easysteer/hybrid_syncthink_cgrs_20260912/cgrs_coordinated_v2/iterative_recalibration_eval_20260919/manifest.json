@@ -1,0 +1,16 @@
+{
+  "files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    ".gitignore": "51df9abcf5c043e3b91252e18610e8055f5e4c7898739f4c8b2efbc0ee01b542",
+    "evaluate.py": "85ca19a1df3988a0a805b99e086c0a3d7468d35ba1ca4afd1c8c7ca760023227",
+    "grade.py": "3fc2c558852426d2fa9abfa51abaea43c853ffcc21a19514e1750fdd136fe3ab",
+    "historical_compact.json": "c254219d804739fa836927edb5a7296cf322d986ea218d944f3b89fee16ce7dc",
+    "rows.json": "e686dd36404afcfb24e8ee49d0d6bf0a37743ef4695d6b7bd0e530e716eac8f2"
+  },
+  "phase": "Prepared evaluator; fit assets must be verified before use",
+  "rows": 500,
+  "seed": 42,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "cap": 16000
+}
