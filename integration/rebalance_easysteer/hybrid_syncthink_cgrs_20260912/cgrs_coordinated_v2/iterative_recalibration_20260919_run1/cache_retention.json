@@ -1,0 +1,335 @@
+{
+  "retained": [
+    "R_fit/layer_21.npy",
+    "L27_fit/layer_23.npy"
+  ],
+  "selected_archive_sha256": "97e2281967476b3f854e8a379ab2f05acfc5af1346ef7873d466d268c98085e7",
+  "reason": "All fitting finished; unselected-layer scratch is reproducible from saved trajectories. Scores, selected states, fit and all outputs retained.",
+  "files": [
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_1.npy",
+      "bytes": 352051328,
+      "sha256": "a31a324bf598d4df2a504e44cd80f63f5075593068b45098bdc1feabbe46655b",
+      "inode": 8597334658
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_2.npy",
+      "bytes": 352051328,
+      "sha256": "5d6d29bbd5f44aa7ea7c43f86624dcfd4a8782d4e22537187a631831ddd35439",
+      "inode": 8597338496
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_3.npy",
+      "bytes": 352051328,
+      "sha256": "d9d4d9f306b6e77350fd48a03851d30f09b0b93eafb721272e458ac9bd01800e",
+      "inode": 8597338516
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_4.npy",
+      "bytes": 352051328,
+      "sha256": "4c7ab3bbe47b9f6c14345ad04dd73fcd6c8d938f7311e35e8bb3fb36c2d2f5f4",
+      "inode": 8597340371
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_5.npy",
+      "bytes": 352051328,
+      "sha256": "8fcd10b49e7d25518d34c1d81a33ec6cf29706290b6036aa7fb0e60e2b8ff035",
+      "inode": 8597340372
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_6.npy",
+      "bytes": 352051328,
+      "sha256": "48db1976c2905702e8acaab110a23e95a21bb33bfb3cc919af542cc954084688",
+      "inode": 8597340389
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_7.npy",
+      "bytes": 352051328,
+      "sha256": "c0be42bd0b05182ab72b3a447bb56bd012ca1c1cedc736b9dacf6c9034cfcbc5",
+      "inode": 8597340391
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_8.npy",
+      "bytes": 352051328,
+      "sha256": "950e7169f9356973563af2ce6f70f3414ccc639033a131a2e2d90c3d3d3e6961",
+      "inode": 8597340399
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_9.npy",
+      "bytes": 352051328,
+      "sha256": "fb61ccdb3e8594ecadc081e326f59393bed725ed0adea6639cac381fdb71ee46",
+      "inode": 8597340405
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_10.npy",
+      "bytes": 352051328,
+      "sha256": "df44aae9f71fda97bbd5c123f6749675caf4de55b0203e1ce258a68cc2366596",
+      "inode": 8597355857
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_11.npy",
+      "bytes": 352051328,
+      "sha256": "2ba0a0dfcb95c0b4d4cea7f030b8a562e96371c006755a9fe89a8d26eeb2e5eb",
+      "inode": 8597355858
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_12.npy",
+      "bytes": 352051328,
+      "sha256": "bdb4dea474b70bbb3e68701a986200dbc27bf8032528f0e5afce4b6b4fadeb21",
+      "inode": 8597366990
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_13.npy",
+      "bytes": 352051328,
+      "sha256": "0c4918bb4e995116c142b2cf99b4f33261cdedad26f774ef3f227d39e63ec27b",
+      "inode": 8597366991
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_14.npy",
+      "bytes": 352051328,
+      "sha256": "0536881dd2252faa34f00b872634f9705c115559bccbc2eb309df4242095e24d",
+      "inode": 8597377283
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_15.npy",
+      "bytes": 352051328,
+      "sha256": "0369fb87df36f5b5da8026097dc787fc8523075dd4bc34e3fa18ee7da96a4827",
+      "inode": 8597377303
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_16.npy",
+      "bytes": 352051328,
+      "sha256": "2ba3ff7e9aa271ddb83ea3c178c68395bb035cbc05a32128ef6376c3d3549b72",
+      "inode": 8597381050
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_17.npy",
+      "bytes": 352051328,
+      "sha256": "de92488a118ff78eefeb04c062db0fbf7c4bafc579030b27f5f66d2b85cdb6b8",
+      "inode": 8597381052
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_18.npy",
+      "bytes": 352051328,
+      "sha256": "2722643e04bed0dc9be86c990479a9a532c3ad898115e3fa91a8bda7831da25f",
+      "inode": 8597381053
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_19.npy",
+      "bytes": 352051328,
+      "sha256": "c7dbc1648caf81901c71d06cb5e864576def00339e5c304848cd09206fb1970c",
+      "inode": 8597381054
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_20.npy",
+      "bytes": 352051328,
+      "sha256": "5c8f46028109f66d52be0a15ce5a4d19d3b9207975fd0f0b7b4a716d35ea24da",
+      "inode": 8597381055
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_22.npy",
+      "bytes": 352051328,
+      "sha256": "bbb2e5cab489e5e64fbeb14025ccf125c0a14b422b1e0e45cb53cefff1012ab7",
+      "inode": 8597394019
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_23.npy",
+      "bytes": 352051328,
+      "sha256": "4c2715f48c34407a61e87065e74c33ab8def3f52c4eebfac2644d639702c01a1",
+      "inode": 8597394021
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_24.npy",
+      "bytes": 352051328,
+      "sha256": "9f553346c915a4c1b73f29689ff84922b570b9bdf2a47236b6f015882d284600",
+      "inode": 8597394818
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_25.npy",
+      "bytes": 352051328,
+      "sha256": "5e45a9d7013ccf547e6e52c14a03646871e765d6cf3c4b197203e0abf83fe312",
+      "inode": 8597394819
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_26.npy",
+      "bytes": 352051328,
+      "sha256": "8e059c009734ecf02ec22a9c9da4c881e958f10aad40713848edbf08652bd376",
+      "inode": 8597394836
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_27.npy",
+      "bytes": 352051328,
+      "sha256": "693c41b16ff33374bb71a9473395a5cac8bfe828e2934c6086a0494283a141d5",
+      "inode": 8597412272
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/R_fit/layer_28.npy",
+      "bytes": 352051328,
+      "sha256": "37ff7a145ec8a9dd928cbb8b5352f1ea963c0d69b9e9f7060e27b2943752c5df",
+      "inode": 8597412273
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_1.npy",
+      "bytes": 250884224,
+      "sha256": "8706e2af5bdab694646d18fcf0e2ad426621dac4a941ff799b74a3b0c0eb3767",
+      "inode": 4295681512
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_2.npy",
+      "bytes": 250884224,
+      "sha256": "da0e7c1b5ddc80deb57b8b95df94f131dea8e0b96a599711e9d1fd39ad43edb5",
+      "inode": 4295681534
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_3.npy",
+      "bytes": 250884224,
+      "sha256": "0810174422ea89af6b1a29ef6344bb70a68ad64bf84e8b6f24ab4b5f0d215387",
+      "inode": 4295681535
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_4.npy",
+      "bytes": 250884224,
+      "sha256": "64237f144e9497ede8aa7cc14923681e18da067f924e13c80f4726a30ce5ef44",
+      "inode": 4295682755
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_5.npy",
+      "bytes": 250884224,
+      "sha256": "7ff4431d1c19768e5314b0176effebb91a7d802612acceb1f70673debf542f84",
+      "inode": 4295682793
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_6.npy",
+      "bytes": 250884224,
+      "sha256": "9a50c82001262d68af30061005f21ccbf85db419bd0ca2b056fdaaab115e0130",
+      "inode": 4295682814
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_7.npy",
+      "bytes": 250884224,
+      "sha256": "d769a03a2d5e6962baedb155cdfaeb5dcdd42cc3bd562b4b5bee84faaa317346",
+      "inode": 4295684932
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_8.npy",
+      "bytes": 250884224,
+      "sha256": "dee1f45d9483f8f1e4bfc9a092619ef6f7a4594103d45d07ba615f7528e5fe0a",
+      "inode": 4295842992
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_9.npy",
+      "bytes": 250884224,
+      "sha256": "0b26437f5e55e4e3d526998ff100238ff3d74a393833becad5bca2ea221a324a",
+      "inode": 4295842993
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_10.npy",
+      "bytes": 250884224,
+      "sha256": "b2f6e959047b43076035ab41a9bfa124dd6825b6dfcb581264bbcaacf892c4aa",
+      "inode": 4295945392
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_11.npy",
+      "bytes": 250884224,
+      "sha256": "a02da8c55184e74d1ab2a8bf7ea866057b01d5ff432249ec244ee5a2fdcf8de1",
+      "inode": 4295945393
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_12.npy",
+      "bytes": 250884224,
+      "sha256": "bc8538f9a96caea2f1ff443ffb70bad9416f5161c4b3ca9e3f15b10cb36f1745",
+      "inode": 4295945395
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_13.npy",
+      "bytes": 250884224,
+      "sha256": "bb4f12a66e8e4d61de96adaa32d4908609ece03b16a58dd8dc54008ffcb8d022",
+      "inode": 4304788485
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_14.npy",
+      "bytes": 250884224,
+      "sha256": "043f66fa3b3eee48f133baaab8b258314b666240d68a58e987cf0f86a5bca54d",
+      "inode": 4304795712
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_15.npy",
+      "bytes": 250884224,
+      "sha256": "9b7494daea4f20a5eed8d304550089982a725cad305970742c8d1ee66a169411",
+      "inode": 4304795719
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_16.npy",
+      "bytes": 250884224,
+      "sha256": "483898a91bf80804f173455f67d21da18911c1bcc276cae75509e20dc57914c8",
+      "inode": 4304795721
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_17.npy",
+      "bytes": 250884224,
+      "sha256": "b388f989797b1dcfcc07a64ce75c60ca800923e6c0791448a7b36fcef6cf35c7",
+      "inode": 4304795722
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_18.npy",
+      "bytes": 250884224,
+      "sha256": "b581f7d3ecdc019a1a4b157efa41d7f918f3940b87f0af36cfafcdb5433cd757",
+      "inode": 4304795723
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_19.npy",
+      "bytes": 250884224,
+      "sha256": "9b9ef25bf45a6f57a9ea594ae6de9ae8ed0f344365d3f2546823152ec6a626b1",
+      "inode": 4304795727
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_20.npy",
+      "bytes": 250884224,
+      "sha256": "ca9b15a7faba23cea78f86f7044c0b599a2ddca949683b05e06bcbbe11a76bd9",
+      "inode": 4304800769
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_21.npy",
+      "bytes": 250884224,
+      "sha256": "1fd2a8a0d81c92ae78a9de491dfe362403f162082fa3c59c299c3ce1930824f5",
+      "inode": 4304800770
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_22.npy",
+      "bytes": 250884224,
+      "sha256": "92437400249cbf69bdde1ef3adeb894bc57dbaa292aa172bc4f0836fd0273ec7",
+      "inode": 4304800771
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_24.npy",
+      "bytes": 250884224,
+      "sha256": "0e4c98c202ebc63f808d4abde77c823da9f65a940ce41982097fec5fb129fed5",
+      "inode": 4304800774
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_25.npy",
+      "bytes": 250884224,
+      "sha256": "fcd7427395f0c64b731263f23eeac0a1de4fbf7c7e9d0a6989a049fd230af804",
+      "inode": 4304800775
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_26.npy",
+      "bytes": 250884224,
+      "sha256": "fd0573eff94e6023895d0989a4e812d78241cd83c9772f5f5f9c0653619cbc0a",
+      "inode": 4304800785
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_27.npy",
+      "bytes": 250884224,
+      "sha256": "237d273826bfafc7eadd98c65f51141569a77fec8065a13d24a47b0bee2903c3",
+      "inode": 4304800793
+    },
+    {
+      "path": "/tmp/iterative_recalibration_20260919_run1/L27_fit/layer_28.npy",
+      "bytes": 250884224,
+      "sha256": "88781712b4b9b091e5298308c11dd8b574a930add2cd705696fbc2a0a345c084",
+      "inode": 4304800817
+    }
+  ],
+  "bytes": 16279259904
+}

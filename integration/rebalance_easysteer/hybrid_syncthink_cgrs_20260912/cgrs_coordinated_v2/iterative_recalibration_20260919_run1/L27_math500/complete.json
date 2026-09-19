@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "engineering": false,
+  "identity": {
+    "case": "L27",
+    "fit_sha256": "e360742fa1c345010b2ce80dbb2926c0dea3614daa77e4cd62cde2b1afe583dd",
+    "vector_sha256": "0620485ee9ad9a0b841d363779f18c0339dbcb80caae36dffc6417f4afe761fd",
+    "calibration_source_sha256": "7df06adaf4acecd5f9d356cba2cabaef8028699efa85bea8450729bdfb5f950b",
+    "eval_manifest_sha256": "f089d22eb21bce2d5ba9d8df4a764c375d98f17bc4995c1cf07d6c33a3ee9f8a"
+  },
+  "rows": 500,
+  "wall_seconds": 495.99375307559967,
+  "generation_seconds": [
+    465.6791387796402
+  ]
+}

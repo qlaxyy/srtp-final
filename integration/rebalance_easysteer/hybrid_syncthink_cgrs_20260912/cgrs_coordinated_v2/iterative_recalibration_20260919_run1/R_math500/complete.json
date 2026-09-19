@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "engineering": false,
+  "identity": {
+    "case": "R",
+    "fit_sha256": "280a72ecab42249fd0fd4a45946a169cfcf9deb36a446c9b4675a5f59be19135",
+    "vector_sha256": "b45932adcea86b4eb1cbf4a80ad4915656711bb3b6ef4a9b99d9ffdfda320ff5",
+    "calibration_source_sha256": "7d01144a246fb8f4fd479d140c61cbafc5fa83fc01d64bfae439d8c87d8911a8",
+    "eval_manifest_sha256": "f089d22eb21bce2d5ba9d8df4a764c375d98f17bc4995c1cf07d6c33a3ee9f8a"
+  },
+  "rows": 500,
+  "wall_seconds": 425.2488546073437,
+  "generation_seconds": [
+    397.00535114109516
+  ]
+}
