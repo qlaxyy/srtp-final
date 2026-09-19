@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "rows": 500,
+  "unique_hashes": 500,
+  "reused_l27_records": 500,
+  "boundary_cases": 4,
+  "syntax": true,
+  "input_hashes": true,
+  "gpu_tests": false,
+  "limitations": "Local syntax/data/contract checks only; vLLM/transformers replay requires GPU engineering gate."
+}
