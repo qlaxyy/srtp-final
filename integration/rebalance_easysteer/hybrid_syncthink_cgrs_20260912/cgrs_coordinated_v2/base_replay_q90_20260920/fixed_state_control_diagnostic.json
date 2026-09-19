@@ -1,0 +1,23 @@
+{
+  "R": {
+    "q75": {
+      "positive_fraction": 0.28050610423088074,
+      "mean_coefficient": -0.308657169342041
+    },
+    "q90": {
+      "positive_fraction": 0.21076789498329163,
+      "mean_coefficient": -0.29897940158843994
+    }
+  },
+  "L27": {
+    "q75": {
+      "positive_fraction": 0.26495078206062317,
+      "mean_coefficient": -0.36672890186309814
+    },
+    "q90": {
+      "positive_fraction": 0.17438898980617523,
+      "mean_coefficient": -0.35659539699554443
+    }
+  },
+  "limitation": "CPU counterfactual on fixed saved base replay confidence; not future online events or causal token effect"
+}
