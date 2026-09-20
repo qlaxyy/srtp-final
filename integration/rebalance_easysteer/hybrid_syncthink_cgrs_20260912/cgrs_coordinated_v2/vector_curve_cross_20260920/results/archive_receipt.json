@@ -1,0 +1,22 @@
+{
+  "archive_sha256": "4ebea661e421987c263fea2e487162259312237b928452171c7b0110ea3a8de7",
+  "remote_sha256_matches": true,
+  "metadata": {
+    "started.txt": "2026-09-20T17:49:48+08:00",
+    "finished.txt": "2026-09-20T18:07:08+08:00",
+    "exit_status.txt": "0"
+  },
+  "batch_seconds": 1040.0,
+  "generation_window_seconds": 921.928694576025,
+  "gpu_process_wall_seconds": 984.806250706315,
+  "gpu_samples": 1039,
+  "gpu_mean_percent_including_load_and_cpu_grading": 70.57459095283927,
+  "gpu_peak_percent": 100.0,
+  "validated_records": 1000,
+  "preparation_commit": "6969495",
+  "new_probes": 0,
+  "extra_model_forwards": 0,
+  "final_gpu_compute_processes": 0,
+  "recovery_or_rerun": false,
+  "decision": "retain_frozen_L27; no promotion or automatic expansion"
+}

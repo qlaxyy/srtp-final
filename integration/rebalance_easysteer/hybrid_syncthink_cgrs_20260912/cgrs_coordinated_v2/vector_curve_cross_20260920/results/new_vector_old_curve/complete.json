@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "engineering": false,
+  "identity": {
+    "case": "L27",
+    "arm": "new_vector_old_curve",
+    "fit_sha256": "f27f0025342253d1ecba4add8b1d598174ab85c0396b35c939b312bd5aff810b",
+    "vector_sha256": "929a80d21ce349d93544a642f4e6857530c549aff269e3c42c925d37223d5fa0",
+    "calibration_source_sha256": "mixed-source diagnostic; see component hashes",
+    "eval_manifest_sha256": "7357585ff97e029117a7e9a8db5b42afb9b967a1f9819f088d7b7ce3c020aaf5"
+  },
+  "rows": 500,
+  "wall_seconds": 495.27621668577194,
+  "generation_seconds": [
+    464.0829708427191
+  ]
+}
