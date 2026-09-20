@@ -1,0 +1,29 @@
+{
+  "version": "vector-curve-cross-20260920",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "929a80d21ce349d93544a642f4e6857530c549aff269e3c42c925d37223d5fa0",
+  "vector_norm": 81.21160125732422,
+  "calibration_source_sha256": "mixed-source diagnostic; see component hashes",
+  "positives": 48251,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "Diagnostic crossed vector and full controller parameters, no refitting or normalization",
+  "vector_source_sha256": "929a80d21ce349d93544a642f4e6857530c549aff269e3c42c925d37223d5fa0",
+  "curve_source_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+}

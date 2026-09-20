@@ -1,0 +1,31 @@
+{
+  "version": "vector-curve-cross-20260920",
+  "model": "\\root\\autodl-tmp\\models\\DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.872075432177746,
+    "q75c": 0.999693939395641,
+    "q25v": 9.111110480642837e-07,
+    "q75v": 0.0024036492415950095,
+    "low_val_1": -0.4999999999999999,
+    "low_val_2": -1.4975444073819804,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.0005995615585685355
+  },
+  "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "vector_norm": 83.61912536621094,
+  "calibration_source_sha256": "mixed-source diagnostic; see component hashes",
+  "positives": 22038,
+  "negatives": 4196,
+  "selection": {
+    "layer": 21,
+    "selection": "fixed existing native capture layer; no automatic selection"
+  },
+  "method": "Diagnostic crossed vector and full controller parameters, no refitting or normalization",
+  "confidence_high_quantile": 0.9,
+  "legacy_parameter_note": "q75c is a runtime field name; q90 candidate stores the empirical 90th percentile here. q75v remains variance 75th percentile.",
+  "vector_source_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "curve_source_fit_sha256": "3781ec5d78324731c65d5cb43d76578795fc4e67c75fea0db27772a1cd01661c"
+}
