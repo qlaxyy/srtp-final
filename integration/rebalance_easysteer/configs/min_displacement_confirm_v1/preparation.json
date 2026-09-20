@@ -1,0 +1,42 @@
+{
+  "status": "CPU_prepared_not_GPU_authorized",
+  "branch": "codex/min-displacement-confirm-v1",
+  "runtime_anchor": "7899489e1b17f0f67c6a48a36ffa6caf98d32e87",
+  "dataset_sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+  "plan_sha256": "6ed41b3deaf3ee1891203dd35d5926f14cca86f688c84e01fb2d8873663534c1",
+  "count": 200,
+  "arms": [
+    "original_dynamic",
+    "min_displacement"
+  ],
+  "new_answers": 400,
+  "max_tokens_per_answer": 16000,
+  "observed_accuracy_loss_max_pp": 3,
+  "strict_score_lower_bound_required_gt": -0.03,
+  "expected_pure_generation_minutes": [
+    9,
+    12
+  ],
+  "expected_GPU_window_minutes": [
+    15,
+    30
+  ],
+  "batch_deadline_seconds": 1800,
+  "per_arm_generation_deadline_seconds": 600,
+  "price": "Actual hourly rate unknown; planning window 0.25-0.5 GPU hours, not a bill",
+  "output": "/root/autodl-tmp/results/easysteer/min_displacement_confirm_v1_run1",
+  "run_command": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python integration/rebalance_easysteer/scripts/run_min_confirmation.py --bundle integration/rebalance_easysteer/configs/min_displacement_confirm_v1 --output /root/autodl-tmp/results/easysteer/min_displacement_confirm_v1_run1 --execute",
+  "grade_command": "/root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/scripts/grade_min_confirmation.py --bundle integration/rebalance_easysteer/configs/min_displacement_confirm_v1 --output /root/autodl-tmp/results/easysteer/min_displacement_confirm_v1_run1",
+  "stop": [
+    "GPU busy",
+    "source/model/asset/peer registry mismatch",
+    "OOM/nonfinite/incomplete output",
+    "pair mismatch",
+    "deadline"
+  ],
+  "post_generation": "All model child processes exit; download/hash outputs and notify GPU can close. Grading on existing CPU environment, local analysis thereafter.",
+  "server_checkout": "One exclusive batch; inspect and preserve server state before selecting dedicated confirmation commit. Never modify peer active checkout/environment.",
+  "BCC": "Separate six-forward diagnostic batch remains prepared on BCC branch; not bundled with these 400 answers without explicit authorization",
+  "execution_commit": "f9fb2da5ad0e69f4e27943f76e585c091166e0bc",
+  "git_blob_assets_and_sources_verified": true
+}

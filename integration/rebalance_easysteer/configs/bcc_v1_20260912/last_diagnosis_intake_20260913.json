@@ -1,0 +1,80 @@
+{
+  "status": "input_preparation_complete_instrumentation_pending",
+  "gpu_ready": false,
+  "gpu_authorized": false,
+  "line": "A/BCC",
+  "report_sha256": "61364352eb4ac2a9576ed76fe6ba98bc96ece09c65d95059d21bf6e7c4df3119",
+  "archive_sha256": "d4cc407fc648fb461138e29db977b0bd187411bcb69e56de29a2f08868731028",
+  "archive_members_sha256": {
+    "BCC_bd24112_决策与最后诊断规格.md": "61364352eb4ac2a9576ed76fe6ba98bc96ece09c65d95059d21bf6e7c4df3119",
+    "算术核对_非原始结果复算.json": "48da963cd56abca40f32193a4352d2a27a56c9951b7f4997eb3e8f19e3f93af8"
+  },
+  "previous_ledger_sha256": "7dec84c2607b642f4119d337739db8ad5237df814ba85dd4fede8fc0e328e57a",
+  "previous_assets_verified": 13,
+  "anchors_sha256": {
+    "short": "e9f054bff5bc8762ff503d7c0a49ba9ad58ffda14316e83e48d3d3c6bb11fa80",
+    "long": "000a1c4ec38817f366f74dee1749d41ffa11211b2eaf0a3fd34e08910c9eeb6b"
+  },
+  "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+  "inputs_sha256": "717c8bc1d6231eaca161d89297d22729681f9cf78f7fbb103d19cbf9e19fee57",
+  "baseline_commit": "bd24112947144ca41f01ff5bc0dd30bd29fc44fb",
+  "preparation_base_commit": "fa4776f231680acbd312da849dc5b0521ef12ed9",
+  "script_sha256": "edeaf4931b9fd95af1959430002c986318d2c0d9011dc0821711562ba7abb247",
+  "matrix": [
+    {
+      "run_id": "B-S",
+      "dtype": "bfloat16",
+      "input": "S"
+    },
+    {
+      "run_id": "B-L",
+      "dtype": "bfloat16",
+      "input": "L"
+    },
+    {
+      "run_id": "B-C",
+      "dtype": "bfloat16",
+      "input": "C"
+    },
+    {
+      "run_id": "F-S",
+      "dtype": "float32",
+      "input": "S"
+    },
+    {
+      "run_id": "F-S-repeat",
+      "dtype": "float32",
+      "input": "S"
+    },
+    {
+      "run_id": "F-L",
+      "dtype": "float32",
+      "input": "L"
+    },
+    {
+      "run_id": "F-C",
+      "dtype": "float32",
+      "input": "C"
+    }
+  ],
+  "proposed_input_tokens": 4083,
+  "new_answers": 0,
+  "proposed_timeout_seconds": 600,
+  "tolerances": {
+    "max_absolute": 0.125,
+    "per_position_relative_l2": 0.002
+  },
+  "cpu_mask_control": {
+    "causal_prefix_equal": true,
+    "deliberately_unmasked_future_detected": true,
+    "scope": "NumPy reference only, not installed attention or real extractor"
+  },
+  "pending": [
+    "Installed HF dependency source snapshot and identity audit",
+    "Read-only first-block instrumentation and real extractor isolation tests",
+    "Same-loaded-weight BF16 to FP32 identity checks and local reference capture",
+    "Runner, analyzer, partial-output handling and source-bound execution manifest",
+    "Explicit new GPU batch authorization and shared-server idle check"
+  ],
+  "limits": "No SSH, full model, actual torch hook, fitting, generation or online code changes in this preparation."
+}
