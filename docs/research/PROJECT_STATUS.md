@@ -32,9 +32,9 @@ L27相对单ReBalance在这些结果中有压缩收益，但不声称普遍无�
 - 重提取向量、重新拟合函数，以及将高置信度门槛由75%收紧到90%的多组实验，尚未胜过冻结L27；不能只引用早期局部改善。
 - 最新1.5B MATH500交叉诊断：旧向量＋新函数为81.0%/3533.270总token，新向量＋旧函数为80.4%/3535.840；均不如冻结L27的83.0%/3088.464。不晋级、不自动扩测。
 - 当前候选只更新过思考端，保留旧欠思考端和旧动态函数；CPU资产已准备，**尚未GPU评测，没有收益结论**。分组只作代理标签，有限抽查发现高置信度循环与少数题贡献集中；不追求逐步完美标注，也不把触顶直接等同误分。
-- A线BCC由用户暂停推进；保留历史记录，不改写为已证伪所有轨迹配对思想。
+- BCC轨迹配对方向已停止推进，归入[过往研究记录](过往研究记录_20260920.md)，不作为当前开发任务；历史结果不等于证伪所有轨迹配对思想。
 
-详细代码和证据已通过PR #4合入main，[B线研究分支](https://github.com/qlaxyy/srtp-final/tree/codex/hybrid-syncthink-cgrs-20260912)保留研究历史。最新诊断：[交叉实验](../../integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/vector_curve_cross_20260920)、[端点诊断](../../integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/endpoint_audit_20260920)。代码合入不代表每个候选有效或晋级为默认方法；开发起点见[开发入门](../DEVELOPMENT.md)。
+详细代码和证据已合入main，历次尝试保留在[过往研究记录](过往研究记录_20260920.md)。最新诊断：[交叉实验](../../integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/vector_curve_cross_20260920)、[端点诊断](../../integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/endpoint_audit_20260920)。代码合入不代表每个候选有效或晋级为默认方法；开发起点见[开发入门](../DEVELOPMENT.md)。
 
 ## 如何协作
 

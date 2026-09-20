@@ -83,7 +83,7 @@ docs/research/                     进度、交接和操作手册
 env/                              已验证环境记录
 ```
 
-main已合入B线研究代码；合入不表示每个实验都有效或已成为默认方法。复核历史实验使用其对应提交、资产与配置，不直接用最新main代替。冻结版本：`easysteer-rebalance-v2-final-20260909`、`easysteer-rebalance-l27-v1-20260917`。
+main包含项目研究代码；合入不表示每个实验都有效或已成为默认方法。复核历史实验使用其对应提交、资产与配置，不直接用最新main代替。冻结版本：`easysteer-rebalance-v2-final-20260909`、`easysteer-rebalance-l27-v1-20260917`。
 
 ## 来源与使用边界
 
