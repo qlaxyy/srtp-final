@@ -1,0 +1,43 @@
+# 项目进展与协作入口
+
+更新：2026-09-20。研究目标是压缩思考token和总生成token，尽量保持正确率；小幅可重复收益也有价值。本页供快速了解，详细交接见[00-研究交接](00-研究交接.md)。
+
+## 当前结论
+
+当前保留 **ReBalance＋L27** 冻结研究版本。L27是在现有动态ReBalance上加入大词表的步骤开头软抑制，沿用log(2)惩罚；借鉴反思抑制机制，**不是官方CGRS实现，也没有复现其完整certainty探测算法**。本项目基线是各模型独立校准、自动选层、自提raw向量、经EasySteer注入vLLM的公开代码适配，不等同论文全部方法或作者公开向量版本。
+
+下列是已完成、已曝光基准上的结果，非新独立确认。模型均为DeepSeek-R1-Distill-Qwen系列；MATH-500为500题，GSM8K为1319题，最大新生成16000，错误与触顶全计入。
+
+| 模型 | 数据集 | 方法 | 正确率% | 平均思考token | 平均总token | 触顶 |
+|---|---|---|---:|---:|---:|---:|
+| 1.5B | MATH-500 | 无干预 | 84.400 | 4102.482 | 4460.854 | 35 |
+| 1.5B | MATH-500 | ReBalance | 82.200 | 3182.628 | 3554.202 | 22 |
+| 1.5B | MATH-500 | ReBalance＋L27 | 83.000 | 2707.216 | 3088.464 | 12 |
+| 1.5B | GSM8K | 无干预 | 78.089 | 905.600 | 1173.166 | 5 |
+| 1.5B | GSM8K | ReBalance | 78.999 | 588.258 | 846.356 | 0 |
+| 1.5B | GSM8K | ReBalance＋L27 | 79.530 | 536.861 | 796.138 | 1 |
+| 7B | MATH-500 | 无干预 | 91.800 | 3452.560 | 3842.052 | 18 |
+| 7B | MATH-500 | ReBalance | 92.000 | 2842.156 | 3234.130 | 12 |
+| 7B | MATH-500 | ReBalance＋L27 | 92.200 | 2628.600 | 3019.122 | 9 |
+| 7B | GSM8K | 无干预 | 90.296 | 939.281 | 1184.850 | 0 |
+| 7B | GSM8K | ReBalance | 89.613 | 759.607 | 1005.394 | 0 |
+| 7B | GSM8K | ReBalance＋L27 | 90.144 | 682.346 | 925.666 | 0 |
+
+L27相对单ReBalance在这些结果中有压缩收益，但不声称普遍无损、统计上全部确认或因果协同。相对原14词组合，1.5B GSM8K的总token反而从782.978增至796.138、触顶0→1。准确率点值符合容忍范围也不等于置信区间确认非劣；时间须按原回执及配置解释，不能拼接不同设备的速度。
+
+冻结证据：[L27冻结清单](https://github.com/qlaxyy/srtp-final/blob/codex/hybrid-syncthink-cgrs-20260912/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/l27_research_freeze_20260917/freeze.json)。原基线标签`easysteer-rebalance-v2-final-20260909`；L27标签`easysteer-rebalance-l27-v1-20260917`。不得移动标签或覆盖原产物。
+
+## 最近探索与下一步
+
+- 重提取向量、重新拟合函数，以及将高置信度门槛由75%收紧到90%的多组实验，尚未胜过冻结L27；不能只引用早期局部改善。
+- 最新1.5B MATH500交叉诊断：旧向量＋新函数为81.0%/3533.270总token，新向量＋旧函数为80.4%/3535.840；均不如冻结L27的83.0%/3088.464。不晋级、不自动扩测。
+- 当前候选只更新过思考端，保留旧欠思考端和旧动态函数；CPU资产已准备，**尚未GPU评测，没有收益结论**。分组只作代理标签，有限抽查发现高置信度循环与少数题贡献集中；不追求逐步完美标注，也不把触顶直接等同误分。
+- A线BCC由用户暂停推进；保留历史记录，不改写为已证伪所有轨迹配对思想。
+
+详细代码和证据在[B线研究分支](https://github.com/qlaxyy/srtp-final/tree/codex/hybrid-syncthink-cgrs-20260912)。最新诊断：[交叉实验](https://github.com/qlaxyy/srtp-final/tree/codex/hybrid-syncthink-cgrs-20260912/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/vector_curve_cross_20260920)、[端点诊断](https://github.com/qlaxyy/srtp-final/tree/codex/hybrid-syncthink-cgrs-20260912/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/endpoint_audit_20260920)。main文档更新不代表把B线所有实验代码合并为默认运行版本。
+
+## 如何协作
+
+先读[贡献说明](../../CONTRIBUTING.md)，再读交接及[运行手册](03-ReBalance适配与运行.md)。建议从CPU复核指标、针对已有失败提出单因素机制、检查步骤分组和可视化入手。先在Issue或PR中写清问题、改动因素、对照和成本，再分配独立分支/输出目录。
+
+仓库含源码、配置、部分逐题摘要和小型向量，不包含完整模型、全部隐藏状态或所有原始生成档案。归档位置/哈希见对应回执；绝对路径是当时环境记录，不保证克隆后可直接运行。需要大资产时通过项目维护者协调取得并核验，服务器凭据另行私下提供，不能从历史端口直接尝试连接。查看进展无需GPU，不要为接手重跑冻结校准或评测。
