@@ -1,36 +1,90 @@
-# 思维链压缩复现仓库
+# ReBalance × EasySteer：思维链压缩研究
 
-**2026-09-20：这是B线研究分支，包含ReBalance＋L27冻结结果和后续探索，不是所有候选均有效。**
+**通过推理时的动态引导与反思抑制，减少大模型的思考长度，同时尽量保持解题正确率。**
 
-从[项目进展](docs/research/PROJECT_STATUS.md)、[完整交接](docs/research/00-研究交接.md)和[协作说明](CONTRIBUTING.md)开始。当前只更新过思考端候选已CPU准备、未GPU评测。下方为原基线说明。
+本项目基于DeepSeek-R1-Distill-Qwen 1.5B / 7B，研究ReBalance与反思抑制机制的组合。仓库提供代码、校准与评测配置、冻结结果及研究记录，供查看进展、复核实验和继续开发。
 
-本仓库管理EasySteer、ReBalance参考源码及两者结合后的自校准与评测流程。目标是缩短思维链，同时尽量减少准确率损失。
+[项目进展与完整指标](docs/research/PROJECT_STATUS.md) · [开发入门](docs/DEVELOPMENT.md) · [参与协作](CONTRIBUTING.md) · [研究交接](docs/research/00-研究交接.md)
 
-**当前基线已完成并冻结：DeepSeek-R1-Distill-Qwen-1.5B／7B，GSM8K全1319题、MATH-500全500题，四组完整无干预／动态配对。** 各模型使用自己的500道训练校准题提取向量、自动选层和确定参数，通过EasySteer在vLLM内动态注入。思考长度减少17.68%–35.04%，准确率变化−2.20至+0.91个百分点；不声称普遍无损或原论文完整复现。
+## 当前成果
 
-- **接手必读：[00-研究交接](docs/research/00-研究交接.md)**：目标、完成结果、当前状态、版本、连接／资产位置、坑、后续计划和全部docs用途。
-- 操作手册：[03-ReBalance适配与运行](docs/research/03-ReBalance适配与运行.md)；安装／迁移时才读[01-AutoDL环境搭建](docs/research/01-AutoDL环境搭建.md)。
-- 冻结标签：`easysteer-rebalance-v2-final-20260909`；[最终指标与来源清单](integration/rebalance_easysteer/configs/final_results_20260909.json)。后续文档提交不改变标签。
+截至 **2026-09-20**，保留的研究版本为 **ReBalance＋L27**：各模型独立提取引导向量，通过EasySteer/vLLM动态注入，并在满足门控条件的步骤开头对大词表匹配的短语补全施加软抑制。
 
-接手不需要重新校准、跑20题冒烟或补测已完成数据。论文重建版、作者公开向量版保留为历史实验，当前基线是明确补全过的自校准公开代码适配。
+- 完成1.5B / 7B在 **MATH-500（500题）和GSM8K（1319题）** 上的完整评测。
+- L27在这四组结果中，相对单ReBalance均减少平均思考和总生成token，正确率点值有所改善。
+- 这是已曝光基准上的研究结果，不代表所有场景都无损，也不等于已严格证明两个机制的因果协同。
 
-## 目录
+| 模型 | 数据集 | 方法 | 正确率 | 平均思考token ↓ | 平均总token ↓ |
+|---|---|---|---:|---:|---:|
+| 1.5B | MATH-500 | ReBalance | 82.20% | 3182.628 | 3554.202 |
+| 1.5B | MATH-500 | **ReBalance＋L27** | **83.00%** | **2707.216** | **3088.464** |
+| 1.5B | GSM8K | ReBalance | 79.00% | 588.258 | 846.356 |
+| 1.5B | GSM8K | **ReBalance＋L27** | **79.53%** | **536.861** | **796.138** |
+| 7B | MATH-500 | ReBalance | 92.00% | 2842.156 | 3234.130 |
+| 7B | MATH-500 | **ReBalance＋L27** | **92.20%** | **2628.600** | **3019.122** |
+| 7B | GSM8K | ReBalance | 89.61% | 759.607 | 1005.394 |
+| 7B | GSM8K | **ReBalance＋L27** | **90.14%** | **682.346** | **925.666** |
 
-```text
-sources/EasySteer/                 实际运行的EasySteer，含修改后的vLLM
-sources/ReBalance/                 作者源码快照，供核对、离线处理与判分
-integration/rebalance_easysteer/   校准、配对评测、冻结配置与运行入口
-scripts/                           AutoDL安装、更新与环境验收
-env/                               已验证版本
-docs/research/                     当前交接／操作手册和标明日期的历史审计
-docs/UPSTREAM.md                   上游来源与修改边界
-papers/                            本地论文，不上传Git
+同一模型/数据集内比较；最大新生成16000，错误与触顶全计入。总token包含思考和最终答案。L27在1.5B GSM8K仍有1题触顶，单ReBalance为0；对原14词组合也并非各项更好。[完整无干预对照、触顶及限制](docs/research/PROJECT_STATUS.md) · [冻结证据](integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/l27_research_freeze_20260917/freeze.json)
+
+## 方法做了什么
+
+```mermaid
+flowchart LR
+    A[每个模型的500道训练校准题] --> B[步骤置信度与状态分组]
+    B --> C[提取向量并校准动态函数]
+    D[待解题目] --> E[EasySteer / vLLM推理]
+    C --> E
+    E --> F[动态ReBalance引导]
+    F --> G[L27步骤开头软抑制]
+    G --> H[完整答案与逐题评测]
 ```
 
-模型、Python环境、隐藏特征和完整逐题结果在服务器数据盘及本地备份，不进Git。测试数据的仓库路径见00；Git只有源码和摘要，不能替代完整资产备份。动态控制进入了`sources/EasySteer/vllm-steer`推理核心，不能直接换成原版vLLM。
+ReBalance使用步骤内token最大概率的算术平均等信号调节隐藏状态引导；L27借鉴反思抑制思路，在指定门控条件下施加log(2)惩罚。当前适配不是官方CGRS实现，没有复现其完整certainty探测算法；公开向量版、论文报告方法与本项目自校准适配需分别理解。
 
-## 环境与代码更新
+## 正在研究什么
 
-服务器仓库`/root/autodl-tmp/projects/srtp-final`。已有两个验收环境保持隔离，不重装；迁移优先克隆完整实例并带数据盘。只有完全空白实例才用`scripts/setup_autodl.sh`，该空白安装全流程尚未独立复验。
+| 状态 | 方向 | 当前判断 |
+|---|---|---|
+| 已冻结 | ReBalance＋L27 | 保留作为后续研究参照 |
+| 已完成、未晋级 | 重新提取双端向量、重拟合函数、q90收紧及交叉组合 | 尚未胜过冻结L27，失败记录保留 |
+| CPU准备完成 | 只更新过思考端，保留旧欠思考端与旧函数 | **尚未GPU评测，没有新收益结论** |
 
-日常已验证修改可直接推main，服务器随后`git pull --ff-only`。高风险重构或独立实验再建分支，不发ZIP覆盖源码，不覆盖冻结结果／移动标签。查看结果、整理文档不启动GPU实验。
+最新证据：[向量/函数交叉实验](integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/vector_curve_cross_20260920/PROTOCOL.md) · [端点诊断与单侧候选](integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/endpoint_audit_20260920/REPORT.md)。详细过程见研究交接；历史“下一步”不能直接当作当前任务。
+
+## 想了解项目，还是参与开发？
+
+| 你的目的 | 从这里开始 |
+|---|---|
+| 快速了解结果 | [项目进展](docs/research/PROJECT_STATUS.md) |
+| 找代码入口、建立开发分支 | [开发入门](docs/DEVELOPMENT.md) |
+| 提出方法、修改代码、协作实验 | [贡献说明](CONTRIBUTING.md) |
+| 复核运行配置与资产 | [运行手册](docs/research/03-ReBalance适配与运行.md)和对应实验回执 |
+| 理解已有尝试与失败 | [完整交接](docs/research/00-研究交接.md) |
+
+```bash
+git clone https://github.com/qlaxyy/srtp-final.git
+cd srtp-final
+git switch -c codex/your-topic
+```
+
+克隆即可阅读代码与记录；**并不包含全部运行资产或保证一条命令完成复现**。模型、完整隐藏状态和部分原始输出需要与维护者协调获取，并核验哈希。查看或开发文档无需GPU；不要为接手重新生成冻结的500题校准答案。
+
+## 代码地图
+
+```text
+integration/rebalance_easysteer/
+  scripts/                         校准、运行和结果核验
+  configs/                         冻结基线与实验配置
+  hybrid_syncthink_cgrs_20260912/    组合研究代码、协议与证据
+sources/EasySteer/vllm-steer/        含项目修改的推理引擎
+sources/ReBalance/                  上游参考源码与判分工具
+docs/research/                     进度、交接和操作手册
+env/                              已验证环境记录
+```
+
+main已合入B线研究代码；合入不表示每个实验都有效或已成为默认方法。复核历史实验使用其对应提交、资产与配置，不直接用最新main代替。冻结版本：`easysteer-rebalance-v2-final-20260909`、`easysteer-rebalance-l27-v1-20260917`。
+
+## 来源与使用边界
+
+本仓库是研究整合项目，不是上游官方实现。[上游来源与修改边界](docs/UPSTREAM.md)列明EasySteer、ReBalance等参考来源，各上游目录保留自身许可证。模型和数据另按原来源条款获取；不要将服务器凭据或大型私有资产提交到仓库。
