@@ -1,0 +1,15 @@
+{
+  "status": "CPU prepared, not evaluated",
+  "old_fit_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+  "endpoint_sha256": "77b03ea5408d4aea04ae611a97eb9fb47aae4eb326d5bedb3f1a3b3a8ca511ab",
+  "vector_sha256": "16b013c915da68ede877f4a43c2366f30ed3a2927c2b9b46997fd3e86effeae1",
+  "fit_sha256": "b9ebe278724054c2829013214b8bc296dbc15ba638ec110a8d94eca72c1a5ca2",
+  "raw_vector_norm": 76.52787285603401,
+  "old_vector_norm": 83.619140625,
+  "direct_half_step_norm": 38.263936428017004,
+  "no_norm_matching": true,
+  "new_fit": false,
+  "new_model_forward_count": 0,
+  "threshold_note": "Native O uses lexical OR c<q25; q75/q90 produce identical O. Old U and old runtime high anchor remain q75.",
+  "limitation": "Cross-distribution anchor; old curve retained to isolate endpoint update, not claimed optimal or refitted. Native collection execution differs."
+}

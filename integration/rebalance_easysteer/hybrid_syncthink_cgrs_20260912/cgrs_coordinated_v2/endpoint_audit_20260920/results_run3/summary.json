@@ -1,0 +1,204 @@
+{
+  "scope": "Training descriptive diagnostic; cap/wrong are proxies, not step labels; native collection differs in execution path.",
+  "new_answers": 0,
+  "model_forwards": 0,
+  "groups": {
+    "old": {
+      "trajectory_count": 500,
+      "capped_trajectories": 149,
+      "wrong_trajectories": 166,
+      "steps": 84008,
+      "endpoints": {
+        "O": {
+          "steps": 48251,
+          "questions": 500,
+          "from_capped": 37862,
+          "from_wrong": 38437,
+          "top10_steps": 5959,
+          "top10_questions": [
+            244,
+            51,
+            321,
+            303,
+            242,
+            459,
+            292,
+            7,
+            40,
+            289
+          ],
+          "top10_counts": [
+            797,
+            690,
+            641,
+            623,
+            561,
+            541,
+            534,
+            533,
+            521,
+            518
+          ],
+          "effective_questions": 168.61764778946716,
+          "mean_norm": 130.12027643415772,
+          "exclude_caps_mean_shift_norm": 60.54514199715503,
+          "question_equal_mean_shift_norm": 46.92478537270299,
+          "max_single_top_question_removal_shift_norm": 1.9778008262120879,
+          "paired_to_original_shorter_steps": 0
+        },
+        "U": {
+          "steps": 11309,
+          "questions": 283,
+          "from_capped": 10299,
+          "from_wrong": 10298,
+          "top10_steps": 3896,
+          "top10_questions": [
+            58,
+            99,
+            104,
+            77,
+            406,
+            465,
+            50,
+            398,
+            312,
+            116
+          ],
+          "top10_counts": [
+            885,
+            505,
+            430,
+            372,
+            330,
+            311,
+            305,
+            270,
+            249,
+            239
+          ],
+          "effective_questions": 45.95560404875495,
+          "mean_norm": 122.3914049777462,
+          "exclude_caps_mean_shift_norm": 74.77353475899864,
+          "question_equal_mean_shift_norm": 58.764260195997124,
+          "max_single_top_question_removal_shift_norm": 8.41916879331305,
+          "paired_to_original_shorter_steps": 0
+        }
+      },
+      "vector_norm": 83.61913616775803
+    },
+    "native_q90": {
+      "trajectory_count": 500,
+      "capped_trajectories": 88,
+      "wrong_trajectories": 131,
+      "steps": 50953,
+      "endpoints": {
+        "O": {
+          "steps": 22038,
+          "questions": 499,
+          "from_capped": 14246,
+          "from_wrong": 15994,
+          "top10_steps": 4056,
+          "top10_questions": [
+            396,
+            218,
+            484,
+            188,
+            157,
+            470,
+            335,
+            28,
+            54,
+            499
+          ],
+          "top10_counts": [
+            815,
+            445,
+            441,
+            390,
+            347,
+            345,
+            329,
+            319,
+            317,
+            308
+          ],
+          "effective_questions": 118.9809179155814,
+          "mean_norm": 122.65488572483699,
+          "exclude_caps_mean_shift_norm": 43.872176147467734,
+          "question_equal_mean_shift_norm": 41.22255246882425,
+          "max_single_top_question_removal_shift_norm": 3.229528059757273,
+          "paired_to_original_shorter_steps": 6155
+        },
+        "U": {
+          "steps": 4196,
+          "questions": 214,
+          "from_capped": 3582,
+          "from_wrong": 3809,
+          "top10_steps": 1965,
+          "top10_questions": [
+            465,
+            269,
+            169,
+            51,
+            331,
+            394,
+            440,
+            316,
+            416,
+            199
+          ],
+          "top10_counts": [
+            275,
+            267,
+            258,
+            228,
+            205,
+            182,
+            156,
+            147,
+            126,
+            121
+          ],
+          "effective_questions": 32.29871292505027,
+          "mean_norm": 123.66512931965572,
+          "exclude_caps_mean_shift_norm": 70.90694200610636,
+          "question_equal_mean_shift_norm": 62.05949873862478,
+          "max_single_top_question_removal_shift_norm": 8.34955659901409,
+          "paired_to_original_shorter_steps": 516
+        }
+      },
+      "vector_norm": 81.21159601296662
+    }
+  },
+  "inputs": {
+    "old": {
+      "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+      "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\layer_21.npy": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+      "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\auto_vector.pt": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+    },
+    "native_q90": {
+      "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\under_q90_20260920\\run1\\L27\\q90\\steps.json": "b07523fd41afaad9cf8a0724ada22785008ab9eb79e2fa3992c899d674822829",
+      "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\under_q90_20260920\\run1\\L27\\layer_21.npy": "6fea0f356304b8b586fb1c34a9ecf7f6dc494edff8cddf2951f846992b9ffc2a",
+      "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\under_q90_20260920\\assets\\L27\\q90\\fit.json": "3781ec5d78324731c65d5cb43d76578795fc4e67c75fea0db27772a1cd01661c",
+      "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\under_q90_20260920\\assets\\L27\\q90\\auto_vector.pt": "929a80d21ce349d93544a642f4e6857530c549aff269e3c42c925d37223d5fa0"
+    }
+  },
+  "geometry": {
+    "O_shift_norm": 33.22790719309998,
+    "U_shift_norm": 26.95798652884776,
+    "shift_cosine": -0.032184631248684495,
+    "vector_change_norm": 43.4567152708583,
+    "old_new_vector_cosine": 0.861380265129371,
+    "only_O_update": {
+      "norm": 76.52787285603401,
+      "cosine_to_old": 0.9176609039501226
+    },
+    "only_U_update": {
+      "norm": 87.5974239834506,
+      "cosine_to_old": 0.9514727888149392
+    }
+  },
+  "archive_sha256": "210462946624e2447ab13e7db9e9f9785b67edd4812a62403f04c02cbeeb2233",
+  "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+}

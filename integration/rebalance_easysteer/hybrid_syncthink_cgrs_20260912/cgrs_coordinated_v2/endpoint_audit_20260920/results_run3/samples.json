@@ -1,0 +1,290 @@
+[
+  {
+    "side": "O",
+    "step_index": 40552,
+    "step": {
+      "question": 396,
+      "start": 9064,
+      "stop": 9084,
+      "confidence": 0.9987881004810333,
+      "variance": 2.687658275934979e-07,
+      "lexical_hit": true
+    },
+    "label": {
+      "question": 396,
+      "problem_sha256": "7d0282d89f70551f863c4883f39c984a8dc17d7c551d699f8d0224089b1cd542",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 479,
+    "problem": "Let $N$ denote the number of permutations of the $15$-character string $AAAABBBBBCCCCCC$ such that\nNone of the first four letters is an $A$.\nNone of the next five letters is a $B$.\nNone of the last six letters is a $C$.\nFind the remainder when $N$ is divided by $1000$.\n",
+    "context": " I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I'm not sure.\n\nAlternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block.\n\nSo, perhaps I can think of it as a permutation with forbidden positions, and use the principle of inclusion-exclusion.\n\nBut I",
+    "step_text": "Alternatively, maybe I can model this as a problem of arranging the letters with certain constraints on each block"
+  },
+  {
+    "side": "O",
+    "step_index": 24244,
+    "step": {
+      "question": 218,
+      "start": 8618,
+      "stop": 8646,
+      "confidence": 0.9978580602577755,
+      "variance": 1.2687238156064382e-08,
+      "lexical_hit": true
+    },
+    "label": {
+      "question": 218,
+      "problem_sha256": "b80dce7d3682d70f88afb7e899e50e082f8987466f87bde1137dfd92a9498c8f",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 5234,
+    "problem": "Square $BCFE$ is inscribed in right triangle $AGD$, as shown below. If $AB = 28$ units and $CD = 58$ units, what is the area of square $BCFE$?\n\n[asy]\ndraw((9,15.6)--(10.7,14.6)--(11.7,16.3));\ndraw((0,0)--(10,17.3)--(40,0)--cycle);\ndraw((7,0)--(19,0)--(19,12.1)--(7,12.1)--cycle);\nlabel(\"$A$\",(0,0),SW);\nlabel(\"$B$\",(7,0),S);\nlabel(\"$C$\",(19,0),S);\nlabel(\"$D$\",(40,0),SE);\nlabel(\"$E$\",(7,12.1),NW);\nlabel(\"$F$\",(19,12.1),NE);\nlabel(\"$G$\",(10,17.3),N);\n[/asy]",
+    "context": " extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD.\n\nSo, in this case, the square is placed with BC on AD, but the square is not placed with BC as a side but rather, BC is a side of the square.\n\nSo, in this case, the square is placed",
+    "step_text": "So, in this case, the square is placed with BC on AD, but the square extends upward to E and F on AG and GD"
+  },
+  {
+    "side": "O",
+    "step_index": 25476,
+    "step": {
+      "question": 237,
+      "start": 8817,
+      "stop": 8901,
+      "confidence": 0.9927453363225573,
+      "variance": 1.242315581254882e-06,
+      "lexical_hit": true
+    },
+    "label": {
+      "question": 237,
+      "problem_sha256": "1eb81e39ff3e3c7635eb9e61d0462d0260130c425353339e493cda54f9d8425c",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 2519,
+    "problem": "If the digit represented by $\\triangle$ satisfies the following addition problem $$ \\begin{array}{c@{}c@{\\;}c@{}c@{}c@{}c} & & 3 & 2 & 1 & \\triangle_6\\\\ & & & \\triangle & 4 & 0_6\\\\ &+ & & & \\triangle & 2_6\\\\ \\cline{2-6} & & 4 & 2 & \\triangle & 1_6\\\\ \\end{array} $$what is the value of $\\triangle$?",
+    "context": ", but that leads to Column 2 being invalid.\n\nThus, the only way is to have △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid.\n\nTherefore, the only possible solution is △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid.\n\nThus, the only way is to have △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid.\n\nTherefore, the only possible solution is △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid.\n\nThus, the only way is to have △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid.\n\nTherefore, the only possible solution is △ =",
+    "step_text": "Thus, the only way is to have △ = 5, but with a carryover of 1 from Column 4, but that would require 3 + 1 = 4, which is correct, but then Column 3 would have 2 + 0 + 0 + 1 = 3, which would require △ = 3, but that leads to Column 2 being invalid"
+  },
+  {
+    "side": "O",
+    "step_index": 50536,
+    "step": {
+      "question": 499,
+      "start": 4917,
+      "stop": 4922,
+      "confidence": 0.6658940136432647,
+      "variance": 0.025815599626630933,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 499,
+      "problem_sha256": "d70fc0f0b9edbd0b0d24f11324761b3eccb238a8595cafd95a934ae18fc6fbb0",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 5631,
+    "problem": "A circle of radius $r$ has chords $\\overline{AB}$ of length $10$ and $\\overline{CD}$ of length 7. When $\\overline{AB}$ and $\\overline{CD}$ are extended through $B$ and $C$, respectively, they intersect at $P$, which is outside of the circle. If $\\angle{APD}=60^\\circ$ and $BP=8$, then $r^2=$\n$\\text{(A) } 70\\quad \\text{(B) } 71\\quad \\text{(C) } 72\\quad \\text{(D) } 73\\quad \\text{(E) } 74$\n",
+    "context": "Simplify:\n\n(81 +243 -256) + (-18h +32h) + (-18√3 k) + (h² -h²) + (k² -k²) = 0\n\nWhich is:\n\n(168) + (14h) + (-18√3 k) = 0\n\nSo, 14h -18√3 k = -168\n\nDivide by 2: 7h -9√3 k = -84\n\nThat's correct.\n\nThen, the perpendicular bisector of AD: midpoint M is (25/2, (9√3)/2), slope is 7/(9√3)\n\nEquation: y - (9√3)/2 = (7)/(9√3)(x -25/2)\n\nSo, that's correct.\n\nExpressing k in terms of h:\n\nk = (7)/(9√3)(h -25/2) + (9√3)/2\n\nCompute:\n\nk = [7(h -25/2)]/(9√3) + (9√3)/2\n\n= [7h - 175/2]/(9√3) + (9√3)/2\n\nConvert both terms to have denominator 18√3:\n\nFirst term: [7h -175/2] * 2 / (18√3) = (14h -175)/18√3\n\nSecond term: (9√3)/2 * 9√3 / (9√3) = (81 * 3)/ (18√3) = 243/(18√3)\n\nSo",
+    "step_text": "So, that's correct"
+  },
+  {
+    "side": "O",
+    "step_index": 2788,
+    "step": {
+      "question": 17,
+      "start": 1893,
+      "stop": 1967,
+      "confidence": 0.7948641297785012,
+      "variance": 7.72931033889643e-05,
+      "lexical_hit": true
+    },
+    "label": {
+      "question": 17,
+      "problem_sha256": "a82a48254689da4642d4b3857d7cbf7bbdaa7ac7e717e04960dfd2e979e2e94d",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 260,
+    "problem": "Henry's little brother has $8$ identical stickers and $4$ identical sheets of paper. How many ways are there for him to put all of the stickers on the sheets of paper, if only the number of stickers on each sheet matters?",
+    "context": " but in the problem, the sheets are identical, so 5, 2, 1 is the same as 2, 5, 1, so we have to count each unique combination only once. So, yes, 13 is the correct number.\n\nBut wait, hold on, I think I might have made a mistake here. Because in the problem, the sheets are identical, so the order doesn't matter, but the counts on each sheet can be in any order. So, for example, 5, 2, 1 is the same as 2, 5, 1, so we have to count each unique combination only once.\n\nSo, in that case, the number of ways is equal to the number of integer partitions of 8 into at most 4 parts, which is 13. So, is that the answer? Hmm.\n\nWait, but let me think again. Wait, in the problem, the sheets are identical, so the order doesn't matter, but the counts on each sheet can be in any order. So, for example, 5, 2, 1 is the same as 2, 5, 1, so we have to count each unique combination only once.\n\nSo, that would mean that the number of ways is equal to the number of integer partitions of 8 into at most 4 parts, which is 13. So, is that the answer? Hmm.\n\nWait, but let me think about another way. Maybe using the stars and bars formula. Wait, but stars and bars is for identical items into distinct containers, but in this case, the containers are identical. So, stars and bars might not directly apply here.\n\nSo, perhaps, the correct approach is to use integer partitions. So, the number of ways is equal to the number of integer partitions of 8 into at most 4 parts, which is 13.\n\nBut wait, let me check with another method. Maybe using generating functions.\n\nThe generating function for distributing identical items into identical containers is given by the sum of x^k where k is the number of",
+    "step_text": "Wait, but let me think again. Wait, in the problem, the sheets are identical, so the order doesn't matter, but the counts on each sheet can be in any order. So, for example, 5, 2, 1 is the same as 2, 5, 1, so we have to count each unique combination only once"
+  },
+  {
+    "side": "O",
+    "step_index": 5155,
+    "step": {
+      "question": 30,
+      "start": 231,
+      "stop": 335,
+      "confidence": 0.7358756677175944,
+      "variance": 0.0010828660301163183,
+      "lexical_hit": true
+    },
+    "label": {
+      "question": 30,
+      "problem_sha256": "6b16594ccd443e8ffbed2f5d3eeed209b1b35cc2d02a053f6507488914b41442",
+      "correct": true,
+      "tokens": 1031,
+      "thinking_tokens": 887,
+      "capped": false
+    },
+    "train_index": 4464,
+    "problem": "Chandra has four bowls.  Each one is a different color (red, blue, yellow, green).  She also has exactly one glass the same color as each bowl.  If she chooses a bowl and a glass from the cupboard, how many pairings are possible?  One such pairing is a blue bowl and a yellow glass.",
+    "context": " is asking how many different pairings are possible. \n\nHmm, let me think. So, each bowl can be paired with any of the glasses, right? Since there are four bowls and four glasses, maybe it's just 4 times 4? That would be 16 possible pairings. But wait, is that correct? Because each bowl is a different color, and each glass is the same color as one of the bowls. So, does that mean that pairing a bowl with a glass of the same color is not allowed? Or is it allowed?\n\nThe problem doesn't specify any restrictions on the pairings. It just says she chooses a bowl and a glass. So, I think it's safe to assume that any bowl can be paired with any glass, regardless of color. So, that would mean 4 bowls times 4 glasses equals 16 possible pairings.\n\nBut let me double-check. If each bowl is a different color, and each glass is the same color as one of the bowls, does that mean that each glass is only one color? So, for example, the red glass is only for the red bowl, the blue glass is only for the blue bowl, and so on. So, in that case, pairing a bowl with a glass of the same color would be a specific pairing, but pairing a bowl with a glass of a different color would be another pairing.\n\nSo, in that case, how many pairings are there? Let's see. For each bowl, there are three other glasses that are not the same color. So, for each bowl, 3 pairings. Since there are four bowls, that would be 4 times 3, which is 12. But wait, that doesn't make sense because if each bowl can pair with three different glasses, that would be 12 pairings, but earlier I thought it was 16.\n\nHmm, maybe I'm confusing something here. Let me think again. If each bowl can be paired with any of the four glasses, regardless of color, then it's 4 times 4, which is 16. But if each glass is only one color, and each bowl is a different color, then pairing a bowl with a glass of a different color is allowed",
+    "step_text": "But let me double-check. If each bowl is a different color, and each glass is the same color as one of the bowls, does that mean that each glass is only one color? So, for example, the red glass is only for the red bowl, the blue glass is only for the blue bowl, and so on. So, in that case, pairing a bowl with a glass of the same color would be a specific pairing, but pairing a bowl with a glass of a different color would be another pairing"
+  },
+  {
+    "side": "U",
+    "step_index": 46987,
+    "step": {
+      "question": 465,
+      "start": 9932,
+      "stop": 9967,
+      "confidence": 0.9998195699283055,
+      "variance": 5.150948343674137e-09,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 465,
+      "problem_sha256": "8c85bdd59472596c687aefaaca61bf79a2b8014089fde4c8734b8a7a6c35da00",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 563,
+    "problem": "Jeremy made a Venn diagram showing the number of students in his class who own types of pets. There are 32 students in his class. In addition to the information in the Venn diagram, Jeremy knows half of the students have a dog, $\\frac{3}{8}$ have a cat, six have some other pet and five have no pet at all. How many students have all three types of pets (i.e. they have a cat and a dog as well as some other pet)? [asy]unitsize(50);\nimport graph;\npair A = (0,-1); pair B = (sqrt(3)/2,1/2); pair C = (-sqrt(3)/2,1/2);\ndraw(Circle(A,1.2) ^^ Circle(B,1.2) ^^ Circle(C,1.2));\nlabel(\"10\",A); label(\"2\",B); label(\"9\",C); label(\"$z$\",(0,0)); label(\"$w$\",(B+C)/2); label(\"$y$\",(A+B)/2); label(\"$x$\",(A+C)/2);\nlabel(\"Cats\",1.5C,C); label(\"Other Pets\",2B,C); label(\"Dogs\", 1.7A,A);[/asy]",
+    "context": " + C + O = 34 - 2a - 2b - 2c\n\nAnd the number of students with exactly two pets is a + b + c\n\nAnd the number of students with exactly three pets is x\n\nSo, the total number of students is 34 - 2a - 2b - 2c + a + b + c + x = 27\n\nWhich is 34 - a - b - c + x = 27\n\nWhich is the same as before.\n\nWe need another equation.\n\nWe can think about the number of students with exactly one pet, which is D + C + O = 34 - 2a - 2b - 2c\n\nAnd the number of students with exactly two pets is a + b + c\n\nAnd the number of students with exactly three pets is x\n\nSo, the total number of students is 34 - 2a - 2b - 2c + a + b + c + x = 27\n\nWhich is 34 - a - b - c + x = 27\n\nWhich is the same as before.\n\nWe need another equation.\n\nWe can think about the number of students with exactly one pet, which is D + C + O = 34 - 2a - 2b - 2c\n\nAnd the number of students with exactly two pets is a + b + c\n\nAnd the number of students with exactly three pets is x\n\nSo, the total number of students is 34 - 2a - 2b - 2c + a + b + c + x = 27\n\nWhich is 34 - a - b - c + x = 27\n\nWhich is the same as before.\n\nWe need another equation.\n\nWe can think about the number of students with exactly one pet, which is D + C",
+    "step_text": "So, the total number of students is 34 - 2a - 2b - 2c + a + b + c + x = 27"
+  },
+  {
+    "side": "U",
+    "step_index": 28140,
+    "step": {
+      "question": 269,
+      "start": 7480,
+      "stop": 7506,
+      "confidence": 0.9999563625225654,
+      "variance": 4.231852976162033e-10,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 269,
+      "problem_sha256": "0b956faf019ce44f6bc59cab33c7c150f0e1622bfb71c87909abcef2991d7905",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 2553,
+    "problem": "There is a prime number which is a factor of every sum of three  consecutive integers. What is the number?",
+    "context": " Divisible by 2, 3.\n\n256, 257, 258. Sum is 771. Divisible by 3.\n\n257, 258, 259. Sum is 774. Divisible by 2, 3.\n\n258, 259, 260. Sum is 777. Divisible by 3.\n\n259, 260, 261. Sum is 780. Divisible by 2, 3.\n\n260, 261, 262. Sum is 783. Divisible by 3.\n\n261, 262, 263. Sum is 786. Divisible by 2, 3.\n\n262, 263, 264. Sum is 789. Divisible by 3.\n\n263, 264, 265. Sum is 792. Divisible by 2, 3.\n\n264, 265, 266. Sum is 795. Divisible by 3.\n\n265, 266, 267. Sum is 798. Divisible by 2, 3.\n\n266, 267, 268. Sum is 801. Divisible by 3.\n\n267, 268, 269. Sum is 804. Divisible by 2, 3.\n\n268, 269, 270. Sum is 807. Divisible by 3.\n\n269, 270",
+    "step_text": "262, 263, 264. Sum is 789. Divisible by 3"
+  },
+  {
+    "side": "U",
+    "step_index": 32519,
+    "step": {
+      "question": 316,
+      "start": 13825,
+      "stop": 13869,
+      "confidence": 0.9997534386136315,
+      "variance": 1.6521770732983638e-09,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 316,
+      "problem_sha256": "abad55299e9a502f0d918a534bf29e85848e306df97855f90f762cd75562cd18",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 3334,
+    "problem": "Find the matrix $\\mathbf{M},$ with real entries, such that\n\\[\\mathbf{M}^3 - 4 \\mathbf{M}^2 + 5 \\mathbf{M} = \\begin{pmatrix} 10 & 20 \\\\ 5 & 10 \\end{pmatrix}.\\]",
+    "context": "stitute d=0 into A: 0=1, which is impossible.\n\nSo, no solution.\n\nSo, perhaps M is a different matrix. Maybe M is a matrix that is a linear combination of the identity matrix and A, but with different coefficients.\n\nSo, M = cI + dA.\n\nCompute M³ -4M² +5M.\n\nAs before, M² = c²I + 2cdA + d²A²\n\nM³ = c³I + 3c²dA + 3cd²A² + d³A³\n\nSo, M³ -4M² +5M = (c³ -4c² +5c)I + (3c²d -8cd +5d)A + (3cd² -4d²)A² + d³A³\n\nSet equal to A:\n\n(c³ -4c² +5c)I + (3c²d -8cd +5d)A + (3cd² -4d²)A² + d³A³ = A\n\nSo, equate coefficients:\n\nI: c³ -4c² +5c =0\n\nA: 3c²d -8cd +5d =1\n\nA²: 3cd² -4d²=0\n\nA³: d³=0\n\nFrom A³: d=0\n\nSubstitute d=0 into A: 0=1, which is impossible.\n\nSo, no solution.\n\nSo, perhaps M is a different matrix. Maybe M is a matrix that is a linear combination of the identity matrix and A, but with different coefficients.\n\nSo, M = cI + dA.\n\nCompute M³ -4M² +5M.\n\nAs before, M² = c²I + 2cdA + d²A²\n\nM³ = c³I + 3c²dA + 3cd²A",
+    "step_text": "(c³ -4c² +5c)I + (3c²d -8cd +5d)A + (3cd² -4d²)A² + d³A³ = A"
+  },
+  {
+    "side": "U",
+    "step_index": 3800,
+    "step": {
+      "question": 22,
+      "start": 9948,
+      "stop": 9954,
+      "confidence": 0.9999567766984304,
+      "variance": 1.688775182312857e-07,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 22,
+      "problem_sha256": "4c456042f5dd4afbda4db0b9e1a2aad13856fcc791d89144e1a066195e773dce",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 4139,
+    "problem": "In the diagram shown, $\\overrightarrow{OA}\\perp\\overrightarrow{OC}$ and $\\overrightarrow{OB}\\perp\\overrightarrow{OD}$. If $\\angle{AOD}$ is 3.5 times $\\angle{BOC}$, what is $\\angle{AOD}$? [asy]\nunitsize(1.5cm);\ndefaultpen(linewidth(.7pt)+fontsize(10pt));\ndotfactor=4;\n\npair O=(0,0), A=dir(0), B=dir(50), C=dir(90), D=dir(140);\npair[] dots={O,A,B,C,D};\n\ndot(dots);\ndraw(O--1.2*D,EndArrow(4));\ndraw(O--1.2*B,EndArrow(4));\ndraw(O--1.2*C,EndArrow(4));\ndraw(O--1.2*A,EndArrow(4));\n\nlabel(\"$D$\",D,SW);\nlabel(\"$C$\",C,W);\nlabel(\"$B$\",B,E);\nlabel(\"$A$\",A,N);\nlabel(\"$O$\",O,S);\n[/asy]",
+    "context": " 140 degrees, which is 3.5 times 40 degrees.\n\nWait, but let me think again. Maybe I can approach it without relying on the specific coordinates.\n\nLet me denote angle BOC as x. Then, angle AOD is 3.5x.\n\nWe know that OA is perpendicular to OC, so angle AOC is 90 degrees. Similarly, OB is perpendicular to OD, so angle BOD is 90 degrees.\n\nNow, let's consider the angles around point O. Starting from OA, going to OB, then to OC, then to OD, and back to OA.\n\nSo, the angles are: angle AOB, angle BOC, angle COD, and angle DOA.\n\nWe can express these angles in terms of x.\n\nAngle AOB is the angle between OA and OB, which is some value, say y degrees.\n\nAngle BOC is x degrees.\n\nAngle COD is the angle between OC and OD, which is some value, say z degrees.\n\nAngle DOA is the angle between OD and OA, which is some value, say w degrees.\n\nSo, we have y + x + z + w = 360 degrees.\n\nWe also know that angle AOC is 90 degrees, which is the angle between OA and OC. Since OA is at 0 degrees and OC is at 90 degrees, the angle between OA and OC is 90 degrees. So, that's consistent.\n\nSimilarly, angle BOD is 90 degrees, which is the angle between OB and OD. So, OB is at some angle, say, a degrees, and OD is at 90 + a degrees, so the angle between OB and OD is 90 degrees.\n\nWait, maybe I can express y, z",
+    "step_text": "Angle BOC is x degrees"
+  },
+  {
+    "side": "U",
+    "step_index": 19217,
+    "step": {
+      "question": 169,
+      "start": 6398,
+      "stop": 6431,
+      "confidence": 0.9997687177224592,
+      "variance": 1.26985832989223e-07,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 169,
+      "problem_sha256": "87e95fbf3baf796fc4ac0be1b999ea0398f0ba7b7c73c07c8d353010ba22a134",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 898,
+    "problem": "Let $Q(x)=a_0+a_1x+\\dots+a_nx^n$ be a polynomial with integer coefficients, and $0\\le a_i<3$ for all $0\\le i\\le n$.\n\nGiven that $Q(\\sqrt{3})=20+17\\sqrt{3}$, compute $Q(2)$.",
+    "context": "_4=1 gives 9, so 3a_3 +9a_5=8, which is impossible.\n\na_4=2 gives 18, so 3a_3 +9a_5= -1, which is impossible.\n\nSo, that's a problem.\n\nSo, perhaps my initial assumption about a_5 is wrong.\n\na_5=1 gives 9, which is too much.\n\na_5=0 gives 0, which is too little.\n\na_5=2 gives 18, which is too much.\n\nSo, that's a problem.\n\nSo, perhaps I need to adjust a_3.\n\na_3=2 gives 6, so 3a_3 +9a_5=6 +9a_5=17 =>9a_5=11, which is not possible.\n\na_3=1 gives 3, so 3 +9a_5=17 =>9a_5=14, which is not possible.\n\na_3=0 gives 0, so 0 +9a_5=17 =>9a_5=17, which is not possible.\n\nSo, that's a problem.\n\nSo, perhaps my initial assumption about a_5 is wrong.\n\na_5=1 gives 9, which is too much.\n\na_5=0 gives 0, which is too little.\n\na_5=2 gives 18, which is too much.\n\nSo, that's a problem.\n\nSo, perhaps I need to adjust a_4.\n\na_4=2 gives 18, which is too much.\n\na_4=1 gives 9, which is too much.\n\na_4=0 gives 0, which is too little.\n\nSo, that's a problem.\n\na_4=0 gives 0, so 3a_",
+    "step_text": "a_3=1 gives 3, so 3 +9a_5=17 =>9a_5=14, which is not possible"
+  },
+  {
+    "side": "U",
+    "step_index": 41722,
+    "step": {
+      "question": 414,
+      "start": 15350,
+      "stop": 15358,
+      "confidence": 0.9998791888356209,
+      "variance": 1.3989639157275207e-08,
+      "lexical_hit": false
+    },
+    "label": {
+      "question": 414,
+      "problem_sha256": "78dd24414c3601b3d731748c2ebefaa5e11a7d5183e47eb0edab5040edea506a",
+      "correct": false,
+      "tokens": 16000,
+      "thinking_tokens": 16000,
+      "capped": true
+    },
+    "train_index": 6974,
+    "problem": "How many positive integers $n$ less than 100 have a corresponding integer $m$ divisible by 3 such that the roots of $x^2-nx+m=0$ are consecutive positive integers?",
+    "context": ". If \\( k = 0 \\), the roots are 0 and 1, but 0 is not positive, so \\( k \\) must be at least 1. So, \\( k \\) is 1, 2, ..., 49, giving \\( n = 3, 5, ..., 99 \\). So, 49 terms.\n\nTherefore, the answer is 49.\n\nBut wait, let me think about whether \\( k \\) can be zero. If \\( k = 0 \\), the roots are 0 and 1, but 0 is not positive, so \\( k \\) must be at least 1. So, \\( k \\) is 1, 2, ..., 49, giving \\( n = 3, 5, ..., 99 \\). So, 49 terms.\n\nTherefore, the answer is 49.\n\nBut wait, let me think about whether \\( k \\) can be zero. If \\( k = 0 \\), the roots are 0 and 1, but 0 is not positive, so \\( k \\) must be at least 1. So, \\( k \\) is 1, 2, ..., 49, giving \\( n = 3, 5, ..., 99 \\). So, 49 terms.\n\nTherefore, the answer is 49.\n\nBut wait, let me think about whether \\( k \\) can be zero. If \\( k = 0 \\), the roots are 0 and 1, but 0 is not positive, so \\( k \\) must be at least 1. So, \\( k \\) is 1, 2, ..., 49, giving \\( n = 3,",
+    "step_text": "Therefore, the answer is 49"
+  }
+]
