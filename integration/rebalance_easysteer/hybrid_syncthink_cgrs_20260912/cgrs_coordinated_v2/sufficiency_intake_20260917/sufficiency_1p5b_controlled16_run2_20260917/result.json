@@ -1,0 +1,303 @@
+{
+  "rows": [
+    {
+      "case_id": "4972_incomplete",
+      "category": "incomplete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4972_incorrect_complete",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4972_correct_complete",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4972_mismatched",
+      "category": "mismatched",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "3497_incomplete",
+      "category": "incomplete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "3497_incorrect_complete",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "3497_correct_complete",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "3497_mismatched",
+      "category": "mismatched",
+      "expected_stop": false,
+      "text": "0\n\n**Step-by-Step Explanation",
+      "score": null,
+      "token_ids": [
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12,
+        8304,
+        71287
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "1483_incomplete",
+      "category": "incomplete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "1483_incorrect_complete",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "1483_correct_complete",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "1483_mismatched",
+      "category": "mismatched",
+      "expected_stop": false,
+      "text": "0\n\n**Step-by-Step Explanation",
+      "score": null,
+      "token_ids": [
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12,
+        8304,
+        71287
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4432_incomplete",
+      "category": "incomplete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4432_incorrect_complete",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4432_correct_complete",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    },
+    {
+      "case_id": "4432_mismatched",
+      "category": "mismatched",
+      "expected_stop": false,
+      "text": "100\n\n**Step-by-",
+      "score": null,
+      "token_ids": [
+        16,
+        15,
+        15,
+        271,
+        334,
+        8304,
+        14319,
+        12
+      ],
+      "finish_reason": "length"
+    }
+  ],
+  "all_parse": false,
+  "unsafe_full_scores": [],
+  "correct_complete_full_scores": 0,
+  "passes": false,
+  "total_generated_tokens": 128,
+  "startup_seconds": 27.687527760863304,
+  "generation_seconds": 0.23130197823047638,
+  "wall_seconds": 27.918870881199837,
+  "plan_sha256": "ca1e8dd2002155bba385cadfaef5f67f6135eab99d3a584a14edff3b326b8012",
+  "runner_sha256": "ea1ea11e055b04fe9b844f6b09e8549a30887bd49db548cc429390fcf205e4bb",
+  "scope": "Synthetic scoring sanity; not compression or natural-prefix evaluation; scores are uncalibrated model outputs."
+}

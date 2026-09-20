@@ -1,0 +1,42 @@
+{
+  "status": "Predeclared equal-source weighting diagnostic only; not a trained or validated replacement",
+  "groups": {
+    "fit:U": {
+      "n": 32,
+      "positive": 4,
+      "negative": 28,
+      "median": -0.12000363869989088
+    },
+    "fit:L27": {
+      "n": 144,
+      "positive": 144,
+      "negative": 0,
+      "median": 0.41538000525529417
+    },
+    "development_check:U": {
+      "n": 8,
+      "positive": 1,
+      "negative": 7,
+      "median": -0.09312004373101354
+    },
+    "development_check:L27": {
+      "n": 37,
+      "positive": 37,
+      "negative": 0,
+      "median": 0.40558508134612864
+    },
+    "correctness_guard_only:U": {
+      "n": 4,
+      "positive": 0,
+      "negative": 4,
+      "median": -2.9207327680081794
+    },
+    "correctness_guard_only:L27": {
+      "n": 1,
+      "positive": 1,
+      "negative": 0,
+      "median": 0.8104252535035034
+    }
+  },
+  "decision": "Do not advance pooled direction; no benchmark or optimization"
+}

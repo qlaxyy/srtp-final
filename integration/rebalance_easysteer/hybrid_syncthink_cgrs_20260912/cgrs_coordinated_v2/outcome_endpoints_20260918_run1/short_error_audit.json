@@ -1,0 +1,97 @@
+{
+  "scope": "All8 CW candidate pairs, audited before B benchmark; frozen scoring unchanged; no claims of causal underthinking",
+  "excluded": [
+    67,
+    262,
+    284
+  ],
+  "remaining": [
+    285,
+    348,
+    395,
+    486,
+    494
+  ],
+  "rows": [
+    {
+      "question": 67,
+      "train_index": 4522,
+      "problem_sha256": "baa6bc12b2fd87a819e70e12c9a9db3608eddfd0c3d9f463623a4cb3f7a824b2",
+      "text_sha256": "9b8a3a8b443414a6e9acf4d7f84dc59e5cb270364bbcc72204a3ac3081916d7b",
+      "author_extracted_answer": "",
+      "gold": "96^\\circ",
+      "exclude": true,
+      "review": "Final96 degrees is correct:540-(128+92+113+111)=96. No boxed expression -> parser returns empty."
+    },
+    {
+      "question": 262,
+      "train_index": 1735,
+      "problem_sha256": "907c43d24656ced6379a7767047c4c02b2713f88550feccc3d5275b4d8a92951",
+      "text_sha256": "896ab808ba7b8e76fe043f9bc61dff1e50db8939318b4dd06de37b896641a5c9",
+      "author_extracted_answer": "3",
+      "gold": "-1,3,3",
+      "exclude": true,
+      "review": "Roots -1,3,3 are correctly listed in separate boxes. Parser selects only last3; (x+1)(x-3)^2 is correct."
+    },
+    {
+      "question": 284,
+      "train_index": 4537,
+      "problem_sha256": "52076ad9153cf3d200b3af9c17ed9b3dce6ce102b4ab5f643b096f9fea51597e",
+      "text_sha256": "08f52e9085edfa466516e5ffd867cb3942dbb9d161d53692bb1fec00ef6381a8",
+      "author_extracted_answer": "",
+      "gold": "30",
+      "exclude": true,
+      "review": "Final30 outfits is correct:6*5=30. No boxed expression -> parser returns empty."
+    },
+    {
+      "question": 285,
+      "train_index": 1885,
+      "problem_sha256": "76b0eb22981ba4f93fb052b4b581b913ccad67af243098b8311e0fc7f49c4ed7",
+      "text_sha256": "72b0a94120681eaa92d32f00ce64171e0b0616b21b0b3bdfeb317763bff29a42",
+      "author_extracted_answer": "4\\sqrt{5}",
+      "gold": "6",
+      "exclude": false,
+      "review": "Final4sqrt5 differs from correct6; incorrect geometric reflection argument."
+    },
+    {
+      "question": 348,
+      "train_index": 2046,
+      "problem_sha256": "0f2b351add6ec6e7ea1385e20124ec9b9cc428395fb3b66acf31c8de09ea5e19",
+      "text_sha256": "81377391fd07e63d776e6d9bc9bdea9ee31acef7bfa213352ff9efb378da0e25",
+      "author_extracted_answer": "38",
+      "gold": "722",
+      "exclude": false,
+      "review": "Final38 differs from correct722; wrong summation expression for B."
+    },
+    {
+      "question": 395,
+      "train_index": 1783,
+      "problem_sha256": "6b13063379b0c6075b6d9f2e03bd8bd1ebef2cfded42aa39aab51188da22881a",
+      "text_sha256": "dd61240faddcfdb2d20f41a717c6b43aaa0e15bb77fd339c9b6d54a4a1804a23",
+      "author_extracted_answer": "\\dfrac{2}{3}",
+      "gold": "\\frac{4}{3}",
+      "exclude": false,
+      "review": "Final2/3 differs from correct4/3; algebra/evaluation error."
+    },
+    {
+      "question": 486,
+      "train_index": 7193,
+      "problem_sha256": "cd9da9d211f16f34c40cfdfab9daca0e0be991f46b0a5092ba948a71e62d7c38",
+      "text_sha256": "10d266a0811462f598f6d761fecf40569d83bee03de9e26b08bc1b597aa63da7",
+      "author_extracted_answer": "24",
+      "gold": "12",
+      "exclude": false,
+      "review": "Final24 differs from correct12; treats another3000 as6000 during school year."
+    },
+    {
+      "question": 494,
+      "train_index": 4954,
+      "problem_sha256": "918be54b40fd482504065723d0632a4c0c36da8c3a90081e0c32552253eac70f",
+      "text_sha256": "d52959c50bf590eb7080f87d5178394e4d8d245387fd6896ffb6fdde15a90075",
+      "author_extracted_answer": "1600",
+      "gold": "400",
+      "exclude": false,
+      "review": "Final1600 differs from correct400; wrong circumradius/area factor."
+    }
+  ]
+}

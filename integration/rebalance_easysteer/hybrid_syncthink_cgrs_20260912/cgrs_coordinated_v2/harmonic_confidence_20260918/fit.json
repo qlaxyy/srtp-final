@@ -1,0 +1,27 @@
+{
+  "version": "harmonic-controller-v1",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.8260688327558481,
+    "q75c": 0.9988991590551456,
+    "q25v": 2.4535104236083675e-07,
+    "q75v": 0.0029721234319003242,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.0015923723695169623
+  },
+  "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "vector_norm": 83.61913299560547,
+  "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "positives": 48251,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "r2": 0.6577421426773071
+  },
+  "method": "ATAR harmonic aggregation inspired adaptation of raw maximum probabilities. Frozen arithmetic-labelled raw vector/layer/amplitudes; recalibrated signal quantiles and feasible tau. Not official ATAR or CGRS."
+}

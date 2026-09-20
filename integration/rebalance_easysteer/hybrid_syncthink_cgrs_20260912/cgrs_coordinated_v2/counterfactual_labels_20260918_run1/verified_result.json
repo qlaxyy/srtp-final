@@ -1,0 +1,246 @@
+{
+  "archive_sha256": "479dc20cc6ff0fcf7b0bdd8d07c048430aaf545c587775e75adebf2207c28bc5",
+  "local_checks_passed": true,
+  "counts": {
+    "apply_shorter_both_correct": 3,
+    "apply_only_correct": 1,
+    "inconclusive": 3,
+    "skip_shorter_both_correct": 1
+  },
+  "summaries": {
+    "apply_a": {
+      "correct": 6,
+      "total": 27820,
+      "thinking": 24876,
+      "caps": 0
+    },
+    "skip": {
+      "correct": 4,
+      "total": 44175,
+      "thinking": 41106,
+      "caps": 1
+    }
+  },
+  "rows": [
+    {
+      "train_index": 647,
+      "problem_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "4",
+          "gold": "4",
+          "total": 2287,
+          "thinking": 2031,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": true,
+          "prediction": "4",
+          "gold": "4",
+          "total": 2443,
+          "thinking": 2177,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "train_index": 1837,
+      "problem_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "42",
+          "gold": "42",
+          "total": 2693,
+          "thinking": 2090,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": false,
+          "prediction": "30",
+          "gold": "42",
+          "total": 3025,
+          "thinking": 2425,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "apply_only_correct"
+    },
+    {
+      "train_index": 4972,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "-1",
+          "gold": "-1",
+          "total": 1287,
+          "thinking": 1082,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": true,
+          "prediction": "-1",
+          "gold": "-1",
+          "total": 2823,
+          "thinking": 2429,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "train_index": 1441,
+      "problem_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "720",
+          "gold": "720",
+          "total": 7318,
+          "thinking": 6827,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": false,
+          "prediction": "",
+          "gold": "720",
+          "total": 16000,
+          "thinking": 16000,
+          "finish_reason": "length",
+          "closed": false
+        }
+      },
+      "label": "inconclusive"
+    },
+    {
+      "train_index": 4432,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "arms": {
+        "apply_a": {
+          "correct": false,
+          "prediction": "200",
+          "gold": "340",
+          "total": 4230,
+          "thinking": 3852,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": false,
+          "prediction": "260",
+          "gold": "340",
+          "total": 8770,
+          "thinking": 8236,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "inconclusive"
+    },
+    {
+      "train_index": 3497,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "-\\dfrac{\\sqrt{3}}{3}",
+          "gold": "-\\frac{\\sqrt{3}}{3}",
+          "total": 1471,
+          "thinking": 1200,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": true,
+          "prediction": "-\\dfrac{\\sqrt{3}}{3}",
+          "gold": "-\\frac{\\sqrt{3}}{3}",
+          "total": 1818,
+          "thinking": 1549,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "apply_shorter_both_correct"
+    },
+    {
+      "train_index": 1483,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "arms": {
+        "apply_a": {
+          "correct": true,
+          "prediction": "\\dfrac{5}{2}",
+          "gold": "\\frac{5}{2}",
+          "total": 3642,
+          "thinking": 3331,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": true,
+          "prediction": "\\dfrac{5}{2}",
+          "gold": "\\frac{5}{2}",
+          "total": 2682,
+          "thinking": 2130,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "skip_shorter_both_correct"
+    },
+    {
+      "train_index": 229,
+      "problem_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
+      "arms": {
+        "apply_a": {
+          "correct": false,
+          "prediction": "2",
+          "gold": "8",
+          "total": 4892,
+          "thinking": 4463,
+          "finish_reason": "stop",
+          "closed": true
+        },
+        "skip": {
+          "correct": false,
+          "prediction": "1",
+          "gold": "8",
+          "total": 6614,
+          "thinking": 6160,
+          "finish_reason": "stop",
+          "closed": true
+        }
+      },
+      "label": "inconclusive"
+    }
+  ],
+  "completion": {
+    "passed": true,
+    "phase": "action_labels",
+    "cases": 8,
+    "outputs": 16,
+    "new_tokens": 70719,
+    "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "release_sha256": "d6e9c9253a858804fca4f9ec7b2697efa6bcec850f738a2ee7b199d79d9c0196",
+    "startup_seconds": 38.222764641046524,
+    "arm_seconds": {
+      "apply_a": 67.54938331246376,
+      "skip": 153.35080534219742
+    },
+    "wall_seconds": 260.70703034102917,
+    "fork_replay_validated": true,
+    "efficacy_test": false
+  },
+  "grading_seconds": 0.08303244411945343,
+  "decision": "Five directional labels among eight early negative-action states are insufficient for a new vector. No positive-state coverage or original calibration feature alignment. Do not fit or automatically enlarge this label-collection pilot.",
+  "correctness_source": "Frozen author parser/grader labels verified against saved identities, not independent manual proofs."
+}

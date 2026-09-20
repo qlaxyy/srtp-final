@@ -1,0 +1,22 @@
+{
+  "status": "Do not promote raw within-step variance gate to GPU",
+  "recommendation": "Freeze RC14 as current reference; retain CPU numerical prototype only. No new threshold, deployment hook, GPU batch or full-test rerun.",
+  "reason": [
+    "Strong redundancy with existing signals: question-weighted out-of-fold R2 0.88817 for predicting dispersion from fixed mean/length/between-step features. This does not prove the residual11% is useless.",
+    "Descriptive upper variance quartile covers 20915/59103 eligible clean boundaries and all500 calibration questions: not a rare correction-specific detector.",
+    "Token uncertainty frequently concerns wording; 19064/20915 minimum-probability pieces are ASCII words by crude token-shape rule, not semantic content classification.",
+    "Manual counterexamples include both redundant self-questioning and locally valid verification/decomposition. No reliable useful-correction classifier is established."
+  ],
+  "future_requirement": "A genuinely different prefix-only semantic or error-detection signal, with useful-correction evidence on training data and same-scheduler controlled evaluation, is required before more GPU spending.",
+  "threshold_selected": false,
+  "shared_code_modified": false,
+  "gpu_calls": 0,
+  "independent_new_generation": 0,
+  "manual_math_checks_passed": true,
+  "artifact_sha256": {
+    "audit.json": "495d2a748f0ea6dfb4f48cbc1ddbd7859282d85008e678156955c9658defb743",
+    "cases.json": "af3f45afed9c1e41c413c56160fe9ad3a6e2307a6ee9681d954960c4a489ceb2",
+    "manual_review.json": "16e79f389f7f8cc9bb242ac8d43ae4cb2e92b38277ffde462ec4ccdf017b9ec1",
+    "steps.json": "4f8bfc51a0e7dfa790d0eff2efcdf64157c571ff436e9924c64e699abe0fae21"
+  }
+}

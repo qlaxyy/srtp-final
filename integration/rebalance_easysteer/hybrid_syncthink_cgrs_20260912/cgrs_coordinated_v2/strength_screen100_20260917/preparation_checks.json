@@ -1,0 +1,33 @@
+{
+  "status": "Local execution preparation complete; remote reconciliation and new GPU authorization pending",
+  "cpu_tests_passed": 76,
+  "native_tests_passed": 8,
+  "python310_parse": true,
+  "local_reconciliation_files": 1838,
+  "local_conflicts": 0,
+  "remote_readonly_attempt": {
+    "port": 15536,
+    "result": "Connection closed; no remote command executed, no model load or generation.",
+    "remote_reconciliation_complete": false
+  },
+  "generation_answers": 400,
+  "unique_questions": 100,
+  "generation_seeds": [
+    42
+  ],
+  "gpu_authorized": false,
+  "frozen_test_reruns": 0,
+  "remaining": [
+    "Remote ledger reconciliation including unregistered usage; no-card CPU access is sufficient.",
+    "Verify deployment hashes and grader environment; bind execution commit and approved plan in receipt.",
+    "User authorization for this new four-arm full-length batch."
+  ],
+  "grading": "Existing author grader, resumable hashed labels; all errors and capped outputs retained. No regeneration on grading failure.",
+  "uncertainty": "20000question bootstrap draws do not generate new answers; intervals exploratory, not confirmation.",
+  "source_sha256": {
+    "strength_screen.py": "5f8080ec4b4bc7e98bcce791002a786215bb3e69b201e97038238a62bfde12c5",
+    "strength_statistics.py": "6223030b10938de18e85ee65dbaf713d83a899277fb122806141d18dcadeedbf",
+    "narrow_runner.py": "46b92a6347b0d26cac4d94e82af08486340174081bc48a0c37ab4fecc06309a8",
+    "narrow_grade.py": "b152e28e5092a337ce77ad48396fe85b690c59a9b404145ce54530e5b1b68821"
+  }
+}

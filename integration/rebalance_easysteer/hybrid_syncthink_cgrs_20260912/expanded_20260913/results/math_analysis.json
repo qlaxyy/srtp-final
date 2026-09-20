@@ -1,0 +1,644 @@
+{
+  "dataset": "math",
+  "n": 200,
+  "arms": {
+    "U": {
+      "correct": 166,
+      "accuracy": 0.83,
+      "mean_tokens": 4837.58,
+      "mean_thinking_tokens": 4463.825,
+      "mean_answer_tokens": 372.815,
+      "capped": 16,
+      "capped_ids": [
+        931,
+        5039,
+        4009,
+        1440,
+        5439,
+        3626,
+        4985,
+        5604,
+        248,
+        5518,
+        3783,
+        2550,
+        643,
+        5751,
+        2674,
+        3240
+      ],
+      "forced": 0,
+      "discarded_async_tail_tokens": 0,
+      "generation_seconds": 248.62149147689342,
+      "checkpoint_io_seconds": 0.3643497973680496,
+      "statistics_mask_gpu_seconds": 0.0,
+      "author_grade_seconds": 11.955786883831024,
+      "extra_model_forwards": 0,
+      "probe_tokens": 0
+    },
+    "R": {
+      "correct": 165,
+      "accuracy": 0.825,
+      "mean_tokens": 3569.8,
+      "mean_thinking_tokens": 3196.755,
+      "mean_answer_tokens": 372.095,
+      "capped": 10,
+      "capped_ids": [
+        5039,
+        3091,
+        5439,
+        3945,
+        4920,
+        4985,
+        5604,
+        3783,
+        3533,
+        643
+      ],
+      "forced": 0,
+      "discarded_async_tail_tokens": 0,
+      "generation_seconds": 197.07199943065643,
+      "checkpoint_io_seconds": 0.07982324063777924,
+      "statistics_mask_gpu_seconds": 0.0,
+      "author_grade_seconds": 9.873802825808525,
+      "extra_model_forwards": 0,
+      "probe_tokens": 0
+    },
+    "S": {
+      "correct": 142,
+      "accuracy": 0.71,
+      "mean_tokens": 3540.245,
+      "mean_thinking_tokens": 2775.55,
+      "mean_answer_tokens": 763.725,
+      "capped": 10,
+      "capped_ids": [
+        931,
+        5171,
+        3909,
+        5439,
+        1229,
+        2994,
+        248,
+        365,
+        7337,
+        5751
+      ],
+      "forced": 194,
+      "discarded_async_tail_tokens": 190,
+      "generation_seconds": 241.3992034047842,
+      "checkpoint_io_seconds": 0.0837392657995224,
+      "statistics_mask_gpu_seconds": 21.705871666610243,
+      "author_grade_seconds": 17.68311282992363,
+      "extra_model_forwards": 0,
+      "probe_tokens": 0
+    },
+    "RS": {
+      "correct": 153,
+      "accuracy": 0.765,
+      "mean_tokens": 2748.43,
+      "mean_thinking_tokens": 2233.32,
+      "mean_answer_tokens": 514.14,
+      "capped": 6,
+      "capped_ids": [
+        2841,
+        5439,
+        5604,
+        3783,
+        527,
+        5751
+      ],
+      "forced": 194,
+      "discarded_async_tail_tokens": 194,
+      "generation_seconds": 231.39542758464813,
+      "checkpoint_io_seconds": 0.06468811631202698,
+      "statistics_mask_gpu_seconds": 19.272885906279086,
+      "author_grade_seconds": 12.572148203849792,
+      "extra_model_forwards": 0,
+      "probe_tokens": 0
+    }
+  },
+  "comparisons": {
+    "R_minus_U": {
+      "tokens": {
+        "delta": -1267.78,
+        "delta_ci95": [
+          -1753.0248749999998,
+          -814.90725
+        ],
+        "delta_ci97_5": [
+          -1817.9816874999997,
+          -741.2590624999997
+        ],
+        "percent_change": -26.206905105445276,
+        "percent_change_ci95": [
+          -34.09229652970999,
+          -17.921862828508413
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -1267.07,
+        "delta_ci95": [
+          -1762.4744999999998,
+          -805.3286250000001
+        ],
+        "delta_ci97_5": [
+          -1830.552875,
+          -729.2961874999984
+        ],
+        "percent_change": -28.385297362687822,
+        "percent_change_ci95": [
+          -37.090413722083134,
+          -19.253351705222094
+        ]
+      },
+      "accuracy_delta_pp": -0.5,
+      "accuracy_delta_pp_ci95": [
+        -5.0,
+        4.5
+      ],
+      "wrong_to_right": [
+        3266,
+        931,
+        6135,
+        1440,
+        3626,
+        5011,
+        1521,
+        5518,
+        236,
+        7337,
+        2674
+      ],
+      "right_to_wrong": [
+        3496,
+        4836,
+        5063,
+        3091,
+        3909,
+        4170,
+        2654,
+        4857,
+        3945,
+        387,
+        593,
+        2968
+      ],
+      "gross_harm_probability_upper97_5": 0.10246183130832448
+    },
+    "S_minus_U": {
+      "tokens": {
+        "delta": -1297.335,
+        "delta_ci95": [
+          -1905.233875,
+          -714.244
+        ],
+        "delta_ci97_5": [
+          -1984.4156874999999,
+          -615.0745624999992
+        ],
+        "percent_change": -26.817851074297483,
+        "percent_change_ci95": [
+          -36.962053134446926,
+          -15.713465294257134
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -1688.275,
+        "delta_ci95": [
+          -2319.37625,
+          -1090.966625
+        ],
+        "delta_ci97_5": [
+          -2417.10775,
+          -1000.6291249999999
+        ],
+        "percent_change": -37.821263154357524,
+        "percent_change_ci95": [
+          -48.34758485027566,
+          -26.188989591634257
+        ]
+      },
+      "accuracy_delta_pp": -12.0,
+      "accuracy_delta_pp_ci95": [
+        -18.0,
+        -6.0
+      ],
+      "wrong_to_right": [
+        6135,
+        1440,
+        748,
+        236,
+        3533,
+        7337,
+        643,
+        2674
+      ],
+      "right_to_wrong": [
+        3496,
+        4836,
+        4166,
+        4924,
+        2012,
+        2054,
+        3052,
+        4696,
+        4764,
+        3314,
+        1843,
+        5171,
+        29,
+        3909,
+        4170,
+        967,
+        7211,
+        1757,
+        7497,
+        65,
+        6832,
+        706,
+        4561,
+        2994,
+        1971,
+        3124,
+        365,
+        3149,
+        544,
+        387,
+        2968,
+        1747
+      ],
+      "gross_harm_probability_upper97_5": 0.21829901535134083
+    },
+    "RS_minus_U": {
+      "tokens": {
+        "delta": -2089.15,
+        "delta_ci95": [
+          -2666.70525,
+          -1540.2306250000001
+        ],
+        "delta_ci97_5": [
+          -2742.2039375,
+          -1465.1221249999996
+        ],
+        "percent_change": -43.18584912290856,
+        "percent_change_ci95": [
+          -51.36967096819027,
+          -34.115461758207196
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -2230.505,
+        "delta_ci95": [
+          -2841.5935,
+          -1652.0160000000003
+        ],
+        "delta_ci97_5": [
+          -2924.59575,
+          -1564.2228749999992
+        ],
+        "percent_change": -49.96846874597458,
+        "percent_change_ci95": [
+          -59.0213662519798,
+          -39.97682656015877
+        ]
+      },
+      "accuracy_delta_pp": -6.5,
+      "accuracy_delta_pp_ci95": [
+        -12.0,
+        -1.0
+      ],
+      "wrong_to_right": [
+        3266,
+        931,
+        6135,
+        5011,
+        1521,
+        92,
+        5518,
+        236,
+        3533
+      ],
+      "right_to_wrong": [
+        2768,
+        3496,
+        6235,
+        1899,
+        4836,
+        2012,
+        5948,
+        2952,
+        967,
+        6832,
+        1679,
+        2994,
+        3256,
+        1971,
+        1248,
+        2742,
+        527,
+        365,
+        3149,
+        387,
+        2968,
+        1747
+      ],
+      "gross_harm_probability_upper97_5": 0.16179621556950013
+    },
+    "S_minus_R": {
+      "tokens": {
+        "delta": -29.555,
+        "delta_ci95": [
+          -630.786875,
+          554.7511249999999
+        ],
+        "delta_ci97_5": [
+          -721.5809999999999,
+          641.0210625000003
+        ],
+        "percent_change": -0.8279175303938624,
+        "percent_change_ci95": [
+          -16.510546451207766,
+          16.88521096807948
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -421.205,
+        "delta_ci95": [
+          -1045.1138749999998,
+          194.4566249999999
+        ],
+        "delta_ci97_5": [
+          -1136.021,
+          265.1306875000018
+        ],
+        "percent_change": -13.176017555302167,
+        "percent_change_ci95": [
+          -29.971294670353384,
+          6.757324417142925
+        ]
+      },
+      "accuracy_delta_pp": -11.5,
+      "accuracy_delta_pp_ci95": [
+        -17.5,
+        -5.5
+      ],
+      "wrong_to_right": [
+        5063,
+        3091,
+        2654,
+        4857,
+        748,
+        3945,
+        3533,
+        643,
+        593
+      ],
+      "right_to_wrong": [
+        3266,
+        4166,
+        4924,
+        2012,
+        2054,
+        3052,
+        931,
+        4696,
+        4764,
+        3314,
+        1843,
+        5171,
+        29,
+        967,
+        7211,
+        1757,
+        7497,
+        65,
+        6832,
+        706,
+        4561,
+        2994,
+        3626,
+        5011,
+        1521,
+        1971,
+        5518,
+        3124,
+        365,
+        3149,
+        544,
+        1747
+      ],
+      "gross_harm_probability_upper97_5": 0.21829901535134083
+    },
+    "RS_minus_R": {
+      "tokens": {
+        "delta": -821.37,
+        "delta_ci95": [
+          -1295.7439999999997,
+          -375.31537500000013
+        ],
+        "delta_ci97_5": [
+          -1359.9644375,
+          -313.9291874999994
+        ],
+        "percent_change": -23.008852036528673,
+        "percent_change_ci95": [
+          -33.88084574482608,
+          -11.292719516244642
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -963.435,
+        "delta_ci95": [
+          -1479.78475,
+          -474.88662500000004
+        ],
+        "delta_ci97_5": [
+          -1556.8216249999998,
+          -411.0774374999995
+        ],
+        "percent_change": -30.137905469765435,
+        "percent_change_ci95": [
+          -42.73603845677981,
+          -16.080213940671403
+        ]
+      },
+      "accuracy_delta_pp": -6.0,
+      "accuracy_delta_pp_ci95": [
+        -11.5,
+        -0.5
+      ],
+      "wrong_to_right": [
+        5063,
+        3091,
+        3909,
+        4170,
+        2654,
+        4857,
+        3945,
+        92,
+        3533,
+        593
+      ],
+      "right_to_wrong": [
+        2768,
+        6235,
+        1899,
+        2012,
+        5948,
+        2952,
+        967,
+        1440,
+        6832,
+        1679,
+        2994,
+        3256,
+        3626,
+        1971,
+        1248,
+        2742,
+        527,
+        365,
+        3149,
+        7337,
+        1747,
+        2674
+      ],
+      "gross_harm_probability_upper97_5": 0.16179621556950013
+    },
+    "RS_minus_S": {
+      "tokens": {
+        "delta": -791.815,
+        "delta_ci95": [
+          -1316.3296249999999,
+          -270.87150000000014
+        ],
+        "delta_ci97_5": [
+          -1389.0654375,
+          -188.22006249999913
+        ],
+        "percent_change": -22.36610743041796,
+        "percent_change_ci95": [
+          -34.19720357907525,
+          -8.338418722130454
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -542.23,
+        "delta_ci95": [
+          -1021.3524999999998,
+          -65.49675000000005
+        ],
+        "delta_ci97_5": [
+          -1089.2803125,
+          -1.0321249999995417
+        ],
+        "percent_change": -19.535947830159785,
+        "percent_change_ci95": [
+          -33.539078082092246,
+          -2.634754904332175
+        ]
+      },
+      "accuracy_delta_pp": 5.5,
+      "accuracy_delta_pp_ci95": [
+        -0.5,
+        12.0
+      ],
+      "wrong_to_right": [
+        3266,
+        4166,
+        4924,
+        2054,
+        3052,
+        931,
+        4696,
+        4764,
+        3314,
+        1843,
+        5171,
+        29,
+        3909,
+        4170,
+        7211,
+        1757,
+        7497,
+        65,
+        706,
+        4561,
+        5011,
+        1521,
+        92,
+        5518,
+        3124,
+        544
+      ],
+      "right_to_wrong": [
+        2768,
+        6235,
+        1899,
+        5948,
+        2952,
+        1440,
+        1679,
+        748,
+        3256,
+        1248,
+        2742,
+        527,
+        7337,
+        643,
+        2674
+      ],
+      "gross_harm_probability_upper97_5": 0.12068422539966134
+    }
+  },
+  "interaction": {
+    "tokens": {
+      "additive": 475.965,
+      "ci95": [
+        -138.17787499999983,
+        1104.471625
+      ]
+    },
+    "thinking_tokens": {
+      "additive": 724.84,
+      "ci95": [
+        143.1785000000001,
+        1338.614875
+      ]
+    },
+    "correct": {
+      "additive": 0.06,
+      "ci95": [
+        -0.02,
+        0.135
+      ]
+    }
+  },
+  "point_gate_pass": false,
+  "confirmation_standard_pass": false,
+  "superadditive_token_evidence": false,
+  "source_sha256": {
+    "U": {
+      "result": "896298221c5688fe27ae306ba07cd2621a378c5a5f5beabebcdd51b5b6f2fe01",
+      "grade": "a4864822dfc56083e31ad39fecc7902c9e44a19596fef8605fbee4daa3902ea2"
+    },
+    "R": {
+      "result": "b03bff4b7d08b761730120655ab96cb92d2c18773bcb959bd5f22a9f741c3c1f",
+      "grade": "0fb768614699b6a810773ccf042f773177ddd174e44a1573e879fa29773a812e"
+    },
+    "S": {
+      "result": "68b6554d2d3038905c56e1dc3bd936b6d0a48650ce6ca6547354eee4b4f0b032",
+      "grade": "dfb6e006268aba5af3be7d706af13bfbba089007bef7d40f6acf2a0cae8c98b8"
+    },
+    "RS": {
+      "result": "e62ffe9cbbb4cb9d434fc1cfd51a9d078fa5a03e40cbab9a1bb98acf873af417",
+      "grade": "87ffcd5cfccb08f7a7b0be88180df7e00dbe97cd5d2c0c507e3f220317b93fd6"
+    }
+  },
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 20260912,
+    "unit": "paired question"
+  },
+  "limitations": "One generation seed; MATH and GSM8K reported separately, no pooled rescue; gross-harm bound is conservative, stricter than net accuracy noninferiority; runtime differs from screening; intervals do not include model pretraining leakage or all-method selection uncertainty."
+}

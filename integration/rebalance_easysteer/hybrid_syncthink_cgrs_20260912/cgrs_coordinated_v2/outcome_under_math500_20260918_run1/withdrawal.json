@@ -1,0 +1,10 @@
+{
+  "status": "Withdrawn before any GPU engineering or benchmark execution",
+  "reason": "Training endpoint contamination: correct answers marked wrong by boxed-only parser",
+  "excluded": [
+    67,
+    262,
+    284
+  ],
+  "replacement": "outcome_under_math500_20260918_run2"
+}

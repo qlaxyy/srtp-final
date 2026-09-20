@@ -1,0 +1,17 @@
+{
+  "selection": "Test: four per loss/gain stratum by SHA256(and-error-v1:problem_sha256). Calibration: eight parents by SHA256(and-calibration-v1:problem_sha256), earliest strict-AND step >=16 tokens. Fixed before reading content.",
+  "test_use": "All160 flips quantitative; 8 pairs qualitative. Test content cannot be used to fit vectors, set thresholds, or choose training examples.",
+  "calibration_use": "Original500 saved trajectories only. Local content review, not final-answer-derived step gold. No labels inferred from matching test topics.",
+  "rubric": [
+    "missing_or_wrong_operation",
+    "arithmetic_error",
+    "interpretation_error",
+    "necessary_correction_visible",
+    "harmful_revision_visible",
+    "answer_extraction_issue",
+    "uncertain"
+  ],
+  "caveat": "Single assistant qualitative review; no prevalence or causal mechanism inference from eight selected pairs. More than one category can apply.",
+  "new_gpu": 0,
+  "new_answers": 0
+}

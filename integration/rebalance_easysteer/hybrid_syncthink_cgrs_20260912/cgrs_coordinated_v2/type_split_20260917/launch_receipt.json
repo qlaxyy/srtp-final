@@ -1,0 +1,11 @@
+{
+  "status": "GPU engineering launched; full run and efficacy pending",
+  "execution_commit": "07933ff",
+  "deployment_sha256": "720784eba4b61ca7d5f0649eb5d7b4b152a535b44d0592087fff0e86f58a660e",
+  "release_sha256": "7a2fb9fed5382716385045ceb052a209bb848bfa63a8f38e3ba19b918c1049e0",
+  "server_output": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/type_split_math500_20260917_run1",
+  "gpu": "RTX 4090 D 24564 MiB; idle before launch",
+  "cpu_tests": 16,
+  "cpu_attempt1": "Retained in .codex_work/type_split_cpu_attempt1. Test oracle incorrectly examined an already-closed phrase state; fixed test to exclude closed prefixes, no matcher/controller change.",
+  "user_authorization": "Continue research and GPU testing until complete results; one seed, reuse frozen controls"
+}

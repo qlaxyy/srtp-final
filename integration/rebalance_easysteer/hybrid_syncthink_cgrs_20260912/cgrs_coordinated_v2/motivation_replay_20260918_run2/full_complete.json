@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "same_schedule_probability_passed": false,
+  "interpretation": "Current-runtime saved-text reconstruction; not exact historical generation probabilities",
+  "status": "Full saved-text reconstruction complete",
+  "groups": [
+    {
+      "group": "U",
+      "rows": 286,
+      "tokens": 992208,
+      "replay_seconds": 211.13882191479206,
+      "native_raw_checks": 0
+    },
+    {
+      "group": "R",
+      "rows": 286,
+      "tokens": 594214,
+      "replay_seconds": 143.1117629110813,
+      "native_raw_checks": 10136
+    }
+  ],
+  "total_seconds": 375.70664209127426,
+  "release_sha256": "5df898c9b418d66b5b9907b5689729fd634484d5c95b663f7d05844098728093"
+}

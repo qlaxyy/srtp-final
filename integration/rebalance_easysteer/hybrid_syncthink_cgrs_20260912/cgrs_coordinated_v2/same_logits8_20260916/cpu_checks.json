@@ -1,0 +1,17 @@
+{
+  "unit_tests_passed": 43,
+  "failed": 0,
+  "python310_parse_files": 5,
+  "protocol_mutation_rejections": [
+    "max_tokens",
+    "max_num_seqs",
+    "ignore_eos",
+    "async_scheduling"
+  ],
+  "source_hashes_verified": 2223,
+  "native_torch_tests": "not_run_locally_torch_unavailable; runner requires real CPU tests before model load",
+  "no_ssh": true,
+  "no_gpu": true,
+  "no_new_answers": true,
+  "normal_inference_sources_unchanged": true
+}

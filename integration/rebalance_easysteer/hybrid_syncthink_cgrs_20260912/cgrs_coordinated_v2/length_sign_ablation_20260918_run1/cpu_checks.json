@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "torch.float32 negative/zero/input preserved; actual hook writes history after change; shadow identical; unrelated slots untouched",
+    "torch.bfloat16 negative/zero/input preserved; actual hook writes history after change; shadow identical; unrelated slots untouched"
+  ],
+  "matched_norm": true,
+  "original_vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+  "new_vector_sha256": "e8c30c052e57759c98a57a88681cc12967fde24435f5ee18cc3977fb819f3be5",
+  "state_audit_sha256": "3000af88e8c1721a88ce3d1d9572678ffeac08900627bcc5567b33bd8ac05e38"
+}

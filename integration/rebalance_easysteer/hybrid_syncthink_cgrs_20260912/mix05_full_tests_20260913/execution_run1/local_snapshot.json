@@ -1,0 +1,41 @@
+{
+  "worktrees": [
+    {
+      "path": "E:/srtp/srtp-final",
+      "commit": "c0a3a5a8e7c3b82abad559bf9ac6fdef11e9e986",
+      "status": ""
+    },
+    {
+      "path": "E:/srtp/hybrid-syncthink-cgrs-20260912",
+      "commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+      "status": ""
+    },
+    {
+      "path": "E:/srtp/srtp-final/.codex_work/mechanism_docs_main_20260912",
+      "commit": "84279d5efd0e4ed9d2fa839478fa77a15b260ad2",
+      "status": ""
+    },
+    {
+      "path": "E:/srtp/srtp-final/.codex_work/min_confirmation_worktree",
+      "commit": "f9fb2da5ad0e69f4e27943f76e585c091166e0bc",
+      "status": ""
+    },
+    {
+      "path": "E:/srtp/srtp-final/.codex_work/question_balance_worktree",
+      "commit": "247e56a8a41a51ca97d384beb593fbb57ca38926",
+      "status": ""
+    },
+    {
+      "path": "E:/srtp/srtp-final/.codex_work/repeat_gate_worktree",
+      "commit": "a61b5900f1e9a06271da3906437c370d5ecbe726",
+      "status": ""
+    }
+  ],
+  "test_inputs": {
+    "data_usage_current.json": "ad96069fa8d104058943b1281cca3e75512605c1c0ff6500e4b4bad92a11f310",
+    "full_tests_20260913/math_test.jsonl": "9881c8db7c28be1037f06451aa2dc9f44b892e443b432e6c60e39b65c65d5929",
+    "full_tests_20260913/gsm8k_test.jsonl": "72f89f07697e1f5ded1a24648db637eea9fdf177ac89cd818dbda30e247ead39",
+    "full_tests_20260913/data_usage.json": "c05706a7ac8e91645e2d9b32a12732290be4449a4cd28d256dde0561babcf8e3"
+  },
+  "scope": "1819 known benchmark inputs, no new training reservation; no parameter tuning or independent-confirmation claim"
+}

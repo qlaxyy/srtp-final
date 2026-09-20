@@ -1,0 +1,1676 @@
+{
+  "status": "complete CPU-only calibration-parent answer audit",
+  "input_sha256": "6635608b25d7c298dc816b9a9d06e609cc6dcd938dc6c7d31d22e2bb0dd0188a",
+  "grader_sha256": {
+    "parser.py": "8d04ceb93e9ef50d61157fd1c8826a5cbf8d7f64cda85459f1166e19d8784208",
+    "grader.py": "0338f6549f2cb98806473e746baf40b00d9c5bd21a69bc7de0008e4ad4c8d768"
+  },
+  "questions": 166,
+  "correct_questions": 158,
+  "under_steps": 854,
+  "under_steps_in_correct_trajectories": 821,
+  "seconds": 7.627032920718193,
+  "records": [
+    {
+      "train_index": 1828,
+      "problem_sha256": "85142ad91ed539f30912cf6dd984f9ee69202466e6c3f26a73b044f6d1710c8b",
+      "text_sha256": "c3e6ecccaa497bdeb1e1d0a96aa39f6749dd95d2bef06b8555ac39350a622950",
+      "under_steps": 12,
+      "thinking_tokens": 1942,
+      "gold": "92",
+      "prediction": "92",
+      "correct": true
+    },
+    {
+      "train_index": 6033,
+      "problem_sha256": "9acf4e3840746c773aec93eead16a30711f27a7caa4e139e9b506bddbf4aaacb",
+      "text_sha256": "07cf9fe579cfd4648af2c63230b3bedd8597d3307e76405190880a56356f85d3",
+      "under_steps": 4,
+      "thinking_tokens": 1039,
+      "gold": "13",
+      "prediction": "13",
+      "correct": true
+    },
+    {
+      "train_index": 839,
+      "problem_sha256": "b3c24273387a1b15fe29324bf4af12757ac64a4cd6d3a78c37cb83732c0ea546",
+      "text_sha256": "798056a3a26ac64566bb637ed21e5e67b70964ac0e6c983bb9d3eda535d53ce1",
+      "under_steps": 1,
+      "thinking_tokens": 635,
+      "gold": "(-\\infty, -8) \\cup (-8, \\infty)",
+      "prediction": "(-\\infty, -8) \\cup (-8, \\infty)",
+      "correct": true
+    },
+    {
+      "train_index": 5543,
+      "problem_sha256": "a774a3095c633d9191464a17a782a0c3109b190d4a77f854ce5f3e0296bcedc2",
+      "text_sha256": "97f7bc549f488699157e33cddf8cea62da785fae0d7b8fa8209436c3b3e5ad95",
+      "under_steps": 5,
+      "thinking_tokens": 4470,
+      "gold": "\\frac{9}{10}",
+      "prediction": "\\dfrac{9}{10}",
+      "correct": true
+    },
+    {
+      "train_index": 7308,
+      "problem_sha256": "2aa4432b12ec9bf25dc80e54876acb10504aba9d3426650fdc05d9eba901a5ee",
+      "text_sha256": "96c7cf1b7e4e9190c5d8195b891477648d4891eebcf3529771825df6a3ef6188",
+      "under_steps": 6,
+      "thinking_tokens": 1554,
+      "gold": "16",
+      "prediction": "16",
+      "correct": true
+    },
+    {
+      "train_index": 1791,
+      "problem_sha256": "db943106bc92cd97b1dfc84c8dbf18991c3e11d680a4d23665ab51e6bccdfe60",
+      "text_sha256": "619930ee70f6e78a717fe86bc26716b846d7a547924bf7d02be16e32c3b5dad4",
+      "under_steps": 3,
+      "thinking_tokens": 1318,
+      "gold": "2 \\pi",
+      "prediction": "2\\pi",
+      "correct": true
+    },
+    {
+      "train_index": 1905,
+      "problem_sha256": "6092ed66f7296a4b57a99fd81e079b464e90da9248a48893a418a6a16a57dbf6",
+      "text_sha256": "48be37bceb9226bfb245771242277702c6fba76c07be0dd002189a17b0e0c429",
+      "under_steps": 27,
+      "thinking_tokens": 5525,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 4139,
+      "problem_sha256": "4c456042f5dd4afbda4db0b9e1a2aad13856fcc791d89144e1a066195e773dce",
+      "text_sha256": "c26f3d273973732340278236838720120cdf74c64d37a590f904e4671290f878",
+      "under_steps": 10,
+      "thinking_tokens": 5091,
+      "gold": "140\\text{ degrees}",
+      "prediction": "252",
+      "correct": false
+    },
+    {
+      "train_index": 4597,
+      "problem_sha256": "5627b0490a3a99b2f1e6c1a1a37f33294ed511155b3d1b71fa6b165868bf6c8c",
+      "text_sha256": "f7bb5629a15005567ffd579dba505681015585fdb4524025f9ea6a45f60fac24",
+      "under_steps": 1,
+      "thinking_tokens": 1033,
+      "gold": "21",
+      "prediction": "21",
+      "correct": true
+    },
+    {
+      "train_index": 5865,
+      "problem_sha256": "f658dc268c12cfb1f9c490df2d638d4be9e41c9c4efb6b095b5e841a4813ce9d",
+      "text_sha256": "90fc5402b1d5b8ee5c3143d650f391c57f00959e161ae4fac7d7839b4a7b4a0a",
+      "under_steps": 1,
+      "thinking_tokens": 903,
+      "gold": "12",
+      "prediction": "12",
+      "correct": true
+    },
+    {
+      "train_index": 5745,
+      "problem_sha256": "800fb47d6c6cf973336c488f2719ad6cae6200e25e01a85ed3d21af1882dcdce",
+      "text_sha256": "5c862f858bf05e85279e08584e2d89d30fd1d8ce8785dff6dcadff51e19ef1a2",
+      "under_steps": 2,
+      "thinking_tokens": 4673,
+      "gold": "2\\sqrt{19}",
+      "prediction": "2\\sqrt{19}",
+      "correct": true
+    },
+    {
+      "train_index": 3679,
+      "problem_sha256": "73a7a65676162bee96e5aafddca8dfb331ebdd6752da79bdf7272ff78a111cd1",
+      "text_sha256": "7340d005f8f12782efcaf309d43323ffbfbf0cbc08bf63c3e21118c1d2339050",
+      "under_steps": 5,
+      "thinking_tokens": 2445,
+      "gold": "35",
+      "prediction": "35",
+      "correct": true
+    },
+    {
+      "train_index": 2278,
+      "problem_sha256": "736129b0fe4da5d2691f397a093e38bf498f88ae8992325bcd84bd8e79cb8cfa",
+      "text_sha256": "776ab50c891eebd169c10545339cd0b20294c4dbce4dc4f9962bff5092211dcb",
+      "under_steps": 18,
+      "thinking_tokens": 2953,
+      "gold": "30",
+      "prediction": "30",
+      "correct": true
+    },
+    {
+      "train_index": 6630,
+      "problem_sha256": "bbde93d1329e8578792d9b5dfc3a0641e1456d8320bc11f2ef38815e9765c02b",
+      "text_sha256": "ecd53c0d36c9e9e3bbb302f89549402f756848d8fbe5b2bd016de6ba82d90ce3",
+      "under_steps": 3,
+      "thinking_tokens": 940,
+      "gold": "6.2",
+      "prediction": "6.2",
+      "correct": true
+    },
+    {
+      "train_index": 7121,
+      "problem_sha256": "83ad8804068a3dcb600e7eff9fee555578cc58a3a53fe2e379506af170b05782",
+      "text_sha256": "eb5625875171b379ea2aa97d30e44391cf7087ae0807eac5809a859b0324fc0b",
+      "under_steps": 1,
+      "thinking_tokens": 890,
+      "gold": "13",
+      "prediction": "13",
+      "correct": true
+    },
+    {
+      "train_index": 5719,
+      "problem_sha256": "0e187f81317e39a00272488f6845c5501ab6b7f9edce958b65a3532133be77e7",
+      "text_sha256": "d88b07dcf97906e86eed5f0e0246e3b3c67c9e6c1e6f6e4e317a0f2980fbdcdf",
+      "under_steps": 2,
+      "thinking_tokens": 3510,
+      "gold": "40",
+      "prediction": "40",
+      "correct": true
+    },
+    {
+      "train_index": 1763,
+      "problem_sha256": "e2685f24a8490317cdc98342ac5debf324b0f62bdcabbfdaac6f1ac053a1d2a6",
+      "text_sha256": "485be7307b98f26bfac97cdc063fcf96e42e648a445d480e5ed82b2db09f2dfd",
+      "under_steps": 10,
+      "thinking_tokens": 4590,
+      "gold": "-3",
+      "prediction": "-3",
+      "correct": true
+    },
+    {
+      "train_index": 6254,
+      "problem_sha256": "ae7c6abd6f984800d9636013bad45d36a37f7acc9e9f2ae991a527b463a30faa",
+      "text_sha256": "dd4eaffc1a8ab970a4fe82cac8c9c770ee475870a68d43d7d6ea3c169da5188c",
+      "under_steps": 1,
+      "thinking_tokens": 2787,
+      "gold": "1",
+      "prediction": "1",
+      "correct": true
+    },
+    {
+      "train_index": 6942,
+      "problem_sha256": "007184730a11bee549ea79c5ebc501ccef8a02ff53b6a52d246ba462d1cb6258",
+      "text_sha256": "f424e9f649a4d7ae0bf555efe9c54c318fceedc069ebdbc7c8a85484d5761c31",
+      "under_steps": 5,
+      "thinking_tokens": 921,
+      "gold": "0",
+      "prediction": "0",
+      "correct": true
+    },
+    {
+      "train_index": 2817,
+      "problem_sha256": "2d98f07f853d40e6494a44a617d15e9aa6082a66ee70299dbe323f6465e25b80",
+      "text_sha256": "453ec5272485ebde6109e5fa0d129499ea6e98ae72738a90b3e80565c9f4fe5b",
+      "under_steps": 7,
+      "thinking_tokens": 4826,
+      "gold": "7 \\text{ distinct integers}",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "train_index": 4945,
+      "problem_sha256": "1ec6e9d681ea1e80164777d7275d988560d7cdeab83ed04e045405fa27a48268",
+      "text_sha256": "69ea4a61bd92738c7c01a31d0c9bcc3d66b23c41a426f2e353f49bef17251156",
+      "under_steps": 2,
+      "thinking_tokens": 2486,
+      "gold": "8.64",
+      "prediction": "8.64",
+      "correct": true
+    },
+    {
+      "train_index": 2401,
+      "problem_sha256": "51a46549ccd980b888ca9a0be13fc2a047533da112db5d3f4f7a1d5812c4995d",
+      "text_sha256": "2f0855c6b0f0d510637c62aa2b466ae9b9d0466f009d8573c7b1339a63afcdc4",
+      "under_steps": 2,
+      "thinking_tokens": 3261,
+      "gold": "799",
+      "prediction": "840",
+      "correct": false
+    },
+    {
+      "train_index": 6794,
+      "problem_sha256": "38ded0e5db763ad2f3072a7dc7c801c6918c7fc8ee04f1b3303e42e9d65460e7",
+      "text_sha256": "03374086fe104bf2334eccd5b0f0d7b3a1a1e541f19ff7804ab02cfa875a4c65",
+      "under_steps": 6,
+      "thinking_tokens": 1355,
+      "gold": "-\\frac{39}{19}",
+      "prediction": "-\\dfrac{39}{19}",
+      "correct": true
+    },
+    {
+      "train_index": 5149,
+      "problem_sha256": "76025583da0e314f9e91b20bb431d799fe98df57525cf506c0aa58d79b2cc3be",
+      "text_sha256": "7f0bd950b05c75e7873faf779546d8d3b43e596743d877904ae93d212dc64a8c",
+      "under_steps": 2,
+      "thinking_tokens": 1658,
+      "gold": "12",
+      "prediction": "12",
+      "correct": true
+    },
+    {
+      "train_index": 7253,
+      "problem_sha256": "6beb528948e541fc1d9b36ead23006ed31436dbdf8df0be224ca72e44d354aa0",
+      "text_sha256": "102840f88bf22521650c8f03337268d9562aae40f1fe5df4b907012f43df217d",
+      "under_steps": 14,
+      "thinking_tokens": 1686,
+      "gold": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "train_index": 7059,
+      "problem_sha256": "44c7aa2a6f0383fa34dad80f376da82bf64aa1ba39a4cec738b580e1bf62abc5",
+      "text_sha256": "53525e7363bab61c2d5a6f5127363610d72ad89f4f1290a7d3557275100a2260",
+      "under_steps": 3,
+      "thinking_tokens": 980,
+      "gold": "0",
+      "prediction": "0",
+      "correct": true
+    },
+    {
+      "train_index": 2962,
+      "problem_sha256": "6349b0dc96831731c25875347d3c316e79f9e9036f3b7e4796edd9b7ac0db4cf",
+      "text_sha256": "1df9696b1c3cd78035f212b7703c658a2efa8d9c96af668c850d6f970684d533",
+      "under_steps": 22,
+      "thinking_tokens": 3332,
+      "gold": "\\begin{pmatrix} -7 & -4 & 0 \\\\ -5 & -3 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+      "prediction": "\\begin{pmatrix} -7 & -4 & 0 \\\\ -5 & -3 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+      "correct": true
+    },
+    {
+      "train_index": 1575,
+      "problem_sha256": "94368d5f5c5d0c6658d20dd7903e4910576359816a651ad8af50e0d291978699",
+      "text_sha256": "319653e56730eb945d3cc96337f1c0126c9e61cff2fc7767d0f921712acc4280",
+      "under_steps": 2,
+      "thinking_tokens": 1434,
+      "gold": "78",
+      "prediction": "78",
+      "correct": true
+    },
+    {
+      "train_index": 6332,
+      "problem_sha256": "4382b33232a7115ae4afac3c84ce785c58db31c352d48cdcbe8522c6a9eeef5c",
+      "text_sha256": "51bb5af0aa8339152baaa78387db60e8b43a8676f9e5ea3b36b8c58fac921db4",
+      "under_steps": 2,
+      "thinking_tokens": 843,
+      "gold": "1",
+      "prediction": "1",
+      "correct": true
+    },
+    {
+      "train_index": 2370,
+      "problem_sha256": "b3ab9681e108f23d3fa7db94873af9bd4c8ac656fb87ad675c2253978fe0dae1",
+      "text_sha256": "e34068d5ba0e1a31ac2dffee5d4947d6f3b729a9ce562bd5731905f208a7861e",
+      "under_steps": 5,
+      "thinking_tokens": 5059,
+      "gold": "2104_5",
+      "prediction": "2104_5",
+      "correct": true
+    },
+    {
+      "train_index": 2277,
+      "problem_sha256": "eb11c1581473f67e98e273320892566aa7f3d91882503918bbf76b5f5a238475",
+      "text_sha256": "25e57a5b1fcd1b8fcf9d407b142296b15d72f546fcc7349198763b39988fa357",
+      "under_steps": 1,
+      "thinking_tokens": 801,
+      "gold": "3",
+      "prediction": "3",
+      "correct": true
+    },
+    {
+      "train_index": 6833,
+      "problem_sha256": "cf7eea9d8de8ee724370c07fb29d7cb2f8885e3283d96066e03998e580374dc5",
+      "text_sha256": "0c7843731440180cf7584a19b719ec40f1297e77d21526a9a8a00375cc9723b5",
+      "under_steps": 1,
+      "thinking_tokens": 1787,
+      "gold": "12",
+      "prediction": "12",
+      "correct": true
+    },
+    {
+      "train_index": 1332,
+      "problem_sha256": "14320284a4a51aa66768da0bcd6565936dc89ce76902d1e7c3b03a30e082e362",
+      "text_sha256": "9bea038bceca28ad0671c7e7910350894078876c723a147334f09f60e1a09b55",
+      "under_steps": 5,
+      "thinking_tokens": 3864,
+      "gold": "49",
+      "prediction": "49",
+      "correct": true
+    },
+    {
+      "train_index": 1716,
+      "problem_sha256": "7e2f7f504bacc24d274161c1b5e0cd68c7178e71186508c556cafac5a1f9d501",
+      "text_sha256": "9d2509bfdc0f32e57d5f8e6372d490725d1f5705d227c622b0134ecb573adf41",
+      "under_steps": 20,
+      "thinking_tokens": 2852,
+      "gold": "x^4-4x^3+x^2+6x+2",
+      "prediction": "x^4 - 4x^3 + x^2 + 6x + 2",
+      "correct": true
+    },
+    {
+      "train_index": 2187,
+      "problem_sha256": "a95c9e03a3f55ffdcdaba69d1784ac947732c56031e322ecd75fa8005cfb3ffa",
+      "text_sha256": "c0b672a3f0f3490b016c8d5e0cc03865c33f05e6ad144b079788046f483d7dcb",
+      "under_steps": 8,
+      "thinking_tokens": 1789,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 5308,
+      "problem_sha256": "55611df48247f9862d8386e95a4cc4b71fc2c86ff352f7a8d75fc6d27af8b73e",
+      "text_sha256": "3c8f434ea40e1d5620aae6f6a58b8372c933f4937458c96f099c6f39a6763e9a",
+      "under_steps": 4,
+      "thinking_tokens": 976,
+      "gold": "12\\sqrt 3",
+      "prediction": "12\\sqrt{3}",
+      "correct": true
+    },
+    {
+      "train_index": 4990,
+      "problem_sha256": "131f6349ef028626743fedfdf2342aa5eb9388140deaab214a6a9cf37fde68e4",
+      "text_sha256": "882aae8d184717e0712e68cfc8f9ad2788f0348b2be9669a50c02509d6727320",
+      "under_steps": 1,
+      "thinking_tokens": 3698,
+      "gold": "198",
+      "prediction": "198",
+      "correct": true
+    },
+    {
+      "train_index": 1401,
+      "problem_sha256": "01a0112c1a727edbccae40c9ddca70b065e3b3aa0f73d4b7f0960f59ff82be92",
+      "text_sha256": "3139ff83b15096e0a53927cf99405ccaf7a40eb12cc97bfcd51f429c107c2cb4",
+      "under_steps": 3,
+      "thinking_tokens": 1790,
+      "gold": "54",
+      "prediction": "54",
+      "correct": true
+    },
+    {
+      "train_index": 4375,
+      "problem_sha256": "4bef57380437ecde1610009de67ba88adba4c7a66b9549ccfc175528f8e81588",
+      "text_sha256": "fce9f33db0021d57a639be3d1deb4bdea7fa7bec48c5f0ee18693ef65b3188ce",
+      "under_steps": 2,
+      "thinking_tokens": 1539,
+      "gold": "19",
+      "prediction": "19",
+      "correct": true
+    },
+    {
+      "train_index": 5973,
+      "problem_sha256": "9bd9d9eb4a846bcab547b6b75911d5351ebec2e79da588e4b2ec0c1147bd17ef",
+      "text_sha256": "5993f9dcc4164941763f64dc4909ef141028ed379afd5f5c46bc4cbed3d55651",
+      "under_steps": 3,
+      "thinking_tokens": 698,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 2005,
+      "problem_sha256": "fd356827a7a4d59f13667ce2aefac087a6ce7f9ef2c7b419cfee2feed31264fa",
+      "text_sha256": "c8cde526d73ed9c90c7b6dcb30f65460bef5fed365d5a17840c086a60cf83dc6",
+      "under_steps": 5,
+      "thinking_tokens": 1740,
+      "gold": "\\sqrt3-\\sqrt2",
+      "prediction": "\\sqrt{3} - \\sqrt{2}",
+      "correct": true
+    },
+    {
+      "train_index": 1338,
+      "problem_sha256": "b29ad7df152da56a0858e3bd0197a66991b7cf62559bda25d4fedab817147ce7",
+      "text_sha256": "c525012cf8c3844415ee6e6f136440faa0ab30b43f16aa387d837a93ec1d8a50",
+      "under_steps": 1,
+      "thinking_tokens": 1844,
+      "gold": "(-4,-4)",
+      "prediction": "(-4, -4)",
+      "correct": true
+    },
+    {
+      "train_index": 3786,
+      "problem_sha256": "bcc40e5abc27dff463b16eaa9f56c8a41d3cf6f120b12ebea4c2782fa5d820ac",
+      "text_sha256": "e44152d8da7321b6949c9158c7bacca4b80d2853c5004ab95e8d98c193ae4297",
+      "under_steps": 3,
+      "thinking_tokens": 1150,
+      "gold": "33",
+      "prediction": "33",
+      "correct": true
+    },
+    {
+      "train_index": 3108,
+      "problem_sha256": "a1984ecd192ec94879d0ec72328a37c25670e58eef542d933d4a8ccc209bab80",
+      "text_sha256": "07366c0b3be7a3bd4289076584be67b11af9f6f5c91b687fd38057c20c42ac21",
+      "under_steps": 30,
+      "thinking_tokens": 4864,
+      "gold": "1381",
+      "prediction": "1381",
+      "correct": true
+    },
+    {
+      "train_index": 2211,
+      "problem_sha256": "7ccd2014a622335d105334624c5799da0c8c82a065212dfe411a075265f02096",
+      "text_sha256": "32d58b55dbeb3995d240f6aa5f187a130ac0adeb627e2c0dc93db511630a3596",
+      "under_steps": 19,
+      "thinking_tokens": 4073,
+      "gold": "19",
+      "prediction": "19",
+      "correct": true
+    },
+    {
+      "train_index": 5242,
+      "problem_sha256": "7ebfdea88c561e004fba34bb2602fcbb8df72be53f9f3f7b7287af7f6b5c2d69",
+      "text_sha256": "f19ab4f52e9768cbfabcd61c3a6a7eba4a5afce4b3e694a03d4da4142aab9ad0",
+      "under_steps": 2,
+      "thinking_tokens": 2701,
+      "gold": "3\\sqrt{89}",
+      "prediction": "3\\sqrt{89}",
+      "correct": true
+    },
+    {
+      "train_index": 1799,
+      "problem_sha256": "e7b0601363feed960b9b4673b309a797a5c82349e40a52491d8294c847c18057",
+      "text_sha256": "2de0900ddd659c1f684c5cf6605401eccdcfbc2e332b2add1a86f02867634187",
+      "under_steps": 3,
+      "thinking_tokens": 1464,
+      "gold": "x^2 - x - 1",
+      "prediction": "x^2 - x - 1",
+      "correct": true
+    },
+    {
+      "train_index": 2656,
+      "problem_sha256": "80b644a63113b2f56e10d9d8790086083ddbaba4588a2167d1d8d25e80f820dd",
+      "text_sha256": "1fa48b7b9e74d9decbc0305bd01ba422736d698b72a69b92d3069ca2564e10cf",
+      "under_steps": 3,
+      "thinking_tokens": 2567,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 6356,
+      "problem_sha256": "5a439e8aa6e55ef8823a3f053f9e2de7a68e154a92f8e12496bd7f53e1459020",
+      "text_sha256": "bb98abc561541e148f2c0585042d4b560f3d3e64af1ac1c1db1cda2a63298112",
+      "under_steps": 1,
+      "thinking_tokens": 1159,
+      "gold": "(-\\infty,-4)\\cup(-4, -2)\\cup(-2,\\infty)",
+      "prediction": "(-\\infty, -4) \\cup (-4, -2) \\cup (-2, \\infty)",
+      "correct": true
+    },
+    {
+      "train_index": 6732,
+      "problem_sha256": "7d3584cb93333b7bd9aaf0e23be687dbdce6a0eabac02cd01201870c658c5e4a",
+      "text_sha256": "56a2dc2cc1db56e2dad5b2826259cb6f95c205b379bb06a3e875aa02fe93513a",
+      "under_steps": 10,
+      "thinking_tokens": 1209,
+      "gold": "2",
+      "prediction": "2",
+      "correct": true
+    },
+    {
+      "train_index": 1728,
+      "problem_sha256": "e9c20cb31a006fb02c5ed886a8e4e46a75a77fedd0419299f7647949f5999392",
+      "text_sha256": "2a67f6abf15cfcff10c4f76a7344873cf4e6c86d3b55e91d0de7e7217cff3d48",
+      "under_steps": 3,
+      "thinking_tokens": 1279,
+      "gold": "\\frac{1}{3}",
+      "prediction": "\\dfrac{1}{3}",
+      "correct": true
+    },
+    {
+      "train_index": 7480,
+      "problem_sha256": "7821e7d6030f26f7523bd963507308854beb91edf56ac9b233f9f34c2f24bb59",
+      "text_sha256": "7bb97a6fdcd125e227f21be97bb405a8e486bd59263dad8819b006a82c0ca3cc",
+      "under_steps": 1,
+      "thinking_tokens": 1503,
+      "gold": "\\frac{1}{7}",
+      "prediction": "\\dfrac{1}{7}",
+      "correct": true
+    },
+    {
+      "train_index": 4646,
+      "problem_sha256": "547c3e29be1bfe78db53e785b957327df748423024d7d620feaae476a2dd7d15",
+      "text_sha256": "0236b7af83b1a9cbd2d0b3e366d8da17d0bd663929381eef4636506ec732ceb8",
+      "under_steps": 1,
+      "thinking_tokens": 1494,
+      "gold": "17",
+      "prediction": "17",
+      "correct": true
+    },
+    {
+      "train_index": 7179,
+      "problem_sha256": "66876315fe294e2dbe07084841bbe2ee44282eba4fe36d938bb59258b73aed9b",
+      "text_sha256": "d571b5eeafa1042879d8870d7a285f682ace79c73f5a663a1588dd7c9cbeadd8",
+      "under_steps": 3,
+      "thinking_tokens": 1327,
+      "gold": "-\\frac{1}{5} - \\frac{2}{5}i",
+      "prediction": "-\\dfrac{1}{5} - \\dfrac{2}{5}i",
+      "correct": true
+    },
+    {
+      "train_index": 2577,
+      "problem_sha256": "de20aaa8cea8396f05c3f2c3edb3ed81b8b1fd747707d356868a97d8518e66a8",
+      "text_sha256": "958b091487ae77e7feb42751468601ada1c30e78ea892ddf8a1a9a1b275a4bf7",
+      "under_steps": 3,
+      "thinking_tokens": 1161,
+      "gold": "3542",
+      "prediction": "3542",
+      "correct": true
+    },
+    {
+      "train_index": 1741,
+      "problem_sha256": "bd25259dd366bc005b03f0f06cd3a220855fd61ee8d8c513db5492dc863eb276",
+      "text_sha256": "b461012d5bd171867c6b1ab566d718840a4be4a339866f04ab4af2dd42204220",
+      "under_steps": 1,
+      "thinking_tokens": 5801,
+      "gold": "326",
+      "prediction": "326",
+      "correct": true
+    },
+    {
+      "train_index": 5369,
+      "problem_sha256": "492f5e468f5fde95d754e00d77582a0c2ccd5e8db88389fb7a211ce3a64b3e0e",
+      "text_sha256": "6bd2aac50038c5840f7b322faf20fed4e71463bacbc0599c01043050dad93982",
+      "under_steps": 2,
+      "thinking_tokens": 2310,
+      "gold": "\\frac{7}{15}",
+      "prediction": "C",
+      "correct": false
+    },
+    {
+      "train_index": 6102,
+      "problem_sha256": "6c206fca267d6ff968c7b148bb4e9bf74522830e2edd98577c7997348d80891d",
+      "text_sha256": "53d4ee940a792c5f39299d5d845f52f6992d3be8a4f007ee70102ed5843d6bd3",
+      "under_steps": 4,
+      "thinking_tokens": 982,
+      "gold": "84",
+      "prediction": "84",
+      "correct": true
+    },
+    {
+      "train_index": 4598,
+      "problem_sha256": "66873b7c2794046ae48802fced1a545d0dd0e40e7f6ed2699c9861383d5b64c3",
+      "text_sha256": "0b702949bbd9dfe63d9752efdebc3dbc6df2e7aa1f67cc7184eee17abd77ab1a",
+      "under_steps": 2,
+      "thinking_tokens": 991,
+      "gold": "120^\\circ",
+      "prediction": "120",
+      "correct": true
+    },
+    {
+      "train_index": 3509,
+      "problem_sha256": "89fcaccfbc56341fcde6949beda37137d0fdf26e380d4096097f658da25946fb",
+      "text_sha256": "100389f61b21445de483641dba75422f89b93f7da971adbb6917210aaeb2014e",
+      "under_steps": 2,
+      "thinking_tokens": 2512,
+      "gold": "\\left[ -1, \\frac{1}{\\sqrt{2}} \\right)",
+      "prediction": "[-1, \\frac{\\sqrt{2}}{2})",
+      "correct": true
+    },
+    {
+      "train_index": 2965,
+      "problem_sha256": "5c4d3495d69dd7a4e629867bfed0697de009b70126f03a3927116a78d40f9ee0",
+      "text_sha256": "34a1b11a1aa975ee675511b36b6a3a23b3090ad3c4443d9e87d393310e8303e1",
+      "under_steps": 4,
+      "thinking_tokens": 3799,
+      "gold": "2",
+      "prediction": "2",
+      "correct": true
+    },
+    {
+      "train_index": 1796,
+      "problem_sha256": "7da8f2347eb328ba31d7631ece3aae0ed0fbd3ec405779c2bd1ccc9acb8938e7",
+      "text_sha256": "79058324efed4544bad9449cd08fedc5786db3d8b2a0f7c7c5107dc992cf0d85",
+      "under_steps": 19,
+      "thinking_tokens": 2243,
+      "gold": "18",
+      "prediction": "18",
+      "correct": true
+    },
+    {
+      "train_index": 7054,
+      "problem_sha256": "3d7553f84045c757391bb305289f494bb3a00404aae69313bd009894c22d3a23",
+      "text_sha256": "d809e087c5c41c3ebcda0387ea018339b12e4cb8095791fef082ecb223da22a1",
+      "under_steps": 4,
+      "thinking_tokens": 3699,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 898,
+      "problem_sha256": "87e95fbf3baf796fc4ac0be1b999ea0398f0ba7b7c73c07c8d353010ba22a134",
+      "text_sha256": "000e99de33ea17f1023da3db98f2b9c980b40fb09b2807cb11c7eb33a5d668e2",
+      "under_steps": 10,
+      "thinking_tokens": 2447,
+      "gold": "86",
+      "prediction": "86",
+      "correct": true
+    },
+    {
+      "train_index": 4885,
+      "problem_sha256": "b500b99c5a141609481e31dd6990a500a1be7db131e81f54b11f92e551126752",
+      "text_sha256": "9258efaa620fe4e2fac1e9dbb85731205346094427f3cc1d4350d3289d5419f0",
+      "under_steps": 1,
+      "thinking_tokens": 1797,
+      "gold": "2664",
+      "prediction": "2664",
+      "correct": true
+    },
+    {
+      "train_index": 3152,
+      "problem_sha256": "4768f29a629a2881f2b13f95c8621692d4ac57b521f2a8cfc4917146fe31625d",
+      "text_sha256": "459e5c2bb9ed5209ee5469e6acbb8b9c53839a67c601ee11b661da38ee047d8f",
+      "under_steps": 3,
+      "thinking_tokens": 888,
+      "gold": "\\left( -\\frac{1}{3}, \\frac{22}{3} \\right)",
+      "prediction": "\\left( -\\dfrac{1}{3}, \\dfrac{22}{3} \\right)",
+      "correct": true
+    },
+    {
+      "train_index": 4532,
+      "problem_sha256": "4cde68b6ff83bad68a269a3ce547529f691110d2f619c9de0c725ed8f30aa7ca",
+      "text_sha256": "3c33022fbdb99e68d2545b48e9826f2a7343c09c93dd35e6dd267b02a393b668",
+      "under_steps": 3,
+      "thinking_tokens": 1171,
+      "gold": "\\frac{3}{4}",
+      "prediction": "\\dfrac{3}{4}",
+      "correct": true
+    },
+    {
+      "train_index": 7248,
+      "problem_sha256": "fa0936a5cab5afbdfe12537edd88db7089791f100a3a0e34ad3363db16165917",
+      "text_sha256": "c32a3ba0b3fdd15aaa15c7be40e5edd9bf8bec1a299d13c04ab5c83855c55949",
+      "under_steps": 14,
+      "thinking_tokens": 1370,
+      "gold": "\\$3.54",
+      "prediction": "3.54",
+      "correct": true
+    },
+    {
+      "train_index": 4398,
+      "problem_sha256": "ffa043ef09ecf448b656d413f819ee7adeb248860954a33c658d9769f35dc38a",
+      "text_sha256": "f0fdf151c2c42fee5aefcb17410fbf54cbb30c771cb7a2067f1be74e7436c2e1",
+      "under_steps": 2,
+      "thinking_tokens": 1496,
+      "gold": "15\\pi",
+      "prediction": "15\\pi",
+      "correct": true
+    },
+    {
+      "train_index": 6151,
+      "problem_sha256": "fe92b60899e18c7bb608de9590f105ef6b9c3bfa86b020499424428a0fc1112b",
+      "text_sha256": "1a297da30dd84d157741349b09ba3943ce4ed654d08a739246f8cea38d2b0b9f",
+      "under_steps": 5,
+      "thinking_tokens": 1815,
+      "gold": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "train_index": 6296,
+      "problem_sha256": "40be52a50e4430f9729e40a8073a738729842fb6dc24898a273281b4fb5f3b57",
+      "text_sha256": "9c95a7b2ee804c99d0f2ccb6666e0cab3b9adb6950ed4b962656e85930378c2b",
+      "under_steps": 4,
+      "thinking_tokens": 1293,
+      "gold": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "train_index": 2786,
+      "problem_sha256": "af8a905676c672b1f4d38cd4010afc53f0777d8a9a97c65d8df228d7de6cd136",
+      "text_sha256": "9d54e6ebab9aaddbfaf95ad791ccaa1c7ae6aa6058b96b14222dee3d06e5d5aa",
+      "under_steps": 7,
+      "thinking_tokens": 1227,
+      "gold": "4",
+      "prediction": "4",
+      "correct": true
+    },
+    {
+      "train_index": 913,
+      "problem_sha256": "2336ca08378d826fd66e656839ac6dc1e144ad037600535e1a955cb702f57eca",
+      "text_sha256": "1129540535f70223b10fbfb69847d142deb84a5cfa0f452b5e3ab1340dfcba78",
+      "under_steps": 4,
+      "thinking_tokens": 2503,
+      "gold": "(x-1)^3(x+1)^3",
+      "prediction": "(x - 1)^3 (x + 1)^3",
+      "correct": true
+    },
+    {
+      "train_index": 1295,
+      "problem_sha256": "13f7eadc29e0fc6ad30d9e3551886bc7a2cf33fa4cc737e2039cac7b6ca66951",
+      "text_sha256": "71104b51c86c1c2db0302fc09f3fb0d68aed1f8a96b7e2b0e2099b34e4020b15",
+      "under_steps": 3,
+      "thinking_tokens": 1794,
+      "gold": "4 \\sqrt{15}",
+      "prediction": "4\\sqrt{15}",
+      "correct": true
+    },
+    {
+      "train_index": 3716,
+      "problem_sha256": "2f0e75c30e558cbfe0943003f38bdde48da96dd95acd028a2f3f3456db45f5ec",
+      "text_sha256": "934d6d39d5281bda9398454756a0c67a249c56a0161d5d9ac08fc19a3d05578c",
+      "under_steps": 1,
+      "thinking_tokens": 902,
+      "gold": "30",
+      "prediction": "30",
+      "correct": true
+    },
+    {
+      "train_index": 26,
+      "problem_sha256": "8bf8b4ea0baec652a43ce69c0d586623f91ce7bd66c0ec602c2c8c7a54381eec",
+      "text_sha256": "986f044bcbe96b9ca53cad7d8d844956f32f7ab2e844d970005973d2f9f1bb12",
+      "under_steps": 5,
+      "thinking_tokens": 2145,
+      "gold": "84",
+      "prediction": "84",
+      "correct": true
+    },
+    {
+      "train_index": 5915,
+      "problem_sha256": "6649bba12a91785f4939cc53663e64ec0b00aa469f6cdef76e160e350b5a12f6",
+      "text_sha256": "b5b21d40084676b7f58609d57c6fa26e54ea172be02afe15c41d8ce0008d67a0",
+      "under_steps": 1,
+      "thinking_tokens": 997,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 5895,
+      "problem_sha256": "fab6a05f1df9c0d9282be045f56118df9f1242067e5681161acadc1e4b211e94",
+      "text_sha256": "e345b5524d4e738f5cdbdae7f3e163b0e084d18f53a3076cea30def941d28fcd",
+      "under_steps": 12,
+      "thinking_tokens": 1441,
+      "gold": "0",
+      "prediction": "0",
+      "correct": true
+    },
+    {
+      "train_index": 1463,
+      "problem_sha256": "e0784fd58faaf659c288a7738d0f421708e89d70ab0534425b8f429a647b7486",
+      "text_sha256": "9639d56cf5c8e648f311e323e091af8296bb07bed06d991ed72646b64ab61d54",
+      "under_steps": 5,
+      "thinking_tokens": 1911,
+      "gold": "-37",
+      "prediction": "-37",
+      "correct": true
+    },
+    {
+      "train_index": 7476,
+      "problem_sha256": "2e85d2e52d168a94da56ccf03cfed78c94074fbcf26d85e810cdbd55503c52cd",
+      "text_sha256": "c9e6263e5868743c2b4bd67e6941c9abeaa0f11712ce18d2ea172b8ff61669b9",
+      "under_steps": 4,
+      "thinking_tokens": 658,
+      "gold": "1",
+      "prediction": "1",
+      "correct": true
+    },
+    {
+      "train_index": 5122,
+      "problem_sha256": "10b7f40129ae518afdc470ac7cf53bf7d2fe9bc191c9bef5284eebb7f992c76b",
+      "text_sha256": "a2acf0fa786621cc305a1e610835cc448d69fd0346b185802384caad51d832d9",
+      "under_steps": 1,
+      "thinking_tokens": 2153,
+      "gold": "21",
+      "prediction": "21",
+      "correct": true
+    },
+    {
+      "train_index": 3063,
+      "problem_sha256": "306215a928667ea9464fea434ca2fbf1437d15bd034c9da972ab5d0cfbcdfab1",
+      "text_sha256": "3da1a70b2afac46e9ef5b040441b41c183468118644228149affb3d6273e9c84",
+      "under_steps": 5,
+      "thinking_tokens": 3100,
+      "gold": "90^\\circ",
+      "prediction": "90",
+      "correct": true
+    },
+    {
+      "train_index": 1323,
+      "problem_sha256": "6fea2f13741e8ccc38ebe293db483e30878bc851466bec96a89abf37d7818d23",
+      "text_sha256": "01ab0a03e75b71673394392a5b6198d6f7ae5f98052b9104b45b045e437b32ae",
+      "under_steps": 6,
+      "thinking_tokens": 2867,
+      "gold": "-16",
+      "prediction": "-16",
+      "correct": true
+    },
+    {
+      "train_index": 6378,
+      "problem_sha256": "2aff04d6753c33eb6744f224c04e48ea831b5d98f6e5c0b7780bb5f0e3aff4c2",
+      "text_sha256": "1ad08c271a7d13beecbf5b67c842c6b3b76a2808aaf7eac25ee59cb83db748b0",
+      "under_steps": 1,
+      "thinking_tokens": 658,
+      "gold": "48",
+      "prediction": "48",
+      "correct": true
+    },
+    {
+      "train_index": 2973,
+      "problem_sha256": "7ff9d6d1e8dcee6de62709fab7521bf2391e394cc3ba76eb0a04c91c3f4ae6dc",
+      "text_sha256": "7b76ff87a3adf83b5403275caf2fb7240b01edc015f25b99d7881a74766c1725",
+      "under_steps": 8,
+      "thinking_tokens": 1524,
+      "gold": "\\begin{pmatrix} 6 \\\\ -17 \\end{pmatrix}",
+      "prediction": "\\begin{pmatrix} 6 \\\\ -17 \\end{pmatrix}",
+      "correct": true
+    },
+    {
+      "train_index": 6813,
+      "problem_sha256": "300ac3bc04bd4e3157888bf00600cf7c27342aaef3cc417044c68824924c3888",
+      "text_sha256": "7d481371be16a8792192b2cad9bb458d4f5a93d1b7cd54c2d90a2b0ef55ed363",
+      "under_steps": 8,
+      "thinking_tokens": 1176,
+      "gold": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "train_index": 6609,
+      "problem_sha256": "cb2d456f846442c4703301dd5a8023488399bd8f3847af06e3fd2b7b3a489f90",
+      "text_sha256": "ed9d17845b5564f3aece0477d34dc2d305ccab96254500d88f70c0bf52bd84e6",
+      "under_steps": 2,
+      "thinking_tokens": 770,
+      "gold": "(3, -1)",
+      "prediction": "(3, -1)",
+      "correct": true
+    },
+    {
+      "train_index": 7192,
+      "problem_sha256": "737610f2c6123ab864cfa61f618f04d034f16be67398e0a119f657ad6b648ba5",
+      "text_sha256": "82cad8c645d1f0007de1be6913b4929063b28372a6968e8b17f09c5357e84008",
+      "under_steps": 5,
+      "thinking_tokens": 1724,
+      "gold": "4",
+      "prediction": "4",
+      "correct": true
+    },
+    {
+      "train_index": 6684,
+      "problem_sha256": "02fe71b181877c8c145aaad97f5fced8c961dd78908ca7498691a86e47c96679",
+      "text_sha256": "42600e378d148be2dcb719e80e076078b2f332ff53a05909a34d6daf0227ffb4",
+      "under_steps": 2,
+      "thinking_tokens": 999,
+      "gold": "\\frac{5}{7}",
+      "prediction": "\\dfrac{5}{7}",
+      "correct": true
+    },
+    {
+      "train_index": 566,
+      "problem_sha256": "0927c3896c5d8e744953e3db7f168645a6cc09366916f26db6c5e8a9132f5386",
+      "text_sha256": "653e49580a96acb523a1bd97b8bf9dd49896da97bd78469afb9fdf1e5a02fcb2",
+      "under_steps": 22,
+      "thinking_tokens": 4335,
+      "gold": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "train_index": 6273,
+      "problem_sha256": "1c513cdba1b93b2b49368034b7e355b8bfd19092e1db17ca7171aee0b8a5220d",
+      "text_sha256": "82f4dd6ecf1ca75a87810decf914462b56284b53be5a4c096bc4611276ee1705",
+      "under_steps": 1,
+      "thinking_tokens": 2132,
+      "gold": "-2",
+      "prediction": "-2",
+      "correct": true
+    },
+    {
+      "train_index": 1051,
+      "problem_sha256": "c0bf37ee9bc64a3874c2484d7096db454083e66d4affc0280d85f309c57cef4f",
+      "text_sha256": "e967b295a7e07387bd637a114fe4fe2e8f8a5af7d6e427c5cb0907b4c072cf7a",
+      "under_steps": 6,
+      "thinking_tokens": 1592,
+      "gold": "2 - 9i, -2 + 9i",
+      "prediction": "-2 + 9i",
+      "correct": false
+    },
+    {
+      "train_index": 4503,
+      "problem_sha256": "cf0db4baa8555f27aaa5b46bcab8777c8bee9a364b27106e907e391d8c9c03bb",
+      "text_sha256": "ade62c77a6b4f627eef7e66936f6b590157c840a1fb75c5a1909cc79ce1ac5d3",
+      "under_steps": 3,
+      "thinking_tokens": 1194,
+      "gold": "10",
+      "prediction": "10",
+      "correct": true
+    },
+    {
+      "train_index": 2171,
+      "problem_sha256": "5c6d4aad7a403680803712f1b54ef1dd14ebbffe192d836dc23e751ce69223ca",
+      "text_sha256": "84794081a37aad26a0e344ff3dbe5bf7d7f6f71f866c8332c2a2b9810f3b5f3d",
+      "under_steps": 2,
+      "thinking_tokens": 2940,
+      "gold": "4",
+      "prediction": "4",
+      "correct": true
+    },
+    {
+      "train_index": 1735,
+      "problem_sha256": "907c43d24656ced6379a7767047c4c02b2713f88550feccc3d5275b4d8a92951",
+      "text_sha256": "444c6a71d702be36d01a80bb585dcdd4e73d89bf772b1ec5ff8fdd66ab11e31c",
+      "under_steps": 1,
+      "thinking_tokens": 2027,
+      "gold": "-1,3,3",
+      "prediction": "-1, 3, 3",
+      "correct": true
+    },
+    {
+      "train_index": 6187,
+      "problem_sha256": "bd95bfba90318dfa2131914cd95bb91608e5adcb5482d8d3042263bcd795036b",
+      "text_sha256": "af72d67932807e10c4a87cb9ec22eed80f3726894038ed94660835a76df0e9a3",
+      "under_steps": 1,
+      "thinking_tokens": 1786,
+      "gold": "-\\frac{5}{2}",
+      "prediction": "-\\dfrac{5}{2}",
+      "correct": true
+    },
+    {
+      "train_index": 5979,
+      "problem_sha256": "e5a1b36e141030d45f22dbb81b5f3499aa3fc5838533eb79d100cc0aeec3db27",
+      "text_sha256": "6aac0bf0732755ff9b0ab3482d90b029eee0a6d4ccbb1f2dfd99065c636fe7da",
+      "under_steps": 3,
+      "thinking_tokens": 2260,
+      "gold": "\\frac{9}{7}",
+      "prediction": "\\dfrac{9}{7}",
+      "correct": true
+    },
+    {
+      "train_index": 5840,
+      "problem_sha256": "bb26248b1d33c1ad57ad23cfbfee5d95c34cd4b669a7a1029f93d69000dba09d",
+      "text_sha256": "3cdfc210a78a7b2a29102e4c629fb9eb9eaa15cf5a06fcea92c95c64fbff4440",
+      "under_steps": 5,
+      "thinking_tokens": 1121,
+      "gold": "40",
+      "prediction": "40",
+      "correct": true
+    },
+    {
+      "train_index": 5502,
+      "problem_sha256": "43b5dcfde9d7453a8c01c3a1a33ab0ab00ea1ac5db0427c796cf6ff8b2497007",
+      "text_sha256": "3b98f670cb657bb8f86a796c4e44c7f79e11c3e1551534032285e6f2eae23a16",
+      "under_steps": 10,
+      "thinking_tokens": 2556,
+      "gold": "47",
+      "prediction": "47",
+      "correct": true
+    },
+    {
+      "train_index": 3588,
+      "problem_sha256": "07f395a50a189bab6b85017f7086684a9ae33ea90812cf5e72305448e026a8d0",
+      "text_sha256": "7bb9c8be11383cf4b6bc5d0d44b6513dac51d26aaec9b2914dbef46cf6c40f24",
+      "under_steps": 1,
+      "thinking_tokens": 3225,
+      "gold": "-\\frac{a}{3}",
+      "prediction": "-\\dfrac{a}{3}",
+      "correct": true
+    },
+    {
+      "train_index": 1840,
+      "problem_sha256": "e02d042338a1e4c781ae911d24138847b91db526a09da2f36444b523b2e4b4d9",
+      "text_sha256": "3cf775f471f8454b9c393942d7c32f698778e314df09bcbd01539a008642b81e",
+      "under_steps": 7,
+      "thinking_tokens": 4493,
+      "gold": "3999",
+      "prediction": "3999",
+      "correct": true
+    },
+    {
+      "train_index": 1885,
+      "problem_sha256": "76b0eb22981ba4f93fb052b4b581b913ccad67af243098b8311e0fc7f49c4ed7",
+      "text_sha256": "f7d9713f7c028b2a32379122bbcddabb982d7395ab01870a9a9d4b440fa7550c",
+      "under_steps": 4,
+      "thinking_tokens": 5605,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 58,
+      "problem_sha256": "e01b6d8f55417e7ebafbcadce3a70f21ff838c04c858a5462cbb28e38c76b36c",
+      "text_sha256": "00e324d40b0859627eae86b63e0222fd7fa3f22f7427d0c901a11c36ad9436e8",
+      "under_steps": 5,
+      "thinking_tokens": 5837,
+      "gold": "263",
+      "prediction": "263",
+      "correct": true
+    },
+    {
+      "train_index": 257,
+      "problem_sha256": "5565a9809e2176e534e415e87c6b589a364f50314c61dea7b17572c2fda534fe",
+      "text_sha256": "8f28fcfc63487104cdbc8a8454706da5f0062486cf9f9e53e8e5a576308c8067",
+      "under_steps": 1,
+      "thinking_tokens": 1253,
+      "gold": "160",
+      "prediction": "160",
+      "correct": true
+    },
+    {
+      "train_index": 1755,
+      "problem_sha256": "9d365bfc63ef9746f374d310175a35ed32da8d2a17b960ea6cac2c978df756bd",
+      "text_sha256": "ef8626aad98d110c6f00e536092aee993e57cbce9b9c0a3e701f9cadc67f473d",
+      "under_steps": 2,
+      "thinking_tokens": 2386,
+      "gold": "3i,-3i",
+      "prediction": "-3i",
+      "correct": false
+    },
+    {
+      "train_index": 4677,
+      "problem_sha256": "aba353ac787f7d7225992e95a37bb5d0233878f390d84b6bf76e03a22a8338ab",
+      "text_sha256": "1665de0765fc5960cf9b0bae33ba55855d7725b445d58cbc2cf719ab5b72a7f0",
+      "under_steps": 1,
+      "thinking_tokens": 1111,
+      "gold": "\\frac{5}{2}",
+      "prediction": "\\dfrac{5}{2}",
+      "correct": true
+    },
+    {
+      "train_index": 4720,
+      "problem_sha256": "7ea816b4b081cfcc794cc58e63dc84834c27e290c63f05e8089dd47bb1fd8d29",
+      "text_sha256": "933f48343d71f8f7b169921bb447f434a7ddbe4bfb132398b2266cd23238f22e",
+      "under_steps": 1,
+      "thinking_tokens": 847,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 6427,
+      "problem_sha256": "285178231b307e225d58408ba6e7ab3b8354ed1fc1f2a70838b4f3d9136d2636",
+      "text_sha256": "0bd3db42afc09245a105e81ade738c1f69c1eb3d9b10200a24297954fde79924",
+      "under_steps": 6,
+      "thinking_tokens": 1342,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 6615,
+      "problem_sha256": "e8c4ccb01309e673640f14ea5e632fe53bca27d2f80ea8c8a0f7bd1ba52797bf",
+      "text_sha256": "361b8a420822b8a38f306e5ba8e4c4a7740800a69f2e7b859c45a0788a65fa1d",
+      "under_steps": 2,
+      "thinking_tokens": 958,
+      "gold": "608",
+      "prediction": "608",
+      "correct": true
+    },
+    {
+      "train_index": 1559,
+      "problem_sha256": "3c04bbe0835a829f2e41571f23678beabe739260a36b7a6dcbc68f22a6554941",
+      "text_sha256": "d00cfafcd73ee949b9ab927dc451cb44f8ad89915ed3499dc6fa3d476ff0cfea",
+      "under_steps": 9,
+      "thinking_tokens": 2440,
+      "gold": "60",
+      "prediction": "60",
+      "correct": true
+    },
+    {
+      "train_index": 772,
+      "problem_sha256": "1249c9da6e54fca993bfef33e351e7a43bf72731d889519236e0116d0db50994",
+      "text_sha256": "672803b803619a0096d824c640417d0193adb9fa7de9b3b9fc66220216361fa4",
+      "under_steps": 12,
+      "thinking_tokens": 3270,
+      "gold": "(-5, 7)",
+      "prediction": "(-5, 7)",
+      "correct": true
+    },
+    {
+      "train_index": 5398,
+      "problem_sha256": "38fef010af745038480386f42f041057232f556dffd23a644512c9369935b3ed",
+      "text_sha256": "43cdf06d28867c7102dc8220cc19c3816f14297be6b3fbd8c608be120da441a0",
+      "under_steps": 3,
+      "thinking_tokens": 3528,
+      "gold": "49",
+      "prediction": "49",
+      "correct": true
+    },
+    {
+      "train_index": 2902,
+      "problem_sha256": "4dfff6d4ef6dd1cee5d017f0c4ded04e11b9682575f9ed35667f01f9ca715482",
+      "text_sha256": "742e84ecd3c03e1b198c74b76fed589f824b366155d4c567b8fe3a4bc8673f6f",
+      "under_steps": 1,
+      "thinking_tokens": 1200,
+      "gold": "17",
+      "prediction": "17",
+      "correct": true
+    },
+    {
+      "train_index": 3367,
+      "problem_sha256": "3318858158b108f6f9603dbf7d81b68f4ebfbf615f8f0331d107b4ac5e1adfe3",
+      "text_sha256": "a6ad94f7855e4be6f4dce7f143b32c8a5b55511e5abd109fb51ec6ff117840ac",
+      "under_steps": 5,
+      "thinking_tokens": 5696,
+      "gold": "270^\\circ",
+      "prediction": "270^\\circ",
+      "correct": true
+    },
+    {
+      "train_index": 5972,
+      "problem_sha256": "a5a009faa5c0e6f873b9208fffb5ef8292914061d6f47b5b5d5c34d5dd7ffac4",
+      "text_sha256": "2ed0bd9f4aebb163f5dae24fb21c2d7973a6045a55d6b732b366622e131125fc",
+      "under_steps": 1,
+      "thinking_tokens": 2338,
+      "gold": "4",
+      "prediction": "4",
+      "correct": true
+    },
+    {
+      "train_index": 5516,
+      "problem_sha256": "68ca5927af79720f46b53f511c92ab5fcdd3dfc0792e640c934237b0af3a8537",
+      "text_sha256": "920164ae5d3ee43d95425e2508655d10d5c2979ca84fb380cacfbbdda847de18",
+      "under_steps": 7,
+      "thinking_tokens": 6235,
+      "gold": "17",
+      "prediction": "17",
+      "correct": true
+    },
+    {
+      "train_index": 3298,
+      "problem_sha256": "f6f64588bcd2f1a224f202b0afffb862ad6a80232b51c1b8a50e0ad2367dac80",
+      "text_sha256": "1bde28b8e513ab1e8da2c14d8c8b36c2dc3a89cde67308338477cf57b1cb13aa",
+      "under_steps": 2,
+      "thinking_tokens": 963,
+      "gold": "\\frac{11}{21}",
+      "prediction": "\\dfrac{11}{21}",
+      "correct": true
+    },
+    {
+      "train_index": 6558,
+      "problem_sha256": "f2292d3e400bb3cb1999b3ce10d26dcb92a5869cb991b3558afc69d7f1fe95bd",
+      "text_sha256": "d4792167d4807b39f275e793a7acbe5d4389ddb50b049947db89ece9a39ec4c5",
+      "under_steps": 1,
+      "thinking_tokens": 1596,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 2036,
+      "problem_sha256": "adef2828be09412d58f4fb8270adbda8acdc030cd5d5e559f48a0c0e4536dc67",
+      "text_sha256": "8ff46d429fe4eed1b3543ab4ac7d3bfc21ac5726a347cff539e3286c0d8fe7ec",
+      "under_steps": 11,
+      "thinking_tokens": 2752,
+      "gold": "32",
+      "prediction": "32",
+      "correct": true
+    },
+    {
+      "train_index": 4393,
+      "problem_sha256": "cfca3462543a1bb446759e94dd6b09a5ad8856553d1e934b6b224fe6a3bd35ec",
+      "text_sha256": "4b6b4e0e03d97f5534664cbb8cd600429716884db0826b5cb87260f578676c1b",
+      "under_steps": 1,
+      "thinking_tokens": 664,
+      "gold": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "train_index": 1503,
+      "problem_sha256": "a84ccafa148bbd52a4a1c0b7c911b687ca9ae4ef2f09f6a5c3599e3f7080c43c",
+      "text_sha256": "8572bc28fabf02ea47e68981d8b06b6b2ec417301365c00bbd073ad723b5edfe",
+      "under_steps": 9,
+      "thinking_tokens": 1187,
+      "gold": "2x^2 - 3x - 1",
+      "prediction": "2x^2 - 3x - 1",
+      "correct": true
+    },
+    {
+      "train_index": 4508,
+      "problem_sha256": "8a9d018a109258401022a12e57683f0b092dbc2d19cec19edadb2518778c5ef7",
+      "text_sha256": "0d1f116095fba8ebc8a39c990a522ca636204a4456a9f363c915e2348acdb095",
+      "under_steps": 1,
+      "thinking_tokens": 1423,
+      "gold": "20",
+      "prediction": "20",
+      "correct": true
+    },
+    {
+      "train_index": 764,
+      "problem_sha256": "7de5c74f6598ae0b6fb6048af44f796a244535c625a99a82ee4a69c7c74b6f79",
+      "text_sha256": "2142d5f3e095545c3e9e7bb1d1a999aabae40864167450dcc231b71a04fe9c57",
+      "under_steps": 32,
+      "thinking_tokens": 5438,
+      "gold": "182",
+      "prediction": "182",
+      "correct": true
+    },
+    {
+      "train_index": 6173,
+      "problem_sha256": "d1f7c621f5f8cb5851d477e5548dd5926355a2c9bbac8c2f9baa54ae21f2910e",
+      "text_sha256": "8755727c3e857c994912a0d214642654df55fa6e8cce3397b12f3f127c79a349",
+      "under_steps": 1,
+      "thinking_tokens": 2609,
+      "gold": "26",
+      "prediction": "26",
+      "correct": true
+    },
+    {
+      "train_index": 1936,
+      "problem_sha256": "e025c91eb8a974c5860044eae22089e3912055bcc8c8415ccbb66acc1a7a8098",
+      "text_sha256": "e5120ad37ea44f8f179d3dc59387f924ad0186a629d2b9bb76fa77052306223f",
+      "under_steps": 4,
+      "thinking_tokens": 5173,
+      "gold": "\\frac{1}{(a - b)b}",
+      "prediction": "\\dfrac{1}{a(a - b)}",
+      "correct": false
+    },
+    {
+      "train_index": 3329,
+      "problem_sha256": "1b4bdb06018621cfd62da1be37ea8407f8e1e7b4c8d297cf624d05eed8105468",
+      "text_sha256": "478d2127fc77d967cec158f9c89ffd7e485e17e40229fe9dcd670881e74f1caa",
+      "under_steps": 1,
+      "thinking_tokens": 1384,
+      "gold": "\\frac{\\sqrt{191}}{15}",
+      "prediction": "\\dfrac{\\sqrt{191}}{15}",
+      "correct": true
+    },
+    {
+      "train_index": 3943,
+      "problem_sha256": "eda578d6d023f27f50b3a952b0c8d8543910d1caa8092f6ef2281d1ffbe41c9d",
+      "text_sha256": "88c62e9157d9a9850af64976a9ddde9dec6818052f4d4153ee86e296e69c8f5c",
+      "under_steps": 1,
+      "thinking_tokens": 964,
+      "gold": "1",
+      "prediction": "1",
+      "correct": true
+    },
+    {
+      "train_index": 6423,
+      "problem_sha256": "873b9f088341ecb9f1ab77a980025839ee02f9a9322c91efd9c88a77ebf5b760",
+      "text_sha256": "d224ee3bad6e6e1ba387b185ffb82852a6607476977abc1e80bb64d629fb7ffb",
+      "under_steps": 1,
+      "thinking_tokens": 1024,
+      "gold": "15(3x+2)",
+      "prediction": "15(3x + 2)",
+      "correct": true
+    },
+    {
+      "train_index": 3727,
+      "problem_sha256": "2d5a1559ec5a3cc61c33810b0153af23f25aa886c41b6751b6b69d21691a363e",
+      "text_sha256": "501a0dcb3f00ee5f22f1dc6970764ebc1d21ab3d1d7d012cae980994921be25b",
+      "under_steps": 2,
+      "thinking_tokens": 1567,
+      "gold": "55",
+      "prediction": "55",
+      "correct": true
+    },
+    {
+      "train_index": 3465,
+      "problem_sha256": "ae8e2aa3710c8b2e9fabdc4d277fe83e26d7636d2bb647616247e1d53b156b82",
+      "text_sha256": "9ac23254b693533977668c857c3c7ab9b3b4a80f7215b009635d963601fc5057",
+      "under_steps": 2,
+      "thinking_tokens": 1679,
+      "gold": "\\left( 6, \\frac{3 \\pi}{2}, \\frac{\\pi}{3} \\right)",
+      "prediction": "\\left(6, \\frac{3\\pi}{2}, \\frac{\\pi}{3}\\right)",
+      "correct": true
+    },
+    {
+      "train_index": 5885,
+      "problem_sha256": "5cd3da3bd9fb59fd80f5281bab2d3249ed30edebecb64527abcb191eeb12c892",
+      "text_sha256": "6fec7ed31f71a50612bcb2ec78cc87e438b01731753e242a0f8080e937ff28e2",
+      "under_steps": 4,
+      "thinking_tokens": 1420,
+      "gold": "64",
+      "prediction": "64",
+      "correct": true
+    },
+    {
+      "train_index": 4119,
+      "problem_sha256": "164e9cc2326871401ed03520aabf7e01d5187a6b5d682453368d91843ced11f8",
+      "text_sha256": "de80aaf50769e46cced34a12fb3a02ac2fc5c3fe6812c9c08e50dda699978171",
+      "under_steps": 4,
+      "thinking_tokens": 993,
+      "gold": "10",
+      "prediction": "10",
+      "correct": true
+    },
+    {
+      "train_index": 6985,
+      "problem_sha256": "296ff76494b1b95ee67a407a33a0bcef070fbe1bc27ebc4b68b83524453fd21b",
+      "text_sha256": "47c9b4862fcaa7764668bb225a69fe5c9c898481731bdea731cd57bf0fb2206f",
+      "under_steps": 1,
+      "thinking_tokens": 977,
+      "gold": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "train_index": 1522,
+      "problem_sha256": "85fed382544ccea218c623809e14a95e32c57f04aaa2b9b5d4bf3ad4c32008b9",
+      "text_sha256": "6f190d3e7c0ea44e3d9c51efb53c1eb696d9f46d4d676cabb723a939f713b43d",
+      "under_steps": 5,
+      "thinking_tokens": 5261,
+      "gold": "991",
+      "prediction": "1001",
+      "correct": false
+    },
+    {
+      "train_index": 4874,
+      "problem_sha256": "0a62d9f49e0ed24ebd59574d32c6530ae879f4ce1499318eb219d41afcad7dc1",
+      "text_sha256": "d0db51a3df2ff18589417337bf4c1f9d248b4cb17d90bc693e5d8b757dde05de",
+      "under_steps": 1,
+      "thinking_tokens": 999,
+      "gold": "51",
+      "prediction": "51",
+      "correct": true
+    },
+    {
+      "train_index": 556,
+      "problem_sha256": "a280735b9ffd9a79e25e31e7c21a3c9ab68bdaaa7c9ed502850cd86f879191a1",
+      "text_sha256": "e5d8e02064aa87e76dae535fa8d281e0b7046c83f48f1f5ae9238db02c36aae5",
+      "under_steps": 4,
+      "thinking_tokens": 5595,
+      "gold": "\\frac{2}{9}",
+      "prediction": "\\dfrac{2}{9}",
+      "correct": true
+    },
+    {
+      "train_index": 3307,
+      "problem_sha256": "08ec00be8c58667aa0e11f32e22ffa3fc48e866a0b3f01d3065e9e9e93171ae2",
+      "text_sha256": "eb8f4aa1607b53f9a23ed5293bfc6185e9af471cee9151d50e33ecd1a3a88431",
+      "under_steps": 7,
+      "thinking_tokens": 3336,
+      "gold": "\\begin{pmatrix} -11/15 \\\\ -2/3 \\\\ -2/15 \\end{pmatrix}",
+      "prediction": "\\begin{pmatrix} -\\dfrac{11}{15} \\\\ -\\dfrac{2}{3} \\\\ -\\dfrac{2}{15} \\end{pmatrix}",
+      "correct": true
+    },
+    {
+      "train_index": 982,
+      "problem_sha256": "9caf52215457fd3793709715fe25bc077e3e8068dfa3df6f1af86fd06858bfde",
+      "text_sha256": "3c8e58f2431570364fa92770c52e7ea9151d6f2aab61c22b025b663b7dd8aa27",
+      "under_steps": 3,
+      "thinking_tokens": 1027,
+      "gold": "-8",
+      "prediction": "-8",
+      "correct": true
+    },
+    {
+      "train_index": 7293,
+      "problem_sha256": "0c780b9ef99096e690daaee5c64ddbf56f84de8ba8cc9d612e8f9a426927c59b",
+      "text_sha256": "b913f1a63e6f826da4757b88c92b79f9d494ec00ff7d5cd33aa70c7d658cc366",
+      "under_steps": 4,
+      "thinking_tokens": 1400,
+      "gold": "\\frac{5}{9}",
+      "prediction": "\\dfrac{5}{9}",
+      "correct": true
+    },
+    {
+      "train_index": 2016,
+      "problem_sha256": "7c9292659d852c5e9096b82c252de8e6e8b0e4fd1089f9f93ea7a0f5f96d8390",
+      "text_sha256": "df559359119f7668ec7117d036261f635291a8cd4206699692a65478d1be342a",
+      "under_steps": 10,
+      "thinking_tokens": 2935,
+      "gold": "0",
+      "prediction": "0",
+      "correct": true
+    },
+    {
+      "train_index": 671,
+      "problem_sha256": "5cb73417293100439b20f791e874bcb59d594a057cf462d5f518d74cb1a6efcb",
+      "text_sha256": "a24358cc8737c93c0e0350602c36a8993fddf654f178149a2093f36d58a858c1",
+      "under_steps": 4,
+      "thinking_tokens": 6170,
+      "gold": "\\dfrac{7}{8}",
+      "prediction": "\\dfrac{7}{8}",
+      "correct": true
+    },
+    {
+      "train_index": 5385,
+      "problem_sha256": "c441810a86e3f7d810ee3532c75d8dc01cba4809b2f15a544ac18ee081b840b9",
+      "text_sha256": "c3e327031d5a4e09155b3b488a7e80d877f628eec6faaa0bf05c228076072920",
+      "under_steps": 2,
+      "thinking_tokens": 735,
+      "gold": "\\frac{3}{2}",
+      "prediction": "\\dfrac{3}{2}",
+      "correct": true
+    },
+    {
+      "train_index": 4630,
+      "problem_sha256": "8a4fbc0173c9687c32d15fac9b1089ed010c4163526a9bfec4d83787de761e9e",
+      "text_sha256": "9f71e769cd4f5a4101c5d64e3e9bad3ae0fde9016994600e658a3af9bb306f53",
+      "under_steps": 9,
+      "thinking_tokens": 1337,
+      "gold": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "train_index": 1673,
+      "problem_sha256": "5b6ed8b4be6be16c4757969a06b3eb04d61bcacbb260fa77523c0be983ec18b5",
+      "text_sha256": "e3baf2fcefb5f29cfb29e1d35696800e7747d2cfe1f85dc49455900ef9481026",
+      "under_steps": 6,
+      "thinking_tokens": 1871,
+      "gold": "(6,4)",
+      "prediction": "(6, 4)",
+      "correct": true
+    },
+    {
+      "train_index": 2175,
+      "problem_sha256": "d73060a1053cb6fadb28ee3d08b184478f55f36969aa0bf05eb0ba143aef35b9",
+      "text_sha256": "39df0072f741a2d66c24298f2561304ac40fa529c99baeec12f84b67aa7d5d74",
+      "under_steps": 4,
+      "thinking_tokens": 2073,
+      "gold": "24_{10}",
+      "prediction": "24",
+      "correct": true
+    },
+    {
+      "train_index": 1072,
+      "problem_sha256": "d5b193c4c48990e5e8ba20afb651d30d28af8a65fe5e462495dc0e8c2b265859",
+      "text_sha256": "55c5a056c0c8300523b93f6350e79487a15b0f8f75d5d9b266ea4064a8f8123c",
+      "under_steps": 2,
+      "thinking_tokens": 1713,
+      "gold": "80",
+      "prediction": "80",
+      "correct": true
+    },
+    {
+      "train_index": 5088,
+      "problem_sha256": "a88b61d0ba8f65cf7b7fa1733725e605fdf6ad0e9dae31f544071b4650e446e4",
+      "text_sha256": "66f3a7a88bbbbb766edff6c4fc9d950940d9f45084e990af4f074567b2629fdd",
+      "under_steps": 1,
+      "thinking_tokens": 1606,
+      "gold": "336",
+      "prediction": "336",
+      "correct": true
+    },
+    {
+      "train_index": 819,
+      "problem_sha256": "3b400cb0c1d8e90645445ab4c7451bccd5e47dd66a393da17d5d8cd07f12f949",
+      "text_sha256": "73a3d8ec05d3821b4a29e50633fb95327801789dd3e2e29b268827ebcd56483f",
+      "under_steps": 2,
+      "thinking_tokens": 2175,
+      "gold": "-221",
+      "prediction": "-221",
+      "correct": true
+    },
+    {
+      "train_index": 1746,
+      "problem_sha256": "c08ed5ab00fd8c25b98a30639e737c7cd96de15e313faae25efe1754ff0a3ce4",
+      "text_sha256": "0cdaf38a8768080e329da681f0aa2a435a9f777ee786c727f4b01a2deec7deb5",
+      "under_steps": 12,
+      "thinking_tokens": 1520,
+      "gold": "71",
+      "prediction": "71",
+      "correct": true
+    },
+    {
+      "train_index": 1085,
+      "problem_sha256": "a5eb1f267e93e689dd5b0852079cd274198b26431801c6a622ff28f45d2430cb",
+      "text_sha256": "287439def189b8d728a76862a6bd4e8ff48c1f95dcf0c1b30e385aef209a23f8",
+      "under_steps": 6,
+      "thinking_tokens": 3439,
+      "gold": "-484",
+      "prediction": "-484",
+      "correct": true
+    },
+    {
+      "train_index": 7216,
+      "problem_sha256": "67c6d3da5bd4e7668939f52bcb206907abbbcb9ffbb1667304997bc15e83d4d1",
+      "text_sha256": "ded1440a8299499c791cf0fa5317822f239393c46b1d72d42be551d8b385eeb7",
+      "under_steps": 1,
+      "thinking_tokens": 834,
+      "gold": "15",
+      "prediction": "15",
+      "correct": true
+    },
+    {
+      "train_index": 7202,
+      "problem_sha256": "73041bc06b1eaa94b3ee560391662e1c96a1cf852801ede3fa2538ef2099a3f4",
+      "text_sha256": "fe7d80eb00823be9c9b8fe1d57bf74f2574638c5467f07d1f5bab1e80a5f8d8f",
+      "under_steps": 16,
+      "thinking_tokens": 1715,
+      "gold": "-400",
+      "prediction": "-400",
+      "correct": true
+    },
+    {
+      "train_index": 2001,
+      "problem_sha256": "fa50ba01a2b0c5ef7497c6adcf4355e19a90523c73726e6a936cddcdcff8b95b",
+      "text_sha256": "8e82f98f222987527a59be7152d56f23844cbfac0b78d99299902fd9b4c99bd8",
+      "under_steps": 14,
+      "thinking_tokens": 3764,
+      "gold": "x^6-5832",
+      "prediction": "x^6 - 5832",
+      "correct": true
+    },
+    {
+      "train_index": 3027,
+      "problem_sha256": "a6577dea9527ec4c92b90558a52d80dfb3c57fa92de8baa002cdca29458faccf",
+      "text_sha256": "573d14f320ad87bcc6f705f25698bc62e7fa8ec7f6170f066faf60d3bcc9803f",
+      "under_steps": 2,
+      "thinking_tokens": 1788,
+      "gold": "1",
+      "prediction": "1",
+      "correct": true
+    },
+    {
+      "train_index": 2334,
+      "problem_sha256": "bf73c2598bc9fde194d84ba39f615bec7fea4407c705dfc9c07d4e57706b696e",
+      "text_sha256": "f1ecd32734597848b7d04dc8c50ba0b30756fe3b3fa0286e940452fa0172a4af",
+      "under_steps": 5,
+      "thinking_tokens": 3079,
+      "gold": "902",
+      "prediction": "902",
+      "correct": true
+    },
+    {
+      "train_index": 3589,
+      "problem_sha256": "c13ce2bd685b9e926fd20e31e3745c26d408f203252e2715b0c4d9a2920c495c",
+      "text_sha256": "04496f6cf202533defeea4823ca2e73ce68ae4a7d711e742585364c59670c5ab",
+      "under_steps": 3,
+      "thinking_tokens": 1683,
+      "gold": "\\frac{7}{4}",
+      "prediction": "\\dfrac{7}{4}",
+      "correct": true
+    },
+    {
+      "train_index": 5763,
+      "problem_sha256": "ce42e2cce784ab2535d175bdac36594bee6febbae18835cac46a2a0dac1bf6f5",
+      "text_sha256": "6e11bd42e7852d7953d4e76c5cba99e90b6ba84611898da7044224faca522b55",
+      "under_steps": 13,
+      "thinking_tokens": 949,
+      "gold": "4",
+      "prediction": "4",
+      "correct": true
+    },
+    {
+      "train_index": 5357,
+      "problem_sha256": "8864df85d8b8dce5a1f0ba14e41e032964b826f21a485fc4a1527a071b9ffb74",
+      "text_sha256": "ff81f351647bf76781e0f97de2c9d979f2c2ef7fc4b1db67a670b537e5da00e8",
+      "under_steps": 11,
+      "thinking_tokens": 4745,
+      "gold": "135",
+      "prediction": "135^\\circ",
+      "correct": true
+    },
+    {
+      "train_index": 64,
+      "problem_sha256": "c7d11e88ed6348a1351c5dd9a77cfee3bbfd9fbb8fdcc52f2e45b833da780ec9",
+      "text_sha256": "8934eeb76173e8982eba628c9fe8b067681fad3678999295a0ac084dfd0a7527",
+      "under_steps": 4,
+      "thinking_tokens": 2239,
+      "gold": "\\dfrac{37}{256}",
+      "prediction": "\\dfrac{37}{256}",
+      "correct": true
+    },
+    {
+      "train_index": 6693,
+      "problem_sha256": "1735f656cef1dff7df7ccf824cbf53ccef14a96e51c9d6327f253740b4ee65ba",
+      "text_sha256": "5c26bef3cfd7a056d942f801e4c3b54757c30ad8a12d1b8571c47e7140f2659e",
+      "under_steps": 1,
+      "thinking_tokens": 990,
+      "gold": "100\\pi",
+      "prediction": "100\\pi",
+      "correct": true
+    },
+    {
+      "train_index": 4543,
+      "problem_sha256": "f2e2bbaaac71e30e1c5a049011da7cf0b06bc4eb3c3f673aca7d5df98946c11b",
+      "text_sha256": "ed51b63e6a716b0f29ad130a99827e6faa19514d0fd0358ad819ba0ab6cf2334",
+      "under_steps": 1,
+      "thinking_tokens": 1934,
+      "gold": "44",
+      "prediction": "44\\%",
+      "correct": true
+    },
+    {
+      "train_index": 1100,
+      "problem_sha256": "fb814c6d98e0b5510d25fc8fe21a60d4afc441093901b1c47867b4eaf42f27c3",
+      "text_sha256": "8cb59322c07afdc846f193846bc3762b663474dd00e8f4de0117c123bf4b5514",
+      "under_steps": 6,
+      "thinking_tokens": 2157,
+      "gold": "2 + 3 \\sqrt{2}",
+      "prediction": "2 + 3\\sqrt{2}",
+      "correct": true
+    },
+    {
+      "train_index": 945,
+      "problem_sha256": "dc9d609c6d65059de5e89ac3886a55570cb359d8c320f1e89c05aa3bc07c1340",
+      "text_sha256": "c62a7c33ecc501df809adb27973502b52e2f70ff288427efc231e7dcb98efad6",
+      "under_steps": 2,
+      "thinking_tokens": 1598,
+      "gold": "2, 3, \\frac{1}{2}, \\frac{1}{3}",
+      "prediction": "3",
+      "correct": false
+    },
+    {
+      "train_index": 876,
+      "problem_sha256": "9a8019594a95cc18555ed89208b951be9aac308b3e2bba7d32dd4b6e4ec2b605",
+      "text_sha256": "a7fedcef79d5735daf8a364f468f249acb5ad26dc7bc1e0de4235d17104a9d81",
+      "under_steps": 1,
+      "thinking_tokens": 1685,
+      "gold": "2\\sqrt{10}",
+      "prediction": "2\\sqrt{10}",
+      "correct": true
+    },
+    {
+      "train_index": 6081,
+      "problem_sha256": "c846e0404963fe65c9b893db62def0a4684c5eced1f331d0108a4c1da5564840",
+      "text_sha256": "0ac18b5f8beb4764ecbe3c6cf77227517a15e080f64820e185cf088ce62f692c",
+      "under_steps": 9,
+      "thinking_tokens": 1067,
+      "gold": "22",
+      "prediction": "22",
+      "correct": true
+    },
+    {
+      "train_index": 1725,
+      "problem_sha256": "4cca6c5cefc1356e3accc2b008cf8cfe617fbf15ba4a9bb0a48f2489109e76a9",
+      "text_sha256": "8d24f3d37bd0ed52dfbaa525ac91c3df319ddf185930640c30c974db5eb46ddc",
+      "under_steps": 3,
+      "thinking_tokens": 1948,
+      "gold": "\\frac{2}{5}",
+      "prediction": "\\dfrac{2}{5}",
+      "correct": true
+    }
+  ],
+  "limitations": "Final answer correctness is not step validity or proof of sufficient exploration. These are selected calibration traces, not benchmark accuracy or independent evidence of compression."
+}

@@ -1,0 +1,42 @@
+{
+  "status": "Selected numerical outliers resolved by FP32 eager reference; full trajectory/gradient validation still required",
+  "evidence_sha256": "01307bf7bee574484e9d54e9c3481d0a23cff61a9b18f6f988b7d20976ae4f35",
+  "total_process_seconds": 150.88717626035213,
+  "comparison": [
+    {
+      "key": "486_U",
+      "old_native_logp": -1.9073486328125e-05,
+      "old_hf_bf16_logp": -7.2512664794921875,
+      "hf_fp32_eager_logp": -1.9073486328125e-05,
+      "absolute_logp_error": 0.0
+    },
+    {
+      "key": "129_U",
+      "old_native_logp": -3.814697265625e-06,
+      "old_hf_bf16_logp": -5.419496536254883,
+      "hf_fp32_eager_logp": -3.814697265625e-06,
+      "absolute_logp_error": 0.0
+    },
+    {
+      "key": "414_L27",
+      "old_native_logp": -0.0003032684326171875,
+      "old_hf_bf16_logp": -4.388910293579102,
+      "hf_fp32_eager_logp": -0.00029754638671875,
+      "absolute_logp_error": 5.7220458984375e-06
+    }
+  ],
+  "new_complete_answers": 0,
+  "native_single_token_probes": 3,
+  "optimizer_steps": 0,
+  "limits": [
+    "Three deliberately selected worst positions only, not a representative accuracy sample",
+    "BF16 attention backend materially changes scores; exact responsible operation not isolated",
+    "Old BF16 gradient geometry is provisional and retained; do not silently replace historical results",
+    "Native frozen L27 benchmarks unchanged; no new compression evidence"
+  ],
+  "next": [
+    "Full-trajectory scoring checks with original frozen histories",
+    "Precision sensitivity of gradients before vector optimization",
+    "Do not infer global agreement or guaranteed self-feedback improvement"
+  ]
+}

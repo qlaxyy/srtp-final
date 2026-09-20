@@ -1,0 +1,17 @@
+{
+  "ast_parsed": [
+    "wsc_shadow.py",
+    "wsc_control_trace.py",
+    "run_wsc_shadow.py",
+    "score_wsc_shadow.py",
+    "test_wsc_shadow_cpu.py",
+    "audit_wsc_weights_cpu.py",
+    "wsc_feature_contract_cpu.py",
+    "wsc_recovery_policy_cpu.py"
+  ],
+  "old_native_source_hashes_verified": 2192,
+  "tokenizer_sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773",
+  "boundary_count": 565,
+  "gpu_used": false,
+  "ssh_used": false
+}

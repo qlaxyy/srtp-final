@@ -1,0 +1,15 @@
+{
+  "tests_passed": 5,
+  "original_vector_elementwise_equal": true,
+  "original_parameters_max_abs_error": 4.440892098500626e-16,
+  "grid_points_per_fit": 125751,
+  "fits": 3,
+  "inputs_unchanged": true,
+  "attempts": "run1-4 preserve CPU assertions for cross-platform FP64 exact equality; run5 succeeded; run6 recomputes cosine in FP64 to avoid values slightly above one. No GPU used.",
+  "raw_run": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\label_alignment_20260917\\run6",
+  "local_sources_sha256": {
+    "prepare_label_alignment.py": "040baf1f1a100f5b9183fcc9c2c4a9fafc2f299e8d81ec22b485a85a5078d029",
+    "test_label_alignment.py": "fc814fc718bcc117d8563209bfe9005992e67f927c524c20f82b74ef480f55b6",
+    "large_lexicon_reference.py": "144fefa1e5692863a6d2373a23a8b2eeea61516e0d02e47d1910d89cf76637d1"
+  }
+}

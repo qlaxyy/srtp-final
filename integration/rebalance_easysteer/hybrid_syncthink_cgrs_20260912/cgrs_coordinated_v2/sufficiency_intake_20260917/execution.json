@@ -1,0 +1,33 @@
+{
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "180s",
+    "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "-u",
+    "/root/autodl-tmp/projects/sufficiency_sanity_20260917/run_sufficiency_sanity.py",
+    "--plan",
+    "/root/autodl-tmp/projects/sufficiency_sanity_20260917/plan.json",
+    "--output",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/sufficiency_intake_20260917"
+  ],
+  "environment": {
+    "PATH": "/root/autodl-tmp/venvs/easysteer-vllm026/bin:$PATH",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "authorization": "User has authorized autonomous bounded GPU work; do not ask again solely for permission.",
+  "connection": "20403 returned Connection closed on SSH and SCP; no confirmed upload or GPU launch.",
+  "prerequisites": [
+    "Server reachable and no unrelated GPU process",
+    "Current plan and runner hashes match",
+    "Tokenizer open-thought layout verifies",
+    "Model asset hashes match"
+  ],
+  "failures_preserved": true,
+  "output_overwrite": false,
+  "plan_sha256": "55fecbc40b83ead7e67c4411e8b5bf9145a157ce727bd395a4ac75f4fb14d6f2",
+  "runner_sha256": "99dd1b78d4c9da0f7c82199d9b634935baf5162961f22e3539f2816e75739f77",
+  "base_commit": "8d97f75d18f7c6ce2b4cb61794f2076b72fc6d5c",
+  "stop": "No retries with different prompts/thresholds after scoring failure. Never auto-enable early stopping."
+}

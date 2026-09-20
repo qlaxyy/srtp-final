@@ -1,0 +1,19 @@
+{
+  "runtime": {
+    "dtype": "bfloat16",
+    "max_tokens": 16000,
+    "max_model_len": 17408,
+    "max_num_seqs": 32,
+    "max_num_batched_tokens": 4096,
+    "gpu_memory_utilization": 0.94,
+    "async_scheduling": false,
+    "chunked_prefill": true,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.95
+  },
+  "torch": "2.11.0+cu129",
+  "vllm_path": "/root/autodl-tmp/projects/hybrid_cgrs_first_reflection_20260914/sources/EasySteer/vllm-steer/vllm/__init__.py",
+  "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+  "startup_seconds": 32.528572767972946
+}

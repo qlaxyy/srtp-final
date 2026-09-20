@@ -1,0 +1,32 @@
+{
+  "run_id": "s64_soft2_math64_gsm64_c256_run1_20260913",
+  "data_proposal_sha256": "c8864c3566d4479ff8a81c2426dc775231077bd2b83e7ff800257e7e57bf14dd",
+  "plan_sha256": "90d4e482eda7d108a2c859b62b72fbf849e634d5edbf822b5dda3b941b5d840a",
+  "authority": "User 可以开始 authorizes fixed384 formal+40 engineering batch; this executing dialogue reconciled live local worktrees and server records",
+  "cross_line_data_clear": true,
+  "shared_code_integrated_in_isolated_checkout": true,
+  "gpu_batch_authorized": true,
+  "checked_registries": {
+    "local_files": 507,
+    "remote_files": 885,
+    "local_sha256": "d23bf4ea402e9aaabaa8ac3ef76c03ca2cd3b62d2d214d0eaaa43e4c0aa57147",
+    "remote_sha256": "c5ced43330f3f3363a27623ca9935be73990ac94689743e75463ba885565d737",
+    "worktrees": [
+      "E:/srtp/srtp-final",
+      "E:/srtp/hybrid-syncthink-cgrs-20260912",
+      "E:/srtp/srtp-final/.codex_work/mechanism_docs_main_20260912",
+      "E:/srtp/srtp-final/.codex_work/min_confirmation_worktree",
+      "E:/srtp/srtp-final/.codex_work/question_balance_worktree",
+      "E:/srtp/srtp-final/.codex_work/repeat_gate_worktree"
+    ]
+  },
+  "runtime_commit": "9ced0f84b6d590f1d5fa9f24d8e43db6f5342b73",
+  "deployment_archive_sha256": "bb4ea196d6addb0f479d8988ac51c2b015fba17e7c2bf7c1bccd59a3bda7265d",
+  "native_cpu_checks": "pass float32 and BF16, no model forward",
+  "gpu_before": "4090D 0%,1MiB,no compute apps",
+  "data_status": "frozen_for_this_screening_batch_only",
+  "limitations": "Snapshot of enumerated worktree registries and shared server results; no claim about unrecorded external activity",
+  "staging_incidents": [
+    "Initial local Git archive enumeration quoted Chinese filenames; failed before upload, zero GPU work. Partial archive preserved; switched to NUL-delimited paths, identical committed source."
+  ]
+}

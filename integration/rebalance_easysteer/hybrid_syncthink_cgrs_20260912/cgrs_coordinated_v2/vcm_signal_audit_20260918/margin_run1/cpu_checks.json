@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "torch.float32: off identity, no target identity, fixed path parity, reduced bound, dominant preservation, row/column isolation, no input mutation",
+    "torch.bfloat16: off identity, no target identity, fixed path parity, reduced bound, dominant preservation, row/column isolation, no input mutation",
+    "tail perturbation invariance for unchanged maxima",
+    "no finite alternative leaves row unchanged",
+    "torch.float32 device implementation matches independent checked reference on mixed masks",
+    "torch.bfloat16 device implementation matches independent checked reference on mixed masks"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "f7041d8ede196808d953595d855ea94d6dc289fd",
+  "latest_main_observed": "93e579da89a52da0f5fc0ec6a0745c39af2ff972",
+  "original_A_at_start": "6bd87a37b75b40757c98910e59dc4f44d45b614f",
+  "original_A_at_CPU": "2f4d540d8965d15d448e9b115d7e1d20675ba20a",
+  "original_A_at_final_check": "e6ac26e1dcee1b94a3103ddf3591065609537135",
+  "latest_main_delta_paths": [
+    "docs/research/00-研究交接.md",
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/capture_diagnosis_v2_cpu.json",
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/capture_diagnosis_v2_preparation.json",
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/min_displacement_h200_inventory.json",
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/pro_followup_intake.json",
+    "integration/rebalance_easysteer/configs/bcc_v1_20260912/pro_followup_supplements.json",
+    "integration/rebalance_easysteer/configs/research_lines_20260912.json"
+  ],
+  "latest_main_runtime_delta": false,
+  "latest_coordination_source_hashes": {
+    "docs/research/00-研究交接.md": "2b81d6312a4ca0b8d47e782d707ffc48d91194d1e96438b940febf973da2f9c5",
+    "integration/rebalance_easysteer/configs/research_lines_20260912.json": "d8f2f77bb3076665e989d8b03585396524c394dc2059278359cd8ed890332799"
+  },
+  "H200_reservation_sha256": "045b321bb82fb31cfa7ec05e4ae20d18832627426947ca8693cdc235351b2981",
+  "H200_id_overlap": 0,
+  "H200_normalized_hash_overlap": 0,
+  "global_data_independence_approved": false,
+  "proposed_split_counts": {
+    "engineering": 8,
+    "screening": 64,
+    "confirmation": 200
+  },
+  "R_state_R_formula_and_eval_hashes_match_frozen_manifest": true,
+  "local_raw_vector_and_fit_verified": true,
+  "full_model_locally_verified": false,
+  "frozen_manifest_sha256": "747759ec89b9b4df7f54f544dc4614be1357aff86af887014d5b6c582b90c9a8",
+  "python_3_10_syntax": {
+    "prepare_cpu.py": true,
+    "reference.py": true
+  },
+  "GPU_calls": 0,
+  "server_connections": 0,
+  "environment_installs": 0,
+  "production_changes": 0
+}

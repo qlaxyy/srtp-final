@@ -1,0 +1,74 @@
+[
+  {
+    "train_index": 3241,
+    "problem_sha256": "90fb8943ebbabf2426d32dabc61557f1f1d732bded1bad593ff9acf207fdf932",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "clear_loop_boundary_blind",
+    "review_start": 546,
+    "review_end": 1059
+  },
+  {
+    "train_index": 5353,
+    "problem_sha256": "c8447d1f454956e77ed1e1097010d205b6b3263b0b48c3acd3a365b07f58ac50",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "clear_observable_loop",
+    "review_start": 651,
+    "review_end": 1164
+  },
+  {
+    "train_index": 759,
+    "problem_sha256": "d748bf29dc79668d70254031ea5dd46a8f38806575778211a06e968d2dd9cdc5",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "ambiguous_reformulation",
+    "review_start": 1062,
+    "review_end": 1575
+  },
+  {
+    "train_index": 7012,
+    "problem_sha256": "24f85a7f36b81f7547a4c03dfdaf8383279cb7ebe8e2d13b58413ea6169f7c5b",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "clear_observable_loop",
+    "review_start": 1218,
+    "review_end": 1731
+  },
+  {
+    "train_index": 26,
+    "problem_sha256": "8bf8b4ea0baec652a43ce69c0d586623f91ce7bd66c0ec602c2c8c7a54381eec",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "productive_early_span",
+    "review_start": 0,
+    "review_end": 400
+  },
+  {
+    "train_index": 64,
+    "problem_sha256": "c7d11e88ed6348a1351c5dd9a77cfee3bbfd9fbb8fdcc52f2e45b833da780ec9",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "productive_early_span",
+    "review_start": 0,
+    "review_end": 400
+  },
+  {
+    "train_index": 76,
+    "problem_sha256": "e5dfa6f351f52f42606098d646496e411625c7edc5da095a5aeb38c884caaa63",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "productive_early_span",
+    "review_start": 0,
+    "review_end": 400
+  },
+  {
+    "train_index": 385,
+    "problem_sha256": "06667286a58eb2d9507b269b54d08c992838cfa37844eabc92650dca97b9ae07",
+    "purpose": "Existing exposed calibration engineering diagnosis; not training, screening or independent confirmation",
+    "public_probe_source_overlap": false,
+    "annotation": "mixed_correction_attempt",
+    "review_start": 0,
+    "review_end": 2048
+  }
+]

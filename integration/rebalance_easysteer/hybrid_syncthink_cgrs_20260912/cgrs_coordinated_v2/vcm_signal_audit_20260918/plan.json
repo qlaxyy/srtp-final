@@ -1,0 +1,19 @@
+{
+  "status": "fixed_before_cpu_audit",
+  "candidate": "Consider replacing fixed L27 suppression magnitude with current-logit scale; do not deploy unless signal and engineering evidence supports it",
+  "paper": "https://arxiv.org/html/2606.22511v1",
+  "paper_locations": "Section3 Eq5-8; Algorithm1; AppendixB Table8 and AppendixC Table9",
+  "upstream_commit": "81221639c8949d6b9e4c3b4c91152231c6b9d86b",
+  "upstream_source_sha256": "fcfb0e54b179ad5bd6119671995e7c8f7ab3870cc372f510685ced4e817e43ea",
+  "capture_root": "E:/srtp/B-same-logits8_0916",
+  "tail_logit_subtraction": 32,
+  "data": "All14 existing7B capture batches, deduplicate request/generated-position, only valid rows. Registry copied by reference from same_logits8_20260916 plan; no new data reservation.",
+  "tests": ["upstream formula parity", "alpha0 identity on finite logits", "negative infinity robustness", "tail perturbation with almost unchanged probabilities", "sigma vs confidence ordering counterexample", "small-alpha prior sensitivity counterexample"],
+  "limitations": [
+    "Engineering captures from7B early R trajectories, not 1.5B L27 long trajectories or independent evaluation.",
+    "Tail subtraction is an artificial sensitivity stress, not a naturally observed event or estimate of its frequency.",
+    "Correlations are descriptive with dependent token positions and cannot establish correctness or redundancy.",
+    "No new model calls, generated answers, grading, or compression estimates.",
+    "Global sigma can be a scale statistic without being a correctness or confidence measure; this audit does not refute the complete VCM method."
+  ]
+}

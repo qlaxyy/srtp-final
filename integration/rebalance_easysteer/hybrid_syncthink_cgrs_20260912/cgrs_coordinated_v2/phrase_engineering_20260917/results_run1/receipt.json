@@ -1,0 +1,45 @@
+{
+  "archive_sha256": "c2a1883d8043afc5a9e231d014a38df7c41eefff42d8652e04ed5622750191ed",
+  "archive_bytes": 947056,
+  "remote_files_verified": 36,
+  "archive_local_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\phrase_complete_20260917\\complete.tar.gz",
+  "independent_count_and_mean_checks": true,
+  "prefix_checks": [
+    {
+      "train_index": 647,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 1837,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 4972,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 1441,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 4432,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 3497,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 1483,
+      "prefix_control_equal": true
+    },
+    {
+      "train_index": 229,
+      "prefix_control_equal": true
+    }
+  ],
+  "default_off_and_masks": "4 CPU Torch tests passed on Windows;6 existing-env CPU Torch tests on server;24 regression tests local passed",
+  "code_commit": "45fab69",
+  "new_probe_forwards": 0,
+  "decision": "Stop fixed phrase candidate; no retuning on8 and no full benchmark promotion"
+}

@@ -1,0 +1,60 @@
+{
+  "status": "CPU preparation passed; new GPU batch not authorized",
+  "execution_commit": "d37728a720508a6b8873118c50c92975f7c88163",
+  "plan_sha256": "e6b2165d437362b36f6f09c3f8c06aa80a0778601646be48399bc8578c1b01a9",
+  "rows_sha256": "f5e56b3717b059c6b754c7c7ac46b159900d54ce7bb3ad9c7eb0adab11d51141",
+  "remote_registry_files": 880,
+  "archive_count": 14,
+  "archive_json_records": 132,
+  "conflicts": 0,
+  "parse_errors": 0,
+  "native_cpu_tests": 8,
+  "native_test_seconds": 0.12,
+  "reference_grading_passed": 100,
+  "max_prompt_tokens": 1047,
+  "source_files_verified": 2226,
+  "assets_verified": true,
+  "model_loaded": false,
+  "gpu_forwards": 0,
+  "gpu_authorized": false,
+  "raw_sha256": {
+    "archive_check.log": "5ab6d7753c66c2cc655054b9b811716937757cf1405f02558923be58f2d34930",
+    "archive_reconciliation.json": "5a0746c9b82342f1a42615e1bbdf77656b6268492a981fd6b27f7a5ad422093a",
+    "assets_check.log": "3de5d1efed4147fb5c2a77a9d9a2ed913efcbfb5ac50089127afe4400b9fffc3",
+    "assets_final_check.log": "e19f86af64f29658c91f6033e93aae4073509e41df02ee377d1216edd142e1b8",
+    "assets_stream_check.log": "adc427bcf7bc9dcdad55dc2ff1c860f121b58d1871f4a8417499224b84fbd6e9",
+    "cpu_checks.json": "b21c6abd4c59a3fec3529977da3691494e603515f4c9f0af1a60923bd356f121",
+    "grader_acceptance.json": "eff58ef58fbf5e2f932ad645077c6482e97d31f13ca03b68b701a2757fa86c41",
+    "native_tests_singlethread.log": "6550c38861897cc710bb8189b978f457ffd2280985d4bc9d6721e4787f3be7ab",
+    "remote_reconciliation.json": "77058135024097ff83fdb1b932d76e52025280b8ffe809ffffbfaf9846e7ce4e"
+  },
+  "coverage": "All known local A/B registry roots plus remote results and project registry roots, archive JSON/JSONL, and engineering deployment receipts. Does not assert absence of inaccessible or private unregistered use.",
+  "failures_preserved": [
+    "Non-streaming asset hash process terminated under memory pressure",
+    "Default-thread native test exceeded 60s; eight standalone single-thread tests passed in 0.120s",
+    "Bundle fetch named branch failed because bundle exports HEAD; HEAD fetch succeeded"
+  ],
+  "data_status": "Reserved fixed 100-question screening split reconciled against known registries; recheck new claims before GPU launch",
+  "next_scope": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "dataset": "MATH train, new unique questions",
+    "unique_questions": 100,
+    "arms": [
+      "R",
+      "RC14",
+      "RCconstant",
+      "RCscaled"
+    ],
+    "answers": 400,
+    "seeds": [
+      42
+    ],
+    "max_new_tokens": 16000,
+    "pure_generation_estimate_minutes": [
+      8,
+      15
+    ],
+    "process_ceiling_seconds": 2100,
+    "grading_ceiling_seconds": 900
+  }
+}

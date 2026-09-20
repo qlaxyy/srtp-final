@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,hashlib,collections
+ROOT=Path('E:/srtp/hybrid-syncthink-cgrs-20260912');B=ROOT/'integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2';O=B/'post_strength_diagnosis_20260917';O.mkdir(exist_ok=False)
+new=Path('E:/srtp/B-strength-fullmath500_0917/results/easysteer/hybrid_syncthink_cgrs_20260912/strength_1p5b_math500_scaled_run1_20260917');old=ROOT/'.codex_work/cgrs_v2_full_run1_verified/results/easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2_full_math500_gsm1319_run1_20260913'
+read=lambda p:json.loads(p.read_text());sources=[new/'math_test/RCscaled/result.json',old/'math_test/RCnegative/result.json',new/'analysis.json',old/'analysis.json'];n,r,na,ra=map(read,sources);pairs=[]
+for i,(x,y,lx,ly) in enumerate(zip(r['records'],n['records'],ra['datasets']['math_test']['grades'],na['datasets']['math_test']['grades'])):
+ assert x['problem_sha256']==y['problem_sha256']==lx['problem_sha256']==ly['problem_sha256']
+ first=next((j for j,(a,b) in enumerate(zip(x['token_ids'],y['token_ids'])) if a!=b),min(x['tokens'],y['tokens']))
+ ex=r['events'][x['request_id']];ey=n['events'][y['request_id']];before=first<min(ex['first_change'],ey['first_change']) if min(ex['first_change'],ey['first_change'])>=0 else None
+ pairs.append(dict(index=i,hash=x['problem_sha256'],old_correct=lx['correct'],new_correct=ly['correct'],delta_tokens=y['tokens']-x['tokens'],delta_thinking=y['thinking_tokens']-x['thinking_tokens'],old_cap=x['finish_reason']=='length',new_cap=y['finish_reason']=='length',first_divergence=first,old_first_penalty=ex['first_change'],new_first_penalty=ey['first_change'],before_either_penalty=before))
+groups={}
+for a,b in [(True,True),(True,False),(False,True),(False,False)]:
+ p=[q for q in pairs if q['old_correct']==a and q['new_correct']==b];groups[f'{int(a)}->{int(b)}']=dict(n=len(p),total_token_delta=sum(q['delta_tokens'] for q in p),mean_token_delta=sum(q['delta_tokens'] for q in p)/len(p),longer=sum(q['delta_tokens']>0 for q in p))
+summary=dict(source_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},groups=groups,total_token_delta=sum(q['delta_tokens'] for q in pairs),pre_penalty_divergence=sum(q['before_either_penalty'] is True for q in pairs),cap_transitions=dict(old_only=sum(q['old_cap'] and not q['new_cap'] for q in pairs),new_only=sum(q['new_cap'] and not q['old_cap'] for q in pairs),both=sum(q['old_cap'] and q['new_cap'] for q in pairs)),limitations=['Historical asynchronous256 vs current synchronous128; prefix differences before intervention prohibit attributing all flips to penalty change.','This is descriptive post-test diagnosis, not threshold selection or independent evidence.','No per-step logits in full outputs; cannot infer candidate decision probabilities or counterfactual accuracy.'],gpu_calls=0)
+(O/'pairs.json').write_text(json.dumps(pairs,indent=2));(O/'audit.json').write_text(json.dumps(summary,indent=2));print(json.dumps(summary,indent=2))

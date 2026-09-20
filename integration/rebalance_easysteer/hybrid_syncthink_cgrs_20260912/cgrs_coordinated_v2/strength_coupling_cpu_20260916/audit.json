@@ -1,0 +1,54 @@
+{
+  "results": {
+    "1.5B": {
+      "steps": 84008,
+      "questions": 500,
+      "negative_steps": 59447,
+      "lower_bound": -1.5353450143175593,
+      "scale_quantiles": {
+        "min": 1.8211010101911296e-07,
+        "q25": 0.009574376820921862,
+        "median": 0.14455790799452886,
+        "q75": 0.36837025693029035,
+        "max": 1.0
+      },
+      "mean_scale": 0.31455230737831225,
+      "fraction_negative_below_half_strength": 0.7845307584907565,
+      "bound_saturation_fraction": 0.21513280737463622,
+      "quartiles_match_archived_fit": true
+    },
+    "7B": {
+      "steps": 53121,
+      "questions": 500,
+      "negative_steps": 39723,
+      "lower_bound": -1.478875294778046,
+      "scale_quantiles": {
+        "min": 2.2278907863300536e-26,
+        "q25": 0.07470945760327888,
+        "median": 0.24601661423137441,
+        "q75": 0.37384679564637036,
+        "max": 1.0
+      },
+      "mean_scale": 0.32496160984150124,
+      "fraction_negative_below_half_strength": 0.8320368552224152,
+      "bound_saturation_fraction": 0.16745965813256802,
+      "quartiles_match_archived_fit": true
+    }
+  },
+  "input_sha256": {
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\sources\\EasySteer\\vllm-steer\\vllm\\steer_vectors\\rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\fit.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "E:\\srtp\\srtp-final\\.codex_work\\question_balanced_20260911\\original_selected_layer\\steps.json": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\fit.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+    "E:\\srtp\\srtp-final\\.codex_work\\qwen7b_validation\\auto_code_v2_qwen7b_20260908\\steps.json": "1b7f80107dd7d35a13c9ea296de7e9f4e393f37a5db7e3925bbafb2cd8459c6a"
+  },
+  "source_sha256": "5326812a6ef45043bf73e53e970a650218970ac5a9c847a5a7dd73dd32b6f6bd",
+  "scope": "Existing calibration-step statistics, not online RC14 eligibility or candidate generation.",
+  "limitations": [
+    "NumPy float64 analytical reconstruction; no Torch FP32/GPU parity claimed.",
+    "Calibration rows do not reconstruct clean lexical opening, accepted-token clock, or missing empty-step history.",
+    "Coefficient magnitude is not confidence in answer correctness or intervention benefit.",
+    "Mean-scaled constant comparator must be frozen from actual eligible calibration openings before an efficacy run."
+  ],
+  "gpu_ready": false
+}

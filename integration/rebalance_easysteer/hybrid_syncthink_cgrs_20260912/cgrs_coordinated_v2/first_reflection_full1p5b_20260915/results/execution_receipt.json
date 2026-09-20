@@ -1,0 +1,11 @@
+{
+  "gpu_authorized": true,
+  "authorized_phases": [
+    "full"
+  ],
+  "exposed_test_reuse_acknowledged": true,
+  "plan_sha256": "0f2f923d229defa200683b7be222180b8d7d5493d54c76fd9f33c69e13382114",
+  "source_commit": "d9319dd290f50bd252fbd55e5b7147d55fa8e838",
+  "authorization": "User explicitly requested transfer to1.5B with speed priority;1819 fixed candidate answers plus8x4 registered engineering truncations; no frozen reruns",
+  "coordination": "Same registered exposed tests; no fresh training claims or reserved confirmation200 usage; exclusive idle GPU checked"
+}

@@ -1,0 +1,173 @@
+diff --git a/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py b/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py
+index bef95f8..dfef140 100644
+--- a/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py
++++ b/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/grade_screen.py
+@@ -14,12 +14,12 @@ from utils.grader import check_is_correct
+ 
+ def main():
+     p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True)
+-    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k','math_test','gsm8k_test','math_soft2','gsm8k_soft2'])
++    p.add_argument('--role',default='screening',choices=['screening','math','gsm8k','math_test','gsm8k_test','math_soft2','gsm8k_soft2','math_mix05','gsm8k_mix05'])
+     p.add_argument('--count',type=int,default=64)
+     p.add_argument('--arms',nargs='+',default=['U','R','S','RS'],choices=['U','R','S','RS'])
+     a=p.parse_args()
+     data_dir='prepared_run1' if a.role=='screening' else 'full_tests_20260913' if a.role.endswith('_test') else 'expanded_20260913'
+-    if a.role.endswith('_soft2'):
++    if a.role.endswith(('_soft2','_mix05')):
+         resolved = json.loads((a.output/'resolved_plan.json').read_text(encoding='utf-8'))
+         rows = resolved['soft2_rows'][a.role]
+     else:
+diff --git a/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py b/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py
+index 95b83e0..d576805 100644
+--- a/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py
++++ b/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py
+@@ -255,7 +255,7 @@ def run_child(a):
+             rid=record['request_id']
+             record['R_history']=history.get(rid)
+             record['hybrid']=receipt['requests'].get(rid)
+-            if mode in ('shadow','enforce','soft'):
++            if mode in ('shadow','enforce','soft','mix05'):
+                 if r.get('expansion'):
+                     h=record['hybrid']
+                     # Two in-flight batches may sample one unused tail token.
+@@ -267,7 +267,7 @@ def run_child(a):
+                     h['worker_first_trigger']=h['first_trigger']
+                     if h['first_trigger'] >= record['tokens']:
+                         h['first_trigger']=-1
+-                    if mode == 'soft':
++                    if mode in ('soft','mix05'):
+                         h['worker_first_bias'] = h['first_bias']
+                         if h['first_bias'] >= record['tokens']:
+                             h['first_bias'] = -1
+@@ -297,6 +297,9 @@ def run_child(a):
+         if r.get('soft2_rows'):
+             groups = [('off_R',True,'off'),('shadow_R',True,'shadow'),
+                       ('S',False,'soft'),('RS',True,'soft')]
++        if r.get('mix05'):
++            groups = [(name,use_r,'mix05' if mode=='soft' else mode)
++                      for name,use_r,mode in groups]
+         if r.get('engineering_reuse'):
+             groups = groups[2:]
+         for name,use_r,mode in groups:
+@@ -319,7 +322,7 @@ def run_child(a):
+             for name,use_r,mode in [('U',False,'absent'),('R',True,'off'),('S',False,'enforce'),('RS',True,'enforce')]:
+                 if r.get('expansion') and name not in r['expansion']['arms']:continue
+                 if r.get('soft2_rows') and mode == 'enforce':
+-                    mode = 'soft'
++                    mode = 'mix05' if r.get('mix05') else 'soft'
+                 group(stage,name,use_r,mode)
+     llm.llm_engine.engine_core.shutdown()
+ 
+diff --git a/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py b/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py
+index 6246bc3..de922ce 100644
+--- a/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py
++++ b/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/hybrid_termination.py
+@@ -8,6 +8,14 @@ import torch
+ NAMESPACE = "hybrid_syncthink_cgrs_20260912"
+ 
+ 
++def mixed_end_column(logits, end_id=151649):
++    """Implement .95 P + .05 delta_end after filtering, in logit space."""
++    values = logits.float()
++    log_z = torch.logsumexp(values, dim=-1)
++    torch._assert_async(torch.isfinite(log_z).all(), "Empty filtered support")
++    return torch.logaddexp(values[:, end_id], log_z + math.log(1.0 / 19.0))
++
++
+ def admit(runner, request, slot):
+     params = request.sampling_params
+     config = (params.extra_args or {}).get(NAMESPACE) if params else None
+@@ -21,7 +29,7 @@ def admit(runner, request, slot):
+             or runner.parallel_config.tensor_parallel_size != 1
+             or runner.cache_config.enable_prefix_caching):
+         raise ValueError("S64 does not support these request/engine settings")
+-    if config.get("mode") == "soft" and (
++    if config.get("mode") in ("soft", "mix05") and (
+             params.seed is None or params.temperature <= 0):
+         raise ValueError("S64-soft2 requires a seed and positive temperature")
+     state = getattr(runner, "hybrid_termination", None)
+@@ -50,6 +58,8 @@ class HybridTerminationState:
+         self.first_bias = torch.full_like(self.count, -1)
+         self.bias_count = torch.zeros_like(self.count)
+         self.filtered_trigger_count = torch.zeros_like(self.count)
++        self.mix_slots = torch.zeros_like(self.closed)
++        self.revived_end_count = torch.zeros_like(self.count)
+         self.events = []
+         self.max_buffer_estimate = 0
+ 
+@@ -57,7 +67,7 @@ class HybridTerminationState:
+         if config != {"mode": config.get("mode"), "entropy_weight": 0.8,
+                       "pacing_cap": 64, "end_token_id": 151649}:
+             raise ValueError("S64 requires the fixed registered configuration")
+-        if config["mode"] not in ("shadow", "enforce", "soft"):
++        if config["mode"] not in ("shadow", "enforce", "soft", "mix05"):
+             raise ValueError("Unknown hybrid mode")
+         if prefill_length != len(prompt) or 151648 not in prompt:
+             raise ValueError("S64 requires a fresh thinking request")
+@@ -72,6 +82,8 @@ class HybridTerminationState:
+         self.first_entropy[slot] = 0
+         self.first_bias[slot] = -1
+         self.bias_count[slot] = self.filtered_trigger_count[slot] = 0
++        self.mix_slots[slot] = config["mode"] == "mix05"
++        self.revived_end_count[slot] = 0
+ 
+     def remove_request(self, req_id):
+         data = self.requests.pop(req_id, None)
+@@ -86,17 +98,20 @@ class HybridTerminationState:
+             end_position=values[2], trigger_count=values[3],
+             first_rank=values[4], first_entropy=float(self.first_entropy[slot]),
+             prompt_length=prompt_len, mode=mode)
+-        if mode == "soft":
++        if mode in ("soft", "mix05"):
+             self.completed[req_id].update(
+                 first_bias=int(self.first_bias[slot]),
+                 bias_count=int(self.bias_count[slot]),
+                 filtered_trigger_count=int(self.filtered_trigger_count[slot]))
++            if mode == "mix05":
++                self.completed[req_id]["revived_end_count"] = int(
++                    self.revived_end_count[slot])
+ 
+     def has_soft(self):
+-        return any(data[2] == "soft" for data in self.requests.values())
++        return any(data[2] in ("soft", "mix05") for data in self.requests.values())
+ 
+     def apply_after_filter(self, logits):
+-        """Bias retained end odds after temperature/top-p, preserving support."""
++        """Apply the selected end action after temperature/top-p, once."""
+         ticket = self.pending_soft
+         self.pending_soft = None
+         if ticket is None:
+@@ -108,14 +123,21 @@ class HybridTerminationState:
+             end = torch.cuda.Event(enable_timing=True)
+             start.record()
+         column = logits[pos, 151649]
+-        enabled = trigger & torch.isfinite(column)
++        mix = self.mix_slots[idx]
++        enabled = trigger & (torch.isfinite(column) | mix)
+         self.filtered_trigger_count[idx] += (trigger & ~enabled).long()
+         first = enabled & (self.first_bias[idx] < 0)
+         self.first_bias[idx] = torch.where(
+             first, self.count[idx], self.first_bias[idx])
+         self.bias_count[idx] += enabled.long()
++        replacement = column.float() + math.log(2.0)
++        if any(data[2] == "mix05" for data in self.requests.values()):
++            mixture = mixed_end_column(logits.index_select(0, pos))
++            replacement = torch.where(mix, mixture, replacement)
++            self.revived_end_count[idx] += (
++                trigger & mix & ~torch.isfinite(column)).long()
+         logits[pos, 151649] = torch.where(
+-            enabled, column.float() + math.log(2.0), column.float()
++            enabled, replacement, column.float()
+         ).to(logits.dtype)
+         if end is not None:
+             end.record()
+@@ -172,7 +194,8 @@ class HybridTerminationState:
+         force = trigger & enforce
+         if self.has_soft():
+             soft = torch.tensor(
+-                [self.requests[batch.req_ids[p]][2] == "soft" for p in positions],
++                [self.requests[batch.req_ids[p]][2] in ("soft", "mix05")
++                 for p in positions],
+                 device=f.device)
+             self.pending_soft = pos, idx, trigger & soft
+         # Legacy hard action unchanged; soft writes only the end column later.

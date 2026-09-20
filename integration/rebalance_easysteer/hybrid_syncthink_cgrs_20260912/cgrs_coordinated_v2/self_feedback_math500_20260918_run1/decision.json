@@ -1,0 +1,18 @@
+{
+  "decision": "Stop this candidate; retain frozen L27; do not expand to GSM8K",
+  "checks": {
+    "both_token_means_below_L27": false,
+    "caps_no_higher": false,
+    "observed_accuracy_within2pp_vs_L27_and_R": true
+  },
+  "passed": false,
+  "wrong_to_right_vs_L27": 27,
+  "right_to_wrong_vs_L27": 30,
+  "scope": "Reject only success-parent-conditioned original class means, not all outcome-feedback methods. Existing labels were retained; no causal step localization learned.",
+  "selection_code_commit": "14151c5",
+  "limitations": [
+    "Previously exposed benchmark; descriptive paired intervals, not independent confirmation",
+    "Collection combines404 completed training outputs at256 sequences and96 recovered outputs at32; all source hashes retained",
+    "Historical runtime/batch numerics differ; fixed seed does not establish causal effect per trajectory"
+  ]
+}

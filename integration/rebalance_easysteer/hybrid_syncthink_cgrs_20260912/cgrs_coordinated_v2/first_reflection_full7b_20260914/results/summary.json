@@ -1,0 +1,637 @@
+{
+  "status": "complete_exposed_full_test_descriptive",
+  "datasets": {
+    "math_test": {
+      "n": 500,
+      "correct": 455,
+      "accuracy_percent": 91.0,
+      "mean_thinking_tokens": 2761.688,
+      "mean_total_tokens": 3157.498,
+      "capped": 8,
+      "generation_seconds": 1597.1683464050293,
+      "setup_seconds": 0.6056222021579742,
+      "historical_R_generation_seconds": 1975.7026176899672,
+      "historical_R_timing_note": "Includes prior interrupted arm wall time and discarded unfinished generation; not a single uninterrupted speed measurement",
+      "time_change_vs_historical_R_percent": null,
+      "comparisons": {
+        "U": {
+          "accuracy_delta_pp": -0.8,
+          "accuracy_ci95": [
+            -2.8000000000000003,
+            1.2
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": false,
+          "wrong_to_right": [
+            26,
+            100,
+            119,
+            217,
+            286,
+            303,
+            308,
+            351,
+            352,
+            398,
+            425
+          ],
+          "right_to_wrong": [
+            9,
+            12,
+            25,
+            138,
+            177,
+            214,
+            236,
+            242,
+            248,
+            288,
+            295,
+            320,
+            381,
+            482,
+            491
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -17.817405907051754,
+              "ci95": [
+                -22.727825337526394,
+                -12.617906796147693
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -20.01042704543875,
+              "ci95": [
+                -25.423993899360248,
+                -14.15662425741699
+              ]
+            }
+          }
+        },
+        "R": {
+          "accuracy_delta_pp": -1.0,
+          "accuracy_ci95": [
+            -3.2,
+            1.0
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": false,
+          "wrong_to_right": [
+            64,
+            71,
+            100,
+            119,
+            166,
+            168,
+            232,
+            286,
+            302,
+            303,
+            308,
+            478
+          ],
+          "right_to_wrong": [
+            12,
+            18,
+            94,
+            103,
+            138,
+            177,
+            214,
+            242,
+            248,
+            264,
+            288,
+            295,
+            320,
+            381,
+            482,
+            490,
+            491
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -2.3694780358241574,
+              "ci95": [
+                -8.318785195376263,
+                3.9697929190919568
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -2.831230938766205,
+              "ci95": [
+                -9.674609811178707,
+                4.673404399887
+              ]
+            }
+          }
+        },
+        "RC14": {
+          "accuracy_delta_pp": 0.6,
+          "accuracy_ci95": [
+            -1.4000000000000001,
+            2.6
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": true,
+          "wrong_to_right": [
+            11,
+            101,
+            119,
+            166,
+            184,
+            219,
+            286,
+            308,
+            349,
+            385,
+            394,
+            412,
+            425,
+            478,
+            498
+          ],
+          "right_to_wrong": [
+            126,
+            177,
+            214,
+            236,
+            242,
+            288,
+            295,
+            320,
+            369,
+            381,
+            482,
+            490
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -2.962719836061445,
+              "ci95": [
+                -8.509471626783727,
+                3.0144669331610916
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -3.6994469589717527,
+              "ci95": [
+                -10.026402289607253,
+                3.2584965715796064
+              ]
+            }
+          }
+        }
+      },
+      "gpu_utilization": {
+        "samples": 1596,
+        "mean_percent": 87.34899749373433,
+        "median_percent": 88.0,
+        "max_percent": 92.0
+      },
+      "costs": {
+        "probes": 0,
+        "extra_model_forwards": 0,
+        "control_gpu_seconds": null,
+        "checkpoint_io_seconds": 0.1915236860513687,
+        "native_kv_replays": {
+          "suspended": 3,
+          "restored": 3
+        },
+        "replayed_input_tokens": 1510,
+        "eligible": 28203,
+        "interventions": 28203,
+        "intervened_questions": 480
+      },
+      "passes_fixed_point_criteria": true,
+      "result_sha256": "1a009f13333bd35791d94e94ff16c28b719716b3ab8bde8b2370f236ba773434",
+      "reference_summaries": {
+        "U": {
+          "n": 500,
+          "correct": 459,
+          "mean_total_tokens": 3842.052,
+          "mean_thinking_tokens": 3452.56,
+          "capped": 18,
+          "historical_generation_seconds": 2159.445396527648
+        },
+        "R": {
+          "n": 500,
+          "correct": 460,
+          "mean_total_tokens": 3234.13,
+          "mean_thinking_tokens": 2842.156,
+          "capped": 12,
+          "historical_generation_seconds": 1975.7026176899672
+        },
+        "RC14": {
+          "n": 500,
+          "correct": 452,
+          "mean_total_tokens": 3253.902,
+          "mean_thinking_tokens": 2867.78,
+          "capped": 13,
+          "historical_generation_seconds": 1618.0717153698206
+        }
+      },
+      "scheduler_preemption_count": 3,
+      "discarded_computed_tokens": 1507,
+      "vs_RC14_time_percent": -1.2918691283107742,
+      "vs_RC14_time_note": "Historical pipeline timing, not simultaneous speed benchmark"
+    },
+    "gsm8k_test": {
+      "n": 1319,
+      "correct": 1185,
+      "accuracy_percent": 89.84078847611828,
+      "mean_thinking_tokens": 703.8589840788476,
+      "mean_total_tokens": 948.7816527672479,
+      "capped": 0,
+      "generation_seconds": 1018.7866646796465,
+      "setup_seconds": 0.6124050170183182,
+      "historical_R_generation_seconds": 1257.273646891117,
+      "historical_R_timing_note": null,
+      "time_change_vs_historical_R_percent": -18.968581963137588,
+      "comparisons": {
+        "U": {
+          "accuracy_delta_pp": -0.45489006823351025,
+          "accuracy_ci95": [
+            -1.6679302501895377,
+            0.8339651250947688
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": true,
+          "wrong_to_right": [
+            12,
+            67,
+            102,
+            122,
+            159,
+            165,
+            209,
+            234,
+            267,
+            308,
+            343,
+            371,
+            407,
+            431,
+            531,
+            701,
+            750,
+            754,
+            788,
+            790,
+            857,
+            901,
+            943,
+            956,
+            974,
+            1046,
+            1084,
+            1097,
+            1173,
+            1199,
+            1279,
+            1298
+          ],
+          "right_to_wrong": [
+            7,
+            61,
+            73,
+            77,
+            85,
+            87,
+            154,
+            301,
+            307,
+            316,
+            340,
+            361,
+            427,
+            529,
+            550,
+            584,
+            586,
+            590,
+            599,
+            603,
+            607,
+            616,
+            734,
+            760,
+            936,
+            960,
+            976,
+            990,
+            1006,
+            1017,
+            1038,
+            1081,
+            1108,
+            1188,
+            1237,
+            1239,
+            1240,
+            1267
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -19.923893840417662,
+              "ci95": [
+                -23.10927052410959,
+                -16.569726765677302
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -25.06402800524009,
+              "ci95": [
+                -28.788365672505645,
+                -21.071957269681143
+              ]
+            }
+          }
+        },
+        "R": {
+          "accuracy_delta_pp": 0.22744503411675512,
+          "accuracy_ci95": [
+            -0.9855951478392722,
+            1.3646702047005308
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": true,
+          "wrong_to_right": [
+            21,
+            102,
+            122,
+            146,
+            156,
+            159,
+            177,
+            227,
+            288,
+            298,
+            390,
+            394,
+            407,
+            628,
+            665,
+            700,
+            701,
+            720,
+            754,
+            846,
+            857,
+            943,
+            956,
+            974,
+            982,
+            989,
+            1000,
+            1018,
+            1089,
+            1147,
+            1183,
+            1279
+          ],
+          "right_to_wrong": [
+            7,
+            289,
+            316,
+            330,
+            340,
+            374,
+            422,
+            427,
+            478,
+            494,
+            529,
+            586,
+            590,
+            599,
+            603,
+            760,
+            888,
+            936,
+            953,
+            960,
+            976,
+            990,
+            1017,
+            1081,
+            1108,
+            1112,
+            1240,
+            1251,
+            1267
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -5.63088419933414,
+              "ci95": [
+                -8.960849527778963,
+                -2.0822942924487244
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -7.339094260830681,
+              "ci95": [
+                -11.586029177722063,
+                -2.7695163960154803
+              ]
+            }
+          }
+        },
+        "RC14": {
+          "accuracy_delta_pp": 0.0758150113722517,
+          "accuracy_ci95": [
+            -1.1391205458680802,
+            1.288855193328279
+          ],
+          "point_loss_within_2pp": true,
+          "nominal_ci_noninferiority_2pp": true,
+          "wrong_to_right": [
+            67,
+            100,
+            102,
+            122,
+            146,
+            159,
+            165,
+            177,
+            210,
+            234,
+            242,
+            267,
+            322,
+            472,
+            517,
+            524,
+            531,
+            628,
+            672,
+            754,
+            784,
+            790,
+            901,
+            924,
+            974,
+            989,
+            1000,
+            1046,
+            1084,
+            1088,
+            1097,
+            1174,
+            1183,
+            1218,
+            1298
+          ],
+          "right_to_wrong": [
+            87,
+            147,
+            289,
+            301,
+            316,
+            340,
+            374,
+            392,
+            406,
+            427,
+            529,
+            584,
+            586,
+            590,
+            599,
+            603,
+            607,
+            616,
+            734,
+            760,
+            888,
+            936,
+            953,
+            960,
+            962,
+            976,
+            992,
+            1081,
+            1108,
+            1188,
+            1237,
+            1240,
+            1258,
+            1267
+          ],
+          "lengths": {
+            "tokens": {
+              "percent_change": -0.891502336263561,
+              "ci95": [
+                -3.732179980975947,
+                2.092115648758128
+              ]
+            },
+            "thinking_tokens": {
+              "percent_change": -1.2024190982335647,
+              "ci95": [
+                -4.985455513265605,
+                2.7834684781255525
+              ]
+            }
+          }
+        }
+      },
+      "gpu_utilization": {
+        "samples": 1019,
+        "mean_percent": 85.19136408243376,
+        "median_percent": 85.0,
+        "max_percent": 88.0
+      },
+      "costs": {
+        "probes": 0,
+        "extra_model_forwards": 0,
+        "control_gpu_seconds": null,
+        "checkpoint_io_seconds": 0.19733652472496033,
+        "native_kv_replays": {
+          "suspended": 0,
+          "restored": 0
+        },
+        "replayed_input_tokens": 0,
+        "eligible": 11420,
+        "interventions": 11420,
+        "intervened_questions": 761
+      },
+      "passes_fixed_point_criteria": true,
+      "result_sha256": "0728e9128576016bdc6dc61ca198dd07aa8f699577f77755709c3ea5553d8565",
+      "reference_summaries": {
+        "U": {
+          "n": 1319,
+          "correct": 1191,
+          "mean_total_tokens": 1184.849886277483,
+          "mean_thinking_tokens": 939.2805155420773,
+          "capped": 0,
+          "historical_generation_seconds": 1394.3886927366257
+        },
+        "R": {
+          "n": 1319,
+          "correct": 1182,
+          "mean_total_tokens": 1005.3942380591357,
+          "mean_thinking_tokens": 759.6072782410918,
+          "capped": 0,
+          "historical_generation_seconds": 1257.273646891117
+        },
+        "RC14": {
+          "n": 1319,
+          "correct": 1184,
+          "mean_total_tokens": 957.3161485974223,
+          "mean_thinking_tokens": 712.4253222137984,
+          "capped": 0,
+          "historical_generation_seconds": 1004.5680015683174
+        }
+      },
+      "scheduler_preemption_count": 0,
+      "discarded_computed_tokens": 0,
+      "vs_RC14_time_percent": 1.4154007582494188,
+      "vs_RC14_time_note": "Historical pipeline timing, not simultaneous speed benchmark"
+    }
+  },
+  "total_generation_seconds": 2615.955011084676,
+  "process": {
+    "status": "complete",
+    "wall_seconds": 2704.6926069259644
+  },
+  "closure": {
+    "compute_apps": "",
+    "gpu": "0 %, 1 MiB\n",
+    "shared_commit": "82c570e5e3d49971605268c30a59fe856d5d1f01",
+    "shared_status": "",
+    "execution_commit": "4eb8cd7cd8503d4cce1b8b5fb00ab99a29882ab5"
+  },
+  "code_commit": "4eb8cd7cd8503d4cce1b8b5fb00ab99a29882ab5",
+  "verified_files": 122,
+  "input_plan_sha256": "c072fff2518cc34b8f06d2aae7d68e69e88a951bb92b7ac5a155a21ebd70aaf2",
+  "resolved_plan_sha256": "aea85953608a8c92806c49c82f8da2cc3c0bdbe6cc986f112eb49f424e50cdf3",
+  "original_plan_preserved": true,
+  "all_metrics_and_bootstraps_reproduced": true,
+  "author_labels_reused": true,
+  "no_probe_forwards": true,
+  "confirmation200_used": false,
+  "limitations": [
+    "No fresh U/R/C controls; no factorial synergy or superiority over both components claim",
+    "Previously exposed public tests, not untouched independent confirmation; no parameter search on these outcomes",
+    "Historical R timing, not simultaneous repeated hardware benchmark",
+    "Single-seed paired question bootstrap does not include batch-induced sampling variability",
+    "Control GPU kernels not separately profiled; probes and extra model forwards are zero",
+    "FINAL_ONLY retains completed partials; all errors and caps included in completed evaluation",
+    "Historical U/R/RC14 controls differ in runtime and batch scheduling; no simultaneous speed benchmark",
+    "Historical R MATH time includes an interrupted run and is not directly comparable",
+    "CGRS-inspired history adaptation, not official implementation; no extra probe or auxiliary forward",
+    "Single seed; paired question intervals omit runtime variation and pre-intervention batch divergence",
+    "Prior screen59/100 diverged before own first mask including3 accuracy gains; unresolved. This evaluates complete pipeline, not direct per-question causal action."
+  ],
+  "raw_root": "E:\\srtp\\B-history-full7b_0914",
+  "conclusion": {
+    "math": "point criteria pass; compression CI crosses zero and accuracy lower CI-3.2pp does not establish2pp noninferiority",
+    "gsm8k": "relativeR total/thought compression CI below0 and nominal2pp noninferiority pass under paired single-seed analysis",
+    "relative14": "both datasets pointwise shorter with slightly higher accuracy, but token-change intervals cross0; superiority unconfirmed",
+    "speed": "Compared with historical14, MATH time-1.2919%, GSM+1.4154%; no substantial aggregate speed gain",
+    "recommendation": "Retain fixed candidate and results without replacing historical14 or claiming direct causal synergy. No new parameter sweep or confirmation200 run."
+  }
+}

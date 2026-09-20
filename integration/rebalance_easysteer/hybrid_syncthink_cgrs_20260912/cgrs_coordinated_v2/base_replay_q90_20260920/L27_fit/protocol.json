@@ -1,0 +1,17 @@
+{
+  "source_sha256": "7df06adaf4acecd5f9d356cba2cabaef8028699efa85bea8450729bdfb5f950b",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "confidence_quantiles": [
+    0.8586448025466367,
+    0.9996141532521982
+  ],
+  "variance_quantiles": [
+    1.4349048418901794e-06,
+    0.003033079866672253
+  ],
+  "measurement": "raw base model teacher forcing",
+  "confidence_quantile_levels": [
+    0.25,
+    0.9
+  ]
+}

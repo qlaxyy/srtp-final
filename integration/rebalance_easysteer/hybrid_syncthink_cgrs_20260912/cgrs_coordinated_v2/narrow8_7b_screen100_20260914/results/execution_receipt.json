@@ -1,0 +1,29 @@
+{
+  "gpu_authorized": true,
+  "plan_sha256": "fd11954ea5164df436a3ed55c34325ef99eab315a2ca8ac745026596245a841c",
+  "data_reconciled": true,
+  "unregistered_claims_checked": true,
+  "authorized_phases": [
+    "engineering",
+    "screen",
+    "speed"
+  ],
+  "authorized_speed_profiles": [
+    "current32",
+    "candidate48"
+  ],
+  "local_reconciliation": {
+    "path": "/root/autodl-tmp/projects/hybrid_cgrs_narrow8_7b_20260914/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow8_7b_screen100_20260914/local_reconciliation_live.json",
+    "sha256": "0a5f31323791b17b53efba4500b0906c1c4ec848baf86981f576eb7222b70f18"
+  },
+  "remote_reconciliation": {
+    "path": "/root/autodl-tmp/projects/hybrid_cgrs_narrow8_7b_20260914/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow8_7b_screen100_20260914/remote_reconciliation_live.json",
+    "sha256": "55582c6113f5c4054f559e0bfa797d8278c94bc201c29a09c4e83d901dd8e250"
+  },
+  "note": "Fill only after actual coordination and bounded user GPU authorization; local proposal audit is not a live freeze receipt",
+  "source_commit": "82ebb864111e1545c5b57ef5a1f9391cb91a7f03",
+  "authorization": "User: 我已经开启, following fixed method100x3 and speed64x2 batch proposal",
+  "unregistered_check_evidence": "Current all local worktree registries plus all remote project registries and raw easysteer result directories scanned;0 collisions; no other GPU processes",
+  "data_status": "Frozen screen100 and reserved confirmation200 after live dual-end reconciliation; confirmation generation not authorized",
+  "caveat": "Cannot establish independence from undisclosed private usage beyond inspected project locations"
+}

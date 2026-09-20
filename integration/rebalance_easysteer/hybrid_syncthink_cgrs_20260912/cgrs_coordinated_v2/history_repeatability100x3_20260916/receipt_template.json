@@ -1,0 +1,10 @@
+{
+  "gpu_authorized": false,
+  "scope": "history_repeatability_100x3x3_only",
+  "authorized_phases": [
+    "screen"
+  ],
+  "reuse_exposed_rows": true,
+  "plan_sha256": "f503fcb6fcae84ce5164243ff28efcd856f4699c1111af6323be3834df39ffc7",
+  "execution_commit": null
+}

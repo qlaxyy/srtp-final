@@ -1,0 +1,33 @@
+/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/pydantic/dataclasses.py:313: UserWarning: `config` is set via both the `dataclass` decorator and `__pydantic_config__` for dataclass SteerVectorConfig. The `config` specification from `dataclass` decorator will take priority.
+  return create_dataclass if _cls is None else create_dataclass(_cls)
+INFO 09-17 12:16:33 [api_utils.py:273] non-default args: {'dtype': 'bfloat16', 'seed': 42, 'max_model_len': 32768, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.9, 'max_num_batched_tokens': 32768, 'max_num_seqs': 32, 'disable_log_stats': True, 'enforce_eager': True, 'enable_steer_vector': True, 'steer_algorithms': ['rebalance'], 'steer_graph_mode': 'in_graph', 'enable_chunked_prefill': False, 'compilation_config': {'mode': <CompilationMode.NONE: 0>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': [], 'ir_enable_torch_wrap': None, 'splitting_ops': None, 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': None, 'compile_ranges_endpoints': None, 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': None, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': None, 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': None, 'pass_config': {}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': None, 'static_all_moe_layers': []}, 'async_scheduling': False, 'model': '/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B'}
+WARNING 09-17 12:16:33 [arg_utils.py:1730] The global random seed is set to 42. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+INFO 09-17 12:16:33 [model.py:623] Resolved architecture: Qwen2ForCausalLM
+INFO 09-17 12:16:33 [model.py:1788] Using max model len 32768
+WARNING 09-17 12:16:33 [arg_utils.py:2657] This model does not officially support disabling chunked prefill. Disabling this manually may cause the engine to crash or produce incorrect outputs.
+INFO 09-17 12:16:33 [vllm.py:1131] Asynchronous scheduling is disabled.
+WARNING 09-17 12:16:33 [vllm.py:1207] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-17 12:16:33 [vllm.py:1257] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+INFO 09-17 12:16:33 [kernel.py:295] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['vllm_c', 'native'], fused_add_rms_norm=['vllm_c', 'native'])
+INFO 09-17 12:16:33 [vllm.py:1436] Cudagraph is disabled under eager mode
+Traceback (most recent call last):
+  File "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/run_wsc_shadow.py", line 156, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/run_wsc_shadow.py", line 68, in main
+    llm=LLM(model=a['model_path'],dtype='bfloat16',tensor_parallel_size=1,max_model_len=32768,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/sources/EasySteer/vllm-steer/vllm/entrypoints/llm.py", line 358, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/sources/EasySteer/vllm-steer/vllm/v1/engine/llm_engine.py", line 172, in from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_wsc_shadow_20260917/sources/EasySteer/vllm-steer/vllm/engine/arg_utils.py", line 2492, in create_engine_config
+    config = VllmConfig(
+             ^^^^^^^^^^^
+  File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/pydantic/_internal/_dataclasses.py", line 121, in __init__
+    s.__pydantic_validator__.validate_python(ArgsKwargs(args, kwargs), self_instance=s)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for VllmConfig
+  Value error, steer_graph_mode='in_graph' requires compiled execution; with enforce_eager or compilation disabled use 'split' (or leave the default 'auto'). [type=value_error, input_value=ArgsKwargs((), {'model_co... 'shutdown_timeout': 0}), input_type=ArgsKwargs]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error

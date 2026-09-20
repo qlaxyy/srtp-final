@@ -1,0 +1,29 @@
+{
+  "version": "native-under-quantile-20260920",
+  "model": "\\root\\autodl-tmp\\models\\DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.872075432177746,
+    "q75c": 0.9984181308084064,
+    "q25v": 9.111110480642837e-07,
+    "q75v": 0.0024036492415950095,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.7073783205488449,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.0031301159638396406
+  },
+  "vector_sha256": "2fdd7fb48dea46aaba99e75783c54846cc605038da17d2a6d5855f29648e9adf",
+  "vector_norm": 73.1981201171875,
+  "calibration_source_sha256": "210462946624e2447ab13e7db9e9f9785b67edd4812a62403f04c02cbeeb2233",
+  "positives": 22038,
+  "negatives": 8950,
+  "selection": {
+    "layer": 21,
+    "selection": "fixed existing native capture layer; no automatic selection"
+  },
+  "method": "Saved intervened native states; fixed hidden21; lexical OR low-confidence O, nonlexical AND high-confidence U; raw mean O-U; original dynamic fitting formula with common high-confidence quantile.",
+  "confidence_high_quantile": 0.75,
+  "legacy_parameter_note": "q75c is a runtime field name; q90 candidate stores the empirical 90th percentile here. q75v remains variance 75th percentile."
+}

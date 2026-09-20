@@ -1,0 +1,17 @@
+{
+  "run_id": "cgrs_probe_engineering8_run4_20260913",
+  "phase": "engineering",
+  "dataset": "math",
+  "rows_sha256": "7baabd668e257ff0e0cf016c11a9dd7c4b8d9ea42c061181bd42a35a72f03701",
+  "data_reconciled": true,
+  "gpu_authorized": true,
+  "authorization_text": "User: 继续，有问题自己解决，直到跑出结果. Bounded engineering repair and small screening; no full-test rerun.",
+  "checked_registries": [
+    "local_reconciliation.json",
+    "remote_reconciliation.json"
+  ],
+  "purpose": "Reuse original B engineering8, no independent accuracy claim",
+  "runtime_commit": "9a1124e8587b0442e8ef0eb54ec607d50c9e7c0f",
+  "prior_failure": "Full-prefill replay failed strict numeric gate; new opt-in KV clone with identical main decode audit batch and byte equality, thresholds unchanged",
+  "status": "prepared"
+}

@@ -1,0 +1,41 @@
+{
+  "authorization": "User approved MATH200 + GSM8K200 x four arms, faster configuration",
+  "run_id": "s64_confirm_math200_gsm200_async_run1_20260913",
+  "roles": [
+    "math",
+    "gsm8k"
+  ],
+  "counts": 200,
+  "arms": [
+    "U",
+    "R",
+    "S",
+    "RS"
+  ],
+  "async_scheduling": true,
+  "max_num_seqs": 128,
+  "max_num_batched_tokens": 32768,
+  "max_tokens": 16000,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "seed": 42,
+  "method": {
+    "entropy_weight": 0.8,
+    "pacing_cap": 64
+  },
+  "engineering": "8 reused engineering prompts x pre_R/off_R/shadow_R/S/RS, 512 max new; async validation only, not independent outcomes",
+  "estimated_minutes": [
+    20,
+    45
+  ],
+  "whole_budget_seconds": 4200,
+  "engineering_budget_seconds": 300,
+  "arm_budget_seconds": 900,
+  "stop": "Any data/asset mismatch, other GPU work, OOM/preemption, nonfinite/clock failure, off/shadow identity failure, pretrigger divergence, missing/duplicate result, or wall budget. Preserve partial; no automatic method tuning or rerun.",
+  "primary": "MATH independent confirmation; GSM8K prespecified transfer replication, reported separately, no pooled rescue",
+  "criteria": "Original MATH confirmation standard unchanged: RS lower mean thinking/total than BOTH R and S, correct count >= both, caps <= both, actual force >0; BOTH total difference 97.5% two-sided bootstrap upper <0 and one-sided97.5% Clopper-Pearson upper gross single-correct/RS-wrong probability <=2%. Same criteria separately on GSM8K. 10000 paired bootstrap seed20260912. Additive interaction I=T_RS-T_R-T_S+T_U,95% upper<0 required for superadditivity; do not equate point superiority with synergy.",
+  "files": {
+    "math": "ae69bd58a5af33f3f23a38b67714bc1dc510ca1bf2723dc5dd328b8fb60465f6",
+    "gsm8k": "8c91e8fdc4d56a54155277abf9d11967c6429adc253e30b06fc6962c42db7c75"
+  }
+}

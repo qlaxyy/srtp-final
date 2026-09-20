@@ -1,0 +1,13 @@
+{
+  "scope": "Four complete saved GSM1319 arms U/R/L27/AND; no model generation or official score replacement.",
+  "rules": [
+    "Require stopped generation and explicit think closure; ignore all reasoning-region answers.",
+    "Prefer last balanced boxed expression in final region; accept one rational decimal/fraction with plain unit/LaTeX spacing only.",
+    "No box: last nonempty final paragraph must contain one distinct numeric value and no question/negation/alternative wording.",
+    "Unsupported expressions, malformed boxes, conflicting numbers and incomplete outputs remain unresolved; never choose extraction by gold.",
+    "Compare extracted rational to numeric GSM gold exactly. Report all disagreements and unresolved outputs for every arm."
+  ],
+  "limits": "Posthoc diagnostic designed after8-pair audit, frozen before full scoring. Not official GSM evaluator or new independent evaluation. Literal answer equivalence is not reasoning validity.",
+  "unit_checks": 11,
+  "extractor_sha256": "1ef54765033e981fb8854e5197b123ae824337cd5ba7631cb2ebca292f3945de"
+}

@@ -1,0 +1,92 @@
+{
+  "summaries": {
+    "U": {
+      "original_correct": 1030,
+      "resolved": 1302,
+      "unresolved": 17,
+      "resolved_correct": 1057,
+      "unresolved_0_or_1_arithmetic_range_percent": [
+        80.13646702047005,
+        81.42532221379834
+      ],
+      "original_false_resolved_true": 29,
+      "original_true_resolved_false": 1,
+      "original_true_unresolved": 1
+    },
+    "R": {
+      "original_correct": 1042,
+      "resolved": 1302,
+      "unresolved": 17,
+      "resolved_correct": 1080,
+      "unresolved_0_or_1_arithmetic_range_percent": [
+        81.88021228203185,
+        83.16906747536012
+      ],
+      "original_false_resolved_true": 41,
+      "original_true_resolved_false": 2,
+      "original_true_unresolved": 1
+    },
+    "L27": {
+      "original_correct": 1049,
+      "resolved": 1304,
+      "unresolved": 15,
+      "resolved_correct": 1086,
+      "unresolved_0_or_1_arithmetic_range_percent": [
+        82.33510235026536,
+        83.47232752084913
+      ],
+      "original_false_resolved_true": 39,
+      "original_true_resolved_false": 1,
+      "original_true_unresolved": 1
+    },
+    "AND": {
+      "original_correct": 1015,
+      "resolved": 1304,
+      "unresolved": 15,
+      "resolved_correct": 1061,
+      "unresolved_0_or_1_arithmetic_range_percent": [
+        80.43972706595906,
+        81.57695223654284
+      ],
+      "original_false_resolved_true": 47,
+      "original_true_resolved_false": 0,
+      "original_true_unresolved": 1
+    }
+  },
+  "paired": {
+    "U": {
+      "and_minus_base_unresolved_0_or_1_range_pp": [
+        -0.9855951478392722,
+        1.4404852160727823
+      ]
+    },
+    "R": {
+      "and_minus_base_unresolved_0_or_1_range_pp": [
+        -2.7293404094010616,
+        -0.3032600454890068
+      ]
+    },
+    "L27": {
+      "and_minus_base_unresolved_0_or_1_range_pp": [
+        -3.0326004548900682,
+        -0.7581501137225171
+      ]
+    }
+  },
+  "seconds": 1.0,
+  "source_sha256": {
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\gsm8k_eval.json": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579",
+    "E:\\srtp\\srtp-final\\.codex_work\\auto_code_v2_500_20260908\\gsm8k_author_grading.json": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\label_alignment_20260917\\label_alignment_gsm1319_20260917_run1\\L27_L27\\result.json": "286576b95fe9e1a844ca6862a63766615bab9cb4dc66d622b3b357b7566e6c16",
+    "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\strict_and_gsm_20260918_run1.completed.tar.gz": "faf1913255c3fba9d9fa32509d04a48c2e6a55daf2f77089a49ef63a53884e62"
+  },
+  "protocol_sha256": "4df76bb8a78bfe207e407033ee2bc45309553d8b5879ae431ca6ec6e1eefa995",
+  "output_sha256": {
+    "rows.json": "15df6347b4aea4e9be263e886bd6d3cd60547c0136ba3dd408e4a267e33855c5",
+    "disagreements.json": "a04c0840c2ae1550829b5a67533988a485efca7e9f8e0e0c8e1050df50b8d760",
+    "unresolved.json": "8039eecad8f8006b7b6fcb05d5c82da0384b17046e251bfc4ba5e5a590253a68"
+  },
+  "limits": "Arithmetic ranges reflect unresolved assignments only, not statistical CIs or guaranteed semantic accuracy bounds. Original scores unchanged. No model or grader source modifications.",
+  "gpu_calls": 0,
+  "new_answers": 0
+}

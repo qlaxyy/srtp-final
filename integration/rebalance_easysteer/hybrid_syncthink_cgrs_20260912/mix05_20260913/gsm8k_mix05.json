@@ -1,0 +1,514 @@
+[
+  {
+    "question": "Gail has two fish tanks. The first tank is twice the size of the second tank. There are 48 gallons of water in the first tank. She follows the rule of one gallon of water per inch of fish. If she keeps two-inch fish in the second tank and three-inch fish in the first tank, how many more fish would Gail have in the first tank than the second tank if one of the first tank fish eats another?",
+    "answer": "3",
+    "dataset": "gsm8k_train",
+    "train_index": 99,
+    "problem": "Gail has two fish tanks. The first tank is twice the size of the second tank. There are 48 gallons of water in the first tank. She follows the rule of one gallon of water per inch of fish. If she keeps two-inch fish in the second tank and three-inch fish in the first tank, how many more fish would Gail have in the first tank than the second tank if one of the first tank fish eats another?",
+    "problem_sha256": "a48107453f1dd4bace34b708cebe8256c84d3b06cf4205124f5196276644ecf7"
+  },
+  {
+    "question": "Toby, the Alaskan Malamute, can pull a sled at a speed of 20 miles per hour if the sled is unloaded, but he pulls the same sled at a speed of 10 miles per hour if the sled is fully loaded.  If Toby takes a continuous 4-part journey, first pulling the loaded sled for 180 miles, then pulling the unloaded sled for 120 miles, then pulling the loaded sled 80 miles, and finally, pulling the unloaded sled another 140 miles, how many hours in total will Toby spend pulling the sled?",
+    "answer": "39",
+    "dataset": "gsm8k_train",
+    "train_index": 2177,
+    "problem": "Toby, the Alaskan Malamute, can pull a sled at a speed of 20 miles per hour if the sled is unloaded, but he pulls the same sled at a speed of 10 miles per hour if the sled is fully loaded.  If Toby takes a continuous 4-part journey, first pulling the loaded sled for 180 miles, then pulling the unloaded sled for 120 miles, then pulling the loaded sled 80 miles, and finally, pulling the unloaded sled another 140 miles, how many hours in total will Toby spend pulling the sled?",
+    "problem_sha256": "8fc7bf7f6338bb93a9983f2435ed71737aba5736fe74aaa255e54e256511e94f"
+  },
+  {
+    "question": "Carla is dividing up chores for her two kids, Anna and Billy. She wants each of them to spend the same number of minutes working. Sweeping takes 3 minutes per room, washing the dishes takes 2 minutes per dish, and doing laundry takes 9 minutes per load. If Anna does the sweeping for 10 rooms and Billy does two loads of laundry, how many dishes should Billy wash so they spend the same amount of time doing chores?",
+    "answer": "6",
+    "dataset": "gsm8k_train",
+    "train_index": 3648,
+    "problem": "Carla is dividing up chores for her two kids, Anna and Billy. She wants each of them to spend the same number of minutes working. Sweeping takes 3 minutes per room, washing the dishes takes 2 minutes per dish, and doing laundry takes 9 minutes per load. If Anna does the sweeping for 10 rooms and Billy does two loads of laundry, how many dishes should Billy wash so they spend the same amount of time doing chores?",
+    "problem_sha256": "dd600faab7598212ad1ab9dd5fceb30379e90e490fa2c5969cbff32baeee73bc"
+  },
+  {
+    "question": "A class is 40% boys. The rest are girls. Every boy in class gets an 80% on the math test. Every girl gets a 90%. What is the class average on the test?",
+    "answer": "86",
+    "dataset": "gsm8k_train",
+    "train_index": 5145,
+    "problem": "A class is 40% boys. The rest are girls. Every boy in class gets an 80% on the math test. Every girl gets a 90%. What is the class average on the test?",
+    "problem_sha256": "bc44031e7f8ef3983c0bfb1ec59be36776c885c499b9315610818dd8ff4aa46d"
+  },
+  {
+    "question": "Lisa has decided to replace her old cutlery. As she is going through the cupboards, she sees the spoons from when each of her 4 children were babies as well as 2 decorative spoons she created. She doesn't want to get rid of any of these so she adds them to her new set of cutlery. The new set of cutlery has 10 large spoons and 15 teaspoons. If the children each had 3 spoons when they were babies, how many spoons does Lisa now have?",
+    "answer": "39",
+    "dataset": "gsm8k_train",
+    "train_index": 6508,
+    "problem": "Lisa has decided to replace her old cutlery. As she is going through the cupboards, she sees the spoons from when each of her 4 children were babies as well as 2 decorative spoons she created. She doesn't want to get rid of any of these so she adds them to her new set of cutlery. The new set of cutlery has 10 large spoons and 15 teaspoons. If the children each had 3 spoons when they were babies, how many spoons does Lisa now have?",
+    "problem_sha256": "23920250d76894ed762cb6ea941e7fddb695e0d37f88aa18c4ee0b4a8c27a17e"
+  },
+  {
+    "question": "Makenna is selling candy for her Softball Team. The box contains 25 milk chocolate bars, 25 dark chocolate bars, 25 milk chocolate with almond bars, and 25 white chocolate bars. What is the percentage of each type of chocolate bar?",
+    "answer": "25",
+    "dataset": "gsm8k_train",
+    "train_index": 590,
+    "problem": "Makenna is selling candy for her Softball Team. The box contains 25 milk chocolate bars, 25 dark chocolate bars, 25 milk chocolate with almond bars, and 25 white chocolate bars. What is the percentage of each type of chocolate bar?",
+    "problem_sha256": "8272edd2784e3be16648cef17f70091d9e1c98dee372bed15ddbf590c4d47972"
+  },
+  {
+    "question": "Jasmine wants to organize her books in order of most number of pages to least number of pages. Jasmine's longest book has 396 pages and her shortest book has one-fourth as many pages as the longest. If the book in the middle of her shelf has three times the number of pages of the shortest book, then how many pages does the middle book have?",
+    "answer": "297",
+    "dataset": "gsm8k_train",
+    "train_index": 2961,
+    "problem": "Jasmine wants to organize her books in order of most number of pages to least number of pages. Jasmine's longest book has 396 pages and her shortest book has one-fourth as many pages as the longest. If the book in the middle of her shelf has three times the number of pages of the shortest book, then how many pages does the middle book have?",
+    "problem_sha256": "f60a48d3c9e237a17863702892c52818e50f64befbff7b19be6ea1021fc2aef9"
+  },
+  {
+    "question": "Tim is 5 years old. His cousin, Rommel, is thrice as old as he is. His other cousin, Jenny, is 2 years older than Rommel. How many years younger is Tim than Jenny?",
+    "answer": "12",
+    "dataset": "gsm8k_train",
+    "train_index": 3040,
+    "problem": "Tim is 5 years old. His cousin, Rommel, is thrice as old as he is. His other cousin, Jenny, is 2 years older than Rommel. How many years younger is Tim than Jenny?",
+    "problem_sha256": "96bf114643ea7a4e69719357f937defc0723aeeb803cbfb569163468d3dd13ae"
+  },
+  {
+    "question": "Travis goes through 2 boxes of cereal a week.  If each box costs $3.00 and he eats 2 boxes every week for an entire year, 52 weeks, how much does he spend on cereal?",
+    "answer": "312",
+    "dataset": "gsm8k_train",
+    "train_index": 4637,
+    "problem": "Travis goes through 2 boxes of cereal a week.  If each box costs $3.00 and he eats 2 boxes every week for an entire year, 52 weeks, how much does he spend on cereal?",
+    "problem_sha256": "322168d71fb69c8c3487791759a6e73bc2a0f75b38d8e348acff954b4c6dd0ce"
+  },
+  {
+    "question": "The long jump finals contained four national champions competing against one another.  The first competitor jumped a distance of 22 feet.  The second competitor jumped one foot farther than the first competitor.  The third competitor jumped two feet shorter than the third competitor.  And the fourth competitor jumped 3 feet further than the third competitor.  How long, in feet, did the fourth competitor jump?",
+    "answer": "24",
+    "dataset": "gsm8k_train",
+    "train_index": 2143,
+    "problem": "The long jump finals contained four national champions competing against one another.  The first competitor jumped a distance of 22 feet.  The second competitor jumped one foot farther than the first competitor.  The third competitor jumped two feet shorter than the third competitor.  And the fourth competitor jumped 3 feet further than the third competitor.  How long, in feet, did the fourth competitor jump?",
+    "problem_sha256": "1c4a7f60d55894912b528fd615ce9d34aa7aa4d543dc27741ef8210e556bdb49"
+  },
+  {
+    "question": "The sewers in Middleton can handle 240,000 gallons of run-off. Each hour of rain produces 1000 gallons of runoff. How many days of rain can the sewers handle before they overflow?",
+    "answer": "10",
+    "dataset": "gsm8k_train",
+    "train_index": 1751,
+    "problem": "The sewers in Middleton can handle 240,000 gallons of run-off. Each hour of rain produces 1000 gallons of runoff. How many days of rain can the sewers handle before they overflow?",
+    "problem_sha256": "7ea54be6852171efe7b4a70e1ff5374782b024c0c95882044a0940715dd60ca7"
+  },
+  {
+    "question": "Candied yams fly off the shelf during the holiday season. The store buys them in bulk boxes of 25 packages. If every third shopper buys a package of candied yams, how many bulk boxes of candied yams will the store need to order for their 375 predicted holiday shoppers?",
+    "answer": "5",
+    "dataset": "gsm8k_train",
+    "train_index": 2003,
+    "problem": "Candied yams fly off the shelf during the holiday season. The store buys them in bulk boxes of 25 packages. If every third shopper buys a package of candied yams, how many bulk boxes of candied yams will the store need to order for their 375 predicted holiday shoppers?",
+    "problem_sha256": "dc1ea54198f83489c0119a75ecd78a5b749e36e45b47b7b7c08a2000c71e84ba"
+  },
+  {
+    "question": "Billy has $25 less than twice the money Sam has. If Sam has $75, how much money do they have together?",
+    "answer": "200",
+    "dataset": "gsm8k_train",
+    "train_index": 6045,
+    "problem": "Billy has $25 less than twice the money Sam has. If Sam has $75, how much money do they have together?",
+    "problem_sha256": "3b2334af47c5cb67e20e75187fcc96efa48617b93bf02f3035ca7abb53027832"
+  },
+  {
+    "question": "Parker went to the gym and found 4 twenty pounds dumbbells set up for weightlifting. He added two more dumbbells to the setup and started his exercises. How many pounds of dumbbells is Parker using for his exercises?",
+    "answer": "120",
+    "dataset": "gsm8k_train",
+    "train_index": 6359,
+    "problem": "Parker went to the gym and found 4 twenty pounds dumbbells set up for weightlifting. He added two more dumbbells to the setup and started his exercises. How many pounds of dumbbells is Parker using for his exercises?",
+    "problem_sha256": "83a022dd224da05653ba3d27fa4dd6a2ac89e4373c379ed28c44fb81793006b3"
+  },
+  {
+    "question": "Anika has 4 more than twice the number of pencils as Reeta. If Reeta has 20 pencils, how many pencils do the two have together?",
+    "answer": "64",
+    "dataset": "gsm8k_train",
+    "train_index": 6967,
+    "problem": "Anika has 4 more than twice the number of pencils as Reeta. If Reeta has 20 pencils, how many pencils do the two have together?",
+    "problem_sha256": "0122a94fb12345c55e1ea9ca162c8cb1290f0db1fd16e262580ead1febe7858c"
+  },
+  {
+    "question": "Adam has 18 magnets. He gave away a third of the magnets, and he still had half as many magnets as Peter. How many magnets does Peter have?",
+    "answer": "24",
+    "dataset": "gsm8k_train",
+    "train_index": 2828,
+    "problem": "Adam has 18 magnets. He gave away a third of the magnets, and he still had half as many magnets as Peter. How many magnets does Peter have?",
+    "problem_sha256": "63a7e219840eb5232b0144c6c967d0045fce640b39893ec2c1ec49012551896e"
+  },
+  {
+    "question": "James is sitting outside, counting how many people go past him in vehicles. He has counted 52 vehicles so far today. He saw 12 trucks, a couple of buses, twice as many taxis, some motorbikes, and 30 cars. If the trucks held 2 people each, the buses held 15 people each, the taxis held 2 people each, the motorbikes held 1 person each, and the cars held 3 people each, how many passengers has James seen today?",
+    "answer": "156",
+    "dataset": "gsm8k_train",
+    "train_index": 6131,
+    "problem": "James is sitting outside, counting how many people go past him in vehicles. He has counted 52 vehicles so far today. He saw 12 trucks, a couple of buses, twice as many taxis, some motorbikes, and 30 cars. If the trucks held 2 people each, the buses held 15 people each, the taxis held 2 people each, the motorbikes held 1 person each, and the cars held 3 people each, how many passengers has James seen today?",
+    "problem_sha256": "47145c42af1714972dbeb7ca4f604d2720a1a99bc5a0d784a9bd71b27c926a57"
+  },
+  {
+    "question": "Karen and Donald and their 6 children are sharing a beach house with Tom and Eva and their 4 children.  If there are 16 legs in the pool, how many people are not in the pool?",
+    "answer": "6",
+    "dataset": "gsm8k_train",
+    "train_index": 3295,
+    "problem": "Karen and Donald and their 6 children are sharing a beach house with Tom and Eva and their 4 children.  If there are 16 legs in the pool, how many people are not in the pool?",
+    "problem_sha256": "9f4c2286b0bed5abfdbe3718dbc25de3aa4ded37ec4045513333e31ae7bdc472"
+  },
+  {
+    "question": "Jenny has a tummy ache. Her brother Mike says that it is because Jenny ate 5 more than thrice the number of chocolate squares that he ate.  If Mike ate 20 chocolate squares, how many did Jenny eat?",
+    "answer": "65",
+    "dataset": "gsm8k_train",
+    "train_index": 865,
+    "problem": "Jenny has a tummy ache. Her brother Mike says that it is because Jenny ate 5 more than thrice the number of chocolate squares that he ate.  If Mike ate 20 chocolate squares, how many did Jenny eat?",
+    "problem_sha256": "10515ef8b9884086ffc5b373c0a2c6ab3fd6f904293ce46bdaf2fd1acec4c17c"
+  },
+  {
+    "question": "Ursula is working at a marketing firm. She created a 30-second long commercial. Her boss told her that this commercial is too long to air and told her to shorten the commercial by 30%. How long will this commercial be after Ursula makes the desired changes?",
+    "answer": "21",
+    "dataset": "gsm8k_train",
+    "train_index": 273,
+    "problem": "Ursula is working at a marketing firm. She created a 30-second long commercial. Her boss told her that this commercial is too long to air and told her to shorten the commercial by 30%. How long will this commercial be after Ursula makes the desired changes?",
+    "problem_sha256": "3320c1e2c5eae2072c16a3e3297fdaabb471b57df114881451968f98c06333de"
+  },
+  {
+    "question": "Lily had $55 in her account. She spent $7 on a shirt. She then went to another shop and spent thrice as much as she spent on a shirt. How much money is left in Lily's account?",
+    "answer": "27",
+    "dataset": "gsm8k_train",
+    "train_index": 702,
+    "problem": "Lily had $55 in her account. She spent $7 on a shirt. She then went to another shop and spent thrice as much as she spent on a shirt. How much money is left in Lily's account?",
+    "problem_sha256": "a7e9eb6ad9027044e2ed8db545302bf6bf792af940fb464461c4383f8d314dc7"
+  },
+  {
+    "question": "A bar of chocolate is made up of 60 pieces. If Michael takes half of the bar, Paige takes half of the remainder, and Mandy is left with what’s left of the chocolate bar, how many pieces of chocolate will Mandy get?",
+    "answer": "15",
+    "dataset": "gsm8k_train",
+    "train_index": 7265,
+    "problem": "A bar of chocolate is made up of 60 pieces. If Michael takes half of the bar, Paige takes half of the remainder, and Mandy is left with what’s left of the chocolate bar, how many pieces of chocolate will Mandy get?",
+    "problem_sha256": "4ae7b8d4b1288e3132dfe1c6fa92e5dfaa0dfd858ce973c4c390f5da5bed09bf"
+  },
+  {
+    "question": "Earl started delivering newspapers on the first floor of a condominium building. He then went up 5 floors then went down 2 floors. He again went up 7 floors and found that he is 9 floors away from the top of the building. How many floors does the building have?",
+    "answer": "20",
+    "dataset": "gsm8k_train",
+    "train_index": 471,
+    "problem": "Earl started delivering newspapers on the first floor of a condominium building. He then went up 5 floors then went down 2 floors. He again went up 7 floors and found that he is 9 floors away from the top of the building. How many floors does the building have?",
+    "problem_sha256": "2cea55247cf10c27bd05548019a20a10d5387cf6891e679ecdad67cd6ba1b17c"
+  },
+  {
+    "question": "Archibald and his brother are playing tennis against each other. Archibald has won 12 games and his brother has won 18. What percentage of games has Archibald won?",
+    "answer": "40",
+    "dataset": "gsm8k_train",
+    "train_index": 2299,
+    "problem": "Archibald and his brother are playing tennis against each other. Archibald has won 12 games and his brother has won 18. What percentage of games has Archibald won?",
+    "problem_sha256": "18f2b44a1ed51cf853d9c82e411eccd8d3cafeb74414b8b25dae465c97044d54"
+  },
+  {
+    "question": "Jack is making flower crowns out of red, pink and white daisies. There are nine times as many pink daisies as white daisies and three less than four times as many red daisies as pink daisies. If there are 6 white daisies, how many daisies are there total?",
+    "answer": "273",
+    "dataset": "gsm8k_train",
+    "train_index": 5727,
+    "problem": "Jack is making flower crowns out of red, pink and white daisies. There are nine times as many pink daisies as white daisies and three less than four times as many red daisies as pink daisies. If there are 6 white daisies, how many daisies are there total?",
+    "problem_sha256": "b684f00d5a0322896153d435f2e3abd715650e92611be85b3876deed4fd7d2fd"
+  },
+  {
+    "question": "Peggy buys 3 folders, one each in the colors red, green, and blue.  She puts ten sheets of paper in each folder, and then, she puts star-shaped stickers on each sheet of paper.  In the red folder, each sheet of paper gets 3 stickers.  In the green folder, each sheet of paper gets 2 stickers, and in the blue folder, each sheet gets 1 sticker.  What is the total number of stickers Peggy uses?",
+    "answer": "60",
+    "dataset": "gsm8k_train",
+    "train_index": 5706,
+    "problem": "Peggy buys 3 folders, one each in the colors red, green, and blue.  She puts ten sheets of paper in each folder, and then, she puts star-shaped stickers on each sheet of paper.  In the red folder, each sheet of paper gets 3 stickers.  In the green folder, each sheet of paper gets 2 stickers, and in the blue folder, each sheet gets 1 sticker.  What is the total number of stickers Peggy uses?",
+    "problem_sha256": "0c404ad9b7f3a20767b493836e6bdadd7d8c8475a441331b2b3af8211ff5a4dc"
+  },
+  {
+    "question": "Reggie is playing marbles with his friend. His friend arrives with 100 marbles. Each game, they bet ten marbles and whoever wins gets to keep all the marbles. After 9 games, Reggie has 90 marbles. How many games has he lost?",
+    "answer": "1",
+    "dataset": "gsm8k_train",
+    "train_index": 5391,
+    "problem": "Reggie is playing marbles with his friend. His friend arrives with 100 marbles. Each game, they bet ten marbles and whoever wins gets to keep all the marbles. After 9 games, Reggie has 90 marbles. How many games has he lost?",
+    "problem_sha256": "47334fe67984377df69f262a198838acc1d4eff3e89cbe60ef950221ef100f54"
+  },
+  {
+    "question": "Ishmael, Ponce, and Jalen measured their weight and realized Ishmael was 20 pounds heavier than Ponce and that Ponce was 10 pounds lighter than Jalen. If Jalen weighed 160 pounds, calculate the average weight of the three?",
+    "answer": "160",
+    "dataset": "gsm8k_train",
+    "train_index": 7159,
+    "problem": "Ishmael, Ponce, and Jalen measured their weight and realized Ishmael was 20 pounds heavier than Ponce and that Ponce was 10 pounds lighter than Jalen. If Jalen weighed 160 pounds, calculate the average weight of the three?",
+    "problem_sha256": "b4fdf87332dea31e44d8dda34bd4721522de143599f4ad6098d0a0d90d0ac10c"
+  },
+  {
+    "question": "Farmer Red has three milk cows: Bess, Brownie, and Daisy. Bess, the smallest cow, gives him two pails of milk every day. Brownie, the largest cow, produces three times that amount. Then Daisy makes one pail more than Bess. How many pails of milk does Farmer Red get from them each week?",
+    "answer": "77",
+    "dataset": "gsm8k_train",
+    "train_index": 1029,
+    "problem": "Farmer Red has three milk cows: Bess, Brownie, and Daisy. Bess, the smallest cow, gives him two pails of milk every day. Brownie, the largest cow, produces three times that amount. Then Daisy makes one pail more than Bess. How many pails of milk does Farmer Red get from them each week?",
+    "problem_sha256": "7f5bb7798f6bc1314d5ae500ec9516f986bce4680ff71721c8e60bdd7116761f"
+  },
+  {
+    "question": "A clerk can process 25 forms per hour. If 2400 forms must be processed in an 8-hour day, how many clerks must you hire for that day?",
+    "answer": "12",
+    "dataset": "gsm8k_train",
+    "train_index": 1426,
+    "problem": "A clerk can process 25 forms per hour. If 2400 forms must be processed in an 8-hour day, how many clerks must you hire for that day?",
+    "problem_sha256": "ace009f771140096ffaa18e44c2c1e9e0cc1fa5caedc06a68b7c4e1614b13047"
+  },
+  {
+    "question": "Pulsar, the shuffle-dancing bear, Polly, the pink prancing poodle, and Petra, the proud portly pachyderm, are entertainers at the Big Top Circus.  In one show, Pulsar stands on his two back legs for a total of 10 minutes.  Then, Polly stands on her back legs for three times as long as Pulsar.  And then, finally, Petra stands of his back legs for one-sixth as long as Polly.  What is the combined length of time, in minutes, that the three entertainers stand on their back legs?",
+    "answer": "45",
+    "dataset": "gsm8k_train",
+    "train_index": 4095,
+    "problem": "Pulsar, the shuffle-dancing bear, Polly, the pink prancing poodle, and Petra, the proud portly pachyderm, are entertainers at the Big Top Circus.  In one show, Pulsar stands on his two back legs for a total of 10 minutes.  Then, Polly stands on her back legs for three times as long as Pulsar.  And then, finally, Petra stands of his back legs for one-sixth as long as Polly.  What is the combined length of time, in minutes, that the three entertainers stand on their back legs?",
+    "problem_sha256": "9e087678f2e3585543f16fc5f52fb27562ef925805b80629f1278e6a235f545c"
+  },
+  {
+    "question": "Aria has twice as many high school credits as Emily, who has twice the number of high school credits as Spencer. If Emily has 20 credits, what's twice the total number of high school credits the three have?",
+    "answer": "140",
+    "dataset": "gsm8k_train",
+    "train_index": 1444,
+    "problem": "Aria has twice as many high school credits as Emily, who has twice the number of high school credits as Spencer. If Emily has 20 credits, what's twice the total number of high school credits the three have?",
+    "problem_sha256": "e1d2d009bbb9e5c5b99d7844d338871f4529d2f502709ee6bfc1554bdfb9359a"
+  },
+  {
+    "question": "Jason has a carriage house that he rents out.  He’s charging $50.00 per day or $500.00 for 14 days.  Eric wants to rent the house for 20 days.  How much will it cost him?",
+    "answer": "800",
+    "dataset": "gsm8k_train",
+    "train_index": 2369,
+    "problem": "Jason has a carriage house that he rents out.  He’s charging $50.00 per day or $500.00 for 14 days.  Eric wants to rent the house for 20 days.  How much will it cost him?",
+    "problem_sha256": "6673e422e61b950e1accc8af0592815a26721169cfec01aba6a444a58e665b14"
+  },
+  {
+    "question": "Toby is making toast and adding peanut butter to it. He wants to make sure he has 500 calories for breakfast. A piece of bread has 100 calories. A serving of peanut butter has 200 calories. If he has one piece of bread, how many servings of peanut butter should he add?",
+    "answer": "2",
+    "dataset": "gsm8k_train",
+    "train_index": 3180,
+    "problem": "Toby is making toast and adding peanut butter to it. He wants to make sure he has 500 calories for breakfast. A piece of bread has 100 calories. A serving of peanut butter has 200 calories. If he has one piece of bread, how many servings of peanut butter should he add?",
+    "problem_sha256": "63c7afb831b94fe14bda9ea1a48ac4df02f5b682c39af57f0d47abbaa66c1087"
+  },
+  {
+    "question": "A bead shop sells one set of crystal beads at $9 each and one set of metal beads at $10 each. Nancy buys one set of crystal beads and two sets of metal beads. How much does she spend in all?",
+    "answer": "29",
+    "dataset": "gsm8k_train",
+    "train_index": 5424,
+    "problem": "A bead shop sells one set of crystal beads at $9 each and one set of metal beads at $10 each. Nancy buys one set of crystal beads and two sets of metal beads. How much does she spend in all?",
+    "problem_sha256": "031df1a46dac8f5a84f0202c0c4d97432eef54ec9125bd03962ad96b1971daef"
+  },
+  {
+    "question": "In 2010 the Chicago Bulls won 70 games. The Miami Heat won 5 more games than the Chicago Bulls.  How many games did the Bulls and the Heat win together?",
+    "answer": "145",
+    "dataset": "gsm8k_train",
+    "train_index": 5675,
+    "problem": "In 2010 the Chicago Bulls won 70 games. The Miami Heat won 5 more games than the Chicago Bulls.  How many games did the Bulls and the Heat win together?",
+    "problem_sha256": "0348521a47ea0977f18ce37a04bc1877ebe0e3102ef8320a2e3d3e0dc86f6b81"
+  },
+  {
+    "question": "Kendra wants enough shirts that she only has to do laundry once every two weeks. She wears one shirt to school for each of the five weekdays. Three days a week, she changes into a different shirt for an after-school club. On Saturday, she wears one shirt all day. On Sunday, she wears a different shirt to church than she does for the rest of the day. How many shirts does she need to be able to only do laundry once every two weeks?",
+    "answer": "22",
+    "dataset": "gsm8k_train",
+    "train_index": 4962,
+    "problem": "Kendra wants enough shirts that she only has to do laundry once every two weeks. She wears one shirt to school for each of the five weekdays. Three days a week, she changes into a different shirt for an after-school club. On Saturday, she wears one shirt all day. On Sunday, she wears a different shirt to church than she does for the rest of the day. How many shirts does she need to be able to only do laundry once every two weeks?",
+    "problem_sha256": "0cc838f8b25f5940512808d9f5fa0030e50451418e09d94c473fc96c11e7cad0"
+  },
+  {
+    "question": "William's class set a goal each week of the number of cans of food that is to be collected. On the first day, 20 cans were collected. Then the number of cans increased by 5 each day. If they collected 5 days a week to reach their goal, how many cans of food was their goal per week?",
+    "answer": "150",
+    "dataset": "gsm8k_train",
+    "train_index": 5939,
+    "problem": "William's class set a goal each week of the number of cans of food that is to be collected. On the first day, 20 cans were collected. Then the number of cans increased by 5 each day. If they collected 5 days a week to reach their goal, how many cans of food was their goal per week?",
+    "problem_sha256": "401d021acea5ae5e68a767be632726533da67ed840f9fa905c6a964eeb67aa76"
+  },
+  {
+    "question": "There are 34 kids signed up to compete in the talent show. There are 22 more girls than boys signed up to compete. How many girls are signed up to compete in the talent show?",
+    "answer": "28",
+    "dataset": "gsm8k_train",
+    "train_index": 6176,
+    "problem": "There are 34 kids signed up to compete in the talent show. There are 22 more girls than boys signed up to compete. How many girls are signed up to compete in the talent show?",
+    "problem_sha256": "dc4562f5f2d86ced82964fd7ccc1da0c6b21081290679d9c91a4f1ab6ed21a9c"
+  },
+  {
+    "question": "Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?",
+    "answer": "240",
+    "dataset": "gsm8k_train",
+    "train_index": 6526,
+    "problem": "Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?",
+    "problem_sha256": "4b606fc4c688c585db3ce6e49e3f9b1dc361ad8c70802f5fae4782803aa4955a"
+  },
+  {
+    "question": "MIlle is making snack packs for her kindergarten class. She's going to divide 64 pretzels, four times as many goldfish, and 32 suckers into baggies for the 16 kids in the class. How many items does each baggie have?",
+    "answer": "22",
+    "dataset": "gsm8k_train",
+    "train_index": 495,
+    "problem": "MIlle is making snack packs for her kindergarten class. She's going to divide 64 pretzels, four times as many goldfish, and 32 suckers into baggies for the 16 kids in the class. How many items does each baggie have?",
+    "problem_sha256": "dad083823f1e376d819a9808d294cec0111848c2b4eff344cdbf698ed475c772"
+  },
+  {
+    "question": "The city of Richmond has 1000 more people than Victoria. Victoria has 4 times as many people as Beacon. If Richmond has 3000 people, how many people are there in Beacon?",
+    "answer": "500",
+    "dataset": "gsm8k_train",
+    "train_index": 7105,
+    "problem": "The city of Richmond has 1000 more people than Victoria. Victoria has 4 times as many people as Beacon. If Richmond has 3000 people, how many people are there in Beacon?",
+    "problem_sha256": "fb2a694470686056330458f61d77fa9cc147ea1b3a03e2ccda5ca0c81e345631"
+  },
+  {
+    "question": "Chenny has 10 pieces of candies to be given out to her friends. She realized that she needs to buy 4 more so each of her friends will receive 2 candies. How many friends does Chenny have?",
+    "answer": "7",
+    "dataset": "gsm8k_train",
+    "train_index": 5721,
+    "problem": "Chenny has 10 pieces of candies to be given out to her friends. She realized that she needs to buy 4 more so each of her friends will receive 2 candies. How many friends does Chenny have?",
+    "problem_sha256": "eff46f6491dd4714b73f1b00b885046d8228e392adeee31dde989302a3e712a1"
+  },
+  {
+    "question": "Brian is a real estate agent. He makes a 2% commission on each sale. During June, he sold three houses. The houses sold for $157,000, $499,000, and $125,000. What was Brian’s total commission on these three sales?",
+    "answer": "15,620",
+    "dataset": "gsm8k_train",
+    "train_index": 1012,
+    "problem": "Brian is a real estate agent. He makes a 2% commission on each sale. During June, he sold three houses. The houses sold for $157,000, $499,000, and $125,000. What was Brian’s total commission on these three sales?",
+    "problem_sha256": "9fe414142ac4c7c9e11da914cb55f3c1e0fdc770233e43955c78d51015e4b4d9"
+  },
+  {
+    "question": "Tony has a piece of quilt that is 6 feet by 24 feet. If he wants to turn it into a square and use all the fabric, how long is each side of the square?",
+    "answer": "12",
+    "dataset": "gsm8k_train",
+    "train_index": 1323,
+    "problem": "Tony has a piece of quilt that is 6 feet by 24 feet. If he wants to turn it into a square and use all the fabric, how long is each side of the square?",
+    "problem_sha256": "868b1d0853fdd6896f515d46f5dcd114760f04dbbd8a0f75e3eebc45342c44ae"
+  },
+  {
+    "question": "Cindy and Olaf made 15 candied apples which they will be selling for $2 each, and 12 candied grapes which they will be selling for $1.5. How much will they earn if they sell everything?",
+    "answer": "48",
+    "dataset": "gsm8k_train",
+    "train_index": 6896,
+    "problem": "Cindy and Olaf made 15 candied apples which they will be selling for $2 each, and 12 candied grapes which they will be selling for $1.5. How much will they earn if they sell everything?",
+    "problem_sha256": "48f1af907f018dc84abcf3a2ee10e7dde8286e6458183ea7f59bdd6ac6973fb6"
+  },
+  {
+    "question": "A Lamplighter monkey has long arms and can swing from branch to branch at a speed of 10 feet per second.  But when the monkey is frightened, it will run along the branches at a speed of 15 feet per second.  If a Lamplighter monkey runs for 5 seconds to evade a predator, then swings for another 10 seconds to add distance between itself and the predator, how far, in feet, will the monkey travel?",
+    "answer": "175",
+    "dataset": "gsm8k_train",
+    "train_index": 4729,
+    "problem": "A Lamplighter monkey has long arms and can swing from branch to branch at a speed of 10 feet per second.  But when the monkey is frightened, it will run along the branches at a speed of 15 feet per second.  If a Lamplighter monkey runs for 5 seconds to evade a predator, then swings for another 10 seconds to add distance between itself and the predator, how far, in feet, will the monkey travel?",
+    "problem_sha256": "e3fdbeae6487b279bd483eef716ac8ec788c62192907d2c493ba8f9ab0eda278"
+  },
+  {
+    "question": "There are 28 students in a classroom. Half of them have 5 notebooks each and the other half have 3 notebooks each. How many notebooks in total are in the classroom?",
+    "answer": "112",
+    "dataset": "gsm8k_train",
+    "train_index": 1448,
+    "problem": "There are 28 students in a classroom. Half of them have 5 notebooks each and the other half have 3 notebooks each. How many notebooks in total are in the classroom?",
+    "problem_sha256": "d618ade49dcc7781e26d24572b45484bee5e7f56ce78ab4648f32af2afd567fd"
+  },
+  {
+    "question": "Cori is 3 years old today.  In 5 years, she will be one-third the age of her aunt.  How old is her aunt today?",
+    "answer": "19",
+    "dataset": "gsm8k_train",
+    "train_index": 440,
+    "problem": "Cori is 3 years old today.  In 5 years, she will be one-third the age of her aunt.  How old is her aunt today?",
+    "problem_sha256": "345e857e9aa42199d3a4402bf1e16af4a4268bfa02c857bcfcaff2cd4c17e8b3"
+  },
+  {
+    "question": "Roger had a 6-hour drive planned out.  He didn't want to listen to music so he downloaded several podcasts.  The first podcast was 45 minutes long.  The second podcast was twice as long as that.  The third podcast was 1 hour and 45 minutes long.  His fourth podcast is 1 hour long.  How many hours will his next podcast have to be to fill up the full 6 hours?",
+    "answer": "1",
+    "dataset": "gsm8k_train",
+    "train_index": 2179,
+    "problem": "Roger had a 6-hour drive planned out.  He didn't want to listen to music so he downloaded several podcasts.  The first podcast was 45 minutes long.  The second podcast was twice as long as that.  The third podcast was 1 hour and 45 minutes long.  His fourth podcast is 1 hour long.  How many hours will his next podcast have to be to fill up the full 6 hours?",
+    "problem_sha256": "e860e71bd2a5ba1feaa14ca037a3bb84cd4e7679de356d474f9f1c48b533e437"
+  },
+  {
+    "question": "Peggy has 6 dolls.  Her grandmother gives Peggy her own collection of 30 dolls.  Over the year, Peggy receives half that amount of dolls between her birthday and Christmas.  How many dolls does Peggy now have?",
+    "answer": "51",
+    "dataset": "gsm8k_train",
+    "train_index": 4818,
+    "problem": "Peggy has 6 dolls.  Her grandmother gives Peggy her own collection of 30 dolls.  Over the year, Peggy receives half that amount of dolls between her birthday and Christmas.  How many dolls does Peggy now have?",
+    "problem_sha256": "52bf56fb730a513288b5c1ed944ed6283b38241c3dbc44207e5a770cfd776a4f"
+  },
+  {
+    "question": "To increase her water intake to the recommended level by her doctor, Happy has to take 40% more cups of water than she takes now. If she is currently drinking 15 cups of water every week, what's the recommended number of cups per week?",
+    "answer": "21",
+    "dataset": "gsm8k_train",
+    "train_index": 4764,
+    "problem": "To increase her water intake to the recommended level by her doctor, Happy has to take 40% more cups of water than she takes now. If she is currently drinking 15 cups of water every week, what's the recommended number of cups per week?",
+    "problem_sha256": "568133ab76693924e1b4c7c22d601f7b4620843783e8efd583d8619541944cbb"
+  },
+  {
+    "question": "A certain tree was 100 meters tall at the end of 2017. It will grow 10% more than its previous height each year. How long has the tree grown from 2017 until the end of 2019?",
+    "answer": "21",
+    "dataset": "gsm8k_train",
+    "train_index": 181,
+    "problem": "A certain tree was 100 meters tall at the end of 2017. It will grow 10% more than its previous height each year. How long has the tree grown from 2017 until the end of 2019?",
+    "problem_sha256": "84220e52f46a02decfab7df53478aa02cc689ca63cabb53eb9617ba10f3a2f5a"
+  },
+  {
+    "question": "Jeff has 16 GB of storage on his phone. He is already using 4 GB. If a song takes up about 30MB of storage, how many songs can Jeff store on his phone? (There are 1000 MB in a GB).",
+    "answer": "400",
+    "dataset": "gsm8k_train",
+    "train_index": 4387,
+    "problem": "Jeff has 16 GB of storage on his phone. He is already using 4 GB. If a song takes up about 30MB of storage, how many songs can Jeff store on his phone? (There are 1000 MB in a GB).",
+    "problem_sha256": "ba96120ae9385aaa81eeffe4c89bfcc5f1bd87fa394d94b70cd93c6a93ef474f"
+  },
+  {
+    "question": "Team Soccer Stars plays in a soccer league. They played a total of 20 games, and won 14 games, lost 2, and drew the rest of the matches. They earn 3 points for a win, 1 point for a draw, and nothing for a loss. How many points did they have at the end of the season?",
+    "answer": "46",
+    "dataset": "gsm8k_train",
+    "train_index": 1440,
+    "problem": "Team Soccer Stars plays in a soccer league. They played a total of 20 games, and won 14 games, lost 2, and drew the rest of the matches. They earn 3 points for a win, 1 point for a draw, and nothing for a loss. How many points did they have at the end of the season?",
+    "problem_sha256": "32fe933b49bb989fdc2e669d977b5609ae60708655ebc5b71a6c79e04c65d04f"
+  },
+  {
+    "question": "Marcel bought a pen for $4, and a briefcase for five times the price. How much did Marcel pay for both items?",
+    "answer": "24",
+    "dataset": "gsm8k_train",
+    "train_index": 3568,
+    "problem": "Marcel bought a pen for $4, and a briefcase for five times the price. How much did Marcel pay for both items?",
+    "problem_sha256": "6197b7a8f64fe3b17c8a7201fbfb64197f055df1cf9f5b4a5f27cce9910c5f9d"
+  },
+  {
+    "question": "Trevor buys three bouquets of carnations. The first included 9 carnations, and the second included 14 carnations. If the average number of carnations in the bouquets is 12, how many carnations were in the third bouquet?",
+    "answer": "13",
+    "dataset": "gsm8k_train",
+    "train_index": 1163,
+    "problem": "Trevor buys three bouquets of carnations. The first included 9 carnations, and the second included 14 carnations. If the average number of carnations in the bouquets is 12, how many carnations were in the third bouquet?",
+    "problem_sha256": "e1a6165ebaab37f63c679dfebe1f1b3cf10af83eeda9d5a0f7f44b764621bfd6"
+  },
+  {
+    "question": "Karl, Ryan, and Ben are fond of collecting stickers. Karl has 25 stickers. Ryan has 20 more stickers than Karl. Ben has 10 fewer stickers than Ryan. They placed all their stickers in one sticker book. How many stickers did they place altogether?",
+    "answer": "105",
+    "dataset": "gsm8k_train",
+    "train_index": 5510,
+    "problem": "Karl, Ryan, and Ben are fond of collecting stickers. Karl has 25 stickers. Ryan has 20 more stickers than Karl. Ben has 10 fewer stickers than Ryan. They placed all their stickers in one sticker book. How many stickers did they place altogether?",
+    "problem_sha256": "2def50f800ea609e17fa09e69b84704946be6025de1de9db3ba5c2e4bdc751be"
+  },
+  {
+    "question": "Sara is checking out two different stores to buy a computer. The first store offers a device for $950 with a 6% discount. The second sells the same computer for €920 with a 5% discount. What is the difference in price between the two stores?",
+    "answer": "19",
+    "dataset": "gsm8k_train",
+    "train_index": 658,
+    "problem": "Sara is checking out two different stores to buy a computer. The first store offers a device for $950 with a 6% discount. The second sells the same computer for €920 with a 5% discount. What is the difference in price between the two stores?",
+    "problem_sha256": "153432e413795b76f66a6fad025930486d2ca17853f2cf71e8dd252bcb74e163"
+  },
+  {
+    "question": "Each week Carina puts 20 more seashells in a jar than she did the week before. If there are 50 seashells in the jar this week, how many will there be in a month?",
+    "answer": "130",
+    "dataset": "gsm8k_train",
+    "train_index": 6976,
+    "problem": "Each week Carina puts 20 more seashells in a jar than she did the week before. If there are 50 seashells in the jar this week, how many will there be in a month?",
+    "problem_sha256": "6eb4b113f884dc802d96f24b77ce99681ac068dffa231c326aa36a8bad80fae4"
+  },
+  {
+    "question": "John buys dinner plates and silverware.  The silverware cost $20.  The dinner plates cost 50% as much as the silverware.  How much did he pay for everything?",
+    "answer": "30",
+    "dataset": "gsm8k_train",
+    "train_index": 6523,
+    "problem": "John buys dinner plates and silverware.  The silverware cost $20.  The dinner plates cost 50% as much as the silverware.  How much did he pay for everything?",
+    "problem_sha256": "193e460f8ca94a6c1a7bb5173f520a1b1aba8c816368ad9cd65fd0fc6fd4725e"
+  },
+  {
+    "question": "Tina is working on her homework when she realizes she's having a hard time typing out her answers on her laptop because a lot of the keys are sticky. She is trying to get her homework done before dinner, though, so she needs to decide if she has time to clean her keyboard first. Tina knows her assignment will only take 10 minutes to complete. Dinner will be ready at 5:30 p.m. Tina decides to time how long it takes to remove and clean one key and will then multiply that time by how many keys she needs to fix. She counts 15 keys that are sticky and times it to take 3 minutes to clean one. After Tina has cleaned one key, there are 14 left to clean. How many minutes total will it take for Tina to both clean the remaining keys and finish her assignment?",
+    "answer": "52",
+    "dataset": "gsm8k_train",
+    "train_index": 636,
+    "problem": "Tina is working on her homework when she realizes she's having a hard time typing out her answers on her laptop because a lot of the keys are sticky. She is trying to get her homework done before dinner, though, so she needs to decide if she has time to clean her keyboard first. Tina knows her assignment will only take 10 minutes to complete. Dinner will be ready at 5:30 p.m. Tina decides to time how long it takes to remove and clean one key and will then multiply that time by how many keys she needs to fix. She counts 15 keys that are sticky and times it to take 3 minutes to clean one. After Tina has cleaned one key, there are 14 left to clean. How many minutes total will it take for Tina to both clean the remaining keys and finish her assignment?",
+    "problem_sha256": "d9f5afbc008d9d21f293ce56015442a50e02166f8192fe90b47bcab13c34d36d"
+  },
+  {
+    "question": "Tom dances 4 times a week for 2 hours at a time and does this every year for 10 years.  How many hours did he dance?",
+    "answer": "4160",
+    "dataset": "gsm8k_train",
+    "train_index": 4886,
+    "problem": "Tom dances 4 times a week for 2 hours at a time and does this every year for 10 years.  How many hours did he dance?",
+    "problem_sha256": "7b390a2addeb27567575b1718faca56d1f9b6f842b6f00e6a525e8a69e8686c5"
+  },
+  {
+    "question": "Derek is watching the construction cranes downtown and is trying to figure out how much taller they have to be than the building they are building. He sees one crane that is 228 feet tall finishing a building that was 200 feet tall. He sees another that is 120 feet tall finishing a building that is 100 feet tall. The final crane he sees is 147 feet tall, finishing a building that is 140 feet tall. On average, what percentage taller are the cranes than the building?",
+    "answer": "13",
+    "dataset": "gsm8k_train",
+    "train_index": 442,
+    "problem": "Derek is watching the construction cranes downtown and is trying to figure out how much taller they have to be than the building they are building. He sees one crane that is 228 feet tall finishing a building that was 200 feet tall. He sees another that is 120 feet tall finishing a building that is 100 feet tall. The final crane he sees is 147 feet tall, finishing a building that is 140 feet tall. On average, what percentage taller are the cranes than the building?",
+    "problem_sha256": "7b807917d29e7493080478a183949f47f0105a186668fa3b078f0e8060f6b4b7"
+  }
+]

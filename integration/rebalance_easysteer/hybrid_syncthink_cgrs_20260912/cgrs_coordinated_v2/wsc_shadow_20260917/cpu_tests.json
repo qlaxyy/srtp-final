@@ -1,0 +1,37 @@
+{
+  "observer": {
+    "default_off_no_access": true,
+    "output_and_logits_unchanged": true,
+    "mapped_slots": true,
+    "buffer_copy": true,
+    "missing_forward_rejected": true,
+    "hooks_removed": true,
+    "residual_boundary_checked": true,
+    "processed_boundary_scoring": true,
+    "shift_rejected": true,
+    "gpu_used": false,
+    "native_vllm_validated": false
+  },
+  "feature_contract": {
+    "prefill_excluded": true,
+    "future_token_rejected": true,
+    "accepted_boundary_position": true,
+    "evidence_copy": true,
+    "duplicate_rejected": true,
+    "fixed_layer_enforced": true,
+    "answer_region_closed": true,
+    "nonfinite_disables_request": true,
+    "request_reset": true,
+    "gpu_used": false
+  },
+  "recovery_policy": {
+    "mixed_lengths_keep_individual_history": true,
+    "short_and_long_thresholds": true,
+    "exact_half_score_resets": true,
+    "one_rescue_only": true,
+    "invalid_score_disables": true,
+    "discarded_tokens_not_refunded": true,
+    "new_request_reset": true,
+    "gpu_used": false
+  }
+}

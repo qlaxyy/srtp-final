@@ -1,0 +1,91 @@
+{
+  "status": "new_direction_selected_local_contract_only_not_gpu_ready",
+  "supersedes": "SAT process-protection candidate; user requested a different direction",
+  "frozen_baseline": "RC14 unchanged",
+  "gpu_authorized": false,
+  "primary": {
+    "name": "语义循环检测后有限恢复推导",
+    "hypothesis": "A model-specific repetition detector may distinguish persistent semantic loops from productive reasoning better than confidence alone; recovery aims to escape loops while retaining a chance to correct.",
+    "source": "https://arxiv.org/abs/2511.00536",
+    "official_code": "https://github.com/wenyaxie023/WordSaladChopper",
+    "upstream_commit": "81396f9351f3393ad9e1070d1719d729cd3d8258",
+    "paper_evidence": [
+      "Sec2.1 semantic similarity labels differ from exact token repetition",
+      "Sec2.2/Table3 persistence depends strongly on temperature and dataset",
+      "Sec2.3/Table4 generic repetition penalties can damage accuracy",
+      "Sec3.1 s1 model-specific probe and relabeling all chunks beyond chopping point",
+      "Sec3.2/Table6 regeneration matters; brute chopping loses accuracy",
+      "AppendixB uses initial32k plus separate4k/8k recovery, unlike this project16k",
+      "AppendixD/F long2/short5 score>.5 streak policy; AppendixI latency is an estimate, not end-to-end throughput"
+    ],
+    "unique_change": "Add loop-triggered recovery to fixedRC14; no retuning R,14words,ln2,confidence or SAT thresholds",
+    "proposed_adaptation": [
+      "Initially shadow detection only. Confirm probe extraction index, token position, normalization and learned checkpoint before live scoring.",
+      "If eventually enabled, at most one recovery, never force end-think solely because repetition score is high.",
+      "All generated tokens including discarded text remain charged. Cue-prefill tokens separately reported and conservatively charged against16000. Recovery<=min(4096,remaining budget).",
+      "Do not implement cache-only rollback: restore R coefficient, step counters/accumulators/history, RC14 opening/thinking clock and RNG/request state consistently. New prompt re-prefill without old steering history is not equivalent.",
+      "Freeze chop boundary and cue IDs only after reconciling paper, training extractor and public runtime. CPU policy is not a live integration."
+    ],
+    "implementation_interfaces": {
+      "owned_policy": "wsc_recovery_policy_cpu.py",
+      "observer": "on_accepted_delimiter(request_id, absolute_position, checkpoint-compatible hidden_state, chunk_length)",
+      "states": [
+        "long/short streaks",
+        "single-use recovery flag",
+        "token budget ledger",
+        "invalid latch",
+        "per-boundary full controller snapshot for any rollback"
+      ],
+      "default_off": "No observer/hook/buffer in original path",
+      "shared_changes": "None made. Any final hidden capture/KV API change requires an explicit integration patch; do not copy controller."
+    },
+    "caveats": [
+      "Public probe is trained without current ReBalance intervention; feature distribution shift must be checked",
+      "s1 training identities must be reconciled against future evaluation data",
+      "Loop recognition is not answer correctness and may mislabel necessary enumeration or repeated calculations",
+      "Public Chopper mixed-length issue reproduced on CPU; paper and code cannot be silently mixed",
+      "Runtime uses processed accepted token hidden_states[-2], unlike paper text saying final block. Probe training extraction alignment unresolved",
+      "No new accuracy or compression claim and no universal synergy claim"
+    ]
+  },
+  "rejected": [
+    {
+      "name": "SAT gate retuning",
+      "reason": "User asked to change direction; no new protection activation evidence; preserve prior result"
+    },
+    {
+      "name": "64-token exact-copy penalization as next GPU candidate",
+      "reason": "Greedy calibration coverage high but sevenB sampledRC14 only2/100 questions,209/262492tokens, no capped case hit; too weak to prioritize without lowering thresholds after seeing data"
+    },
+    {
+      "name": "Global repetition/presence/frequency penalty",
+      "reason": "Can penalize mathematical symbols and necessary reuse; WSC Table4 also shows accuracy risk"
+    }
+  ],
+  "next_before_gpu": [
+    "Locate and reconcile WSC training extractor and checkpoint input contract on CPU",
+    "Inspect pinned model-specific probe safely and reconcile training question hashes",
+    "Verify paper-consistent counters and conservative budget accounting; completed here",
+    "Specify shadow/rollback default-off interface and native equivalence gates before a bounded GPU batch"
+  ],
+  "future_effect_design": "Same-conditionRC14 versus candidate on registered training data; matched trigger recovery control if claiming selector value. If claiming new component x R synergy, require appropriate factorial controls. Single seed42,max total16000,all failures/caps and paired flips kept; selection and independent confirmation separate; -2pp accuracy bound unchanged.",
+  "cpu_policy_checks": {
+    "mixed_lengths_keep_individual_history": true,
+    "short_and_long_thresholds": true,
+    "exact_half_score_resets": true,
+    "one_rescue_only": true,
+    "invalid_score_disables": true,
+    "discarded_tokens_not_refunded": true,
+    "new_request_reset": true,
+    "gpu_used": false
+  },
+  "literature": {
+    "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2511.00536\\parsed.md",
+    "parsed_sha256": "2eeeff1a9fdf8cbf82b0160e014ef248644d95222b0731e0eb30a4c0e0e869ae",
+    "full_text_read": true,
+    "sentinel": "END-OF-PAPER:e02516fa1562"
+  },
+  "new_data_read": "Only original500calibration and previously exposed7B100training rows (R/RC14), ledger saved; no new split, no frozen test answers read",
+  "new_answers": 0,
+  "ssh_used": false
+}

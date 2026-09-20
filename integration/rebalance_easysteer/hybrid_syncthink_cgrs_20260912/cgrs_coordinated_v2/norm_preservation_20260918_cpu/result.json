@@ -1,0 +1,106 @@
+{
+  "states": 84008,
+  "vector_norm": 83.6191365562794,
+  "state_norm": {
+    "min": 120.05834008620276,
+    "p05": 169.16904991683515,
+    "median": 191.68621319355142,
+    "p95": 214.49601199205262,
+    "max": 251.91047087392425
+  },
+  "rows": [
+    {
+      "alpha": -1.5353450143175593,
+      "norm_ratio": {
+        "min": 0.7798945305376103,
+        "p05": 0.8630395662434296,
+        "median": 1.1291789765708304,
+        "p95": 1.341628117313827,
+        "max": 1.502339336492466
+      },
+      "angle_degrees": {
+        "min": 25.22380117193917,
+        "p05": 28.616440554712415,
+        "median": 35.367234438135625,
+        "p95": 44.84982864794549,
+        "max": 50.115400058955615
+      },
+      "fraction_abs_norm_change_above_1pct": 0.965634225311875,
+      "fraction_abs_norm_change_above_5pct": 0.8269926673650129,
+      "renormalization_scale": {
+        "min": 0.6656285805141167,
+        "p05": 0.7453630310037698,
+        "median": 0.8855992015000085,
+        "p95": 1.158695428513827,
+        "max": 1.2822246609559664
+      }
+    },
+    {
+      "alpha": -1.0,
+      "norm_ratio": {
+        "min": 0.7958439019952609,
+        "p05": 0.8504556794088042,
+        "median": 1.0409345071776888,
+        "p95": 1.1868237004775957,
+        "max": 1.2585806784041476
+      },
+      "angle_degrees": {
+        "min": 18.119194977095813,
+        "p05": 20.30684885225607,
+        "median": 24.08751158098279,
+        "p95": 29.00644342279672,
+        "max": 35.454390039052996
+      },
+      "fraction_abs_norm_change_above_1pct": 0.9478859156270831,
+      "fraction_abs_norm_change_above_5pct": 0.7191815065231882,
+      "renormalization_scale": {
+        "min": 0.7945458063665636,
+        "p05": 0.8425851283707558,
+        "median": 0.9606752327887057,
+        "p95": 1.1758402280274136,
+        "max": 1.256527815935888
+      }
+    },
+    {
+      "alpha": 0.1,
+      "norm_ratio": {
+        "min": 0.9832412156962104,
+        "p05": 0.9903742140519675,
+        "median": 1.0058590661615565,
+        "p95": 1.0250671354109007,
+        "max": 1.0298404844634461
+      },
+      "angle_degrees": {
+        "min": 1.7837480484151682,
+        "p05": 2.084062048034969,
+        "median": 2.391669291988155,
+        "p95": 2.7196262035116106,
+        "max": 3.992154933967026
+      },
+      "fraction_abs_norm_change_above_1pct": 0.40243786306066087,
+      "fraction_abs_norm_change_above_5pct": 0.0,
+      "renormalization_scale": {
+        "min": 0.9710241683895412,
+        "p05": 0.9755458598320568,
+        "median": 0.9941750625324528,
+        "p95": 1.0097193422562403,
+        "max": 1.0170444281995676
+      }
+    }
+  ],
+  "paper_eq18_counterexample": {
+    "h": [
+      0.0,
+      1.0
+    ],
+    "hprime": [
+      1.0,
+      0.0
+    ],
+    "both_norms": 1
+  },
+  "rescale_max_relative_norm_error": 3.3306690738754696e-16,
+  "split_residual_identity_passed": true,
+  "decision": "CPU geometry only; do not claim reasoning compression, improved accuracy, or actual online norm distribution. Runtime integration and GPU validation remain undone.",
+  "script_sha256": "a5ad004cf037d6b05cf289db199b3eff9a7e6819ebb86e66cffc9ba9f67cc7e7"
+}

@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "namespace": "hybrid_syncthink_cgrs_20260912",
+  "status": "specification_only_not_GPU_authorized",
+  "runtime_entrypoint_implemented": false,
+  "data_frozen": false,
+  "run_id": null,
+  "baseline_commit": "f7041d8ede196808d953595d855ea94d6dc289fd",
+  "latest_main_observed": "93e579da89a52da0f5fc0ec6a0745c39af2ff972",
+  "frozen_tag": "easysteer-rebalance-v2-final-20260909",
+  "frozen_commit": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "data": {
+    "registry": "cpu_run1/data_registry.json",
+    "sha256": "bbc5f7fb18fe631aba057b86e5dc6465093a3689867b54901f6f3b037aacfe44",
+    "counts": {
+      "engineering": 8,
+      "screening": 64,
+      "confirmation": 200
+    },
+    "normalization": "Unicode NFKC then remove all Unicode whitespace; SHA256 UTF-8; preserve case/numbers/symbols",
+    "selection": "ascending SHA256(namespace + | + normalized_problem_sha256)",
+    "freeze_requires": "Executor global A/B IDs and normalized/near-duplicate question reconciliation; reserve confirmation against future A development"
+  },
+  "assets": {
+    "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+    "model_files": {
+      "config.json": {
+        "bytes": 679,
+        "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+      },
+      "generation_config.json": {
+        "bytes": 181,
+        "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+      },
+      "model.safetensors": {
+        "bytes": 3554214621,
+        "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+      },
+      "tokenizer.json": {
+        "bytes": 7031660,
+        "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+      },
+      "tokenizer_config.json": {
+        "bytes": 3071,
+        "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+      }
+    },
+    "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+    "vector": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+      "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+      "bytes": 7344
+    },
+    "fit": {
+      "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+      "bytes": 1186
+    },
+    "decoder_output_layer": 20,
+    "rebalance_parameters": {
+      "q25c": 0.888148010597869,
+      "q75c": 0.9989141310845991,
+      "q25v": 2.1830046484335987e-07,
+      "q75v": 0.0014852457558952,
+      "low_val_1": -0.49999999999999994,
+      "low_val_2": -1.5353450143175593,
+      "high_val_2": 0.1,
+      "initial_coef": -1.0,
+      "curve_tau": 0.002450814632284028
+    },
+    "calibration_answers_must_not_be_regenerated": true,
+    "vector_normalization": "raw"
+  },
+  "source_baseline_files": {
+    "docs/research/00-研究交接.md": {
+      "sha256": "71699a620f12a5cd42b91a160c7cdad33c0a253e18db2679debdc1c86c2367ae",
+      "git_blob": "f076159183dd0d82843d178ad103d54f7aa24044"
+    },
+    "docs/research/03-ReBalance适配与运行.md": {
+      "sha256": "266cec8dfbb0efddd3654c4495b7e1a338728f94779837c392dfaf045b94d50f",
+      "git_blob": "49aafce80701953faba59fd5e3019383e1543a31"
+    },
+    "integration/rebalance_easysteer/eval/rebalance_dynamic_eval.py": {
+      "sha256": "cab4271d93011e2b70a6f42f3e9b38c397aea7de4bdb6f982fa26660bbd42b51",
+      "git_blob": "3ef503cb764c32afd57ad66e272ca9f12d40b705"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": {
+      "sha256": "88d36451373681a3e82526ad6de69a64356818a8a8777c72d82b51ab8bebf8f5",
+      "git_blob": "bf67fd76184d55d318155f40f50a3b4731f9bec7"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py": {
+      "sha256": "83a2cfbd94c1016cf8bb05d681370f840646de8be3b51f613f090df799a1b5a5",
+      "git_blob": "d9d675411071d1797841e73c8068abbc3bb0db32"
+    },
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": {
+      "sha256": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d",
+      "git_blob": "2f9eaafdb51be97c03e7fd4dcd3ba53178e98b4e"
+    },
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": {
+      "sha256": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+      "git_blob": "b61c3c2d3ddd7a749548dd139807a4724a0a215a"
+    }
+  },
+  "candidate": {
+    "name": "S64",
+    "origin": "SyncThink-inspired adaptation, not official implementation",
+    "entropy_weight": 0.8,
+    "pacing_cap": 64,
+    "end_token_id": 151649,
+    "rank_base": 0,
+    "tie_break": "ascending_token_id",
+    "distribution": "raw logits after actual activation steering, before any sampler/grammar/logit transformation",
+    "entropy": "full valid LM output vocabulary, natural log, FP32 stable reduction",
+    "t": "accepted generated token count plus one; excludes prompt, replay, partial-prefill rows",
+    "criterion": "rank <= floor(min(t,64)*exp(-0.8*entropy))",
+    "action": "same sampler position single finite logit for end token; continue same request answer; no retry",
+    "extra_model_forwards": 0,
+    "extra_probes": 0,
+    "primary_main_rebalance_changes": []
+  },
+  "common_generation": {
+    "max_new_tokens": 16000,
+    "dtype": "bfloat16",
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42,
+    "max_model_len": 32768,
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 32768,
+    "gpu_memory_utilization": 0.9,
+    "async_scheduling": false,
+    "chunked_prefill": false,
+    "prefix_caching": false,
+    "speculative_decoding": false,
+    "tensor_parallel_size": 1,
+    "nondefault_penalties": false,
+    "grammar": false,
+    "min_displacement": false,
+    "BCC": false,
+    "first_step_injection": false,
+    "prompt": "Existing baseline prompt construction; freeze actual per-question prompt token IDs in resolved plan",
+    "safety_note": "No hidden budget extension; failed/empty/capped outputs included"
+  },
+  "arms": {
+    "U": {
+      "rebalance": false,
+      "sync": "off"
+    },
+    "R": {
+      "rebalance": true,
+      "sync": "off"
+    },
+    "S": {
+      "rebalance": false,
+      "sync": "enforce"
+    },
+    "RS": {
+      "rebalance": true,
+      "sync": "enforce"
+    }
+  },
+  "phases": {
+    "engineering": {
+      "questions": 8,
+      "arms": [
+        "preintegration_R",
+        "integrated_off_R",
+        "shadow_R",
+        "S",
+        "RS"
+      ],
+      "max_new_tokens": 512,
+      "outputs": 40,
+      "wall_limit_seconds": 300,
+      "included_in_accuracy_comparison": false,
+      "gates": [
+        "First three arms identical accepted token prefixes and R coefficients",
+        "RS versus R cannot diverge before first trigger; S engineering arm is a state/action smoke check, not compared to R for unsteered-prefix equality",
+        "CPU synthetic clocks, end marker, slot reuse, partial prefill, suspend and restore; real preemption validated only if observed"
+      ]
+    },
+    "screen": {
+      "requires": "engineering_pass_and_data_freeze_and_explicit_batch_authorization",
+      "questions": 64,
+      "arm_order": [
+        "U",
+        "R",
+        "S",
+        "RS"
+      ],
+      "outputs": 256,
+      "per_arm_wall_limit_seconds": 600,
+      "whole_first_batch_wall_limit_seconds": 1800,
+      "estimated_first_batch_minutes": [
+        12,
+        20
+      ],
+      "first_batch_max_generated_tokens": 4116480,
+      "parameters_may_be_retuned_after_results": false
+    },
+    "confirm": {
+      "requires": "screen_pass_and_separate_authorization",
+      "questions": 200,
+      "arm_order": [
+        "U",
+        "R",
+        "S",
+        "RS"
+      ],
+      "outputs": 800,
+      "whole_batch_wall_limit_seconds": 2700,
+      "estimated_minutes": [
+        20,
+        35
+      ],
+      "max_generated_tokens": 12800000,
+      "additional_seeds_or_models": false
+    }
+  },
+  "screen_gate": {
+    "versus_each": [
+      "R",
+      "S"
+    ],
+    "RS_mean_thinking_tokens": "strictly lower",
+    "RS_mean_total_tokens": "strictly lower",
+    "RS_correct_count": "at least as high",
+    "RS_capped_count": "at most as high",
+    "nonzero_actual_forced_end": true,
+    "complete_all_four_arms_and_author_grade": true,
+    "minimum_percent_saving": null,
+    "interpretation": "point-estimate signal only; no synergy claim"
+  },
+  "analysis": {
+    "include_errors_and_caps": true,
+    "paired_bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260912,
+    "resampling_unit": "question, jointly across U/R/S/RS",
+    "descriptive_interval": 0.95,
+    "primary_interaction": "mean(T_RS - T_R - T_S + T_U)",
+    "synergy_sign": "negative",
+    "secondary_interaction": "same contrast on thinking tokens; accuracy contrast reported separately",
+    "multiplicative_sensitivity": "log(meanT_RS*meanT_U/(meanT_R*meanT_S)); cannot replace primary after seeing results",
+    "confirmation_support": {
+      "total_token_difference_vs_each_single": "97.5% two-sided paired-bootstrap upper bound < 0",
+      "accuracy_safety_vs_each_single": "One-sided 97.5% exact Clopper-Pearson upper bound on single-correct RS-wrong probability <= 0.02",
+      "accuracy_margin_pp": 2,
+      "margin_status": "B-line predeclared design choice, not accepted A-line margin or retrospective rule",
+      "zero_regressions_N200_upper": 0.018275340355136227,
+      "also_requires": "point gates repeated in independent confirmation"
+    },
+    "synergy_support": "confirmation_support plus primary interaction 95% upper bound < 0",
+    "limitations": [
+      "single seed",
+      "small-sample uncertainty",
+      "paired bootstrap cannot certify zero accuracy risk when no discordance",
+      "statistical gates are predeclared evidence levels, not familywise coverage of every reported metric"
+    ]
+  },
+  "required_outputs": [
+    "raw per-question token IDs and answers",
+    "author grade and error classification",
+    "correct count and accuracy",
+    "mean thinking and total tokens",
+    "capped count",
+    "all wrong-to-right and right-to-wrong IDs",
+    "natural/forced end position and answer tokens",
+    "finish_reason",
+    "pure generation seconds including control work",
+    "model-load, grading, IO seconds separately",
+    "GPU event control-statistics and decision time",
+    "extra probe input/output/forward seconds (zero for S64)",
+    "peak control buffer bytes",
+    "partial/failure ledger",
+    "code, environment, model, vector, fit, prompt, config, grader and artifact hashes"
+  ],
+  "stop_conditions": [
+    "identity/data/source mismatch",
+    "other GPU task",
+    "OOM",
+    "NaN",
+    "wrong layer",
+    "off or shadow equivalence failure",
+    "unvalidated state recovery",
+    "time budget exhausted",
+    "missing grades"
+  ],
+  "failure_handling": "Stop only own batch; preserve partial outputs; no retry, resumption, overwrite, threshold sweep or frozen test usage",
+  "runner_contract": {
+    "entrypoint": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py",
+    "prepare": "--prepare-only writes new resolved_plan.json; cannot execute with null identity or unfrozen data",
+    "required_bindings": [
+      "unique run_id",
+      "integration commit",
+      "all source file hashes",
+      "engine and environment identity",
+      "model 5-file hashes",
+      "vector and fit",
+      "global data freeze receipt",
+      "prompt token hashes",
+      "grader code hash",
+      "plan hash",
+      "output path",
+      "approved phase"
+    ],
+    "output_root": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/<run_id>/",
+    "output_policy": "exclusive creation, separate groups, never overwrite",
+    "generation_python": "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "grading_python": "/root/autodl-tmp/venvs/rebalance/bin/python",
+    "grading_source": "integration/rebalance_easysteer/scripts/regrade_saved_results.py",
+    "grading_source_baseline_sha256": "b8f6ac7967915ce236976ba72cef4222fca78d580f9ef79087dac8fa37aa5278"
+  }
+}

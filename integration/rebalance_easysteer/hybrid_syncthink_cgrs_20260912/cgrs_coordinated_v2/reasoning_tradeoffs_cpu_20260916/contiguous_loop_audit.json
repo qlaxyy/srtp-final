@@ -1,0 +1,216 @@
+{
+  "rule": "Three immediately adjacent identical token blocks, block length8..64, at least4 distinct tokens, thinking only; first match only. No threshold scan or label input to detector.",
+  "source_sha256": "b97f33a38f07d3fdb7be906c906609ec4548d0cc6b5c9db5cc523162c5bcecf7",
+  "input_sha256": {
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_R\\result.json": "52f9676dc8aa10df9016215cd2bdcb8abfab3498c9645d2ea722432f86ab5d60",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_R\\stopped_batch_author_labels.jsonl": "2709e9910ab5e688e3a770eb18ae6dd410ce966f908b3cbdc0fdb923e562ec6c",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RC14\\result.json": "3e6f0c3e11fd22f78bc4d273182670957a32aa3fe1f9671592431959ceefa5aa",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RC14\\stopped_batch_author_labels.jsonl": "292483efb578eff054f8518b046a9b627145e40792c8a46324fb454706907ea4",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RChistory\\result.json": "c3b14eb1ca55c5b7a933fbeef3a449e853d9f830083ab34b1e8bf15a42122608",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RChistory\\stopped_batch_author_labels.jsonl": "d9fd276bcaa13564ba3b33c2808ba7cfb9dc5b9e079b574367ff641de6e78ebc",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_R\\result.json": "e2b0ec3bce5b5e793b0f90011ae522bb70b0573cfa2d2154acdad7933402f273",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_R\\stopped_batch_author_labels.jsonl": "a9c21803ff9f8ad76eebc931c5ea8633d681fa8f70b89ab580728329e953899b",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RC14\\result.json": "27b15335fe7da239ce395f1f47c3690d38b2170f8f760e888f885ac16df93748",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RC14\\stopped_batch_author_labels.jsonl": "1f86bcfeb2b9b8cb33e8d9cb03b6f751eec546034ce67fc6518a8cf172636505",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RChistory\\result.json": "fdb94f53345ce159eb78b7915c2f7462038ce699d1681e2ad4c53b85c8d38597",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RChistory\\stopped_batch_author_labels.jsonl": "a334c1391988805549f6f69503a9123e92f4a5c22c5dd931b028ecf5c79af853"
+  },
+  "groups": {
+    "s142_R": {
+      "n": 100,
+      "covered": 1,
+      "finally_wrong": 0,
+      "capped": 0,
+      "exact_continuation_tokens": 19,
+      "rows": [
+        {
+          "seed": 142,
+          "arm": "R",
+          "train_index": 4246,
+          "problem_sha256": "fdd776d5e84d2364d111cf81a97339c4a9d669cd853e94ade07b90063bead78a",
+          "correct": true,
+          "capped": false,
+          "thinking_tokens": 3540,
+          "start": 2951,
+          "end": 2987,
+          "period": 12,
+          "block_token_ids": [
+            16,
+            11,
+            481,
+            16,
+            11,
+            220,
+            16,
+            11,
+            481,
+            16,
+            11,
+            220
+          ],
+          "subsequent_exact_loop_tokens": 19,
+          "remaining_thinking_tokens": 553
+        }
+      ]
+    },
+    "s142_RC14": {
+      "n": 100,
+      "covered": 1,
+      "finally_wrong": 0,
+      "capped": 0,
+      "exact_continuation_tokens": 19,
+      "rows": [
+        {
+          "seed": 142,
+          "arm": "RC14",
+          "train_index": 4246,
+          "problem_sha256": "fdd776d5e84d2364d111cf81a97339c4a9d669cd853e94ade07b90063bead78a",
+          "correct": true,
+          "capped": false,
+          "thinking_tokens": 4046,
+          "start": 995,
+          "end": 1031,
+          "period": 12,
+          "block_token_ids": [
+            16,
+            11,
+            481,
+            16,
+            11,
+            220,
+            16,
+            11,
+            481,
+            16,
+            11,
+            220
+          ],
+          "subsequent_exact_loop_tokens": 19,
+          "remaining_thinking_tokens": 3015
+        }
+      ]
+    },
+    "s142_RChistory": {
+      "n": 100,
+      "covered": 2,
+      "finally_wrong": 1,
+      "capped": 1,
+      "exact_continuation_tokens": 0,
+      "rows": [
+        {
+          "seed": 142,
+          "arm": "RChistory",
+          "train_index": 4992,
+          "problem_sha256": "b05c8fbb0e4c4bd8554bc4e88d84a806ea552d548b8ec048119a24c40f5ac5ae",
+          "correct": false,
+          "capped": true,
+          "thinking_tokens": 16000,
+          "start": 13633,
+          "end": 13669,
+          "period": 12,
+          "block_token_ids": [
+            220,
+            17,
+            23,
+            19,
+            9,
+            24,
+            21,
+            28,
+            17,
+            22,
+            11,
+            220
+          ],
+          "subsequent_exact_loop_tokens": 0,
+          "remaining_thinking_tokens": 2331
+        },
+        {
+          "seed": 142,
+          "arm": "RChistory",
+          "train_index": 4246,
+          "problem_sha256": "fdd776d5e84d2364d111cf81a97339c4a9d669cd853e94ade07b90063bead78a",
+          "correct": true,
+          "capped": false,
+          "thinking_tokens": 2091,
+          "start": 1913,
+          "end": 1940,
+          "period": 9,
+          "block_token_ids": [
+            508,
+            4080,
+            16,
+            8,
+            488,
+            220,
+            16,
+            60,
+            488
+          ],
+          "subsequent_exact_loop_tokens": 0,
+          "remaining_thinking_tokens": 151
+        }
+      ]
+    },
+    "s242_R": {
+      "n": 100,
+      "covered": 0,
+      "finally_wrong": 0,
+      "capped": 0,
+      "exact_continuation_tokens": 0,
+      "rows": []
+    },
+    "s242_RC14": {
+      "n": 100,
+      "covered": 0,
+      "finally_wrong": 0,
+      "capped": 0,
+      "exact_continuation_tokens": 0,
+      "rows": []
+    },
+    "s242_RChistory": {
+      "n": 100,
+      "covered": 1,
+      "finally_wrong": 0,
+      "capped": 0,
+      "exact_continuation_tokens": 20,
+      "rows": [
+        {
+          "seed": 242,
+          "arm": "RChistory",
+          "train_index": 4246,
+          "problem_sha256": "fdd776d5e84d2364d111cf81a97339c4a9d669cd853e94ade07b90063bead78a",
+          "correct": true,
+          "capped": false,
+          "thinking_tokens": 2922,
+          "start": 955,
+          "end": 991,
+          "period": 12,
+          "block_token_ids": [
+            220,
+            16,
+            11,
+            481,
+            16,
+            11,
+            220,
+            16,
+            11,
+            481,
+            16,
+            11
+          ],
+          "subsequent_exact_loop_tokens": 20,
+          "remaining_thinking_tokens": 1931
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "A trigger is not a correct stopping point or a proven opportunity to save the remaining tokens.",
+    "Repetition can be valid computation; changing next-token distribution can damage reasoning.",
+    "600 trajectories from100 exposed questions; no independent validation.",
+    "No per-step R coefficient trace here, so eligibility of any extra R-dependent condition is unknown."
+  ],
+  "gpu_ready": false
+}

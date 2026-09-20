@@ -1,0 +1,341 @@
+{
+  "status": "screen_point_pass_with_audit_hold",
+  "posthoc_diagnostics": true,
+  "registered_decision_unchanged": {
+    "math_mix05": true,
+    "gsm8k_mix05": true
+  },
+  "confirmation_completed": false,
+  "promotion_ready": false,
+  "reason": "Retain both registered point passes, but do not attribute all effects to per-request termination or start independent confirmation before investigating formal pre-bias divergence. Fixed author grading is unchanged.",
+  "datasets": {
+    "math_mix05": {
+      "formal_prefix_mismatch_count": 26,
+      "formal_prefix_mismatch_ids": [
+        3315,
+        5325,
+        2074,
+        2354,
+        3646,
+        7356,
+        2851,
+        2464,
+        811,
+        5891,
+        4700,
+        6568,
+        7187,
+        4576,
+        4989,
+        607,
+        3132,
+        2920,
+        6862,
+        3070,
+        536,
+        5690,
+        5517,
+        6202,
+        250,
+        2802
+      ],
+      "empty_extractions": {
+        "R": [
+          3619,
+          3646,
+          5517
+        ],
+        "S": [
+          1409
+        ],
+        "RS": [
+          538,
+          126,
+          5517
+        ]
+      },
+      "cap_ids": {
+        "R": [
+          3619,
+          3646,
+          2464,
+          5517
+        ],
+        "S": [
+          1409
+        ],
+        "RS": [
+          126,
+          5517
+        ]
+      },
+      "earliest_output_difference_by_generated_position": {
+        "train_index": 126,
+        "token_identical": false,
+        "R_history_identical": false,
+        "common_prefix_tokens": 350,
+        "first_difference": 350,
+        "prefix_before_actual_bias_identical": true,
+        "R_natural_end": 2523,
+        "RS_end": 350,
+        "first_bias": 350,
+        "first_bias_before_R_end": true,
+        "first_bias_at_R_end": false,
+        "worker_bias_count": 1,
+        "worker_revived_end_count": 1,
+        "worker_trigger_count": 1,
+        "token_delta": 12904,
+        "thinking_delta": -2173
+      }
+    },
+    "gsm8k_mix05": {
+      "formal_prefix_mismatch_count": 20,
+      "formal_prefix_mismatch_ids": [
+        99,
+        2177,
+        3648,
+        5145,
+        2961,
+        2143,
+        1751,
+        2003,
+        3295,
+        7265,
+        471,
+        2299,
+        5727,
+        5706,
+        4095,
+        5424,
+        1323,
+        4729,
+        1440,
+        6976
+      ],
+      "empty_extractions": {
+        "R": [
+          99,
+          1751
+        ],
+        "S": [
+          3180,
+          4962,
+          7105,
+          4387
+        ],
+        "RS": [
+          99,
+          6131
+        ]
+      },
+      "cap_ids": {
+        "R": [],
+        "S": [
+          4962
+        ],
+        "RS": []
+      },
+      "earliest_output_difference_by_generated_position": {
+        "train_index": 5939,
+        "token_identical": false,
+        "R_history_identical": false,
+        "common_prefix_tokens": 57,
+        "first_difference": 57,
+        "prefix_before_actual_bias_identical": true,
+        "R_natural_end": 214,
+        "RS_end": 57,
+        "first_bias": 57,
+        "first_bias_before_R_end": true,
+        "first_bias_at_R_end": false,
+        "worker_bias_count": 1,
+        "worker_revived_end_count": 1,
+        "worker_trigger_count": 1,
+        "token_delta": -145,
+        "thinking_delta": -157
+      }
+    }
+  },
+  "case_reviews": [
+    {
+      "role": "math_mix05",
+      "train_index": 538,
+      "review": "RS explicitly computes and answers55 but has no boxed expression; fixed author extractor returns empty. A formatting loss, not evidence that the arithmetic answer became wrong.",
+      "arms": {
+        "R": {
+          "gold": "55",
+          "tokens": 2111,
+          "thinking_tokens": 1740,
+          "answer_tokens": 370,
+          "author_grade": {
+            "train_index": 538,
+            "author_correct": true,
+            "extracted_answer": "55"
+          },
+          "text_sha256": "3438de45b0023dfe1759a000e7c16d079436748ddc7070744667a71c51cd92cc",
+          "result_sha256": "8ad1f52dd223258618a8266f5068b1ddd9dd7e6d376f840496aef92e0890e406",
+          "grade_sha256": "5955702d14bd239ac813452e82097fe5fbe12bf86ced0c7f66655445054d2c1b"
+        },
+        "RS": {
+          "gold": "55",
+          "tokens": 740,
+          "thinking_tokens": 553,
+          "answer_tokens": 186,
+          "author_grade": {
+            "train_index": 538,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "text_sha256": "55a7d09e97ffc8cef10380cf97746e9bb6fbd121ad4d88388c1842a18b3eb3cb",
+          "result_sha256": "984f1ffc1a7a61bb93fdf1d61637fd5b9d93b709dc587734209b284ae95e7c1c",
+          "grade_sha256": "9d11c3602f752d2382ffb70ea3f9aa41437cdf82f699e303afcc32192587a2ff"
+        }
+      }
+    },
+    {
+      "role": "math_mix05",
+      "train_index": 126,
+      "review": "R reaches1001/2003. RS ends thinking at350, continues15649 answer tokens with mistaken derivation and reaches16000 cap. Earlier thinking end does not ensure correct or short answer.",
+      "arms": {
+        "R": {
+          "gold": "\\dfrac{1001}{2003}",
+          "tokens": 3096,
+          "thinking_tokens": 2523,
+          "answer_tokens": 572,
+          "author_grade": {
+            "train_index": 126,
+            "author_correct": true,
+            "extracted_answer": "\\dfrac{1001}{2003}"
+          },
+          "text_sha256": "9a7d5c0a2a1eb4020ee933cb92b0bfb63eadb85b0daae7c9c3367ea14f912f0e",
+          "result_sha256": "8ad1f52dd223258618a8266f5068b1ddd9dd7e6d376f840496aef92e0890e406",
+          "grade_sha256": "5955702d14bd239ac813452e82097fe5fbe12bf86ced0c7f66655445054d2c1b"
+        },
+        "RS": {
+          "gold": "\\dfrac{1001}{2003}",
+          "tokens": 16000,
+          "thinking_tokens": 350,
+          "answer_tokens": 15649,
+          "author_grade": {
+            "train_index": 126,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "text_sha256": "64d77b8459ecdbdd707c0e5c6f26993cce65d2a0822502a37d60cdf5002b59ca",
+          "result_sha256": "984f1ffc1a7a61bb93fdf1d61637fd5b9d93b709dc587734209b284ae95e7c1c",
+          "grade_sha256": "9d11c3602f752d2382ffb70ea3f9aa41437cdf82f699e303afcc32192587a2ff"
+        }
+      }
+    },
+    {
+      "role": "math_mix05",
+      "train_index": 2464,
+      "review": "R reaches16000 in repetition. RS gives boxed7 within4159 total tokens. Its own first-bias prefix differs, so this recovery cannot be assigned directly to its end intervention.",
+      "arms": {
+        "R": {
+          "gold": "7",
+          "tokens": 16000,
+          "thinking_tokens": 16000,
+          "answer_tokens": 0,
+          "author_grade": {
+            "train_index": 2464,
+            "author_correct": false,
+            "extracted_answer": "5"
+          },
+          "text_sha256": "68423c88c0fc9e0567bc95406b8d8b0036cd55681341bf5a2e697eb38d2aacca",
+          "result_sha256": "8ad1f52dd223258618a8266f5068b1ddd9dd7e6d376f840496aef92e0890e406",
+          "grade_sha256": "5955702d14bd239ac813452e82097fe5fbe12bf86ced0c7f66655445054d2c1b"
+        },
+        "RS": {
+          "gold": "7",
+          "tokens": 4159,
+          "thinking_tokens": 3834,
+          "answer_tokens": 324,
+          "author_grade": {
+            "train_index": 2464,
+            "author_correct": true,
+            "extracted_answer": "7"
+          },
+          "text_sha256": "b56032b9f7ffaa6b861f706fbfd1cebe25b943d3ad8f0716b1b32c39091ad045",
+          "result_sha256": "984f1ffc1a7a61bb93fdf1d61637fd5b9d93b709dc587734209b284ae95e7c1c",
+          "grade_sha256": "9d11c3602f752d2382ffb70ea3f9aa41437cdf82f699e303afcc32192587a2ff"
+        }
+      }
+    },
+    {
+      "role": "gsm8k_mix05",
+      "train_index": 1751,
+      "review": "R and RS both state10 days, but only RS has boxed10; the recorded gain includes a formatting/extraction change. This row also diverges before its own first bias.",
+      "arms": {
+        "R": {
+          "gold": "10",
+          "tokens": 799,
+          "thinking_tokens": 593,
+          "answer_tokens": 205,
+          "author_grade": {
+            "train_index": 1751,
+            "author_correct": false,
+            "extracted_answer": ""
+          },
+          "text_sha256": "8019c870b108035ecbde3c5884e534994296b4d15da819f1eadd7d9ea8ee0c5a",
+          "result_sha256": "9a6422f1f808ef3fd31bd2e0c89cb6d56ffd6a297a7a9190fa2143aa634a849e",
+          "grade_sha256": "f355a28f1a76bfae0dce23d9da58841f8afb42c4874d3025c70d9b24504fa263"
+        },
+        "RS": {
+          "gold": "10",
+          "tokens": 1192,
+          "thinking_tokens": 992,
+          "answer_tokens": 199,
+          "author_grade": {
+            "train_index": 1751,
+            "author_correct": true,
+            "extracted_answer": "10"
+          },
+          "text_sha256": "5b4ae958e4cd28d6f1b2aee4140fabf1cc2e5d8d3cdd1c4e075620c06b8fa814",
+          "result_sha256": "7dfe472c5261d7ef940b83496a47ae955600c1d5e3104151dfaeba807d0341c7",
+          "grade_sha256": "07df5ad5f4c7dfcc328d6a45f1f200e90147622cd4aead3a5c0b93d4a51c99e1"
+        }
+      }
+    },
+    {
+      "role": "gsm8k_mix05",
+      "train_index": 5939,
+      "review": "R concludes boxed30 after incorrectly dividing the150-can total by5. RS gives boxed150; its first output difference is the end token at position57. This is one favorable example, not independent evidence of general correctness.",
+      "arms": {
+        "R": {
+          "gold": "150",
+          "tokens": 539,
+          "thinking_tokens": 214,
+          "answer_tokens": 324,
+          "author_grade": {
+            "train_index": 5939,
+            "author_correct": false,
+            "extracted_answer": "30"
+          },
+          "text_sha256": "21fea543a491f6ae4c4c55d3a97ba4b2abada613b7617191b12bd392bec4635e",
+          "result_sha256": "9a6422f1f808ef3fd31bd2e0c89cb6d56ffd6a297a7a9190fa2143aa634a849e",
+          "grade_sha256": "f355a28f1a76bfae0dce23d9da58841f8afb42c4874d3025c70d9b24504fa263"
+        },
+        "RS": {
+          "gold": "150",
+          "tokens": 394,
+          "thinking_tokens": 57,
+          "answer_tokens": 336,
+          "author_grade": {
+            "train_index": 5939,
+            "author_correct": true,
+            "extracted_answer": "150"
+          },
+          "text_sha256": "32a0d81318e4e483e8e52080a21b13f6c8738a2062d3cc45bb82945138b6cdd8",
+          "result_sha256": "7dfe472c5261d7ef940b83496a47ae955600c1d5e3104151dfaeba807d0341c7",
+          "grade_sha256": "07df5ad5f4c7dfcc328d6a45f1f200e90147622cd4aead3a5c0b93d4a51c99e1"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "No saved step logits or scheduler trace. No GPU replay performed.",
+    "Batch scheduling/numerical coupling is a hypothesis, not an established cause. Controller/indexing faults are not excluded.",
+    "Question bootstrap is conditional on one realized batch/seed; it does not capture batch interactions or run-to-run timing variation.",
+    "Case reviews do not change scores or introduce a replacement grader."
+  ]
+}

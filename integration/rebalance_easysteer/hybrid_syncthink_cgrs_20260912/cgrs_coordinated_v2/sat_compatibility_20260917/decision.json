@@ -1,0 +1,47 @@
+{
+  "status": "cpu_interface_passed_predictive_value_unestablished",
+  "baseline": "RC14 retained",
+  "gpu_used": false,
+  "new_answers": 0,
+  "new_data_reservations": [],
+  "assets": {
+    "official_commit": "88a6c3e864948099afe3097c4fa8c2c33eb60224",
+    "gru_bytes": 613968,
+    "gru_sha256": "628c182133004afee4aa07077afc899d0abbf126b3630c99585d17863b29f629",
+    "gru_parameters": 152705,
+    "input": "33 distribution features + 384 semantic embedding dimensions",
+    "gte_weights_downloaded": false,
+    "training_provenance": "Paper names PRM800K and DeepSeek-R1-Distill-Qwen-7B. No exact training question IDs/split or train.csv available in audited assets; do not assert zero MATH test overlap.",
+    "license": "Bundled GTE model card states Apache 2.0. Root LICENSE returned 404; code/GRU license not confirmed. This is an unresolved provenance item, not a demand for new user permission."
+  },
+  "new_findings": [
+    "Checkpoint really expects the public 33-dimensional feature path; substituting the paper's mean-only description is dimensionally invalid.",
+    "A persistent per-request GRU state can avoid replaying all past steps. Synthetic CPU full-prefix and streaming differences were 2.384185791015625e-7; real-text/GPU equivalence remains untested.",
+    "Public incremental feature code silently repeats previous values for tokens outside raw top512; batch helper instead asserts. Such missingness must be explicit in our shadow logs, not mislabeled as fresh evidence.",
+    "GTE receives step text, not an explicit separate question input. Question effects can still be reflected indirectly in logits and text; this is not proof that the score is question-independent.",
+    "A score trained to imitate a process reward model is not a direct estimate of the benefit of allowing the next reflection. Low score could denote useful correction or hopeless wandering; high score could denote a fluent wrong step.",
+    "Old calibration max-probability logs cannot recover sampled-token ranks, top512 entropy, margins, or counterfactual next-step benefit. No actual scores were fabricated from those logs."
+  ],
+  "revised_research_question": "At the SAME prefix eligible for RC14, can semantic-process information select reflection allowances that preserve correctness more efficiently than indiscriminate weakening?",
+  "annotation_contract": {
+    "unit": "A complete prefix and the next reflection span, associated with question hash, model, accepted token position and original controller state.",
+    "axes": ["prefix derivation: valid / identified error / unresolved", "next span: substantive correction / redundant recheck / new useful subgoal / unproductive / unresolved"],
+    "forbidden_shortcuts": ["Do not label correction necessary merely because it says Wait or mistake", "Do not label the next step useful solely from final-answer correctness", "Do not infer a counterfactual from a natural continuation", "Do not treat low PRM score as a human label"],
+    "blinding": "Review before revealing PRM score and suppression-arm outcome; retain unresolved cases and report coverage.",
+    "existing_eight_cases": "The earlier eight manually reviewed calibration cases only motivate this distinction; not reused as new independent validation or representative prevalence. No new question texts were reviewed in this turn."
+  },
+  "future_causal_design_not_authorized_or_frozen": {
+    "stage_1": "Read-only shadow scoring on registered training/development trajectories. Compare original confidence/length-only information against adding semantic process score with question-disjoint validation. All features must precede the decision.",
+    "stage_2": "Matched prefix branch test: hold original R state and RNG identity fixed; allow versus suppress exactly the next eligible RC14 event, then return to identical RC14 policy. This identifies local treatment value; a held-out full rollout remains necessary for policy effects.",
+    "controls": "Fixed RC14, semantic veto, and a pre-specified matched-frequency allowance control. The latter is a diagnostic control, not a new optimized competitor. Random controls use a separate deterministic hash, never consume the generation RNG.",
+    "stop_for_no_incremental_value": "If the new score cannot distinguish substantive correction from redundant recheck beyond original confidence/length, do not run full benchmark optimization merely because the GRU interface works.",
+    "independent_confirmation": "Freeze one policy and evaluate new reconciled questions or one authorized full benchmark batch once; retain the -2pp accuracy criterion and account for all probes/caps/errors. No parameter tuning on the frozen tests.",
+    "gpu_readiness": "Not ready: real encoder/tokenizer identity, exact input-token/step alignment, data ledger and fixed replay/branch budget still needed. No GPU launch command is advertised as runnable."
+  },
+  "runtime_contract_refinement": {
+    "incomplete_feature_step": "In shadow, mark invalid. Proposed future active path permanently falls back to unchanged RC14 for that request after an invalid feature, because later GRU states would otherwise inherit a fabricated history. This is our conservative design choice and must be included in coverage metrics.",
+    "fixed_order": "R-steered raw logits -> capture process features -> RC14 lexical penalty -> temperature/top-p/sample -> accepted-token feature update -> closed-step score; only the next eligible boundary sees the updated guard.",
+    "off_path": "No observer/hooks/buffers/topk with process_guard=off; do not alter shared controller or old baseline.",
+    "resources": "Maintain only rolling feature statistics and recurrent state instead of storing every top512 distribution; embedding input remains bounded to the audited encoder's 512-token limit. Truncation rates must be reported; no claim of negligible 1.5B overhead before measurement."
+  }
+}

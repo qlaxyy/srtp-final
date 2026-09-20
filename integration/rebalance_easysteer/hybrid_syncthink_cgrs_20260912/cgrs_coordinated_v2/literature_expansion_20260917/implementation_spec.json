@@ -1,0 +1,71 @@
+{
+  "status": "research_specification_not_gpu_ready",
+  "baseline_commit": "18cb3e0",
+  "gpu_authorized": false,
+  "ranked_candidates": [
+    {
+      "rank": 1,
+      "name": "借鉴SAT的过程质量保护：仅否决有风险的RC14词抑制",
+      "sources": ["https://arxiv.org/abs/2604.07922", "https://arxiv.org/abs/2608.04771"],
+      "mechanism": "语义编码与分布统计共同估计步骤质量，尝试保留必要纠错，减少错误—修复—再检查循环。评分不是正确性证明。",
+      "main_change": "R向量、原始置信度、强度、14词与ln2惩罚全部固定；只新增一个允许/否决RC14的过程信号。不采用SAT提示词、FAST加速、SKIP提前答题或ReCo KV裁剪。",
+      "proposed_policy_not_official": "建议影子评分后，在新训练开发数据上评估一个事前固定候选：至少5个有效非空单换行步骤的v均<=0.4进入纠错保护；v>0.5退出；保护期间仅暂停词抑制。这是借鉴SAT困难状态的适配，不是完整SAT，也不保证更加压缩。未取得影子证据前不激活。",
+      "assets": "作者SAT_Code commit 88a6c3e864948099afe3097c4fa8c2c33eb60224；Gte-Small、GRU checkpoint及zstats均列在公开仓库；本轮仅下载源码与zstats，未下载/加载权重；权重哈希、训练题拆分及许可证仍待审计。",
+      "feature_contract": [
+        "在R隐藏状态注入之后、RC14词惩罚之前保存原始top512 logits及ID；按原始top512重新归一化计算entropy/margin/selected logp等，不用采样温度或top-p后的概率。",
+        "实际采样接受后才绑定selected token；原生R继续使用其保存的原始max概率，不能换成PRM分数或被抑制后的概率。",
+        "按tool.py固定11特征顺序，rank先log1p再zscore；公开代码每特征按mean/max/last聚合，最终33维。窗口50而非论文表2的20。若复用权重，必须遵守代码契约并验证，不静默改成论文均值11维。",
+        "单换行PRM步骤与R双换行边界分开计数；只有完整单换行且含内容的步骤更新PRM；仅原RC14干净开头才可执行否决。混合换行与内容token不拆分伪造原始分布。",
+        "采样token落在原始top512之外时不填0冒充有效特征：本次影子记录invalid；活跃适配必须事前定义并验证缺失策略。"
+      ],
+      "interfaces": {
+        "owned_file": "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py",
+        "hook": "Sampler.__call__: penalty前观测top512，original_sampler返回后提交接受token，下一次调用读取已闭合步骤的保护状态",
+        "new_components_proposed": ["ProcessObserver.observe_raw(request_id, logits)", "ProcessObserver.accept(request_id, token, absolute_position)", "ProcessObserver.complete_step(request_id)", "ProcessObserver.allow_lexical(request_id)"],
+        "default_off": "process_guard=off时不构造observer、不调用topk、不分配额外缓存、不注册新hook；RC14原路径保持。shadow只记录、不否决。",
+        "shared_changes": "本轮没有修改共享vLLM；若后续需要GPU端特征队列或调度器支持，须独立列出精确文件，不能复制控制器。"
+      },
+      "state_and_reset": "每request独立保存窗口50、特征累加/最大/last、单换行文本、GTE摘要、GRU状态、最近5分数、保护位、绝对接受token时钟；新request初始化，think结束后不更新；完成/取消清空；请求ID重复拒绝。先限定同步且无抢占，发生抢占停止，不借用整型ReplayAdapter保存浮点状态。",
+      "cost": "生成主模型无需新分支前向，但每token增加top512，每完成PRM步一次小型编码器前向和GRU更新；不能套用SAT在32B上近零开销数字到1.5B。现有日志没有完整top512，不能CPU重建真实评分。",
+      "support": "在新训练题上，风险评分对必要纠错有超出原R均值/长度的区分；独立生成时准确率损失95%单侧下界>=-2pp且净总token与思考token减少。优于等比例随机放行/固定弱化才支持选择性保护。",
+      "reject": "只因大面积弱化RC14增加token；无法识别纠错；分布漂移严重；与简单等比例放行相当；准确率越界；额外成本超过剩余可省token。"
+    },
+    {
+      "rank": 2,
+      "name": "EAT式作答分布停滞探测",
+      "source": "https://arxiv.org/abs/2509.26522",
+      "main_change": "保留RC14，在完成步骤的隔离分支追加结束思考与固定作答前缀，测全词表下一token熵的轨迹；新增停止决策而非增加词惩罚。",
+      "complementarity": "测的是被诱导作答分布，不是当前思考token的max概率；但稳定与正确不等价，尤其1.5B可能稳定答错。",
+      "paper_and_code_gap": "Alg1零初始化+去偏方差；作者public代码以首观测初始化均值且未去偏，trace[1:]返回下标需映射+1；附录D的The final answer与公开脚本Final answer前缀也不同。首次适配必须择一锁定并命名，不能混用阈值。",
+      "proposed_contract": "先shadow，不停止；以已接受前缀的KV及R状态快照构造只读探测，探测token不写入主链/R历史、不消耗主采样RNG；固定原始全词表logits、T=1、无CGRS和采样截断；前缀token IDs与cache截断位置入账。",
+      "state_and_reset": "每request保存观测n/EMA均值/方差及探测位置；探测失败不更新；结束/取消清理；快照必须包含R状态，禁止通过重新prefill把历史R路径变成无干预前缀。",
+      "cost": "每探测一个短前缀prefill+一次全词表归约；已有KV可复用时才接近少量token成本。当前Adapter禁止KV分叉，因此尚无可运行在线实现。",
+      "data": "旧训练轨迹可给探测前缀，但缺探测logits；需模型前向及候选点短答案验证，不能通过删除旧答案后半段计算准确率。论文1.5B主要用作代理模型，并非我们1.5B主模型效果证据。",
+      "support_or_reject": "作答熵稳定相较当前置信度能更早识别可停位置且避免对转错，计入探测与最终答案仍净省token；稳定错答或前缀格式主导熵则否定。"
+    },
+    {
+      "rank": 3,
+      "name": "反思方向去混杂与有界投影：中期候选",
+      "source": "https://arxiv.org/abs/2608.25542",
+      "main_change": "优先研究改进R的方向/干预几何，暂不把第二个反思向量叠到RC14。先用独立训练步骤语义标签估计反思对比，再对共享激活均值方向正交化；避免仅以长短作为标签。",
+      "evidence": "论文Eq1-5方向净化、Eq9投影；明确 pooled mean只是rank1代理。MATH-500前150参与构造，alpha0.7为回顾选择；新500训练验证虽压缩21%，准确率单侧下界-1.69pp未达到作者-1pp标准。",
+      "gaps": "未确认作者公开实现；PCA rank、完整标签与层稳定准则不充分。不能称官方实现，不恢复BCC，不用其76对或40/36划分。",
+      "cost_data": "需新登记训练标签、模型特定隐藏状态teacher-forced前向及层校准；现有R向量不足以恢复正交基。上线投影每层O(d)但前期数据/层选择成本高。",
+      "order": "同层P(h+cv)与P(h)+cv相差-c(1-alpha)d(d^T v)，一般不交换；必须锁定操作顺序及单项对照。CPU只验证代数，不证明真实方向正交或准确率。",
+      "support_or_reject": "记录不重叠开发/确认数据上，比原方向在相近准确率下持续省token才保留；只减少rank1重叠、标签仍被长度/题目混杂解释或自由生成损伤推导则淘汰。"
+    }
+  ],
+  "conditional_reserve": {
+    "PUMA": "官方离线代码及0.6B训练检测器已确认。其真正新增信息是训练过的步骤新颖性，不是普通embedding相似度；Appendix B.3基础embedding带来明显准确率下降。原训练来源包括GSM8K且具体拆分未核验，不能直接把我们GSM8K当干净独立确认；没有1.5B主模型实证。代码配置MIN_STOP_STEP=10、32768+额外答案预算，与我们16000不同。若解决数据来源与在线分支成本，再考虑语义检测+有限作答验证；不采用Loop Breaker强行停止。"
+  },
+  "experiment_boundary": {
+    "current": "零SSH、零GPU、零新增模型答案；CPU源码和数学检查不能晋级为效果验证。",
+    "next_before_gpu": "核验SAT权重尺寸/许可证/哈希与训练题拆分；实现固定特征CPU参考及同分布单换行流解析；准备已登记训练轨迹的shadow清单，冻结预算/命令后才申请GPU。没有复用被取消100题计划的授权。",
+    "data": "本轮没有读取新题、预留题号或冻结划分；使用的是论文与源码，历史结果仅作为失败约束。后续先统一核对规范化题面哈希。",
+    "screen": "候选与固定RC14及匹配放行比例的弱化对照区分选择性保护；同调度、seed42、总新生成16000，所有错题/触顶计入。小样本只筛选，不能由点估计声称-2pp统计确认。",
+    "confirmation": "单候选冻结后使用独立题集；用户优先整套全量时仅做一次固定配置确认，不先400再500重跑，不以测试结果选择门限。历史不同调度R只作参考，不用于严格机制因果结论。",
+    "synergy": "仅胜过RC14或较弱单项不叫协同。若要证明新R×CGRS交互，需同题同调度U/R/C/RC四格；以总token均值差交互muRC-muR-muC+muU<0为加法尺度，并配对bootstrap交互区间；准确率另做非劣界限，不把不同题集收益相加。",
+    "metrics": ["正确率与配对翻转", "平均思考token", "平均最终总token", "额外探测生成token及输入token", "触顶/无解析", "纯生成时间", "探测/判定前向与时间", "完整墙钟", "逐题配对区间"],
+    "stop": "前缀或默认关闭等价失败、特征维度/资产/题号哈希不一致、预算超限、抢占或OOM时停止并保存部分结果；不当场换阈值，不自动扩模/扩数据。"
+  }
+}

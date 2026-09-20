@@ -1,0 +1,122 @@
+{
+  "arms": {
+    "R": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 4.9072644636034966,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 0
+    },
+    "Roff_scaled": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 4.680004067718983,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 0
+    },
+    "Rshadow_scaled": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 5.324074991047382,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 0
+    },
+    "RC14default": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 5.3073936104774475,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 75
+    },
+    "RC14explicit": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 4.558332443237305,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 75
+    },
+    "RCscaled": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 4.6329595521092415,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 77,
+      "changed_trajectories_vs_RC14": 2
+    },
+    "RCconstant": {
+      "records": 8,
+      "tokens": 4096,
+      "seconds": 4.603967681527138,
+      "forced_preemption": true,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "logit_update_calls": 77,
+      "changed_trajectories_vs_RC14": 2
+    }
+  },
+  "generation_seconds": 34.01399680972099,
+  "engineering_gate": {
+    "passed": true,
+    "status": "complete",
+    "phase": "engineering",
+    "plan_sha256": "c606c6cb4e6a384b0dc191a86ab77a2e1b6e58a9000a1111071017ab834de17b",
+    "wall_seconds": 83.0608609393239
+  },
+  "accuracy_evaluated": false,
+  "tokens_equal_scaled_constant_R": true,
+  "scope": "Engineering8 unique MATH training questions,1.5B,seed42,7paths,512cap. All56 outputs reach512; not formal accuracy/compression/cap-rate evaluation.",
+  "decision": "Implementation engineering gate passed. No evidence of adaptive strength advantage over constant weakening. Do not automatically expand; separately freeze new single-seed training screen if pursued.",
+  "startup_attempts": [
+    {
+      "error": "1 validation error for SchedulerConfig\n  Value error, max_num_batched_tokens (4096) is smaller than max_model_len (32768). This effectively limits the maximum sequence length to max_num_batched_tokens and makes vLLM reject longer sequences. Please increase max_num_batched_tokens or decrease max_model_len. [type=value_error, input_value=ArgsKwargs((), {'runner_t..., 'stream_interval': 1}), input_type=ArgsKwargs]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+      "completed_arms": [],
+      "wall_seconds": 24.735805220901966
+    },
+    {
+      "error": "FileNotFoundError(2, 'No such file or directory')",
+      "completed_arms": [],
+      "wall_seconds": 81.26276830583811
+    }
+  ],
+  "provenance": {
+    "execution_commit": "d6011e9",
+    "server_port": 15536,
+    "local_raw": "E:\\srtp\\B-strength-engineering_0916",
+    "archive": "E:/srtp/strength_15536_completed.tar.gz",
+    "archive_sha256": "24cc6dfd26ab0cafa7835936867c6864fe4623cdf1384c28825da6ca05f2755a",
+    "verified_files": 53,
+    "compile_libraries_read_only_reused": 16,
+    "environment_packages_changed": false,
+    "original_server_head": "a61b5900f1e9a06271da3906437c370d5ecbe726",
+    "runtime_PATH_fix": "Prefix existing easysteer-vllm026/bin for ninja; environment lacks bin/activate. No package installation.",
+    "successful_batch_wall_seconds": 83.0608609393239,
+    "failed_startup_wall_seconds": 105.99857352674007,
+    "timing_note": "Successful wall excludes initial asset hash validation. User waiting/deployment/network time is not pure generation time."
+  }
+}

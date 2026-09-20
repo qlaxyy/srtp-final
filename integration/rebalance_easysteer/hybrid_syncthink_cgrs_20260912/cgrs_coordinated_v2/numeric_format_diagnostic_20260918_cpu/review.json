@@ -1,0 +1,69 @@
+{
+  "local_checks_passed": true,
+  "numeric_branch_tests": [
+    {
+      "prediction": "3",
+      "gold": "300",
+      "default_percentage_true": true,
+      "percentage_false": false
+    },
+    {
+      "prediction": "18",
+      "gold": "1800",
+      "default_percentage_true": true,
+      "percentage_false": false
+    },
+    {
+      "prediction": "24500",
+      "gold": "245",
+      "default_percentage_true": true,
+      "percentage_false": false
+    }
+  ],
+  "grader_sha256": "0338f6549f2cb98806473e746baf40b00d9c5bd21a69bc7de0008e4ad4c8d768",
+  "reviewed_original_true_to_literal_false": [
+    {
+      "arm": "U",
+      "dataset_index": 951,
+      "value": "3",
+      "gold": "300"
+    },
+    {
+      "arm": "R",
+      "dataset_index": 1067,
+      "value": "24500",
+      "gold": "245"
+    },
+    {
+      "arm": "R",
+      "dataset_index": 1182,
+      "value": "18",
+      "gold": "1800"
+    },
+    {
+      "arm": "L27",
+      "dataset_index": 1182,
+      "value": "18",
+      "gold": "1800"
+    }
+  ],
+  "interpretation": [
+    "Author numeric comparison defaults to accepting gold/100 and gold*100 without inspecting whether the question asks for a percentage.",
+    "U951 answers3 pages instead of300; R/L27 at1182 answer18 books instead of1800. Original labels true are reproduced by percentage scaling.",
+    "R1067 gives24500 cents versus gold245 dollars; this is unit-sensitive and not automatically a semantic error.",
+    "All four1113 outputs show -3 degrees but our narrow grammar does not parse the degree symbol. Keep all four unresolved under the frozen diagnostic; no one-arm exception.",
+    "Literal numeric equality neither handles every unit conversion nor proves reasoning validity. Do not publish resolved-only accuracy or overwrite author scores."
+  ],
+  "unresolved_reason_counts": {
+    "ambiguous_final_numbers": 17,
+    "non_scalar_box": 38,
+    "non_assertive_final": 3,
+    "unfinished_thinking_or_generation": 6
+  },
+  "decision": "Retain L27; do not revive AND or run GPU on the premise that formatting explains all accuracy loss. Under this fixed diagnostic AND still trails L27 even at its favorable unresolved assignment; the2pp margin remains undetermined by unresolved ranges.",
+  "next_evaluation_spec": "For future experiments retain author grading for historical comparability and separately freeze a unit-aware final-answer protocol on training examples before new benchmark generation. Adjudicate all unsupported outputs symmetrically. Never tune extraction against benchmark gold.",
+  "limits": "Source numeric branch reproduced using standard regex for the simple numeric-only cases, not the full symbolic grader. One assistant content review, no new formal accuracy claim.",
+  "result_sha256": "c609eb417ad04a014aedf705f0c556f8cb2502c2ca25f8289d1f97718fa63293",
+  "gpu_calls": 0,
+  "new_answers": 0
+}

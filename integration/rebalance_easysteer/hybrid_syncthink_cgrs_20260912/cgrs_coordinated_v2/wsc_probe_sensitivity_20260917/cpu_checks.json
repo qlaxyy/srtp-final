@@ -1,0 +1,14 @@
+{
+  "original_prompts_and_prefixes_exact": true,
+  "cases": 2,
+  "input_tokens": 3583,
+  "generated_tokens": 0,
+  "tests": {
+    "chunk_partition_position_identity": true,
+    "delimiter_excluded": true,
+    "answer_region_excluded": true,
+    "no_boundary_preserved": true,
+    "gpu_used": false
+  },
+  "precision_criterion_positive_negative_tests": true
+}

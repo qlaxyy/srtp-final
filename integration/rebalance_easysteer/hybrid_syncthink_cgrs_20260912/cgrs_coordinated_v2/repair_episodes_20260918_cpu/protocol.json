@@ -1,0 +1,15 @@
+{
+  "parents": [
+    4139,
+    4543,
+    3063,
+    3104,
+    3307,
+    5977
+  ],
+  "provenance": "Adaptive full-context follow-up of same six previously read parents, not new independent evidence; earlier short-window records untouched.",
+  "task": "Locate explicit false assertion, first justified repair, and subsequent recheck. Keep regression to error visible. Human/assistant evidence must cite step indices; no phrase-only labels.",
+  "admission": "No vector fit from six parents. Output readiness decision and exact feature-position interface. No confidence matching sweeps or GPU.",
+  "full_context": "All generated text including final region preserved, but final answer correctness not used as process labels. Per-step view plus raw decoded text avoids missing omitted trailing steps.",
+  "gpu_calls": 0
+}

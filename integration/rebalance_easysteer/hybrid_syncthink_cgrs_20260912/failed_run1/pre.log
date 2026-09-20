@@ -1,0 +1,157 @@
+/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/pydantic/dataclasses.py:313: UserWarning: `config` is set via both the `dataclass` decorator and `__pydantic_config__` for dataclass SteerVectorConfig. The `config` specification from `dataclass` decorator will take priority.
+  return create_dataclass if _cls is None else create_dataclass(_cls)
+INFO 09-12 23:58:15 [api_utils.py:273] non-default args: {'dtype': 'bfloat16', 'seed': 42, 'max_model_len': 32768, 'enable_prefix_caching': False, 'gpu_memory_utilization': 0.9, 'max_num_batched_tokens': 32768, 'max_num_seqs': 128, 'disable_log_stats': True, 'enable_steer_vector': True, 'steer_algorithms': ['rebalance'], 'steer_graph_mode': 'in_graph', 'enable_chunked_prefill': False, 'async_scheduling': False, 'model': '/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B'}
+WARNING 09-12 23:58:15 [arg_utils.py:1730] The global random seed is set to 42. Since VLLM_ENABLE_V1_MULTIPROCESSING is set to False, this may affect the random state of the Python process that launched vLLM.
+INFO 09-12 23:58:15 [model.py:623] Resolved architecture: Qwen2ForCausalLM
+INFO 09-12 23:58:15 [model.py:1788] Using max model len 32768
+WARNING 09-12 23:58:15 [arg_utils.py:2657] This model does not officially support disabling chunked prefill. Disabling this manually may cause the engine to crash or produce incorrect outputs.
+INFO 09-12 23:58:15 [vllm.py:1131] Asynchronous scheduling is disabled.
+INFO 09-12 23:58:15 [kernel.py:295] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native'])
+INFO 09-12 23:58:15 [vllm.py:1724] Steer vectors in in-graph mode: data-driven steering kernel, cudagraph_mode FULL_AND_PIECEWISE kept.
+INFO 09-12 23:58:17 [core.py:117] Initializing a V1 LLM engine (v0.1.dev18960+g6267ca0cf) with config: model='/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B', speculative_config=None, tokenizer='/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False, jit_monitor_mode='warn', jit_monitor_verbose=False), seed=42, served_model_name=/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B, enable_prefix_caching=False, enable_chunked_prefill=False, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::hpc_rope_norm_forward', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [32768], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False, 'enable_qk_norm_rope_fusion': False, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_qk_norm_rope_kvcache': False}, 'max_cudagraph_capture_size': 256, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': False, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['native'], fused_add_rms_norm=['native']), enable_flashinfer_autotune=True, enable_cutedsl_warmup=True, enable_bf16x3_router_gemm=False, moe_backend='auto', linear_backend='auto')
+INFO 09-12 23:58:18 [parallel_state.py:1615] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://172.17.0.3:34331 backend=nccl
+INFO 09-12 23:58:18 [parallel_state.py:1946] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+INFO 09-12 23:58:18 [gpu_worker.py:379] Using V2 Model Runner
+INFO 09-12 23:58:19 [baseline_model_runner.py:302] Loading model from scratch...
+INFO 09-12 23:58:20 [cuda.py:482] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+INFO 09-12 23:58:20 [flash_attn.py:776] Using FlashAttention version 2
+<frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+<frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+INFO 09-12 23:58:20 [weight_utils.py:869] Filesystem type for checkpoints: XFS. Checkpoint size: 3.31 GiB. Available RAM: 937.65 GiB.
+INFO 09-12 23:58:20 [weight_utils.py:892] Auto-prefetch is disabled because the filesystem (XFS) is not a recognized network FS (NFS/Lustre). If you want to force prefetching, start vLLM with --safetensors-load-strategy=prefetch.
+Loading safetensors checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.09it/s]
+Loading safetensors checkpoint shards: 100% Completed | 1/1 [00:00<00:00,  1.09it/s]
+
+INFO 09-12 23:58:21 [default_loader.py:430] Loading weights took 1.08 seconds
+INFO 09-12 23:58:21 [steer_vector_model_runner_mixin.py:34] Initialized SteerVector worker manager
+INFO 09-12 23:58:21 [steer_vector_model_runner_mixin.py:49] Wrapping model with steer vector support
+WARNING 09-12 23:58:21 [controller_manager.py:268] No moe_layer modules found for steering
+INFO 09-12 23:58:21 [graph_support.py:184] Full-graph steering buffers allocated on 28 controllers (0 gates; families ['additive']; 128 rows, hidden 1536, rank 32, 32768 max tokens)
+INFO 09-12 23:58:21 [session.py:201] [Capture] hooked 28 decoder layers for hidden states
+INFO 09-12 23:58:22 [baseline_model_runner.py:330] Model loading took 3.47 GiB and 3.437608 seconds
+INFO 09-12 23:58:22 [topk_topp_sampler.py:55] Using FlashInfer for top-p & top-k sampling.
+INFO 09-12 23:58:24 [backends.py:1094] Using cache directory: /root/.cache/vllm/torch_compile_cache/1730e3e024/rank_0_0/backbone for vLLM's torch.compile
+INFO 09-12 23:58:24 [backends.py:1155] Dynamo bytecode transform time: 1.92 s
+INFO 09-12 23:58:26 [backends.py:378] Cache the graph of compile range (1, 32768) for later use
+INFO 09-12 23:58:28 [backends.py:393] Compiling a graph for compile range (1, 32768) takes 3.76 s
+INFO 09-12 23:58:28 [decorators.py:311] Directly load AOT compilation from path /root/.cache/vllm/torch_compile_cache/torch_aot_compile/900f7cc79d41d238808ea62be09d0fd3b5c28ea1e37edcc5bdafaa46dfd27eaa/rank_0_0/model
+INFO 09-12 23:58:28 [monitor.py:53] torch.compile took 6.03 s in total
+INFO 09-12 23:58:29 [monitor.py:81] Initial profiling/warmup run took 0.96 s
+INFO 09-12 23:58:30 [gpu_worker.py:561] Available KV cache memory: 15.79 GiB
+INFO 09-12 23:58:30 [kv_cache_utils.py:2229] GPU KV cache size: 591,392 tokens
+INFO 09-12 23:58:30 [kv_cache_utils.py:2230] Maximum concurrency for 32,768 tokens per request: 18.05x
+INFO 09-12 23:58:30 [cutedsl_warmup.py:101] Skipping CuTeDSL warmup because no compile units were requested.
+Capturing CUDA graphs (PIECEWISE):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  11%|█▏        | 4/35 [00:00<00:00, 36.43it/s]Capturing CUDA graphs (PIECEWISE):  23%|██▎       | 8/35 [00:00<00:00, 37.69it/s]Capturing CUDA graphs (PIECEWISE):  34%|███▍      | 12/35 [00:00<00:00, 37.04it/s]Capturing CUDA graphs (PIECEWISE):  49%|████▊     | 17/35 [00:00<00:00, 38.37it/s]Capturing CUDA graphs (PIECEWISE):  60%|██████    | 21/35 [00:00<00:00, 38.71it/s]Capturing CUDA graphs (PIECEWISE):  71%|███████▏  | 25/35 [00:00<00:00, 39.06it/s]Capturing CUDA graphs (PIECEWISE):  83%|████████▎ | 29/35 [00:00<00:00, 38.81it/s]Capturing CUDA graphs (PIECEWISE):  97%|█████████▋| 34/35 [00:00<00:00, 39.31it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 35/35 [00:00<00:00, 38.34it/s]
+Capturing CUDA graphs (FULL):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):  26%|██▋       | 5/19 [00:00<00:00, 46.76it/s]Capturing CUDA graphs (FULL):  53%|█████▎    | 10/19 [00:00<00:00, 47.09it/s]Capturing CUDA graphs (FULL):  84%|████████▍ | 16/19 [00:00<00:00, 48.84it/s]Capturing CUDA graphs (FULL): 100%|██████████| 19/19 [00:00<00:00, 49.15it/s]
+INFO 09-12 23:58:32 [baseline_model_runner.py:772] Graph capturing finished in 2 secs, took 0.34 GiB
+INFO 09-12 23:58:32 [gpu_worker.py:858] Free memory on device (23.3/23.64 GiB) on startup. Desired GPU memory utilization is (0.9, 21.28 GiB). Actual usage is 3.47 GiB for weight, 1.93 GiB for peak activation, 0.09 GiB for non-torch memory, and 0.34 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=16434307072` (15.31 GiB) to fit into requested memory, or `--kv-cache-memory=18603253760` (17.33 GiB) to fully utilize gpu memory. Current kv cache memory in use is 15.79 GiB.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 297, in <module>
+[rank0]:     if __name__=='__main__':main()
+[rank0]:                             ^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 292, in main
+[rank0]:     elif a.child:run_child(a)
+[rank0]:                  ^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 128, in run_child
+[rank0]:     llm = LLM(model=r['assets']['model_path'],dtype='bfloat16',tensor_parallel_size=1,
+[rank0]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/entrypoints/llm.py", line 358, in __init__
+[rank0]:     self.llm_engine = LLMEngine.from_engine_args(
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/llm_engine.py", line 180, in from_engine_args
+[rank0]:     return cls(
+[rank0]:            ^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/llm_engine.py", line 106, in __init__
+[rank0]:     self.engine_core = EngineCoreClient.make_client(
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/core_client.py", line 105, in make_client
+[rank0]:     return InprocClient(vllm_config, executor_class, log_stats)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/core_client.py", line 299, in __init__
+[rank0]:     self.engine_core = EngineCore(*args, **kwargs)
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/core.py", line 137, in __init__
+[rank0]:     kv_cache_config = self._initialize_kv_caches(vllm_config)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/tracing/otel.py", line 178, in sync_wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/engine/core.py", line 338, in _initialize_kv_caches
+[rank0]:     self.model_executor.initialize_from_config(kv_cache_configs)
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/executor/abstract.py", line 126, in initialize_from_config
+[rank0]:     compilation_times: list[CompilationTimes] = self.collective_rpc(
+[rank0]:                                                 ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+[rank0]:     result = run_method(self.driver_worker, method, args, kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/serial_utils.py", line 510, in run_method
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/tracing/otel.py", line 178, in sync_wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu_worker.py", line 864, in compile_or_warm_up_model
+[rank0]:     warmup_kernels(self.model_runner, self.execute_model, self.sample_tokens)
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/warmup.py", line 283, in warmup_kernels
+[rank0]:     worker_sample_tokens(grammar_output)
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu_worker.py", line 1084, in sample_tokens
+[rank0]:     return self.model_runner.sample_tokens(grammar_output)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/eplb_utils.py", line 38, in wrapper
+[rank0]:     result = fn(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/baseline_model_runner.py", line 1571, in sample_tokens
+[rank0]:     sampler_output, num_sampled, num_rejected = self.sample(
+[rank0]:                                                 ^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/baseline_model_runner.py", line 1176, in sample
+[rank0]:     sampler_output = self.sampler(logits, input_batch)
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py", line 88, in __call__
+[rank0]:     sampled, processed_logits = self.sample(
+[rank0]:                                 ^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/sample/sampler.py", line 246, in sample
+[rank0]:     sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/sources/EasySteer/vllm-steer/vllm/v1/sample/ops/topk_topp_sampler.py", line 506, in flashinfer_sample
+[rank0]:     next_token_ids = flashinfer.sampling.top_k_top_p_sampling_from_logits(
+[rank0]:                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+[rank0]:     return _inner(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/sampling.py", line 1547, in top_k_top_p_sampling_from_logits
+[rank0]:     masked_logits = top_k_mask_logits(logits, top_k)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+[rank0]:     return _inner(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/sampling.py", line 1974, in top_k_mask_logits
+[rank0]:     return get_sampling_module().top_k_mask_logits(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/sampling.py", line 68, in get_sampling_module
+[rank0]:     module = gen_sampling_module().build_and_load()
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/jit/core.py", line 316, in build_and_load
+[rank0]:     self.build(verbose, need_lock=False)
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/jit/core.py", line 302, in build
+[rank0]:     run_ninja(self.build_dir, self.ninja_path, verbose)
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/site-packages/flashinfer/jit/cpp_ext.py", line 368, in run_ninja
+[rank0]:     subprocess.run(
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 548, in run
+[rank0]:     with Popen(*popenargs, **kwargs) as process:
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 1026, in __init__
+[rank0]:     self._execute_child(args, executable, preexec_fn, close_fds,
+[rank0]:   File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 1955, in _execute_child
+[rank0]:     raise child_exception_type(errno_num, err_msg, err_filename)
+[rank0]: FileNotFoundError: [Errno 2] No such file or directory: 'ninja'
+[rank0]:[W912 23:58:33.488106199 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())

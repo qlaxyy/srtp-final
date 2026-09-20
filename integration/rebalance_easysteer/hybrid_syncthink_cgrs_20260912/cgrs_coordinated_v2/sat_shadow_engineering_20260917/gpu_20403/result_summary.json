@@ -1,0 +1,61 @@
+{
+  "status": "native_shadow_engineering_passed_no_efficacy_claim",
+  "implementation_commit": "09304a3e82efb6d100d2c73a5a5fee491d524822",
+  "server": {
+    "port": 20403,
+    "gpu": "RTX4090D",
+    "environment_changed": false,
+    "process_PATH_fixed": true
+  },
+  "unique_questions": 8,
+  "prefixes": 16,
+  "max_tokens": 512,
+  "seed": 42,
+  "actual_new_tokens": 8192,
+  "complete_scored_steps": 81,
+  "invalid_requests": 0,
+  "proposed_protection_activations": 0,
+  "real_new_guard_interventions": 0,
+  "RC14_penalty_events": 72,
+  "token_and_R_history_exact_match_questions": 8,
+  "seconds": {
+    "RC14_generation": 7.186155140399933,
+    "RC14_shadow_generation": 4.366968676447868,
+    "capture_export": 0.07571858167648315,
+    "generation_startup": 23.363618463277817,
+    "successful_generation_process": 36.17704464495182,
+    "score_startup": 8.462020501494408,
+    "GTE_GRU_scoring": 0.4104868322610855,
+    "scoring_process": 8.872509896755219,
+    "failed_initialization": 49.16628356277943
+  },
+  "timing_note": "Generation interval includes native loop/result publishing. First arm emitted a JIT warning; timings do not show shadow is faster. Overall transfer/hash/archive overhead is excluded.",
+  "archive": {
+    "local_path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\sat_shadow_20403_20260917_complete.tar.gz",
+    "sha256": "7777686f2cacd4135ee3c41826beb45e86cccbe0f4a0e660b1e7cc50c11e529d",
+    "bytes": 6252149,
+    "verified_member_files": 28
+  },
+  "decision": "Keep frozen RC14. Do not retune .4/.5/5 on these prefixes or automatically start an efficacy benchmark. Zero activation on eight early512-token prefixes neither proves usefulness nor disproves later-stage protection.",
+  "next_cpu_work": "Check encoder numerical parity and construct independent correction-value evidence; do not adjust thresholds on the eight exposed prefixes.",
+  "limitations": [
+    "Only exposed engineering train rows, not independent evaluation",
+    "All16 prefixes reach512 engineering cap, no answer accuracy grading",
+    "Offline batching time is not online per-boundary latency",
+    "No SAT-trigger interventions occurred",
+    "Low score is not evidence that extra reflection repairs the solution"
+  ],
+  "real_feature_cpu_audit": {
+    "passed": true,
+    "real_prefix_tokens_compared": 3694,
+    "real_steps_compared": 81,
+    "feature_max_abs_error": 1.582503318786621e-05,
+    "tolerance": 5e-05,
+    "longest_low_score_run": 2,
+    "requires_consecutive_low_scores": 5,
+    "new_answers": 0,
+    "gpu_used": false,
+    "limitation": "Recorded boundaries supplied, no independent GTE/segmentation parity or correction-value validation"
+  },
+  "low_score_steps": 3
+}

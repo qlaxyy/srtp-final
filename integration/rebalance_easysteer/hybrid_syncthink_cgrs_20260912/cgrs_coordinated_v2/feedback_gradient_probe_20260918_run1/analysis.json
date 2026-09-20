@@ -1,0 +1,71 @@
+{
+  "status": "Engineering descriptive gradient audit only; no optimizer updates",
+  "pairs": 8,
+  "model_forward_count": 32,
+  "backward_count": 16,
+  "wall_seconds": 22.661587804555893,
+  "forward_and_backward_seconds": 5.460485905408859,
+  "peak_allocated_GiB": 7.930364608764648,
+  "zero_residual_all_exact": true,
+  "response_tokens": 42657,
+  "native_hf_logp_weighted_mean_absolute_difference": 0.005174439713609913,
+  "native_hf_logp_max_absolute_difference": 0.4315357208251953,
+  "source_group_gradient_cosine": -0.649232662364336,
+  "pair_vs_pooled_gradient_cosines": [
+    {
+      "question": 55,
+      "chosen_source": "L27",
+      "cosine": 0.5668770993006762,
+      "gradient_norm": 1.6314751481787477
+    },
+    {
+      "question": 105,
+      "chosen_source": "U",
+      "cosine": -0.10270675441203313,
+      "gradient_norm": 2.1661365084658235
+    },
+    {
+      "question": 127,
+      "chosen_source": "L27",
+      "cosine": 0.5077895056492577,
+      "gradient_norm": 1.058203521483002
+    },
+    {
+      "question": 185,
+      "chosen_source": "U",
+      "cosine": 0.045359912782370615,
+      "gradient_norm": 0.9161730969995632
+    },
+    {
+      "question": 215,
+      "chosen_source": "U",
+      "cosine": 0.026373675743386393,
+      "gradient_norm": 1.5749643826195954
+    },
+    {
+      "question": 301,
+      "chosen_source": "L27",
+      "cosine": 0.7118107239206747,
+      "gradient_norm": 3.674291643773054
+    },
+    {
+      "question": 349,
+      "chosen_source": "L27",
+      "cosine": 0.2537227388204676,
+      "gradient_norm": 0.4186067010434344
+    },
+    {
+      "question": 481,
+      "chosen_source": "U",
+      "cosine": 0.30053818040819286,
+      "gradient_norm": 0.2966182266889766
+    }
+  ],
+  "interpretation": [
+    "Gradients are of chosen minus rejected sequence logp at delta=0 under fixed history, not derivatives of actual accuracy or length",
+    "Source disagreement on 4+4 parents is diagnostic only, not a population estimate or reason to retune on these 8",
+    "Do not fit or choose strength on these engineering parents and then report them as independent validation",
+    "HF score differences include numerical kernels/residual arithmetic; cannot reuse native likelihood as exact HF reference"
+  ],
+  "archive_sha256": "be275bd40f6def09d3f16c2c809dc8505344190c495b79cdc3b6aa56a15dcd4f"
+}

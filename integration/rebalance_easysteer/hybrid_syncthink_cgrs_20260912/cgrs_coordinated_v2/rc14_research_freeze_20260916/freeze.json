@@ -1,0 +1,248 @@
+{
+  "status": "research_reference_frozen_no_gpu_pending",
+  "parent_commit": "fd177d533a180b128b9ba55d979a02b969352548",
+  "selected": {
+    "name": "ReBalance plus borrowed CGRS original14 negative-coefficient gate",
+    "mode": "negative",
+    "trigger_profile": "original14",
+    "history_gate": "none",
+    "penalty": 0.6931471805599453,
+    "trigger_token_ids": {
+      "14190": "Wait",
+      "13824": " Wait",
+      "11489": "wait",
+      "3783": " wait",
+      "3983": "But",
+      "1988": " But",
+      "8088": "but",
+      "714": " but",
+      "92014": "Alternatively",
+      "38478": " Alternatively",
+      "75763": "Alternative",
+      "41109": " Alternative",
+      "80022": "Hmm",
+      "88190": " Hmm"
+    },
+    "activation": "Only thinking phase clean step opening, finite previous step confidence and negative ReBalance coefficient. Native sampler and original confidence ordering preserved.",
+    "default_disabled": true,
+    "official_implementation": false
+  },
+  "selected_source_sha256": {
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/policy.py": "9b15e055623ddc10b4349f5c20aa8a6ab55bfd73ca60efceedad5bbacd274cbf",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py": "94cdd6fa8480db526a5e9216e29d9ca2412b90ec96ecbd7329f0b49f0ed73179",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/replay_adapter.py": "8628de2ec727cc2742b09d1c50c2bd62206cc6c9a3d2b603f98e8a8d42289807"
+  },
+  "model_assets": {
+    "1.5B": {
+      "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+      "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+      "model_files": {
+        "config.json": {
+          "bytes": 679,
+          "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+        },
+        "generation_config.json": {
+          "bytes": 181,
+          "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+        },
+        "model.safetensors": {
+          "bytes": 3554214621,
+          "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+        },
+        "tokenizer.json": {
+          "bytes": 7031660,
+          "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+        },
+        "tokenizer_config.json": {
+          "bytes": 3071,
+          "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+        }
+      },
+      "model_verification": "Expected hashes from frozen manifest; only local tokenizer verified this turn; no remote/model-weight verification",
+      "vector": {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/auto_vector.pt",
+        "sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93",
+        "bytes": 7344
+      },
+      "fit": {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/fit.json",
+        "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+        "bytes": 1186
+      },
+      "decoder_output_layer": 20,
+      "rebalance_parameters": {
+        "q25c": 0.888148010597869,
+        "q75c": 0.9989141310845991,
+        "q25v": 2.1830046484335987e-07,
+        "q75v": 0.0014852457558952,
+        "low_val_1": -0.49999999999999994,
+        "low_val_2": -1.5353450143175593,
+        "high_val_2": 0.1,
+        "initial_coef": -1.0,
+        "curve_tau": 0.002450814632284028
+      },
+      "calibration_answers_must_not_be_regenerated": true,
+      "vector_normalization": "raw"
+    },
+    "7B": {
+      "model": "DeepSeek-R1-Distill-Qwen-7B",
+      "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-7B",
+      "model_files": {
+        "config.json": {
+          "bytes": 680,
+          "sha256": "8290d3c1e385e2616572eb6926f7e2745f901d1c13da95970326a8a73f6c379c"
+        },
+        "generation_config.json": {
+          "bytes": 181,
+          "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+        },
+        "configuration.json": {
+          "bytes": 73,
+          "sha256": "f888421726665e8a84b738eed42a64875aed79de8be7daade851ac8bf4c0cef9"
+        },
+        "model.safetensors.index.json": {
+          "bytes": 28090,
+          "sha256": "788266ec033788abcf34b2cb8fe156ce300ae05d94d3d54c60f2ecffd8927a1a"
+        },
+        "tokenizer_config.json": {
+          "bytes": 3071,
+          "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+        },
+        "tokenizer.json": {
+          "bytes": 7031660,
+          "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+        },
+        "model-00002-of-000002.safetensors": {
+          "bytes": 6624675384,
+          "sha256": "1780a9502f56f592cb4d6262c8c76ca8ad36a86b0257e052c672d87f49707e80"
+        },
+        "model-00001-of-000002.safetensors": {
+          "bytes": 8606596466,
+          "sha256": "8b27be8d43b81d0cd19b3113ef88caf1a61c2fc602de77e3cce97aedcec184b4"
+        }
+      },
+      "vector": {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/auto_vector.pt",
+        "sha256": "be4d6fd01334e10c81819c1472fcaa04ed169db9a23ab8649d8eaf85ecb94e9e"
+      },
+      "fit": {
+        "path": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/fit.json",
+        "sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+      },
+      "decoder_output_layer": 21,
+      "rebalance_parameters": {
+        "q25c": 0.8317082060541336,
+        "q75c": 0.9945348667431668,
+        "q25v": 1.4148273953095856e-05,
+        "q75v": 0.003785505352312093,
+        "low_val_1": -0.5,
+        "low_val_2": -1.478875294778046,
+        "high_val_2": 0.1,
+        "initial_coef": -1.0,
+        "curve_tau": 0.008391029506019446
+      }
+    }
+  },
+  "evidence_sha256": {
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/full_tests_run1/results/summary.json": "122e9d2f522a296ec60f157404ac1a26c301ececee19d08900c9bf87f681fcaa",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/full_7b_run1/results/summary.json": "88ac01f4f0f6cf8f85fa2f2bdf83952c7d77e048b58d73a950e0a214c3ccf099",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow8_7b_screen100_20260914/results/summary.json": "0f6020c9e965150e496f460860a166e437e2e5d1c91cf5a9b3cffb3daea5a1fa",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full7b_20260914/results/summary.json": "d7482807f70bd09ab893e090c24f667a0fb8e9c50986882b588bb01be79cc04c",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/first_reflection_full1p5b_20260915/results/summary.json": "7ef628e2caf1049223cff0454d2a151664cc2692619bf0418e25f483a1701f69",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/frozen_prefix_layout8_20260916/results/audit.json": "4b1bc018861b9dc12ab324b73d58c7fd07de08a35e790960795c5956ae125a48",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/history_repeatability100x3_20260916/results_stopped/stopped_batch_summary.json": "6beb8ec00290bf03bcfd5a5ce7f7fe0594e2cea58103ec8c0507ce4f447a71ef"
+  },
+  "historical_effects": [
+    {
+      "model": "1.5B",
+      "dataset": "math_test",
+      "n": 500,
+      "accuracy_delta_pp": -1.0,
+      "accuracy_ci95": [
+        -4.0,
+        2.0
+      ],
+      "total_change_percent": -8.350341370580516,
+      "total_ci95": [
+        -14.93488141723317,
+        -1.436460360664608
+      ],
+      "thinking_change_percent": -9.822260094487955,
+      "scope": "Historical paired whole-pipeline observations; single seed, not causal per-token proof or strict synergy."
+    },
+    {
+      "model": "1.5B",
+      "dataset": "gsm8k_test",
+      "n": 1319,
+      "accuracy_delta_pp": -0.3032600454890068,
+      "accuracy_ci95": [
+        -1.8953752843062925,
+        1.3646702047005308
+      ],
+      "total_change_percent": -7.488372759651152,
+      "total_ci95": [
+        -11.300506919598288,
+        -3.405811219790001
+      ],
+      "thinking_change_percent": -11.164925919434165,
+      "scope": "Historical paired whole-pipeline observations; single seed, not causal per-token proof or strict synergy."
+    },
+    {
+      "model": "7B",
+      "dataset": "math_test",
+      "n": 500,
+      "accuracy_delta_pp": -1.6,
+      "accuracy_ci95": [
+        -3.8,
+        0.4
+      ],
+      "total_change_percent": 0.6113545219270655,
+      "total_ci95": [
+        -5.1631192631791984,
+        6.659390369760074
+      ],
+      "thinking_change_percent": 0.901569090507337,
+      "scope": "Historical paired whole-pipeline observations; single seed, not causal per-token proof or strict synergy."
+    },
+    {
+      "model": "7B",
+      "dataset": "gsm8k_test",
+      "n": 1319,
+      "accuracy_delta_pp": 0.1516300227445034,
+      "accuracy_ci95": [
+        -1.061410159211524,
+        1.3646702047005308
+      ],
+      "total_change_percent": -4.78201362626921,
+      "total_ci95": [
+        -8.292567722110563,
+        -1.209447417494845
+      ],
+      "thinking_change_percent": -6.2113617626921025,
+      "scope": "Historical paired whole-pipeline observations; single seed, not causal per-token proof or strict synergy."
+    }
+  ],
+  "decisions": {
+    "RC8": "Not retained: 7B100 +4.24%total vsR, caps0to2 despite accuracy+1pp.",
+    "RChistory": "Not promoted:1.5B MATH more tokens/time than RC14, GSM no incremental benefit; stopped7B repeats do not show stable improvement. Keep all positive and negative results.",
+    "further_threshold_or_word_sweeps": "Stop: no new predictive evidence, too much exposed-test tuning freedom.",
+    "future_semantic_repetition_gate": "Unfunded hypothesis only: may distinguish useful correction from redundant reflection but needs independent labels and validated detection first; no implementation or GPU request.",
+    "7B_MATH": "Retain original ReBalance as preferable compression reference on observed point results; do not describe RC14 as a universal replacement."
+  },
+  "limits": [
+    "Freeze means reproducible selected method and evidence, not proof of universal superiority.",
+    "Accuracy point loss<=2pp differs from confidence interval certification; preserve dataset-specific intervals.",
+    "No strict synergistic interaction claim without matched standalone CGRS and no-intervention factorial controls.",
+    "Batch geometry can change logits before lexical interventions; existing observations evaluate complete pipelines.",
+    "No rerun of calibration/frozen tests, no new seeds or resuming user-stopped batch, no tag movement or main merge."
+  ],
+  "next_action": "No GPU needed. Write up existing results. Reopen only for a mechanism with new independent supporting evidence and a fixed low-cost test scope.",
+  "user_protocol": "Before EVERY GPU start announce model, dataset, number of unique questions, arms/seeds, purpose, output cap and expected time; default one fixed seed, small checks100 questions maximum unless user explicitly scopes otherwise.",
+  "cpu_validation": {
+    "tests": 49,
+    "status": "passed",
+    "stderr": ".................................................\n----------------------------------------------------------------------\nRan 49 tests in 1.047s\n\nOK\n"
+  },
+  "ssh_used": false,
+  "gpu_used": false
+}

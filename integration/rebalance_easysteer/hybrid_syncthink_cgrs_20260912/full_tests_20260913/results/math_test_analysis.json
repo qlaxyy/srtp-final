@@ -1,0 +1,296 @@
+{
+  "dataset": "math_test",
+  "n": 500,
+  "arms": {
+    "U": {
+      "correct": 422,
+      "accuracy_percent": 84.39999999999999,
+      "mean_tokens": 4460.854,
+      "mean_thinking_tokens": 4102.482,
+      "capped": 35,
+      "generation_seconds": 535.6869907230139,
+      "tokens_per_second": 4163.675875327128,
+      "timing_is_historical": true
+    },
+    "R": {
+      "correct": 411,
+      "accuracy_percent": 82.19999999999999,
+      "mean_tokens": 3554.202,
+      "mean_thinking_tokens": 3182.628,
+      "capped": 22,
+      "generation_seconds": 378.55327393114567,
+      "tokens_per_second": 4694.454182222272,
+      "timing_is_historical": true
+    },
+    "RS": {
+      "correct": 383,
+      "accuracy_percent": 76.6,
+      "mean_tokens": 2872.478,
+      "mean_thinking_tokens": 2190.138,
+      "capped": 18,
+      "generation_seconds": 403.85510417819023,
+      "tokens_per_second": 3556.3225155284854,
+      "timing_is_historical": false
+    }
+  },
+  "comparisons": {
+    "RS_minus_U": {
+      "tokens": {
+        "delta": -1588.376,
+        "delta_ci95": [
+          -1886.29425,
+          -1299.0316500000004
+        ],
+        "percent_change": -35.60699363843784,
+        "percent_change_ci95": [
+          -40.92860339295753,
+          -30.0360632341429
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -1912.344,
+        "delta_ci95": [
+          -2240.0246,
+          -1597.11665
+        ],
+        "percent_change": -46.614317869036356,
+        "percent_change_ci95": [
+          -52.24259850309695,
+          -40.54685737047857
+        ]
+      },
+      "accuracy_delta_pp": -7.8,
+      "accuracy_delta_pp_ci95": [
+        -11.200000000000001,
+        -4.3999999999999995
+      ],
+      "wrong_to_right": [
+        10,
+        25,
+        82,
+        101,
+        166,
+        176,
+        282,
+        285,
+        301,
+        320,
+        326,
+        349,
+        351,
+        398,
+        409,
+        421,
+        485,
+        486,
+        497
+      ],
+      "right_to_wrong": [
+        8,
+        17,
+        18,
+        24,
+        41,
+        49,
+        60,
+        62,
+        63,
+        64,
+        71,
+        104,
+        105,
+        119,
+        123,
+        126,
+        128,
+        130,
+        131,
+        146,
+        152,
+        158,
+        160,
+        184,
+        187,
+        208,
+        214,
+        216,
+        226,
+        228,
+        243,
+        245,
+        281,
+        288,
+        317,
+        321,
+        329,
+        332,
+        338,
+        350,
+        354,
+        355,
+        359,
+        363,
+        379,
+        387,
+        423,
+        431,
+        435,
+        445,
+        465,
+        466,
+        472,
+        475,
+        478,
+        483,
+        491,
+        494
+      ],
+      "time_percent_change": -24.609872710720648
+    },
+    "RS_minus_R": {
+      "tokens": {
+        "delta": -681.724,
+        "delta_ci95": [
+          -985.3095500000001,
+          -385.2398000000003
+        ],
+        "percent_change": -19.180789386759677,
+        "percent_change_ci95": [
+          -26.491389453866315,
+          -11.242841011289435
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -992.49,
+        "delta_ci95": [
+          -1315.9939,
+          -681.0866500000002
+        ],
+        "percent_change": -31.184605929439446,
+        "percent_change_ci95": [
+          -39.115996374061666,
+          -22.527142976160327
+        ]
+      },
+      "accuracy_delta_pp": -5.6000000000000005,
+      "accuracy_delta_pp_ci95": [
+        -9.2,
+        -2.1999999999999997
+      ],
+      "wrong_to_right": [
+        10,
+        25,
+        39,
+        108,
+        140,
+        213,
+        222,
+        246,
+        282,
+        285,
+        301,
+        323,
+        326,
+        333,
+        347,
+        349,
+        351,
+        380,
+        394,
+        398,
+        401,
+        418,
+        432,
+        443,
+        458,
+        485,
+        495,
+        498
+      ],
+      "right_to_wrong": [
+        8,
+        17,
+        49,
+        60,
+        62,
+        63,
+        68,
+        71,
+        105,
+        128,
+        130,
+        131,
+        146,
+        152,
+        156,
+        158,
+        160,
+        168,
+        184,
+        187,
+        208,
+        216,
+        219,
+        226,
+        228,
+        232,
+        236,
+        243,
+        245,
+        281,
+        288,
+        309,
+        317,
+        321,
+        329,
+        332,
+        338,
+        350,
+        354,
+        355,
+        359,
+        363,
+        379,
+        387,
+        423,
+        425,
+        431,
+        435,
+        445,
+        465,
+        472,
+        475,
+        478,
+        483,
+        490,
+        491
+      ],
+      "time_percent_change": 6.683822856501487
+    }
+  },
+  "control": {
+    "statistics_mask_gpu_seconds": 39.59927930086851,
+    "extra_method_forwards": 0,
+    "probe_tokens": 0,
+    "forced": 490,
+    "discarded_async_tail_tokens": 482
+  },
+  "author_grade_seconds": 40.02443040907383,
+  "checkpoint_io_seconds": 0.17420843243598938,
+  "source_sha256": {
+    "result": "94a07adea1ea1da4e79ec9d90eca97c4cf01610c4bbef067687b7a2a669d3625",
+    "grade": "6c756d276455d373bc6c4cf1615fac01599382b9969148be9263ba8e2d14657a",
+    "historical_evaluation": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+    "historical_grading": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483"
+  },
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 20260912,
+    "unit": "same-question pairing with historical outputs"
+  },
+  "limitations": [
+    "One seed, historical comparators; no contemporaneous baseline rerun",
+    "No full standalone S: factorial synergy unidentifiable",
+    "Failed independent training confirmation remains failed; full tests not used for parameter tuning"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "decision": "Do not promote first-box stopping to GPU; keep RC14 fixed.",
+  "remaining_thinking_character_percent": {
+    "s142_R": 0.09090954814308132,
+    "s142_RC14": 0.06671557216545462,
+    "s142_RChistory": 0.055757168582143385,
+    "s242_R": 0.051021401183918944,
+    "s242_RC14": 0.20719728946587876,
+    "s242_RChistory": 0.06545895147467344
+  },
+  "cpu_tests_passed": 58,
+  "new_gpu_forwards": 0,
+  "interpretation": "An easily detected explicit boxed answer is usually too late. Earlier natural-language answers require semantic identification and distinguishing intermediate quantities; not implemented or validated here.",
+  "next_boundary": "No automatic keyword broadening or threshold sweep on these exposed questions. A substantive prefix-only completion detector needs its own specification and useful-correction counterexamples before GPU authorization.",
+  "limitations": "Character fractions are descriptive, not token compression estimates or counterfactual accuracy. Conservative answer matching leaves symbolic mismatches unknown."
+}

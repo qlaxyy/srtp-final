@@ -1,0 +1,7 @@
+{
+  "command_from_isolated_repo_root_after_authorization": "timeout 1200s /root/autodl-tmp/venvs/easysteer-vllm026/bin/python integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow_runner.py --plan integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/strength_engineering8_20260916/plan.json --receipt /absolute/path/to/authorized_receipt.json --phase engineering --output-root /root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912 --gpu-authorized",
+  "preflight": "Runner checks native CPU tests and tokenizer flags before model initialization; all assets verified.",
+  "timing": "Estimate2-5minutes pure generation; startup/compilation may add time; hard1200s process cap.",
+  "remaining": "GPU actual vLLM/BF16/CUDA-graph/forced-preemption and generation parity not run.",
+  "future_screen": "Only after gate passes, separately freeze new training questions, four efficacy arms and one seed; no automatic continuation."
+}

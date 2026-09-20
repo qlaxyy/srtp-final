@@ -1,0 +1,17 @@
+{
+  "source_commit": "be89bab",
+  "engineering": {
+    "phase": "engineering",
+    "passed": true,
+    "arms": [
+      "RC14",
+      "RC14_extension_off",
+      "L27_L27"
+    ],
+    "release_sha256": "07916267ac12831356a7752bff78271d9445c4354f8a27038ba62663ee4473de",
+    "wall_seconds": 73.29429945349693
+  },
+  "package_sha256": "96e85baeb1a489c40c514ac5e95be48ac3fc261a6c2e0da21e1cf2fd1381b318",
+  "status": "engineering passed; MATH full running; GSM queued",
+  "remote": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/label_alignment_7b_20260917_run1"
+}

@@ -1,0 +1,32 @@
+{
+  "status": "verified complete 1319 generations and author labels",
+  "archive_sha256": "052eda928a839b16109590162551888129675e6f9dba34a7a831e3ef66836753",
+  "analysis_sha256": "c363e42967353a74d8456eb872210bc0b2992e251977aab73aa212913bca22dc",
+  "arms": {
+    "L27_L27": {
+      "passed": true,
+      "count": 1319,
+      "gpu_utilization_sample_mean": 67.62869198312237,
+      "gpu_samples": 237,
+      "generation_seconds": 236.03397676348686,
+      "checkpoint_io_seconds": 0.17830057442188263,
+      "extra_model_forward_count": 0,
+      "probe_count": 0,
+      "control_gpu_seconds": null
+    }
+  },
+  "generation_seconds": 236.03397676348686,
+  "full_process_wall_seconds": 265.3545283228159,
+  "grading_and_analysis_seconds": 20.861522033810616,
+  "files_sha256": {
+    "analysis.json": "c363e42967353a74d8456eb872210bc0b2992e251977aab73aa212913bca22dc",
+    "complete.json": "12a867f2f3a1a23885205157a0b38e022a6a8bcf64b64348f0e116bc5cdb1495",
+    "identity.json": "e10daf62d1cd939ff727ccd51c656970d14a5106c1fd651f10ec7c0565dbcff7",
+    "plan.json": "ed3a0035693ca3cfb1773d81f3ce0e57f8f89ecfa17cb6403574a8e64e9d6eed",
+    "release.json": "9bd54e222a73120ef77455437086932eb130b7c12782d7a41b2e6ac7f27e7fcc",
+    "L27_L27\\author_partial.jsonl": "a05e723bf2571b0680c88094f78dc4e1886dc1be1a42bebf2b0ea9a9ec51fc11",
+    "L27_L27\\gpu.csv": "ed27d478d6d88f8ec04a2f705d9ce876b2e31f698a3a01fbcc9cacf61246b261",
+    "L27_L27\\partial.jsonl": "d20ee3c58821a365bba7e8a180dc38a2a1d7281921a366c3798c3eb41185c3e1",
+    "L27_L27\\result.json": "286576b95fe9e1a844ca6862a63766615bab9cb4dc66d622b3b357b7566e6c16"
+  }
+}

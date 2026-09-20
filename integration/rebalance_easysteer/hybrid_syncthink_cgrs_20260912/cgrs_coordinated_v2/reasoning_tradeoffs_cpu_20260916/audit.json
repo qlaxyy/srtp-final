@@ -1,0 +1,318 @@
+{
+  "status": "cpu_exposed_training_descriptive",
+  "source_sha256": "8be9b57507c61377da26d7fa2dd406fcb3f626bd48ac89509142b375e1fbd026",
+  "input_sha256": {
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_R\\result.json": "52f9676dc8aa10df9016215cd2bdcb8abfab3498c9645d2ea722432f86ab5d60",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_R\\stopped_batch_author_labels.jsonl": "2709e9910ab5e688e3a770eb18ae6dd410ce966f908b3cbdc0fdb923e562ec6c",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RC14\\result.json": "3e6f0c3e11fd22f78bc4d273182670957a32aa3fe1f9671592431959ceefa5aa",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RC14\\stopped_batch_author_labels.jsonl": "292483efb578eff054f8518b046a9b627145e40792c8a46324fb454706907ea4",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RChistory\\result.json": "c3b14eb1ca55c5b7a933fbeef3a449e853d9f830083ab34b1e8bf15a42122608",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s142_RChistory\\stopped_batch_author_labels.jsonl": "d9fd276bcaa13564ba3b33c2808ba7cfb9dc5b9e079b574367ff641de6e78ebc",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_R\\result.json": "e2b0ec3bce5b5e793b0f90011ae522bb70b0573cfa2d2154acdad7933402f273",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_R\\stopped_batch_author_labels.jsonl": "a9c21803ff9f8ad76eebc931c5ea8633d681fa8f70b89ab580728329e953899b",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RC14\\result.json": "27b15335fe7da239ce395f1f47c3690d38b2170f8f760e888f885ac16df93748",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RC14\\stopped_batch_author_labels.jsonl": "1f86bcfeb2b9b8cb33e8d9cb03b6f751eec546034ce67fc6518a8cf172636505",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RChistory\\result.json": "fdb94f53345ce159eb78b7915c2f7462038ce699d1681e2ad4c53b85c8d38597",
+    "E:\\srtp\\B-repeatability-stopped_0916\\results\\s242_RChistory\\stopped_batch_author_labels.jsonl": "a334c1391988805549f6f69503a9123e92f4a5c22c5dd931b028ecf5c79af853"
+  },
+  "groups": {
+    "s142_RC14_vs_R": {
+      "n": 100,
+      "unique_questions": 100,
+      "categories": {
+        "both_correct": {
+          "n": 91,
+          "thinking_delta_sum": -31059,
+          "total_delta_sum": -31932,
+          "shorter_thinking": 49,
+          "longer_thinking": 34
+        },
+        "correct_to_wrong": {
+          "n": 1,
+          "thinking_delta_sum": 7691,
+          "total_delta_sum": 7138,
+          "shorter_thinking": 0,
+          "longer_thinking": 1
+        },
+        "wrong_to_correct": {
+          "n": 2,
+          "thinking_delta_sum": -10026,
+          "total_delta_sum": -9311,
+          "shorter_thinking": 2,
+          "longer_thinking": 0
+        },
+        "both_wrong": {
+          "n": 6,
+          "thinking_delta_sum": 1422,
+          "total_delta_sum": 977,
+          "shorter_thinking": 2,
+          "longer_thinking": 3
+        }
+      },
+      "thinking_delta_sum": -31972,
+      "total_delta_sum": -33128,
+      "cap_involved_pairs": 4,
+      "cap_pair_thinking_delta_sum": -615,
+      "uncapped_pairs": 96,
+      "uncapped_thinking_delta_sum": -31357,
+      "prefix_groups": {
+        "different_at_or_after_mask_not_causal_proof": 87,
+        "different_before_either_mask": 8,
+        "identical": 5
+      }
+    },
+    "s142_RChistory_vs_RC14": {
+      "n": 100,
+      "unique_questions": 100,
+      "categories": {
+        "both_correct": {
+          "n": 91,
+          "thinking_delta_sum": 5324,
+          "total_delta_sum": 6002,
+          "shorter_thinking": 38,
+          "longer_thinking": 39
+        },
+        "correct_to_wrong": {
+          "n": 2,
+          "thinking_delta_sum": 12310,
+          "total_delta_sum": 12113,
+          "shorter_thinking": 0,
+          "longer_thinking": 2
+        },
+        "wrong_to_correct": {
+          "n": 2,
+          "thinking_delta_sum": -5510,
+          "total_delta_sum": -4937,
+          "shorter_thinking": 1,
+          "longer_thinking": 1
+        },
+        "both_wrong": {
+          "n": 5,
+          "thinking_delta_sum": -2910,
+          "total_delta_sum": -2694,
+          "shorter_thinking": 3,
+          "longer_thinking": 0
+        }
+      },
+      "thinking_delta_sum": 9214,
+      "total_delta_sum": 10484,
+      "cap_involved_pairs": 4,
+      "cap_pair_thinking_delta_sum": 2455,
+      "uncapped_pairs": 96,
+      "uncapped_thinking_delta_sum": 6759,
+      "prefix_groups": {
+        "different_at_or_after_mask_not_causal_proof": 80,
+        "different_before_either_mask": 7,
+        "identical": 13
+      }
+    },
+    "s242_RC14_vs_R": {
+      "n": 100,
+      "unique_questions": 100,
+      "categories": {
+        "both_correct": {
+          "n": 90,
+          "thinking_delta_sum": 2579,
+          "total_delta_sum": 3008,
+          "shorter_thinking": 46,
+          "longer_thinking": 41
+        },
+        "correct_to_wrong": {
+          "n": 2,
+          "thinking_delta_sum": 11261,
+          "total_delta_sum": 11194,
+          "shorter_thinking": 0,
+          "longer_thinking": 2
+        },
+        "wrong_to_correct": {
+          "n": 1,
+          "thinking_delta_sum": 4819,
+          "total_delta_sum": 4842,
+          "shorter_thinking": 0,
+          "longer_thinking": 1
+        },
+        "both_wrong": {
+          "n": 7,
+          "thinking_delta_sum": -22627,
+          "total_delta_sum": -21465,
+          "shorter_thinking": 5,
+          "longer_thinking": 1
+        }
+      },
+      "thinking_delta_sum": -3968,
+      "total_delta_sum": -2421,
+      "cap_involved_pairs": 4,
+      "cap_pair_thinking_delta_sum": -9053,
+      "uncapped_pairs": 96,
+      "uncapped_thinking_delta_sum": 5085,
+      "prefix_groups": {
+        "different_at_or_after_mask_not_causal_proof": 88,
+        "different_before_either_mask": 9,
+        "identical": 3
+      }
+    },
+    "s242_RChistory_vs_RC14": {
+      "n": 100,
+      "unique_questions": 100,
+      "categories": {
+        "both_correct": {
+          "n": 89,
+          "thinking_delta_sum": -11719,
+          "total_delta_sum": -12311,
+          "shorter_thinking": 43,
+          "longer_thinking": 39
+        },
+        "correct_to_wrong": {
+          "n": 2,
+          "thinking_delta_sum": 6385,
+          "total_delta_sum": 5619,
+          "shorter_thinking": 1,
+          "longer_thinking": 1
+        },
+        "wrong_to_correct": {
+          "n": 1,
+          "thinking_delta_sum": -3757,
+          "total_delta_sum": -3964,
+          "shorter_thinking": 1,
+          "longer_thinking": 0
+        },
+        "both_wrong": {
+          "n": 8,
+          "thinking_delta_sum": 10295,
+          "total_delta_sum": 9495,
+          "shorter_thinking": 2,
+          "longer_thinking": 4
+        }
+      },
+      "thinking_delta_sum": 1204,
+      "total_delta_sum": -1161,
+      "cap_involved_pairs": 4,
+      "cap_pair_thinking_delta_sum": 21536,
+      "uncapped_pairs": 96,
+      "uncapped_thinking_delta_sum": -20332,
+      "prefix_groups": {
+        "different_at_or_after_mask_not_causal_proof": 87,
+        "different_before_either_mask": 9,
+        "identical": 4
+      }
+    }
+  },
+  "repeated_box_hypothesis": {
+    "rule": "First two consecutive complete identical boxed expressions inside thinking; whitespace-only normalization; fixed before this audit; no threshold sweep, answer key or model forward used by detector.",
+    "results": {
+      "s142_R": {
+        "n": 100,
+        "covered": 1,
+        "finally_wrong": 0,
+        "rows": [
+          {
+            "train_index": 1795,
+            "problem_sha256": "0e0b1d19fca03d83f3c4e33dd7a7c977143c1fadadbe737bf0325f1cbe3d2f17",
+            "final_correct": true,
+            "capped": false,
+            "offset": 9818,
+            "value": "1",
+            "remaining_thinking_chars": 33
+          }
+        ]
+      },
+      "s142_RC14": {
+        "n": 100,
+        "covered": 1,
+        "finally_wrong": 0,
+        "rows": [
+          {
+            "train_index": 3609,
+            "problem_sha256": "773566cc09c76732ea5c33a9b0495f0c364d2c6ecad07662aa050fb56ce52044",
+            "final_correct": true,
+            "capped": false,
+            "offset": 13770,
+            "value": "(10\\sqrt{2},\\frac{19\\pi}{44})",
+            "remaining_thinking_chars": 2
+          }
+        ]
+      },
+      "s142_RChistory": {
+        "n": 100,
+        "covered": 1,
+        "finally_wrong": 0,
+        "rows": [
+          {
+            "train_index": 3130,
+            "problem_sha256": "97c00341a1872447acdf0bbe67094dfe8090c69a7c06fb1342f40c9e6113d5bc",
+            "final_correct": true,
+            "capped": false,
+            "offset": 25091,
+            "value": "2",
+            "remaining_thinking_chars": 4
+          }
+        ]
+      },
+      "s242_R": {
+        "n": 100,
+        "covered": 1,
+        "finally_wrong": 0,
+        "rows": [
+          {
+            "train_index": 5683,
+            "problem_sha256": "43c09398dedff993530e9054347ef6ea063873835cbb046010ba876456dc6c60",
+            "final_correct": true,
+            "capped": false,
+            "offset": 18459,
+            "value": "126",
+            "remaining_thinking_chars": 1
+          }
+        ]
+      },
+      "s242_RC14": {
+        "n": 100,
+        "covered": 1,
+        "finally_wrong": 0,
+        "rows": [
+          {
+            "train_index": 2951,
+            "problem_sha256": "a54499605c8ca43631de739cc3868dfdcf9536c76d03946f6cba05647960e5a0",
+            "final_correct": true,
+            "capped": false,
+            "offset": 7485,
+            "value": "\\dfrac{168}{295}",
+            "remaining_thinking_chars": 1
+          }
+        ]
+      },
+      "s242_RChistory": {
+        "n": 100,
+        "covered": 2,
+        "finally_wrong": 1,
+        "rows": [
+          {
+            "train_index": 3130,
+            "problem_sha256": "97c00341a1872447acdf0bbe67094dfe8090c69a7c06fb1342f40c9e6113d5bc",
+            "final_correct": false,
+            "capped": false,
+            "offset": 10449,
+            "value": "\\dfrac{1}{3}",
+            "remaining_thinking_chars": 2
+          },
+          {
+            "train_index": 1795,
+            "problem_sha256": "0e0b1d19fca03d83f3c4e33dd7a7c977143c1fadadbe737bf0325f1cbe3d2f17",
+            "final_correct": true,
+            "capped": false,
+            "offset": 11660,
+            "value": "1",
+            "remaining_thinking_chars": 1
+          }
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "600 existing outputs,100 unique exposed training questions; repeated seeds are not independent questions.",
+    "Comparisons do not isolate mask causality: batch numerical effects and post-divergence paths remain.",
+    "Correctness of final answer is not correctness at detector time. Remaining chars are not saved tokens.",
+    "No stored per-step max-probability series or logits here; cannot reconstruct confidence or fit a new confidence gate.",
+    "Cap-stratified and correctness-stratified analyses are descriptive post-treatment partitions, not cherry-picked main metrics."
+  ],
+  "gpu_ready": false
+}

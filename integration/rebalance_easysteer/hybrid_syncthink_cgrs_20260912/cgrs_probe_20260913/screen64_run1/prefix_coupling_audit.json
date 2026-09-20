@@ -1,0 +1,111 @@
+{
+  "first_global_mask": 1024,
+  "differences_before_first_global_mask": [],
+  "before_own_mask": [
+    {
+      "train_index": 2218,
+      "first_difference": 1392,
+      "own_first_mask": 2089,
+      "R_active": 46,
+      "RC_active": 44,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 70,
+      "first_difference": 1531,
+      "own_first_mask": 3255,
+      "R_active": 44,
+      "RC_active": 42,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 2959,
+      "first_difference": 1864,
+      "own_first_mask": 2081,
+      "R_active": 34,
+      "RC_active": 33,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 4388,
+      "first_difference": 1392,
+      "own_first_mask": 3217,
+      "R_active": 46,
+      "RC_active": 44,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 2545,
+      "first_difference": 1642,
+      "own_first_mask": 2323,
+      "R_active": 42,
+      "RC_active": 41,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 5571,
+      "first_difference": 1531,
+      "own_first_mask": 2226,
+      "R_active": 44,
+      "RC_active": 42,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 2935,
+      "first_difference": 1432,
+      "own_first_mask": null,
+      "R_active": 46,
+      "RC_active": 44,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 2458,
+      "first_difference": 1579,
+      "own_first_mask": 4290,
+      "R_active": 43,
+      "RC_active": 42,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 3101,
+      "first_difference": 1527,
+      "own_first_mask": 2049,
+      "R_active": 44,
+      "RC_active": 42,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 6470,
+      "first_difference": 1507,
+      "own_first_mask": 2055,
+      "R_active": 44,
+      "RC_active": 42,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 196,
+      "first_difference": 1621,
+      "own_first_mask": 2053,
+      "R_active": 43,
+      "RC_active": 41,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 5152,
+      "first_difference": 1824,
+      "own_first_mask": null,
+      "R_active": 35,
+      "RC_active": 36,
+      "active_members_differ": true
+    },
+    {
+      "train_index": 418,
+      "first_difference": 1507,
+      "own_first_mask": null,
+      "R_active": 44,
+      "RC_active": 42,
+      "active_members_differ": true
+    }
+  ],
+  "interpretation": "All before-own divergences follow a global intervention and differ in active cohort; consistent with batch numerical coupling, not a causal proof. Engineering8 shadow remains exact, no screen64 shadow arm."
+}

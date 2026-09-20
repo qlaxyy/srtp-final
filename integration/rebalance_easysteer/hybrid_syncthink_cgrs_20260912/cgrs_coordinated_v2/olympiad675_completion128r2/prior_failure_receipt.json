@@ -1,0 +1,103 @@
+{
+  "error": "Progress used exclusive save twice at same path; fixed with unique step-numbered snapshots",
+  "completed_new_U": 3,
+  "prior_files": {
+    "U/partial.jsonl": "e7ee10a1205f7812f0195b1c0485cc4de7960db9e41e029f49d931c3e79f1edc",
+    "U/gpu.csv": "03a784cac0a189fcdd2e1081c379b85cd3faf1fb5378c633bb379510c3871018",
+    "U/interrupted_arm.json": "d8b79433e3e6466f4273b963e64efc50f852222054d091c192f819c2cf082ab1",
+    "failure.json": "1406e023e86b4915790cb75d689915c618387dd97a3d11f9087604545dde3a0e",
+    "U/progress.json": "3c77fa68800c853d3e0dc447458a6931b2e7eaddd6806d53e7a5f69e5d114a16"
+  },
+  "interrupted_arm": {
+    "generation_seconds_to_error": 60.175912633538246,
+    "completed": 3,
+    "scheduler_preemptions": [],
+    "unfinished": [
+      {
+        "request_id": "0-b482e707",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "1-bdd0b656",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "2-850c2cc5",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "3-b66f302a",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "4-8123f667",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "5-a7013904",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "6-967605a7",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "7-b493f834",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "8-aa860df0",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "9-97ed989a",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "11-8abfc063",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "12-aa56f99a",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "13-97d0fc42",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "14-a86fe2ea",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "15-a44ccb7a",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "16-8f2613ea",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "17-946a663f",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "18-ad5cde6c",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "19-b22d76de",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "22-90fb5c9a",
+        "num_output_tokens": 5151
+      },
+      {
+        "request_id": "23-a9ca6279",
+        "num_output_tokens": 5151
+      }
+    ]
+  },
+  "prior_generation_process_wall_seconds": 90.09433794021606
+}

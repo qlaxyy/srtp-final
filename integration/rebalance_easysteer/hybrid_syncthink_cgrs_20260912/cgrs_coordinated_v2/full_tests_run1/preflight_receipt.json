@@ -1,0 +1,11 @@
+{
+  "source_commit": "bba85fc",
+  "validated_sources": 2195,
+  "plan_sha256": "e51d0a210e2700c03a859f17b34b79903176f7b0870000179993a71db952e56b",
+  "local_checks": [
+    "full driver and grader AST parsed",
+    "paired statistics synthetic 10 percent compression and no accuracy shift checked",
+    "preflight verified1819 historical row identities and model/vector/fit sources on server before launch"
+  ],
+  "scope": "New RCnegative full-test only; no ungenerated64 training proposal consumed"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "fixed_comparison_reference_not_universal_success",
+  "commit": "73cef5f210c1f5a9f1b97b53ee45fb2a4f5dfb26",
+  "method": "RCnegative original14 ln2, clean thinking step opening, finite previous mean and negative native R coefficient",
+  "sources": {
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\policy.py": "9b15e055623ddc10b4349f5c20aa8a6ab55bfd73ca60efceedad5bbacd274cbf",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\adapter.py": "5a7289e210b52388bb9d0019afb25c1f89a62152a81876e73c6a78297e679d26",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\replay_adapter.py": "de77aad4524a6461367f8787231bb9ca4831e1d1968f88b67430e50d32ca9f5e"
+  },
+  "reference_run": "cgrs_narrow8_7b_screen100_20260914/RC14",
+  "model": "7B",
+  "reference_records_sha256": "6494e3d17f1035f59d52a31838edd68a12ac23800aa5c493811c76c2acde81bb",
+  "scope": "Preserve all earlier positive and negative records. New controls use the fixed default14 path with its pinned identity. No frozen tag changes.",
+  "gpu_authorized": false
+}

@@ -1,0 +1,18 @@
+{
+  "decoder_output_layer": 20,
+  "hidden_state_index": 21,
+  "parameters": {
+    "q25c": 0.8062077525640483,
+    "q75c": 0.9632809218906221,
+    "q25v": 0.00021023189594810408,
+    "q75v": 0.006301637934784998,
+    "low_val_1": -0.5,
+    "low_val_2": -1.188700907375147,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.01
+  },
+  "vector_sha256": "14d292a43fda0e794548605898cde122c21f740243fe134a9e34bfd4817f3cbd",
+  "method": "UNDER_REFIT",
+  "controller_override": null
+}

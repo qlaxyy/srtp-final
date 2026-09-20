@@ -1,0 +1,20 @@
+{
+  "status": "GPU measurement protocol only; previous first-token vector remains rejected",
+  "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "questions": 33,
+  "spans": 66,
+  "saved_thinking_tokens": 89162,
+  "representations": [
+    "existing step-first control",
+    "full span mean",
+    "longest exactly identical token block mean"
+  ],
+  "hypothesis": "Test sensitivity to lexical content and first-token location; no generated answers or benchmark scores.",
+  "gates": "Every old first state must match exactly; fail and preserve partial outputs otherwise. No thresholds or coefficient tuning. No deployment from these diagnostics.",
+  "budget": "600 seconds hard stop; expected loading plus33 forwards under3min",
+  "input_sha256": {
+    "rows.json": "7613615d76f1c6199c0d747c313aa7b91e2de6880d5f689922f8be1d128e3c6a",
+    "expected.npz": "2d13b0aea2941ca4a4f0c87b94ba6811170484aa48868bcb4f86df4e98edd428"
+  },
+  "script_sha256": "da07fb2b59da5bc2eeea9a62dade5ecac9bf8ac7c125a054de5872d6f76b342e"
+}

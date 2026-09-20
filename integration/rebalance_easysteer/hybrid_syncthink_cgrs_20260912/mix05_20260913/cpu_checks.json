@@ -1,0 +1,11 @@
+{
+  "status": "pass_cpu_formula_native_torch_pending",
+  "random_rows": 1600,
+  "max_probability_error": 3.7314075568284366e-07,
+  "filtered_end_probability_example": 0.05,
+  "non_end_logits_unchanged": true,
+  "single_step_TV_bound": 0.05,
+  "extra_model_forwards": 0,
+  "source_sha256": "2915794c3e5c6a71ca8360193e878471bb27111e213dd7babc17ae9dd24ba276",
+  "limitations": "NumPy adapter, not Torch/BF16/RNG validation; per-step TV is not an accuracy bound"
+}

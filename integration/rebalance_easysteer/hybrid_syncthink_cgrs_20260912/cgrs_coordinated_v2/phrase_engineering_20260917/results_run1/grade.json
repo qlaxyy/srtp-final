@@ -1,0 +1,315 @@
+{
+  "arms": {
+    "RC14": {
+      "correct": 5,
+      "questions": 8,
+      "mean_total_tokens": 5101.75,
+      "mean_thinking_tokens": 4632.0,
+      "caps": 0,
+      "generation_seconds": 176.30161890387535,
+      "extra_probe_forwards": 0
+    },
+    "RC14_but_wait": {
+      "correct": 4,
+      "questions": 8,
+      "mean_total_tokens": 5383.0,
+      "mean_thinking_tokens": 5041.25,
+      "caps": 1,
+      "generation_seconds": 316.28984674811363,
+      "extra_probe_forwards": 0
+    }
+  },
+  "comparison": {
+    "total_delta_percent": 5.512814230411123,
+    "thinking_delta_percent": 8.835276338514685,
+    "wrong_to_right": [],
+    "right_to_wrong": [
+      1441
+    ]
+  },
+  "passes_fixed_engineering_screen": false,
+  "grades": {
+    "RC14": [
+      {
+        "train_index": 647,
+        "gold": "4",
+        "answer": "8",
+        "correct": false,
+        "total_tokens": 6851,
+        "thinking_tokens": 6417,
+        "capped": false,
+        "events": {
+          "tokens": 6851,
+          "eligible": 158,
+          "changed": 158,
+          "first_change": 80,
+          "R_history_sha256": "2d96616e4da6cabd1a44b29ebaa9de0d52333f53566ccd1043491fe4cf998d8a"
+        }
+      },
+      {
+        "train_index": 1837,
+        "gold": "42",
+        "answer": "42",
+        "correct": true,
+        "total_tokens": 3057,
+        "thinking_tokens": 2325,
+        "capped": false,
+        "events": {
+          "tokens": 3057,
+          "eligible": 70,
+          "changed": 70,
+          "first_change": 42,
+          "R_history_sha256": "a2a54338a96bd3c2cf2abfdc1645646cf8498e3b2cc43e51642cbbb05f047b68"
+        }
+      },
+      {
+        "train_index": 4972,
+        "gold": "-1",
+        "answer": "-1",
+        "correct": true,
+        "total_tokens": 1905,
+        "thinking_tokens": 1534,
+        "capped": false,
+        "events": {
+          "tokens": 1905,
+          "eligible": 25,
+          "changed": 25,
+          "first_change": 109,
+          "R_history_sha256": "41c3555acd0022f5592bd764d3212760a20e6a9cbf64eb34b253008380ed0b32"
+        }
+      },
+      {
+        "train_index": 1441,
+        "gold": "720",
+        "answer": "720",
+        "correct": true,
+        "total_tokens": 5388,
+        "thinking_tokens": 4886,
+        "capped": false,
+        "events": {
+          "tokens": 5388,
+          "eligible": 199,
+          "changed": 199,
+          "first_change": 37,
+          "R_history_sha256": "b5ba88f012790b325240adfe138d0f9ab981e19c7f91976bfb9d7f491feabf5c"
+        }
+      },
+      {
+        "train_index": 4432,
+        "gold": "340",
+        "answer": "346.5",
+        "correct": false,
+        "total_tokens": 8441,
+        "thinking_tokens": 7851,
+        "capped": false,
+        "events": {
+          "tokens": 8441,
+          "eligible": 216,
+          "changed": 216,
+          "first_change": 101,
+          "R_history_sha256": "c825b7b4e008caed728342c1adba20718a03ecd1fa494c1754666e8b619b995d"
+        }
+      },
+      {
+        "train_index": 3497,
+        "gold": "-\\frac{\\sqrt{3}}{3}",
+        "answer": "-\\dfrac{\\sqrt{3}}{3}",
+        "correct": true,
+        "total_tokens": 2012,
+        "thinking_tokens": 1779,
+        "capped": false,
+        "events": {
+          "tokens": 2012,
+          "eligible": 38,
+          "changed": 38,
+          "first_change": 74,
+          "R_history_sha256": "b53c6120adde9a307f855177e702b7f5d6fba026006df2ec8bfd6659d0a99e3f"
+        }
+      },
+      {
+        "train_index": 1483,
+        "gold": "\\frac{5}{2}",
+        "answer": "\\dfrac{5}{2}",
+        "correct": true,
+        "total_tokens": 4995,
+        "thinking_tokens": 4568,
+        "capped": false,
+        "events": {
+          "tokens": 4995,
+          "eligible": 108,
+          "changed": 108,
+          "first_change": 67,
+          "R_history_sha256": "794670bbd7f4871fb07f768fd9ae6caf61d5c1b5b4d7c4ebc54475f431d2e3d3"
+        }
+      },
+      {
+        "train_index": 229,
+        "gold": "8",
+        "answer": "3",
+        "correct": false,
+        "total_tokens": 8165,
+        "thinking_tokens": 7696,
+        "capped": false,
+        "events": {
+          "tokens": 8165,
+          "eligible": 274,
+          "changed": 274,
+          "first_change": 66,
+          "R_history_sha256": "4324307e24d1a9bc8876734f1172b1537e93ac3b3c030d79d4a8f761582223aa"
+        }
+      }
+    ],
+    "RC14_but_wait": [
+      {
+        "train_index": 647,
+        "gold": "4",
+        "answer": "6",
+        "correct": false,
+        "total_tokens": 8030,
+        "thinking_tokens": 7783,
+        "capped": false,
+        "events": {
+          "tokens": 8030,
+          "eligible": 185,
+          "changed": 185,
+          "first_change": 80,
+          "R_history_sha256": "6aa6b9d7a1095cac23bf4b00b749fb9b5b1187bf788f3d56992558767ef1e456",
+          "phrase_positions": 14
+        }
+      },
+      {
+        "train_index": 1837,
+        "gold": "42",
+        "answer": "42",
+        "correct": true,
+        "total_tokens": 3145,
+        "thinking_tokens": 2419,
+        "capped": false,
+        "events": {
+          "tokens": 3145,
+          "eligible": 78,
+          "changed": 78,
+          "first_change": 42,
+          "R_history_sha256": "6774ea0f3da3f6929a7d9e941bc2b6c02874ef645a8a0d2596a5dafd36dc6ba3",
+          "phrase_positions": 3
+        }
+      },
+      {
+        "train_index": 4972,
+        "gold": "-1",
+        "answer": "-1",
+        "correct": true,
+        "total_tokens": 1860,
+        "thinking_tokens": 1496,
+        "capped": false,
+        "events": {
+          "tokens": 1860,
+          "eligible": 27,
+          "changed": 27,
+          "first_change": 109,
+          "R_history_sha256": "0bf3f43bdaa7a739ead8b1ac900ea93786e582c634062dac729acee19eaa5ea2",
+          "phrase_positions": 2
+        }
+      },
+      {
+        "train_index": 1441,
+        "gold": "720",
+        "answer": "",
+        "correct": false,
+        "total_tokens": 16000,
+        "thinking_tokens": 16000,
+        "capped": true,
+        "events": {
+          "tokens": 16000,
+          "eligible": 836,
+          "changed": 836,
+          "first_change": 37,
+          "R_history_sha256": "9d4a61b40622d394ea8d59a58fe6a1ffc13bdbb6f2dd2a3e04130e2e0db6daba",
+          "phrase_positions": 52
+        }
+      },
+      {
+        "train_index": 4432,
+        "gold": "340",
+        "answer": "200",
+        "correct": false,
+        "total_tokens": 3691,
+        "thinking_tokens": 3370,
+        "capped": false,
+        "events": {
+          "tokens": 3691,
+          "eligible": 102,
+          "changed": 102,
+          "first_change": 101,
+          "R_history_sha256": "e13025af9ba0d6e7cea53fbf7a6731bfc7cbf87a674db15f3f109f4ade3a2acb",
+          "phrase_positions": 16
+        }
+      },
+      {
+        "train_index": 3497,
+        "gold": "-\\frac{\\sqrt{3}}{3}",
+        "answer": "-\\dfrac{\\sqrt{3}}{3}",
+        "correct": true,
+        "total_tokens": 1757,
+        "thinking_tokens": 1425,
+        "capped": false,
+        "events": {
+          "tokens": 1757,
+          "eligible": 26,
+          "changed": 26,
+          "first_change": 74,
+          "R_history_sha256": "6b33bf636bb0d15d7372a0ec17372f8a173e0d24931e77b82b17c9283aaba3a2",
+          "phrase_positions": 2
+        }
+      },
+      {
+        "train_index": 1483,
+        "gold": "\\frac{5}{2}",
+        "answer": "\\dfrac{5}{2}",
+        "correct": true,
+        "total_tokens": 4373,
+        "thinking_tokens": 3960,
+        "capped": false,
+        "events": {
+          "tokens": 4373,
+          "eligible": 83,
+          "changed": 83,
+          "first_change": 67,
+          "R_history_sha256": "40c268c09bb0adb6a71d8dbf5d9ba010422e6d5453fa2127ab88526c026de2aa",
+          "phrase_positions": 6
+        }
+      },
+      {
+        "train_index": 229,
+        "gold": "8",
+        "answer": "9",
+        "correct": false,
+        "total_tokens": 4208,
+        "thinking_tokens": 3877,
+        "capped": false,
+        "events": {
+          "tokens": 4208,
+          "eligible": 164,
+          "changed": 164,
+          "first_change": 66,
+          "R_history_sha256": "07d433a9bbf8843e006913566eee394eaa8939f8aba154146a873ecefbd1bfb7",
+          "phrase_positions": 14
+        }
+      }
+    ]
+  },
+  "startup_seconds": 29.91970030963421,
+  "wall_seconds": 525.4463085830212,
+  "grading_seconds": 0.08440938591957092,
+  "timing_limit": "Generation includes shared control instrumentation and output polling. No isolated lexical-kernel timing or saturation claim.",
+  "scope": "Exposed8 engineering questions, seed42. Not independent confirmation, model-size generality or interaction evidence. No confidence interval on this selected sample.",
+  "decision": "Stop fixed phrase candidate; no retuning on8 and no full benchmark promotion",
+  "sha256": {
+    "/root/autodl-tmp/projects/phrase_engineering_20260917/selected_grading_data.jsonl": "08e672d9bb084e395bfd4c9d7a5c6537780feb9f50b90add71ebaba23ab10785",
+    "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917/sources/ReBalance/utils/parser.py": "8d04ceb93e9ef50d61157fd1c8826a5cbf8d7f64cda85459f1166e19d8784208",
+    "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917/sources/ReBalance/utils/grader.py": "0338f6549f2cb98806473e746baf40b00d9c5bd21a69bc7de0008e4ad4c8d768",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/phrase_engineering_20260917/phrase8_pair_run1_20260917/plan.json": "4f8142d1afea45244f06337d4e22037e74951e11b6a49d30195cc00afb7ac204",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/phrase_engineering_20260917/phrase8_pair_run1_20260917/RC14/result.json": "48d9e1daadac8afe3c4d01bfa31466f7b8e671c4ce9a58e458f433b76a1548df",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/phrase_engineering_20260917/phrase8_pair_run1_20260917/RC14_but_wait/result.json": "a6c18027aace16c6987dfad6e33e12374bdeab2a0326428d8c2be3496f8ce29c"
+  }
+}

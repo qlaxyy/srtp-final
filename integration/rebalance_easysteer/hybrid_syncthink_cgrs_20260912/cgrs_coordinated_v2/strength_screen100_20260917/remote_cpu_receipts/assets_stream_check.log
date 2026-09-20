@@ -1,0 +1,17 @@
+Start streaming asset/source checks
+Assets verified
+Traceback (most recent call last):
+  File "/root/autodl-tmp/strength_screen_assets_stream_cpu.py", line 35, in <module>
+    r=subprocess.run([sys.executable,str(base/test)],capture_output=True,text=True,timeout=60);results[test]=dict(returncode=r.returncode,stdout=r.stdout,stderr=r.stderr);assert r.returncode==0,test
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/root/autodl-tmp/venvs/easysteer-vllm026/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['/root/autodl-tmp/venvs/easysteer-vllm026/bin/python', '/root/autodl-tmp/projects/strength_engineering_15536_20260916/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/test_native.py']' timed out after 60 seconds

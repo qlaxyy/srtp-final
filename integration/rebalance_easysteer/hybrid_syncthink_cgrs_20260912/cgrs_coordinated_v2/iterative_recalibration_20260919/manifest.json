@@ -1,0 +1,29 @@
+{
+  "files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    ".gitignore": "6620bbce47ed0d32a6639dedb7b220a076c7dcd365b2c1fdabfdaa18262f8c17",
+    "assets.json": "a97a8715284c9d2b5cbf3c70e4b327afcf69e4ea127cb96f6a2c44029b2380d2",
+    "common.py": "01d400fdc50733c000b7915f1fa18b49e190da00a2d4359e0b42b8eded3260de",
+    "generate.py": "b604ff349b9b682abf94ff791a4609f6d78df1f4d260611584f2e6bed3119c95",
+    "opening.npz": "eec19d87a37332051aaaf192bcfe7f5024bc98ec61a31292d0c68932edf569ed",
+    "plan.json": "0274017c53c7cec5bf07629c73703470ff65aacfaab384bbd4934f97249d6963",
+    "prepare.py": "09b720ca62c7d283ccc0aed9a9243d24095877ca5cc6a11ce37e3257ca678a35",
+    "PROTOCOL.md": "04b042772432fde8d0b6dbdf6f72d74296e1f1b0ee434a9192b08c667df8b2dd",
+    "recalibrate.py": "b62c998a24116925f0be49d6abf9b43731ebe54b2607100187fe8d38ac2883eb",
+    "registry.json": "31a4e47545f28a9bab1de867f7539982eebb2d7385280c18469609fc80a04b0d",
+    "rows.json": "bf8f4e7b039113bbd15d6a14c2f0bb7d8f7777b48a581f1ecdbf8e2faa635739",
+    "runtime_hashes.json": "d9750a033a676dde138872cc3884471bce62a2791ddc22a3b74fc6c697c4e843",
+    "saved_l27.json": "7df06adaf4acecd5f9d356cba2cabaef8028699efa85bea8450729bdfb5f950b"
+  },
+  "repo_files": {
+    "integration/rebalance_easysteer/scripts/calibrate_auto.py": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e",
+    "integration/rebalance_easysteer/scripts/calibrate_own_vector.py": "092d36b3c7dae29825f1bf4ef88fd595b3c9a4f3395c422fbd288955f2a0b5f7",
+    "sources/ReBalance/hidden_analysis_auto.py": "571853887dec54c13e80a2681ec3b09cf4a338f896210066eb01ddc79d7eb641",
+    "sources/EasySteer/vllm-steer/vllm/steer_vectors/rebalance.py": "04eba2afa416e76371576117d2c78620ca71f075d627318651a37c8a1400b109",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py": "77f7ad62f37ac68341755e12037f1b95293b6f02133d17170f95c57810e52390",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/label_alignment_adapter.py": "861df9c4d85b5457810aedaaf818dea7551945269dc78dfdff3adfa4ebcbf290",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/policy.py": "40462f53d50413d49a63a0662efa07ebce676da3341a9e4483fc4ad335321d20",
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/lexicon_automaton.py": "cf038999caa36706173abd12340664894ea5a0bcd08a9ef3dc660562beb7b41d"
+  },
+  "base_commit": "45f0334857d5f2bc6555eedfa845fa00cecc5bbd"
+}

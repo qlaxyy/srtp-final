@@ -1,0 +1,9 @@
+{
+  "source_sha256": {
+    "sources\\ReBalance\\Data\\Math_Train\\test.jsonl": "535154c2836c92dc2df7e57a817e63eee67370fcd513004fc7b887924ff56270",
+    "sources\\ReBalance\\Data\\Math_Math500\\test.jsonl": "100fce760278f90091a30779ca998a7feba602e8e60de1fa4f99d5a244bdccf9",
+    "sources\\ReBalance\\Data\\Math_GSM8K\\test.jsonl": "e978da3bb40e8b614736313c91455191f29d67896a1fae721540a081fd869708"
+  },
+  "hits": [],
+  "scope": "Entire local MATH training pool plus frozen MATH500 and GSM8K; exact normalized question match only"
+}

@@ -1,0 +1,30 @@
+{
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH-500",
+  "rows_per_case": 500,
+  "cases": [
+    "R",
+    "L27"
+  ],
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "seed": 42,
+  "max_tokens": 16000,
+  "max_num_seqs": 256,
+  "max_num_batched_tokens": 32768,
+  "gpu_memory_utilization": 0.9,
+  "steer_graph_mode": "in_graph",
+  "async_scheduling": true,
+  "reference": "Archived matching q75 recalibration results; frozen R/L27 secondary references",
+  "only_change": "confidence upper quantile .75 to .90 for label and curve; original base replay states and selected layers",
+  "gate": "Both total/thinking token means decrease versus matched q75; accuracy point loss <=2pp; caps do not increase; report paired uncertainty",
+  "status": "Exposed exploratory MATH500, not independent confirmation",
+  "process_limit_seconds_per_case": 1800,
+  "stop": "Preserve partial outputs on any error or timeout; no automatic retry or expansion",
+  "estimated_generation_minutes": [
+    15,
+    25
+  ],
+  "new_calibration_answers": 0,
+  "new_calibration_forwards": 0
+}

@@ -1,0 +1,30 @@
+{
+  "status": "Completed assistant qualitative audit; no independent second annotator",
+  "scope": "12 fixed source-balanced questions, one matched step pair each; target plus neighboring steps. Does not establish population prevalence or causal dispensability.",
+  "counts": {"same_subproblem": 3, "same_stage_different_subproblem": 3, "different_stage": 6},
+  "items": [
+    {"question": 349, "label": "same_stage_different_subproblem", "evidence": "长侧用分配律重新展开已得到结果的乘积；短侧开始代入x=1核验。均在检查，但具体操作不同。", "redundancy": "长侧邻接上一步已用FOIL得到同一展开式，目标步骤重复推导；短侧也在检查，不能称无反思高效端点。"},
+    {"question": 55, "label": "different_stage", "evidence": "长侧重新列出y=7与圆方程，短侧已得到x=±√51。", "redundancy": "局部上下文不足以证明长侧重列条件可以安全删除；两端不是同一代数操作。"},
+    {"question": 127, "label": "different_stage", "evidence": "长侧依次排除一个骰子为3、2、1的情况，短侧已计算1/216。", "redundancy": "长侧在邻接步骤已说明一个骰子小于6时其余两骰不够，后续逐项排除有重复性；短侧下一步仍返回检查，并出现局部表述错误。"},
+    {"question": 301, "label": "different_stage", "evidence": "长侧提出用拉格朗日乘子证明最大值，短侧尝试a=b=1/4,c=1/2的数值情形。", "redundancy": "数值试验和一般证明不能互相替代；不能将长侧证明尝试标成无用。"},
+    {"question": 167, "label": "different_stage", "evidence": "长侧把27/396约分到3/44，短侧计算计数组件中的8!。", "redundancy": "约分和计算阶乘都是可能必要的步骤，置信度相近不足以提供目标状态。"},
+    {"question": 273, "label": "same_stage_different_subproblem", "evidence": "长侧准备代入对称行列式公式(c-d)^2(c+2d)，短侧汇总按行展开的各项。", "redundancy": "同属行列式计算但状态承担的操作不同；两个目标段落本身都是连接语，必须带邻接公式理解。"},
+    {"question": 185, "label": "same_stage_different_subproblem", "evidence": "长侧把x=-3代入两个分段并错误地期待相等；短侧把题目x=-7代入不适用分段，同时明确结果不适用。", "redundancy": "长侧出现与目标f(-7)无关的额外检查和局部混淆；短侧同样不是纯必要计算，不能直接作为理想端点。"},
+    {"question": 215, "label": "same_subproblem", "evidence": "长侧u²+3uv=451和短侧u(u+3v)=451是同一约束的相邻等价形式。", "redundancy": "内容可对齐，但单个步骤不显示冗余或效率差异，可能只是段落拆分不同。"},
+    {"question": 105, "label": "different_stage", "evidence": "长侧准备计算二次方程判别式，短侧仍在把-110系数乘18消去分母。", "redundancy": "目标只要求两根均值，计算判别式有潜在额外成本，但此配对未对齐同一操作，也未验证省略的生成效果。"},
+    {"question": 481, "label": "different_stage", "evidence": "长侧说明把100移到等号右边，短侧已经从标准圆方程读出圆心和半径。", "redundancy": "两端是相邻但不同的推导阶段；仅凭轨迹长度不能将配方移项当成冗余。"},
+    {"question": 360, "label": "same_subproblem", "evidence": "两侧都将x-2y=5整理为y=x/2-5/2；短侧一个段落覆盖长侧多个段落。", "redundancy": "两侧都在用斜截式确认此前答案，区别包含段落粒度，而不是一侧过思考、一侧完全高效。"},
+    {"question": 338, "label": "same_subproblem", "evidence": "两侧都总结多个方法得到64并表达确认；长侧列举的方法更多。", "redundancy": "长侧此前连对数法也使用，存在额外核验；两端本身都只是信心总结，方向可能学习措辞而非具体推导。"}
+  ],
+  "decision": "Reject confidence/relative-position matching as sufficient semantic pairing for new vector extraction. Retain the matched set only as a diagnostic artifact.",
+  "next_design": {
+    "scope": "Training pairs only; both answers correct is a parent filter, not a step label.",
+    "unit": "A contiguous span completing one intermediate mathematical operation, with surrounding formulas; not blindly one blank-line paragraph.",
+    "positive_evidence": "A repeated derivation/check after the same intermediate result is already established, with the earlier occurrence explicitly located.",
+    "comparison": "Align equivalent subproblem/result and inspect first occurrence versus repeated occurrence; short-answer role is a reference, not automatic efficient label.",
+    "exclude": ["different methods without a shared intermediate task", "necessary correction after a local mistake", "mere formula-formatting differences", "metacognitive summary only", "ambiguous repetition"],
+    "weighting": "Equal question weights; audit long-U and long-L27 source strata separately.",
+    "controller": "No new dynamic-function fit at this diagnostic stage. Future vector-only evaluation must retain frozen layer, controller and L27 suppression and explicitly control vector norm.",
+    "gpu_status": "Not ready: no adequately audited span pairs or new deployable vector. No GPU or benchmark started."
+  }
+}

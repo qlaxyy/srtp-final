@@ -1,0 +1,161 @@
+{
+  "results": [
+    {
+      "train_index": 5353,
+      "steps": 16,
+      "positions_exact": true,
+      "lengths_exact": true,
+      "max_fp32_vs_fp64_score_error": 3.918133433256088e-07,
+      "max_torch_vs_numpy_fp64_logit_error": 0.0,
+      "feature_projection_identity_residual": 0.0,
+      "max_partition_score_difference_fp64": 0.012001457019576334,
+      "threshold_side_changes": 0,
+      "trigger_changes": 0,
+      "min_observed_distance_to_half": 0.10862395386725332,
+      "max_difference": {
+        "position": 787,
+        "score256": 0.6086239538672533,
+        "score128": 0.6206254108868297,
+        "logit256": 0.44153174304449294,
+        "logit128": 0.49220361810182567,
+        "delta_logit": -0.05067187505733273,
+        "feature_relative_l2": 0.0071497679873228845,
+        "feature_cosine": 0.9999744442022129,
+        "sum_absolute_coordinate_contributions": 2.0810997758410394,
+        "top_coordinates": [
+          {
+            "index": 570,
+            "contribution": 0.020078534726053476
+          },
+          {
+            "index": 1423,
+            "contribution": 0.018255905248224735
+          },
+          {
+            "index": 1378,
+            "contribution": -0.01763401133939624
+          },
+          {
+            "index": 694,
+            "contribution": 0.0176149548497051
+          },
+          {
+            "index": 872,
+            "contribution": -0.011569804511964321
+          },
+          {
+            "index": 683,
+            "contribution": 0.010411066003143787
+          },
+          {
+            "index": 219,
+            "contribution": -0.01017717644572258
+          },
+          {
+            "index": 1348,
+            "contribution": -0.009589237393811345
+          },
+          {
+            "index": 547,
+            "contribution": -0.009182317182421684
+          },
+          {
+            "index": 360,
+            "contribution": -0.008803770877420902
+          }
+        ]
+      },
+      "limitations": "Same-side values on these saved steps do not bound unseen perturbations or establish semantic correctness."
+    },
+    {
+      "train_index": 26,
+      "steps": 71,
+      "positions_exact": true,
+      "lengths_exact": true,
+      "max_fp32_vs_fp64_score_error": 1.1806307264605742e-06,
+      "max_torch_vs_numpy_fp64_logit_error": 0.0,
+      "feature_projection_identity_residual": 0.0,
+      "max_partition_score_difference_fp64": 0.03374876003781091,
+      "threshold_side_changes": 0,
+      "trigger_changes": 0,
+      "min_observed_distance_to_half": 0.01548651640344395,
+      "max_difference": {
+        "position": 1352,
+        "score256": 0.38404670118855844,
+        "score128": 0.3502979411507475,
+        "logit256": -0.47240698417029847,
+        "logit128": -0.617729834006937,
+        "delta_logit": 0.14532284983663857,
+        "feature_relative_l2": 0.013004866180160732,
+        "feature_cosine": 0.999915477028866,
+        "sum_absolute_coordinate_contributions": 3.575726983270833,
+        "top_coordinates": [
+          {
+            "index": 1281,
+            "contribution": 0.02772986888885498
+          },
+          {
+            "index": 694,
+            "contribution": -0.02466093678958714
+          },
+          {
+            "index": 517,
+            "contribution": 0.020622692652978003
+          },
+          {
+            "index": 348,
+            "contribution": 0.020124354399740696
+          },
+          {
+            "index": 1078,
+            "contribution": 0.019962260965257883
+          },
+          {
+            "index": 1348,
+            "contribution": -0.01917847478762269
+          },
+          {
+            "index": 1125,
+            "contribution": 0.017916422802954912
+          },
+          {
+            "index": 743,
+            "contribution": 0.017161980271339417
+          },
+          {
+            "index": 284,
+            "contribution": -0.017115899361670017
+          },
+          {
+            "index": 1023,
+            "contribution": 0.016370512079447508
+          }
+        ]
+      },
+      "limitations": "Same-side values on these saved steps do not bound unseen perturbations or establish semantic correctness."
+    }
+  ],
+  "assets": [
+    {
+      "path": ".codex_work\\wsc_probe_diagnostic_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_probe_diagnostic_20260917\\wsc_unsteered_prefix8_partition2_run1_20260917\\5353_chunk256\\features.npz",
+      "sha256": "e6b3ff6891944c3b88a43f19ba3e1291e0a8abeb8b8e7a9a79c1db0f8a1dc0d3"
+    },
+    {
+      "path": ".codex_work\\wsc_probe_diagnostic_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_probe_diagnostic_20260917\\wsc_unsteered_prefix8_partition2_run1_20260917\\5353_chunk128\\features.npz",
+      "sha256": "8c71f09e849ab8dd19c316ca31773f96d050b2491f4d3bc98c88f93699cb6b66"
+    },
+    {
+      "path": ".codex_work\\wsc_probe_diagnostic_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_probe_diagnostic_20260917\\wsc_unsteered_prefix8_partition2_run1_20260917\\26_chunk256\\features.npz",
+      "sha256": "de6d02a4292c719c2b420a66ea6043e2361971d6b34affe6237b8eecf79e0fed"
+    },
+    {
+      "path": ".codex_work\\wsc_probe_diagnostic_complete_20260917\\results\\easysteer\\hybrid_syncthink_cgrs_20260912\\wsc_probe_diagnostic_20260917\\wsc_unsteered_prefix8_partition2_run1_20260917\\26_chunk128\\features.npz",
+      "sha256": "ad36bef956c212b0fefcbe6b5e73578aab99b6c0cb9277fd067349ef5adc62d6"
+    }
+  ],
+  "probe_sha256": "a2c0892a807f7bf1c4d8d954fe2262f0c87b8a91e45da7c260711bba6e501feb",
+  "gpu_used": false,
+  "llm_forwards": 0,
+  "old_gate_status": "failed_unchanged",
+  "conclusion": "Saved hidden-state differences explain the score drift through the fixed linear probe; FP64 scoring alone does not repair it. This cannot locate the upstream numerical source or establish classifier quality."
+}

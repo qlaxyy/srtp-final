@@ -1,0 +1,13 @@
+{
+  "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913",
+  "phase": "screen",
+  "dataset": "math",
+  "rows_sha256": "437a51a7b55fc02016b5a3afeb652cf666fd6c672335d8267b15a5ef6945b32c",
+  "data_reconciled": true,
+  "gpu_authorized": true,
+  "authorization_text": "User: 继续，有问题自己解决，直到跑出结果. Fixed fresh MATH64 x R/C/RC, no full-test tuning or automatic expansion.",
+  "runtime_commit": "9a1124e8587b0442e8ef0eb54ec607d50c9e7c0f",
+  "local_reconciliation_sha256": "6ad5d931561c50b0eecd4b70ffa58624df1d8d68ad21668e92225906a910ce64",
+  "remote_reconciliation_sha256": "e9bc9e6152a04dc5c42e73307f80baa79f5f37ed39e303c6dafc9ef2fa0a909a",
+  "purpose": "candidate_screening_only_not_independent_confirmation"
+}

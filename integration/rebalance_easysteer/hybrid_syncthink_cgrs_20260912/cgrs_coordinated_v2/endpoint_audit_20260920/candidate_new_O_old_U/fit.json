@@ -1,0 +1,29 @@
+{
+  "version": "single-O-update-20260920",
+  "model": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "hidden_state_index": 21,
+  "decoder_output_layer": 20,
+  "parameters": {
+    "q25c": 0.888148010597869,
+    "q75c": 0.9989141310845991,
+    "q25v": 2.1830046484335987e-07,
+    "q75v": 0.0014852457558952,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.002450814632284028
+  },
+  "vector_sha256": "16b013c915da68ede877f4a43c2366f30ed3a2927c2b9b46997fd3e86effeae1",
+  "vector_norm": 76.52787285603401,
+  "calibration_source_sha256": "mixed source endpoints; see provenance.json",
+  "positives": 22038,
+  "negatives": 11309,
+  "selection": {
+    "layer": 21,
+    "selection": "fixed common saved layer"
+  },
+  "method": "Diagnostic raw new native O minus frozen old U; full original curve held fixed; NOT refitted or geometrically recalibrated.",
+  "endpoint_mean_source_sha256": "77b03ea5408d4aea04ae611a97eb9fb47aae4eb326d5bedb3f1a3b3a8ca511ab",
+  "curve_source_sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+}

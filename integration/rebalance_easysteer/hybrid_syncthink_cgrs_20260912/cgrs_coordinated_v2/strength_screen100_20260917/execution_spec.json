@@ -1,0 +1,7 @@
+{
+  "generation_after_authorization": "PATH=/root/autodl-tmp/venvs/easysteer-vllm026/bin:$PATH timeout 2100s /root/autodl-tmp/venvs/easysteer-vllm026/bin/python -u integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow_runner.py --plan integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/strength_screen100_20260917/plan.json --receipt /absolute/authorized_receipt.json --phase screen --engineering-gate integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/strength_screen100_20260917/engineering_gate.json --output-root /root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912 --gpu-authorized",
+  "grading_after_complete": "timeout 900s /root/autodl-tmp/venvs/rebalance/bin/python integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/narrow_grade.py --output /root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/strength_1p5b_mathtrain100x4_seed42_run1_20260917",
+  "grading_resume": "Only append --resume after verifying saved label text and question hashes; never regenerate because grading stopped.",
+  "output_policy": "Unique run_id, exclusive creation; all errors,caps,partial outputs and source/asset identity retained.",
+  "bootstrap": "20000 aligned resamples of already generated questions; no additional model calls or generation seeds."
+}

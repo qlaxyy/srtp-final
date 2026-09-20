@@ -1,0 +1,9 @@
+{
+  "blocks_sha256": "0916da6caaa79ca14f7cd9948290857357318d1472cf67f71def3bf640d905ba",
+  "max_absolute_confidence_gap": 0.01,
+  "max_absolute_end_token_gap": 128,
+  "match": "For each first/repeated block endpoint, select same-question stored step not marked exact repeat >=16 tokens, excluding all six target block steps. Require >=16 tokens, within thinking, confidence gap <=0.01 and position gap <=128. Minimize normalized squared gaps; tie by step index. Two distinct controls in temporal order. No replacement of failed pairs or tolerance search.",
+  "interpretation": "Nonrepeat is a lexical negative control, not proven valid reasoning. Position/confidence balance does not remove all confounding.",
+  "continuation": "Fewer than 30 matched parent questions: do not fit or export a direction. At least 30 allows diagnostic geometry only, not automatic GPU promotion.",
+  "scope": "All 145 existing exposed calibration events; no new split, benchmark selection, forward or generation."
+}

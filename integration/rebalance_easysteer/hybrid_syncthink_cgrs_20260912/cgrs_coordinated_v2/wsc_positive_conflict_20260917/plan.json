@@ -1,0 +1,14 @@
+{
+  "phase": "CPU mechanism feasibility only; no new generation",
+  "hypothesis": "An existing WSC alarm may overlap with future positive ReBalance injection, motivating one local cancellation rather than adding correction text.",
+  "not_revival": "Historical exact-repeat positive-cancellation failures remain. A different semantic signal is a new hypothesis, not permission to relabel the old method as successful.",
+  "data": "Only the eight previously exposed original RC14 native long trajectories; do not select successful or incorrect rows.",
+  "signal": "Original pinned WSC score >0.5 and long2/short5 one-shot trigger, unchanged. Activate after observing the triggering processed boundary. Disarm permanently at the first subsequent boundary score <=0.5.",
+  "timing": "The current boundary has already passed the ReBalance layer before its WSC state is available. It cannot be edited retroactively. Only a subsequent processed double-newline while the prior alarm remains active is an actionable site.",
+  "action_hypothesis": "Cancel at most one positive injection per request at the first such future boundary; keep the original direction, negative branch, confidence updates, RC14 and total budget unchanged. No live implementation is proposed until sites exist.",
+  "positive_definition": "coefficient > 0 exactly; no fitted epsilon",
+  "CPU_gate": "At least two distinct exposed requests must have a causally available positive site. This is only an engineering-coverage gate, not efficacy evidence or a statistical threshold. Failure stops this candidate without widening the alarm or lowering the gate.",
+  "report": ["all scored boundary coefficient signs", "alarm-time signs", "future eligible sites and first usable position", "current-boundary noncausal sites separately", "no counterfactual token-savings estimate"],
+  "additional_audit": "Check R-history prefixes using absolute prompt plus generated positions. The stored history is indexed by absolute token position, whereas control arrays are indexed by generated-call position.",
+  "GPU": "No SSH, new model forward or generation required for this audit. A pass alone does not authorize interpreting the 8 rows as independent confirmation."
+}

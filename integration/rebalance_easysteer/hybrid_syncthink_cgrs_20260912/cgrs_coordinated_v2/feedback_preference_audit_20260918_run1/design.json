@@ -1,0 +1,58 @@
+{
+  "status": "Research specification and CPU objective primitives only; no trained vector or GPU-ready runner",
+  "decision": "Continue outcome-based self-feedback; stop another unsupervised endpoint-mean replacement sweep",
+  "name": "Correctness-first self-preference residual steering",
+  "provenance": "Our adaptation inspired by Lean-STaR outcome filtering and BiPO Eq.2, not an official reproduction of either",
+  "data": {
+    "reuse": "Original 500 U/L27 saved answers only; do not regenerate original U calibration",
+    "compression": "229 of the 231 previous CC pairs: natural completion, thinking gap >=128 and >=10% of longer, chosen improves BOTH thinking and total length; exclude q48/q390 from compression preference, retain in audit",
+    "correctness_guard": "5 reviewed long-correct/short-wrong pairs. Prefer correctness over length. They are NOT verified causal underthinking examples and cannot certify a 2pp loss bound",
+    "balance": "One pair per question, not one per paragraph. Report source-stratified metrics: L27-short versus U-short. Do not assume intervention output is always preferred",
+    "new_filters": "No confidence/variance filter in preference labels. Historical selection rules and results unchanged",
+    "sequence": "Preserve original prompt IDs, entire thinking, closing-think token, entire final answer, terminal 151643 exactly once. All audited 472 responses end with 151643. No truncation into a different preference",
+    "split": "No split frozen in this turn. Register hashes and check existing data uses before locking question-level development fit/check allocation. Existing 500 already explored; a future check partition here is not independent confirmation",
+    "independence": "MATH500/GSM8K are already repeatedly exposed. Do not select epochs, beta, layers, or strengths on them"
+  },
+  "intervention": {
+    "equation": "h_t_new = h_t + alpha_t * d0 + max(-alpha_t,0) * delta",
+    "base": "Frozen L27 direction d0, original layer20 decoder output / hidden-state index21, original fit and L27 logit suppression",
+    "learned": "Only delta, 1536 float32 parameters, zero initialization. Freeze model weights and d0",
+    "meaning": "delta is an outcome-trained correction to the negative branch, not an overthinking-minus-underthinking class centroid",
+    "positive_branch": "Unchanged; no BiPO reverse-direction objective that deliberately promotes the inferior response",
+    "initial_strength_limit": "Proposed fixed trust radius norm(delta)<=0.1*norm(d0), to lock before model fitting. Not evidence of optimality; no post-benchmark strength sweep",
+    "switch": "Independent default-off hook in B adapter. delta=0 and off must reproduce original outputs AND control histories under identical scheduling",
+    "reset": "Per-request coefficient, completed-step confidence, variance and token/phrase histories reset with original lifecycle; no shared residual state across requests",
+    "timing": "alpha_t is based on the previous COMPLETED step, not confidence computed from the target step. Follow actual runtime RAW full-vocab confidence -> step/controller update -> reflection suppression order; verify exact token boundary on real trace before implementation acceptance"
+  },
+  "learning": {
+    "reference": "Frozen L27 policy, not the unsteered base model. Historical U/L27 generation log-probs are not interchangeable with reference scores",
+    "score": "Sum full response causal log-probabilities under teacher forcing. Prompt/pad excluded, answer and terminal included. Use RAW-temperature1 distribution after the deployed reflection logit modification, with no top-p truncation; same definition for reference and candidate",
+    "objective": "-log sigmoid(beta * ((logp_candidate(chosen)-logp_reference(chosen))-(logp_candidate(rejected)-logp_reference(rejected)))) ; beta=0.1 proposed from BiPO, lock before fitting",
+    "implementation_primitive": "feedback_preference_objective.py implements only aligned token scoring, pair loss, residual mask; it DOES NOT implement the policy, sequence replay, batching, fitting or deployment",
+    "grouping": "Compression and correctness guards must be reported separately. Never report pooled preference wins dominated by CC as evidence of preserving correctness",
+    "anti_degeneracy": "Monitor chosen response mean logp as well as margin: margin can improve by lowering both responses. Report raw sum and per-token diagnostics; never equate offline preference accuracy with generation accuracy",
+    "controller_gradients": "No gradient through confidence thresholds or discrete history. Recompute traces on current teacher-forced model for behavior audit. If frozen reference traces are used for optimization, explicitly label a fixed-history surrogate and check deployment mismatch before generation",
+    "memory": "1536 learned parameters does NOT mean negligible training memory: backprop still traverses upper model layers and all supervised tokens. Do not silently truncate or detach cached history to fit memory; stop and redesign if necessary"
+  },
+  "next_checks": [
+    "Implement read-only full-sequence replay using original controller source/fit hashes and reference L27 suppression; confirm zero residual off/shadow parity, causal masks, closing-think and final-answer handling",
+    "Only after local preparation, announce 1.5B training-data likelihood/gradient probe: fixed 8 CC parents (4 per chosen source, smallest question hashes among eligible), 16 saved responses, no free generation and no benchmark; include actual token count, asset hashes, resource budget and stop conditions",
+    "Check gradient finiteness and finite differences with identical frozen histories; separately measure current versus frozen controller traces. All 5 correctness guards remain inspection data, not independent statistics",
+    "Lock one development fit protocol after probe resource measurement and data reconciliation. Require held-out-parent likelihood benefit across both sources and no observed guard degradation before a generation candidate",
+    "A later single full MATH500 generation can measure exposed-benchmark exploratory compression only. Need both mean token types down, caps not up, observed accuracy loss<=2pp against L27 and R; report paired intervals/flips; no automatic retune or GSM/7B expansion"
+  ],
+  "stop_conditions": [
+    "Zero residual changes baseline behavior/control history",
+    "Cannot preserve full response/final-answer supervision within available resource limit",
+    "Signal appears only on the dominant L27-chosen source or only by lowering both response probabilities",
+    "Any invalid/NaN gradient, cache/control mismatch, or unsupported masking semantics",
+    "Development surrogate improves but subsequent actual generation fails fixed compression/accuracy criteria"
+  ],
+  "theory_limits": [
+    "Two correct different-length answers support a pairwise outcome preference, not labels for all internal steps",
+    "A wrong short answer does not establish that additional thinking would repair it",
+    "Mean hidden-state difference is observational; adding it need not improve expected task reward",
+    "Same prefix plus same deterministic model/controller has the same state before divergence; no meaningful contrast exists there without a different action/context",
+    "Preference training supplies an explicit output objective, not a guarantee of global convergence, compression, accuracy preservation or self-improvement across iterations"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "execution_commit": "ae82609",
+  "deployment_sha256": "930eb9c5c12a1fe9a3db868aa1052f66593402b2d7b52e8ff99346969b1c2740",
+  "release_sha256": "1a5e5285622f6da23b85218b1a1220bde406dedaef94adbdcc84e3e35afdfd2d",
+  "status": "Engineering passed, full MATH500 running; no efficacy conclusion yet",
+  "output": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/harmonic_math500_20260918_run1_attempt2",
+  "runtime_root": "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917",
+  "gpu": "RTX 4090 D 24564 MiB, idle before launch",
+  "first_attempt": "harmonic_math500_20260918_run1 stopped before generation: ninja missing from launcher PATH, 25.962091729s. Existing executable verified at venv/bin/ninja; attempt2 only prepends existing venv/bin to process PATH. No install/environment mutation or candidate change. Failure and log preserved.",
+  "authorization": "User requested continued literature exploration and GPU evaluation; one new seed42 full500 arm, frozen controls reused."
+}

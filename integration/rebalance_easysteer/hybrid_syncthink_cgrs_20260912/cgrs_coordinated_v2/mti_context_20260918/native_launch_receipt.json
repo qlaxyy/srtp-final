@@ -1,0 +1,14 @@
+{
+  "execution_commit": "550c165",
+  "release_sha256": "886bf3feb45d688609ec2eb649aba23d45c7f94ab505c0ee556413a088897e56",
+  "deployment_sha256": "40c441994008503fcfed62ba773224aa88a32f7256156847ae990d1395459598",
+  "runtime_root": "/root/autodl-tmp/projects/hybrid_wsc_native_long_20260917",
+  "output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/mti_native_20260918_run3/full",
+  "status": "engineering passed, full500 running; not an efficacy result",
+  "authorization": "User authorizes GPU and direct full benchmark; no new screening subsets",
+  "prior_failures": [
+    "run1 launcher PATH missing nvidia-smi before model loading; retry retained separate log",
+    "run1 table lookup for reference arm failed before generation",
+    "run2 old 5D cache assumption rejected; off identity already passed; corrected to pinned 4D packed KV schema, no change to gate/parameters"
+  ]
+}

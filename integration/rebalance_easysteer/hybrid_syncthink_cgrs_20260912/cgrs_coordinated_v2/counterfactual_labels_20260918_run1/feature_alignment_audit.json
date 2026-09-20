@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "train_index": 647,
+      "saved_prefix_length": 80,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 1837,
+      "saved_prefix_length": 66,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 4972,
+      "saved_prefix_length": 92,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 1441,
+      "saved_prefix_length": 91,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 4432,
+      "saved_prefix_length": 101,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 3497,
+      "saved_prefix_length": 75,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 1483,
+      "saved_prefix_length": 67,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    },
+    {
+      "train_index": 229,
+      "saved_prefix_length": 66,
+      "in_original_calibration": false,
+      "common_generated_prefix_tokens": null,
+      "exact_generated_prefix": false
+    }
+  ],
+  "decision": "Only identical prefixes with identical intervention history and numerical feature capture can share features; token matching alone is insufficient. Never use unrelated original calibration rows."
+}

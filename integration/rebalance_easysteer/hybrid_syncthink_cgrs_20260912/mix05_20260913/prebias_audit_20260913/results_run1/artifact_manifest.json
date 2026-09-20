@@ -1,0 +1,19 @@
+{
+  "status": "GSM_target_case_explained_with_scope_limits",
+  "harness_commit": "2cf3643e9e75d67aaacf0c4533261e3b353b4d1f",
+  "archive_sha256": "29169d26d97dd57c6b44fc32737a05ba02796293dd069a8c2166f2b44c4755c9",
+  "local_A_HEAD": "c0a3a5a8e7c3b82abad559bf9ac6fdef11e9e986",
+  "local_A_status": "",
+  "frozen_tag_object": "21e366b6d9a76ebb112e24e3e110942ef405bab9",
+  "frozen_tag_target": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "files": {
+    "mix05_20260913/prebias_audit_20260913/results_run1/analysis.json": "a85c3ccf46bff22ee4e9b76afa0f4faa6c97dc0a48bd1a891a79c3eab0f52fb6",
+    "mix05_20260913/prebias_audit_20260913/results_run1/data_usage.json": "bacbbdbc9175a64babf8fccfff74a02c14d7241904a9e4a583418c020096534e",
+    "mix05_20260913/prebias_audit_20260913/results_run1/execution_receipt.json": "764cd1d0ae9e8b8301402cf2e0befee50a536c6e5b5235697925afe63680652b",
+    "mix05_20260913/prebias_audit_20260913/results_run1/per_question.json": "8b71304e43c44293bb0d046a77be8965d6058630fc5666828ea0b26451a06938",
+    "mix05_20260913/prebias_audit_20260913/analyze_trace.py": "b2e8ccb1a2754061dc900c06979f989301d147fd4169152553b8da4399b029b0",
+    "mix05_20260913/prebias_audit_20260913/诊断结果.md": "e103185a7d6ad903348d73051229871a44a0d321c64ea66936718e49033d0e08",
+    "README.md": "1079a23fb2dfd2eae065e2ac6f33d6b2e2814f5607f14837d6db68d76da03007",
+    "data_usage_current.json": "3ef927a5e6094dc4c3d7f25522ff41e4479cd192188ad9272bf9e54e117d4e8a"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "candidate": "RC14 plus one WSC-triggered forward correction cue",
+  "status": "design_only_not_implemented_or_gpu_ready",
+  "origin": "Our adaptation inspired by WSC; not the official rollback implementation",
+  "hypothesis": "An occasional correction cue may shorten inaccurate repetitive reasoning without assuming the current answer is correct. It may instead lengthen reasoning or interrupt necessary correction.",
+  "evidence": "Three of eight exposed long engineering trajectories would trigger and ended with incorrect answers. Triggers include continued attempts to correct; none establishes that stopping is safe. This is not a classifier validation set.",
+  "primary_change": "One fixed cue after the first eligible detector event. Preserve RC14, context and KV; do not rewind, force think-end, adjust thresholds or use reference answers.",
+  "cue_text": "Check the reasoning against the original problem. Correct any concrete mistake, then finish the solution without repeating earlier work.\n\n",
+  "cue_selection": "One generic preregistered proposal; no prompt sweep on the eight exposed cases. Token IDs and tokenizer hash must be frozen before active generation.",
+  "detector": {
+    "probe_sha256": "a2c0892a807f7bf1c4d8d954fe2262f0c87b8a91e45da7c260711bba6e501feb",
+    "native_stream": "BF16 decoder27 input, corresponding to HF hidden_states[27]; no historical replay",
+    "score_threshold": 0.5,
+    "threshold_comparison": ">",
+    "boundary": "Pinned double-newline token vocabulary, 565 IDs",
+    "long_chunk_min_tokens": 10,
+    "long_streak": 2,
+    "short_streak": 5,
+    "opposite_chunk_class": "reset opposite streak",
+    "max_events_per_request": 1
+  },
+  "execution_order": [
+    "Native forward reads current R state, applies ReBalance, exposes boundary hidden state, and computes original raw maximum probability.",
+    "Score the processed boundary, update detector state, and decide whether to begin the fixed cue before current sampling. No generated-future token is used.",
+    "RC14 applies its unchanged logit penalty. Call the original sampler to preserve its normal invocation and RNG consumption.",
+    "If a cue token is pending, replace the selected token inside an instance-scoped wrapper around Adapter.original_sampler, before Adapter.Sampler reads result.sampled_token_ids.",
+    "Both RC14 accepted-token bookkeeping and native ReBalance observe_sample must consume the final replacement token. Never overwrite outside these updates.",
+    "Keep the native pre-penalty raw maximum probability for R even on forced cue positions; do not set confidence to one. This is an explicit design choice, and forced positions must be marked for interpretation.",
+    "Resume ordinary sampling after the cue; never reset R, RC14 opening/thinking state, or KV. Count the cue in the normal generated-token budget."
+  ],
+  "interfaces": {
+    "new_module_proposal": "wsc_forward_cue.py: instance-local detector and wrapper",
+    "shared_controller_changes": "None proposed. Do not duplicate or patch shared vLLM controller.",
+    "disabled": "Install no hook, wrapper, buffer or RNG call. Preserve original RC14 path.",
+    "reset": "Allocate per fresh request ID/slot; reset on admission; export and clear on finish. Reject reused IDs, preemption, speculation, async, prefix reuse or slot aliasing until separately validated.",
+    "logprobs": "Initial engineering requests must have logprobs disabled; original sampled-token logprobs cannot describe forced cue tokens."
+  },
+  "budget": {
+    "max_total_tokens": 16000,
+    "max_cue_tokens": 64,
+    "insufficient_remaining_budget": "Do not begin cue unless all cue tokens fit; log skipped_budget. Do not reserve or refund extra generation.",
+    "no_extra_model_forward": true,
+    "real_cost": "Cue tokens still require decoding forwards. Report total and thought tokens including cue, cue tokens separately, detector runtime, generation and wall time."
+  },
+  "gates_before_active_gpu": [
+    "Pin exact cue token IDs and verify no think-end, EOS, role or chat-control tokens.",
+    "CPU tests for score/processed-boundary alignment, streaks, one-shot firing, slot reset, budget, and actual replacement token entering both controllers.",
+    "Disabled and shadow modes must preserve accepted tokens and full control history; do not infer equivalence solely from final answers.",
+    "Native fused/batched scorer must match saved-boundary CPU scores and trigger positions at fixed tolerances preregistered before running.",
+    "Fixed small engineering run first; reuse old long baseline only while pre-intervention token/control identity holds. Any batch-induced divergence before a request's intervention invalidates its causal comparison."
+  ],
+  "study_limits": [
+    "No full frozen benchmark is authorized by this spec; no new data split is frozen.",
+    "The eight rows remain exposed engineering data. New development and confirmation require normalized-hash reconciliation.",
+    "Candidate versus RC14 alone can assess incremental value but cannot establish interaction synergy. Mechanism-only and no-intervention controls are required for that claim.",
+    "Accuracy noninferiority target remains minus two percentage points; small samples cannot establish it. Include errors, caps and all failed or partial runs.",
+    "If engineering cannot preserve state and prefix identity, stop. If independent confirmation shows no useful token saving at acceptable accuracy, retain RC14 and reject the cue."
+  ]
+}

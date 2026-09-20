@@ -1,0 +1,20 @@
+{
+  "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+  "torch": "2.11.0+cu129",
+  "vllm_path": "/root/autodl-tmp/projects/hybrid_cgrs_olympiad675_completion128r2_20260913/sources/EasySteer/vllm-steer/vllm/__init__.py",
+  "runtime": {
+    "dtype": "bfloat16",
+    "max_tokens": 16000,
+    "max_model_len": 32768,
+    "max_num_seqs": 128,
+    "max_num_batched_tokens": 16384,
+    "gpu_memory_utilization": 0.94,
+    "async_scheduling": false,
+    "chunked_prefill": true,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.95
+  },
+  "plan_sha256": "9f4100a149214c36830366964519952846c921d7377a474ee19a805df8c5164a",
+  "note": "Sync replay, BF16 unchanged; no new shared controller"
+}

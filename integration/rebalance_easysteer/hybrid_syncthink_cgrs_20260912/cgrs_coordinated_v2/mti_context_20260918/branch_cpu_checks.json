@@ -1,0 +1,12 @@
+{
+  "checks_passed": [
+    "18_block_boundary_and_multiblock_plans",
+    "parent_cache_and_rng_unchanged",
+    "cue_self_attention_matches_full_prefix",
+    "multi_token_cue_not_silently_single_token",
+    "exception_preserves_cache_and_rng",
+    "cache_clock_mismatch_rejected"
+  ],
+  "gpu_used": false,
+  "limit": "Toy single-layer attention; no HF/vLLM or steering equivalence claim"
+}

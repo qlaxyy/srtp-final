@@ -1,0 +1,18 @@
+[
+  {
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "relative_norm_error": 2.0512601395239471e-07,
+    "off_exact": true,
+    "masked_exact": true,
+    "mode_reset": true
+  },
+  {
+    "dtype": "torch.bfloat16",
+    "device": "cpu",
+    "relative_norm_error": 5.738222535001114e-05,
+    "off_exact": true,
+    "masked_exact": true,
+    "mode_reset": true
+  }
+]

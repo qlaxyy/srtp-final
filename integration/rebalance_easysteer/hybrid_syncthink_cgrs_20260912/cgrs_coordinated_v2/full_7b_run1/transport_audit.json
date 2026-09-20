@@ -1,0 +1,14 @@
+{
+  "deployment_client_exit": 255,
+  "deployment_client_error": "client_loop: send disconnect: Connection aborted",
+  "monitor_transient_error": "Connection timed out during banner exchange",
+  "remote_stage_exit_codes": {
+    "engineering": 0,
+    "full": 0,
+    "grade": 0
+  },
+  "generation_restarted": false,
+  "grading_resumed": false,
+  "interpretation": "Detached remote launcher continued despite a local SSH transport disconnect. All 1819 outputs and labels completed, downloaded and hash-audited. Local connection errors are not generation failures or extra generation attempts.",
+  "evidence": "collection_receipt.json; results/batch_status.json; results/summary.json"
+}

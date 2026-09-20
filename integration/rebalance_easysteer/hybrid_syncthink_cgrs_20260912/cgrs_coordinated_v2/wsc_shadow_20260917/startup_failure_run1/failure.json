@@ -1,0 +1,5 @@
+{
+  "error": "1 validation error for VllmConfig\n  Value error, steer_graph_mode='in_graph' requires compiled execution; with enforce_eager or compilation disabled use 'split' (or leave the default 'auto'). [type=value_error, input_value=ArgsKwargs((), {'model_co... 'shutdown_timeout': 0}), input_type=ArgsKwargs]\n    For further information visit https://errors.pydantic.dev/2.13/v/value_error",
+  "completed_arms": [],
+  "wall_seconds": 13.51948133111
+}

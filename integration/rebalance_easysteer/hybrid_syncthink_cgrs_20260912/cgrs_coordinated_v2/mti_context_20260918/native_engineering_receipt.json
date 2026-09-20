@@ -1,0 +1,284 @@
+{
+  "archive_sha256": "ac6251c80d2ff2d98b7a9e46c575df8509798c3a2fd087440fb6508e6961f8f1",
+  "matched_records": [
+    {
+      "train_index": 3241,
+      "prefix_tokens": 255,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.0044977106153965,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 8.058547973632812e-05,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "588504c064a52fdf770976429bba89783ca9ee0fea4b4a0a25e069d366c074b9",
+      "parent_cache_sha_after": "588504c064a52fdf770976429bba89783ca9ee0fea4b4a0a25e069d366c074b9",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.298904225230217,
+        "branch_including_copy": 0.0554426908493042,
+        "full_cue_reference": 0.015728920698165894,
+        "parent_continuation": 0.015460416674613953,
+        "full_continuation_reference": 0.014945834875106812
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 5353,
+      "prefix_tokens": 256,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.007325723767280579,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 0.0020825862884521484,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "fbed3379ebcd7bc1a5cf467f45ba8fcdd4abef63e1a282da89509fcc9fcc8b5f",
+      "parent_cache_sha_after": "fbed3379ebcd7bc1a5cf467f45ba8fcdd4abef63e1a282da89509fcc9fcc8b5f",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.014807447791099548,
+        "branch_including_copy": 0.019344359636306763,
+        "full_cue_reference": 0.02136404812335968,
+        "parent_continuation": 0.014942958950996399,
+        "full_continuation_reference": 0.01478874683380127
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 759,
+      "prefix_tokens": 257,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.004752635955810547,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 3.5762786865234375e-07,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "f1d3f3551b03b2410a430a34b10d8743a733d638c5a7f3371938c4d7542ee264",
+      "parent_cache_sha_after": "f1d3f3551b03b2410a430a34b10d8743a733d638c5a7f3371938c4d7542ee264",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.014917686581611633,
+        "branch_including_copy": 0.0197591632604599,
+        "full_cue_reference": 0.015213966369628906,
+        "parent_continuation": 0.015022218227386475,
+        "full_continuation_reference": 0.014719784259796143
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 7012,
+      "prefix_tokens": 511,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.012515664100646973,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 2.384185791015625e-07,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "f7bfdc83757ad0c49e6c532494848da9dc4aebe3acb7e40e02a9289f430424c3",
+      "parent_cache_sha_after": "f7bfdc83757ad0c49e6c532494848da9dc4aebe3acb7e40e02a9289f430424c3",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.016952484846115112,
+        "branch_including_copy": 0.019222095608711243,
+        "full_cue_reference": 0.03897446393966675,
+        "parent_continuation": 0.015159741044044495,
+        "full_continuation_reference": 0.016772881150245667
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 26,
+      "prefix_tokens": 512,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.0033165812492370605,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 0.0009479522705078125,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "d446259826d7be369e63c17d2cafdc12ef60502b6c81f6272795e4a53945b263",
+      "parent_cache_sha_after": "d446259826d7be369e63c17d2cafdc12ef60502b6c81f6272795e4a53945b263",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.016815394163131714,
+        "branch_including_copy": 0.019300296902656555,
+        "full_cue_reference": 0.019810587167739868,
+        "parent_continuation": 0.015032827854156494,
+        "full_continuation_reference": 0.019612595438957214
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 64,
+      "prefix_tokens": 513,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.00904497504234314,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 0.00022745132446289062,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "bbac4ed38c9b878168664a6d6cbb58f7fc9faacfae4f3cb09f9391166810f429",
+      "parent_cache_sha_after": "bbac4ed38c9b878168664a6d6cbb58f7fc9faacfae4f3cb09f9391166810f429",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.019733533263206482,
+        "branch_including_copy": 0.02135424315929413,
+        "full_cue_reference": 0.019877687096595764,
+        "parent_continuation": 0.015053555369377136,
+        "full_continuation_reference": 0.019657179713249207
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 76,
+      "prefix_tokens": 767,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.005083829164505005,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 2.100139795402356e-08,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "007c4b5240654ed695eb2f4b6aaa33f964c93ae3fd47778343b206814ed43da0",
+      "parent_cache_sha_after": "007c4b5240654ed695eb2f4b6aaa33f964c93ae3fd47778343b206814ed43da0",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.022411689162254333,
+        "branch_including_copy": 0.019765600562095642,
+        "full_cue_reference": 0.027436837553977966,
+        "parent_continuation": 0.015557274222373962,
+        "full_continuation_reference": 0.02201804518699646
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    },
+    {
+      "train_index": 385,
+      "prefix_tokens": 768,
+      "cue_tokens": 2,
+      "branch_max_probability_error": 0.011290118098258972,
+      "branch_top1_equal": true,
+      "parent_continuation_probability_error": 0.015792012214660645,
+      "parent_continuation_top1_equal": true,
+      "parent_cache_sha_before": "cc28b241183d998eb4a217868791cec9a75b773922b0e2852eb2bcf167f15a96",
+      "parent_cache_sha_after": "cc28b241183d998eb4a217868791cec9a75b773922b0e2852eb2bcf167f15a96",
+      "rng_unchanged": true,
+      "matched_branch_error": 0.0,
+      "matched_branch_top1_equal": true,
+      "matched_continuation_error": 0.0,
+      "matched_continuation_top1_equal": true,
+      "seconds": {
+        "prefix": 0.021973833441734314,
+        "branch_including_copy": 0.019358977675437927,
+        "full_cue_reference": 0.027381539344787598,
+        "parent_continuation": 0.015136152505874634,
+        "full_continuation_reference": 0.027153074741363525
+      },
+      "passed": true,
+      "original_full_prefill_gate_passed": false
+    }
+  ],
+  "engineering": {
+    "phase": "engineering",
+    "passed": true,
+    "arms": [
+      "L27_REFERENCE",
+      "L27_OFF",
+      "L27_SHADOW",
+      "MTI_L27"
+    ],
+    "release_sha256": "886bf3feb45d688609ec2eb649aba23d45c7f94ab505c0ee556413a088897e56",
+    "wall_seconds": 47.43672288954258
+  },
+  "arms": {
+    "L27_REFERENCE": {
+      "generation_seconds": 0.8672276139259338,
+      "mti": null,
+      "extra_model_forward_count": 0
+    },
+    "L27_OFF": {
+      "generation_seconds": 0.715585395693779,
+      "mti": {
+        "mode": "off",
+        "extra_model_forward_count": 0,
+        "selected_rows": 0,
+        "auxiliary_input_tokens": 0,
+        "branch_host_seconds": 0.0,
+        "first_intervention_counts": {},
+        "timing_note": "Branch host interval includes gate synchronization and eager dispatch; not isolated CUDA kernel time"
+      },
+      "extra_model_forward_count": 0
+    },
+    "L27_SHADOW": {
+      "generation_seconds": 4.21896393597126,
+      "mti": {
+        "mode": "shadow",
+        "extra_model_forward_count": 59,
+        "selected_rows": 146,
+        "auxiliary_input_tokens": 292,
+        "branch_host_seconds": 3.813402444124222,
+        "first_intervention_counts": {
+          "16-963efec3": 2,
+          "19-b52752a5": 2,
+          "20-939863e8": 2,
+          "17-9b9dec44": 4,
+          "18-853fc266": 4,
+          "21-8a59ed33": 4,
+          "22-9a63329c": 4,
+          "23-9837ea78": 4
+        },
+        "timing_note": "Branch host interval includes gate synchronization and eager dispatch; not isolated CUDA kernel time"
+      },
+      "extra_model_forward_count": 59
+    },
+    "MTI_L27": {
+      "generation_seconds": 6.626729249954224,
+      "mti": {
+        "mode": "active",
+        "extra_model_forward_count": 53,
+        "selected_rows": 114,
+        "auxiliary_input_tokens": 228,
+        "branch_host_seconds": 2.6668734401464462,
+        "first_intervention_counts": {
+          "24-83f663cd": 2,
+          "27-a0f17153": 2,
+          "28-8077007e": 2,
+          "25-870ca253": 4,
+          "26-882833f5": 4,
+          "29-88ef2385": 4,
+          "30-97792b81": 4,
+          "31-ba7bbea8": 4
+        },
+        "timing_note": "Branch host interval includes gate synchronization and eager dispatch; not isolated CUDA kernel time"
+      },
+      "extra_model_forward_count": 53
+    }
+  },
+  "cpu_verified_off_shadow_tokens_history": true,
+  "engineering_accuracy_reported": false,
+  "history_join": "Numeric request enqueue sequence, NOT asynchronous completion dictionary order"
+}

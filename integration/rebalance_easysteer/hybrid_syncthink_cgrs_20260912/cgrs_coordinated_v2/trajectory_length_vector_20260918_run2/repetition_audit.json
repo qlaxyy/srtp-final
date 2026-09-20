@@ -1,0 +1,18 @@
+{
+  "eligible_steps": 60071,
+  "exact_repeated_steps": 34048,
+  "questions_with_exact_repeat": 227,
+  "stats": {
+    "original": {
+      "correlation_exact_repeat": 0.026791718751600906,
+      "correlation_after_question_confidence_log_position_adjustment": 0.2625833502186124
+    },
+    "length": {
+      "correlation_exact_repeat": 0.4864821241253696,
+      "correlation_after_question_confidence_log_position_adjustment": 0.4083628925714878
+    }
+  },
+  "definition": "Repeated >=16-token step, whitespace-normalized and lowercased, within same trajectory. Descriptive proxy only; no semantic correctness or necessity labels.",
+  "limitations": "In-sample correlations; exact repetition can be useful restatement and misses paraphrased loops. Linear adjustments are not causal identification.",
+  "script_sha256": "f384330319c54b37f9b535d82620bf66f1565ab581e56d834316b900aee9527a"
+}

@@ -1,0 +1,8 @@
+{
+  "plan_sha256": "8315813a051965362ad1b2f77e40674b6e736db1bc747be3aa81574624d57a82",
+  "source_files": 2193,
+  "earlier_unfrozen_plan_sha256": "ed9ccefa99f79adc3b44a37f375a2dae869ddf3e8b7494a5d4de801247f08e25",
+  "reason": "Add read-only reconciliation utility and explicit receipt/partial-output limitations before any GPU generation",
+  "gpu_authorized": false,
+  "remote_reconciliation": false
+}

@@ -1,0 +1,263 @@
+{
+  "dataset": "math_test",
+  "n": 500,
+  "arms": {
+    "U": {
+      "correct": 422,
+      "accuracy_percent": 84.39999999999999,
+      "mean_tokens": 4460.854,
+      "mean_thinking_tokens": 4102.482,
+      "capped": 35,
+      "generation_seconds": 535.6869907230139,
+      "tokens_per_second": 4163.675875327128,
+      "timing_is_historical": true
+    },
+    "R": {
+      "correct": 411,
+      "accuracy_percent": 82.19999999999999,
+      "mean_tokens": 3554.202,
+      "mean_thinking_tokens": 3182.628,
+      "capped": 22,
+      "generation_seconds": 378.55327393114567,
+      "tokens_per_second": 4694.454182222272,
+      "timing_is_historical": true
+    },
+    "RS": {
+      "correct": 402,
+      "accuracy_percent": 80.4,
+      "mean_tokens": 3601.864,
+      "mean_thinking_tokens": 3209.924,
+      "capped": 26,
+      "generation_seconds": 506.44525426626205,
+      "tokens_per_second": 3556.0250290215286,
+      "timing_is_historical": false
+    }
+  },
+  "comparisons": {
+    "RS_minus_U": {
+      "tokens": {
+        "delta": -858.99,
+        "delta_ci95": [
+          -1145.56145,
+          -578.9476999999999
+        ],
+        "percent_change": -19.25617830128491,
+        "percent_change_ci95": [
+          -24.84985087967464,
+          -13.296955109394247
+        ]
+      },
+      "thinking_tokens": {
+        "delta": -892.558,
+        "delta_ci95": [
+          -1186.47785,
+          -604.4906000000002
+        ],
+        "percent_change": -21.75653665268976,
+        "percent_change_ci95": [
+          -27.919124494229134,
+          -15.265107090766167
+        ]
+      },
+      "accuracy_delta_pp": -4.0,
+      "accuracy_delta_pp_ci95": [
+        -7.199999999999999,
+        -1.0
+      ],
+      "wrong_to_right": [
+        68,
+        80,
+        82,
+        156,
+        166,
+        168,
+        176,
+        217,
+        224,
+        232,
+        248,
+        285,
+        303,
+        320,
+        351,
+        398,
+        409,
+        421,
+        456,
+        486,
+        497
+      ],
+      "right_to_wrong": [
+        4,
+        18,
+        24,
+        33,
+        60,
+        64,
+        71,
+        104,
+        119,
+        123,
+        126,
+        153,
+        177,
+        184,
+        189,
+        213,
+        214,
+        222,
+        228,
+        246,
+        265,
+        279,
+        296,
+        318,
+        327,
+        332,
+        355,
+        359,
+        368,
+        371,
+        372,
+        387,
+        396,
+        401,
+        412,
+        437,
+        458,
+        470,
+        473,
+        491,
+        494
+      ],
+      "time_percent_change": -5.458735598055952,
+      "net_loss_probability_upper95_conservative": 0.08341536633481547,
+      "accuracy_2pp_noninferiority_supported": false
+    },
+    "RS_minus_R": {
+      "tokens": {
+        "delta": 47.662,
+        "delta_ci95": [
+          -187.19955000000002,
+          275.59229999999997
+        ],
+        "percent_change": 1.3410042535567657,
+        "percent_change_ci95": [
+          -5.109637263966564,
+          8.002976888528911
+        ]
+      },
+      "thinking_tokens": {
+        "delta": 27.296,
+        "delta_ci95": [
+          -214.495,
+          262.6972
+        ],
+        "percent_change": 0.857656000010043,
+        "percent_change_ci95": [
+          -6.499068724217512,
+          8.5708332560922
+        ]
+      },
+      "accuracy_delta_pp": -1.7999999999999998,
+      "accuracy_delta_pp_ci95": [
+        -4.8,
+        1.2
+      ],
+      "wrong_to_right": [
+        39,
+        41,
+        80,
+        108,
+        140,
+        217,
+        224,
+        248,
+        285,
+        303,
+        323,
+        333,
+        347,
+        351,
+        380,
+        394,
+        398,
+        418,
+        432,
+        443,
+        456,
+        466,
+        495,
+        498
+      ],
+      "right_to_wrong": [
+        4,
+        33,
+        60,
+        71,
+        101,
+        153,
+        177,
+        184,
+        189,
+        219,
+        228,
+        236,
+        265,
+        279,
+        296,
+        309,
+        318,
+        327,
+        332,
+        355,
+        359,
+        368,
+        371,
+        372,
+        387,
+        396,
+        412,
+        425,
+        437,
+        470,
+        473,
+        490,
+        491
+      ],
+      "time_percent_change": 33.78440741167079,
+      "net_loss_probability_upper95_conservative": 0.0604497298173603,
+      "accuracy_2pp_noninferiority_supported": false
+    }
+  },
+  "control": {
+    "statistics_mask_gpu_seconds": 57.667212219819426,
+    "extra_method_forwards": 0,
+    "probe_tokens": 0,
+    "biased_requests": 489,
+    "worker_trigger_count": 1401,
+    "worker_bias_count": 1401,
+    "worker_revived_end_count": 958,
+    "discarded_async_tail_tokens": 474
+  },
+  "author_grade_seconds": 33.34612035751343,
+  "checkpoint_io_seconds": 0.22059983015060425,
+  "source_sha256": {
+    "result": "7039f42863183b8a07c0f22bf40fb61c2d5af88a53e989de64306858963fcfd9",
+    "grade": "8b11a664cff4c23ba6032d8993b04f0d468bbb3d4a8f8535599d029a178ed2ec",
+    "historical_evaluation": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+    "historical_grading": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483"
+  },
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 20260913,
+    "unit": "same-question pairing with historical outputs"
+  },
+  "limitations": [
+    "One seed, historical comparators; no contemporaneous baseline rerun",
+    "No full standalone S: factorial synergy unidentifiable",
+    "Previous mix05 training confirmation remained inconclusive; no retuning on full test outcomes",
+    "One seed and batch order; bootstrap excludes batch coupling and timing variability"
+  ],
+  "supportive_full_benchmark_criterion": false
+}

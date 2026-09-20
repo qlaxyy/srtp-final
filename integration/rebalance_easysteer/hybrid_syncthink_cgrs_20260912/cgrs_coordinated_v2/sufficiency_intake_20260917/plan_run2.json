@@ -1,0 +1,205 @@
+{
+  "run_id": "sufficiency_1p5b_controlled16_run2_20260917",
+  "phase": "synthetic_semantic_sanity_only",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_path": "/root/autodl-tmp/models/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_files": {
+    "config.json": {
+      "bytes": 679,
+      "sha256": "37bd455e9679d2959536270fed49d25cc7c290a64f6e52abb97c71345a9cee41"
+    },
+    "generation_config.json": {
+      "bytes": 181,
+      "sha256": "72cbec1015da9ed03ad025483005cbf6481403abf947adfd54e504d1a66a2126"
+    },
+    "model.safetensors": {
+      "bytes": 3554214621,
+      "sha256": "58858233513d76b8703e72eed6ce16807b523328188e13329257fb9594462945"
+    },
+    "tokenizer.json": {
+      "bytes": 7031660,
+      "sha256": "88145e3c3249adc2546ede277e9819d6e405e19072456e4b521cbc724bd60773"
+    },
+    "tokenizer_config.json": {
+      "bytes": 3071,
+      "sha256": "8ac8c85fb242563c2260baec0909debd69d718af6a0b3d90e6cab62b4d341cd5"
+    }
+  },
+  "rows": [
+    {
+      "case_id": "4972_incomplete",
+      "train_index": 4972,
+      "problem": "Compute $\\tan (-3645^\\circ)$.",
+      "thought": "The angle is negative. Tangent is periodic, so the angle should be reduced before evaluating it.",
+      "category": "incomplete",
+      "expected_stop": false,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "thought_sha256": "c40f93a09f4ea7c3356b7efac54d465850a95775c69f4386ad0cbd6aeebc0d8c"
+    },
+    {
+      "case_id": "4972_incorrect_complete",
+      "train_index": 4972,
+      "problem": "Compute $\\tan (-3645^\\circ)$.",
+      "thought": "Since -3645 = -20*180 - 45, periodicity gives tan(-3645 degrees) = tan(-45 degrees). Tangent is positive at -45 degrees, so the answer is 1.",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "thought_sha256": "99de43ee1cb4eef8f2ca8aaaeddbc45d03b44709999a8c76a454e4449f24f944"
+    },
+    {
+      "case_id": "4972_correct_complete",
+      "train_index": 4972,
+      "problem": "Compute $\\tan (-3645^\\circ)$.",
+      "thought": "Since -3645 = -20*180 - 45 and tangent has period 180 degrees, tan(-3645 degrees) = tan(-45 degrees) = -1.",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "thought_sha256": "6ec192c2363b8a8d6e126dc6422841801adf89102596fd79c1c30c55c79066cd"
+    },
+    {
+      "case_id": "4972_mismatched",
+      "train_index": 4972,
+      "problem": "Compute $\\tan (-3645^\\circ)$.",
+      "thought": "At -60 degrees the cosine is 1/2 and the sine is -sqrt(3)/2. Their ratio is -1/sqrt(3), or -sqrt(3)/3.",
+      "category": "mismatched",
+      "expected_stop": false,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "thought_sha256": "015e3ed7494a9486a54553b399b170a477df555e04f5f5e36f522598182477be"
+    },
+    {
+      "case_id": "3497_incomplete",
+      "train_index": 3497,
+      "problem": "Find $\\cot (-60^\\circ).$",
+      "thought": "Cotangent is the cosine divided by the sine. The signs of the two trigonometric functions must be determined at the given angle.",
+      "category": "incomplete",
+      "expected_stop": false,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "thought_sha256": "a8348dd497b92460d04a59b14a520a743f5eff1a3f02273e20485f38338b3b76"
+    },
+    {
+      "case_id": "3497_incorrect_complete",
+      "train_index": 3497,
+      "problem": "Find $\\cot (-60^\\circ).$",
+      "thought": "At -60 degrees the cosine is 1/2 and the sine is sqrt(3)/2. Dividing gives cot(-60 degrees) = sqrt(3)/3.",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "thought_sha256": "2c42659fc5f528489dc4d65dea8053f4bfc353c224cafd7af354173fd98de3d1"
+    },
+    {
+      "case_id": "3497_correct_complete",
+      "train_index": 3497,
+      "problem": "Find $\\cot (-60^\\circ).$",
+      "thought": "At -60 degrees the cosine is 1/2 and the sine is -sqrt(3)/2. Their ratio is -1/sqrt(3), or -sqrt(3)/3.",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "thought_sha256": "015e3ed7494a9486a54553b399b170a477df555e04f5f5e36f522598182477be"
+    },
+    {
+      "case_id": "3497_mismatched",
+      "train_index": 3497,
+      "problem": "Find $\\cot (-60^\\circ).$",
+      "thought": "For x>0, t=x+1/x is at least 2 by AM-GM, with equality when x=1. The derivative of t+1/t is 1-1/t^2, which is positive for t>=2. Hence the minimum is 2+1/2=5/2, attained at x=1.",
+      "category": "mismatched",
+      "expected_stop": false,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "thought_sha256": "efc007bc0e63413b44962baf29b0cba987e78f33afc3665e0347c6984cc5b7b8"
+    },
+    {
+      "case_id": "1483_incomplete",
+      "train_index": 1483,
+      "problem": "Find the minimum value of\n\\[f(x) = x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}}\\]for $x > 0.$",
+      "thought": "Let t = x + 1/x. Then the expression becomes t + 1/t. We still need to determine the feasible range of t and minimize this expression on that range.",
+      "category": "incomplete",
+      "expected_stop": false,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "thought_sha256": "3e0dbf75d43ff70ad0252ff00e2bb84fbbfe98a154300c69a4a782bbfc252eea"
+    },
+    {
+      "case_id": "1483_incorrect_complete",
+      "train_index": 1483,
+      "problem": "Find the minimum value of\n\\[f(x) = x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}}\\]for $x > 0.$",
+      "thought": "Set t = x + 1/x. By AM-GM, t + 1/t is at least 2, with equality at t=1. Taking x=1 gives t=1, so the minimum is 2.",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "thought_sha256": "df32103735fe3b8ad721301f19e278e3f0cffcd6c48997d7e6638aba3835a845"
+    },
+    {
+      "case_id": "1483_correct_complete",
+      "train_index": 1483,
+      "problem": "Find the minimum value of\n\\[f(x) = x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}}\\]for $x > 0.$",
+      "thought": "For x>0, t=x+1/x is at least 2 by AM-GM, with equality when x=1. The derivative of t+1/t is 1-1/t^2, which is positive for t>=2. Hence the minimum is 2+1/2=5/2, attained at x=1.",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "thought_sha256": "efc007bc0e63413b44962baf29b0cba987e78f33afc3665e0347c6984cc5b7b8"
+    },
+    {
+      "case_id": "1483_mismatched",
+      "train_index": 1483,
+      "problem": "Find the minimum value of\n\\[f(x) = x + \\frac{1}{x} + \\frac{1}{x + \\frac{1}{x}}\\]for $x > 0.$",
+      "thought": "Since B,A,E,L lie on a line in that order, the interior angle GAE is 180-120=60 degrees, and AEG is 180-80=100 degrees. Thus AGE=180-60-100=20 degrees. Its reflex angle is 360-20=340 degrees.",
+      "category": "mismatched",
+      "expected_stop": false,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "thought_sha256": "8469bc51f77e39bf87621f9449ab8ef008ef75dec98dd8117500eb3898e64683"
+    },
+    {
+      "case_id": "4432_incomplete",
+      "train_index": 4432,
+      "problem": "Four points $B,$ $A,$ $E,$ and $L$ are on a straight line, as shown. The point $G$ is off the line so that $\\angle BAG = 120^\\circ$ and $\\angle GEL = 80^\\circ.$ If the reflex angle at $G$ is $x^\\circ,$ then what does $x$ equal?\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\n[/asy]",
+      "thought": "The requested angle is reflex. I need to find the internal angle of triangle AGE using the collinear points, then subtract that angle from 360 degrees.",
+      "category": "incomplete",
+      "expected_stop": false,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "thought_sha256": "59026ce2afd5d5f43a282d3d9c9cba8457ba7d8215482f0e749de05bae0fe4ee"
+    },
+    {
+      "case_id": "4432_incorrect_complete",
+      "train_index": 4432,
+      "problem": "Four points $B,$ $A,$ $E,$ and $L$ are on a straight line, as shown. The point $G$ is off the line so that $\\angle BAG = 120^\\circ$ and $\\angle GEL = 80^\\circ.$ If the reflex angle at $G$ is $x^\\circ,$ then what does $x$ equal?\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\n[/asy]",
+      "thought": "The internal angle at A is 180-120=60 degrees. The given 80-degree angle at E is also the internal angle of triangle AGE. Thus G=180-60-80=40 degrees, and the reflex angle is 360-40=320 degrees.",
+      "category": "incorrect_complete",
+      "expected_stop": false,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "thought_sha256": "1ad3600b09b5abe0ef5d21cc1274f6a40de12b478cf97c4313bde37e2a52a0d4"
+    },
+    {
+      "case_id": "4432_correct_complete",
+      "train_index": 4432,
+      "problem": "Four points $B,$ $A,$ $E,$ and $L$ are on a straight line, as shown. The point $G$ is off the line so that $\\angle BAG = 120^\\circ$ and $\\angle GEL = 80^\\circ.$ If the reflex angle at $G$ is $x^\\circ,$ then what does $x$ equal?\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\n[/asy]",
+      "thought": "Since B,A,E,L lie on a line in that order, the interior angle GAE is 180-120=60 degrees, and AEG is 180-80=100 degrees. Thus AGE=180-60-100=20 degrees. Its reflex angle is 360-20=340 degrees.",
+      "category": "correct_complete",
+      "expected_stop": true,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "thought_sha256": "8469bc51f77e39bf87621f9449ab8ef008ef75dec98dd8117500eb3898e64683"
+    },
+    {
+      "case_id": "4432_mismatched",
+      "train_index": 4432,
+      "problem": "Four points $B,$ $A,$ $E,$ and $L$ are on a straight line, as shown. The point $G$ is off the line so that $\\angle BAG = 120^\\circ$ and $\\angle GEL = 80^\\circ.$ If the reflex angle at $G$ is $x^\\circ,$ then what does $x$ equal?\n\n[asy]\ndraw((0,0)--(30,0),black+linewidth(1));\ndraw((10,0)--(17,20)--(15,0),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),black+linewidth(1));\ndraw((17,16)..(21,20)..(17,24)..(13,20)..(14.668,16.75),Arrows);\nlabel(\"$B$\",(0,0),S);\nlabel(\"$A$\",(10,0),S);\nlabel(\"$E$\",(15,0),S);\nlabel(\"$L$\",(30,0),S);\nlabel(\"$G$\",(17,20),N);\nlabel(\"$120^\\circ$\",(10,0),NW);\nlabel(\"$80^\\circ$\",(15,0),NE);\nlabel(\"$x^\\circ$\",(21,20),E);\n[/asy]",
+      "thought": "Since -3645 = -20*180 - 45 and tangent has period 180 degrees, tan(-3645 degrees) = tan(-45 degrees) = -1.",
+      "category": "mismatched",
+      "expected_stop": false,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "thought_sha256": "6ec192c2363b8a8d6e126dc6422841801adf89102596fd79c1c30c55c79066cd"
+    }
+  ],
+  "seed": 42,
+  "temperature": 0,
+  "max_tokens": 8,
+  "maximum_generated_tokens": 128,
+  "max_model_len": 4096,
+  "max_num_seqs": 32,
+  "prompt": "You are reviewing a proposed solution, not solving the problem anew. Rate whether the supplied reasoning already establishes a valid final answer. Use 0 for no usable solution and 100 only for a complete, correct derivation. Reply with one integer from 0 to 100.",
+  "adaptation": "Third-person sufficiency assessment inspired by DTSR; our paraphrased prompt and DeepSeek chat template, not official reproduction. Fixed empty thought closure before scalar generation.",
+  "intervention": "No R, RC14, WSC, primary reasoning, early stopping or KV replay. Independent scorer-only requests.",
+  "gate": "All 16 naturally complete and parse in [0,100]; all 12 unsafe cases score below 100; at least 3/4 correct_complete score exactly 100. Failure rejects this fixed scoring adaptation without prompt or threshold search.",
+  "limits": "Synthetic short text on four already exposed training questions. Passing only licenses natural-prefix diagnostic design, not early stopping, compression, generalization or calibrated probability claims.",
+  "timeout_seconds": 180,
+  "estimated_seconds": "30-90 including startup; hard ceiling180",
+  "reference": "https://arxiv.org/abs/2604.06787v1",
+  "runner_sha256": "ea1ea11e055b04fe9b844f6b09e8549a30887bd49db548cc429390fcf205e4bb"
+}

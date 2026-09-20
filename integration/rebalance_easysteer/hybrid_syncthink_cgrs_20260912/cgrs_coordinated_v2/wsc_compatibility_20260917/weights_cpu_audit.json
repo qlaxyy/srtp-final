@@ -1,0 +1,64 @@
+{
+  "results": {
+    "1.5B": {
+      "sha256": "a2c0892a807f7bf1c4d8d954fe2262f0c87b8a91e45da7c260711bba6e501feb",
+      "bytes": 7012,
+      "config": {
+        "in_dim": 1536,
+        "lr": 0.01,
+        "epochs": 50,
+        "batch_size": 8192,
+        "weight_decay": 0.0,
+        "pos_weight": null
+      },
+      "shapes": {
+        "weight": [
+          1,
+          1536
+        ],
+        "bias": [
+          1
+        ]
+      },
+      "dtype": "torch.float32",
+      "weight_norm": 0.9232617616653442,
+      "bias": -0.0025292409118264914,
+      "numpy_float64_vs_torch_float32_max_abs_error": 3.2898588386842675e-07,
+      "feature_layer_in_checkpoint": "absent",
+      "feature_token_position_in_checkpoint": "absent",
+      "trained_source_commit_in_checkpoint": "absent"
+    },
+    "7B": {
+      "sha256": "647a15a0bab8a3e67f6a796c401021d69b4e57fa61ad226fbb2ca557d2d3fee0",
+      "bytes": 15204,
+      "config": {
+        "in_dim": 3584,
+        "lr": 0.01,
+        "epochs": 50,
+        "batch_size": 8192,
+        "weight_decay": 0.0,
+        "pos_weight": null
+      },
+      "shapes": {
+        "weight": [
+          1,
+          3584
+        ],
+        "bias": [
+          1
+        ]
+      },
+      "dtype": "torch.float32",
+      "weight_norm": 1.6338574886322021,
+      "bias": -0.013423116877675056,
+      "numpy_float64_vs_torch_float32_max_abs_error": 6.019602906137678e-07,
+      "feature_layer_in_checkpoint": "absent",
+      "feature_token_position_in_checkpoint": "absent",
+      "trained_source_commit_in_checkpoint": "absent"
+    }
+  },
+  "restricted_global_rejection": true,
+  "gpu_used": false,
+  "llm_forward_calls": 0,
+  "semantic_accuracy_not_evaluated": true
+}

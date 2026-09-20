@@ -1,0 +1,88 @@
+[
+  {
+    "name": "svamp",
+    "repo": "arkilpatel/SVAMP",
+    "commit": "78e727689e1c1bebfc4be39c446898e8e10b0518",
+    "url": "https://raw.githubusercontent.com/arkilpatel/SVAMP/78e727689e1c1bebfc4be39c446898e8e10b0518/SVAMP.json",
+    "path": ".codex_work\\benchmark_expansion_source_audit\\svamp.json",
+    "sha256": "5be77703a6d891ae476d7c082787ad361392aa02453b132516cdd5f4e7934e3e",
+    "bytes": 339970,
+    "count": 1000,
+    "keys": [
+      "ID",
+      "Body",
+      "Question",
+      "Equation",
+      "Answer",
+      "Type"
+    ],
+    "first": {
+      "ID": "chal-1",
+      "Body": "Each pack of dvds costs 76 dollars. If there is a discount of 25 dollars on each pack",
+      "Question": "How much do you have to pay to buy each pack?",
+      "Equation": "( 76.0 - 25.0 )",
+      "Answer": 51.0,
+      "Type": "Subtraction"
+    }
+  },
+  {
+    "name": "minerva_math",
+    "repo": "QwenLM/Qwen2.5-Math",
+    "commit": "a45202bd16f1ec06f433442dc1152d0074773465",
+    "url": "https://raw.githubusercontent.com/QwenLM/Qwen2.5-Math/a45202bd16f1ec06f433442dc1152d0074773465/evaluation/data/minerva_math/test.jsonl",
+    "path": ".codex_work\\benchmark_expansion_source_audit\\minerva_math.jsonl",
+    "sha256": "0e656b430d3a0a1dab6aa853f453ba3805e28e2cabe4fc72486a897cc09d8ba2",
+    "bytes": 247267,
+    "count": 272,
+    "keys": [
+      "problem",
+      "solution",
+      "type",
+      "idx"
+    ],
+    "first": {
+      "problem": "Each of the two Magellan telescopes has a diameter of $6.5 \\mathrm{~m}$. In one configuration the effective focal length is $72 \\mathrm{~m}$. Find the diameter of the image of a planet (in $\\mathrm{cm}$ ) at this focus if the angular diameter of the planet at the time of the observation is $45^{\\prime \\prime}$.",
+      "solution": "Start with:\n\\[\ns=\\alpha f \\text {, }\n\\]\nwhere $s$ is the diameter of the image, $f$ the focal length, and $\\alpha$ the angular diameter of the planet. For the values given in the problem:\n\\[\ns=\\frac{45}{3600} \\frac{\\pi}{180} 7200=\\boxed{1.6} \\mathrm{~cm}\n\\]",
+      "type": "Introduction to Astronomy (8.282J Spring 2006)",
+      "idx": 0
+    }
+  },
+  {
+    "name": "olympiadbench",
+    "repo": "QwenLM/Qwen2.5-Math",
+    "commit": "a45202bd16f1ec06f433442dc1152d0074773465",
+    "url": "https://raw.githubusercontent.com/QwenLM/Qwen2.5-Math/a45202bd16f1ec06f433442dc1152d0074773465/evaluation/data/olympiadbench/test.jsonl",
+    "path": ".codex_work\\benchmark_expansion_source_audit\\olympiadbench.jsonl",
+    "sha256": "bb8c1e38a16ea9eacb77530315a674d883f267fbff79183effc53681b4fcc416",
+    "bytes": 1493870,
+    "count": 675,
+    "keys": [
+      "id",
+      "subfield",
+      "context",
+      "question",
+      "solution",
+      "final_answer",
+      "is_multiple_answer",
+      "unit",
+      "answer_type",
+      "error"
+    ],
+    "first": {
+      "id": 1606,
+      "subfield": "Combinatorics",
+      "context": null,
+      "question": "Xenia and Sergey play the following game. Xenia thinks of a positive integer $N$ not exceeding 5000. Then she fixes 20 distinct positive integers $a_{1}, a_{2}, \\ldots, a_{20}$ such that, for each $k=1,2, \\ldots, 20$, the numbers $N$ and $a_{k}$ are congruent modulo $k$. By a move, Sergey tells Xenia a set $S$ of positive integers not exceeding 20 , and she tells him back the set $\\left\\{a_{k}: k \\in S\\right\\}$ without spelling out which number corresponds to which index. How many moves does Sergey need to determine for sure the number Xenia thought of?",
+      "solution": [
+        "Sergey can determine Xenia's number in 2 but not fewer moves.\n\n\n\nWe first show that 2 moves are sufficient. Let Sergey provide the set $\\{17,18\\}$ on his first move, and the set $\\{18,19\\}$ on the second move. In Xenia's two responses, exactly one number occurs twice, namely, $a_{18}$. Thus, Sergey is able to identify $a_{17}, a_{18}$, and $a_{19}$, and thence the residue of $N$ modulo $17 \\cdot 18 \\cdot 19=5814>5000$, by the Chinese Remainder Theorem. This means that the given range contains a single number satisfying all congruences, and Sergey achieves his goal.\n\n\n\nTo show that 1 move is not sufficient, let $M=\\operatorname{lcm}(1,2, \\ldots, 10)=2^{3} \\cdot 3^{2} \\cdot 5 \\cdot 7=2520$. Notice that $M$ is divisible by the greatest common divisor of every pair of distinct positive integers not exceeding 20. Let Sergey provide the set $S=\\left\\{s_{1}, s_{2}, \\ldots, s_{k}\\right\\}$. We show that there exist pairwise distinct positive integers $b_{1}, b_{2}, \\ldots, b_{k}$ such that $1 \\equiv b_{i}\\left(\\bmod s_{i}\\right)$ and $M+1 \\equiv b_{i-1}\\left(\\bmod s_{i}\\right)$ (indices are reduced modulo $k$ ). Thus, if in response Xenia provides the set $\\left\\{b_{1}, b_{2}, \\ldots, b_{k}\\right\\}$, then Sergey will be unable to distinguish 1 from $M+1$, as desired.\n\n\n\nTo this end, notice that, for each $i$, the numbers of the form $1+m s_{i}, m \\in \\mathbb{Z}$, cover all residues modulo $s_{i+1}$ which are congruent to $1(\\equiv M+1)$ modulo $\\operatorname{gcd}\\left(s_{i}, s_{i+1}\\right) \\mid M$. Xenia can therefore choose a positive integer $b_{i}$ such that $b_{i} \\equiv 1\\left(\\bmod s_{i}\\right)$ and $b_{i} \\equiv M+1\\left(\\bmod s_{i+1}\\right)$. Clearly, such choices can be performed so as to make the $b_{i}$ pairwise distinct, as required."
+      ],
+      "final_answer": [
+        "2"
+      ],
+      "is_multiple_answer": false,
+      "unit": null,
+      "answer_type": "Numerical",
+      "error": null
+    }
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "status": "local_cpu_native_cpu_and_kv_clone_gpu_gate_pass",
+  "tests": 17,
+  "returncode": 0,
+  "seconds": 0.279,
+  "output": "Ran 17 tests in 0.266s; OK. Includes pinned RequestState publication reproduction, complete-box child lifecycle, and mandatory engineering coverage.",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "syntax_files": [
+    "backend.py",
+    "grade.py",
+    "policy.py",
+    "prepare.py",
+    "run.py",
+    "test_cpu.py",
+    "test_native.py"
+  ],
+  "torch_available": false,
+  "native_torch_test": "run4 and screen64: 3 native CPU Torch tests passed, includes cache-copy isolation",
+  "vllm_execution": "kv_clone engineering40 and screening192 outputs complete",
+  "gpu_replay_gate": "run4:128 checks max_abs0 relative_l2 0; mask and KV byte coverage pass",
+  "server_connected": true,
+  "new_model_predictions": 232,
+  "source_hashes_verified": 2189,
+  "partial_model_predictions": 0
+}

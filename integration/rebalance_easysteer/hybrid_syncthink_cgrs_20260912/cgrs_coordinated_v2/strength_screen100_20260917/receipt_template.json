@@ -1,0 +1,24 @@
+{
+  "gpu_authorized": false,
+  "scope": "strength_1p5b_mathtrain100x4_seed42_only",
+  "authorized_phases": [
+    "screen"
+  ],
+  "data_reconciled": true,
+  "unregistered_claims_checked": true,
+  "plan_sha256": "e6b2165d437362b36f6f09c3f8c06aa80a0778601646be48399bc8578c1b01a9",
+  "execution_commit": "d37728a720508a6b8873118c50c92975f7c88163",
+  "local_reconciliation": {
+    "path": "/root/autodl-tmp/projects/strength_engineering_15536_20260916/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/strength_screen100_20260917/local_reconciliation.json",
+    "sha256": "622e5971e2ffc87f156fa66b77bac8420884e100f5570040ff6aeb21d0dc4d4c"
+  },
+  "remote_reconciliation": {
+    "path": "/root/autodl-tmp/strength_screen_cpu_preflight_20260917/remote_reconciliation.json",
+    "sha256": "77058135024097ff83fdb1b932d76e52025280b8ffe809ffffbfaf9846e7ce4e"
+  },
+  "archive_reconciliation": {
+    "path": "/root/autodl-tmp/strength_screen_cpu_preflight_20260917/archive_reconciliation.json",
+    "sha256": "5a0746c9b82342f1a42615e1bbdf77656b6268492a981fd6b27f7a5ad422093a"
+  },
+  "coverage_note": "All known local A/B registry roots plus remote results and project registry roots, archive JSON/JSONL, and engineering deployment receipts. Does not assert absence of inaccessible or private unregistered use."
+}

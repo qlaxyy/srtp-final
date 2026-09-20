@@ -1,0 +1,24 @@
+{
+  "wsc_feature_contract_cpu": {
+    "prefill_excluded": true,
+    "future_token_rejected": true,
+    "accepted_boundary_position": true,
+    "evidence_copy": true,
+    "duplicate_rejected": true,
+    "fixed_layer_enforced": true,
+    "answer_region_closed": true,
+    "nonfinite_disables_request": true,
+    "request_reset": true,
+    "gpu_used": false
+  },
+  "wsc_recovery_policy_cpu": {
+    "mixed_lengths_keep_individual_history": true,
+    "short_and_long_thresholds": true,
+    "exact_half_score_resets": true,
+    "one_rescue_only": true,
+    "invalid_score_disables": true,
+    "discarded_tokens_not_refunded": true,
+    "new_request_reset": true,
+    "gpu_used": false
+  }
+}

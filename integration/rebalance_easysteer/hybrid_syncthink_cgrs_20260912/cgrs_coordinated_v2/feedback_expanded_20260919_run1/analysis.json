@@ -1,0 +1,1680 @@
+{
+  "status": "First-order gradient diagnosis, no optimized vector or efficacy result",
+  "decision": "do_not_advance_pooled_direction",
+  "source_cosine_fit": -0.882330660688314,
+  "source_cosine_length_normalized_diagnostic": -0.9348179425556735,
+  "groups": {
+    "fit:U": {
+      "n": 32,
+      "positive": 1,
+      "negative": 31,
+      "mean_projection": -0.6097492436795781,
+      "median_projection": -0.38970061630801633,
+      "mean_projection_bootstrap95": [
+        -0.8784007522775887,
+        -0.3934012722810738
+      ],
+      "cosine_mean_to_fit": -0.838068270680247
+    },
+    "fit:L27": {
+      "n": 144,
+      "positive": 144,
+      "negative": 0,
+      "mean_projection": 1.010633717717595,
+      "median_projection": 0.6510568104907383,
+      "mean_projection_bootstrap95": [
+        0.8470198798089399,
+        1.1915573408309696
+      ],
+      "cosine_mean_to_fit": 0.9962127661878573
+    },
+    "development_check:U": {
+      "n": 8,
+      "positive": 1,
+      "negative": 7,
+      "mean_projection": -0.28538655970955074,
+      "median_projection": -0.18660714815545357,
+      "mean_projection_bootstrap95": [
+        -0.5365294717291109,
+        -0.11275434173724988
+      ],
+      "cosine_mean_to_fit": -0.6453531027859454
+    },
+    "development_check:L27": {
+      "n": 37,
+      "positive": 37,
+      "negative": 0,
+      "mean_projection": 0.8527956198452087,
+      "median_projection": 0.6116792781720433,
+      "mean_projection_bootstrap95": [
+        0.6149205505233549,
+        1.1380013757656986
+      ],
+      "cosine_mean_to_fit": 0.966083329620134
+    },
+    "correctness_guard_only:U": {
+      "n": 4,
+      "positive": 0,
+      "negative": 4,
+      "mean_projection": -4.384513148268256,
+      "median_projection": -3.865522628993956,
+      "mean_projection_bootstrap95": [
+        -7.784140234235171,
+        -0.984886062301342
+      ],
+      "cosine_mean_to_fit": -0.8947259718628624
+    },
+    "correctness_guard_only:L27": {
+      "n": 1,
+      "positive": 1,
+      "negative": 0,
+      "mean_projection": 1.6294047136878058,
+      "median_projection": 1.6294047136878058,
+      "mean_projection_bootstrap95": [
+        1.6294047136878058,
+        1.6294047136878058
+      ],
+      "cosine_mean_to_fit": 0.6438263650340792
+    }
+  },
+  "parents": [
+    {
+      "question": 3,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5980166191244214,
+      "balanced_projection_diagnostic": 0.4043490899837511
+    },
+    {
+      "question": 5,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.352860241476211,
+      "balanced_projection_diagnostic": 1.5462316134578544
+    },
+    {
+      "question": 6,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5216072169237737,
+      "balanced_projection_diagnostic": 0.3133295622842101
+    },
+    {
+      "question": 8,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.25656431277646774,
+      "balanced_projection_diagnostic": -0.09725601147491461
+    },
+    {
+      "question": 10,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.6046772953724033,
+      "balanced_projection_diagnostic": 1.3835267925800165
+    },
+    {
+      "question": 11,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.3512391656043392,
+      "balanced_projection_diagnostic": 0.26678317403709423
+    },
+    {
+      "question": 18,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.18771443126315407,
+      "balanced_projection_diagnostic": -0.12607087566231134
+    },
+    {
+      "question": 21,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 4.460192989982834,
+      "balanced_projection_diagnostic": 3.282807809557769
+    },
+    {
+      "question": 25,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.1312309237759577,
+      "balanced_projection_diagnostic": 0.048649541522052926
+    },
+    {
+      "question": 34,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.26086407064777817,
+      "balanced_projection_diagnostic": 0.1406172701930212
+    },
+    {
+      "question": 35,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.15021446417446663,
+      "balanced_projection_diagnostic": 0.14068947658532197
+    },
+    {
+      "question": 36,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.28974602918230163,
+      "balanced_projection_diagnostic": -0.1010994081757742
+    },
+    {
+      "question": 37,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.3957966750762751,
+      "balanced_projection_diagnostic": -0.1845735441411759
+    },
+    {
+      "question": 42,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.3675278246740534,
+      "balanced_projection_diagnostic": 1.7445892642892742
+    },
+    {
+      "question": 47,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -3.3738731993819275,
+      "balanced_projection_diagnostic": -1.2159510681015189
+    },
+    {
+      "question": 49,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.38195437511579944,
+      "balanced_projection_diagnostic": 0.3807151064568919
+    },
+    {
+      "question": 52,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7617124619271667,
+      "balanced_projection_diagnostic": 0.5336052241222163
+    },
+    {
+      "question": 57,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.2449193473107005,
+      "balanced_projection_diagnostic": 1.7886989728812486
+    },
+    {
+      "question": 60,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.36663686182283195,
+      "balanced_projection_diagnostic": 0.2628957905405522
+    },
+    {
+      "question": 62,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.8442118459310584,
+      "balanced_projection_diagnostic": 0.4404730045708359
+    },
+    {
+      "question": 63,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.8021120816671357,
+      "balanced_projection_diagnostic": 0.5992137704161449
+    },
+    {
+      "question": 65,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.1316782395982574,
+      "balanced_projection_diagnostic": -0.028981269675745797
+    },
+    {
+      "question": 69,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.023607413201551193,
+      "balanced_projection_diagnostic": 0.018109300610207317
+    },
+    {
+      "question": 70,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6744545853571908,
+      "balanced_projection_diagnostic": 0.4601215834803081
+    },
+    {
+      "question": 71,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.27504537309627897,
+      "balanced_projection_diagnostic": 0.1862596226309521
+    },
+    {
+      "question": 72,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5131750593741148,
+      "balanced_projection_diagnostic": 0.2859755640455081
+    },
+    {
+      "question": 74,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.7149058537010708,
+      "balanced_projection_diagnostic": 0.40558508134612864
+    },
+    {
+      "question": 75,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.3627514885007418,
+      "balanced_projection_diagnostic": 0.22322952060433565
+    },
+    {
+      "question": 81,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.3496042987874786,
+      "balanced_projection_diagnostic": 2.0824803410565407
+    },
+    {
+      "question": 83,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 4.930191206967982,
+      "balanced_projection_diagnostic": 3.784469003485533
+    },
+    {
+      "question": 84,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": 0.013719115460825982,
+      "balanced_projection_diagnostic": 0.00467986629229313
+    },
+    {
+      "question": 87,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.24842612889691193,
+      "balanced_projection_diagnostic": -0.13924763225549233
+    },
+    {
+      "question": 90,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.3428745591295776,
+      "balanced_projection_diagnostic": 0.2180575575776183
+    },
+    {
+      "question": 91,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.3211371401091756,
+      "balanced_projection_diagnostic": 0.7471886651753445
+    },
+    {
+      "question": 93,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.215018173810553,
+      "balanced_projection_diagnostic": 0.1805185912166001
+    },
+    {
+      "question": 97,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.8881221432595451,
+      "balanced_projection_diagnostic": 0.5913876492412155
+    },
+    {
+      "question": 98,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5616740988254805,
+      "balanced_projection_diagnostic": 0.4332480376564916
+    },
+    {
+      "question": 100,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.9607696013471059,
+      "balanced_projection_diagnostic": -0.6482513582585921
+    },
+    {
+      "question": 103,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.49144850167879883,
+      "balanced_projection_diagnostic": 0.32625763488850495
+    },
+    {
+      "question": 108,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.759381209604242,
+      "balanced_projection_diagnostic": -0.21057814097459357
+    },
+    {
+      "question": 110,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.13529894790394842,
+      "balanced_projection_diagnostic": 0.12065416901243217
+    },
+    {
+      "question": 111,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.3315114918846219,
+      "balanced_projection_diagnostic": 0.20901820122797965
+    },
+    {
+      "question": 112,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.47941535599560314,
+      "balanced_projection_diagnostic": 0.28772800352493244
+    },
+    {
+      "question": 113,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.305131582967231,
+      "balanced_projection_diagnostic": 1.482099352220272
+    },
+    {
+      "question": 114,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -1.0038216778625946,
+      "balanced_projection_diagnostic": -0.12986226699365888
+    },
+    {
+      "question": 115,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -1.0019324145719348,
+      "balanced_projection_diagnostic": -0.500725215399439
+    },
+    {
+      "question": 117,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -1.0942277384199617,
+      "balanced_projection_diagnostic": -0.54835249689375
+    },
+    {
+      "question": 120,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.4290463125033988,
+      "balanced_projection_diagnostic": 1.1821297575259284
+    },
+    {
+      "question": 123,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.4163234423955042,
+      "balanced_projection_diagnostic": 0.27726918039843634
+    },
+    {
+      "question": 125,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7646418613687855,
+      "balanced_projection_diagnostic": 0.7310284659197644
+    },
+    {
+      "question": 128,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.34791898257559023,
+      "balanced_projection_diagnostic": -0.11522943329569069
+    },
+    {
+      "question": 129,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 4.348686975291431,
+      "balanced_projection_diagnostic": 2.985207715989001
+    },
+    {
+      "question": 132,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7220652853820086,
+      "balanced_projection_diagnostic": 0.519367118108486
+    },
+    {
+      "question": 133,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5631796042658331,
+      "balanced_projection_diagnostic": 0.2558137420315256
+    },
+    {
+      "question": 135,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.805650386720763,
+      "balanced_projection_diagnostic": 0.5238592366908749
+    },
+    {
+      "question": 137,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.453271618690834,
+      "balanced_projection_diagnostic": 0.3218443358362617
+    },
+    {
+      "question": 139,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 5.160448272399648,
+      "balanced_projection_diagnostic": 4.129048421663703
+    },
+    {
+      "question": 141,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4519610950468106,
+      "balanced_projection_diagnostic": 0.26550877961010383
+    },
+    {
+      "question": 143,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.3439763392688068,
+      "balanced_projection_diagnostic": 0.27630142951737496
+    },
+    {
+      "question": 146,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.186526176231678,
+      "balanced_projection_diagnostic": 1.6909626864155107
+    },
+    {
+      "question": 149,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.563042045090893,
+      "balanced_projection_diagnostic": 1.2171467457285134
+    },
+    {
+      "question": 150,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5494180832461415,
+      "balanced_projection_diagnostic": 0.35974043063470096
+    },
+    {
+      "question": 151,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5750030932344258,
+      "balanced_projection_diagnostic": 0.3336898057750314
+    },
+    {
+      "question": 154,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7076147359519425,
+      "balanced_projection_diagnostic": 0.5906265168264594
+    },
+    {
+      "question": 155,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.36986782977890936,
+      "balanced_projection_diagnostic": -0.25687977090214714
+    },
+    {
+      "question": 156,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -1.5557220735276966,
+      "balanced_projection_diagnostic": -1.029919360713587
+    },
+    {
+      "question": 158,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7660690683806473,
+      "balanced_projection_diagnostic": 0.55755572306962
+    },
+    {
+      "question": 160,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.026080416711851,
+      "balanced_projection_diagnostic": 1.5946111294040983
+    },
+    {
+      "question": 163,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.18094736607044923,
+      "balanced_projection_diagnostic": -0.09400906556659903
+    },
+    {
+      "question": 167,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 4.9533024803969745,
+      "balanced_projection_diagnostic": 3.9730824093884416
+    },
+    {
+      "question": 168,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.222395898910888,
+      "balanced_projection_diagnostic": 0.9599669290590495
+    },
+    {
+      "question": 169,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -1.3064395106914883,
+      "balanced_projection_diagnostic": -0.26723955531511656
+    },
+    {
+      "question": 176,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.2563002643067498,
+      "balanced_projection_diagnostic": 0.9708214835142508
+    },
+    {
+      "question": 178,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.2247925359607324,
+      "balanced_projection_diagnostic": 0.13789438190636608
+    },
+    {
+      "question": 179,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.8509667448000864,
+      "balanced_projection_diagnostic": 1.3475272663819564
+    },
+    {
+      "question": 182,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4505586254874602,
+      "balanced_projection_diagnostic": 0.2990684613743262
+    },
+    {
+      "question": 187,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.3617729469225186,
+      "balanced_projection_diagnostic": 0.2619980127282685
+    },
+    {
+      "question": 189,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 4.445643217721916,
+      "balanced_projection_diagnostic": 3.4548195483551942
+    },
+    {
+      "question": 190,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.0740095979630818,
+      "balanced_projection_diagnostic": 0.054390380229244396
+    },
+    {
+      "question": 192,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7601116019334928,
+      "balanced_projection_diagnostic": 0.6545076513249657
+    },
+    {
+      "question": 193,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6461473479710518,
+      "balanced_projection_diagnostic": 0.40414072928115663
+    },
+    {
+      "question": 195,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.42943918421815996,
+      "balanced_projection_diagnostic": 0.28939086479122983
+    },
+    {
+      "question": 197,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.18887126592300818,
+      "balanced_projection_diagnostic": 0.18580950136405291
+    },
+    {
+      "question": 198,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.0821422615668237,
+      "balanced_projection_diagnostic": 0.7494160190906395
+    },
+    {
+      "question": 201,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6790910567909861,
+      "balanced_projection_diagnostic": 0.49543232452830105
+    },
+    {
+      "question": 203,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.488791980293581,
+      "balanced_projection_diagnostic": 1.0945158706223443
+    },
+    {
+      "question": 204,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.1854998650477529,
+      "balanced_projection_diagnostic": -0.060169211799715724
+    },
+    {
+      "question": 210,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7430181505033118,
+      "balanced_projection_diagnostic": 0.6325163135551771
+    },
+    {
+      "question": 211,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.07361105379169358,
+      "balanced_projection_diagnostic": 0.060352219478352453
+    },
+    {
+      "question": 213,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": 0.015292322763974069,
+      "balanced_projection_diagnostic": 0.10093900869453272
+    },
+    {
+      "question": 217,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.20243437566293346,
+      "balanced_projection_diagnostic": 0.23678697629132808
+    },
+    {
+      "question": 219,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.23380329450961257,
+      "balanced_projection_diagnostic": 0.21880796377860984
+    },
+    {
+      "question": 220,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.2119065372882183,
+      "balanced_projection_diagnostic": 0.9388974525004367
+    },
+    {
+      "question": 221,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.289594414371358,
+      "balanced_projection_diagnostic": 0.9197131287896698
+    },
+    {
+      "question": 222,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.11841428849197452,
+      "balanced_projection_diagnostic": 0.0909360839808094
+    },
+    {
+      "question": 223,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5678747307852903,
+      "balanced_projection_diagnostic": 0.3650141754752306
+    },
+    {
+      "question": 224,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.04750679295175316,
+      "balanced_projection_diagnostic": 0.08323410384783646
+    },
+    {
+      "question": 226,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.2125864049742473,
+      "balanced_projection_diagnostic": 0.06571547516335938
+    },
+    {
+      "question": 231,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.35955677216629917,
+      "balanced_projection_diagnostic": 0.26441773993791595
+    },
+    {
+      "question": 234,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.08364215422657204,
+      "balanced_projection_diagnostic": -0.045524233092303336
+    },
+    {
+      "question": 235,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6619899846549853,
+      "balanced_projection_diagnostic": 0.3798129890957008
+    },
+    {
+      "question": 238,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.33700955616124645,
+      "balanced_projection_diagnostic": 0.2265330249596958
+    },
+    {
+      "question": 240,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.2309180784167042,
+      "balanced_projection_diagnostic": 0.9669352168535655
+    },
+    {
+      "question": 241,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.1449896010337108,
+      "balanced_projection_diagnostic": 0.15138525696346103
+    },
+    {
+      "question": 247,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.814718863931068,
+      "balanced_projection_diagnostic": 1.2717370857827108
+    },
+    {
+      "question": 250,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.37339764977085216,
+      "balanced_projection_diagnostic": 0.2838050516825737
+    },
+    {
+      "question": 251,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7411631338836356,
+      "balanced_projection_diagnostic": 0.5132063193071861
+    },
+    {
+      "question": 254,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.43496932906838454,
+      "balanced_projection_diagnostic": 0.24491041218454435
+    },
+    {
+      "question": 255,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.47441394793509095,
+      "balanced_projection_diagnostic": 0.2902902367563742
+    },
+    {
+      "question": 257,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.5066837250058229,
+      "balanced_projection_diagnostic": 0.47906376178194465
+    },
+    {
+      "question": 258,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.4286216837881442,
+      "balanced_projection_diagnostic": 0.27173100163481195
+    },
+    {
+      "question": 259,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7888909796886505,
+      "balanced_projection_diagnostic": 0.4081765828584845
+    },
+    {
+      "question": 263,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7106098815590693,
+      "balanced_projection_diagnostic": 0.5918384621457816
+    },
+    {
+      "question": 264,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.3874465200263009,
+      "balanced_projection_diagnostic": 0.8277152893145702
+    },
+    {
+      "question": 265,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.4035622571054208,
+      "balanced_projection_diagnostic": 0.023215481529877503
+    },
+    {
+      "question": 267,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.258882446931343,
+      "balanced_projection_diagnostic": 0.1856069829408495
+    },
+    {
+      "question": 268,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5814702599409911,
+      "balanced_projection_diagnostic": 0.28792319069910555
+    },
+    {
+      "question": 269,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4737471024835687,
+      "balanced_projection_diagnostic": 0.2744561133423269
+    },
+    {
+      "question": 270,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4432392744977691,
+      "balanced_projection_diagnostic": 0.21135197201492176
+    },
+    {
+      "question": 271,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.4496790997484836,
+      "balanced_projection_diagnostic": 0.2640939821645824
+    },
+    {
+      "question": 273,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.7069179992309014,
+      "balanced_projection_diagnostic": 1.3314880295354103
+    },
+    {
+      "question": 274,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.6995426603432588,
+      "balanced_projection_diagnostic": 1.2819269721284654
+    },
+    {
+      "question": 275,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.06872784179530428,
+      "balanced_projection_diagnostic": -0.02797467264071216
+    },
+    {
+      "question": 276,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.812655914272121,
+      "balanced_projection_diagnostic": 0.5823303612392516
+    },
+    {
+      "question": 277,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.8791475020297033,
+      "balanced_projection_diagnostic": 0.6899044817320165
+    },
+    {
+      "question": 279,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.578369325321987,
+      "balanced_projection_diagnostic": 1.9561016216469536
+    },
+    {
+      "question": 282,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5063745360100862,
+      "balanced_projection_diagnostic": 0.3283118670508706
+    },
+    {
+      "question": 283,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.17066823946600346,
+      "balanced_projection_diagnostic": 0.14873484323556194
+    },
+    {
+      "question": 285,
+      "split": "correctness_guard_only",
+      "chosen_source": "U",
+      "projection": -1.7106062239410735,
+      "balanced_projection_diagnostic": -1.15258097759759
+    },
+    {
+      "question": 287,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.3935218380305284,
+      "balanced_projection_diagnostic": 0.24255156970498465
+    },
+    {
+      "question": 288,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 3.866698655363556,
+      "balanced_projection_diagnostic": 3.089012587382598
+    },
+    {
+      "question": 290,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.10738455520795911,
+      "balanced_projection_diagnostic": 0.08367783119620813
+    },
+    {
+      "question": 295,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.11584071311620417,
+      "balanced_projection_diagnostic": 0.10267440312565992
+    },
+    {
+      "question": 296,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5501031509114767,
+      "balanced_projection_diagnostic": 0.4161124028763697
+    },
+    {
+      "question": 298,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.474414582464758,
+      "balanced_projection_diagnostic": 0.3266787472620071
+    },
+    {
+      "question": 304,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.27713016731779194,
+      "balanced_projection_diagnostic": 0.1976915556919851
+    },
+    {
+      "question": 307,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7710883007219714,
+      "balanced_projection_diagnostic": 0.48678283008502193
+    },
+    {
+      "question": 313,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6149539829850922,
+      "balanced_projection_diagnostic": 0.3440115734605468
+    },
+    {
+      "question": 314,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.661708137130403,
+      "balanced_projection_diagnostic": 1.290829247828098
+    },
+    {
+      "question": 315,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.3836045575397573,
+      "balanced_projection_diagnostic": -0.18558170889623454
+    },
+    {
+      "question": 317,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6563289336047181,
+      "balanced_projection_diagnostic": 0.31599486160066115
+    },
+    {
+      "question": 320,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 2.555763248645971,
+      "balanced_projection_diagnostic": 2.090021507064965
+    },
+    {
+      "question": 323,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.5642078511935681,
+      "balanced_projection_diagnostic": -0.12477784410409107
+    },
+    {
+      "question": 324,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.9152205481236426,
+      "balanced_projection_diagnostic": 1.1814579296942491
+    },
+    {
+      "question": 325,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.9159483825099368,
+      "balanced_projection_diagnostic": 0.6713673009239495
+    },
+    {
+      "question": 327,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.2234368603196752,
+      "balanced_projection_diagnostic": 1.1276171799472179
+    },
+    {
+      "question": 328,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.9603375154531022,
+      "balanced_projection_diagnostic": 0.7474751498442
+    },
+    {
+      "question": 329,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.3268427559694156,
+      "balanced_projection_diagnostic": 0.9464606978472629
+    },
+    {
+      "question": 334,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.7248965902053814,
+      "balanced_projection_diagnostic": -0.5156549103819664
+    },
+    {
+      "question": 336,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.19218671747035027,
+      "balanced_projection_diagnostic": 0.09792796141263149
+    },
+    {
+      "question": 337,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.2593189339740911,
+      "balanced_projection_diagnostic": 0.18410242401590912
+    },
+    {
+      "question": 338,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.03454065821321903,
+      "balanced_projection_diagnostic": 0.006930203937319771
+    },
+    {
+      "question": 340,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5201464621755834,
+      "balanced_projection_diagnostic": 0.41302122827910503
+    },
+    {
+      "question": 341,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.458460121678816,
+      "balanced_projection_diagnostic": -0.28519088662195463
+    },
+    {
+      "question": 342,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.09483344307737027,
+      "balanced_projection_diagnostic": 0.0748278193443227
+    },
+    {
+      "question": 344,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.22375467530390616,
+      "balanced_projection_diagnostic": 0.09634380566708516
+    },
+    {
+      "question": 346,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.04850989490080092,
+      "balanced_projection_diagnostic": 0.02199851286915356
+    },
+    {
+      "question": 347,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7270897830958978,
+      "balanced_projection_diagnostic": 0.5485275968122748
+    },
+    {
+      "question": 348,
+      "split": "correctness_guard_only",
+      "chosen_source": "U",
+      "projection": -9.5478414344235,
+      "balanced_projection_diagnostic": -7.016457210914645
+    },
+    {
+      "question": 351,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.7392980356134035,
+      "balanced_projection_diagnostic": -0.3840492004655653
+    },
+    {
+      "question": 355,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.39608465706847695,
+      "balanced_projection_diagnostic": 0.3410145134912249
+    },
+    {
+      "question": 360,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.12008492229636826,
+      "balanced_projection_diagnostic": -0.043253723616420374
+    },
+    {
+      "question": 361,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.8070925110158611,
+      "balanced_projection_diagnostic": 0.5948208355687021
+    },
+    {
+      "question": 363,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4851021817853797,
+      "balanced_projection_diagnostic": 0.4416241685848734
+    },
+    {
+      "question": 367,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.1903511976187613,
+      "balanced_projection_diagnostic": 0.1015848310862868
+    },
+    {
+      "question": 369,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.23081806064040603,
+      "balanced_projection_diagnostic": 0.1506341474772334
+    },
+    {
+      "question": 370,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.2284676686878189,
+      "balanced_projection_diagnostic": 0.1370852987167914
+    },
+    {
+      "question": 371,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.880050239662784,
+      "balanced_projection_diagnostic": 1.3259592011267565
+    },
+    {
+      "question": 372,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6559662730104243,
+      "balanced_projection_diagnostic": 0.45683704713901796
+    },
+    {
+      "question": 373,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.7663151612236108,
+      "balanced_projection_diagnostic": 0.36729368313051974
+    },
+    {
+      "question": 376,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 3.1346477456031794,
+      "balanced_projection_diagnostic": 2.3541469705802296
+    },
+    {
+      "question": 381,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.11039139886098495,
+      "balanced_projection_diagnostic": -0.014583552734661628
+    },
+    {
+      "question": 382,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.9745134717331411,
+      "balanced_projection_diagnostic": 0.5751415541579771
+    },
+    {
+      "question": 384,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.8894394391229198,
+      "balanced_projection_diagnostic": 0.657332229400986
+    },
+    {
+      "question": 388,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.8163094736616009,
+      "balanced_projection_diagnostic": 0.5417496131405182
+    },
+    {
+      "question": 395,
+      "split": "correctness_guard_only",
+      "chosen_source": "U",
+      "projection": -6.020439034046836,
+      "balanced_projection_diagnostic": -4.688884558418769
+    },
+    {
+      "question": 397,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.462340837920149,
+      "balanced_projection_diagnostic": 0.4070081627206373
+    },
+    {
+      "question": 401,
+      "split": "development_check",
+      "chosen_source": "U",
+      "projection": -0.0809705674354328,
+      "balanced_projection_diagnostic": -0.019954214378956486
+    },
+    {
+      "question": 407,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5708934330344566,
+      "balanced_projection_diagnostic": 0.33199552933547605
+    },
+    {
+      "question": 408,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.07039072794300841,
+      "balanced_projection_diagnostic": 0.038348254387181535
+    },
+    {
+      "question": 413,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.543842391732453,
+      "balanced_projection_diagnostic": 0.42359140107509896
+    },
+    {
+      "question": 414,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.1953992960537247,
+      "balanced_projection_diagnostic": 0.8928397505861067
+    },
+    {
+      "question": 418,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.8348661870389913,
+      "balanced_projection_diagnostic": 2.2389510895531504
+    },
+    {
+      "question": 419,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.12304616339473455,
+      "balanced_projection_diagnostic": 0.09721942949061252
+    },
+    {
+      "question": 422,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.1879372336915308,
+      "balanced_projection_diagnostic": 0.8402206144726941
+    },
+    {
+      "question": 423,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.09697708802305392,
+      "balanced_projection_diagnostic": -0.01912907167508218
+    },
+    {
+      "question": 424,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.9898954792864465,
+      "balanced_projection_diagnostic": 0.7385708802006501
+    },
+    {
+      "question": 425,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5037133531722395,
+      "balanced_projection_diagnostic": 0.3245959617705272
+    },
+    {
+      "question": 426,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.5731064986029553,
+      "balanced_projection_diagnostic": 1.2189693700842523
+    },
+    {
+      "question": 431,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.8735787993804496,
+      "balanced_projection_diagnostic": 2.2203620935541486
+    },
+    {
+      "question": 432,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.677594499178447,
+      "balanced_projection_diagnostic": 1.9303158238237939
+    },
+    {
+      "question": 435,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.41290452572469166,
+      "balanced_projection_diagnostic": 0.2776846354506062
+    },
+    {
+      "question": 436,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.2671139306120951,
+      "balanced_projection_diagnostic": -0.07741487556133289
+    },
+    {
+      "question": 439,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6398305579118122,
+      "balanced_projection_diagnostic": 0.34922741301499927
+    },
+    {
+      "question": 444,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7208448630871808,
+      "balanced_projection_diagnostic": 0.5390566345051423
+    },
+    {
+      "question": 447,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 4.3638068101181045,
+      "balanced_projection_diagnostic": 3.427707574888841
+    },
+    {
+      "question": 449,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.1653072184629751,
+      "balanced_projection_diagnostic": 0.9265724545110847
+    },
+    {
+      "question": 451,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6368159553774989,
+      "balanced_projection_diagnostic": 0.410449859838741
+    },
+    {
+      "question": 453,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.9398854038002425,
+      "balanced_projection_diagnostic": 0.7957447627824558
+    },
+    {
+      "question": 454,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.15476914190001567,
+      "balanced_projection_diagnostic": -0.025896501776710348
+    },
+    {
+      "question": 455,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.5300902574676198,
+      "balanced_projection_diagnostic": 0.35445370979276664
+    },
+    {
+      "question": 456,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.670558840807095,
+      "balanced_projection_diagnostic": 0.562135796095841
+    },
+    {
+      "question": 457,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.3750140316179218,
+      "balanced_projection_diagnostic": 0.25655142261579766
+    },
+    {
+      "question": 460,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.45639101524790016,
+      "balanced_projection_diagnostic": 0.2695254352389825
+    },
+    {
+      "question": 462,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.3376367436556114,
+      "balanced_projection_diagnostic": 0.9275248699700305
+    },
+    {
+      "question": 467,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.4074510085135707,
+      "balanced_projection_diagnostic": 0.6264351933174387
+    },
+    {
+      "question": 468,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.7345015167179156,
+      "balanced_projection_diagnostic": 0.5989424450980377
+    },
+    {
+      "question": 469,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.9594624871464025,
+      "balanced_projection_diagnostic": 0.931704229762169
+    },
+    {
+      "question": 471,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.33136896409594496,
+      "balanced_projection_diagnostic": -0.01696776628449772
+    },
+    {
+      "question": 472,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.6875459001974127,
+      "balanced_projection_diagnostic": 0.5682289012776716
+    },
+    {
+      "question": 474,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.18897259011557987,
+      "balanced_projection_diagnostic": 0.16019493557720058
+    },
+    {
+      "question": 477,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -2.2884461893423076,
+      "balanced_projection_diagnostic": -1.070963036519248
+    },
+    {
+      "question": 479,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.7047585683639617,
+      "balanced_projection_diagnostic": -0.13626743060201588
+    },
+    {
+      "question": 480,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.2925718886275958,
+      "balanced_projection_diagnostic": 0.2299146467951841
+    },
+    {
+      "question": 482,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 1.0676599099668922,
+      "balanced_projection_diagnostic": 0.9170455286268406
+    },
+    {
+      "question": 483,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.3654107168671975,
+      "balanced_projection_diagnostic": 0.3348110272984299
+    },
+    {
+      "question": 485,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 2.5595381306680354,
+      "balanced_projection_diagnostic": 2.1217554914040795
+    },
+    {
+      "question": 486,
+      "split": "correctness_guard_only",
+      "chosen_source": "U",
+      "projection": -0.2591659006616096,
+      "balanced_projection_diagnostic": -0.23586904704586253
+    },
+    {
+      "question": 487,
+      "split": "fit",
+      "chosen_source": "U",
+      "projection": -0.5094216945722726,
+      "balanced_projection_diagnostic": -0.1978934506912425
+    },
+    {
+      "question": 489,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.4415621513009044,
+      "balanced_projection_diagnostic": 0.22133102221937284
+    },
+    {
+      "question": 490,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.6116792781720435,
+      "balanced_projection_diagnostic": 0.4693820052079692
+    },
+    {
+      "question": 491,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6726794221465457,
+      "balanced_projection_diagnostic": 0.3630688648871226
+    },
+    {
+      "question": 494,
+      "split": "correctness_guard_only",
+      "chosen_source": "L27",
+      "projection": 1.6294047136878058,
+      "balanced_projection_diagnostic": 0.8104252535035034
+    },
+    {
+      "question": 495,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 0.6020941621759272,
+      "balanced_projection_diagnostic": 0.41464760763421865
+    },
+    {
+      "question": 496,
+      "split": "development_check",
+      "chosen_source": "L27",
+      "projection": 0.46610222666634343,
+      "balanced_projection_diagnostic": 0.22717303661534138
+    },
+    {
+      "question": 497,
+      "split": "fit",
+      "chosen_source": "L27",
+      "projection": 1.593049354680665,
+      "balanced_projection_diagnostic": 1.2307141913101307
+    }
+  ],
+  "forward_count": 904,
+  "backward_count": 452,
+  "wall_seconds": 139.58593040704727,
+  "compute_seconds": 119.29517029225826,
+  "peak_GiB": 10.120672225952148,
+  "input_sha256": {
+    "split": "271cb907d637cf8167271a51651711ebcab02f3c216747a626d00224fed791da",
+    "complete": "dbb9b6b0ca53f67e2b61de266794f191b8ecfb84325e7323773fe6febec2c0c6"
+  },
+  "limits": [
+    "Fixed-history BF16 first-order surrogate, not actual nonlinear or online-policy change",
+    "Bootstrap conditional on fitted direction, excludes fit/model/schedule uncertainty",
+    "Already exposed training data, not independent confirmation",
+    "Five guards cannot establish accuracy noninferiority",
+    "Balanced and length-normalized directions are diagnostics only, not fallback candidates"
+  ]
+}

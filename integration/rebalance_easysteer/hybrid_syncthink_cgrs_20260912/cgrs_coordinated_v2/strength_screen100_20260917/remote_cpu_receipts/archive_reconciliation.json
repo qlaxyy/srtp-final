@@ -1,0 +1,834 @@
+{
+  "passed": true,
+  "hits": [],
+  "errors": [],
+  "source_sha256": {
+    "/tmp/strength_archive_cpu_ygsepuup/0.jsonl": "8046f2e89d3bd104b4e3a272cf06f27204edcb074c9eef80f8e819b1c2b38d28",
+    "/tmp/strength_archive_cpu_ygsepuup/1.jsonl": "66662d653895bdf5ee6dbc3c47ca14669511f2344d36ab1d71d45b63e914fc2f",
+    "/tmp/strength_archive_cpu_ygsepuup/2.json": "e70588a0c485057fe00c6466d5c790fe6e6c07e76246dd45988ba67720cab20f",
+    "/tmp/strength_archive_cpu_ygsepuup/3.json": "f9dd8093dbd6d297bf1971f5241186b2c739abd10f9e0b3528e498a561ce98e6",
+    "/tmp/strength_archive_cpu_ygsepuup/4.jsonl": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b",
+    "/tmp/strength_archive_cpu_ygsepuup/5.json": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8",
+    "/tmp/strength_archive_cpu_ygsepuup/6.jsonl": "882746d478a84246126dd6364da4ddaeb956f313149b50b9dcce7510e5cc51fd",
+    "/tmp/strength_archive_cpu_ygsepuup/7.json": "802024995f7f089b84dd6a4322191527667e03ddbfe92fc6801ad7e8a0eb3c12",
+    "/tmp/strength_archive_cpu_ygsepuup/8.jsonl": "73dd437304de9233f3e655922ce550bc9cff879b3c3d2adf93e8408609c74529",
+    "/tmp/strength_archive_cpu_ygsepuup/9.json": "b0850a53f7dc4fa03d3a442bf50153e16b3f2e327b23f567d89060114ce52bcd",
+    "/tmp/strength_archive_cpu_ygsepuup/10.jsonl": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b",
+    "/tmp/strength_archive_cpu_ygsepuup/11.json": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8",
+    "/tmp/strength_archive_cpu_ygsepuup/12.json": "1dbc037dd4347637eab3650399f9e99316a7e02956167c1204e25004d6bd0da5",
+    "/tmp/strength_archive_cpu_ygsepuup/13.json": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83",
+    "/tmp/strength_archive_cpu_ygsepuup/14.json": "d02b213793ea61f56f20e0f9c28689cc1e76c1454d4c183200828e11187c8ca8",
+    "/tmp/strength_archive_cpu_ygsepuup/15.json": "ffb1ad92b41945579ca49912a2769edce79b6c9c8094ec74a664ac9bb1ab197c",
+    "/tmp/strength_archive_cpu_ygsepuup/16.json": "303d58adf7ed9f9831252913f9b069d9f1103f984049ab422068554f53aa43f3",
+    "/tmp/strength_archive_cpu_ygsepuup/17.json": "e183c1b27847ecf70ada34ae2c9799986b5053ce4dac67ee093de576acc3dc2f",
+    "/tmp/strength_archive_cpu_ygsepuup/18.json": "ed93e6a26abd34f34b7ebef9bed5ca390f945501b837d396351e03d86268a0da",
+    "/tmp/strength_archive_cpu_ygsepuup/19.json": "3917b7e4d2352c7c138048eb5de55b35a6bae8414f7a483632960d87e2c6b3e3",
+    "/tmp/strength_archive_cpu_ygsepuup/20.json": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579",
+    "/tmp/strength_archive_cpu_ygsepuup/21.json": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9",
+    "/tmp/strength_archive_cpu_ygsepuup/22.json": "4c3fef864997291d11c4304ea1e66132b6ebf894f203cd049e05543db73bda6c",
+    "/tmp/strength_archive_cpu_ygsepuup/23.json": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92",
+    "/tmp/strength_archive_cpu_ygsepuup/24.json": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483",
+    "/tmp/strength_archive_cpu_ygsepuup/25.json": "01a87d2ab9b80972240b93033dbe1854f6b44e165720d9e53b28d9c6bd09d77f",
+    "/tmp/strength_archive_cpu_ygsepuup/26.jsonl": "821c08f3e42253cee293b8465b8cb2a47862f0c6c0a4d289f2ef8f933d5f0561",
+    "/tmp/strength_archive_cpu_ygsepuup/27.json": "025b483d8b4f8af32f7415d7ec5ccbd04b9c4bd4046539a58d6014f122044dd2",
+    "/tmp/strength_archive_cpu_ygsepuup/28.jsonl": "e0a8068975dbc9755279841345f350e5f31ed82ef4033f8ce6a68d721673c2bd",
+    "/tmp/strength_archive_cpu_ygsepuup/29.jsonl": "258496728398753ecdd39e3211a3178681a202870e6e9f5f6294f828d599b8b7",
+    "/tmp/strength_archive_cpu_ygsepuup/30.json": "149b94ded8d286f27a3867d5987cb19ecfb226d3bcdaad105616b25f01ec8047",
+    "/tmp/strength_archive_cpu_ygsepuup/31.json": "ac80f6db9941ba75e7d151c5826ab9f6d1a9ea60a3f3809659b3f5b3dbc80979",
+    "/tmp/strength_archive_cpu_ygsepuup/32.json": "8587dd2abb402c67f8fab8ac4c33e545b5cdcb206395bdcdc71830dbba61a669",
+    "/tmp/strength_archive_cpu_ygsepuup/33.json": "9be8c4d0adedc956db8ee35105b0e929ffdd53d75a5bd45201acfeae15879844",
+    "/tmp/strength_archive_cpu_ygsepuup/34.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+    "/tmp/strength_archive_cpu_ygsepuup/35.json": "1513fa0f27346376dcec4721d84d25e59e1c63a025f52c0ee9c07fc9607ccf8c",
+    "/tmp/strength_archive_cpu_ygsepuup/36.json": "58e20071a575a706db243cb0757b10947445e5dd957c6dac72524553d29bedeb",
+    "/tmp/strength_archive_cpu_ygsepuup/37.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+    "/tmp/strength_archive_cpu_ygsepuup/38.json": "1a22e8f662b9990028832bd51a00583645ed60f68a7c20488d81c3afda6cf89c",
+    "/tmp/strength_archive_cpu_ygsepuup/39.jsonl": "b0634fb7e2f8c53203788c571a0c28c35e23b537e307163d36be953fb5368128",
+    "/tmp/strength_archive_cpu_ygsepuup/40.jsonl": "dfb5f12cef0f56c850bcdb2daf62ba1dd63b9de0c824490049f6d7e7ee0e6ae3",
+    "/tmp/strength_archive_cpu_ygsepuup/41.json": "543b6e21996900ec764e1b4dcb9130f392843dec98d8b389a66667f7264e0f59",
+    "/tmp/strength_archive_cpu_ygsepuup/42.jsonl": "f429affa08a4a6cd25db3eddb2de8b722feff0c9918e59d90b9d65144ae9cb30",
+    "/tmp/strength_archive_cpu_ygsepuup/43.json": "8286ca36ed01e288af007dfe54ed333621ddf421beace329cd337a44c5c152a8",
+    "/tmp/strength_archive_cpu_ygsepuup/44.json": "98ad6235ee7a8eb0710f5f08a00b2eb5989fc773f83facdaff09558ad5bfc798",
+    "/tmp/strength_archive_cpu_ygsepuup/45.json": "8288c4026b502d0cc5543fdfb2dc1f9f4162c901c8eed22f1b0d757112ee33ef",
+    "/tmp/strength_archive_cpu_ygsepuup/46.json": "ee87c10463d9911c2bddc7abb2c9f5c4142af0cc6a175a7df68ec1b52135b265",
+    "/tmp/strength_archive_cpu_ygsepuup/47.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/strength_archive_cpu_ygsepuup/48.jsonl": "581de9c3a28c4b1fb21696b6cb9f756c9211fead69ad75a476a0d9ea9cc2299f",
+    "/tmp/strength_archive_cpu_ygsepuup/49.jsonl": "581de9c3a28c4b1fb21696b6cb9f756c9211fead69ad75a476a0d9ea9cc2299f",
+    "/tmp/strength_archive_cpu_ygsepuup/50.json": "e2c73cff7ff42242bc3d2a8805c0426eca8bfa3f2f1591563490327f8c182b1c",
+    "/tmp/strength_archive_cpu_ygsepuup/51.json": "f4814232b01870348adf9c21ac3622acc77b2574ddb484fbb146ef1ed8ed7f8b",
+    "/tmp/strength_archive_cpu_ygsepuup/52.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/strength_archive_cpu_ygsepuup/53.json": "6ce4cd896ddaaa6fbd0a630d7af89a63517a653af5e88a1a98bb78ce3a454f73",
+    "/tmp/strength_archive_cpu_ygsepuup/54.json": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea",
+    "/tmp/strength_archive_cpu_ygsepuup/55.json": "5fceb317a9d630e136fb33e8883dc059c31320a5c186523fe91b77581c33296e",
+    "/tmp/strength_archive_cpu_ygsepuup/56.json": "e93dcdeeabe5b09a1097b21e0c2d46c6a44c5460bd3f3dae15c79410e29ba589",
+    "/tmp/strength_archive_cpu_ygsepuup/57.json": "5fb9a33bd659698151d87eadb0cd0cb88d64fdda5a8ca1747fc27a09361b8896",
+    "/tmp/strength_archive_cpu_ygsepuup/58.json": "964cb6e978b3987516e1790275b235c93a4d38e4df551d1785764ec7a69c47f0",
+    "/tmp/strength_archive_cpu_ygsepuup/59.json": "97dffd7f766e1d93cebe001ad0858a20d84e08510968ff4e1f7bb442b8c6fbfe",
+    "/tmp/strength_archive_cpu_ygsepuup/60.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/strength_archive_cpu_ygsepuup/61.json": "d1f89a7c925cd8b7a3742116441e2771dba6f8b68ad8334cfc27b81b3bfedc8f",
+    "/tmp/strength_archive_cpu_ygsepuup/62.json": "700362a010f0a9e5e47b673353161c68679ce0b69381cd4692f89ea24b07269a",
+    "/tmp/strength_archive_cpu_ygsepuup/63.json": "606509c202fb6a7894bba6dcc60fd435bbd6bc2bb6d40fc166d80a95029e1926",
+    "/tmp/strength_archive_cpu_ygsepuup/64.jsonl": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362",
+    "/tmp/strength_archive_cpu_ygsepuup/65.jsonl": "5285e4971a7669b6a80a367dce216b121408f636147aee64ceff5f42c0b51815",
+    "/tmp/strength_archive_cpu_ygsepuup/66.json": "c4fa38e723d76c263d48e8d03a8feef704749099cf75014e56a696c9528356f7",
+    "/tmp/strength_archive_cpu_ygsepuup/67.json": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea",
+    "/tmp/strength_archive_cpu_ygsepuup/68.json": "c100b29e113be14a458b0976566fc81124196c7ea3f6b4e8fc39c2b15273bdea",
+    "/tmp/strength_archive_cpu_ygsepuup/69.json": "3e53fd98585e96213b072bf26c8e8b64b083e9d69ae60b876f0607b0b4584e47",
+    "/tmp/strength_archive_cpu_ygsepuup/70.json": "d7b103ab86fad4bd06699eb04390a2b35368675a9b61c06de334da61edbccedd",
+    "/tmp/strength_archive_cpu_ygsepuup/71.json": "c8f98185f95ee97099f80ad6bab3af25c08ea4ba68b224bde25a6856f1af95a1",
+    "/tmp/strength_archive_cpu_ygsepuup/72.json": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028",
+    "/tmp/strength_archive_cpu_ygsepuup/73.json": "fad01eb5dd359f0d12db72582501b8f3224157b4c975d0bf86046c07ba37c0e2",
+    "/tmp/strength_archive_cpu_ygsepuup/74.json": "93dde256fc223160f4f5d95008f4a14b4af3840970bf83bd192e6c4d0354123e",
+    "/tmp/strength_archive_cpu_ygsepuup/75.jsonl": "721f97e6aac6dceb20dbc6cf2b9129d6f31450d6d25f05dc8b50b4dad0034b81",
+    "/tmp/strength_archive_cpu_ygsepuup/76.json": "4802139fd89f7e80ed39cfe0de917d68cff824a9cea241ff2f900c4c60268c4e",
+    "/tmp/strength_archive_cpu_ygsepuup/77.json": "4bef136ad243f9e9a6904115d38c53cc84088f11075072110ce7053e89c9122e",
+    "/tmp/strength_archive_cpu_ygsepuup/78.json": "e995c506abb12af58510b75e2e40890a968cce8588a42b3b9e6032e00678e2c0",
+    "/tmp/strength_archive_cpu_ygsepuup/79.json": "e2ed100cc3c12564bd028ad0fbc68fb2d7ad5177103bec402f30fc00b0ea8d47",
+    "/tmp/strength_archive_cpu_ygsepuup/80.json": "c3794cf3896a33f3be190d023720fe4c95ef500065c61d6d4a7382f5d9a74d15",
+    "/tmp/strength_archive_cpu_ygsepuup/81.json": "0da7c4dcfbc6d63abb247d84dc3272f729f2aab58d787935b9d1109497180986",
+    "/tmp/strength_archive_cpu_ygsepuup/82.json": "88bf59908cc8b9da28e5ebae3dbb8659de1ee6c032ae84bd5864420d5e46125b",
+    "/tmp/strength_archive_cpu_ygsepuup/83.json": "1b7f80107dd7d35a13c9ea296de7e9f4e393f37a5db7e3925bbafb2cd8459c6a",
+    "/tmp/strength_archive_cpu_ygsepuup/84.json": "d7fcf228a8f9499c7f0a590e2f84804cca44707fb9dfdd654ff8201e3c77ae11",
+    "/tmp/strength_archive_cpu_ygsepuup/85.jsonl": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+    "/tmp/strength_archive_cpu_ygsepuup/86.json": "74e68792ed3cb0f2cbadfae8261608a46c8c0f641db6d65e73df9082f778016b",
+    "/tmp/strength_archive_cpu_ygsepuup/87.jsonl": "feddee8cb0863a94776bbd8237ed1123b43a858858bfb13c9dfa3fc1266b74ae",
+    "/tmp/strength_archive_cpu_ygsepuup/88.json": "1b1ae3c4462568d484a12f79b19cb2ff4f026e81ddef2f0677000b8a0a2d1486",
+    "/tmp/strength_archive_cpu_ygsepuup/89.json": "93e70c2a00345dfb16d81f3d3912d51b6c622725b38b982e9258e31f2f3232cb",
+    "/tmp/strength_archive_cpu_ygsepuup/90.json": "c8fc5c7301ca1369faf2a467e8ab2c02f0e421608665b2ef5ab6569980cf276f",
+    "/tmp/strength_archive_cpu_ygsepuup/91.json": "3c42ce14d5a96dd2631028f83cbd5d3212c414af2fece96967ce602c19e760fd",
+    "/tmp/strength_archive_cpu_ygsepuup/92.json": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea",
+    "/tmp/strength_archive_cpu_ygsepuup/93.json": "401d13c8fee8dd760498bc97dcf8ff8b888bd1e01253416170fabaa6fac50eea",
+    "/tmp/strength_archive_cpu_ygsepuup/94.json": "71ec52550104a4d4ee30be72ffe7bb1a001fc354ab0462609ddfca216085763d",
+    "/tmp/strength_archive_cpu_ygsepuup/95.json": "eb0193988ecd782d1bfdc5cc08a044e38d80026c7f3ecc9d0f3e63fca89498b0",
+    "/tmp/strength_archive_cpu_ygsepuup/96.json": "d7fcf228a8f9499c7f0a590e2f84804cca44707fb9dfdd654ff8201e3c77ae11",
+    "/tmp/strength_archive_cpu_ygsepuup/97.jsonl": "d0cccbc35aeb3127688707a437de859bc1b6c1ba5199cc45558c1d7cb6c1dec4",
+    "/tmp/strength_archive_cpu_ygsepuup/98.json": "2d134cc2ece0f23e9843c0066fe7b38885feb80f28ece657932329a228c90503",
+    "/tmp/strength_archive_cpu_ygsepuup/99.json": "651ed7907567ed2eb6d2fe0cfe2aa1abc12da02e8e41f9a9adeba45ce301b85e",
+    "/tmp/strength_archive_cpu_ygsepuup/100.json": "eb64d4118e820b9fec4bb3ca62208efc02568933249bba8f3371ac629c40216a",
+    "/tmp/strength_archive_cpu_ygsepuup/101.json": "aee4d5bf1aa97105b651c2fdf09135e2a4c32fc8bd5becbdfdeab303ea07321b",
+    "/tmp/strength_archive_cpu_ygsepuup/102.json": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea",
+    "/tmp/strength_archive_cpu_ygsepuup/103.json": "c8fc5c7301ca1369faf2a467e8ab2c02f0e421608665b2ef5ab6569980cf276f",
+    "/tmp/strength_archive_cpu_ygsepuup/104.json": "401d13c8fee8dd760498bc97dcf8ff8b888bd1e01253416170fabaa6fac50eea",
+    "/tmp/strength_archive_cpu_ygsepuup/105.json": "3ccc9ea057cea61df8f4737d90012805bf6dae471583ab36ab767db83cdca112",
+    "/tmp/strength_archive_cpu_ygsepuup/106.json": "5c49e5dc9bcc780d6a8771cb205058b4427c5060d75b6a925543b84972ca0c33",
+    "/tmp/strength_archive_cpu_ygsepuup/107.json": "6ab7dc8792027d200e75ffe2d5d3d5d7e8c09faa0cdb52293b08014745bc37aa",
+    "/tmp/strength_archive_cpu_ygsepuup/108.json": "884fea5bc88d7d1bbf62b610523354d5d9872af07fde6a9d2eab7fd842b241ac",
+    "/tmp/strength_archive_cpu_ygsepuup/109.json": "433fc978199546152a2cc2dba529950812f6ab8c05c40b714b0dff5c41718bb4",
+    "/tmp/strength_archive_cpu_ygsepuup/110.json": "7fc2b41ef5fc3d54084c5ed1e3aa4f69e25ce5ef4ff474f792ba424a7cddfe59",
+    "/tmp/strength_archive_cpu_ygsepuup/111.json": "8472dffe410b22f3f66c400bcd6662533adb348e5a8c37d017ac5312a2fe4c6e",
+    "/tmp/strength_archive_cpu_ygsepuup/112.jsonl": "9c4b6cf428e00593562101292c81d7da31d0ec50cdc8c0a119fb505fa8dcd3e0",
+    "/tmp/strength_archive_cpu_ygsepuup/113.json": "1b203f92378c1d12d4435d304bf988d25ef5fb5cee261d5af4011c4e7a94aad2",
+    "/tmp/strength_archive_cpu_ygsepuup/114.json": "e745e3eb09a088d5a0cd4f0f85b43b4115f75cdd9e981417704ba668d74a706a",
+    "/tmp/strength_archive_cpu_ygsepuup/115.jsonl": "839bd17c933ec43c40d3099828644b49e6df4fa67477907ea308c61622d2340a",
+    "/tmp/strength_archive_cpu_ygsepuup/116.json": "0ef17d07ed72bea46cd0cf7019b97aadea4dc24f5d193db26ebb993dad2b0d13",
+    "/tmp/strength_archive_cpu_ygsepuup/117.jsonl": "12e625e21d530f8194326e2f938d03028f481e131ac2f16eafc9e61ab92afb94",
+    "/tmp/strength_archive_cpu_ygsepuup/118.json": "906c4551af3a24067a816eb04d7fcf6b363b0db6cdb752f66daf353f958f7440",
+    "/tmp/strength_archive_cpu_ygsepuup/119.json": "095df0915cfd68d9deecea07d4dd5cc2987a90f9411b3b455e5a7869cf09a3d9",
+    "/tmp/strength_archive_cpu_ygsepuup/120.json": "bf79b4fb4cfe7fcf8327bb469a240acc91b1efb3ebcc9d11891a35a3080d6459",
+    "/tmp/strength_archive_cpu_ygsepuup/121.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/strength_archive_cpu_ygsepuup/122.json": "14bf3461fa35523cf5ea301c3c6853fff692289baa6b7e3f6a5d9542ec8d7126",
+    "/tmp/strength_archive_cpu_ygsepuup/123.json": "730dd341882babafb0518e4577de86ae0a65bfc8b42e0e540e2571c2266cbdea",
+    "/tmp/strength_archive_cpu_ygsepuup/124.json": "02e35bb6a5b9d46eb0c7f847795591a87bc04fd98d1308d8d9868dd039df2dfc",
+    "/tmp/strength_archive_cpu_ygsepuup/125.json": "ea65ced8aca8bb38e0932af9e7f56408dc6d5b9973121f6fd088fffa8b664290",
+    "/tmp/strength_archive_cpu_ygsepuup/126.jsonl": "8046f2e89d3bd104b4e3a272cf06f27204edcb074c9eef80f8e819b1c2b38d28",
+    "/tmp/strength_archive_cpu_ygsepuup/127.jsonl": "66662d653895bdf5ee6dbc3c47ca14669511f2344d36ab1d71d45b63e914fc2f",
+    "/tmp/strength_archive_cpu_ygsepuup/128.json": "e70588a0c485057fe00c6466d5c790fe6e6c07e76246dd45988ba67720cab20f",
+    "/tmp/strength_archive_cpu_ygsepuup/129.json": "f9dd8093dbd6d297bf1971f5241186b2c739abd10f9e0b3528e498a561ce98e6",
+    "/tmp/strength_archive_cpu_ygsepuup/130.jsonl": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b",
+    "/tmp/strength_archive_cpu_ygsepuup/131.json": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8",
+    "/root/autodl-tmp/strength_15536_deployment/receipt.json": "231d7af861f36010542e611916d0f527a85e82d3796d4e305dc7f868f9cfc030",
+    "/root/autodl-tmp/strength_15536_deployment/compiled_libraries.json": "8dbb04b1fcf9d206dfda395d2bbaf9ab1fb418d31313d13992db8f046b354c91",
+    "/root/autodl-tmp/strength_15536_deployment/receipt_run2.json": "cd854bcd1835b37a433e9e444a34040d69c1df867ce953c51b6747692432cbf5"
+  },
+  "unique_contents": 115,
+  "roots": [
+    "/tmp/strength_archive_cpu_ygsepuup",
+    "/root/autodl-tmp/strength_15536_deployment"
+  ],
+  "excluded_own_proposal_paths": [],
+  "limitations": [
+    "Explicit roots only; executor must include all current A/B registry locations and confirm no unregistered claims",
+    "Ambiguous ID-only records are conservatively treated as conflicts"
+  ],
+  "archives": [
+    "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+    "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_artifacts.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/math500_artifacts.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+    "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+    "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+    "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+    "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/gsm8k_artifacts.tar.gz",
+    "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/math500_artifacts.tar.gz",
+    "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+    "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz"
+  ],
+  "archive_members": [
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/baseline_steer_temp0.7_maxlen16000.merged.jsonl",
+      "sha256": "8046f2e89d3bd104b4e3a272cf06f27204edcb074c9eef80f8e819b1c2b38d28"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/rebalance_steer_temp0.7_maxlen16000.merged.jsonl",
+      "sha256": "66662d653895bdf5ee6dbc3c47ca14669511f2344d36ab1d71d45b63e914fc2f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/baseline_wrong_ids.json",
+      "sha256": "e70588a0c485057fe00c6466d5c790fe6e6c07e76246dd45988ba67720cab20f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/rebalance_wrong_ids.json",
+      "sha256": "f9dd8093dbd6d297bf1971f5241186b2c739abd10f9e0b3528e498a561ce98e6"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/data/test.jsonl",
+      "sha256": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/01_official_gsm8k200/result_bundle.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/data/sample_manifest.json",
+      "sha256": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/outputs/baseline_steer_temp0.7_maxlen4096.merged.jsonl",
+      "sha256": "882746d478a84246126dd6364da4ddaeb956f313149b50b9dcce7510e5cc51fd"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/outputs/baseline_wrong_ids.json",
+      "sha256": "802024995f7f089b84dd6a4322191527667e03ddbfe92fc6801ad7e8a0eb3c12"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/outputs/self30_steer_temp0.7_maxlen4096.merged.jsonl",
+      "sha256": "73dd437304de9233f3e655922ce550bc9cff879b3c3d2adf93e8408609c74529"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/outputs/selfvector_wrong_ids.json",
+      "sha256": "b0850a53f7dc4fa03d3a442bf50153e16b3f2e327b23f567d89060114ce52bcd"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/data/test.jsonl",
+      "sha256": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/ReBalance_self_extraction_gsm8k200_results.tar.gz",
+      "member": "final_self_extraction_gsm8k200/data/sample_manifest.json",
+      "sha256": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "protocol.json",
+      "sha256": "1dbc037dd4347637eab3650399f9e99316a7e02956167c1204e25004d6bd0da5"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "fit.json",
+      "sha256": "5bfe9feffc5cc10b494eb881651d863e434520c110e31f8bfa4e1f70778c7a83"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "curve_check.json",
+      "sha256": "d02b213793ea61f56f20e0f9c28689cc1e76c1454d4c183200828e11187c8ca8"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "selected_layer.json",
+      "sha256": "ffb1ad92b41945579ca49912a2769edce79b6c9c8094ec74a664ac9bb1ab197c"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "layer_scores.json",
+      "sha256": "303d58adf7ed9f9831252913f9b069d9f1103f984049ab422068554f53aa43f3"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "layer_hook_check.json",
+      "sha256": "e183c1b27847ecf70ada34ae2c9799986b5053ce4dac67ee093de576acc3dc2f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "collection.json",
+      "sha256": "ed93e6a26abd34f34b7ebef9bed5ca390f945501b837d396351e03d86268a0da"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/calibration_metadata.tar.gz",
+      "member": "runtime_checks.json",
+      "sha256": "3917b7e4d2352c7c138048eb5de55b35a6bae8414f7a483632960d87e2c6b3e3"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_artifacts.tar.gz",
+      "member": "gsm8k_eval.json",
+      "sha256": "48b6b0b36d9b61184fcfa266d8bddcfb80546456e4caa3cee6fac061a2f71579"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_artifacts.tar.gz",
+      "member": "gsm8k_author_grading.json",
+      "sha256": "69ce400d76c66b5fc184d5023d19e9a5185ab5589f024c4a3a698c537100a5d9"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/gsm8k_artifacts.tar.gz",
+      "member": "summary.json",
+      "sha256": "4c3fef864997291d11c4304ea1e66132b6ebf894f203cd049e05543db73bda6c"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/math500_artifacts.tar.gz",
+      "member": "math500_eval.json",
+      "sha256": "2de85b0f7aa0b4a7a799a73a6c40ff5f69fbf4cbde9febe659a33472d0fafe92"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_500_20260908/math500_artifacts.tar.gz",
+      "member": "math500_author_grading.json",
+      "sha256": "36692c2dd130cd2291bdfd26fb3b491696011ba79ae16e8ec8a44fe0ea2db483"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_c64_20260909/math500_eval.json",
+      "sha256": "01a87d2ab9b80972240b93033dbe1854f6b44e165720d9e53b28d9c6bd09d77f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_c64_20260909/math500_eval.dynamic.partial.jsonl",
+      "sha256": "821c08f3e42253cee293b8465b8cb2a47862f0c6c0a4d289f2ef8f933d5f0561"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_completed_20260909/math500_eval.json",
+      "sha256": "025b483d8b4f8af32f7415d7ec5ccbd04b9c4bd4046539a58d6014f122044dd2"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_completed_20260909/math500_eval.dynamic.partial.jsonl",
+      "sha256": "e0a8068975dbc9755279841345f350e5f31ed82ef4033f8ce6a68d721673c2bd"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_completed_20260909/math500_eval.baseline.partial.jsonl",
+      "sha256": "258496728398753ecdd39e3211a3178681a202870e6e9f5f6294f828d599b8b7"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_completed_20260909/math500_author_grading.json",
+      "sha256": "149b94ded8d286f27a3867d5987cb19ecfb226d3bcdaad105616b25f01ec8047"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_completed_20260909/asset_manifest.json",
+      "sha256": "ac80f6db9941ba75e7d151c5826ab9f6d1a9ea60a3f3809659b3f5b3dbc80979"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_c64_20260909.ledger.json",
+      "sha256": "8587dd2abb402c67f8fab8ac4c33e545b5cdcb206395bdcdc71830dbba61a669"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "finish_math500_without_repeating_20260909.ledger.json",
+      "sha256": "9be8c4d0adedc956db8ee35105b0e929ffdd53d75a5bd45201acfeae15879844"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "fit.json",
+      "sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/final_math500_artifacts_20260909.tar.gz",
+      "member": "final_math500_SHA256.json",
+      "sha256": "1513fa0f27346376dcec4721d84d25e59e1c63a025f52c0ee9c07fc9607ccf8c"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/eval_runtime.json",
+      "sha256": "58e20071a575a706db243cb0757b10947445e5dd957c6dac72524553d29bedeb"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/fit.json",
+      "sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/gsm8k_author_grading.json",
+      "sha256": "1a22e8f662b9990028832bd51a00583645ed60f68a7c20488d81c3afda6cf89c"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/gsm8k_eval.baseline.partial.jsonl",
+      "sha256": "b0634fb7e2f8c53203788c571a0c28c35e23b537e307163d36be953fb5368128"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/gsm8k_eval.dynamic.partial.jsonl",
+      "sha256": "dfb5f12cef0f56c850bcdb2daf62ba1dd63b9de0c824490049f6d7e7ee0e6ae3"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/gsm8k_eval.json",
+      "sha256": "543b6e21996900ec764e1b4dcb9130f392843dec98d8b389a66667f7264e0f59"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/math500_eval.dynamic.partial.jsonl",
+      "sha256": "f429affa08a4a6cd25db3eddb2de8b722feff0c9918e59d90b9d65144ae9cb30"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/math500_eval.json",
+      "sha256": "8286ca36ed01e288af007dfe54ed333621ddf421beace329cd337a44c5c152a8"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/pipeline_status.json",
+      "sha256": "98ad6235ee7a8eb0710f5f08a00b2eb5989fc773f83facdaff09558ad5bfc798"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/run_ledger.json",
+      "sha256": "8288c4026b502d0cc5543fdfb2dc1f9f4162c901c8eed22f1b0d757112ee33ef"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "formal_kv_replay/summary.json",
+      "sha256": "ee87c10463d9911c2bddc7abb2c9f5c4142af0cc6a175a7df68ec1b52135b265"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "kv_replay_check_retry/forced_replay.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "kv_replay_check_retry/uninterrupted.jsonl",
+      "sha256": "581de9c3a28c4b1fb21696b6cb9f756c9211fead69ad75a476a0d9ea9cc2299f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "kv_replay_check_final/forced_replay.jsonl",
+      "sha256": "581de9c3a28c4b1fb21696b6cb9f756c9211fead69ad75a476a0d9ea9cc2299f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "kv_replay_check_final/summary.json",
+      "sha256": "e2c73cff7ff42242bc3d2a8805c0426eca8bfa3f2f1591563490327f8c182b1c"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908/kv_replay_artifacts_20260909.tar.gz",
+      "member": "kv_replay_artifacts_manifest.json",
+      "sha256": "f4814232b01870348adf9c21ac3622acc77b2574ddb484fbb146ef1ed8ed7f8b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt1_failed/calibration/generations.partial.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt1_failed/calibration/manifest.json",
+      "sha256": "6ce4cd896ddaaa6fbd0a630d7af89a63517a653af5e88a1a98bb78ce3a454f73"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt1_failed/calibration/split_check.json",
+      "sha256": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt1_failed/pipeline_status.json",
+      "sha256": "5fceb317a9d630e136fb33e8883dc059c31320a5c186523fe91b77581c33296e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt2_timeout/checkpoint.json",
+      "sha256": "e93dcdeeabe5b09a1097b21e0c2d46c6a44c5460bd3f3dae15c79410e29ba589"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt2_timeout/manifest.json",
+      "sha256": "5fb9a33bd659698151d87eadb0cd0cb88d64fdda5a8ca1747fc27a09361b8896"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt2_timeout/pipeline_status.json",
+      "sha256": "964cb6e978b3987516e1790275b235c93a4d38e4df551d1785764ec7a69c47f0"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt4_preemption/eval_runtime.json",
+      "sha256": "97dffd7f766e1d93cebe001ad0858a20d84e08510968ff4e1f7bb442b8c6fbfe"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt4_preemption/math500_eval.dynamic.partial.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt4_preemption/math500_eval.json",
+      "sha256": "d1f89a7c925cd8b7a3742116441e2771dba6f8b68ad8334cfc27b81b3bfedc8f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/attempt4_preemption/pipeline_status.json",
+      "sha256": "700362a010f0a9e5e47b673353161c68679ce0b69381cd4692f89ea24b07269a"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/calibration/generation_summary.json",
+      "sha256": "606509c202fb6a7894bba6dcc60fd435bbd6bc2bb6d40fc166d80a95029e1926"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/calibration/generations.jsonl",
+      "sha256": "e89242bda7aaf993df98f20ce38e253998021d5c52c8c1ba5ed75a9ee6566362"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/calibration/generations.partial.jsonl",
+      "sha256": "5285e4971a7669b6a80a367dce216b121408f636147aee64ceff5f42c0b51815"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/calibration/manifest.json",
+      "sha256": "c4fa38e723d76c263d48e8d03a8feef704749099cf75014e56a696c9528356f7"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/calibration/split_check.json",
+      "sha256": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/collection.json",
+      "sha256": "c100b29e113be14a458b0976566fc81124196c7ea3f6b4e8fc39c2b15273bdea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/context_capacity_check.json",
+      "sha256": "3e53fd98585e96213b072bf26c8e8b64b083e9d69ae60b876f0607b0b4584e47"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/curve_check.json",
+      "sha256": "d7b103ab86fad4bd06699eb04390a2b35368675a9b61c06de334da61edbccedd"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/eval_runtime.json",
+      "sha256": "c8f98185f95ee97099f80ad6bab3af25c08ea4ba68b224bde25a6856f1af95a1"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/fit.json",
+      "sha256": "5feed21cb5e84154bfc834c863ad57809f925a09de655a1e3cedac9c8932f028"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/layer_hook_check.json",
+      "sha256": "fad01eb5dd359f0d12db72582501b8f3224157b4c975d0bf86046c07ba37c0e2"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/layer_scores.json",
+      "sha256": "93dde256fc223160f4f5d95008f4a14b4af3840970bf83bd192e6c4d0354123e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/math500_eval.dynamic.partial.jsonl",
+      "sha256": "721f97e6aac6dceb20dbc6cf2b9129d6f31450d6d25f05dc8b50b4dad0034b81"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/math500_eval.json",
+      "sha256": "4802139fd89f7e80ed39cfe0de917d68cff824a9cea241ff2f900c4c60268c4e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/model_download.json",
+      "sha256": "4bef136ad243f9e9a6904115d38c53cc84088f11075072110ce7053e89c9122e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/pipeline_status.json",
+      "sha256": "e995c506abb12af58510b75e2e40890a968cce8588a42b3b9e6032e00678e2c0"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/positions.json",
+      "sha256": "e2ed100cc3c12564bd028ad0fbc68fb2d7ad5177103bec402f30fc00b0ea8d47"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/protocol.json",
+      "sha256": "c3794cf3896a33f3be190d023720fe4c95ef500065c61d6d4a7382f5d9a74d15"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/run_ledger.json",
+      "sha256": "0da7c4dcfbc6d63abb247d84dc3272f729f2aab58d787935b9d1109497180986"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/selected_layer.json",
+      "sha256": "88bf59908cc8b9da28e5ebae3dbb8659de1ee6c032ae84bd5864420d5e46125b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/auto_code_v2_qwen7b_20260908.tar.gz",
+      "member": "auto_code_v2_qwen7b_20260908/steps.json",
+      "sha256": "1b7f80107dd7d35a13c9ea296de7e9f4e393f37a5db7e3925bbafb2cd8459c6a"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "manifest.json",
+      "sha256": "d7fcf228a8f9499c7f0a590e2f84804cca44707fb9dfdd654ff8201e3c77ae11"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "generations.jsonl",
+      "sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "generation_summary.json",
+      "sha256": "74e68792ed3cb0f2cbadfae8261608a46c8c0f641db6d65e73df9082f778016b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "calibration.jsonl",
+      "sha256": "feddee8cb0863a94776bbd8237ed1123b43a858858bfb13c9dfa3fc1266b74ae"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "fit.json",
+      "sha256": "1b1ae3c4462568d484a12f79b19cb2ff4f026e81ddef2f0677000b8a0a2d1486"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "extraction_summary.json",
+      "sha256": "93e70c2a00345dfb16d81f3d3912d51b6c622725b38b982e9258e31f2f3232cb"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "hidden_hook_check.json",
+      "sha256": "c8fc5c7301ca1369faf2a467e8ab2c02f0e421608665b2ef5ab6569980cf276f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "curve_check.json",
+      "sha256": "3c42ce14d5a96dd2631028f83cbd5d3212c414af2fece96967ce602c19e760fd"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "split_check.json",
+      "sha256": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "preflight_checks.json",
+      "sha256": "401d13c8fee8dd760498bc97dcf8ff8b888bd1e01253416170fabaa6fac50eea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "alignment_audit.json",
+      "sha256": "71ec52550104a4d4ee30be72ffe7bb1a001fc354ab0462609ddfca216085763d"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/calibration_assets.tar.gz",
+      "member": "artifact_provenance.json",
+      "sha256": "eb0193988ecd782d1bfdc5cc08a044e38d80026c7f3ecc9d0f3e63fca89498b0"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "manifest.json",
+      "sha256": "d7fcf228a8f9499c7f0a590e2f84804cca44707fb9dfdd654ff8201e3c77ae11"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "calibration.jsonl",
+      "sha256": "d0cccbc35aeb3127688707a437de859bc1b6c1ba5199cc45558c1d7cb6c1dec4"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "fit.json",
+      "sha256": "2d134cc2ece0f23e9843c0066fe7b38885feb80f28ece657932329a228c90503"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "prompt_boundary_correction.json",
+      "sha256": "651ed7907567ed2eb6d2fe0cfe2aa1abc12da02e8e41f9a9adeba45ce301b85e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "extraction_summary.json",
+      "sha256": "eb64d4118e820b9fec4bb3ca62208efc02568933249bba8f3371ac629c40216a"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "curve_check.json",
+      "sha256": "aee4d5bf1aa97105b651c2fdf09135e2a4c32fc8bd5becbdfdeab303ea07321b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "split_check.json",
+      "sha256": "34bb8579c30317e722a8a98716a318b9bc8d2b92380594945dbd35b6536d33ea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "hidden_hook_check.json",
+      "sha256": "c8fc5c7301ca1369faf2a467e8ab2c02f0e421608665b2ef5ab6569980cf276f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "preflight_checks.json",
+      "sha256": "401d13c8fee8dd760498bc97dcf8ff8b888bd1e01253416170fabaa6fac50eea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/own_calibration_500_20260908/prompt_corrected/corrected_calibration.tar.gz",
+      "member": "artifact_provenance.json",
+      "sha256": "3ccc9ea057cea61df8f4737d90012805bf6dae471583ab36ab767db83cdca112"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/gsm8k_artifacts.tar.gz",
+      "member": "gsm8k_eval.json",
+      "sha256": "5c49e5dc9bcc780d6a8771cb205058b4427c5060d75b6a925543b84972ca0c33"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/gsm8k_artifacts.tar.gz",
+      "member": "gsm8k_author_grading.json",
+      "sha256": "6ab7dc8792027d200e75ffe2d5d3d5d7e8c09faa0cdb52293b08014745bc37aa"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/gsm8k_artifacts.tar.gz",
+      "member": "summary.json",
+      "sha256": "884fea5bc88d7d1bbf62b610523354d5d9872af07fde6a9d2eab7fd842b241ac"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/math500_artifacts.tar.gz",
+      "member": "math500_eval.json",
+      "sha256": "433fc978199546152a2cc2dba529950812f6ab8c05c40b714b0dff5c41718bb4"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/math500_artifacts.tar.gz",
+      "member": "math500_author_grading.json",
+      "sha256": "7fc2b41ef5fc3d54084c5ed1e3aa4f69e25ce5ef4ff474f792ba424a7cddfe59"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/paper_calibration_500_20260908/formal_v1/math500_artifacts.tar.gz",
+      "member": "fit.json",
+      "sha256": "8472dffe410b22f3f66c400bcd6662533adb348e5a8c37d017ac5312a2fe4c6e"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/calibration64.jsonl",
+      "sha256": "9c4b6cf428e00593562101292c81d7da31d0ec50cdc8c0a119fb505fa8dcd3e0"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/run_ledger.json",
+      "sha256": "1b203f92378c1d12d4435d304bf988d25ef5fb5cee261d5af4011c4e7a94aad2"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/concurrency32.json",
+      "sha256": "e745e3eb09a088d5a0cd4f0f85b43b4115f75cdd9e981417704ba668d74a706a"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/concurrency32.dynamic.partial.jsonl",
+      "sha256": "839bd17c933ec43c40d3099828644b49e6df4fa67477907ea308c61622d2340a"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/concurrency64.json",
+      "sha256": "0ef17d07ed72bea46cd0cf7019b97aadea4dc24f5d193db26ebb993dad2b0d13"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/concurrency64.dynamic.partial.jsonl",
+      "sha256": "12e625e21d530f8194326e2f938d03028f481e131ac2f16eafc9e61ab92afb94"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/comparison.json",
+      "sha256": "906c4551af3a24067a816eb04d7fcf6b363b0db6cdb752f66daf353f958f7440"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile_ledger.json",
+      "sha256": "095df0915cfd68d9deecea07d4dd5cc2987a90f9411b3b455e5a7869cf09a3d9"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile64_early.json",
+      "sha256": "bf79b4fb4cfe7fcf8327bb469a240acc91b1efb3ebcc9d11891a35a3080d6459"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile64_early.dynamic.partial.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile64_early.dynamic.trace.json",
+      "sha256": "14bf3461fa35523cf5ea301c3c6853fff692289baa6b7e3f6a5d9542ec8d7126"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile64_early.dynamic.trace.operators.json",
+      "sha256": "730dd341882babafb0518e4577de86ae0a65bfc8b42e0e540e2571c2266cbdea"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/profile_summary.json",
+      "sha256": "02e35bb6a5b9d46eb0c7f847795591a87bc04fd98d1308d8d9868dd039df2dfc"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/easysteer/qwen7b_runtime16000_20260909.tar.gz",
+      "member": "qwen7b_runtime16000_20260909/SHA256.json",
+      "sha256": "ea65ced8aca8bb38e0932af9e7f56408dc6d5b9973121f6fd088fffa8b664290"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/baseline_steer_temp0.7_maxlen16000.merged.jsonl",
+      "sha256": "8046f2e89d3bd104b4e3a272cf06f27204edcb074c9eef80f8e819b1c2b38d28"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/rebalance_steer_temp0.7_maxlen16000.merged.jsonl",
+      "sha256": "66662d653895bdf5ee6dbc3c47ca14669511f2344d36ab1d71d45b63e914fc2f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/baseline_wrong_ids.json",
+      "sha256": "e70588a0c485057fe00c6466d5c790fe6e6c07e76246dd45988ba67720cab20f"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/outputs/rebalance_wrong_ids.json",
+      "sha256": "f9dd8093dbd6d297bf1971f5241186b2c739abd10f9e0b3528e498a561ce98e6"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/data/test.jsonl",
+      "sha256": "3ae1d3186833b32fd789a68fd9ebafc9b05b702516bc954c07d71b3ca8ad4e2b"
+    },
+    {
+      "archive": "/root/autodl-tmp/results/storage/01_official_gsm8k200_16000/ReBalance_GSM8K200_seed42_results.tar.gz",
+      "member": "ReBalance_GSM8K200_seed42_results/data/sample_manifest.json",
+      "sha256": "ae8105474ce356eec3364c0d3f2b863fed4d0a62e956770ba82ad208e65423b8"
+    }
+  ],
+  "rows_sha256": "f5e56b3717b059c6b754c7c7ac46b159900d54ce7bb3ad9c7eb0adab11d51141",
+  "seconds": 21.801573231816292,
+  "model_loaded": false,
+  "gpu_forwards": 0
+}

@@ -1,0 +1,145 @@
+{
+  "status": "9 stored states from3 manually reviewed development questions; not a fitted vector",
+  "records": [
+    {
+      "question": 127,
+      "problem_sha256": "034e30f2197b2bc301bf495843c7182dc3ab06d320d3f30f3668c63ce6364e53",
+      "task": "Prove three dice sum18 only when all show6",
+      "states": {
+        "first": {
+          "side": "long",
+          "source": "U",
+          "step": 4,
+          "span": {
+            "start": 256,
+            "stop": 354,
+            "confidence": 0.8579835882600473,
+            "variance": 0.00038815172293220015,
+            "lexical_hit": true
+          },
+          "source_npz_sha256": "e173a17fae4e15b93ff9faf3f5c7a61c621a639d62e77241c9fcc2704f3f0bf0"
+        },
+        "repeat": {
+          "side": "long",
+          "source": "U",
+          "step": 11,
+          "span": {
+            "start": 846,
+            "stop": 943,
+            "confidence": 0.7653293141077474,
+            "variance": 4.7067250212799897e-05,
+            "lexical_hit": true
+          },
+          "source_npz_sha256": "e173a17fae4e15b93ff9faf3f5c7a61c621a639d62e77241c9fcc2704f3f0bf0"
+        },
+        "reference": {
+          "side": "short",
+          "source": "L27",
+          "step": 4,
+          "span": {
+            "start": 281,
+            "stop": 375,
+            "confidence": 0.8328619507399011,
+            "variance": 0.0005106017445693081,
+            "lexical_hit": true
+          },
+          "source_npz_sha256": "ac563e85e93c577318161760d6f90bd8ce7efd92f6b8969786021f545b6785a6"
+        }
+      }
+    },
+    {
+      "question": 338,
+      "problem_sha256": "1f43ba003ed2c77baa89a165e50059ece8d1b78f01b8ac823f2bddf52b766c56",
+      "task": "Compute (2^2)^3=4^3=64",
+      "states": {
+        "first": {
+          "side": "long",
+          "source": "L27",
+          "step": 2,
+          "span": {
+            "start": 167,
+            "stop": 255,
+            "confidence": 0.8448904380202293,
+            "variance": 0.002628783125825857,
+            "lexical_hit": false
+          },
+          "source_npz_sha256": "73b5ed5986e2ed5411f92cea99958d1d0eb10e7b8eeeb82b1364e3e93f1b9346"
+        },
+        "repeat": {
+          "side": "long",
+          "source": "L27",
+          "step": 8,
+          "span": {
+            "start": 677,
+            "stop": 731,
+            "confidence": 0.7834530944625536,
+            "variance": 0.00019672387676599064,
+            "lexical_hit": true
+          },
+          "source_npz_sha256": "73b5ed5986e2ed5411f92cea99958d1d0eb10e7b8eeeb82b1364e3e93f1b9346"
+        },
+        "reference": {
+          "side": "short",
+          "source": "U",
+          "step": 2,
+          "span": {
+            "start": 144,
+            "stop": 263,
+            "confidence": 0.8151498842640084,
+            "variance": 0.00012488486125659582,
+            "lexical_hit": true
+          },
+          "source_npz_sha256": "81f3c9d827338495e08f00445ffe4377ec20d2e52921346860680123e0929e95"
+        }
+      }
+    },
+    {
+      "question": 87,
+      "problem_sha256": "1f8f32bf736c7eb93bdf09334a98a378ddc0f7a3c379866955a03ecf2bad4365",
+      "task": "Compute 8^2+25^2=689",
+      "states": {
+        "first": {
+          "side": "long",
+          "source": "L27",
+          "step": 4,
+          "span": {
+            "start": 434,
+            "stop": 604,
+            "confidence": 0.8976655528825872,
+            "variance": 0.0003687584275738762,
+            "lexical_hit": false
+          },
+          "source_npz_sha256": "dfa0fda777d3fdf5896cf8778dec2a41b77bedc4dd064c70dca435f45f4bb627"
+        },
+        "repeat": {
+          "side": "long",
+          "source": "L27",
+          "step": 8,
+          "span": {
+            "start": 890,
+            "stop": 961,
+            "confidence": 0.8372991420853306,
+            "variance": 6.3983457369676345e-06,
+            "lexical_hit": false
+          },
+          "source_npz_sha256": "dfa0fda777d3fdf5896cf8778dec2a41b77bedc4dd064c70dca435f45f4bb627"
+        },
+        "reference": {
+          "side": "short",
+          "source": "U",
+          "step": 4,
+          "span": {
+            "start": 445,
+            "stop": 568,
+            "confidence": 0.8993394200394793,
+            "variance": 4.227910179347135e-06,
+            "lexical_hit": false
+          },
+          "source_npz_sha256": "3e1f3c70da8824c356eb5e3b07b9441ed2d905c05ccbed6eee8dc08f9820781d"
+        }
+      }
+    }
+  ],
+  "states_sha256": "8b79d1d5c07d581fe5cb18a422e1ef0567707c88c515c9045540f3a2815b449b",
+  "new_model_forward_count": 0
+}

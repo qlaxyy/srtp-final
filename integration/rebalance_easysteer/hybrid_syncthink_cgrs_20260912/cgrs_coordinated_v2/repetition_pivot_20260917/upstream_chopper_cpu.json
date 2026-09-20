@@ -1,0 +1,23 @@
+{
+  "pinned_commit": "81396f9351f3393ad9e1070d1719d729cd3d8258",
+  "source_sha256": "4e59212a56baebfba28dadfc3da4a666b3124143348d0b27db70f411892de9b2",
+  "mixed_length_case": {
+    "per_chunk_lengths": [
+      3,
+      3,
+      20
+    ],
+    "scores": [
+      0.9,
+      0.9,
+      0.9
+    ],
+    "algorithm1_expected_chop": false,
+    "public_chopper_returned_kept": [],
+    "public_chopper_chop": true
+  },
+  "finding": "The public Chopper loops over historical chunks but calls _is_short(token_length) with the current chunk length for every chunk; a mixed-length prefix can trigger earlier than paper Algorithm1.",
+  "gpu_used": false,
+  "new_answers": 0,
+  "scope": "Deterministic CPU discrepancy; not a model performance claim"
+}

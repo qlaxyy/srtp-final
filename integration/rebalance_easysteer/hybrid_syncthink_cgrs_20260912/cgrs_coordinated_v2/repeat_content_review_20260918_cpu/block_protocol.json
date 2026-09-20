@@ -1,0 +1,7 @@
+{
+  "min_steps": 3,
+  "min_tokens": 64,
+  "selection": "Per question earliest completed nonoverlapping exact normalized block of three adjacent stored steps and at least 64 tokens; first matching earlier block. No removal of short steps. All 500 trajectories, no length filter.",
+  "timing": "Criterion chosen after the eight sentence cases, before block counts; exploratory, not independent validation.",
+  "scope": "CPU coverage and case contexts only. Completion state is available, not a causally proven pre-loop trigger."
+}

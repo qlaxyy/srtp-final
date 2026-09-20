@@ -1,0 +1,24 @@
+{
+  "phase": "CPU only predeclared mechanism audit",
+  "capture_root": "E:/srtp/B-same-logits8_0916",
+  "data": "All14 saved7B capture batches; deduplicate request and generated position; only actual original-RC14 eligible openings count. Existing1.5B full8 traces separately for window duration. Exposed engineering, not validation.",
+  "candidate": "Same14 and negative-R gate. Keep original top-p support; on surviving trigger IDs use exactly the original BF16 raw subtraction then temperature arithmetic, rather than filter after penalty. No threshold, temperature or penalty tuning.",
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "opportunity_gate": "At least2 distinct saved questions with actual eligible position whose support changes; otherwise do not schedule a GPU efficacy trial based on these captures. Passing only supports further native instrumentation, not efficacy.",
+  "window_decision": "If no multi-position lexical windows exist, do not promote a shorter-window intervention on this evidence.",
+  "invariants": [
+    "p1 identical original and candidate",
+    "same support implies identical filtered logits",
+    "support candidate exactly equals unpenalized top-p support",
+    "never revive an originally excluded token",
+    "no-target path unchanged"
+  ],
+  "not_allowed": [
+    "Use synthetic toy as empirical evidence",
+    "Treat raw high confidence as correctness",
+    "Merge7B logits and1.5B trace findings as same sample",
+    "Tune on frozen benchmarks"
+  ],
+  "GPU_runs": 0
+}

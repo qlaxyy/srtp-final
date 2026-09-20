@@ -1,0 +1,15 @@
+{
+  "status": "CPU_complete_GPU_diagnostic_prepared_not_run",
+  "new_answers": 0,
+  "gpu_used": false,
+  "baseline_results_commit": "dacd8b5",
+  "files": {
+    "mix05_20260913/prebias_audit_20260913/cpu_findings.json": "2f89c963bc790b4337f071de3998017658e6ce93a8ee38fd43beabe75401e320",
+    "mix05_20260913/prebias_audit_20260913/gpu_diagnostic_plan.json": "96da3674fde902a228ee6730ecc52d1cfb9988aa11b176d58217bbc53b9b4860",
+    "mix05_20260913/prebias_audit_20260913/preparation_checks.json": "5a0d342a5a49b900b038d15b4d4bf03a4300e62352bb33124055732bea6f3c27",
+    "mix05_20260913/prebias_audit_20260913/reconstruct.py": "8063d688fd5389df59c0924c3b833c1f8c0fe21a3465458163bf096a31f2475a",
+    "mix05_20260913/prebias_audit_20260913/trace_short.py": "ca5b678d4321bab9573c6828f60293e77eb93ca7e2fc39bf8cf3bdcec3da03a6",
+    "mix05_20260913/prebias_audit_20260913/原因检查.md": "d096e62def4af3af56478b8b2e74c727279bc043f58de5d5129eb3e81481e5c6",
+    "README.md": "6dafb1a6360db5161524fa9bfc03e3d585a9f16e8f8206188b95efc3d1d33a3b"
+  }
+}

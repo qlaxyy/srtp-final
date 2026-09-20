@@ -1,0 +1,42 @@
+{
+  "status": "One constrained self-feedback engineering update, not deployed or efficacy-validated",
+  "accepted": true,
+  "rows": [
+    {
+      "question": 275,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.00199127197265625,
+      "predicted_margin_change": 0.0020331405742981526,
+      "relative_error": 0.02059306777464502
+    },
+    {
+      "question": 295,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.002002716064453125,
+      "predicted_margin_change": 0.0020331405742981526,
+      "relative_error": 0.01496429230208551
+    },
+    {
+      "question": 486,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.0018520355224609375,
+      "predicted_margin_change": 0.0020331405742981534,
+      "relative_error": 0.08907650269078614
+    }
+  ],
+  "weights": [
+    0.6949684295685608,
+    0.23878752534192949,
+    0.06624404508950976
+  ],
+  "step_norm": 0.01,
+  "wall_seconds": 31.584419444203377,
+  "model_forward_count": 6,
+  "optimizer_steps": 1,
+  "new_answer_count": 0,
+  "plan_sha256": "5631c89c1128c982a2c8e8832b3f4dd77128bbfbaa32075188064e792eabae65",
+  "artifact_sha256": "e4605cba9cd0aba50ca4a8f00e0deb5a62c8d7e9fd57e21894a58da7447cc361"
+}

@@ -1,0 +1,82 @@
+{
+  "reviewer": "Single assistant, exposed problem/context and cap strata; no independent human review",
+  "cases_sha256": "d7173f61fc8cc3baa8439ef4adc425cf0dfd42107209dfc477c7cde57850f2b9",
+  "protocol_sha256": "f224ba97ca66f14d52483bbd90886316b8c12add5fe974fd70417782419d0ded",
+  "counts": {
+    "mechanical_restatement": 3,
+    "verification_or_reuse": 3,
+    "uncertain": 2
+  },
+  "rows": [
+    {
+      "train_index": 2152,
+      "problem_sha256": "8ba9c6be7d4bf507e96f56542e68882761588e17bc21616766be0d24248464c8",
+      "label": "uncertain",
+      "evidence_quote": "Wait, this is getting confusing. Maybe I should use a different approach.",
+      "reason": "重复竖式出现在借位错误后的重新核验中；局部混有十进制/二进制混淆，不能认证删掉该重复可保留纠错。"
+    },
+    {
+      "train_index": 5201,
+      "problem_sha256": "75312b7d4df6aa25f586c74219fc5212278e3377614ffebf1ef180778b2a1af7",
+      "label": "mechanical_restatement",
+      "evidence_quote": "But that seems too big",
+      "reason": "重复相同缩放混淆和过大质疑，附近来回切换已出现的尺度，没有明确新增依据；不认证其数学正确性。"
+    },
+    {
+      "train_index": 5417,
+      "problem_sha256": "9d32fbb01d199815f3c370957de5aefc380dd67518f5f880aa8e8120c68d58d5",
+      "label": "verification_or_reuse",
+      "evidence_quote": "First, expand the first sum:",
+      "reason": "第二次写同一多项式后展开括号并合并项，重复表达式承担后续代数操作的输入；不是单纯循环。"
+    },
+    {
+      "train_index": 1667,
+      "problem_sha256": "115d32463f6e9bc3e4710729ee21b30bd7ecd9d9608130eb8b4e7df42ee1a073",
+      "label": "verification_or_reuse",
+      "evidence_quote": "Now, if I square",
+      "reason": "从原s平方等式重新开始，但随后平方交叉项之和并使用ab+ac+bc=11，是新的推导尝试；不以最终触顶否定这一局部推进。"
+    },
+    {
+      "train_index": 556,
+      "problem_sha256": "a280735b9ffd9a79e25e31e7c21a3c9ab68bdaaa7c9ed502850cd86f879191a1",
+      "label": "mechanical_restatement",
+      "evidence_quote": "As I did earlier",
+      "reason": "已得到2/9，随后重写相同模2定义及相同四格枚举；本地没有新增检查方法。核验意图存在，但内容重复。"
+    },
+    {
+      "train_index": 2430,
+      "problem_sha256": "70782c3658223a04228e2db9af0835d42effcca9541e927430680952b820bef9",
+      "label": "uncertain",
+      "evidence_quote": "Let me think about the modular arithmetic approach.",
+      "reason": "同一答案句再次出现，随后换到模12的代数刻画。答案句冗余与后续新推导混合，不能把这一状态整体标成无效。"
+    },
+    {
+      "train_index": 5972,
+      "problem_sha256": "a5a009faa5c0e6f873b9208fffb5ef8292914061d6f47b5b5d5c34d5dd7ffac4",
+      "label": "mechanical_restatement",
+      "evidence_quote": "So, each step is correct, and the result is 4.",
+      "reason": "局部已澄清周期3并得到4，随后再逐项重算同一四步。此前有周期2的错误表述，判定仅限被抽中的这次重复。"
+    },
+    {
+      "train_index": 2962,
+      "problem_sha256": "6349b0dc96831731c25875347d3c316e79f9e9036f3b7e4796edd9b7ac0db4cf",
+      "label": "verification_or_reuse",
+      "evidence_quote": "cofactor expansion might be more straightforward here.",
+      "reason": "重写输入矩阵后开始余子式计算行列式，是对同一对象的新操作；存在局部措辞错误不改变重复的用途。"
+    }
+  ],
+  "block_followup": {
+    "reviewed_train_indices": [
+      2152,
+      5201,
+      5417,
+      1667,
+      556
+    ],
+    "note": "Three-step criterion was chosen after sentence review. 5201/5417/556 show repeated local derivation; 2152 is followed by an attempted borrowing correction; 1667 reuses a faulty relation to attempt a polynomial derivation. Not an independently validated detector."
+  },
+  "decision": "Do not use isolated exact sentence repetition as semantic overthinking label. Three-step blocks have broader coverage but remain confidence/position confounded; do not replace the frozen vector or force ending from these labels.",
+  "next_requirement": "A candidate must separate useful reuse from stagnation on held-out questions and use a deployment rule that preserves necessary correction. Repeated benchmark threshold search is not authorized by this audit.",
+  "limits": "Eight stratified examples do not estimate population prevalence or establish step correctness. First occurrence need not be valid, repeat need not be harmful. No GPU, new answer or forward.",
+  "engineering_note": "Initial console print failed under Windows GBK after complete UTF8 JSON had been saved; JSON was read directly. Console now prints ASCII-only summary; no resampling or overwriting."
+}

@@ -1,0 +1,13 @@
+{
+  "status": "failed_screen_stop_soft2_fixed_configuration",
+  "reason": "RS identical to R on128 complete token trajectories, no thinking or total token saving; both predeclared per-dataset screen gates fail",
+  "accuracy_margin_pp": 2,
+  "observed_accuracy_delta_pp": {
+    "math_soft2": 0,
+    "gsm8k_soft2": 0
+  },
+  "independent_confirmation_run": false,
+  "full_test_run": false,
+  "additional_gpu_authorized": false,
+  "next": "No threshold/odds sweep or automatic expansion. Any different candidate needs a separate mechanism hypothesis and fixed authorization."
+}

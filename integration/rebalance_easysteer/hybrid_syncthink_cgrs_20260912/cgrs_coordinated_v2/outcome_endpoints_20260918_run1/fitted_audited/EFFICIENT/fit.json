@@ -1,0 +1,18 @@
+{
+  "decoder_output_layer": 20,
+  "hidden_state_index": 21,
+  "parameters": {
+    "q25c": 0.814075603109339,
+    "q75c": 0.9645412411540746,
+    "q25v": 0.00021352457651549987,
+    "q75v": 0.006044489510724772,
+    "low_val_1": -0.5,
+    "low_val_2": -0.5,
+    "high_val_2": 0.1,
+    "initial_coef": 0.0,
+    "curve_tau": 0.01
+  },
+  "vector_sha256": "1911f58c93f57d8ce37b378f2b08675b114e5144a97e2aaa5c61467543be6bbd",
+  "method": "EFFICIENT",
+  "controller_override": "efficient_clip"
+}

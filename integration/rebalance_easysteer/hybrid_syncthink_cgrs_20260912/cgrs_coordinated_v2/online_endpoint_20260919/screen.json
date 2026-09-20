@@ -1,0 +1,106 @@
+{
+  "results": {
+    "R": {
+      "original": {
+        "steps": 9655,
+        "questions": 269,
+        "top10_steps": 4664,
+        "from_capped": 8551,
+        "from_wrong": 8891,
+        "effective_questions": 18.217091492302604
+      },
+      "c90": {
+        "steps": 5091,
+        "questions": 185,
+        "top10_steps": 3045,
+        "from_capped": 4550,
+        "from_wrong": 4708,
+        "effective_questions": 11.00047790739377
+      },
+      "c95": {
+        "steps": 2809,
+        "questions": 138,
+        "top10_steps": 2012,
+        "from_capped": 2481,
+        "from_wrong": 2573,
+        "effective_questions": 9.012861677569393
+      },
+      "low_variance": {
+        "steps": 6588,
+        "questions": 105,
+        "top10_steps": 4155,
+        "from_capped": 6180,
+        "from_wrong": 6333,
+        "effective_questions": 11.37734949865653
+      },
+      "exclude_capped": {
+        "steps": 1104,
+        "questions": 198,
+        "top10_steps": 468,
+        "from_capped": 0,
+        "from_wrong": 340,
+        "effective_questions": 20.064135910183385
+      },
+      "exclude_capped_low_variance": {
+        "steps": 408,
+        "questions": 55,
+        "top10_steps": 314,
+        "from_capped": 0,
+        "from_wrong": 153,
+        "effective_questions": 6.8183828950602114
+      }
+    },
+    "L27": {
+      "original": {
+        "steps": 7530,
+        "questions": 283,
+        "top10_steps": 3712,
+        "from_capped": 6188,
+        "from_wrong": 6427,
+        "effective_questions": 29.95242552687963
+      },
+      "c90": {
+        "steps": 3240,
+        "questions": 207,
+        "top10_steps": 1708,
+        "from_capped": 2609,
+        "from_wrong": 2702,
+        "effective_questions": 22.97037675654149
+      },
+      "c95": {
+        "steps": 1801,
+        "questions": 174,
+        "top10_steps": 1088,
+        "from_capped": 1394,
+        "from_wrong": 1438,
+        "effective_questions": 15.783716052807016
+      },
+      "low_variance": {
+        "steps": 5143,
+        "questions": 113,
+        "top10_steps": 3255,
+        "from_capped": 4757,
+        "from_wrong": 4843,
+        "effective_questions": 19.249667957961478
+      },
+      "exclude_capped": {
+        "steps": 1342,
+        "questions": 249,
+        "top10_steps": 286,
+        "from_capped": 0,
+        "from_wrong": 239,
+        "effective_questions": 101.71489890432622
+      },
+      "exclude_capped_low_variance": {
+        "steps": 386,
+        "questions": 82,
+        "top10_steps": 161,
+        "from_capped": 0,
+        "from_wrong": 86,
+        "effective_questions": 36.51862745098039
+      }
+    }
+  },
+  "source_sha256": "a63dbcdce6b40efed1ac35d349f82c3a89b9afae8ba97dce2242936624a72768",
+  "limitation": "BASE replay only. Correctness is descriptive, never a selection input. No new vector or efficacy claim."
+}

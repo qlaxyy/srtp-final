@@ -1,0 +1,246 @@
+{
+  "status": "engineering_passed_effect_unverified_formal_not_authorized",
+  "raw_root": "E:\\srtp\\B-history_0914",
+  "verified_manifest_files": 39,
+  "execution_commit": "6243c3c29b1432ad4106fe781fbb6e14e0fd137f",
+  "plan_sha256": "f2cf75c5409d0fed0d54965ee6ef2176edab3a4dcfb8ef693769d1d2ba1d71e3",
+  "questions": 8,
+  "arms": 6,
+  "cap": 512,
+  "answers": 48,
+  "total_generated_tokens": 24576,
+  "pure_generation_seconds": 66.13774608075619,
+  "runner_wall_seconds": 106.24800929427147,
+  "process_wall_seconds": 119.41680932044983,
+  "arm_metrics": {
+    "R": {
+      "generation_seconds": 12.372161865234375,
+      "setup_seconds": 9.402632713317871e-06,
+      "checkpoint_io_seconds": 0.002365976572036743,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 0
+    },
+    "Roff_history": {
+      "generation_seconds": 12.206205785274506,
+      "setup_seconds": 2.536177635192871e-05,
+      "checkpoint_io_seconds": 0.002330079674720764,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 0
+    },
+    "RC14default": {
+      "generation_seconds": 10.807820200920105,
+      "setup_seconds": 1.0522237122058868,
+      "checkpoint_io_seconds": 0.0005738735198974609,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 64
+    },
+    "RC14explicit": {
+      "generation_seconds": 10.233089730143547,
+      "setup_seconds": 0.6911197006702423,
+      "checkpoint_io_seconds": 0.0005210787057876587,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 64
+    },
+    "RChistory_shadow": {
+      "generation_seconds": 10.219349652528763,
+      "setup_seconds": 0.6585859656333923,
+      "checkpoint_io_seconds": 0.0005475878715515137,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 0
+    },
+    "RChistory": {
+      "generation_seconds": 10.299118846654892,
+      "setup_seconds": 0.6610051691532135,
+      "checkpoint_io_seconds": 0.0005755871534347534,
+      "replay_counts": {
+        "suspended": 1,
+        "restored": 1
+      },
+      "extra_probe_forwards": 0,
+      "control_gpu_seconds": null,
+      "logit_mask_applications": 31
+    }
+  },
+  "different_from_RC14": 2,
+  "different_from_R": 0,
+  "questions_observing_first_marker": 5,
+  "per_question": [
+    {
+      "train_index": 647,
+      "problem_sha256": "aea0811010b93ac8f413c4631006057350468cb00c697e6943d13c3d60490f23",
+      "events": {
+        "tokens": 512,
+        "eligible": 0,
+        "changed": 0,
+        "first_change": -1,
+        "R_history_sha256": "9faa31c0393abc1d575f5ddf0757154e7747f6531c10e5faa780dcb249ac8ce4",
+        "first_reflection": -1
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    },
+    {
+      "train_index": 1837,
+      "problem_sha256": "1ff3348b90d20a4b30955ce28a3d1d3e2770da060c09eb3104fbb9bd6307fe57",
+      "events": {
+        "tokens": 512,
+        "eligible": 8,
+        "changed": 8,
+        "first_change": 294,
+        "R_history_sha256": "6d7dc5b155faa6b8a0af32013f14fad4851e1e6803f7f68f85480846c035b65e",
+        "first_reflection": 284
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": true,
+      "native_history_equal_RC14explicit": false,
+      "first_difference_RC14explicit": 284
+    },
+    {
+      "train_index": 4972,
+      "problem_sha256": "ec3336450e7af3539c5e8e0d7528168e99542baf243ff6ca6f5a9e14b8a947c9",
+      "events": {
+        "tokens": 512,
+        "eligible": 4,
+        "changed": 4,
+        "first_change": 212,
+        "R_history_sha256": "0d605aba886ac9375df210ff2673ecdd52db58e59e1bd4e6737e24ef17da6592",
+        "first_reflection": 126
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    },
+    {
+      "train_index": 1441,
+      "problem_sha256": "33264ee29c68810de8eb231644abecd666f96cfbc3c5a9707c79d0b5e0e92f9c",
+      "events": {
+        "tokens": 512,
+        "eligible": 12,
+        "changed": 12,
+        "first_change": 248,
+        "R_history_sha256": "20f74438be0bf7679f58476324f5ba8bb9b4b1f65864c982ebc20974f1fde9e0",
+        "first_reflection": 209
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": true,
+      "native_history_equal_RC14explicit": false,
+      "first_difference_RC14explicit": 209
+    },
+    {
+      "train_index": 4432,
+      "problem_sha256": "94ec230d95dc06698c66af4f08637652509a88ac75a0cd5dc18303eff66cfbf4",
+      "events": {
+        "tokens": 512,
+        "eligible": 0,
+        "changed": 0,
+        "first_change": -1,
+        "R_history_sha256": "2d0629213fe796ab84d4accae7b6c5bc98698be2b43e3ce385625f1336053d29",
+        "first_reflection": -1
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    },
+    {
+      "train_index": 3497,
+      "problem_sha256": "a3fe4f97637a175b4c1b79a68c0135ae9374f456c2989d876279d79834d5a6d0",
+      "events": {
+        "tokens": 512,
+        "eligible": 5,
+        "changed": 5,
+        "first_change": 147,
+        "R_history_sha256": "92f8d8c8777751c0df41bfc324245df533a3eb7ebe4553e1d5a1fbec653af5c6",
+        "first_reflection": 80
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    },
+    {
+      "train_index": 1483,
+      "problem_sha256": "f00b906ea276ca04bb941d3883bd90510a016b9805916e4b74ea0e145f2f7606",
+      "events": {
+        "tokens": 512,
+        "eligible": 2,
+        "changed": 2,
+        "first_change": 302,
+        "R_history_sha256": "99992b98d062321b4c6686ba61500f7404747c36247af22a497678d8b1772eb5",
+        "first_reflection": 226
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    },
+    {
+      "train_index": 229,
+      "problem_sha256": "5b21e8860911f453595711c9890e2750591b95cada6728d5dc93a582e374f67c",
+      "events": {
+        "tokens": 512,
+        "eligible": 0,
+        "changed": 0,
+        "first_change": -1,
+        "R_history_sha256": "3b0f1fef525ab32332a8db025df2f27d2e69e5db5c238271cb3c5aa504ad46fa",
+        "first_reflection": -1
+      },
+      "different_from_R": false,
+      "native_history_equal_R": true,
+      "first_difference_R": null,
+      "different_from_RC14explicit": false,
+      "native_history_equal_RC14explicit": true,
+      "first_difference_RC14explicit": null
+    }
+  ],
+  "limits": [
+    "Engineering cap512 outputs are not formal accuracy or compression evidence.",
+    "Mask applications count altered logits, not altered sampled tokens.",
+    "All eight candidate token sequences equal R in this short window.",
+    "No independent control-kernel timing was collected; generation includes its overhead.",
+    "Forced replay is engineering coverage; these timings do not establish production speed.",
+    "No fresh100 generation; reserved confirmation200 untouched."
+  ]
+}

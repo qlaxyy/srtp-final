@@ -1,0 +1,224 @@
+{
+  "scope": "One round base-model replay recalibration from R and L27 generated calibration text",
+  "status": "Both candidates fail preregistered compression gate; retain frozen L27",
+  "next": "No second iteration/GSM8K/7B/seed search",
+  "archive_sha256": "79f647d8217276613bbb05dee759e8ca924d7eb4fab704bb40eb8f84715b60ae",
+  "cases": {
+    "R": {
+      "summary": {
+        "count": 500,
+        "correct": 418,
+        "accuracy_percent": 83.6,
+        "mean_tokens": 3803.25,
+        "mean_thinking_tokens": 3398.466,
+        "capped": 26
+      },
+      "vs_parent": {
+        "accuracy_delta_pp": 1.4000000000000001,
+        "percent_changes": {
+          "tokens": 7.007142531572486,
+          "thinking_tokens": 6.781753946738345
+        },
+        "ci95": {
+          "accuracy": [
+            -1.7999999999999998,
+            4.6
+          ],
+          "tokens": [
+            -0.6222135746780574,
+            15.46085734194295
+          ],
+          "thinking_tokens": [
+            -1.7338488249273198,
+            16.279848027668823
+          ]
+        },
+        "wrong_to_right": [
+          9,
+          10,
+          14,
+          25,
+          39,
+          41,
+          43,
+          50,
+          64,
+          108,
+          119,
+          123,
+          126,
+          140,
+          214,
+          217,
+          222,
+          224,
+          246,
+          282,
+          295,
+          301,
+          303,
+          323,
+          326,
+          347,
+          380,
+          394,
+          398,
+          443,
+          458,
+          460,
+          494,
+          495,
+          498
+        ],
+        "right_to_wrong": [
+          17,
+          52,
+          71,
+          101,
+          120,
+          145,
+          163,
+          184,
+          188,
+          225,
+          232,
+          236,
+          254,
+          273,
+          317,
+          331,
+          371,
+          372,
+          421,
+          425,
+          426,
+          431,
+          445,
+          475,
+          478,
+          490,
+          491,
+          497
+        ],
+        "point_gate": false
+      },
+      "generation_seconds": [
+        397.00535114109516
+      ]
+    },
+    "L27": {
+      "summary": {
+        "count": 500,
+        "correct": 409,
+        "accuracy_percent": 81.8,
+        "mean_tokens": 3590.328,
+        "mean_thinking_tokens": 3205.596,
+        "capped": 21
+      },
+      "vs_parent": {
+        "accuracy_delta_pp": -1.2,
+        "percent_changes": {
+          "tokens": 16.249630884478506,
+          "thinking_tokens": 18.409317911832666
+        },
+        "ci95": {
+          "accuracy": [
+            -4.2,
+            1.7999999999999998
+          ],
+          "tokens": [
+            8.68584911776966,
+            24.309915810966466
+          ],
+          "thinking_tokens": [
+            9.614699088400796,
+            27.838974475339615
+          ]
+        },
+        "wrong_to_right": [
+          24,
+          26,
+          60,
+          71,
+          83,
+          120,
+          156,
+          224,
+          246,
+          279,
+          317,
+          326,
+          338,
+          369,
+          372,
+          380,
+          382,
+          385,
+          398,
+          425,
+          431,
+          444,
+          454,
+          466,
+          495
+        ],
+        "right_to_wrong": [
+          12,
+          14,
+          22,
+          50,
+          94,
+          101,
+          128,
+          130,
+          145,
+          158,
+          166,
+          188,
+          213,
+          217,
+          228,
+          232,
+          236,
+          294,
+          301,
+          303,
+          309,
+          320,
+          356,
+          358,
+          375,
+          401,
+          408,
+          443,
+          490,
+          494,
+          498
+        ],
+        "point_gate": false
+      },
+      "generation_seconds": [
+        465.6791387796402
+      ]
+    }
+  },
+  "checks": {
+    "R": {
+      "complete_unique_rows": 500,
+      "raw_token_totals": 1901625,
+      "correct": 418,
+      "raw_vs_labels_vs_summary": true
+    },
+    "L27": {
+      "complete_unique_rows": 500,
+      "raw_token_totals": 1795164,
+      "correct": 409,
+      "raw_vs_labels_vs_summary": true
+    }
+  },
+  "limitations": [
+    "Exposed MATH500; historical frozen references, not contemporaneous reruns",
+    "Base-model teacher-forced raw pmax differs from generating-policy confidence",
+    "L27 calibration source reused404+96 historical collection; not a uniform new collection"
+  ]
+}

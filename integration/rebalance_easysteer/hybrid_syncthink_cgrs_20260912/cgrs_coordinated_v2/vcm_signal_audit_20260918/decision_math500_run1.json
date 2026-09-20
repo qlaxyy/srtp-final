@@ -1,0 +1,323 @@
+{
+  "status": "Full500 identity/length/labels and paired statistics verified locally",
+  "archive_sha256": "a777f74468f1ffe11e71b4fdcffa039b909ad7f4e4a8fdc523af7e47fe7880de",
+  "summary": {
+    "count": 500,
+    "correct": 418,
+    "accuracy_percent": 83.6,
+    "mean_tokens": 3354.974,
+    "mean_thinking_tokens": 2973.952,
+    "capped": 15
+  },
+  "comparisons": {
+    "U": {
+      "accuracy_delta_pp": -0.8,
+      "ci95": {
+        "accuracy": [
+          -3.4000000000000004,
+          1.7999999999999998
+        ],
+        "tokens": [
+          -29.331315692321024,
+          -19.983123937152065
+        ],
+        "thinking_tokens": [
+          -32.47777089557522,
+          -22.253437591940703
+        ]
+      },
+      "tokens_percent": -24.79076876311128,
+      "thinking_tokens_percent": -27.50846926324112,
+      "wrong_to_right": [
+        50,
+        82,
+        100,
+        101,
+        176,
+        217,
+        219,
+        224,
+        232,
+        236,
+        239,
+        282,
+        285,
+        309,
+        320,
+        369,
+        398,
+        409,
+        421,
+        425
+      ],
+      "right_to_wrong": [
+        17,
+        24,
+        41,
+        64,
+        71,
+        123,
+        126,
+        145,
+        213,
+        222,
+        246,
+        317,
+        327,
+        355,
+        365,
+        372,
+        379,
+        380,
+        382,
+        393,
+        432,
+        475,
+        491,
+        498
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": false
+    },
+    "R": {
+      "accuracy_delta_pp": 1.4000000000000001,
+      "ci95": {
+        "accuracy": [
+          -1.2,
+          4.2
+        ],
+        "tokens": [
+          -11.899680088995638,
+          1.062111887549658
+        ],
+        "thinking_tokens": [
+          -13.65926988771429,
+          1.0425081936406013
+        ]
+      },
+      "tokens_percent": -5.605421413864498,
+      "thinking_tokens_percent": -6.5567197925739285,
+      "wrong_to_right": [
+        18,
+        39,
+        50,
+        100,
+        104,
+        108,
+        119,
+        140,
+        214,
+        217,
+        224,
+        239,
+        282,
+        285,
+        323,
+        333,
+        347,
+        369,
+        394,
+        398,
+        401,
+        418,
+        443,
+        458,
+        466,
+        494,
+        495
+      ],
+      "right_to_wrong": [
+        17,
+        68,
+        71,
+        145,
+        156,
+        166,
+        168,
+        317,
+        327,
+        355,
+        365,
+        372,
+        379,
+        382,
+        393,
+        475,
+        486,
+        490,
+        491,
+        497
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    },
+    "RC14": {
+      "accuracy_delta_pp": 2.4,
+      "ci95": {
+        "accuracy": [
+          -0.4,
+          5.4
+        ],
+        "tokens": [
+          -4.406216757671398,
+          10.812245806170875
+        ],
+        "thinking_tokens": [
+          -4.858523768270533,
+          12.746916018970524
+        ]
+      },
+      "tokens_percent": 2.9950138361289014,
+      "thinking_tokens_percent": 3.621226596869298,
+      "wrong_to_right": [
+        18,
+        21,
+        50,
+        100,
+        108,
+        119,
+        136,
+        164,
+        177,
+        184,
+        214,
+        219,
+        228,
+        236,
+        279,
+        282,
+        294,
+        309,
+        369,
+        371,
+        396,
+        401,
+        411,
+        412,
+        419,
+        431,
+        443,
+        448,
+        454,
+        462,
+        473,
+        478,
+        495
+      ],
+      "right_to_wrong": [
+        10,
+        17,
+        64,
+        68,
+        71,
+        94,
+        156,
+        166,
+        246,
+        301,
+        327,
+        351,
+        352,
+        355,
+        372,
+        379,
+        380,
+        393,
+        475,
+        497,
+        498
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    },
+    "L27_L27": {
+      "accuracy_delta_pp": 0.6,
+      "ci95": {
+        "accuracy": [
+          -2.0,
+          3.4000000000000004
+        ],
+        "tokens": [
+          1.8997900643169603,
+          15.491618987585028
+        ],
+        "thinking_tokens": [
+          2.019972661030912,
+          17.948274176174426
+        ]
+      },
+      "tokens_percent": 8.629208564516212,
+      "thinking_tokens_percent": 9.852778647880346,
+      "wrong_to_right": [
+        18,
+        60,
+        83,
+        100,
+        120,
+        176,
+        177,
+        189,
+        214,
+        219,
+        224,
+        239,
+        279,
+        282,
+        338,
+        369,
+        385,
+        398,
+        425,
+        431,
+        454,
+        458,
+        466,
+        478,
+        495
+      ],
+      "right_to_wrong": [
+        10,
+        14,
+        17,
+        68,
+        94,
+        123,
+        145,
+        166,
+        168,
+        213,
+        301,
+        303,
+        351,
+        355,
+        365,
+        379,
+        393,
+        475,
+        486,
+        490,
+        497,
+        498
+      ],
+      "accuracy_observed_within_2pp": true,
+      "nominal_accuracy_ci_within_2pp": true
+    }
+  },
+  "advance_to_gsm_observed_rule": false,
+  "eligible_without_uniform_schedule_recheck": false,
+  "recovery_provenance": null,
+  "generation_seconds": 451.2972981631756,
+  "full_process_seconds": 480.36684426665306,
+  "grading_and_analysis_seconds": 28.362930968403816,
+  "gpu_mean_utilization_percent": 75.54646017699115,
+  "mti": null,
+  "arm": "MARGIN_L27",
+  "extra_model_forward_count": 0,
+  "margin_changes": 6597,
+  "margin_changed_questions": 478,
+  "limitations": [
+    "Repeatedly exposed test set; not independent confirmation.",
+    "No standalone candidate-mechanism arm, so no additive synergy claim.",
+    "Historical controls; one seed; no claim that probability dominance proves useful reflection."
+  ]
+}

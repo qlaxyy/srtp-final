@@ -1,0 +1,250 @@
+{
+  "note": "Post-gate descriptive check only; cannot rescue failed readiness or select a deployed subset.",
+  "details": [
+    {
+      "question": 8,
+      "same_first_token": true,
+      "first_id": 59,
+      "repeat_id": 59,
+      "difference_norm": 83.58776755060605
+    },
+    {
+      "question": 18,
+      "same_first_token": false,
+      "first_id": 54815,
+      "repeat_id": 4416,
+      "difference_norm": 178.80054096366374
+    },
+    {
+      "question": 21,
+      "same_first_token": true,
+      "first_id": 3830,
+      "repeat_id": 3830,
+      "difference_norm": 71.7267757596875
+    },
+    {
+      "question": 48,
+      "same_first_token": false,
+      "first_id": 10061,
+      "repeat_id": 12209,
+      "difference_norm": 208.15343833511838
+    },
+    {
+      "question": 71,
+      "same_first_token": true,
+      "first_id": 92014,
+      "repeat_id": 92014,
+      "difference_norm": 80.8074940877566
+    },
+    {
+      "question": 87,
+      "same_first_token": false,
+      "first_id": 7039,
+      "repeat_id": 15666,
+      "difference_norm": 209.0154771139131
+    },
+    {
+      "question": 127,
+      "same_first_token": false,
+      "first_id": 10061,
+      "repeat_id": 3872,
+      "difference_norm": 216.928635276259
+    },
+    {
+      "question": 176,
+      "same_first_token": false,
+      "first_id": 18,
+      "repeat_id": 92014,
+      "difference_norm": 246.4337429188459
+    },
+    {
+      "question": 179,
+      "same_first_token": true,
+      "first_id": 54815,
+      "repeat_id": 54815,
+      "difference_norm": 35.76930073127149
+    },
+    {
+      "question": 204,
+      "same_first_token": true,
+      "first_id": 44292,
+      "repeat_id": 44292,
+      "difference_norm": 135.23151737970065
+    },
+    {
+      "question": 211,
+      "same_first_token": false,
+      "first_id": 24617,
+      "repeat_id": 5338,
+      "difference_norm": 215.3061776300127
+    },
+    {
+      "question": 217,
+      "same_first_token": false,
+      "first_id": 10061,
+      "repeat_id": 5338,
+      "difference_norm": 218.98713965574385
+    },
+    {
+      "question": 219,
+      "same_first_token": true,
+      "first_id": 14190,
+      "repeat_id": 14190,
+      "difference_norm": 92.55222954267131
+    },
+    {
+      "question": 221,
+      "same_first_token": true,
+      "first_id": 36975,
+      "repeat_id": 36975,
+      "difference_norm": 65.12660178522891
+    },
+    {
+      "question": 250,
+      "same_first_token": false,
+      "first_id": 4416,
+      "repeat_id": 92014,
+      "difference_norm": 204.21579481013708
+    },
+    {
+      "question": 257,
+      "same_first_token": true,
+      "first_id": 4416,
+      "repeat_id": 4416,
+      "difference_norm": 135.32528751927848
+    },
+    {
+      "question": 279,
+      "same_first_token": true,
+      "first_id": 12209,
+      "repeat_id": 12209,
+      "difference_norm": 86.58573249118693
+    },
+    {
+      "question": 304,
+      "same_first_token": false,
+      "first_id": 14190,
+      "repeat_id": 4416,
+      "difference_norm": 224.90907239898752
+    },
+    {
+      "question": 313,
+      "same_first_token": false,
+      "first_id": 83,
+      "repeat_id": 28,
+      "difference_norm": 212.5779956956377
+    },
+    {
+      "question": 329,
+      "same_first_token": true,
+      "first_id": 15666,
+      "repeat_id": 15666,
+      "difference_norm": 46.86391752713656
+    },
+    {
+      "question": 338,
+      "same_first_token": false,
+      "first_id": 9952,
+      "repeat_id": 92014,
+      "difference_norm": 235.41126469099788
+    },
+    {
+      "question": 340,
+      "same_first_token": true,
+      "first_id": 78045,
+      "repeat_id": 78045,
+      "difference_norm": 98.93888217529273
+    },
+    {
+      "question": 367,
+      "same_first_token": true,
+      "first_id": 16,
+      "repeat_id": 16,
+      "difference_norm": 63.099311823542884
+    },
+    {
+      "question": 401,
+      "same_first_token": false,
+      "first_id": 7039,
+      "repeat_id": 92014,
+      "difference_norm": 234.48919188813167
+    },
+    {
+      "question": 413,
+      "same_first_token": false,
+      "first_id": 4416,
+      "repeat_id": 3036,
+      "difference_norm": 182.85532217254578
+    },
+    {
+      "question": 418,
+      "same_first_token": true,
+      "first_id": 17,
+      "repeat_id": 17,
+      "difference_norm": 59.865074419107415
+    },
+    {
+      "question": 431,
+      "same_first_token": true,
+      "first_id": 54815,
+      "repeat_id": 54815,
+      "difference_norm": 57.45541948849311
+    },
+    {
+      "question": 449,
+      "same_first_token": false,
+      "first_id": 12209,
+      "repeat_id": 92014,
+      "difference_norm": 188.03970642372647
+    },
+    {
+      "question": 453,
+      "same_first_token": false,
+      "first_id": 57251,
+      "repeat_id": 23085,
+      "difference_norm": 206.86590191017999
+    },
+    {
+      "question": 456,
+      "same_first_token": true,
+      "first_id": 92014,
+      "repeat_id": 92014,
+      "difference_norm": 48.933936215250846
+    },
+    {
+      "question": 462,
+      "same_first_token": false,
+      "first_id": 87,
+      "repeat_id": 23085,
+      "difference_norm": 232.76879770539477
+    },
+    {
+      "question": 469,
+      "same_first_token": false,
+      "first_id": 14190,
+      "repeat_id": 5338,
+      "difference_norm": 222.64708098475478
+    },
+    {
+      "question": 483,
+      "same_first_token": false,
+      "first_id": 3036,
+      "repeat_id": 16,
+      "difference_norm": 200.58143108769707
+    }
+  ],
+  "groups": {
+    "same_first_token": {
+      "n": 15,
+      "mean_individual_difference_norm": 77.45794989974745,
+      "mean_direction_norm": 25.710442729034003,
+      "split_cos_median": 0.21051356378088337
+    },
+    "different_first_token": {
+      "n": 18,
+      "mean_individual_difference_norm": 213.2770395367637,
+      "mean_direction_norm": 71.38695037171313,
+      "split_cos_median": 0.3801376080627894
+    }
+  }
+}

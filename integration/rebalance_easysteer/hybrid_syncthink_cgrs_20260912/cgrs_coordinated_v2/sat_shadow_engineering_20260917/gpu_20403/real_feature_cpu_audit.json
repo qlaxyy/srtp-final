@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "real_prefix_tokens_compared": 3694,
+  "real_steps_compared": 81,
+  "feature_max_abs_error": 1.582503318786621e-05,
+  "tolerance": 5e-05,
+  "longest_low_score_run": 2,
+  "requires_consecutive_low_scores": 5,
+  "new_answers": 0,
+  "gpu_used": false,
+  "limitation": "Recorded boundaries supplied, no independent GTE/segmentation parity or correction-value validation"
+}

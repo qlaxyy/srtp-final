@@ -1,0 +1,31 @@
+{
+  "model": "1.5B/BF16",
+  "dataset": "MATH-500",
+  "new_groups": [
+    "old_vector_new_curve",
+    "new_vector_old_curve"
+  ],
+  "rows_per_group": 500,
+  "references": [
+    "frozen L27 old vector + old curve",
+    "native L27 q90 new vector + new curve"
+  ],
+  "seed": 42,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "max_new_tokens": 16000,
+  "max_num_seqs": 256,
+  "max_num_batched_tokens": 32768,
+  "gpu_memory_utilization": 0.9,
+  "graph": "in_graph",
+  "async_scheduling": true,
+  "layer": 20,
+  "normalization": false,
+  "lexical": "Frozen L27; coefficient-sign gate unchanged",
+  "interaction": "Per-question Y11-Y10-Y01+Y00, raw token scale; accuracy scale in percentage points, paired bootstrap20000",
+  "acceptance": "Practical candidate must reduce both token means vs frozen L27, lose <=2pp accuracy and not increase caps; report uncertainty",
+  "limitation": "Full controller includes thresholds, variance, strengths, tau; lexical gate changes downstream. Crossed parameters need not retain original calibration semantics. Historical two cells are not concurrent controls.",
+  "stop": "No automatic additional thresholds, normalization, refitting, retries, or expansion",
+  "process_seconds": 1800,
+  "batch_seconds": 3600
+}

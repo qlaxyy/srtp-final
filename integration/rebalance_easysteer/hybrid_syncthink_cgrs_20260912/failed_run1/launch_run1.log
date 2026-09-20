@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 297, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 293, in main
+    elif a.execute:execute(a)
+                   ^^^^^^^^^^
+  File "/root/autodl-tmp/projects/hybrid_syncthink_cgrs_20260912_run1_verified/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/run_batch.py", line 268, in execute
+    raise RuntimeError(f'{child} exited {process.returncode}')
+RuntimeError: pre exited 1

@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "dispatch_cases": 25,
+  "confirmation_behavior_cases": 2,
+  "unique_proposed_questions": 400,
+  "compiled": [
+    "run_batch.py",
+    "analyze.py",
+    "check_cpu.py",
+    "prepare_local.py",
+    "prepare_runtime.py",
+    "reconcile_data.py",
+    "verify_run.py"
+  ],
+  "shared_inference_changes": 0,
+  "limitations": [
+    "No local Torch or model forward",
+    "Remote cross-line reconciliation and asset checks pending",
+    "Synthetic statistics tests are not experiment results"
+  ]
+}

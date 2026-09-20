@@ -1,0 +1,153 @@
+{
+  "run_id": "s64_mix05_confirm_math200_gsm200_c256_run1_20260913",
+  "files": {
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/analyze.py": {
+      "physical_sha256": "db6ef0fdeb5602e99423aba7ae806c80651bc9d1664161e94aae7147ba01f82c",
+      "lf_normalized_sha256": "db6ef0fdeb5602e99423aba7ae806c80651bc9d1664161e94aae7147ba01f82c"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/check_cpu.py": {
+      "physical_sha256": "c4d5631b0028795b8e143bcb489fec3cf5f0ed00d8614b411fd6a063db84e76f",
+      "lf_normalized_sha256": "f8a62174935b8e77e2f894bff482d2963d97ddcb4167363dddafbdf1aecfd6e4"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/cpu_checks.json": {
+      "physical_sha256": "ef3574582ef8fa98436d730fcfbd77591830bbab2d5a4e8923999243ee0c79bb",
+      "lf_normalized_sha256": "ac4d2d7f546f1be7003fd0f7926e5a9368e36aae0a43a164d5a6b7d571453390"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/data_proposal.json": {
+      "physical_sha256": "c8c812ccb2322e359616a68038d524eb36598554bb0638244e0ebd363b1d17bb",
+      "lf_normalized_sha256": "c8c812ccb2322e359616a68038d524eb36598554bb0638244e0ebd363b1d17bb"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/engineering_reuse.json": {
+      "physical_sha256": "59310ecf6676dbd92353550e4c5aef821f592cd3c73b8c3fadb69dc2f8ced4e5",
+      "lf_normalized_sha256": "59310ecf6676dbd92353550e4c5aef821f592cd3c73b8c3fadb69dc2f8ced4e5"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/gsm8k_mix05.json": {
+      "physical_sha256": "2b3ee3cca9e5672c575711206f69e668bc18ec09d40dcba417a0233a6a5b6c9d",
+      "lf_normalized_sha256": "2b3ee3cca9e5672c575711206f69e668bc18ec09d40dcba417a0233a6a5b6c9d"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/implementation.patch": {
+      "physical_sha256": "08c9f247ffe79370620d7b75799d2df55ef91ef667b741693546efdc30185c24",
+      "lf_normalized_sha256": "08c9f247ffe79370620d7b75799d2df55ef91ef667b741693546efdc30185c24"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/local_reconciliation.json": {
+      "physical_sha256": "52699750d5e2eefcb2da041c61cf1428b6bf026f09b5bb03f48a1500b0ca7616",
+      "lf_normalized_sha256": "434930729a3f9a1232673f9eb484e92a7af0898ad335653512e9a2331bee17e7"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/math_mix05.json": {
+      "physical_sha256": "39450535991846617c67846fe2bdd5b906b670f3abed98893877756857792fb7",
+      "lf_normalized_sha256": "39450535991846617c67846fe2bdd5b906b670f3abed98893877756857792fb7"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/patch_manifest.json": {
+      "physical_sha256": "f2c2d16e161be27afe710dd50e4e9dd27addd6bf13ffe8bd78348ca4c3a68ec7",
+      "lf_normalized_sha256": "f2c2d16e161be27afe710dd50e4e9dd27addd6bf13ffe8bd78348ca4c3a68ec7"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/plan.json": {
+      "physical_sha256": "8a1afdd0cc665310024e218fb91a6ecfc4747ffa51ab86f96a5f4dfb6d13bda1",
+      "lf_normalized_sha256": "8a1afdd0cc665310024e218fb91a6ecfc4747ffa51ab86f96a5f4dfb6d13bda1"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/prepare_local.py": {
+      "physical_sha256": "98ca4af3ae183f7c6b82ebd9d32830ca9d2aef7710784bc5f47536d3b747031f",
+      "lf_normalized_sha256": "98ca4af3ae183f7c6b82ebd9d32830ca9d2aef7710784bc5f47536d3b747031f"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/prepare_runtime.py": {
+      "physical_sha256": "d0d86f4a3009e87f479c404e708cc4b11944bcef412776d457d736c61bc12923",
+      "lf_normalized_sha256": "d0d86f4a3009e87f479c404e708cc4b11944bcef412776d457d736c61bc12923"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/reconcile_data.py": {
+      "physical_sha256": "27b339e928a9bfad66c5c98813e3a70e96dca06eec22faf4fe3f79dda6ad1400",
+      "lf_normalized_sha256": "27b339e928a9bfad66c5c98813e3a70e96dca06eec22faf4fe3f79dda6ad1400"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/remote_reconciliation.json": {
+      "physical_sha256": "df872f06eb6cd3cd0e13d382a9e20dc14f3b787efb8e1e0d716618bf6f81c93f",
+      "lf_normalized_sha256": "efaa1ac80d00a77a4c966ac7274e2e17d27be642d5de249cb482346adf257d1e"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/verify_run.py": {
+      "physical_sha256": "b2842aac6fcb2c002fc5340c37251c2c0ba0b755b1a7dc3e40cbaadd1f948b3c",
+      "lf_normalized_sha256": "b2842aac6fcb2c002fc5340c37251c2c0ba0b755b1a7dc3e40cbaadd1f948b3c"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/扩测计划.md": {
+      "physical_sha256": "f8affc202b174f7f30d25f87a0b7bec49d7090b37fc316a3adb84e1cbeeef52d",
+      "lf_normalized_sha256": "f8affc202b174f7f30d25f87a0b7bec49d7090b37fc316a3adb84e1cbeeef52d"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/测试结果.md": {
+      "physical_sha256": "8e21fb09809ba65793ec835d74a5f71eaf1d49e97908c678463cfa552d92c91f",
+      "lf_normalized_sha256": "8e21fb09809ba65793ec835d74a5f71eaf1d49e97908c678463cfa552d92c91f"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/execution_run1/coordination_mix05_confirm200.json": {
+      "physical_sha256": "34698da6be589921dbde677980912c5fb16f777c74c443d6585d697e20b34650",
+      "lf_normalized_sha256": "34698da6be589921dbde677980912c5fb16f777c74c443d6585d697e20b34650"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/execution_run1/data_freeze.json": {
+      "physical_sha256": "fdac7f2fb58286aa9149a6fe8c55d6e0c815c44dd8c748c8ab8c4796e44e9c6f",
+      "lf_normalized_sha256": "7935c1d3a625c9836009b220c654599f0246d2abdcfc662388994c46f73cdd69"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/execution_run1/launch_receipt.json": {
+      "physical_sha256": "5d777c7673440e846842528fff3b639f8829a594a86fe24350faee2069b3e484",
+      "lf_normalized_sha256": "5d777c7673440e846842528fff3b639f8829a594a86fe24350faee2069b3e484"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/execution_run1/local_reconciliation.json": {
+      "physical_sha256": "98279a39871ec146e06e415494f428947fd4e190e4d70780399b63b0997d6cb1",
+      "lf_normalized_sha256": "98279a39871ec146e06e415494f428947fd4e190e4d70780399b63b0997d6cb1"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/execution_run1/remote_reconciliation.json": {
+      "physical_sha256": "077d4dd54668cbaf5aabd251a755692e5c630e2798be53aa8d16ddfb9d7bb4ce",
+      "lf_normalized_sha256": "077d4dd54668cbaf5aabd251a755692e5c630e2798be53aa8d16ddfb9d7bb4ce"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/analysis.json": {
+      "physical_sha256": "f7fe2055d9bcc71e7b9ba90275daf9a4b0f9f81b5c2b55fd9f2486e03a3e1d0c",
+      "lf_normalized_sha256": "fa904fead6e7010dd281d1df6a5aa608868ef610271682d600e65ccde76614a9"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/audit_notes.json": {
+      "physical_sha256": "45e97c24b4a7b9f993cba7ba77672ce5034532143fc95f512f6f722081fb32fd",
+      "lf_normalized_sha256": "45e97c24b4a7b9f993cba7ba77672ce5034532143fc95f512f6f722081fb32fd"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/case_reviews.json": {
+      "physical_sha256": "931bdd5b60f2396620d94cd43bb955bdf605611e9119ba7dac27eb74de39155f",
+      "lf_normalized_sha256": "e23b015c4e4a100f35402054d8a681bb5a44be27e57e2c915cfc7f91bc5b9c3a"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/data_usage.json": {
+      "physical_sha256": "27f223aa03c6ebdc1af0b6c96186cb67850b6310357867296238cb45e2366f57",
+      "lf_normalized_sha256": "27f223aa03c6ebdc1af0b6c96186cb67850b6310357867296238cb45e2366f57"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/engineering_reuse_verification.json": {
+      "physical_sha256": "d7008711a9ad890c4437ff10d2860a7db53d39ded36a6aaa0c323a772dc6d57d",
+      "lf_normalized_sha256": "d7008711a9ad890c4437ff10d2860a7db53d39ded36a6aaa0c323a772dc6d57d"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/execution_receipt.json": {
+      "physical_sha256": "118eb8357b3ee38bab657b59b261a65e7d40cb2e132ef48395f6a8238cfc7969",
+      "lf_normalized_sha256": "118eb8357b3ee38bab657b59b261a65e7d40cb2e132ef48395f6a8238cfc7969"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/native_cpu_checks.json": {
+      "physical_sha256": "3f63223f7276ac2f0c2fab5835f412fba34ec16d5564324798b6b5efd02a0b7d",
+      "lf_normalized_sha256": "3f63223f7276ac2f0c2fab5835f412fba34ec16d5564324798b6b5efd02a0b7d"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/per_question.json": {
+      "physical_sha256": "2ae82b8ba939ead5c890455a7851b71ec976443b3d5a23aca2530c3ba372c268",
+      "lf_normalized_sha256": "2ae82b8ba939ead5c890455a7851b71ec976443b3d5a23aca2530c3ba372c268"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/token_diagnostics.json": {
+      "physical_sha256": "8b6fd22e1535d68a10fdc8b90149b98899c3964154b9a302e7b1f91235df4eed",
+      "lf_normalized_sha256": "edb736353e975d91b4959733f75de4b3b24cdb3be5ef7feb9b2efbfc6406a341"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/mix05_confirm200_20260913/results_run1/verification.json": {
+      "physical_sha256": "f28255232dfe75723de1d60ad4436928ee8be9d41e4b58d3d19389460a48bdfb",
+      "lf_normalized_sha256": "f28255232dfe75723de1d60ad4436928ee8be9d41e4b58d3d19389460a48bdfb"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/README.md": {
+      "physical_sha256": "ac50af1caa03dd73a1dd06ff9188814b697194031085f18934f0f81a2a66f08f",
+      "lf_normalized_sha256": "ac50af1caa03dd73a1dd06ff9188814b697194031085f18934f0f81a2a66f08f"
+    },
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/data_usage_current.json": {
+      "physical_sha256": "ad96069fa8d104058943b1281cca3e75512605c1c0ff6500e4b4bad92a11f310",
+      "lf_normalized_sha256": "ad96069fa8d104058943b1281cca3e75512605c1c0ff6500e4b4bad92a11f310"
+    }
+  },
+  "archive_sha256": "4929075ffbe2f508a277d273f286b28f0e0c62a176685bf8c27d158844cdf6f2",
+  "runtime_commit": "16c3bc8b25b618d418aebe217b65d15e7463145d",
+  "data_freeze_commit": "d58e520bed33661aa2786179824db88450d26890",
+  "peer_commit": "c0a3a5a8e7c3b82abad559bf9ac6fdef11e9e986",
+  "peer_status": "",
+  "frozen_tag_object": "21e366b6d9a76ebb112e24e3e110942ef405bab9",
+  "frozen_target": "d80dd606484bb53cb52934d52399da61f3e3ed1e",
+  "scope": "Final deliverable physical and LF hashes; archive retains exact raw server bytes; manifest excludes itself"
+}

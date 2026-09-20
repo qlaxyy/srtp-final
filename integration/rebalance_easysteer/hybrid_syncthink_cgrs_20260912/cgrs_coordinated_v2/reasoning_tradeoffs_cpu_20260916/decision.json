@@ -1,0 +1,91 @@
+{
+  "status": "CPU diagnostic completed; no GPU candidate promoted",
+  "objective": "Reduce thinking tokens and total generated tokens while retaining accuracy, preferably improving it. Runtime controls experiment expense, not method success.",
+  "scope": {
+    "model": "DeepSeek-R1-Distill-Qwen-7B",
+    "dataset": "Previously exposed MATH training questions",
+    "unique_questions": 100,
+    "saved_trajectories": 600,
+    "seeds": [
+      142,
+      242
+    ],
+    "arms": [
+      "R",
+      "RC14",
+      "RChistory"
+    ],
+    "new_model_forwards": 0,
+    "partial_seed342_excluded": true
+  },
+  "evidence": {
+    "RC14_vs_R_correct_to_wrong": 3,
+    "RC14_vs_R_correct_to_wrong_longer": 3,
+    "history_vs_RC14_correct_to_wrong": 4,
+    "history_vs_RC14_correct_to_wrong_longer": 3
+  },
+  "rejected_for_gpu": [
+    {
+      "rule": "Two consecutive identical boxed expressions inside thinking",
+      "hits": 7,
+      "unique_questions": 5,
+      "remaining_thinking_characters_range": [
+        1,
+        33
+      ],
+      "reason": "Too late and sparse; one final answer wrong. Agreement is not correctness. Character remainder is not saved tokens."
+    },
+    {
+      "rule": "Three consecutive identical token blocks, length 8..64, at least 4 distinct token IDs",
+      "hits": 5,
+      "unique_questions": 2,
+      "normal_math_expansion_hits": 4,
+      "visible_degenerate_loop_hits": 1,
+      "reason": "Normal alternating sum expansions trigger. One degenerate loop does not justify a general intervention; continuation after a counterfactual intervention is unknown."
+    }
+  ],
+  "case_notes": [
+    {
+      "train_index": 4246,
+      "description": "Four loop detections are from alternating powers of -1; repeated arithmetic expansion is legitimate and all four final answers correct."
+    },
+    {
+      "train_index": 4992,
+      "seed": 142,
+      "arm": "RChistory",
+      "description": "Long repeated 284*96=27 fragments reach 16000 cap. Earliest exact triple is followed by a token mismatch; zero subsequent_exact_loop_tokens does not imply no later loops. Detector is fixed, no post-result retuning."
+    },
+    {
+      "train_index": 5671,
+      "seed": 142,
+      "comparison": "RC14 to RChistory",
+      "description": "Correct 567 in reference; candidate revisits an initial 567 result, adopts inconsistent polygon coordinates and ends with 445.5. Illustrative post-solution drift, not proof of intervention causality."
+    }
+  ],
+  "next_research_question": "Can a prefix-only signal distinguish completed valid reasoning from a still-incorrect provisional answer, without prohibiting necessary correction?",
+  "next_prerequisites": [
+    "Use exposed training outputs for discovery only; do not tune on frozen test sets.",
+    "Measure signal coverage and trigger positions, inspect useful-correction counterexamples, and separate diagnosis using answer keys from deployable prefix-only decisions.",
+    "Existing saved outputs lack stepwise confidence/logit series; do not fabricate those or claim offline replay of a new confidence policy.",
+    "Freeze a substantive candidate and new single-seed comparison before any new GPU run; do not resume stopped three-seed batch."
+  ],
+  "limitations": [
+    "Descriptive analysis of 100 unique exposed questions, not 600 independent questions.",
+    "7-9 pairs per comparison diverge before either first lexical penalty, so correctness flips cannot all be causally assigned to masking.",
+    "Longer incorrect trajectories do not prove an earlier stop would be correct.",
+    "No confidence-threshold or lexical-list sweep was performed."
+  ],
+  "validation": {
+    "cpu_tests_passed": 56,
+    "new_sources_python310_ast_parse": true
+  },
+  "reference_RC14_unchanged": true,
+  "gpu_ready": false,
+  "artifact_sha256": {
+    "audit.json": "2c5c54f03fa42d536b3904f4c88abe1b7c2b3868b39c38d2970a137d41e7a5ee",
+    "contiguous_loop_audit.json": "7c034dca001d8819eb7c1ba56be5e3fd07e3444bc6ea3b0c90b7dec7b36edbe1",
+    "contiguous_loop_cases.json": "51932d0e1eb7cb268c370bc79b43cb1fea2d91f39165533465ceb9a6829b9e57",
+    "flip_cases.json": "f2472a7a8b7f134a917bb25cf07d430f7fefe5fddacfd20d020b453253c3115c",
+    "pairs.json": "0fa32f8ffbc11507d00ac9712e807f488e655d98f0de8f073a65928de24d7d15"
+  }
+}

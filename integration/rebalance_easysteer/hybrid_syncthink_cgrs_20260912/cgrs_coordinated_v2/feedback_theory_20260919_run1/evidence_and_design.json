@@ -1,0 +1,85 @@
+{
+  "status": "Theory and CPU diagnosis only; no GPU or new fitted vector",
+  "sources": [
+    {
+      "arxiv": "2305.18290",
+      "url": "https://arxiv.org/abs/2305.18290",
+      "fulltext_read": true,
+      "sentinel": "4668a1b64572",
+      "parsed_sha256": "65bb09da0d5c47591cb92caa1e0f35c5769b76cbf1f4fc3cfc8238f8c3ce792b",
+      "locations": [
+        "Section 4 Eq 3-7",
+        "Section 5 Theorem 1",
+        "Appendix A.1 and A.6",
+        "Appendix B",
+        "Section 7 limitations"
+      ]
+    },
+    {
+      "arxiv": "2203.14465",
+      "url": "https://arxiv.org/abs/2203.14465",
+      "fulltext_read": true,
+      "sentinel": "9895086c7f63",
+      "parsed_sha256": "d117e26fd5ebe9d522f0a9600b059eb79191743d6a2c94fa66d223f241796d28",
+      "locations": [
+        "Section 3.1 Eq 1-2",
+        "Algorithm 1",
+        "Section 5 Temperature",
+        "Appendix A, G, J"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim": "Self-generated successful trajectories can supply learning data",
+      "evidence": "STaR 3.1 Eq1-2 relates correctness-filtered likelihood gradients to expected-reward policy gradient; its actual greedy sampling and repeated updates are approximations",
+      "limit": "Does not establish correctness of every reasoning step or learned-vector compression; Appendix A/G/J explicitly discuss bad reasoning and lucky correct short outputs"
+    },
+    {
+      "claim": "Preference learning has a KL-regularized reward interpretation",
+      "evidence": "DPO Section4 Eq3-7 and AppendixA.1 derive pi*=pi_ref*exp(r/beta)/Z",
+      "limit": "General policy class, support and preference-model assumptions; finite data and a 1536-dimensional restricted vector do not inherit universal optimality or accuracy guarantees"
+    },
+    {
+      "claim": "Same-policy pair collection is a design control, not a DPO theorem prerequisite",
+      "evidence": "DPO Section4 describes reuse of offline preference datasets and reference mismatch; Section6 dialogue samples from an unknown model",
+      "limit": "Our current source conflict is association, not causal proof. Same-policy samples may still contain reasoning-style and correctness noise"
+    },
+    {
+      "claim": "Subtracting gamma from marked logits is a local KL-regularized proxy-cost optimum",
+      "evidence": "Own derivation: argmin_q KL(q||p)+gamma*E_q[1_marked] gives q_i proportional to p_i exp(-gamma*1_marked)",
+      "limit": "Proxy cost is not real reflection redundancy; gamma=ln2 and lexicon expansion have empirical, not optimality, support. At T=1 marked/unmarked odds halve, token probability does not generally halve. If penalty precedes T=.7, odds multiplier is 2^(-1/.7), before top-p truncation."
+    },
+    {
+      "claim": "Conflicting group gradients can admit common ascent",
+      "evidence": "Own convex projection derivation: min-norm convex-hull point g* obeys Gi dot g* >= ||g*||^2 for every objective Gi",
+      "limit": "Only finite fixed-history surrogate objectives at initialization. Nonzero common group ascent is not every-parent, finite-step, online, accuracy, or token guarantee."
+    }
+  ],
+  "next_design": {
+    "name": "Correctness-constrained preference residual, exploratory specification",
+    "base": "Frozen L27, original vector, fit, layer and suppression unchanged",
+    "trainable": "Only negative-branch residual with generated-boundary mask; no export from present diagnosis",
+    "changes": "Solve conflicting preference and correctness objectives explicitly instead of raw averaging; avoid confidence-derived step labels",
+    "data": "Current 176/45/5 remain exposed diagnostics. Five guards used as constraints must be training data thereafter, never validation. New registered parents required for a fresh check.",
+    "order": [
+      "Resolve native/HF outlier scoring before optimization",
+      "Check actual small-step full-response loss against predicted improvements; reject if fixed-history approximation invalid",
+      "Use separately declared fitting correctness examples and separately held-out correctness evaluation",
+      "Define steps, trust region, checkpoint and no post-test tuning before training",
+      "Only then evaluate a fixed candidate with actual online controller and full benchmark, compare frozen L27"
+    ],
+    "stops": [
+      "No numerical parity explanation",
+      "Only training preferences improve",
+      "Correctness evaluation degrades beyond predefined tolerance",
+      "Actual generation fails token/correctness criterion"
+    ],
+    "nonclaims": [
+      "No inference that data source is sole cause",
+      "No theorem that ln2 or the large lexicon is optimal",
+      "No theoretical accuracy guarantee from five guards",
+      "No release candidate or new efficacy result"
+    ]
+  }
+}

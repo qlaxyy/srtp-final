@@ -1,0 +1,27 @@
+{
+  "run_id": "mix05_full_math500_gsm1319_RS_c256_run1_20260913",
+  "data_usage_sha256": "ca81a1d680e83b119f8f8857c4473bf39ec41b169376008d6c692d29f1023178",
+  "plan_sha256": "1d3e1b2ca3d3f66109986d659a16b7ce2fcf76e7c49cfa4b51960d68cbd1dd12",
+  "authority": "User 把mix05完整测完 explicitly authorizes fixed1.5B RS full MATH500+GSM8K1319; GPU enabled confirmed. Executing dialogue checked local worktrees and shared server inputs; no new training data claims.",
+  "cross_line_data_clear": true,
+  "shared_code_integrated_in_isolated_checkout": true,
+  "gpu_batch_authorized": true,
+  "checked_registries": {
+    "local_snapshot_sha256": "162c1495dafb2900f3b5a8830be4501c4ef8bfed463d93d92a15974ab1f86825",
+    "remote_snapshot_sha256": "ac85770f4c2dbcff909ff8dabee0730b3a8d9d249430b2b013f3a7871d179ec5",
+    "training_registry_sha256": "ad96069fa8d104058943b1281cca3e75512605c1c0ff6500e4b4bad92a11f310",
+    "scope": "Known test benchmark reuse only; not disjoint new confirmation"
+  },
+  "runtime_commit": "e21eeb37c60a617a62ae9f42156fd0a8d766ec0b",
+  "deployment_archive_sha256": "5a259919833a2a105c7b9b32680c56e3d8f6307b24415b4155e8d004fbc0c558",
+  "gpu_before": "NVIDIA GeForce RTX 4090 D, 1 MiB, 0 %\n",
+  "data_status": "fixed_test_benchmark_reserved_RS_predictions_only",
+  "staging_incidents": [
+    "Initial connection timeout before user confirmed GPU enabled; no model generation at that point"
+  ],
+  "limits": [
+    "Single fixed test run after prior test exposure; no parameter selection",
+    "Prior mix05 training confirmation remains inconclusive",
+    "Frozen outputs and training calibration answers are not regenerated"
+  ]
+}

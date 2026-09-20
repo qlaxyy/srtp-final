@@ -1,0 +1,20 @@
+{
+  "parents": 33,
+  "geometry": {
+    "raw_norm": 18.699055129001387,
+    "loo_min": 0.9963047062094563,
+    "split_cos_quantiles": [
+      0.6788293218815027,
+      0.7153709758351363,
+      0.7850660029541091,
+      0.8322266395047849,
+      0.8616125145335096
+    ],
+    "source_cos": 0.6715123100341122
+  },
+  "original_norm": 83.61913655627941,
+  "candidate_norm": 83.61913591571782,
+  "raw_norm": 18.699055113179558,
+  "vector_sha256": "6ff756bb6c5702f9ade5914db6d23db00024afd7d6514506e75e503ad67706d2",
+  "runtime_controller_unchanged": true
+}

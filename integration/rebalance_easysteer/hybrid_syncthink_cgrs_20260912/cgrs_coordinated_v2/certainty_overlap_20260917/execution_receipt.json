@@ -1,0 +1,24 @@
+{
+  "code_commit": "ae3ad46",
+  "run_id": "certainty_overlap174_20260917/run3",
+  "original_plan_commit": "ae97d8a",
+  "source_sha256": {
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\run_certainty_overlap.py": "8afc1637c59f26aa6504d16db93cd9761a98f6c135db76d0a86423c26cc3756d",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\analyze_certainty_overlap.py": "5cd62a2985ec935c1bf4408fe0d26e214efa04dffdecfb72ced82e350cf80294",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\adapter.py": "9252e003cdb9b12011d3ae4a3854d6d9d636ca1f77a1fe9d60c1dbb402b25a01",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\policy.py": "40462f53d50413d49a63a0662efa07ebce676da3341a9e4483fc4ad335321d20",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_probe_20260913\\backend.py": "38e957ec4323cc85ede1e17c4c0ac08046ed969fd22cbb2ef2fb26f1f5950ec2",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_probe_20260913\\policy.py": "b6a108851b082c8a5280f17efe6b6b61be9a96ba4712ea6241ea2dca845a365f"
+  },
+  "amendment": "Live native exact reproduction + disjoint byte-verified KV cloning; all original confidence thresholds, positions and probe caps unchanged",
+  "cpu_tests": {
+    "policy_lifecycle_passed": 19,
+    "native_tensor_tests_passed_on_server": 4,
+    "contingency_check_passed": true,
+    "local_native_test_limitation": "1 of 4 could not import vllm on Windows; same test passed on server CPU"
+  },
+  "failed_startups_preserved": [
+    "run1 missing compiler lookup due PATH",
+    "run2 missing venv ninja lookup due PATH"
+  ]
+}

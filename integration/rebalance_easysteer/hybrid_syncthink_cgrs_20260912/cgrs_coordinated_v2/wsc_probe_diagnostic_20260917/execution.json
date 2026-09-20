@@ -1,0 +1,68 @@
+{
+  "status": "prepared_not_launched",
+  "remote_root": "/root/autodl-tmp/projects/hybrid_wsc_probe_diagnostic_20260917",
+  "output_root": "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_probe_diagnostic_20260917",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "data": "8 exposed original calibration trajectories; retained exact prompts/prefixes",
+  "generated_answers": 0,
+  "generated_tokens": 0,
+  "main_replay_input_tokens": 14715,
+  "extra_partition_replay_input_tokens": 3583,
+  "total_forward_input_tokens": 18298,
+  "generation_or_sampling_calls": 0,
+  "replay_passes": 10,
+  "unique_trajectories": 8,
+  "reason_for_partition_repeats": "5353 and26 replay at128 and256 chunk size solely to detect numerical/position sensitivity, not additional seeds or independent examples",
+  "command": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "600s",
+    "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "-u",
+    "/root/autodl-tmp/projects/hybrid_wsc_probe_diagnostic_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/wsc_replay_diagnostic.py",
+    "--plan",
+    "/root/autodl-tmp/projects/hybrid_wsc_probe_diagnostic_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/wsc_probe_diagnostic_20260917/plan.json",
+    "--output-root",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_probe_diagnostic_20260917",
+    "--gpu-authorized"
+  ],
+  "scoring_command": [
+    "/root/autodl-tmp/venvs/easysteer-vllm026/bin/python",
+    "/root/autodl-tmp/projects/hybrid_wsc_probe_diagnostic_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/score_wsc_replay_diagnostic.py",
+    "--run",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_probe_diagnostic_20260917/wsc_unsteered_prefix8_partition2_run1_20260917",
+    "--weights",
+    "/root/autodl-tmp/projects/hybrid_wsc_probe_diagnostic_20260917/integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/wsc_shadow_20260917/1.5B.pkl",
+    "--output",
+    "/root/autodl-tmp/results/easysteer/hybrid_syncthink_cgrs_20260912/wsc_probe_diagnostic_20260917/wsc_unsteered_prefix8_partition2_run1_20260917/scores.json"
+  ],
+  "environment": {
+    "PYTHONNOUSERSITE": "1",
+    "PATH": "/root/autodl-tmp/venvs/easysteer-vllm026/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+  },
+  "setup": "New isolated directory, existing model/env only, no vLLM/shared controller change, no pip install. Archive source hashes checked; model files checked before load. Output directory must be new.",
+  "estimate_minutes": [
+    2,
+    5
+  ],
+  "hard_timeout_seconds": 600,
+  "reporting": [
+    "zero generated answers/tokens",
+    "GPU forward time",
+    "startup",
+    "export-inclusive wall",
+    "CPU score analysis",
+    "partition differences",
+    "unobservable vs observed loops",
+    "productive-span false triggers",
+    "ambiguous cases separately"
+  ],
+  "stops": [
+    "Wrong model/source/hash/position or nonfinite states",
+    "Partition score delta>.02, cosine<.999, threshold-side or trigger disagreement: stop semantic interpretation",
+    "No automatic parameter adjustment, extra sample selection, recovery intervention or formal benchmarks"
+  ],
+  "decision": "No new GPU until user opens/authorizes this specific saved-prefix replay. A pass is not validation under RC14.",
+  "future_limitation": "Current probe provenance ambiguity and necessary-correction gold-label gap remain; this small selected set cannot estimate general precision/recall."
+}

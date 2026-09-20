@@ -1,0 +1,15 @@
+{
+  "shared_files_modified": false,
+  "order": [
+    "raw maximum probability",
+    "RC14 penalty",
+    "original sampler and cue replacement",
+    "RC14 state update from accepted IDs",
+    "native R observe_sample from accepted IDs and saved raw maximum probability"
+  ],
+  "source_sha256": {
+    "integration/rebalance_easysteer/hybrid_syncthink_cgrs_20260912/cgrs_coordinated_v2/adapter.py": "aa34fe5c465a84605a71467ecd52f3dae598adfa830428afd57dadc909ca5a32",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py": "1b90fa62add5595272146ef282681e667a16d4474d1ec544084f5d0b4443c8ce",
+    "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py": "cf7719e915d13ec25781075a658e1a3f3427a8a5e6a56df38c715b2e2b9de46d"
+  }
+}

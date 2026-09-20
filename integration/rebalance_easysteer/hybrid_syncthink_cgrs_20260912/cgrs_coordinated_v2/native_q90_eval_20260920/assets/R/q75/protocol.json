@@ -1,0 +1,16 @@
+{
+  "source_sha256": "210462946624e2447ab13e7db9e9f9785b67edd4812a62403f04c02cbeeb2233",
+  "confidence_quantiles": [
+    0.8731264802475998,
+    0.9986059975160342
+  ],
+  "variance_quantiles": [
+    5.379925817769647e-07,
+    0.0023776121001779504
+  ],
+  "confidence_quantile_levels": [
+    0.25,
+    0.75
+  ],
+  "high_threshold_used_for_both_label_and_curve": true
+}

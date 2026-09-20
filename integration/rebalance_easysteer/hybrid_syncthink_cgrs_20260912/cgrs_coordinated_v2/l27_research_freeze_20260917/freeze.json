@@ -1,0 +1,97 @@
+{
+  "status": "FROZEN by explicit user request",
+  "version": "ReBalance-L27-v1",
+  "tag": "easysteer-rebalance-l27-v1-20260917",
+  "result_commit": "ed5f0a9a4331aaca3ddc053d6f99b9abb0197e25",
+  "selected": "L27_L27: model-specific original L27 calibration and original dynamic ReBalance, opening-only L27 completion soft suppression",
+  "not_official_cgrs": true,
+  "penalty": "unchanged log(2)",
+  "models": [
+    "DeepSeek-R1-Distill-Qwen-1.5B",
+    "DeepSeek-R1-Distill-Qwen-7B"
+  ],
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "datasets": {
+    "MATH-500": 500,
+    "GSM8K": 1319
+  },
+  "interpretation": "Stable research release, not a claim of universal improvement or independent confirmation. Retain 1.5B GSM8K token/cap regression versus RC14 and all five-arm negative outcomes.",
+  "rules": [
+    "Never overwrite these results, move this tag or retune this version.",
+    "Keep original RC14 and easysteer-rebalance-v2-final-20260909 unchanged.",
+    "Future mechanisms use separate opt-in configuration and unique output path; compare against frozen L27 and retain RC14 references.",
+    "No new GPU work authorized by this freeze/research turn."
+  ],
+  "verified_raw_runs": {
+    "full_run1": {
+      "file_count": 25,
+      "receipt_sha256": "37e60ba367ddb8e171788f3522437ebb6b481db126061d674b2ff4e740f0059c"
+    },
+    "label_alignment_gsm1319_20260917_run1": {
+      "file_count": 9,
+      "receipt_sha256": "12b9787ce96453b121d00c476859bef9fe07bb845701d53b508893434bf01072"
+    },
+    "received7b_run1/math": {
+      "file_count": 9,
+      "receipt_sha256": "493eb9b929241815dae1a9790280bdf223df65b0c0aaa62c32c4caee7cfb6521"
+    },
+    "received7b_run1/gsm8k": {
+      "file_count": 9,
+      "receipt_sha256": "b56450d4f9d35e030164cc53e6cf1144807c231116ea9f685da59fdb2ba39716"
+    }
+  },
+  "source_sha256": {
+    "run_label_alignment.py": "a0884d0b8d4c59817eb18516fde9073d8d04ad309018766dd3c51d106e6c0abe",
+    "grade_label_alignment.py": "545cdba29fcf98585f70486f260cd1cc5f3b274da6f1a67251a743af18cf0f96",
+    "adapter.py": "e9a5eceeb6cb6ab337e40dda1dd1705040455ae31f2c7a08bc27d6243d1c03cd",
+    "label_alignment_adapter.py": "861df9c4d85b5457810aedaaf818dea7551945269dc78dfdff3adfa4ebcbf290",
+    "replay_adapter.py": "94aea7ba2de30d907497786409a0b36946179a244d4855906d337b65dfd1e0b3",
+    "replay_label_alignment.py": "03c6985399877f08f9abb65d42d43d4b7e6a0e91de5c92ccb721f564cbe19d1f",
+    "policy.py": "40462f53d50413d49a63a0662efa07ebce676da3341a9e4483fc4ad335321d20",
+    "lexicon_automaton.py": "cf038999caa36706173abd12340664894ea5a0bcd08a9ef3dc660562beb7b41d"
+  },
+  "artifact_sha256": {
+    ".gitattributes": "08e24ed001453028bb59c228e5c3c906912a8b5f32ccfd6d3f2828757a5da13a",
+    "analysis_7b_gsm8k_run1.json": "7b865b178e5f5f6ed56a31698d0c4cc95738f1f34b8677fc1c64315c64114d53",
+    "analysis_7b_math_run1.json": "a0086dd5aa8e593faf077d643894c7e39c9aeb6b20a80eadff7dc4f812f3259a",
+    "analysis_gsm1319_run1.json": "c363e42967353a74d8456eb872210bc0b2992e251977aab73aa212913bca22dc",
+    "analysis_run1.json": "be5ca3e14ada3e5ee9173f3fd947135ecd0c6edb2440173bf3fe95096820fd57",
+    "complete.json": "d843341a968b9fcf2c844160727fb4fefeeee613ea9055e1c0ad852274368625",
+    "completion_7b_gsm8k_run1_receipt.json": "b56450d4f9d35e030164cc53e6cf1144807c231116ea9f685da59fdb2ba39716",
+    "completion_7b_math_run1_receipt.json": "493eb9b929241815dae1a9790280bdf223df65b0c0aaa62c32c4caee7cfb6521",
+    "completion_run1_receipt.json": "37e60ba367ddb8e171788f3522437ebb6b481db126061d674b2ff4e740f0059c",
+    "cpu_checks.json": "a40fc62b69b7c2c16d16da4780b8b59e41a1aa76c038467e2dc8b699223da949",
+    "data_usage.json": "0bd289a6300fb8dcf59716eda6f4b17aa7b305d6408e01f9e95ee7c165dd4a9e",
+    "full500_handoff_receipt.json": "7b0c8a886bfe5ca52c13fbdb02f2584f8ec230a52629adf0a17ccf2f875e78ab",
+    "full500_reference_audit.json": "68757e7b72a847c162d0e4ae1dfafc313358489610ec3bd78deb8e2a779d9a52",
+    "gsm1319_completion_run1_receipt.json": "12b9787ce96453b121d00c476859bef9fe07bb845701d53b508893434bf01072",
+    "handoff_receipt.json": "b6eb8a37d6966edaf0241eec31ea50c572a5726a9d6ee1865e4fdcf9e9e32f39",
+    "historical_7b_gsm8k.json": "9774370ea38029440cbee70ce55391f5f617eb5e150e0fb7024327857b64bc28",
+    "historical_7b_math.json": "c2e2a92c08a5e65176d935033355764fc59c61c9b0acd12d00ebfe5fc73fafee",
+    "historical_compact.json": "6d14899acd91d03c8ca22eba6da51b56dc95e4e157177bdd5c2344f8a4f3de97",
+    "historical_gsm1319.json": "6300ffbff0119615232382ae666ea42dff58bf8d13f948e1f3d0670d69794f5b",
+    "inputs.json": "e2f0828f2f83460632dbe1bd072606c94f65e41d361aedc89c1760d3d7b07346",
+    "launch_7b_run1_receipt.json": "e5ff8dff62e68722665becab2935d611092188025124fdcbb15b97de209096fd",
+    "launch_run1_receipt.json": "1d53966d0facd501a590515e130850f027c9915cf3625344efca23a881c52b7a",
+    "plan.json": "ac68a9d52133847ff76c1d6a0592c16ab9c7c229dd99d39a15ff8e23d2914d5b",
+    "plan_7b_gsm8k.json": "515f90629c498af4ec9099deded8c29f366f1a526c9c5181a977741f27b05cb8",
+    "plan_7b_math.json": "bf537637d16f4748e643fd2f07cf9786275d8ac2cd9bd3a4ff99088012174199",
+    "plan_gsm1319.json": "ed3a0035693ca3cfb1773d81f3ce0e57f8f89ecfa17cb6403574a8e64e9d6eed",
+    "plan_v2_math500.json": "8db70aa19b66ed1ca750a6855ccdb35ef30c135fd0bf6d3e095549b9355b7fda",
+    "release.json": "ca16853c4ac9b2d84351aae1880ec4525a90192fe32703ed7d0cc7e264b5f6ec",
+    "release_7b_gsm8k.json": "0b7eb4918db809b36bd7f651314b503667b0150c08ff160ec3be440ece36dec2",
+    "release_7b_math.json": "07916267ac12831356a7752bff78271d9445c4354f8a27038ba62663ee4473de",
+    "release_gsm1319.json": "9bd54e222a73120ef77455437086932eb130b7c12782d7a41b2e6ac7f27e7fcc",
+    "release_handoff_receipt.json": "cb3b4229a68ffe28f4fcb1e0ce3bb3be6a25911fc78b2c6962592fdf9a9f1fcf",
+    "release_v2.json": "341e77a6916ccfb78aa427c63798df9b0dcf42377bab5d9becb491435bc226af",
+    "report.json": "86a0921c4e3ace44f8daebb480958068a31b1452b1a22da83c27276a6229b291",
+    "CV\\auto_vector.pt": "6aad2011421a8f97f9b03c594f35b1eae2b683065fb04ddcd548b7676f845a28",
+    "CV\\fit.json": "727f14aafffe45d1ee1a33a3fdafcf8660fe3724abae3ba8af1e0bcdb7754b50",
+    "T14\\auto_vector.pt": "7d71a037e2f1a801fb5d3b14a94e261dcbbe8ad396f1d2c774a9759ba882b29a",
+    "T14\\fit.json": "352c2432f4c9ec36dcf394a01f361fae3d7f6e84de36ccc2f125bed090bb15bd",
+    "tables\\complete.json": "a8873dd976df39ae10232f6c257a38b99dc3183913018f03620a4ac2bdc25b50",
+    "tables\\opening.npz": "eec19d87a37332051aaaf192bcfe7f5024bc98ec61a31292d0c68932edf569ed",
+    "tables\\search.npz": "ac81d04b714c1808adaa99db0bea467551f9a086f552c22a1ffcd5aa851b14e6"
+  }
+}

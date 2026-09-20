@@ -1,0 +1,46 @@
+{
+  "selection": "4 next-reflection and4 non-reflection examples, hash order, distinct questions within each stratum; not representative prevalence",
+  "reviews": [
+    {
+      "train_index": 5599,
+      "classification": "Redundant uncertainty after a correct local result",
+      "evidence": "Angles 60-d,60,60+d, d=1..59 give 59 non-similar triangles. The following paragraph asks the same question again; this does not prove suppressing a token would preserve the answer."
+    },
+    {
+      "train_index": 671,
+      "classification": "Potentially useful valid geometric decomposition",
+      "evidence": "Region x+y<3 in [0,2]^2 is a pentagon; splitting into rectangle and triangle is a valid solution route. Necessity of reflection is not established."
+    },
+    {
+      "train_index": 5250,
+      "classification": "Scale inconsistency concern, unresolved correctness",
+      "evidence": "Passage revisits conflicting areas and DE=15. No full-derivation validation or useful-correction label assigned."
+    },
+    {
+      "train_index": 1362,
+      "classification": "Recomputation intention, usefulness unknown",
+      "evidence": "Proposes n=4,x=i sanity check. A stated mistake is not proof of actual error or successful repair."
+    },
+    {
+      "train_index": 2308,
+      "classification": "Valid arithmetic verification",
+      "evidence": "413 mod23=22, mod21=14; 413 is the unique positive solution below500. Low probability occurs on That, not a wrong numeric computation."
+    },
+    {
+      "train_index": 1926,
+      "classification": "Valid formula transition locally",
+      "evidence": "sum x^m/m=-ln(1-x) for |x|<1 is valid; no full proof of integral manipulations asserted. Low probability on I."
+    },
+    {
+      "train_index": 2016,
+      "classification": "Valid algebraic substitution",
+      "evidence": "x=0 gives A=1/24 after clearing denominator. Low probability on set."
+    },
+    {
+      "train_index": 7253,
+      "classification": "Off-topic elaboration",
+      "evidence": "Problem requires x=(12+6)/2=9; general discussion of real-world scenarios and more variables does not advance that calculation."
+    }
+  ],
+  "limitations": "Eight deterministic stratified examples; not prevalence estimates, not deployed correctness labels, not a counterfactual intervention experiment."
+}

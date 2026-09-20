@@ -1,0 +1,36 @@
+{
+  "source_summary_sha256": "0fb7e3b8abca14c8824ea3968d0d9bffec2d9fe111fa6dd9c13cb3adbee4c766",
+  "costs": {
+    "math_test": {
+      "probe_flow_seconds": 183.9850233644247,
+      "generation_seconds": 755.152574211359,
+      "historical_R_seconds": 378.55327393114567,
+      "generation_minus_probe_seconds": 571.1675508469343
+    },
+    "gsm8k_test": {
+      "probe_flow_seconds": 36.227831676602364,
+      "generation_seconds": 324.88920471072197,
+      "historical_R_seconds": 179.48161393404007,
+      "generation_minus_probe_seconds": 288.6613730341196
+    }
+  },
+  "established": [
+    "Recorded probe workflow does not account for all timing difference: subtracting it is arithmetic, not a forecast of achievable runtime.",
+    "Old should_mask does not inspect R coefficient; opposing interventions are possible by construction, not measured as a causal explanation.",
+    "Neither proposed penalty nor sign gate was selected by a test-set threshold sweep."
+  ],
+  "unknown": [
+    "Whether the new R sign proxy predicts redundant reflection",
+    "Actual asynchronous speed and batch equivalence",
+    "Whether either combination beats both single components; no new generation has occurred"
+  ],
+  "cpu_tests": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_actual_sampler_with_numpy_tensor_standin (__main__.ContractTests.test_actual_sampler_with_numpy_tensor_standin) ... ok\ntest_content_and_answer_phase_are_protected (__main__.ContractTests.test_content_and_answer_phase_are_protected) ... ok\ntest_disabled_does_not_touch_engine_or_import_torch (__main__.ContractTests.test_disabled_does_not_touch_engine_or_import_torch) ... ok\ntest_negative_signal_and_valid_closed_step_required (__main__.ContractTests.test_negative_signal_and_valid_closed_step_required) ... ok\ntest_sampler_hot_path_has_no_host_reads_or_extra_sampling (__main__.ContractTests.test_sampler_hot_path_has_no_host_reads_or_extra_sampling) ... ok\ntest_shadow_uses_same_gate_without_defining_a_new_threshold (__main__.ContractTests.test_shadow_uses_same_gate_without_defining_a_new_threshold) ... ok\ntest_soft_odds_and_temperature_are_distinct (__main__.ContractTests.test_soft_odds_and_temperature_are_distinct) ... ok\ntest_whitespace_and_mixed_boundary (__main__.ContractTests.test_whitespace_and_mixed_boundary) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 0.186s\n\nOK\n"
+  },
+  "native_torch_tests": "prepared, not executed locally; torch unavailable",
+  "gpu_runs": 0,
+  "new_answers": 0,
+  "ssh_connections": 0
+}

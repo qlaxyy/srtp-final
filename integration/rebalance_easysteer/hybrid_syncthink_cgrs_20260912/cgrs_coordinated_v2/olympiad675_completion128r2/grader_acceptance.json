@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "plan_sha256": "ee5439f3532a457a04ab588d2bdbb2a40c038d64865a20c34a716af165a09e1c",
+  "reference_roundtrips": 675,
+  "failed_reference_ids": [],
+  "fixtures": [
+    {
+      "prediction": "\\boxed{2}",
+      "gold": "2",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "prediction": "\\boxed{3}",
+      "gold": "2",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "prediction": "\\boxed{\\frac{1}{2}}",
+      "gold": "0.5",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "prediction": "\\boxed{-2}",
+      "gold": "2",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "prediction": "\\boxed{(1,2)}",
+      "gold": "(1,2)",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "prediction": "\\boxed{(1,2)}",
+      "gold": "(2,1)",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "prediction": "\\boxed{[0,1]}",
+      "gold": "[0,1]",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "prediction": "No final answer",
+      "gold": "2",
+      "expected": false,
+      "actual": false
+    }
+  ],
+  "semantics": "ReBalance public parser/grader; not the metadata-aware official OlympiadBench evaluator",
+  "limitations": "Exact-reference roundtrip does not establish perfect semantic grading. Public pipeline ignores original per-row Olympiad tolerance metadata; report this consistently for all arms."
+}

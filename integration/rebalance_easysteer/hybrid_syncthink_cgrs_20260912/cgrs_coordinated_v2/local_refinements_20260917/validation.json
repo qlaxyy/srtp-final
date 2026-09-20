@@ -1,0 +1,46 @@
+{
+  "native_control_checks": [
+    {
+      "train_index": 647,
+      "native_eligible": 158,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 1837,
+      "native_eligible": 70,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 4972,
+      "native_eligible": 25,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 1441,
+      "native_eligible": 199,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 4432,
+      "native_eligible": 216,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 3497,
+      "native_eligible": 38,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 1483,
+      "native_eligible": 108,
+      "matches_reconstructed_state": true
+    },
+    {
+      "train_index": 229,
+      "native_eligible": 274,
+      "matches_reconstructed_state": true
+    }
+  ],
+  "records_sha256": "51592dd421c39c2b89eb112838be06d38575f22a1189d518fcce46057467c2dd",
+  "decision": "Both fixed rules have0/8 actionable coverage; no GPU extension. This does not rule out broader semantic-error protection or all boundary variants."
+}

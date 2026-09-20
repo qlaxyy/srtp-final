@@ -1,0 +1,743 @@
+{
+  "status": "strong_circumstantial_evidence_not_causal_confirmation",
+  "datasets": {
+    "math_mix05": {
+      "prompt_tokens": 5610,
+      "modeled_transitions": [
+        {
+          "assumed_completion_lag": 0,
+          "first_padded_difference": 1025,
+          "R": {
+            "active": 59,
+            "padded": 64
+          },
+          "RS": {
+            "active": 56,
+            "padded": 56
+          }
+        },
+        {
+          "assumed_completion_lag": 1,
+          "first_padded_difference": 1026,
+          "R": {
+            "active": 59,
+            "padded": 64
+          },
+          "RS": {
+            "active": 56,
+            "padded": 56
+          }
+        }
+      ],
+      "prefix_mismatches": [
+        {
+          "train_index": 536,
+          "first_difference": 1030,
+          "first_bias": 1313,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2464,
+          "first_difference": 1044,
+          "first_bias": 3826,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5325,
+          "first_difference": 1050,
+          "first_bias": 5476,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 250,
+          "first_difference": 1054,
+          "first_bias": 2601,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 6202,
+          "first_difference": 1055,
+          "first_bias": 1221,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3315,
+          "first_difference": 1058,
+          "first_bias": 1857,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 7187,
+          "first_difference": 1069,
+          "first_bias": 1637,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 4700,
+          "first_difference": 1085,
+          "first_bias": 1295,
+          "modeled_R": {
+            "active": 59,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 56,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2802,
+          "first_difference": 1095,
+          "first_bias": 1362,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5690,
+          "first_difference": 1096,
+          "first_bias": 2326,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2851,
+          "first_difference": 1098,
+          "first_bias": 5969,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 6862,
+          "first_difference": 1101,
+          "first_bias": 1935,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5517,
+          "first_difference": 1104,
+          "first_bias": -1,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5891,
+          "first_difference": 1114,
+          "first_bias": 1455,
+          "modeled_R": {
+            "active": 58,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 55,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3070,
+          "first_difference": 1124,
+          "first_bias": 8683,
+          "modeled_R": {
+            "active": 57,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 54,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2920,
+          "first_difference": 1130,
+          "first_bias": 1205,
+          "modeled_R": {
+            "active": 57,
+            "padded": 64
+          },
+          "modeled_RS": {
+            "active": 54,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2354,
+          "first_difference": 1166,
+          "first_bias": 1257,
+          "modeled_R": {
+            "active": 56,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 53,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3646,
+          "first_difference": 1184,
+          "first_bias": 14446,
+          "modeled_R": {
+            "active": 56,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 53,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 7356,
+          "first_difference": 1231,
+          "first_bias": 1359,
+          "modeled_R": {
+            "active": 52,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 51,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3132,
+          "first_difference": 1279,
+          "first_bias": 1608,
+          "modeled_R": {
+            "active": 51,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 49,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 6568,
+          "first_difference": 1319,
+          "first_bias": 1465,
+          "modeled_R": {
+            "active": 51,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 49,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 811,
+          "first_difference": 1325,
+          "first_bias": 2076,
+          "modeled_R": {
+            "active": 50,
+            "padded": 56
+          },
+          "modeled_RS": {
+            "active": 49,
+            "padded": 56
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 607,
+          "first_difference": 1370,
+          "first_bias": 2937,
+          "modeled_R": {
+            "active": 48,
+            "padded": 48
+          },
+          "modeled_RS": {
+            "active": 47,
+            "padded": 48
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2074,
+          "first_difference": 1602,
+          "first_bias": 3696,
+          "modeled_R": {
+            "active": 39,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 37,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 4576,
+          "first_difference": 1615,
+          "first_bias": 1915,
+          "modeled_R": {
+            "active": 39,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 37,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 4989,
+          "first_difference": 1735,
+          "first_bias": 2243,
+          "modeled_R": {
+            "active": 37,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 32,
+            "padded": 32
+          },
+          "after_both_modeled_transitions": true
+        }
+      ],
+      "mismatch_count": 26,
+      "all_after_modeled_transition": true,
+      "earliest_output_difference": {
+        "train_index": 126,
+        "position": 350,
+        "first_bias": 350,
+        "R_token": 17,
+        "RS_token": 151649
+      }
+    },
+    "gsm8k_mix05": {
+      "prompt_tokens": 5266,
+      "modeled_transitions": [
+        {
+          "assumed_completion_lag": 0,
+          "first_padded_difference": 412,
+          "R": {
+            "active": 41,
+            "padded": 48
+          },
+          "RS": {
+            "active": 40,
+            "padded": 40
+          }
+        },
+        {
+          "assumed_completion_lag": 1,
+          "first_padded_difference": 413,
+          "R": {
+            "active": 41,
+            "padded": 48
+          },
+          "RS": {
+            "active": 40,
+            "padded": 40
+          }
+        }
+      ],
+      "prefix_mismatches": [
+        {
+          "train_index": 5424,
+          "first_difference": 413,
+          "first_bias": 1113,
+          "modeled_R": {
+            "active": 41,
+            "padded": 48
+          },
+          "modeled_RS": {
+            "active": 40,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 1751,
+          "first_difference": 427,
+          "first_bias": 974,
+          "modeled_R": {
+            "active": 41,
+            "padded": 48
+          },
+          "modeled_RS": {
+            "active": 40,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2961,
+          "first_difference": 438,
+          "first_bias": 485,
+          "modeled_R": {
+            "active": 41,
+            "padded": 48
+          },
+          "modeled_RS": {
+            "active": 40,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3648,
+          "first_difference": 454,
+          "first_bias": 773,
+          "modeled_R": {
+            "active": 40,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 39,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 3295,
+          "first_difference": 465,
+          "first_bias": 1048,
+          "modeled_R": {
+            "active": 38,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 37,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2299,
+          "first_difference": 467,
+          "first_bias": 1262,
+          "modeled_R": {
+            "active": 38,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 37,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 1323,
+          "first_difference": 467,
+          "first_bias": 770,
+          "modeled_R": {
+            "active": 38,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 37,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 471,
+          "first_difference": 481,
+          "first_bias": 1020,
+          "modeled_R": {
+            "active": 37,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 36,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 4729,
+          "first_difference": 488,
+          "first_bias": 584,
+          "modeled_R": {
+            "active": 37,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 36,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 1440,
+          "first_difference": 516,
+          "first_bias": 865,
+          "modeled_R": {
+            "active": 35,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 34,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 7265,
+          "first_difference": 523,
+          "first_bias": 647,
+          "modeled_R": {
+            "active": 35,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 34,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 99,
+          "first_difference": 529,
+          "first_bias": 745,
+          "modeled_R": {
+            "active": 35,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 34,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5706,
+          "first_difference": 542,
+          "first_bias": 627,
+          "modeled_R": {
+            "active": 34,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 34,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 4095,
+          "first_difference": 581,
+          "first_bias": 872,
+          "modeled_R": {
+            "active": 34,
+            "padded": 40
+          },
+          "modeled_RS": {
+            "active": 34,
+            "padded": 40
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2177,
+          "first_difference": 636,
+          "first_bias": 1152,
+          "modeled_R": {
+            "active": 28,
+            "padded": 32
+          },
+          "modeled_RS": {
+            "active": 29,
+            "padded": 32
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2143,
+          "first_difference": 737,
+          "first_bias": 1252,
+          "modeled_R": {
+            "active": 24,
+            "padded": 24
+          },
+          "modeled_RS": {
+            "active": 24,
+            "padded": 24
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5727,
+          "first_difference": 739,
+          "first_bias": 796,
+          "modeled_R": {
+            "active": 24,
+            "padded": 24
+          },
+          "modeled_RS": {
+            "active": 24,
+            "padded": 24
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 2003,
+          "first_difference": 751,
+          "first_bias": 1052,
+          "modeled_R": {
+            "active": 24,
+            "padded": 24
+          },
+          "modeled_RS": {
+            "active": 24,
+            "padded": 24
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 5145,
+          "first_difference": 776,
+          "first_bias": 878,
+          "modeled_R": {
+            "active": 24,
+            "padded": 24
+          },
+          "modeled_RS": {
+            "active": 24,
+            "padded": 24
+          },
+          "after_both_modeled_transitions": true
+        },
+        {
+          "train_index": 6976,
+          "first_difference": 815,
+          "first_bias": 1562,
+          "modeled_R": {
+            "active": 21,
+            "padded": 24
+          },
+          "modeled_RS": {
+            "active": 22,
+            "padded": 24
+          },
+          "after_both_modeled_transitions": true
+        }
+      ],
+      "mismatch_count": 20,
+      "all_after_modeled_transition": true,
+      "earliest_output_difference": {
+        "train_index": 5939,
+        "position": 57,
+        "first_bias": 57,
+        "R_token": 12,
+        "RS_token": 151649
+      }
+    }
+  },
+  "input_sha256": {
+    "math_mix05\\R\\result.json": "8ad1f52dd223258618a8266f5068b1ddd9dd7e6d376f840496aef92e0890e406",
+    "math_mix05\\RS\\result.json": "984f1ffc1a7a61bb93fdf1d61637fd5b9d93b709dc587734209b284ae95e7c1c",
+    "gsm8k_mix05\\R\\result.json": "9a6422f1f808ef3fd31bd2e0c89cb6d56ffd6a297a7a9190fa2143aa634a849e",
+    "gsm8k_mix05\\RS\\result.json": "7dfe472c5261d7ef940b83496a47ae955600c1d5e3104151dfaeba807d0341c7"
+  },
+  "assumptions": [
+    "All64 requests start one prefill and decode together; prompt sums fit32768, but actual scheduler trace was not saved.",
+    "Active counts are inferred from final output lengths. Completion lags0/1 are sensitivity checks, not observed schedules.",
+    "Padding sizes come from the saved engine log. Actual graph dispatch and inherited BATCH_INVARIANT environment were not saved."
+  ],
+  "gpu_used": false,
+  "extra_model_forwards": 0,
+  "new_answers": 0
+}

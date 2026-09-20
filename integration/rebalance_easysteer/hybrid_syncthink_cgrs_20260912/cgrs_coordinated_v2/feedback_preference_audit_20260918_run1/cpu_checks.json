@@ -1,0 +1,18 @@
+{
+  "status": "CPU tensor checks passed; NOT model or vLLM equivalence",
+  "counts": [
+    2,
+    2
+  ],
+  "zero_margin_loss": 0.6931471824645996,
+  "analytic_gradient": 0.08734230697154999,
+  "finite_difference_gradient": 0.08734166622161865,
+  "checks": [
+    "causal target alignment",
+    "prompt/padding exclusion",
+    "zero-update log(2) loss",
+    "nonzero usable gradient at zero initialization",
+    "zero residual identity",
+    "positive branch unchanged"
+  ]
+}

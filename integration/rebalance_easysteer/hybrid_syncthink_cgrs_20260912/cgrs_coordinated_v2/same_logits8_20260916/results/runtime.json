@@ -1,0 +1,16 @@
+{
+  "vllm_path": "/root/autodl-tmp/projects/hybrid_cgrs_same_logits8_20260916/sources/EasySteer/vllm-steer/vllm/__init__.py",
+  "torch": "2.11.0+cu129",
+  "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+  "startup_seconds": 34.21829251945019,
+  "request_mapping": {
+    "0-9f5b4742": 1726,
+    "1-9fdbe1c6": 6746,
+    "2-88e6c9a0": 7311,
+    "3-8f2648f9": 7123,
+    "4-817853f2": 3694,
+    "5-a4e96502": 4550,
+    "6-836853b7": 5380,
+    "7-a4ee8868": 2667
+  }
+}

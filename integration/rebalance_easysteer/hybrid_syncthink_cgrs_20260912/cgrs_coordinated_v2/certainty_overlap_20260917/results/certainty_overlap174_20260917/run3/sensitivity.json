@@ -1,0 +1,218 @@
+{
+  "primary": {
+    "total": 128,
+    "valid": 128,
+    "invalid": 0,
+    "table": {
+      "R0_C0": 26,
+      "R0_C1": 101,
+      "R1_C0": 0,
+      "R1_C1": 1
+    },
+    "both_high_fraction": 0.0078125,
+    "C_high_given_R_high": 1.0,
+    "R_high_given_C_high": 0.00980392156862745,
+    "C_high_R_positive": 1,
+    "R_positive": 1,
+    "certainty_range": [
+      0.8306355722591119,
+      0.9999766601382709
+    ]
+  },
+  "R_high": {
+    "total": 47,
+    "valid": 47,
+    "invalid": 0,
+    "table": {
+      "R0_C0": 0,
+      "R0_C1": 0,
+      "R1_C0": 10,
+      "R1_C1": 37
+    },
+    "both_high_fraction": 0.7872340425531915,
+    "C_high_given_R_high": 0.7872340425531915,
+    "R_high_given_C_high": 1.0,
+    "C_high_R_positive": 37,
+    "R_positive": 47,
+    "certainty_range": [
+      0.8663101512569182,
+      0.9994624638009302
+    ]
+  },
+  "disagreements": [
+    {
+      "train_index": 1837,
+      "position": 41,
+      "primary": 0.9159558222811854,
+      "interior": 0.8327163369184704
+    },
+    {
+      "train_index": 1837,
+      "position": 104,
+      "primary": 0.9076055870924231,
+      "interior": 0.8306355722591119
+    },
+    {
+      "train_index": 1837,
+      "position": 215,
+      "primary": 0.9187934272513631,
+      "interior": 0.8323168416139424
+    },
+    {
+      "train_index": 1441,
+      "position": 253,
+      "primary": 0.9082618208759716,
+      "interior": 0.8832070121833075
+    },
+    {
+      "train_index": 1837,
+      "position": 304,
+      "primary": 0.929737637620747,
+      "interior": 0.8565017342273187
+    },
+    {
+      "train_index": 647,
+      "position": 534,
+      "primary": 0.9478082324840693,
+      "interior": 0.8845044527161405
+    },
+    {
+      "train_index": 1837,
+      "position": 615,
+      "primary": 0.9124207257924278,
+      "interior": 0.853594642545509
+    },
+    {
+      "train_index": 1441,
+      "position": 691,
+      "primary": 0.901597864053461,
+      "interior": 0.8705601109421637
+    },
+    {
+      "train_index": 1837,
+      "position": 827,
+      "primary": 0.9220917546975911,
+      "interior": 0.8432790631095008
+    },
+    {
+      "train_index": 1837,
+      "position": 931,
+      "primary": 0.9197799360645854,
+      "interior": 0.8744909326550445
+    },
+    {
+      "train_index": 647,
+      "position": 991,
+      "primary": 0.9245460237538101,
+      "interior": 0.8765776921419018
+    },
+    {
+      "train_index": 1441,
+      "position": 1119,
+      "primary": 0.9069829776302242,
+      "interior": 0.8760695439194156
+    },
+    {
+      "train_index": 1837,
+      "position": 1131,
+      "primary": 0.927736510914252,
+      "interior": 0.8878368574262401
+    },
+    {
+      "train_index": 1837,
+      "position": 1249,
+      "primary": 0.9246087296494488,
+      "interior": 0.8830831990126965
+    },
+    {
+      "train_index": 1837,
+      "position": 1338,
+      "primary": 0.921936155619397,
+      "interior": 0.8777913649518165
+    },
+    {
+      "train_index": 1441,
+      "position": 1353,
+      "primary": 0.9030751760549393,
+      "interior": 0.8755690024669336
+    },
+    {
+      "train_index": 1441,
+      "position": 1472,
+      "primary": 0.9008879432592,
+      "interior": 0.8736357105640485
+    },
+    {
+      "train_index": 1441,
+      "position": 2004,
+      "primary": 0.9037824058377453,
+      "interior": 0.8784724572867272
+    },
+    {
+      "train_index": 1441,
+      "position": 3003,
+      "primary": 0.9146063999330174,
+      "interior": 0.8943268177110543
+    },
+    {
+      "train_index": 1441,
+      "position": 3068,
+      "primary": 0.9178215191735605,
+      "interior": 0.8953756727302653
+    },
+    {
+      "train_index": 1441,
+      "position": 3213,
+      "primary": 0.918007598619127,
+      "interior": 0.8956454000022
+    },
+    {
+      "train_index": 1441,
+      "position": 3262,
+      "primary": 0.9139977784016493,
+      "interior": 0.8908452217272649
+    },
+    {
+      "train_index": 1441,
+      "position": 3614,
+      "primary": 0.9195507205047044,
+      "interior": 0.8971168104290517
+    },
+    {
+      "train_index": 1441,
+      "position": 3693,
+      "primary": 0.913598789326999,
+      "interior": 0.8908409054514657
+    },
+    {
+      "train_index": 1441,
+      "position": 3817,
+      "primary": 0.912513108938866,
+      "interior": 0.8908267096999481
+    },
+    {
+      "train_index": 1441,
+      "position": 4041,
+      "primary": 0.9081131567664777,
+      "interior": 0.883410260814831
+    },
+    {
+      "train_index": 4432,
+      "position": 4318,
+      "primary": 0.9133576373994757,
+      "interior": 0.8821516028193643
+    },
+    {
+      "train_index": 1441,
+      "position": 4425,
+      "primary": 0.9150443953519274,
+      "interior": 0.8926791593557344
+    },
+    {
+      "train_index": 1441,
+      "position": 4567,
+      "primary": 0.9151192374427917,
+      "interior": 0.8947679970494581
+    }
+  ]
+}

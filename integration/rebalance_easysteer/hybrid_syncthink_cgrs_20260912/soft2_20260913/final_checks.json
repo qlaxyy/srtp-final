@@ -1,0 +1,15 @@
+{
+  "status": "local_preparation_complete_not_runtime_validated",
+  "shared_source_files_unchanged": 5,
+  "patch_apply_check": "pass",
+  "python310_syntax": "pass",
+  "candidate_unique_question_count": 128,
+  "data_frozen": false,
+  "model_generations": 0,
+  "server_connections": 0,
+  "native_torch_checks": "not_run_local_torch_unavailable",
+  "gpu_checks": "not_run_new_batch_not_authorized",
+  "margin_pp": 2,
+  "new_engineering_answers_planned": 40,
+  "new_formal_answers_planned": 384
+}

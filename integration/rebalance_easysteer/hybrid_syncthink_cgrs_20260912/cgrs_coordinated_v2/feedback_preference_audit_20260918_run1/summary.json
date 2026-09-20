@@ -1,0 +1,63 @@
+{
+  "status": "CPU only; no new GPU, trained vector, benchmark, or independent split",
+  "correctness_first": {
+    "parents": 5,
+    "chosen_sources": {
+      "U": 4,
+      "L27": 1
+    },
+    "response_tokens": 58069,
+    "prompt_plus_response_tokens": 58941,
+    "max_prompt_plus_response": 12699,
+    "pairs_exceeding_context": {
+      "2048": 5,
+      "4096": 4,
+      "8192": 2,
+      "16384": 0
+    },
+    "mean_thinking_gap": -5099.2
+  },
+  "compression": {
+    "parents": 231,
+    "chosen_sources": {
+      "L27": 187,
+      "U": 44
+    },
+    "response_tokens": 1062018,
+    "prompt_plus_response_tokens": 1100776,
+    "max_prompt_plus_response": 12783,
+    "pairs_exceeding_context": {
+      "2048": 124,
+      "4096": 39,
+      "8192": 7,
+      "16384": 0
+    },
+    "mean_thinking_gap": 1039.1991341991343
+  },
+  "compression_pairs_not_improving_total_tokens": [
+    48,
+    390
+  ],
+  "author_false_negative_questions_excluded": [
+    67,
+    262,
+    284
+  ],
+  "source_hashes": {
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\self_feedback_train500_20260918_run1\\labels.json": "194fcb92205dd3a7275be0cbd9116ffa028d8ec57e64a245c826fbda1a5a1869",
+    ".codex_work\\self_feedback_train500_20260918_evidence.tar.gz": "cd38a0f003ed26d53037dbc9c74483e1943d8032bf150ae237e8cdb8c2b443ca",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\self_feedback_train500_20260918_run1\\baseline.json": "765f6cc3c64eb0e5ce7391bde14118458623cb0611187288ec4527dca1801ee6",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\self_feedback_train500_20260918_run1\\plan.json": "72bcc44b79d984ba20366b534d5d6070632760ea7a628e19092c223e496be269",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\outcome_endpoints_20260918_run1\\pairs.json": "d05ebe581c6176e3bc412fe3f9800caf3a5c2f56f3c403894ab35dd576413636",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\outcome_endpoints_20260918_run1\\short_error_audit.json": "76a7d9d472892d7411dac845c9bad36fb0deb5305098af6f1cf9381249fd2bb7",
+    "integration\\rebalance_easysteer\\hybrid_syncthink_cgrs_20260912\\cgrs_coordinated_v2\\audit_feedback_preferences.py": "6866d0ba1ed0ebe6e2a699098c7b3e4a285507fab4082580e41fdbd02595b6da"
+  },
+  "limitations": [
+    "Existing outcome labels are final-answer labels, not step correctness or causal overthinking labels.",
+    "All parents have been used in prior research; any future split is development-only, not fresh independent confirmation.",
+    "The five correctness pairs are a diagnostic guard, insufficient to certify a 2 percentage-point accuracy bound.",
+    "Context overflow audit assumes preserving the full prompt; it is not an execution of the official trainer truncation code.",
+    "Token count includes saved final answer; terminal stop handling must be checked before a likelihood objective.",
+    "No confidence or variance filter is applied; no class is interpreted as the midpoint of efficient reasoning."
+  ]
+}

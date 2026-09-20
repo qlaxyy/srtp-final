@@ -1,0 +1,69 @@
+{
+  "records": [
+    {
+      "status": "pass",
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "model_forwards": 0,
+      "checks": [
+        "forced support",
+        "sticky close",
+        "slot reset",
+        "shadow identity",
+        "partial prefill ignored",
+        "duplicate clock rejected",
+        "resume rejected",
+        "NaN rejected",
+        "off no allocation",
+        "request receipts"
+      ]
+    },
+    {
+      "status": "pass",
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "extra_forwards": 0,
+      "cases": "soft support, mixed rows, reorder, ticket, reset, close"
+    },
+    {
+      "status": "pass",
+      "device": "cpu",
+      "dtype": "torch.bfloat16",
+      "model_forwards": 0,
+      "checks": [
+        "forced support",
+        "sticky close",
+        "slot reset",
+        "shadow identity",
+        "partial prefill ignored",
+        "duplicate clock rejected",
+        "resume rejected",
+        "NaN rejected",
+        "off no allocation",
+        "request receipts"
+      ]
+    },
+    {
+      "status": "pass",
+      "dtype": "torch.bfloat16",
+      "device": "cpu",
+      "extra_forwards": 0,
+      "cases": "soft support, mixed rows, reorder, ticket, reset, close"
+    },
+    {
+      "status": "pass",
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "forwards": 0,
+      "cases": "mixture law; revive excluded end; shadow; reorder; close; ticket; reset; retained end"
+    },
+    {
+      "status": "pass",
+      "dtype": "torch.bfloat16",
+      "device": "cpu",
+      "forwards": 0,
+      "cases": "mixture law; revive excluded end; shadow; reorder; close; ticket; reset; retained end"
+    }
+  ],
+  "source_sha256": "40daed4f9fa25694286f109b117ed1af5ee627e4ee95c472cd587f215a63e919"
+}

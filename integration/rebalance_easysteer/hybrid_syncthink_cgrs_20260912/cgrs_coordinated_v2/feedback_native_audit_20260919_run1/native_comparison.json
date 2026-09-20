@@ -1,0 +1,98 @@
+[
+  {
+    "key": "486_U",
+    "index": 2316,
+    "old_logp": -1.9073486328125e-05,
+    "repeat_logp": -2.09808349609375e-05,
+    "fields": {
+      "history": {
+        "max_abs_diff": 0.9336919784545898,
+        "different_count": 2704
+      },
+      "rawmax": {
+        "max_abs_diff": 0.17030459642410278,
+        "different_count": 2461
+      },
+      "logp": {
+        "max_abs_diff": 0.44606781005859375,
+        "different_count": 2461
+      },
+      "coefficient_before": {
+        "max_abs_diff": 0.9336919784545898,
+        "different_count": 2704
+      },
+      "lex_state": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      },
+      "lex_gate": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      }
+    }
+  },
+  {
+    "key": "129_U",
+    "index": 4610,
+    "old_logp": -3.814697265625e-06,
+    "repeat_logp": -3.814697265625e-06,
+    "fields": {
+      "history": {
+        "max_abs_diff": 0.9708945751190186,
+        "different_count": 7842
+      },
+      "rawmax": {
+        "max_abs_diff": 0.44171279668807983,
+        "different_count": 6671
+      },
+      "logp": {
+        "max_abs_diff": 2.189371109008789,
+        "different_count": 6672
+      },
+      "coefficient_before": {
+        "max_abs_diff": 0.9708945751190186,
+        "different_count": 7842
+      },
+      "lex_state": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      },
+      "lex_gate": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      }
+    }
+  },
+  {
+    "key": "414_L27",
+    "index": 2588,
+    "old_logp": -0.0003032684326171875,
+    "repeat_logp": -0.0003070831298828125,
+    "fields": {
+      "history": {
+        "max_abs_diff": 0.9712228178977966,
+        "different_count": 1889
+      },
+      "rawmax": {
+        "max_abs_diff": 0.2107785940170288,
+        "different_count": 2504
+      },
+      "logp": {
+        "max_abs_diff": 0.2929039001464844,
+        "different_count": 2504
+      },
+      "coefficient_before": {
+        "max_abs_diff": 0.9712228178977966,
+        "different_count": 1889
+      },
+      "lex_state": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      },
+      "lex_gate": {
+        "max_abs_diff": 0.0,
+        "different_count": 0
+      }
+    }
+  }
+]

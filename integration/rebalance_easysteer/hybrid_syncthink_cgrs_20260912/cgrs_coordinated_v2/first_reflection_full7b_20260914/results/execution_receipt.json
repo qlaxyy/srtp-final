@@ -1,0 +1,11 @@
+{
+  "gpu_authorized": true,
+  "authorized_phases": [
+    "full"
+  ],
+  "exposed_test_reuse_acknowledged": true,
+  "plan_sha256": "c072fff2518cc34b8f06d2aae7d68e69e88a951bb92b7ac5a155a21ebd70aaf2",
+  "source_commit": "4eb8cd7cd8503d4cce1b8b5fb00ab99a29882ab5",
+  "authorization": "User requested full evaluation and higher GPU utilization following7B new100 screening; fixed1819 candidate-only answers; no frozen control reruns",
+  "coordination": "Same registered exposed tests; no fresh training claims or reserved confirmation200 usage; exclusive idle GPU checked"
+}

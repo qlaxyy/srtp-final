@@ -1,0 +1,179 @@
+{
+  "archive_sha256": "210462946624e2447ab13e7db9e9f9785b67edd4812a62403f04c02cbeeb2233",
+  "new_answers": 0,
+  "model_forwards": 0,
+  "measurement": "saved native eager/split pre states, hidden21/decoder20 fixed",
+  "groups": {
+    "R": {
+      "q75": {
+        "threshold": 0.9986059975160342,
+        "under_steps": 8922,
+        "under_questions": 287,
+        "over_steps": 27157,
+        "under_from_capped": 7712,
+        "under_from_wrong": 7903,
+        "top10_steps": 3400,
+        "vector_norm": 75.28691864013672,
+        "parameters": {
+          "q25c": 0.8731264802475998,
+          "q75c": 0.9986059975160342,
+          "q25v": 5.379925817769647e-07,
+          "q75v": 0.0023776121001779504,
+          "low_val_1": -0.5000000000000001,
+          "low_val_2": -1.7520359720889427,
+          "high_val_2": 0.1,
+          "initial_coef": -1.0,
+          "curve_tau": 0.0027773506670886994
+        },
+        "curve_check": {
+          "k": 17.085937049738703,
+          "anchors": [
+            -0.5000000000000001,
+            0.0,
+            0.002777350667088674
+          ],
+          "targets": [
+            -0.5000000000000001,
+            0.0,
+            0.0027773506670886994
+          ],
+          "max_residual": 2.5587171270657905e-17,
+          "F_one_ceiling": 0.005554701334177399,
+          "grid_points": 125751,
+          "finite": true,
+          "separator_crossing_residual": -3.552713678800501e-15
+        },
+        "vector_sha256": "84ee954222f0ec7a8ce25362c632c85f10c2eef4651c4e322394a52877478a0f",
+        "fit_sha256": "b3a8dd7c4d532f11ed9e89290133761c6f06f1500b3f61e45e0f550ee6e4273c"
+      },
+      "q90": {
+        "threshold": 0.9997230165678521,
+        "under_steps": 4473,
+        "under_questions": 226,
+        "over_steps": 27157,
+        "under_from_capped": 3807,
+        "under_from_wrong": 3921,
+        "top10_steps": 1933,
+        "vector_norm": 84.57135772705078,
+        "parameters": {
+          "q25c": 0.8731264802475998,
+          "q75c": 0.9997230165678521,
+          "q25v": 5.379925817769647e-07,
+          "q75v": 0.0023776121001779504,
+          "low_val_1": -0.5000000000000001,
+          "low_val_2": -1.4694723847643625,
+          "high_val_2": 0.1,
+          "initial_coef": -1.0,
+          "curve_tau": 0.0005469806682688263
+        },
+        "curve_check": {
+          "k": 17.146194307714744,
+          "anchors": [
+            -0.5000000000000001,
+            0.0,
+            0.0005469806682688039
+          ],
+          "targets": [
+            -0.5000000000000001,
+            0.0,
+            0.0005469806682688263
+          ],
+          "max_residual": 2.2442984970449942e-17,
+          "F_one_ceiling": 0.0010939613365376526,
+          "grid_points": 125751,
+          "finite": true,
+          "separator_crossing_residual": -1.021405182655144e-14
+        },
+        "vector_sha256": "6e8f1b7f054905ea5c44170dfec950f8bfead90d6d023ba29fde1cdaefbcf67e",
+        "fit_sha256": "b02124c9ec6a065bf97ff879e9fb3cf8d81aca0f0823f06a9f29ee548ab60e03"
+      },
+      "cosine": 0.9752140648379157
+    },
+    "L27": {
+      "q75": {
+        "threshold": 0.9984181308084064,
+        "under_steps": 8950,
+        "under_questions": 288,
+        "over_steps": 22038,
+        "under_from_capped": 7737,
+        "under_from_wrong": 8157,
+        "top10_steps": 3441,
+        "vector_norm": 73.1981201171875,
+        "parameters": {
+          "q25c": 0.872075432177746,
+          "q75c": 0.9984181308084064,
+          "q25v": 9.111110480642837e-07,
+          "q75v": 0.0024036492415950095,
+          "low_val_1": -0.49999999999999994,
+          "low_val_2": -1.7073783205488449,
+          "high_val_2": 0.1,
+          "initial_coef": -1.0,
+          "curve_tau": 0.0031301159638396406
+        },
+        "curve_check": {
+          "k": 16.936314748849824,
+          "anchors": [
+            -0.49999999999999994,
+            0.0,
+            0.003130115963839747
+          ],
+          "targets": [
+            -0.49999999999999994,
+            0.0,
+            0.0031301159638396406
+          ],
+          "max_residual": 1.0625181290357943e-16,
+          "F_one_ceiling": 0.006260231927679281,
+          "grid_points": 125751,
+          "finite": true,
+          "separator_crossing_residual": 7.105427357601002e-15
+        },
+        "vector_sha256": "2fdd7fb48dea46aaba99e75783c54846cc605038da17d2a6d5855f29648e9adf",
+        "fit_sha256": "5ad42cc52358618f9c5dee97c5fe9a8d0fef1f239d896757b815881fdf2a5228"
+      },
+      "q90": {
+        "threshold": 0.999693939395641,
+        "under_steps": 4196,
+        "under_questions": 214,
+        "over_steps": 22038,
+        "under_from_capped": 3582,
+        "under_from_wrong": 3809,
+        "top10_steps": 1965,
+        "vector_norm": 81.21160125732422,
+        "parameters": {
+          "q25c": 0.872075432177746,
+          "q75c": 0.999693939395641,
+          "q25v": 9.111110480642837e-07,
+          "q75v": 0.0024036492415950095,
+          "low_val_1": -0.4999999999999999,
+          "low_val_2": -1.4975444073819804,
+          "high_val_2": 0.1,
+          "initial_coef": -1.0,
+          "curve_tau": 0.0005995615585685355
+        },
+        "curve_check": {
+          "k": 17.003882611202464,
+          "anchors": [
+            -0.49999999999999994,
+            5.551115123125783e-17,
+            0.0005995615585686065
+          ],
+          "targets": [
+            -0.4999999999999999,
+            0.0,
+            0.0005995615585685355
+          ],
+          "max_residual": 7.101524229780054e-17,
+          "F_one_ceiling": 0.001199123117137071,
+          "grid_points": 125751,
+          "finite": true,
+          "separator_crossing_residual": -1.0658141036401503e-14
+        },
+        "vector_sha256": "929a80d21ce349d93544a642f4e6857530c549aff269e3c42c925d37223d5fa0",
+        "fit_sha256": "3781ec5d78324731c65d5cb43d76578795fc4e67c75fea0db27772a1cd01661c"
+      },
+      "cosine": 0.9854690636356432
+    }
+  },
+  "calibration_code_sha256": "1097194070192be4feafcf1a4347ade4c907d21103bdc723e7f5195155bd607e"
+}

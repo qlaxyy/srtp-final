@@ -1,0 +1,19 @@
+{
+  "server": "connect.cqa1.seetacloud.com:20403",
+  "files": 34286,
+  "logical_bytes_removed": 1177682492,
+  "before": {
+    "used": "45G",
+    "available": "5.7G",
+    "percent": 89
+  },
+  "after": {
+    "used": "44G",
+    "available": "6.9G",
+    "percent": 87
+  },
+  "receipt_sha256": "7954fa508df2268d32cec2d8b8afdffbdcd055693d86cd526356d35fb7bf9f1d",
+  "scope": "Only project __pycache__/*.pyc and two named downloaded wheels; models, installed environments and results preserved",
+  "system_disk_scratch": "/tmp/iterative_recalibration_20260919_run1",
+  "gpu_batch": "1.5B original500 MATH train R-only generation plus two-source calibration; L27500 reused"
+}

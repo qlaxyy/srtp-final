@@ -1,0 +1,22 @@
+{
+  "status": "Diagnostic only; cross-engine outliers remain unresolved; no vector training or efficacy claim",
+  "evidence_sha256": "be179eb63a8f830802a5ecdda07baa9c837ed4c15aa03d95c7decf1d5d367d66",
+  "hf_process_seconds": 126.24771243333817,
+  "native_process_seconds": 141.3499544262886,
+  "native_replay_seconds": 100.83707764744759,
+  "new_generations": 0,
+  "optimizer_steps": 0,
+  "findings": [
+    "HF cached1 does not remove the three selected outliers",
+    "Native consumed generated-prefix token and position assertions passed",
+    "Native target log probabilities reproduce closely at the three selected positions",
+    "Native full traces differ between batches; coefficient max differences around 0.97; no bitwise invariance claim",
+    "Residual stream rounding and attention backend differences are hypotheses, not established causes"
+  ],
+  "next_gate": [
+    "Separate fixed-history scoring from recomputed native controller histories",
+    "Use same saved tokens with no steering to isolate base-model scoring differences before introducing controller effects",
+    "Do not train or promote a vector until scoring differences are explained and bounded"
+  ],
+  "frozen_champion_unchanged": true
+}

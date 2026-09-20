@@ -1,0 +1,21 @@
+{
+  "status": "engineering_passed_two_full500_arms_running",
+  "commit": "4c8083b",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "dataset": "MATH-500",
+  "arms": ["OLD_NONPOS_L27", "LENGTH_NONPOS_L27"],
+  "questions_per_arm": 500,
+  "seed": 42,
+  "max_new_tokens": 16000,
+  "max_num_seqs": 256,
+  "max_num_batched_tokens": 32768,
+  "archive_sha256": "bbb83c71f39c9fd053676b349742f7125e7373ee1521b0fb97db37017c6fcba3",
+  "release_sha256": "6d9b463d31c8db98d865faf7eb5e314f2dc53874b7fb10777e89e0ddf3611989",
+  "remote_output": "/root/autodl-tmp/results/hybrid_syncthink_cgrs_20260912/length_sign_ablation_20260918_run1",
+  "engineering_seconds": 87.98101842403412,
+  "engineering": "8 old training questions x8 x512; both directions off/shadow exact tokens/history; actual intervention and no pre-intervention divergence",
+  "baseline_regeneration": false,
+  "new_calibration_generation": false,
+  "extra_model_forward_count": 0,
+  "automatic_gsm_expansion": false
+}

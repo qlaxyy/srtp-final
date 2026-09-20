@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "8c037fa0ec630198f4ca6025dd10e6564a227ea627f8f922bd62f8cf870218cb",
+  "remote_local_hash_match": true,
+  "started": "2026-09-20T17:06:00+08:00",
+  "finished": "2026-09-20T17:38:14+08:00",
+  "batch_wall_seconds": 1934.0,
+  "gpu_monitor_samples": 1932,
+  "gpu_monitor_mean_including_loading_grading": 77.39855072463769,
+  "gpu_monitor_max": 100.0,
+  "model_forward_or_probe_overhead": 0
+}

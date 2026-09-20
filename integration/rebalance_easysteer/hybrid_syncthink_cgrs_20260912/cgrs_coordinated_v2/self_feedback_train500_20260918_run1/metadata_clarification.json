@@ -1,0 +1,21 @@
+{
+  "reason": "Clarify inherited descriptive fields without changing already running release or protocol. Runtime uses experiment_kind self_feedback_collection_v1.",
+  "effective_engineering": {
+    "arms": [
+      "L27_L27",
+      "L27_REPEAT"
+    ],
+    "rows": 8,
+    "max_tokens": 512,
+    "gate": "Exact repeated generated tokens and R control history"
+  },
+  "effective_stored_direction": "Original unsteered over-class mean minus under-class mean, restricted to eligible parents; no residual centering. Match original norm.",
+  "effective_interpretation": "Training calibration feedback collection, not benchmark evaluation or independent confirmation.",
+  "inherited_nonexecuted_fields": [
+    "plan.engineering.arms",
+    "plan.engineering.gate",
+    "plan.stored_direction",
+    "plan.interpretation"
+  ],
+  "immutable_release_sha256": "e164f2afb8f8d3313e696ea1a68b83be3660652536dd14f3b2ad3226bb4e7658"
+}

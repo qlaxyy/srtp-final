@@ -1,0 +1,137 @@
+{
+  "status": "Posthoc feasibility diagnosis only, NOT a new validated candidate",
+  "theorem": "For g*=argmin_{g in convex_hull(G)} ||g||^2, Gi dot g* >= ||g*||^2. Nonzero g* gives common ascent for these finitely many surrogate objectives.",
+  "checks": "Orthogonal, exactly opposing, and three-objective synthetic KKT checks passed; all archived gradients hashes verified",
+  "reports": {
+    "two_fit_source_means": {
+      "weights": [
+        0.5873487328993796,
+        0.4126512671006203
+      ],
+      "direction_norm": 0.20536856134976164,
+      "objective_projections": [
+        0.20536856134976167,
+        0.2053685613497615
+      ],
+      "kkt_min_residual": -7.632783294297951e-17,
+      "groups": {
+        "fit:U": {
+          "n": 32,
+          "positive": 27,
+          "negative": 5,
+          "mean": 0.20536856134976172,
+          "median": 0.09874187276545539
+        },
+        "fit:L27": {
+          "n": 144,
+          "positive": 117,
+          "negative": 27,
+          "mean": 0.20536856134976156,
+          "median": 0.08670989021619735
+        },
+        "development_check:U": {
+          "n": 8,
+          "positive": 6,
+          "negative": 2,
+          "mean": 0.06144363169597325,
+          "median": 0.0633501346283856
+        },
+        "development_check:L27": {
+          "n": 37,
+          "positive": 28,
+          "negative": 9,
+          "mean": 0.1416346347254948,
+          "median": 0.07017359130148382
+        },
+        "correctness_guard_only:U": {
+          "n": 4,
+          "positive": 0,
+          "negative": 4,
+          "mean": -0.9430181086054692,
+          "median": -0.8859693835460808
+        },
+        "correctness_guard_only:L27": {
+          "n": 1,
+          "positive": 0,
+          "negative": 1,
+          "mean": -0.28712244778655205,
+          "median": -0.28712244778655205
+        }
+      }
+    },
+    "two_fit_sources_plus_five_exposed_guards": {
+      "weights": [
+        0.4178727087459532,
+        0.4062251702232366,
+        0.008839333280270908,
+        0.006629671036066542,
+        0.012759877493768695,
+        0.11085955767459466,
+        0.03681368154611031
+      ],
+      "direction_norm": 0.15080256471081377,
+      "objective_projections": [
+        0.15080256471081915,
+        0.150802564710807,
+        0.15080256471082598,
+        0.1508025647108864,
+        0.15080256471085812,
+        0.15080256471081283,
+        0.15080256471079595
+      ],
+      "kkt_min_residual": -2.688821387764051e-15,
+      "groups": {
+        "fit:U": {
+          "n": 32,
+          "positive": 27,
+          "negative": 5,
+          "mean": 0.15080256471081915,
+          "median": 0.06245618979164715
+        },
+        "fit:L27": {
+          "n": 144,
+          "positive": 126,
+          "negative": 18,
+          "mean": 0.150802564710807,
+          "median": 0.1010622291892899
+        },
+        "development_check:U": {
+          "n": 8,
+          "positive": 6,
+          "negative": 2,
+          "mean": 0.030769456328768357,
+          "median": 0.035727151187385744
+        },
+        "development_check:L27": {
+          "n": 37,
+          "positive": 28,
+          "negative": 9,
+          "mean": 0.10046181118763088,
+          "median": 0.07718837382017471
+        },
+        "correctness_guard_only:U": {
+          "n": 4,
+          "positive": 4,
+          "negative": 0,
+          "mean": 0.1508025647108458,
+          "median": 0.15080256471084197
+        },
+        "correctness_guard_only:L27": {
+          "n": 1,
+          "positive": 1,
+          "negative": 0,
+          "mean": 0.1508025647107959,
+          "median": 0.1508025647107959
+        }
+      }
+    }
+  },
+  "limits": [
+    "Data and developer outcomes were already exposed",
+    "Including five guards spends them as constraints; they cease to be validation for that diagnostic",
+    "Common group means do not guarantee all individual examples improve",
+    "Fixed-history BF16 gradients, unresolved native score outliers",
+    "No finite-step likelihood, online-controller, token or correctness guarantee",
+    "No vector export, optimizer, GPU, or benchmark"
+  ]
+}

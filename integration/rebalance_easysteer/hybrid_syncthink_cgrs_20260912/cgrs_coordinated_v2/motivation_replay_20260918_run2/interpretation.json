@@ -1,0 +1,13 @@
+{
+  "estimand": "Current-runtime confidence on frozen paired texts, using U without intervention and R with the frozen original ReBalance vector/fit and recomputed dynamic state",
+  "not_estimated": "Exact probabilities or control histories from historical free generation; those were not saved",
+  "change_before_full": "Replaced the unattainable historical-probability claim with a clearly labelled reconstruction. Original HF and native prompt-scoring diagnostics and failed0.03 maximum-error bounds are retained; neither is reclassified as passed.",
+  "engineering": "Same eight prompts, fixed512-token bounded references and exact forced replay, for both U/R. Same batch/decode path, max probability error0 for both groups; required <=1e-6. Native R step arithmetic means checked <=2e-6.",
+  "native_scoring_diagnostic": "Same vLLM but full-prefill prompt scoring vs cached decode:3of8 prefixes exceed0.03, maximum0.0311837588. This localizes variation beyond cross-framework differences but does not uniquely prove BF16 as the cause.",
+  "grouping": "Prior fixed275 both-correct shortened pairs and11 U-correct/R-wrong shortened pairs; confidence was not used to select these pairs",
+  "statistics": "Original geometric-primary/arithmetic-secondary, equal-question paired bootstrap20000 seed20260918, whole-step and meanW2 variance, pooled-step confidence sensitivity. No new threshold selection.",
+  "semantic_limit": "Both-correct shortening is an overthinking proxy; correct-to-wrong shortening is an underthinking proxy, not proof that extra reasoning would fix each error. R itself depends on confidence. Length differences are selected by construction.",
+  "engineering_reference_limit": "Eight newly produced short reference prefixes are engineering-only, not replacement calibration answers, evaluation results, or new training assets",
+  "historical_prompt_check": "build_prompt function inspected at original R836e37b8 and baseline26f299ac commits; same system message and generation template as current runner",
+  "package_sha256": "135b4de0f0624ff1d58fe2133a1baf6b1e72b51df3ed3f7caac6c68038ba4ce1"
+}

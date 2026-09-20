@@ -1,0 +1,81 @@
+{
+  "scope": "Original base replay states, not native eager collection",
+  "archives": {
+    "calibration_evidence.tar.gz": "a63dbcdce6b40efed1ac35d349f82c3a89b9afae8ba97dce2242936624a72768",
+    "selected_features.tar.gz": "97e2281967476b3f854e8a379ab2f05acfc5af1346ef7873d466d268c98085e7"
+  },
+  "new_answers": 0,
+  "model_forwards": 0,
+  "groups": {
+    "R": {
+      "steps": 57300,
+      "over_steps": 28124,
+      "old_under_steps": 9655,
+      "new_under_steps": 5091,
+      "old_under_questions": 269,
+      "new_under_questions": 185,
+      "old_high": 0.9990744465655023,
+      "new_high": 0.9998318489622954,
+      "layer": 21,
+      "original_vector_exact": true,
+      "cosine": 0.992624764289187,
+      "old_vector_norm": 82.87419128417969,
+      "new_vector_norm": 91.1180462921672,
+      "fit_sha256": "7d14019363e82fc2462325df77648c8f209faf9cebef676b5b51a099669df6b9",
+      "vector_sha256": "913a0104f73a1a6a3d0a575955869f90fc2373043e6d99c8c4c0b09ed66f9e47",
+      "curve_check": {
+        "k": 17.841538634408977,
+        "anchors": [
+          -0.49999999999999994,
+          0.0,
+          0.0003451367637612168
+        ],
+        "targets": [
+          -0.49999999999999994,
+          0.0,
+          0.00034513676376111166
+        ],
+        "max_residual": 1.0516761073109393e-16,
+        "F_one_ceiling": 0.0006902735275222233,
+        "grid_points": 125751,
+        "finite": true,
+        "separator_crossing_residual": -2.842170943040401e-14
+      }
+    },
+    "L27": {
+      "steps": 40834,
+      "over_steps": 16250,
+      "old_under_steps": 7530,
+      "new_under_steps": 3240,
+      "old_under_questions": 283,
+      "new_under_questions": 207,
+      "old_high": 0.9978821682078498,
+      "new_high": 0.9996141532521982,
+      "layer": 23,
+      "original_vector_exact": true,
+      "cosine": 0.9745080653278886,
+      "old_vector_norm": 107.19879150390625,
+      "new_vector_norm": 116.29191772289052,
+      "fit_sha256": "48181a3d0e25402d888017cb37c7ec0d03358c868cb64c12747e4a77d69c12f8",
+      "vector_sha256": "58603dbf3cb6c937dea476ff7afd140a84852dea96c5d828bf1b3dd39e428057",
+      "curve_check": {
+        "k": 15.38619585697215,
+        "anchors": [
+          -0.5000000000000002,
+          -8.326672684688674e-17,
+          0.0006842741806475372
+        ],
+        "targets": [
+          -0.5000000000000001,
+          0.0,
+          0.0006842741806475193
+        ],
+        "max_residual": 1.1102230246251565e-16,
+        "F_one_ceiling": 0.0013685483612950386,
+        "grid_points": 125751,
+        "finite": true,
+        "separator_crossing_residual": 1.7763568394002505e-14
+      }
+    }
+  }
+}

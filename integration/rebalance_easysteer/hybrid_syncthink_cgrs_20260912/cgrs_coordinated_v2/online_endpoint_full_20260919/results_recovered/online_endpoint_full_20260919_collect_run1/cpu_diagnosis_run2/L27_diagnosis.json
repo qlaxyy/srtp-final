@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "correct": 369,
+    "mean_tokens": 4530.644,
+    "mean_thinking_tokens": 4192.296,
+    "capped": 88,
+    "generation_seconds": 1875.5412722080946
+  },
+  "steps": 50953,
+  "confidence_quantiles": [
+    0.872075432177746,
+    0.9984181308084064
+  ],
+  "variance_quantiles": [
+    9.111110480642837e-07,
+    0.0024036492415950095
+  ],
+  "over": {
+    "steps": 22038,
+    "questions": 499,
+    "from_capped": 14246,
+    "from_wrong": 15994,
+    "top10_steps": 4056,
+    "effective_questions": 118.9809179155814
+  },
+  "under_original": {
+    "steps": 8950,
+    "questions": 288,
+    "from_capped": 7737,
+    "from_wrong": 8157,
+    "top10_steps": 3441,
+    "effective_questions": 42.48063240603641
+  },
+  "under_exclude_capped": {
+    "steps": 1213,
+    "questions": 218,
+    "from_capped": 0,
+    "from_wrong": 420,
+    "top10_steps": 441,
+    "effective_questions": 23.608006417970316
+  },
+  "endpoints": {
+    "pre_original": {
+      "vector_norm": 73.19811962166175,
+      "over_norm": 122.65488572483699,
+      "under_norm": 123.2114354621356
+    },
+    "pre_exclude_capped": {
+      "vector_norm": 102.18916336136424,
+      "over_norm": 122.65488572483699,
+      "under_norm": 112.06935281586135
+    },
+    "post_original": {
+      "vector_norm": 73.19811962166175,
+      "over_norm": 122.65488572483699,
+      "under_norm": 123.2114354621356
+    },
+    "post_exclude_capped": {
+      "vector_norm": 102.18916336136424,
+      "over_norm": 122.65488572483699,
+      "under_norm": 112.06935281586135
+    }
+  },
+  "direction_cosines": {
+    "pre_original__pre_exclude_capped": 0.6868226734749664,
+    "pre_original__post_original": 1.0,
+    "pre_exclude_capped__post_exclude_capped": 1.0
+  },
+  "max_native_step_mean_rounding_error": 1.4211820519305363e-06,
+  "limitation": "Training descriptive only. No new vector deployed; no dynamic fitting; different native trajectories cannot be paired with historical base replay states."
+}

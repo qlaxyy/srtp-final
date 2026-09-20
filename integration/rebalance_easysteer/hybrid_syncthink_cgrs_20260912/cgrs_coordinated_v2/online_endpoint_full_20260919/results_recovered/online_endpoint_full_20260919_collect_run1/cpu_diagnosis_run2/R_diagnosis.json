@@ -1,0 +1,71 @@
+{
+  "summary": {
+    "correct": 362,
+    "mean_tokens": 5063.842,
+    "mean_thinking_tokens": 4760.02,
+    "capped": 104,
+    "generation_seconds": 1783.0451180487871
+  },
+  "steps": 57219,
+  "confidence_quantiles": [
+    0.8731264802475998,
+    0.9986059975160342
+  ],
+  "variance_quantiles": [
+    5.379925817769647e-07,
+    0.0023776121001779504
+  ],
+  "over": {
+    "steps": 27157,
+    "questions": 499,
+    "from_capped": 18858,
+    "from_wrong": 20187,
+    "top10_steps": 4371,
+    "effective_questions": 136.00738863247875
+  },
+  "under_original": {
+    "steps": 8922,
+    "questions": 287,
+    "from_capped": 7712,
+    "from_wrong": 7903,
+    "top10_steps": 3400,
+    "effective_questions": 42.36943476608533
+  },
+  "under_exclude_capped": {
+    "steps": 1210,
+    "questions": 211,
+    "from_capped": 0,
+    "from_wrong": 191,
+    "top10_steps": 384,
+    "effective_questions": 50.364637082903336
+  },
+  "endpoints": {
+    "pre_original": {
+      "vector_norm": 75.28692408451923,
+      "over_norm": 125.02409009617331,
+      "under_norm": 121.94590060815808
+    },
+    "pre_exclude_capped": {
+      "vector_norm": 108.0767229621719,
+      "over_norm": 125.02409009617331,
+      "under_norm": 113.68874742615911
+    },
+    "post_original": {
+      "vector_norm": 75.28692408451923,
+      "over_norm": 125.02409009617331,
+      "under_norm": 121.94590060815808
+    },
+    "post_exclude_capped": {
+      "vector_norm": 108.0767229621719,
+      "over_norm": 125.02409009617331,
+      "under_norm": 113.68874742615911
+    }
+  },
+  "direction_cosines": {
+    "pre_original__pre_exclude_capped": 0.6923262761153304,
+    "pre_original__post_original": 0.9999999999999999,
+    "pre_exclude_capped__post_exclude_capped": 1.0
+  },
+  "max_native_step_mean_rounding_error": 1.3604098403341425e-06,
+  "limitation": "Training descriptive only. No new vector deployed; no dynamic fitting; different native trajectories cannot be paired with historical base replay states."
+}

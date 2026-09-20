@@ -1,0 +1,1870 @@
+{
+  "status": "One constrained self-feedback fit with exposed development gate; not deployed or efficacy-validated",
+  "accepted": false,
+  "groups": {
+    "fit:U": {
+      "n": 32,
+      "mean": 0.09015622735023499,
+      "median": 0.04961872100830078,
+      "positive": 26,
+      "minimum": -0.05882072448730469
+    },
+    "fit:L27": {
+      "n": 144,
+      "mean": 0.0903095073170132,
+      "median": 0.04532623291015625,
+      "positive": 121,
+      "minimum": -0.06929206848144531
+    },
+    "development_check:U": {
+      "n": 8,
+      "mean": 0.0276181697845459,
+      "median": 0.022741317749023438,
+      "positive": 6,
+      "minimum": -0.022104263305664062
+    },
+    "development_check:L27": {
+      "n": 37,
+      "mean": 0.06674864485457137,
+      "median": 0.04751396179199219,
+      "positive": 29,
+      "minimum": -0.13405227661132812
+    },
+    "correctness_guard_only:U": {
+      "n": 3,
+      "mean": -0.4823004404703776,
+      "median": -0.6136894226074219,
+      "positive": 0,
+      "minimum": -0.7576217651367188
+    },
+    "correctness_guard_only:L27": {
+      "n": 1,
+      "mean": -0.1852264404296875,
+      "median": -0.1852264404296875,
+      "positive": 0,
+      "minimum": -0.1852264404296875
+    }
+  },
+  "rows": [
+    {
+      "question": 3,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.041812896728515625,
+      "predicted_margin_change": 0.041542933462891556,
+      "relative_error": 0.006498416051076786
+    },
+    {
+      "question": 5,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10280609130859375,
+      "predicted_margin_change": 0.10229597311558598,
+      "relative_error": 0.004986688893719942
+    },
+    {
+      "question": 6,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.027935028076171875,
+      "predicted_margin_change": 0.028370364629168483,
+      "relative_error": 0.0153447641116683
+    },
+    {
+      "question": 8,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.06484222412109375,
+      "predicted_margin_change": 0.06485118883671097,
+      "relative_error": 0.0001382351777666057
+    },
+    {
+      "question": 10,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.25618648529052734,
+      "predicted_margin_change": 0.2545449578328009,
+      "relative_error": 0.006448870453779286
+    },
+    {
+      "question": 11,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.03778076171875,
+      "predicted_margin_change": 0.037692919292449195,
+      "relative_error": 0.0023304755362475154
+    },
+    {
+      "question": 18,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.022104263305664062,
+      "predicted_margin_change": -0.02236728987464405,
+      "relative_error": 0.011759429526514036
+    },
+    {
+      "question": 21,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.3235187530517578,
+      "predicted_margin_change": 0.32259837901909294,
+      "relative_error": 0.0028530026575564415
+    },
+    {
+      "question": 25,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.00946044921875,
+      "predicted_margin_change": -0.00918232515091379,
+      "relative_error": 0.03028906766697672
+    },
+    {
+      "question": 34,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.016559600830078125,
+      "predicted_margin_change": -0.016228961807895032,
+      "relative_error": 0.020373393325890027
+    },
+    {
+      "question": 35,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.03513336181640625,
+      "predicted_margin_change": 0.03460667234216047,
+      "relative_error": 0.015219304215046569
+    },
+    {
+      "question": 36,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.04248619079589844,
+      "predicted_margin_change": 0.042257806709746076,
+      "relative_error": 0.005404541880771301
+    },
+    {
+      "question": 37,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.06534767150878906,
+      "predicted_margin_change": 0.06536013998207073,
+      "relative_error": 0.0001907657065160163
+    },
+    {
+      "question": 42,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.114959716796875,
+      "predicted_margin_change": 0.11459312241890401,
+      "relative_error": 0.0031990958116218495
+    },
+    {
+      "question": 47,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.5139331817626953,
+      "predicted_margin_change": 0.5149475632979879,
+      "relative_error": 0.0019698734542910007
+    },
+    {
+      "question": 49,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.12833404541015625,
+      "predicted_margin_change": 0.12822684038270343,
+      "relative_error": 0.0008360576236055944
+    },
+    {
+      "question": 52,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.019449234008789062,
+      "predicted_margin_change": 0.01958143554274472,
+      "relative_error": 0.006751370892449151
+    },
+    {
+      "question": 57,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2973499298095703,
+      "predicted_margin_change": 0.2976312275789774,
+      "relative_error": 0.0009451218264134061
+    },
+    {
+      "question": 60,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.010977745056152344,
+      "predicted_margin_change": 0.010196632356652132,
+      "relative_error": 0.07660496840318316
+    },
+    {
+      "question": 62,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.06929206848144531,
+      "predicted_margin_change": -0.07011554374161036,
+      "relative_error": 0.011744546447499794
+    },
+    {
+      "question": 63,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07720947265625,
+      "predicted_margin_change": 0.07774418978336581,
+      "relative_error": 0.006877904684656143
+    },
+    {
+      "question": 65,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.04200553894042969,
+      "predicted_margin_change": 0.04168576922924539,
+      "relative_error": 0.00767095623030884
+    },
+    {
+      "question": 69,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0002155303955078125,
+      "predicted_margin_change": 0.0006973449811497291,
+      "relative_error": 0.6909271575275949
+    },
+    {
+      "question": 70,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.029537200927734375,
+      "predicted_margin_change": 0.02932906623852411,
+      "relative_error": 0.007096533095106735
+    },
+    {
+      "question": 71,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.012485504150390625,
+      "predicted_margin_change": -0.013062840936263306,
+      "relative_error": 0.04419687789889225
+    },
+    {
+      "question": 72,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.018423080444335938,
+      "predicted_margin_change": -0.018835782590743328,
+      "relative_error": 0.021910538859702556
+    },
+    {
+      "question": 74,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04125022888183594,
+      "predicted_margin_change": 0.041291713532161115,
+      "relative_error": 0.001004672530551817
+    },
+    {
+      "question": 75,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.001415252685546875,
+      "predicted_margin_change": 0.0016971973195353623,
+      "relative_error": 0.1661236620770027
+    },
+    {
+      "question": 81,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.41982269287109375,
+      "predicted_margin_change": 0.41835733451788454,
+      "relative_error": 0.0035026476944593128
+    },
+    {
+      "question": 83,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.5001068115234375,
+      "predicted_margin_change": 0.49678335992093925,
+      "relative_error": 0.006689941472732022
+    },
+    {
+      "question": 84,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.003475189208984375,
+      "predicted_margin_change": -0.0034562691636210643,
+      "relative_error": 0.005474123821852049
+    },
+    {
+      "question": 87,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.009296417236328125,
+      "predicted_margin_change": -0.010068017417982708,
+      "relative_error": 0.07663874123582769
+    },
+    {
+      "question": 90,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.013032913208007812,
+      "predicted_margin_change": -0.013178642445967467,
+      "relative_error": 0.011057985566961496
+    },
+    {
+      "question": 91,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.04171562194824219,
+      "predicted_margin_change": -0.04194166773328971,
+      "relative_error": 0.005389527819565108
+    },
+    {
+      "question": 93,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04582786560058594,
+      "predicted_margin_change": 0.04657758315640794,
+      "relative_error": 0.016096102567289616
+    },
+    {
+      "question": 97,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.025018692016601562,
+      "predicted_margin_change": 0.024811415416222855,
+      "relative_error": 0.00835408205866324
+    },
+    {
+      "question": 98,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07909393310546875,
+      "predicted_margin_change": 0.07917357177210135,
+      "relative_error": 0.0010058743700718797
+    },
+    {
+      "question": 100,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.0419769287109375,
+      "predicted_margin_change": -0.04199063858554462,
+      "relative_error": 0.00032649835937089545
+    },
+    {
+      "question": 103,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.018144607543945312,
+      "predicted_margin_change": 0.01804163041929419,
+      "relative_error": 0.00570775047808301
+    },
+    {
+      "question": 108,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.21039199829101562,
+      "predicted_margin_change": 0.21017288789698202,
+      "relative_error": 0.0010425245436081396
+    },
+    {
+      "question": 110,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.027112960815429688,
+      "predicted_margin_change": 0.02687758761351109,
+      "relative_error": 0.008757229454635923
+    },
+    {
+      "question": 111,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.03154563903808594,
+      "predicted_margin_change": 0.03118406333007722,
+      "relative_error": 0.011594887561043881
+    },
+    {
+      "question": 112,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0187225341796875,
+      "predicted_margin_change": 0.018715271424712927,
+      "relative_error": 0.0003880657036575562
+    },
+    {
+      "question": 113,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.09085655212402344,
+      "predicted_margin_change": 0.09002909208547481,
+      "relative_error": 0.009191029470374123
+    },
+    {
+      "question": 114,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.39115333557128906,
+      "predicted_margin_change": 0.38930429639054476,
+      "relative_error": 0.004749598701806708
+    },
+    {
+      "question": 115,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.04687690734863281,
+      "predicted_margin_change": 0.04582498664987045,
+      "relative_error": 0.022955177418809772
+    },
+    {
+      "question": 117,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.0900421142578125,
+      "predicted_margin_change": 0.09021698939192822,
+      "relative_error": 0.0019383836159286604
+    },
+    {
+      "question": 120,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.1739215850830078,
+      "predicted_margin_change": 0.173787570789964,
+      "relative_error": 0.000771138536747062
+    },
+    {
+      "question": 123,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.00435638427734375,
+      "predicted_margin_change": 0.004265462360908414,
+      "relative_error": 0.02131584075588297
+    },
+    {
+      "question": 125,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2019062042236328,
+      "predicted_margin_change": 0.20152151375869642,
+      "relative_error": 0.0019089300083216904
+    },
+    {
+      "question": 128,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.07729339599609375,
+      "predicted_margin_change": 0.07729779197713703,
+      "relative_error": 5.68707194712481e-05
+    },
+    {
+      "question": 129,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.32945823669433594,
+      "predicted_margin_change": 0.32920068271382574,
+      "relative_error": 0.0007823616232718639
+    },
+    {
+      "question": 132,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.031009674072265625,
+      "predicted_margin_change": 0.030991656487298985,
+      "relative_error": 0.0005813688911408694
+    },
+    {
+      "question": 133,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.053508758544921875,
+      "predicted_margin_change": -0.05368091172449804,
+      "relative_error": 0.0032069719765508973
+    },
+    {
+      "question": 135,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.019353866577148438,
+      "predicted_margin_change": 0.019116422494612696,
+      "relative_error": 0.012420947622530178
+    },
+    {
+      "question": 137,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.045986175537109375,
+      "predicted_margin_change": 0.04531729648729199,
+      "relative_error": 0.014759906297697007
+    },
+    {
+      "question": 139,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.6006374359130859,
+      "predicted_margin_change": 0.5979973467404518,
+      "relative_error": 0.004414884425532437
+    },
+    {
+      "question": 141,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0066776275634765625,
+      "predicted_margin_change": 0.006605680307423411,
+      "relative_error": 0.010891725409765619
+    },
+    {
+      "question": 143,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07155418395996094,
+      "predicted_margin_change": 0.07098714135185713,
+      "relative_error": 0.007987962288736007
+    },
+    {
+      "question": 146,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.14406394958496094,
+      "predicted_margin_change": 0.14337032485485524,
+      "relative_error": 0.004837993711794344
+    },
+    {
+      "question": 149,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2357501983642578,
+      "predicted_margin_change": 0.23507791345019713,
+      "relative_error": 0.0028598386985560498
+    },
+    {
+      "question": 150,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.03294563293457031,
+      "predicted_margin_change": 0.032888407198895846,
+      "relative_error": 0.001739997176767747
+    },
+    {
+      "question": 151,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.015628814697265625,
+      "predicted_margin_change": -0.016044329633816332,
+      "relative_error": 0.025897930672960884
+    },
+    {
+      "question": 154,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.13234519958496094,
+      "predicted_margin_change": 0.1321036839657555,
+      "relative_error": 0.0018282277371465384
+    },
+    {
+      "question": 155,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.0050868988037109375,
+      "predicted_margin_change": 0.004840326623817614,
+      "relative_error": 0.05094122753618016
+    },
+    {
+      "question": 156,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.05508232116699219,
+      "predicted_margin_change": -0.05447532995495069,
+      "relative_error": 0.011142497210084977
+    },
+    {
+      "question": 158,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05132293701171875,
+      "predicted_margin_change": 0.05179623552889819,
+      "relative_error": 0.009137701077047946
+    },
+    {
+      "question": 160,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.27959251403808594,
+      "predicted_margin_change": 0.2796773106498941,
+      "relative_error": 0.00030319446225764076
+    },
+    {
+      "question": 163,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.008337020874023438,
+      "predicted_margin_change": -0.007898658593738513,
+      "relative_error": 0.05549831975677831
+    },
+    {
+      "question": 167,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.564239501953125,
+      "predicted_margin_change": 0.5614891234298971,
+      "relative_error": 0.004898364738442334
+    },
+    {
+      "question": 168,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10740470886230469,
+      "predicted_margin_change": 0.106667036748612,
+      "relative_error": 0.006915652071887971
+    },
+    {
+      "question": 169,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.33098411560058594,
+      "predicted_margin_change": 0.32975294455413284,
+      "relative_error": 0.00373361653560908
+    },
+    {
+      "question": 176,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2076740264892578,
+      "predicted_margin_change": 0.2070037059328087,
+      "relative_error": 0.0032382055839458752
+    },
+    {
+      "question": 178,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.004169464111328125,
+      "predicted_margin_change": 0.00370833737140934,
+      "relative_error": 0.1243486483926719
+    },
+    {
+      "question": 179,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.14342689514160156,
+      "predicted_margin_change": 0.14346724204625994,
+      "relative_error": 0.00028122729678851076
+    },
+    {
+      "question": 182,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.016841888427734375,
+      "predicted_margin_change": 0.01673832476644162,
+      "relative_error": 0.0061872178212473905
+    },
+    {
+      "question": 187,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.00614166259765625,
+      "predicted_margin_change": 0.0062781426569024105,
+      "relative_error": 0.02173892291155722
+    },
+    {
+      "question": 189,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.43131446838378906,
+      "predicted_margin_change": 0.42856602128639065,
+      "relative_error": 0.00641312414164013
+    },
+    {
+      "question": 190,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0003261566162109375,
+      "predicted_margin_change": 0.0003760069930199472,
+      "relative_error": 0.13257832363337227
+    },
+    {
+      "question": 192,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.1105813980102539,
+      "predicted_margin_change": 0.11006048066845336,
+      "relative_error": 0.004733009874541212
+    },
+    {
+      "question": 193,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.001453399658203125,
+      "predicted_margin_change": 0.0010701164711900326,
+      "relative_error": 0.35816959866701137
+    },
+    {
+      "question": 195,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04127311706542969,
+      "predicted_margin_change": 0.04103682057945107,
+      "relative_error": 0.0057581577383931
+    },
+    {
+      "question": 197,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05990028381347656,
+      "predicted_margin_change": 0.06055570111314981,
+      "relative_error": 0.01082337893253992
+    },
+    {
+      "question": 198,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.026773452758789062,
+      "predicted_margin_change": 0.026764667579761217,
+      "relative_error": 0.0003282379279198859
+    },
+    {
+      "question": 201,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0645904541015625,
+      "predicted_margin_change": 0.06504114124532714,
+      "relative_error": 0.006929262542683685
+    },
+    {
+      "question": 203,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10906124114990234,
+      "predicted_margin_change": 0.10990124143645477,
+      "relative_error": 0.007643228370974487
+    },
+    {
+      "question": 204,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.01093292236328125,
+      "predicted_margin_change": 0.011117357632771253,
+      "relative_error": 0.016589847658254088
+    },
+    {
+      "question": 210,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.1282367706298828,
+      "predicted_margin_change": 0.12778553108255603,
+      "relative_error": 0.0035312256677578245
+    },
+    {
+      "question": 211,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.007137298583984375,
+      "predicted_margin_change": 0.0069845849489171274,
+      "relative_error": 0.02186438223375376
+    },
+    {
+      "question": 213,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.06972885131835938,
+      "predicted_margin_change": 0.06972899016762127,
+      "relative_error": 1.9912702243341057e-06
+    },
+    {
+      "question": 217,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.08831787109375,
+      "predicted_margin_change": 0.08773244903078752,
+      "relative_error": 0.006672811136926604
+    },
+    {
+      "question": 219,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05044364929199219,
+      "predicted_margin_change": 0.05026948200385897,
+      "relative_error": 0.003464672425306561
+    },
+    {
+      "question": 220,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.12242889404296875,
+      "predicted_margin_change": 0.12156315983775516,
+      "relative_error": 0.007121682312051162
+    },
+    {
+      "question": 221,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07159614562988281,
+      "predicted_margin_change": 0.07093597433820631,
+      "relative_error": 0.009306579599921466
+    },
+    {
+      "question": 222,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.001583099365234375,
+      "predicted_margin_change": 0.0015892985495708192,
+      "relative_error": 0.003900578867399269
+    },
+    {
+      "question": 223,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04679298400878906,
+      "predicted_margin_change": 0.04659200618455333,
+      "relative_error": 0.004313568800614632
+    },
+    {
+      "question": 224,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.023427963256835938,
+      "predicted_margin_change": 0.023306966074496727,
+      "relative_error": 0.0051914600103876276
+    },
+    {
+      "question": 226,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.048740386962890625,
+      "predicted_margin_change": -0.04888829545820166,
+      "relative_error": 0.003025437764290548
+    },
+    {
+      "question": 231,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.008472442626953125,
+      "predicted_margin_change": 0.008942712118852633,
+      "relative_error": 0.052586898208218776
+    },
+    {
+      "question": 234,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.019985198974609375,
+      "predicted_margin_change": 0.019899912424477986,
+      "relative_error": 0.004285775148763047
+    },
+    {
+      "question": 235,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0031070709228515625,
+      "predicted_margin_change": 0.002719046922185237,
+      "relative_error": 0.1427058862060678
+    },
+    {
+      "question": 238,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05858802795410156,
+      "predicted_margin_change": 0.05869347554991296,
+      "relative_error": 0.0017965812183284692
+    },
+    {
+      "question": 240,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.09560585021972656,
+      "predicted_margin_change": 0.09466183572020931,
+      "relative_error": 0.009972493057365427
+    },
+    {
+      "question": 241,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.034572601318359375,
+      "predicted_margin_change": 0.03440755344318806,
+      "relative_error": 0.004796850070837797
+    },
+    {
+      "question": 247,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0796661376953125,
+      "predicted_margin_change": 0.07919251788552018,
+      "relative_error": 0.005980613098790274
+    },
+    {
+      "question": 250,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.011102676391601562,
+      "predicted_margin_change": -0.010983247387871202,
+      "relative_error": 0.010873742483688928
+    },
+    {
+      "question": 251,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10566520690917969,
+      "predicted_margin_change": 0.10520774482055345,
+      "relative_error": 0.004348178828531138
+    },
+    {
+      "question": 254,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.015581130981445312,
+      "predicted_margin_change": 0.01618255367112672,
+      "relative_error": 0.037164881507822746
+    },
+    {
+      "question": 255,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.01922607421875,
+      "predicted_margin_change": -0.018866201144505428,
+      "relative_error": 0.019075015234287455
+    },
+    {
+      "question": 257,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.17081832885742188,
+      "predicted_margin_change": 0.17077170560477772,
+      "relative_error": 0.0002730150904041029
+    },
+    {
+      "question": 258,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.016590118408203125,
+      "predicted_margin_change": 0.016272981825237415,
+      "relative_error": 0.019488535436933217
+    },
+    {
+      "question": 259,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.05547332763671875,
+      "predicted_margin_change": -0.05588108488737521,
+      "relative_error": 0.007296874272900596
+    },
+    {
+      "question": 263,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07888221740722656,
+      "predicted_margin_change": 0.07808425424544742,
+      "relative_error": 0.010219258280560046
+    },
+    {
+      "question": 264,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.05977821350097656,
+      "predicted_margin_change": -0.06025179547762875,
+      "relative_error": 0.007860047537139859
+    },
+    {
+      "question": 265,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.18640518188476562,
+      "predicted_margin_change": 0.18438126408917796,
+      "relative_error": 0.01097680833020418
+    },
+    {
+      "question": 267,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.016307830810546875,
+      "predicted_margin_change": 0.016351204669156003,
+      "relative_error": 0.002652639942238971
+    },
+    {
+      "question": 268,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.029300689697265625,
+      "predicted_margin_change": -0.02951264104343268,
+      "relative_error": 0.007181713959626119
+    },
+    {
+      "question": 269,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.016042709350585938,
+      "predicted_margin_change": 0.01555412195600877,
+      "relative_error": 0.03141208458818984
+    },
+    {
+      "question": 270,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.05566120147705078,
+      "predicted_margin_change": -0.05492855878702328,
+      "relative_error": 0.01333810145771718
+    },
+    {
+      "question": 271,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04751396179199219,
+      "predicted_margin_change": 0.04767356442209996,
+      "relative_error": 0.0033478224681221134
+    },
+    {
+      "question": 273,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2764759063720703,
+      "predicted_margin_change": 0.27637495739515316,
+      "relative_error": 0.00036526094067493195
+    },
+    {
+      "question": 274,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.14568328857421875,
+      "predicted_margin_change": 0.14591389690370687,
+      "relative_error": 0.0015804411668911159
+    },
+    {
+      "question": 275,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.016992568969726562,
+      "predicted_margin_change": 0.016741672650738962,
+      "relative_error": 0.014986335249872798
+    },
+    {
+      "question": 276,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.055942535400390625,
+      "predicted_margin_change": 0.05625503920776019,
+      "relative_error": 0.005555125581113396
+    },
+    {
+      "question": 277,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.1422271728515625,
+      "predicted_margin_change": 0.14104551838490229,
+      "relative_error": 0.008377823557892647
+    },
+    {
+      "question": 279,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.3405876159667969,
+      "predicted_margin_change": 0.3394416097821188,
+      "relative_error": 0.0033761511601765122
+    },
+    {
+      "question": 282,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.012025833129882812,
+      "predicted_margin_change": -0.012497296710859009,
+      "relative_error": 0.037725245057720146
+    },
+    {
+      "question": 283,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.030435562133789062,
+      "predicted_margin_change": 0.03028331057840401,
+      "relative_error": 0.005027573025441558
+    },
+    {
+      "question": 285,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.07559013366699219,
+      "predicted_margin_change": -0.07410495446432869,
+      "relative_error": 0.020041564203084547
+    },
+    {
+      "question": 287,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.040053367614746094,
+      "predicted_margin_change": 0.04036756276593308,
+      "relative_error": 0.007783356974232238
+    },
+    {
+      "question": 288,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.5114917755126953,
+      "predicted_margin_change": 0.5111111694812414,
+      "relative_error": 0.0007446638895414024
+    },
+    {
+      "question": 290,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0098419189453125,
+      "predicted_margin_change": 0.009585811659578461,
+      "relative_error": 0.026717329197484093
+    },
+    {
+      "question": 295,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.017831802368164062,
+      "predicted_margin_change": 0.01752046926613737,
+      "relative_error": 0.017769678271598647
+    },
+    {
+      "question": 296,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.056690216064453125,
+      "predicted_margin_change": 0.05629624837177802,
+      "relative_error": 0.0069981162878449904
+    },
+    {
+      "question": 298,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.021961212158203125,
+      "predicted_margin_change": 0.021995868490216675,
+      "relative_error": 0.0015755837069567865
+    },
+    {
+      "question": 304,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0005092620849609375,
+      "predicted_margin_change": 0.0007341405065729584,
+      "relative_error": 0.30631523475223554
+    },
+    {
+      "question": 307,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.015913009643554688,
+      "predicted_margin_change": -0.01656298743038859,
+      "relative_error": 0.03924278694080092
+    },
+    {
+      "question": 313,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.011350631713867188,
+      "predicted_margin_change": 0.011066093962687417,
+      "relative_error": 0.025712573211394495
+    },
+    {
+      "question": 314,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.13587188720703125,
+      "predicted_margin_change": 0.13627962147084016,
+      "relative_error": 0.002991894601763003
+    },
+    {
+      "question": 315,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.024679183959960938,
+      "predicted_margin_change": 0.0248646918494833,
+      "relative_error": 0.007460695296178319
+    },
+    {
+      "question": 317,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.0004119873046875,
+      "predicted_margin_change": -0.00043246759028917753,
+      "relative_error": 0.0473568102247454
+    },
+    {
+      "question": 320,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.426513671875,
+      "predicted_margin_change": 0.4247317915425237,
+      "relative_error": 0.004195307174923077
+    },
+    {
+      "question": 323,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.17058181762695312,
+      "predicted_margin_change": 0.16949986469618414,
+      "relative_error": 0.006383208226793022
+    },
+    {
+      "question": 324,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05074024200439453,
+      "predicted_margin_change": 0.05085970074278942,
+      "relative_error": 0.0023487896438680062
+    },
+    {
+      "question": 325,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.048248291015625,
+      "predicted_margin_change": 0.04816589931172749,
+      "relative_error": 0.0017105816578711736
+    },
+    {
+      "question": 327,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.20911216735839844,
+      "predicted_margin_change": 0.20814183469218955,
+      "relative_error": 0.004661881969301654
+    },
+    {
+      "question": 328,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.09784126281738281,
+      "predicted_margin_change": 0.0972636466428526,
+      "relative_error": 0.005938664593269789
+    },
+    {
+      "question": 329,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.11478805541992188,
+      "predicted_margin_change": 0.11443332234868511,
+      "relative_error": 0.0030999106200540936
+    },
+    {
+      "question": 334,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.05882072448730469,
+      "predicted_margin_change": -0.05877492288227401,
+      "relative_error": 0.0007792712058919567
+    },
+    {
+      "question": 336,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.020059585571289062,
+      "predicted_margin_change": -0.02030422629256791,
+      "relative_error": 0.012048758605906297
+    },
+    {
+      "question": 337,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.016878128051757812,
+      "predicted_margin_change": 0.016535912618617095,
+      "relative_error": 0.02069528552995808
+    },
+    {
+      "question": 338,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.027439117431640625,
+      "predicted_margin_change": 0.02737338959390276,
+      "relative_error": 0.0024011581580860256
+    },
+    {
+      "question": 340,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07579231262207031,
+      "predicted_margin_change": 0.07488106076907616,
+      "relative_error": 0.0121693235063047
+    },
+    {
+      "question": 341,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.0076885223388671875,
+      "predicted_margin_change": -0.007928553772914383,
+      "relative_error": 0.03027430234088767
+    },
+    {
+      "question": 342,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.023996353149414062,
+      "predicted_margin_change": 0.02395121626675837,
+      "relative_error": 0.001884534052591632
+    },
+    {
+      "question": 344,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.040287017822265625,
+      "predicted_margin_change": -0.04063716385586974,
+      "relative_error": 0.008616399383726655
+    },
+    {
+      "question": 346,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.0336761474609375,
+      "predicted_margin_change": 0.03332161184605009,
+      "relative_error": 0.010639809878507848
+    },
+    {
+      "question": 347,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.04482460021972656,
+      "predicted_margin_change": 0.04433878394226621,
+      "relative_error": 0.01095691478803157
+    },
+    {
+      "question": 348,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.7576217651367188,
+      "predicted_margin_change": -0.7567258692991081,
+      "relative_error": 0.0011839106788306586
+    },
+    {
+      "question": 351,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.04377174377441406,
+      "predicted_margin_change": 0.04362680542697391,
+      "relative_error": 0.0033222315047284367
+    },
+    {
+      "question": 355,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07738304138183594,
+      "predicted_margin_change": 0.07731883852698072,
+      "relative_error": 0.0008303649676890822
+    },
+    {
+      "question": 360,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.0167999267578125,
+      "predicted_margin_change": 0.01632282376840069,
+      "relative_error": 0.029229194420112032
+    },
+    {
+      "question": 361,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.056105613708496094,
+      "predicted_margin_change": 0.05543687907130242,
+      "relative_error": 0.012062992152454263
+    },
+    {
+      "question": 363,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.11884498596191406,
+      "predicted_margin_change": 0.11787207577032284,
+      "relative_error": 0.008253949760645314
+    },
+    {
+      "question": 367,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.0032958984375,
+      "predicted_margin_change": -0.0034934184609947162,
+      "relative_error": 0.0565406136425106
+    },
+    {
+      "question": 369,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.008945465087890625,
+      "predicted_margin_change": -0.009456784582942288,
+      "relative_error": 0.05406906444437331
+    },
+    {
+      "question": 370,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.0034198760986328125,
+      "predicted_margin_change": -0.00333595673221843,
+      "relative_error": 0.025156011648441105
+    },
+    {
+      "question": 371,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.11037635803222656,
+      "predicted_margin_change": 0.10865487305927372,
+      "relative_error": 0.01584360576275055
+    },
+    {
+      "question": 372,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.029958724975585938,
+      "predicted_margin_change": 0.030040195381977892,
+      "relative_error": 0.0027120464882472686
+    },
+    {
+      "question": 373,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.05835151672363281,
+      "predicted_margin_change": -0.05832047993277469,
+      "relative_error": 0.0005321765337647419
+    },
+    {
+      "question": 376,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.3719501495361328,
+      "predicted_margin_change": 0.37092697160250343,
+      "relative_error": 0.00275843498036549
+    },
+    {
+      "question": 381,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.05236053466796875,
+      "predicted_margin_change": 0.05264175766308503,
+      "relative_error": 0.0053422037485174245
+    },
+    {
+      "question": 382,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.06771278381347656,
+      "predicted_margin_change": -0.06818344265315816,
+      "relative_error": 0.006902831851360039
+    },
+    {
+      "question": 384,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0868377685546875,
+      "predicted_margin_change": 0.08618359629764474,
+      "relative_error": 0.007590449750826122
+    },
+    {
+      "question": 388,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.008060455322265625,
+      "predicted_margin_change": 0.007403376103777136,
+      "relative_error": 0.0887539967276893
+    },
+    {
+      "question": 395,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": -0.6136894226074219,
+      "predicted_margin_change": -0.6093676551208329,
+      "relative_error": 0.007092216743489601
+    },
+    {
+      "question": 397,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07914352416992188,
+      "predicted_margin_change": 0.0797261617787599,
+      "relative_error": 0.007307985181261303
+    },
+    {
+      "question": 401,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.034549713134765625,
+      "predicted_margin_change": 0.03402943192292889,
+      "relative_error": 0.015289153607238731
+    },
+    {
+      "question": 407,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.00370025634765625,
+      "predicted_margin_change": -0.004204782095217296,
+      "relative_error": 0.11998855972463245
+    },
+    {
+      "question": 408,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.0075626373291015625,
+      "predicted_margin_change": -0.0068804008560022206,
+      "relative_error": 0.09915650081698114
+    },
+    {
+      "question": 413,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.084228515625,
+      "predicted_margin_change": 0.08392899001229762,
+      "relative_error": 0.003568798011968166
+    },
+    {
+      "question": 414,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.08986854553222656,
+      "predicted_margin_change": 0.09017230874609064,
+      "relative_error": 0.003368697309496883
+    },
+    {
+      "question": 418,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.3752174377441406,
+      "predicted_margin_change": 0.3737861930552713,
+      "relative_error": 0.003829046432054039
+    },
+    {
+      "question": 419,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0027561187744140625,
+      "predicted_margin_change": 0.0026199014775153476,
+      "relative_error": 0.05199328984992985
+    },
+    {
+      "question": 422,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.12793636322021484,
+      "predicted_margin_change": 0.12759257710520458,
+      "relative_error": 0.0026944052922984706
+    },
+    {
+      "question": 423,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.025920867919921875,
+      "predicted_margin_change": 0.02635419950956166,
+      "relative_error": 0.016442601092192727
+    },
+    {
+      "question": 424,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.09650611877441406,
+      "predicted_margin_change": 0.09651744202920866,
+      "relative_error": 0.00011731822307484091
+    },
+    {
+      "question": 425,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.003936767578125,
+      "predicted_margin_change": 0.0039018131889639795,
+      "relative_error": 0.00895849889991829
+    },
+    {
+      "question": 426,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.18750572204589844,
+      "predicted_margin_change": 0.18784405014137456,
+      "relative_error": 0.001801111588157807
+    },
+    {
+      "question": 431,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.32349586486816406,
+      "predicted_margin_change": 0.3217259802551038,
+      "relative_error": 0.005501217563023313
+    },
+    {
+      "question": 432,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.2667369842529297,
+      "predicted_margin_change": 0.26528334954506705,
+      "relative_error": 0.00547955501299071
+    },
+    {
+      "question": 435,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.00275421142578125,
+      "predicted_margin_change": 0.0027703498845060813,
+      "relative_error": 0.005825422563081264
+    },
+    {
+      "question": 436,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.07311248779296875,
+      "predicted_margin_change": 0.07260178879528006,
+      "relative_error": 0.007034248138551191
+    },
+    {
+      "question": 439,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0033168792724609375,
+      "predicted_margin_change": 0.0032558289574670827,
+      "relative_error": 0.018751081764857118
+    },
+    {
+      "question": 444,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.08657646179199219,
+      "predicted_margin_change": 0.08657669083712269,
+      "relative_error": 2.6455750189370348e-06
+    },
+    {
+      "question": 447,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.635462760925293,
+      "predicted_margin_change": 0.6351651412478185,
+      "relative_error": 0.00046857054669238556
+    },
+    {
+      "question": 449,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.09807586669921875,
+      "predicted_margin_change": 0.09813376572379433,
+      "relative_error": 0.0005900010475348461
+    },
+    {
+      "question": 451,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.014707565307617188,
+      "predicted_margin_change": 0.014270875157533733,
+      "relative_error": 0.030600096018142335
+    },
+    {
+      "question": 453,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.16216659545898438,
+      "predicted_margin_change": 0.16097996546366267,
+      "relative_error": 0.007371289911163272
+    },
+    {
+      "question": 454,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.05280494689941406,
+      "predicted_margin_change": 0.05264991187300999,
+      "relative_error": 0.0029446398082870686
+    },
+    {
+      "question": 455,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0163116455078125,
+      "predicted_margin_change": 0.015938638041940668,
+      "relative_error": 0.02340271890799619
+    },
+    {
+      "question": 456,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.08340167999267578,
+      "predicted_margin_change": 0.08293445448973835,
+      "relative_error": 0.005633671865475889
+    },
+    {
+      "question": 457,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.013996124267578125,
+      "predicted_margin_change": 0.013151268611547506,
+      "relative_error": 0.06424138088768039
+    },
+    {
+      "question": 460,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.011234283447265625,
+      "predicted_margin_change": 0.01043574274317937,
+      "relative_error": 0.07651977666929055
+    },
+    {
+      "question": 462,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10186576843261719,
+      "predicted_margin_change": 0.1020441262474665,
+      "relative_error": 0.0017478498901228544
+    },
+    {
+      "question": 467,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.13405227661132812,
+      "predicted_margin_change": -0.13379509769989278,
+      "relative_error": 0.0019221848622002745
+    },
+    {
+      "question": 468,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10337448120117188,
+      "predicted_margin_change": 0.1030356922036091,
+      "relative_error": 0.0032880741645651607
+    },
+    {
+      "question": 469,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.22080421447753906,
+      "predicted_margin_change": 0.21960541346088447,
+      "relative_error": 0.005458886453489549
+    },
+    {
+      "question": 471,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.1334686279296875,
+      "predicted_margin_change": 0.13292690438417873,
+      "relative_error": 0.00407534914032985
+    },
+    {
+      "question": 472,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.11173629760742188,
+      "predicted_margin_change": 0.11170299833641067,
+      "relative_error": 0.0002981054359070494
+    },
+    {
+      "question": 474,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.05031013488769531,
+      "predicted_margin_change": 0.050343642572955476,
+      "relative_error": 0.0006655792776934153
+    },
+    {
+      "question": 477,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.21407032012939453,
+      "predicted_margin_change": 0.21472785258618918,
+      "relative_error": 0.0030621665930865697
+    },
+    {
+      "question": 479,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.13525390625,
+      "predicted_margin_change": 0.13533210418973646,
+      "relative_error": 0.0005778225366748409
+    },
+    {
+      "question": 480,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.029581069946289062,
+      "predicted_margin_change": 0.029883421970781178,
+      "relative_error": 0.010117717602346319
+    },
+    {
+      "question": 482,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.16428184509277344,
+      "predicted_margin_change": 0.163387715419827,
+      "relative_error": 0.005472441245958814
+    },
+    {
+      "question": 483,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.0756988525390625,
+      "predicted_margin_change": 0.07523648664390532,
+      "relative_error": 0.006145500883707622
+    },
+    {
+      "question": 485,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.3264961242675781,
+      "predicted_margin_change": 0.3234419324003438,
+      "relative_error": 0.009442782649016468
+    },
+    {
+      "question": 486,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.08856582641601562,
+      "predicted_margin_change": 0.0899439898086111,
+      "relative_error": 0.015322462296013563
+    },
+    {
+      "question": 487,
+      "chosen": "U",
+      "rejected": "L27",
+      "actual_margin_change": 0.08974838256835938,
+      "predicted_margin_change": 0.08969588518697116,
+      "relative_error": 0.0005852819366103629
+    },
+    {
+      "question": 489,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.015972137451171875,
+      "predicted_margin_change": -0.01659420492274553,
+      "relative_error": 0.03748703083213063
+    },
+    {
+      "question": 490,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.10881233215332031,
+      "predicted_margin_change": 0.10996751695506599,
+      "relative_error": 0.010504782082309774
+    },
+    {
+      "question": 491,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.00630950927734375,
+      "predicted_margin_change": 0.005844421523422241,
+      "relative_error": 0.07957806466518752
+    },
+    {
+      "question": 494,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.1852264404296875,
+      "predicted_margin_change": -0.18380929844061095,
+      "relative_error": 0.007709849289993532
+    },
+    {
+      "question": 495,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.07421493530273438,
+      "predicted_margin_change": 0.07407280998396702,
+      "relative_error": 0.0019187245468089513
+    },
+    {
+      "question": 496,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": -0.05253791809082031,
+      "predicted_margin_change": -0.05324292874259557,
+      "relative_error": 0.013241395025124397
+    },
+    {
+      "question": 497,
+      "chosen": "L27",
+      "rejected": "U",
+      "actual_margin_change": 0.19832229614257812,
+      "predicted_margin_change": 0.19826563632899696,
+      "relative_error": 0.0002857772765379346
+    }
+  ],
+  "weights": [
+    0.4798165165997658,
+    0.37319750788418116,
+    0.14698597551605316
+  ],
+  "step_norm": 0.5,
+  "wall_seconds": 237.03998905420303,
+  "model_forward_count": 452,
+  "optimizer_steps": 1,
+  "new_answer_count": 0,
+  "plan_sha256": "c8e8a7e59a9891b2a7fbded002e1f6467cd77cddde73d661a49bc096d2f82ddb",
+  "artifact_sha256": "a06d12e4ffcad365f78262ed702e8df9de7dde9795717821b9c8ca7f7abf8fe1"
+}

@@ -1,0 +1,30 @@
+{
+  "status": "prepared_not_launched",
+  "completed_arms": 0,
+  "generated_answers": 0,
+  "generated_tokens": 0,
+  "startup_seconds": 13.51948133111,
+  "reason": "Eager/compile0 with in_graph steering rejected before model construction",
+  "responsibility": "Prepared runner configuration missed an existing compatibility requirement",
+  "fix": "Set VLLM_STEER_EAGER_IN_GRAPH=1 only for this diagnostic process; retain original in_graph kernel route, no split-mode substitution",
+  "evidence": [
+    "sources/EasySteer/vllm-steer/docs/design/steer_vectors.md:53",
+    "sources/EasySteer/vllm-steer/vllm/config/vllm.py:1658",
+    "sources/EasySteer/vllm-steer/vllm/envs.py:1930"
+  ],
+  "meaning": "Existing test-only mode explicitly supports eager byte-golden checking of the same steering kernel. Not a production throughput setting.",
+  "retry": "No retry under the failure-stop precommitment. Separate run2 identity and explicit next-batch authorization before generation.",
+  "unchanged": [
+    "model",
+    "8 engineering questions",
+    "two arms",
+    "seed42",
+    "512 token cap",
+    "thresholds",
+    "probe",
+    "source files",
+    "frozen outputs"
+  ],
+  "raw_archive_sha256": "f0996954fe59aa5985309b2bdd996d7de31fd1c32f5d9db7319b4c8a9c6b7c4c",
+  "gpu_idle_verified": true
+}

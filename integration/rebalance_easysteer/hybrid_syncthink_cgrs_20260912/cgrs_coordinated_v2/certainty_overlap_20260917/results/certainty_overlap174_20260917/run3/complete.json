@@ -1,0 +1,949 @@
+{
+  "status": "complete",
+  "probes": 174,
+  "checks": {
+    "tokens": 40814,
+    "control_rows": 40814
+  },
+  "startup_seconds": 23.02472035586834,
+  "trajectory_reproduction_seconds": 142.13450403511524,
+  "probe_and_preservation_seconds": 135.81424771249294,
+  "wall_seconds": 302.32092720270157,
+  "generated_probe_tokens": 911,
+  "audit_tokens": 8,
+  "forward_counts": {
+    "probe": {
+      "request_forward_rows": 911,
+      "model_batches": 895,
+      "input_tokens": 2129
+    },
+    "audit": {
+      "request_forward_rows": 8,
+      "model_batches": 1,
+      "input_tokens": 8
+    }
+  },
+  "clone_bytes": 15312224256,
+  "clone_checks": [
+    {
+      "block_pairs": 79,
+      "bytes": 36241408,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 8,
+      "bytes": 3670016,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 12,
+      "bytes": 5505024,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 9,
+      "bytes": 4128768,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 11,
+      "bytes": 5046272,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 14,
+      "bytes": 6422528,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 13,
+      "bytes": 5963776,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 19,
+      "bytes": 8716288,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 17,
+      "bytes": 7798784,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 21,
+      "bytes": 9633792,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 24,
+      "bytes": 11010048,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 24,
+      "bytes": 11010048,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 25,
+      "bytes": 11468800,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 25,
+      "bytes": 11468800,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 33,
+      "bytes": 15138816,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 45,
+      "bytes": 20643840,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 37,
+      "bytes": 16973824,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 37,
+      "bytes": 16973824,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 41,
+      "bytes": 18808832,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 39,
+      "bytes": 17891328,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 42,
+      "bytes": 19267584,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 42,
+      "bytes": 19267584,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 43,
+      "bytes": 19726336,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 44,
+      "bytes": 20185088,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 44,
+      "bytes": 20185088,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 45,
+      "bytes": 20643840,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 48,
+      "bytes": 22020096,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 49,
+      "bytes": 22478848,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 46,
+      "bytes": 21102592,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 49,
+      "bytes": 22478848,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 52,
+      "bytes": 23855104,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 51,
+      "bytes": 23396352,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 52,
+      "bytes": 23855104,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 53,
+      "bytes": 24313856,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 57,
+      "bytes": 26148864,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 64,
+      "bytes": 29360128,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 63,
+      "bytes": 28901376,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 73,
+      "bytes": 33488896,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 69,
+      "bytes": 31653888,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 75,
+      "bytes": 34406400,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 75,
+      "bytes": 34406400,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 76,
+      "bytes": 34865152,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 74,
+      "bytes": 33947648,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 77,
+      "bytes": 35323904,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 79,
+      "bytes": 36241408,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 80,
+      "bytes": 36700160,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 84,
+      "bytes": 38535168,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 82,
+      "bytes": 37617664,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 83,
+      "bytes": 38076416,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 89,
+      "bytes": 40828928,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 90,
+      "bytes": 41287680,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 200,
+      "bytes": 91750400,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 92,
+      "bytes": 42205184,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 92,
+      "bytes": 42205184,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 96,
+      "bytes": 44040192,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 96,
+      "bytes": 44040192,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 93,
+      "bytes": 42663936,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 114,
+      "bytes": 52297728,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 96,
+      "bytes": 44040192,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 97,
+      "bytes": 44498944,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 97,
+      "bytes": 44498944,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 98,
+      "bytes": 44957696,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 337,
+      "bytes": 154599424,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 108,
+      "bytes": 49545216,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 109,
+      "bytes": 50003968,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 113,
+      "bytes": 51838976,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 124,
+      "bytes": 56885248,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 125,
+      "bytes": 57344000,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 133,
+      "bytes": 61014016,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 145,
+      "bytes": 66519040,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 147,
+      "bytes": 67436544,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 130,
+      "bytes": 59637760,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 148,
+      "bytes": 67895296,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 133,
+      "bytes": 61014016,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 136,
+      "bytes": 62390272,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 136,
+      "bytes": 62390272,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 142,
+      "bytes": 65142784,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 145,
+      "bytes": 66519040,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 148,
+      "bytes": 67895296,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 153,
+      "bytes": 70189056,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 155,
+      "bytes": 71106560,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 157,
+      "bytes": 72024064,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 157,
+      "bytes": 72024064,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 159,
+      "bytes": 72941568,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 158,
+      "bytes": 72482816,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 169,
+      "bytes": 77529088,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 174,
+      "bytes": 79822848,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 176,
+      "bytes": 80740352,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 180,
+      "bytes": 82575360,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 183,
+      "bytes": 83951616,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 185,
+      "bytes": 84869120,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 193,
+      "bytes": 88539136,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 197,
+      "bytes": 90374144,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 199,
+      "bytes": 91291648,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 206,
+      "bytes": 94502912,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 224,
+      "bytes": 102760448,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 224,
+      "bytes": 102760448,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 225,
+      "bytes": 103219200,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 209,
+      "bytes": 95879168,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 215,
+      "bytes": 98631680,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 217,
+      "bytes": 99549184,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 222,
+      "bytes": 101842944,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 228,
+      "bytes": 104595456,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 231,
+      "bytes": 105971712,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 233,
+      "bytes": 106889216,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 253,
+      "bytes": 116064256,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 236,
+      "bytes": 108265472,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 238,
+      "bytes": 109182976,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 244,
+      "bytes": 111935488,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 252,
+      "bytes": 115605504,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 270,
+      "bytes": 123863040,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 257,
+      "bytes": 117899264,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 258,
+      "bytes": 118358016,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 260,
+      "bytes": 119275520,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 280,
+      "bytes": 128450560,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 273,
+      "bytes": 125239296,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 281,
+      "bytes": 128909312,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 292,
+      "bytes": 133955584,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 286,
+      "bytes": 131203072,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 279,
+      "bytes": 127991808,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 282,
+      "bytes": 129368064,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 282,
+      "bytes": 129368064,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 293,
+      "bytes": 134414336,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 291,
+      "bytes": 133496832,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 290,
+      "bytes": 133038080,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 297,
+      "bytes": 136249344,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 292,
+      "bytes": 133955584,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 299,
+      "bytes": 137166848,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 294,
+      "bytes": 134873088,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 297,
+      "bytes": 136249344,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 308,
+      "bytes": 141295616,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 309,
+      "bytes": 141754368,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 308,
+      "bytes": 141295616,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 318,
+      "bytes": 145883136,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 320,
+      "bytes": 146800640,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 335,
+      "bytes": 153681920,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 327,
+      "bytes": 150011904,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 328,
+      "bytes": 150470656,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 329,
+      "bytes": 150929408,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 330,
+      "bytes": 151388160,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 331,
+      "bytes": 151846912,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 343,
+      "bytes": 157351936,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 333,
+      "bytes": 152764416,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 334,
+      "bytes": 153223168,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 335,
+      "bytes": 153681920,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 336,
+      "bytes": 154140672,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 337,
+      "bytes": 154599424,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 339,
+      "bytes": 155516928,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 340,
+      "bytes": 155975680,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 355,
+      "bytes": 162856960,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 351,
+      "bytes": 161021952,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 352,
+      "bytes": 161480704,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 372,
+      "bytes": 170655744,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 361,
+      "bytes": 165609472,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 366,
+      "bytes": 167903232,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 367,
+      "bytes": 168361984,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 368,
+      "bytes": 168820736,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 370,
+      "bytes": 169738240,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 371,
+      "bytes": 170196992,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 373,
+      "bytes": 171114496,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 374,
+      "bytes": 171573248,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 375,
+      "bytes": 172032000,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 382,
+      "bytes": 175243264,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 379,
+      "bytes": 173867008,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 390,
+      "bytes": 178913280,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 399,
+      "bytes": 183042048,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 422,
+      "bytes": 193593344,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 440,
+      "bytes": 201850880,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 474,
+      "bytes": 217448448,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 493,
+      "bytes": 226164736,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 476,
+      "bytes": 218365952,
+      "byte_equal": true
+    },
+    {
+      "block_pairs": 510,
+      "bytes": 233963520,
+      "byte_equal": true
+    }
+  ],
+  "raw_logits_audit": [
+    {
+      "request_id": "0-a29eef96",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "1-a72f2d7d",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "2-b0bc74a6",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "3-b4c7863c",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "4-ba49dcde",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "5-8879faeb",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "6-9961905d",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    },
+    {
+      "request_id": "7-a978284d",
+      "max_abs": 0.0,
+      "relative_l2": 0.0,
+      "argmax_equal": true,
+      "passed": true
+    }
+  ],
+  "invalid": 0,
+  "interpretation_allowed": true
+}

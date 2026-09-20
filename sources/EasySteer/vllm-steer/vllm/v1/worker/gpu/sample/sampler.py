@@ -71,6 +71,8 @@ class Sampler:
         self,
         logits: torch.Tensor,
         input_batch: InputBatch,
+        *,
+        after_filter=None,
     ) -> SamplerOutput:
         expanded_idx_mapping = input_batch.expanded_idx_mapping
         idx_mapping_np = input_batch.idx_mapping_np
@@ -93,6 +95,7 @@ class Sampler:
             input_ids,
             expanded_local_pos,
             return_logprobs=return_logprobs,
+            after_filter=after_filter,
         )
 
         if return_logprobs:
@@ -215,6 +218,7 @@ class Sampler:
         input_ids: torch.Tensor,
         expanded_local_pos: torch.Tensor,
         return_logprobs: bool = False,
+        after_filter=None,
     ) -> tuple[torch.Tensor, torch.Tensor]:
         processed_logits = self.apply_sampling_params(
             logits,
@@ -241,11 +245,17 @@ class Sampler:
             or self.sampling_states.any_explicit_seed(idx_mapping_np)
         )
 
+        if after_filter is not None:
+            if use_flashinfer or self.sampling_states.any_greedy(idx_mapping_np):
+                raise ValueError("S64-soft2 requires seeded non-greedy sampling")
+
         # Sample the next token.
         if use_flashinfer:
             sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
         else:
             processed_logits = apply_top_k_top_p(processed_logits, top_k, top_p)
+            if after_filter is not None:
+                processed_logits = after_filter(processed_logits)
             sampled = gumbel_sample(
                 processed_logits,
                 expanded_idx_mapping,

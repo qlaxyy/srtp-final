@@ -1,0 +1,43 @@
+{
+  "status": "complete negative result; retain frozen L27; no GSM expansion",
+  "gates": {
+    "thinking_lower": false,
+    "total_lower": false,
+    "caps_not_higher": false,
+    "accuracy_within_2pp_l27": true,
+    "accuracy_within_2pp_R": true
+  },
+  "summary": {
+    "count": 500,
+    "correct": 411,
+    "accuracy_percent": 82.19999999999999,
+    "mean_tokens": 4361.17,
+    "mean_thinking_tokens": 3986.276,
+    "capped": 27
+  },
+  "l27_total_token_change_percent": 41.20838060602294,
+  "l27_thinking_change_percent": 47.24632242126228,
+  "l27_accuracy_delta_pp": -0.8,
+  "wrong_to_right": 29,
+  "right_to_wrong": 33,
+  "generation_seconds": 1055.5626707822084,
+  "process_seconds": 1090.7295156568289,
+  "extra_preparation_forwards": 33,
+  "extra_preparation_forward_seconds": 2.9856375008821487,
+  "extra_inference_forward_count": 0,
+  "limitations": [
+    "Only33 assistant-reviewed training parents; no independent semantic adjudication.",
+    "Earlier computation is not a verified efficient continuation endpoint.",
+    "Pooling and endpoint semantics both differ from original extraction.",
+    "Historical L27/R concurrency256 versus candidate32; same seed is not numerical equivalence.",
+    "MATH500 previously exposed; paired intervals are descriptive.",
+    "Controller overhead not separately isolated; generation time includes instrumentation/I/O."
+  ],
+  "stopped": [
+    "GSM8K transfer",
+    "7B transfer",
+    "coefficient tuning",
+    "sign reversal"
+  ],
+  "analysis_sha256": "701484511ce29d8b72373ef31a2d05e567b600e1e7050edf6a7f13e95fab8a04"
+}

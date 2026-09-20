@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "base_commit": "9a49f43",
+  "plan_sha256": "8a3afdef859038eb6e5776c6ed39f0639c876aed456d381cb485f2cc9522d0c4",
+  "source_files_verified": 2209,
+  "tests": 21,
+  "test_output": "test_actual_sampler_with_numpy_tensor_standin (test_cpu.ContractTests.test_actual_sampler_with_numpy_tensor_standin) ... ok\ntest_content_and_answer_phase_are_protected (test_cpu.ContractTests.test_content_and_answer_phase_are_protected) ... ok\ntest_disabled_does_not_touch_engine_or_import_torch (test_cpu.ContractTests.test_disabled_does_not_touch_engine_or_import_torch) ... ok\ntest_negative_signal_and_valid_closed_step_required (test_cpu.ContractTests.test_negative_signal_and_valid_closed_step_required) ... ok\ntest_sampler_hot_path_has_no_host_reads_or_extra_sampling (test_cpu.ContractTests.test_sampler_hot_path_has_no_host_reads_or_extra_sampling) ... ok\ntest_shadow_uses_same_gate_without_defining_a_new_threshold (test_cpu.ContractTests.test_shadow_uses_same_gate_without_defining_a_new_threshold) ... ok\ntest_soft_odds_and_temperature_are_distinct (test_cpu.ContractTests.test_soft_odds_and_temperature_are_distinct) ... ok\ntest_whitespace_and_mixed_boundary (test_cpu.ContractTests.test_whitespace_and_mixed_boundary) ... ok\ntest_fresh_slot_starts_clean (test_replay_cpu.Tests.test_fresh_slot_starts_clean) ... ok\ntest_generated_prefix_without_saved_state_rejected (test_replay_cpu.Tests.test_generated_prefix_without_saved_state_rejected) ... ok\ntest_reassigned_slot_restores_all_lexical_state (test_replay_cpu.Tests.test_reassigned_slot_restores_all_lexical_state) ... ok\ntest_replay_clock_mismatch_rejected_before_native_mutation (test_replay_cpu.Tests.test_replay_clock_mismatch_rejected_before_native_mutation) ... ok\ntest_actual_sampler_only_releases_six_columns_at_eligible_row (test_narrow_cpu.NarrowTests.test_actual_sampler_only_releases_six_columns_at_eligible_row) ... ok\ntest_disabled_profiles_install_nothing (test_narrow_cpu.NarrowTests.test_disabled_profiles_install_nothing) ... ok\ntest_fixed_exact_subset_and_default_copy (test_narrow_cpu.NarrowTests.test_fixed_exact_subset_and_default_copy) ... ok\ntest_no_new_sampler_or_replay_state (test_narrow_cpu.NarrowTests.test_no_new_sampler_or_replay_state) ... ok\ntest_shadow_is_identical_for_both_profiles (test_narrow_cpu.NarrowTests.test_shadow_is_identical_for_both_profiles) ... ok\ntest_accuracy_recovery_can_trade_some_compression_but_not_all (test_narrow_protocol_cpu.ProtocolTests.test_accuracy_recovery_can_trade_some_compression_but_not_all) ... ok\ntest_engineering_and_effect_arms_are_separate (test_narrow_protocol_cpu.ProtocolTests.test_engineering_and_effect_arms_are_separate) ... ok\ntest_receipt_rejects_unapproved_or_colliding_data_before_gpu (test_narrow_protocol_cpu.ProtocolTests.test_receipt_rejects_unapproved_or_colliding_data_before_gpu) ... ok\ntest_reject_loss_over_margin_more_caps_and_unchanged_candidate (test_narrow_protocol_cpu.ProtocolTests.test_reject_loss_over_margin_more_caps_and_unchanged_candidate) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.093s\n\nOK\n",
+  "ast_compatibility": "Python3.10",
+  "unchanged_paths": {
+    "Sampler": {
+      "ast_unchanged": true,
+      "sha256": "f9cb6b6b00b6427f84fb4066a594c9a11a6a38d400cd566a3c7dbc13ce2a3a9c"
+    },
+    "ReplayAdapter": {
+      "ast_unchanged": true,
+      "sha256": "c42c0f4c3edcabcc8d4db3bd7c9882d60f92e6d600d76a595a87099ef3b25d2d"
+    }
+  },
+  "native_torch_tests": "pending existing inference environment; no local torch",
+  "gpu_execution": false,
+  "corrected_preparation_errors": [
+    "Alternative75763 versus Hmm80022 token mapping fixed before final vocabulary test",
+    "Unexpected indentation in new orchestration caught by CPU import and corrected before proposal"
+  ],
+  "limitations": [
+    "NumPy sampler stand-in, not native BF16 or GPU equivalence",
+    "Forced preemption gate pending",
+    "No new generation, accuracy or speed evidence"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "run_id": "cgrs_probe_screen64_math_kvclone_run1_20260913",
+  "questions": 64,
+  "arms": [
+    "R",
+    "C",
+    "RC"
+  ],
+  "max_new_tokens": 16000,
+  "combined_budget": "main output + probe output + probe prompt <=16000",
+  "accuracy_loss_margin_pp": 2,
+  "acceptance": "RC reduces all-branch and budget token means versus BOTH R and C; point accuracy loss versus R <=2pp; caps no increase. Report paired CI, no noninferiority or synergy claim from point estimates.",
+  "parameter_tuning": "none; no independent confirmation or expansion in this batch",
+  "per_arm_timeout_seconds": 600,
+  "outer_timeout_seconds": 2100,
+  "estimated_minutes": [
+    5,
+    15
+  ],
+  "stop": "Any runtime, budget, source, clone allocation or preemption failure stops batch; preserve partials. Negative completed result ends this fixed candidate.",
+  "plan_sha256": "ee5e4eb37501426f17c79b8806752b78c133d5ba755f2ea3ea758da5d7ca049d",
+  "registry_sha256": "a639527112dfbe7b2ebe00ab9a112e3eb5601d325175e99617b7235b76ea7668",
+  "gate_sha256": "30fbdd497313b3af2ab582df6a4f3d2b5c88a52a69ee81a115a7df0e3e711af3",
+  "generation_includes": "probe forward, KV copy, entropy, masks, scheduling and cleanup; exclude measured file writes and model initialization",
+  "data_status": "64 new training questions globally reconciled by this execution dialogue; not test data"
+}

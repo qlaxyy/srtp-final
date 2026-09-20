@@ -1,0 +1,139 @@
+{
+  "questions": 500,
+  "steps": 84008,
+  "counts": {
+    "CHECK7_whole": 24375,
+    "CHECK7_opening": 21343,
+    "SWITCH5_whole": 7976,
+    "SWITCH5_opening": 4308,
+    "whole_both": 2227,
+    "L27_whole": 37885
+  },
+  "examples": {
+    "CHECK7": [
+      {
+        "question": 0,
+        "start": 211,
+        "text": "Wait, but how do I find the center of rotation? I remember that the center of rotation is the intersection point of the perpendicular bisectors of the segments joining corresponding points. So, if I can find two such perpendicular bisectors, their intersection should give me the center (x, y"
+      },
+      {
+        "question": 0,
+        "start": 1128,
+        "text": "Wait, that can't be right. The center of rotation is at (21, -3)? Let me check my calculations"
+      },
+      {
+        "question": 0,
+        "start": 1155,
+        "text": "Wait, let me verify the perpendicular bisector equations"
+      },
+      {
+        "question": 0,
+        "start": 1386,
+        "text": "Wait, let me check if this point is equidistant from A, B, and C, and also from A', B', and C"
+      },
+      {
+        "question": 0,
+        "start": 1531,
+        "text": "Wait, that's not equal to 15√2. Hmm, that's a problem. So, the center can't be (21, -3) because the distances are not equal"
+      },
+      {
+        "question": 0,
+        "start": 1572,
+        "text": "Wait, maybe I made a mistake in calculating the perpendicular bisectors"
+      },
+      {
+        "question": 0,
+        "start": 1695,
+        "text": "Wait, (-4/3)(x - 12) is (-4/3)x + 16, right? Because 12*(4/3) is 16. So, y = (-4/3)x + 16 + 9 = (-4/3)x + 25. That seems correct"
+      },
+      {
+        "question": 0,
+        "start": 1887,
+        "text": "Wait, maybe I made a mistake in computing the distances"
+      },
+      {
+        "question": 0,
+        "start": 1899,
+        "text": "Wait, distance from (21, -3) to A(0,0"
+      },
+      {
+        "question": 0,
+        "start": 2189,
+        "text": "Wait, so the distances from the center (21, -3) to A and A' are equal, to B and B' are equal, but to C and C' are not equal. That's a problem because a rotation should preserve distances for all corresponding points"
+      },
+      {
+        "question": 0,
+        "start": 2269,
+        "text": "Wait, let me check the perpendicular bisector of AA' again"
+      },
+      {
+        "question": 0,
+        "start": 2333,
+        "text": "Wait, but let me check if (21, -3) is on this line"
+      }
+    ],
+    "SWITCH5": [
+      {
+        "question": 0,
+        "start": 3391,
+        "text": "Alternatively, perhaps I can compute the angle between AA' and AB, and see if it's consistent"
+      },
+      {
+        "question": 1,
+        "start": 415,
+        "text": "Alternatively, perhaps I can write the entire fraction as a combination of the denominator factors. Let me try to express the numerator as a combination of (n^2 + 2n + 2) and (n^2 - 2n + 2). Let me assume that"
+      },
+      {
+        "question": 1,
+        "start": 665,
+        "text": "Alternatively, perhaps I can write the entire fraction as a sum of two fractions, each with one of the denominator factors as the denominator. Let me try that"
+      },
+      {
+        "question": 2,
+        "start": 1145,
+        "text": "Alternatively, another way to think about it is: when you remove a dot, you're effectively changing the parity of the face from which it was removed. So, if you remove a dot from an odd face, it becomes even, and if you remove a dot from an even face, it becomes odd"
+      },
+      {
+        "question": 2,
+        "start": 1250,
+        "text": "Alternatively, if I think about the die before removal, it has 3 odd and 3 even faces. When a dot is removed, it's equally likely to come from any face, so the chance that it's from an odd face is 3/6 = 1/2, and from an even face is also 1/2"
+      },
+      {
+        "question": 2,
+        "start": 1456,
+        "text": "Alternatively, another approach: when you remove a dot, you're effectively changing the parity of the face. So, the probability that the top face is odd is equal to the probability that the dot was removed from an even face, which is 12/21"
+      },
+      {
+        "question": 2,
+        "start": 1511,
+        "text": "Alternatively, think about the die before removal: 3 odd, 3 even. After removing a dot, the die has 21 - 1 = 20 dots. The parity of each face is changed if a dot is removed from it"
+      },
+      {
+        "question": 2,
+        "start": 1857,
+        "text": "Alternatively, perhaps it's better to think in terms of the parity"
+      },
+      {
+        "question": 2,
+        "start": 1950,
+        "text": "Alternatively, the probability that the top face is odd is equal to the probability that the dot was removed from an even face, which is 12/21, which is 4/7"
+      },
+      {
+        "question": 2,
+        "start": 1991,
+        "text": "Alternatively, another way: the die has 21 dots. Each dot is equally likely to be removed, so the probability that a particular face loses a dot is proportional to the number of dots on that face"
+      },
+      {
+        "question": 2,
+        "start": 2075,
+        "text": "Alternatively, think about the die before removal: 3 odd, 3 even"
+      },
+      {
+        "question": 4,
+        "start": 1761,
+        "text": "Alternatively, maybe I should group the binary number into three groups of two digits, starting from the right, but if the total number of digits is odd, the leftmost group will have one digit. So, in this case, seven digits, so the leftmost group will have one digit, and the rest will have two"
+      }
+    ]
+  },
+  "caveat": "Corpus co-occurrence and lexical coverage only; not semantic validity, intervention frequency or efficacy"
+}

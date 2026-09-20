@@ -1,0 +1,82 @@
+{
+  "status": "proposal_local_data_prepared_not_gpu_ready_not_launched",
+  "run_id": "cgrs_coordinated_v2_15b_benchmark_expansion_v1",
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "datasets": {
+    "svamp": 1000,
+    "minerva_math": 272,
+    "olympiadbench": 675
+  },
+  "arms": [
+    "U",
+    "R",
+    "RCnegative"
+  ],
+  "answers": 5841,
+  "primary": "RCnegative versus R within each dataset, same execution profile and grader; compare R and RCnegative versus U secondarily",
+  "policy": "Keep validated 1.5B independent vector/fit/layer20; fixed14 trigger IDs, raw-logit penalty ln2, step opening and negative R coefficient; no recalibration or parameter selection",
+  "common_sampling": {
+    "dtype": "bfloat16",
+    "max_tokens": 16000,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "seed": 42
+  },
+  "runtime_proposal": {
+    "reference": "full_tests_run1/plan.json",
+    "async_scheduling": true,
+    "cuda_graph": true,
+    "max_num_seqs_reference": 256,
+    "max_num_batched_tokens_reference": 32768,
+    "max_model_len": 32768,
+    "gpu_memory_utilization_reference": 0.9,
+    "warning": "Validated fast profile is a starting point, not an accepted long-problem KV capacity profile. Freeze per-dataset concurrency after capacity/engineering checks before generating formal outputs; keep profile identical across three arms."
+  },
+  "decision": {
+    "point_accuracy_loss_limit_pp": 2,
+    "mean_thinking_and_total_tokens": "Both must decrease versus R",
+    "caps": "No increase versus R",
+    "uncertainty": "10000 paired question bootstrap, seed20260913; two-sided95 intervals; nominal accuracy lower bound >= -2pp is statistical noninferiority criterion distinct from point criterion",
+    "multiple_datasets": "Report all three datasets and failures separately; no pooled all-benchmark superiority from whichever dataset passes. Nominal intervals are not familywise guarantees.",
+    "synergy": "Three arms can test incremental benefit over R, not superiority over lexical component or factorial synergy; Clex is absent.",
+    "exposure": "Do not tune on these outcomes; remote A/B data registration must be reconciled before freeze."
+  },
+  "report": [
+    "accuracy",
+    "mean_thinking_tokens",
+    "mean_total_tokens",
+    "caps",
+    "paired_wrong_to_right_and_right_to_wrong_ids",
+    "generation_seconds",
+    "startup_and_grading_seconds",
+    "GPU_utilization",
+    "preemptions_and_replay",
+    "added_probes_forwards_and_control_overhead"
+  ],
+  "cost": {
+    "rough_generation_minutes": [
+      60,
+      120
+    ],
+    "status": "Planning estimate based on prior1.5B throughput and unknown new-dataset reasoning lengths, not measured or an approved runtime limit",
+    "max_output_tokens": 93456000
+  },
+  "cpu_complete": [
+    "Pinned source revisions and downloaded hashes",
+    "1947 unique IDs and normalized-question hashes",
+    "All272 Minerva reference answers contain one balanced box",
+    "675 Olympiad question rows have no image markers/context;94 multiple-answer rows, one tolerance1e-1 require proper grading",
+    "712 local registries scanned;0 exact exposure hits",
+    "Entire local Math_Train plus frozen Math500/GSM8K checked;0 normalized question hits"
+  ],
+  "remaining_before_gpu": [
+    "Verify standardized generated-answer grading on Minerva units/expressions and Olympiad multiple answers/intervals/tolerance; preserve benchmark metadata, never reduce to string of first list entry alone as a complete grading rule",
+    "Reconcile remote A/B reservations before final data freeze",
+    "Implement three-arm orchestration by reusing existing Adapter/Sampler and native ReBalance; no controller fork or shared modification",
+    "Freeze exact runtime profiles, arm order/warmup, failure capture, output directories, commands and hard time limits before bounded GPU batch request"
+  ],
+  "rows_sha256": "187a9d6222112c798998de4f32cee99c4517c6ff5aa6947158b68dc00eed06ac",
+  "source_receipt_sha256": "0c9b050b01e208db58c2255a6aa83366cb7cbef721bff4f0142cbf557444c9cf",
+  "gpu_used": false,
+  "ssh_used": false
+}

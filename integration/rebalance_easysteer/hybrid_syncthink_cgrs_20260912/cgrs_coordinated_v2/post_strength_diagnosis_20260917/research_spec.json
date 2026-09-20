@@ -1,0 +1,62 @@
+{
+  "status": "CPU discovery only, no GPU candidate ready",
+  "recommendation": "Keep RC14 frozen. Stop scaled-strength tuning. Investigate new within-step information before proposing another generation batch.",
+  "evidence": {
+    "total_extra_tokens": 100224,
+    "wrong_to_correct_n": 34,
+    "wrong_to_correct_total_delta": -80812,
+    "correct_to_wrong_n": 32,
+    "correct_to_wrong_total_delta": 131650,
+    "pre_penalty_divergence_n": 142,
+    "pre_penalty_divergence_fraction": 0.284,
+    "old_calibration_steps": 83657,
+    "mixed_probability_steps": 7973,
+    "mixed_probability_questions": 492,
+    "high_q75_steps": 20995,
+    "high_q75_with_below_half": 0
+  },
+  "candidate": {
+    "name": "within_step_dispersion_guard_research",
+    "change": "Keep RC14 penalty log(2), 14 IDs and current gate. Only investigate whether previous-step internal dispersion can identify cases needing release of lexical suppression.",
+    "new_signal": "Population variance of pre-lexical raw maximum softmax probabilities within the completed preceding step; distinct from (current step mean - preceding mean)^2 / 4.",
+    "threshold": null,
+    "no_test_threshold_selection": true,
+    "not_a_correctness_detector": true,
+    "risks": [
+      "Syntax/formula/tokenization confounding",
+      "Extra gating can merely weaken compression again",
+      "A low token maximum does not prove useful reflection",
+      "Calibration greedy probabilities differ from deployment trajectories"
+    ],
+    "prototype": "step_dispersion_reference.py",
+    "prototype_status": "CPU scalar numerical reference only, four tests passed; not exact native parity or GPU implementation"
+  },
+  "integration_spec": {
+    "default": "disabled; no hooks, allocations or native path changes",
+    "probability_source": "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py: existing max_probabilities before lexical penalty, temperature and top-p",
+    "accepted_clock": "Update only for accepted real samples after sampler, exclude prompt/prefill replay and dummy samples; consume completed preceding step at next clean opening.",
+    "state": [
+      "count",
+      "mean",
+      "M2",
+      "minimum",
+      "previous_completed_step_variance"
+    ],
+    "reset": "Fresh request and think-end clear state; boundary publishes then resets accumulators, empty boundary preserves last completed step.",
+    "replay": "Record/restore by request identity, never slot alone. ReplayAdapter fields currently cast to int64; do NOT append floating stats there. Use separately typed snapshot and test restore. No double-counting prefill replay.",
+    "files_if_approved": [
+      "adapter.py",
+      "replay_adapter.py",
+      "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/model_runner.py",
+      "sources/EasySteer/vllm-steer/vllm/v1/worker/gpu/steer_vector_utils.py"
+    ],
+    "shared_files_modified": false
+  },
+  "next_cpu_prerequisites": [
+    "Reconstruct on exposed training trajectories with actually available confidence records; never fabricate missing full-test probabilities.",
+    "Manually audit useful-correction and normal-formula counterexamples without test-derived thresholds.",
+    "Reject if no information beyond mean/step length; highest-confidence dilution hypothesis already lacks support.",
+    "Only then freeze candidate plus threshold source, same-scheduler control design, unique question count, commands, budget and GPU authorization."
+  ],
+  "gpu_calls": 0
+}

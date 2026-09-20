@@ -1,0 +1,51 @@
+{
+  "status": "CPU feasibility only; no efficacy evidence",
+  "questions": 500,
+  "steps": 84008,
+  "source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3",
+  "original_quantiles": [
+    0.8881480105978689,
+    0.9989141310845991
+  ],
+  "harmonic_parameters": {
+    "q25c": 0.8260688327558481,
+    "q75c": 0.9988991590551456,
+    "q25v": 2.4535104236083675e-07,
+    "q75v": 0.0029721234319003242,
+    "low_val_1": -0.49999999999999994,
+    "low_val_2": -1.5353450143175593,
+    "high_val_2": 0.1,
+    "initial_coef": -1.0,
+    "curve_tau": 0.0015923723695169623
+  },
+  "mean_confidence_drop": 0.031114436500238155,
+  "confidence_drop_quantiles": [
+    -1.1102230246251565e-16,
+    1.119766539864342e-05,
+    0.0009519020868066774,
+    0.05472349724735051,
+    0.13274313407993618,
+    0.30613240010332127
+  ],
+  "changed_confidence_bin_count": 1848,
+  "confusion_old_rows_new_columns": [
+    [
+      20121,
+      881,
+      0
+    ],
+    [
+      881,
+      41080,
+      43
+    ],
+    [
+      0,
+      43,
+      20959
+    ]
+  ],
+  "formula": "n/sum(1/p); p is raw maximum probability, not ATAR generated-token probability",
+  "vector_policy": "Keep frozen vector, layer and coefficient amplitudes; recalibrate four signal quantiles and feasible tau only",
+  "limits": "Greedy calibration probabilities reconstruct original arithmetic means; not generated outcomes. No semantic correctness labels."
+}

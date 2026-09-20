@@ -1,0 +1,247 @@
+{
+  "date": "2026-09-17",
+  "baseline_commit": "18cb3e0",
+  "scope": "literature and local CPU only",
+  "full_reads": [
+    {
+      "id": "2604.07922",
+      "name": "SAT",
+      "url": "https://arxiv.org/abs/2604.07922",
+      "read_status": "full_text_and_available_appendices_read",
+      "parsed_sha256": "317115fe282d5027de2ca177b943eef1ff8a71d122c94db66015a2ef65ca4cdc",
+      "sentinel": "de7b76f463fd",
+      "locations": "§3.2 Eq4-6; Alg1; Table1; AppB Table2; AppD.2-D.3",
+      "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2604.07922\\parsed.md"
+    },
+    {
+      "id": "2509.26522",
+      "name": "EAT",
+      "url": "https://arxiv.org/abs/2509.26522",
+      "read_status": "full_text_and_available_appendices_read",
+      "parsed_sha256": "9d01977ce6547f910da10346dbc99213ea601b7adaa22769f6e3f6b063372ca2",
+      "sentinel": "c2d0dacf2699",
+      "locations": "§4.1-4.3 Eq5-8/Alg1; AppD/H/I.4",
+      "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2509.26522\\parsed.md"
+    },
+    {
+      "id": "2605.17672",
+      "name": "PUMA",
+      "url": "https://arxiv.org/abs/2605.17672",
+      "read_status": "full_text_and_available_appendices_read",
+      "parsed_sha256": "961c4ef7afb0f68df6ef8cc547061dd80d552666e90efd3cfc5cbda9ab1599da",
+      "sentinel": "4bc867130d32",
+      "locations": "§3 Eq1-3; Table4; AppB.1-B.7; Table10/14/15",
+      "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2605.17672\\parsed.md"
+    },
+    {
+      "id": "2608.25542",
+      "name": "Reflection Steering",
+      "url": "https://arxiv.org/abs/2608.25542",
+      "read_status": "full_text_and_available_appendices_read",
+      "parsed_sha256": "4fe2214895f9dbfe949685e693e70dfe97b5d15575690bae5d0ef14d93308606",
+      "sentinel": "89fd348dd541",
+      "locations": "Method Eq1-10; Experimental Setup; Table1-4; prospective pilot",
+      "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2608.25542\\parsed.md"
+    },
+    {
+      "id": "2608.04771",
+      "name": "ReCo",
+      "url": "https://arxiv.org/abs/2608.04771",
+      "read_status": "full_text_and_available_appendices_read",
+      "parsed_sha256": "44dfa856e77ca397f493eed18da5d7f1f5690274e9d63799aa82603e6b7cfb6c",
+      "sentinel": "40893ded1a3d",
+      "locations": "§3.1-3.3 Eq1-6; Table1; §4.1/4.3",
+      "parsed_path": "C:\\Users\\wwsya\\.cache\\research-papers\\arxiv_2608.04771\\parsed.md"
+    }
+  ],
+  "discovery_only_not_full_read": [
+    {
+      "id": "2505.13866",
+      "name": "RPC",
+      "url": "https://arxiv.org/abs/2505.13866",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2606.02835",
+      "name": "Thinking Past the Answer",
+      "url": "https://arxiv.org/abs/2606.02835",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2508.17627",
+      "name": "Evolution of Thought",
+      "url": "https://arxiv.org/abs/2508.17627",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2504.01296",
+      "name": "ThinkPrune",
+      "url": "https://arxiv.org/abs/2504.01296",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2606.03965",
+      "name": "ACTS",
+      "url": "https://arxiv.org/abs/2606.03965",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2510.10103",
+      "name": "REFRAIN",
+      "url": "https://arxiv.org/abs/2510.10103",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2505.04881",
+      "name": "ConCISE",
+      "url": "https://arxiv.org/abs/2505.04881",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2506.18831",
+      "name": "STU-PID",
+      "url": "https://arxiv.org/abs/2506.18831",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2504.07986",
+      "name": "SEAL",
+      "url": "https://arxiv.org/abs/2504.07986",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2504.15895",
+      "name": "DEER",
+      "url": "https://arxiv.org/abs/2504.15895",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2601.18734",
+      "name": "Self-Distilled Reasoner",
+      "url": "https://arxiv.org/abs/2601.18734",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2506.08390",
+      "name": "Reasoning Strength Planning",
+      "url": "https://arxiv.org/abs/2506.08390",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2601.03595",
+      "name": "SAE steering",
+      "url": "https://arxiv.org/abs/2601.03595",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2608.18884",
+      "name": "EvoResearcher",
+      "url": "https://arxiv.org/abs/2608.18884",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2512.05325",
+      "name": "LYNX",
+      "url": "https://arxiv.org/abs/2512.05325",
+      "status": "discovery_or_citation_screen_only"
+    },
+    {
+      "id": "2602.02010",
+      "name": "NEAT",
+      "url": "https://arxiv.org/abs/2602.02010",
+      "status": "discovery_or_citation_screen_only"
+    }
+  ],
+  "official_code_receipts": [
+    {
+      "repo": "byxw13/SAT_Code",
+      "commit": "88a6c3e864948099afe3097c4fa8c2c33eb60224",
+      "downloaded": [
+        {
+          "path": "README.md",
+          "sha256": "1d2d1f2c5ec087d415766e333c81083d16a8f1bdaa4fb390e39d1df7894edaa5",
+          "bytes": 3690,
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/README.md"
+        },
+        {
+          "path": "tool.py",
+          "sha256": "5ad61698f8a8673a62549778221dc67946af29bfc8b7a81637e1ad64dc6ccd8c",
+          "bytes": 2627,
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/tool.py"
+        },
+        {
+          "path": "zstats.json",
+          "sha256": "c68a4d9b578244b4232d9d7b5dfd2d54ca71629f4efc846dab1c0bdad0a86ff5",
+          "bytes": 882,
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/zstats.json"
+        },
+        {
+          "path": "run_think_control_V5_ds_qwen.py",
+          "sha256": "1f5d345cedd67226380b3c8217d4fc9c79cf73c0a5dfa5d8fe9c74f3b281b419",
+          "bytes": 55308,
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/run_think_control_V5_ds_qwen.py"
+        }
+      ]
+    },
+    {
+      "repo": "xidulu/EAT",
+      "commit": "93a46f7a8b3d401511389e8a10dc117aa7f9c287",
+      "downloaded": [
+        {
+          "path": "README.md",
+          "sha256": "35800ca73fb1bc69d6828dc141af03a91a0c934880528266a02e4699b5ad8992",
+          "bytes": 4165,
+          "url": "https://raw.githubusercontent.com/xidulu/EAT/93a46f7a8b3d401511389e8a10dc117aa7f9c287/README.md"
+        },
+        {
+          "path": "early_stopping_utils.py",
+          "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+        },
+        {
+          "path": "compute_entropy_ngram.py",
+          "sha256": "4783b6ffaf79d3e6b0be42f16abe943b2dc6ce8a04c284fbc87a0f6e79c54de0",
+          "bytes": 4488,
+          "url": "https://raw.githubusercontent.com/xidulu/EAT/93a46f7a8b3d401511389e8a10dc117aa7f9c287/compute_entropy_ngram.py"
+        }
+      ],
+      "retry_success": {
+        "file": "early_stopping_utils.py",
+        "sha256": "a139238a039ddd3b324387fdb022c7f5a7f6c8fad4fa02645d2bf01c94c2d250",
+        "bytes": 2696
+      }
+    },
+    {
+      "repo": "giovanni-vaccarino/PUMA",
+      "commit": "e4dc4be6ca3fda69c792164e7427ce9891b5f2ed",
+      "downloaded": [
+        {
+          "path": "README.md",
+          "sha256": "d8d4bedb32f8b5540188c226eb8ee43f52ca9743e06f7fa529437c63e741a17e",
+          "bytes": 10812,
+          "url": "https://raw.githubusercontent.com/giovanni-vaccarino/PUMA/e4dc4be6ca3fda69c792164e7427ce9891b5f2ed/README.md"
+        },
+        {
+          "path": "configs/DS-7B.conf",
+          "sha256": "6b07343c7c5051d91b972884c259cc7dad5a780fe6a9d9516c27919e447f7d10",
+          "bytes": 3971,
+          "url": "https://raw.githubusercontent.com/giovanni-vaccarino/PUMA/e4dc4be6ca3fda69c792164e7427ce9891b5f2ed/configs/DS-7B.conf"
+        },
+        {
+          "path": "puma/prompt_utils.py",
+          "sha256": "e08d6fa5c9de0a02cb7a908cbddca67e710c280510cdd79abe0dcca80dbb5223",
+          "bytes": 11917,
+          "url": "https://raw.githubusercontent.com/giovanni-vaccarino/PUMA/e4dc4be6ca3fda69c792164e7427ce9891b5f2ed/puma/prompt_utils.py"
+        }
+      ]
+    }
+  ],
+  "code_not_confirmed": [
+    "ReCo",
+    "Reflection Steering"
+  ],
+  "public_network_note": "GitHub API rate limit encountered; resolved repository revisions with git ls-remote and fetched immutable raw paths. No environment modifications or weight downloads.",
+  "data_ids_used": [],
+  "data_reserved": [],
+  "gpu_used": false,
+  "new_answers": 0
+}

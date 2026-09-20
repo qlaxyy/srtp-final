@@ -1,0 +1,153 @@
+{
+  "training_supplement": {
+    "all": {
+      "n": 500,
+      "modes": {
+        "arithmetic": {
+          "mean": {
+            "rho": 0.4951341075150926,
+            "ci95": [
+              0.41997056552270307,
+              0.5664935112282559
+            ]
+          },
+          "minimum": {
+            "rho": -0.5672004221528263,
+            "ci95": [
+              -0.6324731206171044,
+              -0.4953312559343407
+            ]
+          },
+          "whole_step_variance": {
+            "rho": 0.1563773468908928,
+            "ci95": [
+              0.06293288547563275,
+              0.24114562212479554
+            ]
+          },
+          "mean_local_w2_variance": {
+            "rho": -0.25561736626672316,
+            "ci95": [
+              -0.34693622110232025,
+              -0.16374033817820652
+            ]
+          }
+        },
+        "geometric": {
+          "mean": {
+            "rho": 0.4994474572198707,
+            "ci95": [
+              0.42544146882830697,
+              0.5702865290672061
+            ]
+          },
+          "minimum": {
+            "rho": -0.5811621564082805,
+            "ci95": [
+              -0.6437307822701321,
+              -0.511933127768793
+            ]
+          },
+          "whole_step_variance": {
+            "rho": 0.1655905612517924,
+            "ci95": [
+              0.071505836696878,
+              0.25198621412223626
+            ]
+          },
+          "mean_local_w2_variance": {
+            "rho": -0.2827892469956415,
+            "ci95": [
+              -0.372350941070416,
+              -0.19283986885189702
+            ]
+          }
+        }
+      }
+    },
+    "closed_only": {
+      "n": 351,
+      "modes": {
+        "arithmetic": {
+          "mean": {
+            "rho": -0.07740907208035466,
+            "ci95": [
+              -0.1755805203869228,
+              0.028418394354175765
+            ]
+          },
+          "minimum": {
+            "rho": -0.6631341238490577,
+            "ci95": [
+              -0.7254008481616925,
+              -0.5962489820917191
+            ]
+          },
+          "whole_step_variance": {
+            "rho": 0.5523763564365325,
+            "ci95": [
+              0.4780286104756218,
+              0.6179218631846345
+            ]
+          },
+          "mean_local_w2_variance": {
+            "rho": 0.41480004970229367,
+            "ci95": [
+              0.32593007489022424,
+              0.5027626909873115
+            ]
+          }
+        },
+        "geometric": {
+          "mean": {
+            "rho": -0.06717774507765477,
+            "ci95": [
+              -0.1666696428281202,
+              0.03566037722063263
+            ]
+          },
+          "minimum": {
+            "rho": -0.6726857118942693,
+            "ci95": [
+              -0.7320782720925695,
+              -0.6062289640247621
+            ]
+          },
+          "whole_step_variance": {
+            "rho": 0.5555505528297676,
+            "ci95": [
+              0.48236206177308205,
+              0.6185443124685608
+            ]
+          },
+          "mean_local_w2_variance": {
+            "rho": 0.39160456481167466,
+            "ci95": [
+              0.3019879914530095,
+              0.4815818588407294
+            ]
+          }
+        }
+      }
+    }
+  },
+  "figure2_pair_summary": {
+    "over_proxy": {
+      "n": 275,
+      "U_mean_thinking_tokens": 2926.298181818182,
+      "R_mean_thinking_tokens": 1619.3454545454545,
+      "both_closed": 275,
+      "any_capped": 0
+    },
+    "under_proxy": {
+      "n": 11,
+      "U_mean_thinking_tokens": 7415.818181818182,
+      "R_mean_thinking_tokens": 3978.3636363636365,
+      "both_closed": 11,
+      "any_capped": 0
+    }
+  },
+  "missing": "Frozen MATH500 records contain tokens/text/labels, not step confidence or token logprobs. Figure2 confidence/variance differences remain unmeasured; do not populate from training supplement.",
+  "interpretation": "Geometric/arithmetic agreement tests A2-style association on different data only. Pair labels are outcome-based proxies, not verified semantic modes; R intervention uses confidence itself.",
+  "script_sha256": "9f71d042e79a5e1bade50124cdf5157b89ad963b8fc1b6b36e466748eb92156c"
+}

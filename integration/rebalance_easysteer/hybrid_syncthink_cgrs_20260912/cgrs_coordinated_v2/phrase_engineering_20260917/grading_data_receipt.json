@@ -1,0 +1,9 @@
+{
+  "original_dataset_sha256": "535154c2836c92dc2df7e57a817e63eee67370fcd513004fc7b887924ff56270",
+  "selected_sha256": "08e672d9bb084e395bfd4c9d7a5c6537780feb9f50b90add71ebaba23ab10785",
+  "usage": "Grader only after generation; gold not sent to model",
+  "engineering_repairs": [
+    "Initial grader used inference venv, missing latex2sympy2; switched existing rebalance venv, no installs",
+    "Source snapshot excludes Data; exported only exact8 rows from hashed local frozen training dataset"
+  ]
+}

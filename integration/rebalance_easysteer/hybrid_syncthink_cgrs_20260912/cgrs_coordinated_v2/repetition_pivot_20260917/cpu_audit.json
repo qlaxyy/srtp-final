@@ -1,0 +1,64 @@
+{
+  "inputs": [
+    {
+      "path": "E:\\srtp\\srtp-final\\.codex_work\\own_calibration_500_20260908\\calibration_assets.tar.gz",
+      "member": "generations.jsonl",
+      "sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+    },
+    {
+      "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\history_screen100_20260914_r2\\complete.tar.gz",
+      "member": "results/R/result.json",
+      "sha256": "43a549e6ede975bc562638144d2a878b7d91c0326840352ca8d06d1468f668a6"
+    },
+    {
+      "path": "E:\\srtp\\hybrid-syncthink-cgrs-20260912\\.codex_work\\history_screen100_20260914_r2\\complete.tar.gz",
+      "member": "results/RC14/result.json",
+      "sha256": "4869ff1fab2cbd05d029fd6d5ba0d68acb767675eb3b1522f81ec01a326e50f3"
+    }
+  ],
+  "tests": {
+    "randomized_naive_comparisons": 6000,
+    "nonoverlap_and_prefix_causality": true,
+    "new_request_reset": true
+  },
+  "summary": {
+    "1p5b_greedy_unsteered_calibration500": {
+      "questions": 500,
+      "thinking_tokens": 3153570,
+      "hit_questions": 170,
+      "matching_completions": 1627951,
+      "covered_tokens": 1671386,
+      "capped_questions": 149,
+      "hit_capped_questions": 149
+    },
+    "7b_temp07_mathtrain100_R": {
+      "questions": 100,
+      "thinking_tokens": 249902,
+      "hit_questions": 1,
+      "matching_completions": 9,
+      "covered_tokens": 198,
+      "capped_questions": 2,
+      "hit_capped_questions": 0
+    },
+    "7b_temp07_mathtrain100_RC14": {
+      "questions": 100,
+      "thinking_tokens": 262492,
+      "hit_questions": 2,
+      "matching_completions": 20,
+      "covered_tokens": 209,
+      "capped_questions": 3,
+      "hit_capped_questions": 0
+    }
+  },
+  "gpu_used": false,
+  "new_answers": 0,
+  "width": 64,
+  "required_prior_nonoverlapping_copies": 2,
+  "limitations": [
+    "Coverage is not saved tokens, causal recovery, or a correctness guarantee",
+    "Greedy unsteered calibration differs from RC14 sampling",
+    "No1.5B RC14 long sampled training trace was audited in this batch",
+    "7B training100 is already exposed development data; no frozen test results were read",
+    "Detecting exact repetitions misses paraphrased loops and may catch useful repeated calculations"
+  ]
+}

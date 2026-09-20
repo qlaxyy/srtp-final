@@ -1,0 +1,10 @@
+{
+  "old_vector_exactly_reconstructed": true,
+  "original_over_steps": 48251,
+  "original_under_steps": 11309,
+  "float32_norm": 83.61912536621094,
+  "algorithm": "float64 class means of original saved layer21 states, subtract over-under, cast float32, torch.equal against original auto_vector.pt",
+  "features_sha256": "66fdc33b5ca4d40d76243c1ff062dabdecbe542bcc02580ee0cb1ae2ea31ba66",
+  "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+  "vector_sha256": "fb360600cad48aebf1242ae125f7ccb3860177ae542351377a6898eb3a840b93"
+}

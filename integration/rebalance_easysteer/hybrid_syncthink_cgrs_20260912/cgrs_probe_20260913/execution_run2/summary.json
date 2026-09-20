@@ -1,0 +1,40 @@
+{
+  "status": "engineering_gate_failed_no_probe_coverage_not_efficacy_failure",
+  "runtime_commit": "6794a138980b80d9753e76ba6ef5550cfbbecf1e",
+  "completed_main_predictions": 40,
+  "main_output_tokens": 10240,
+  "probe_output_tokens": 0,
+  "mask_count": 0,
+  "replay_checks": 0,
+  "off_shadow_equal": true,
+  "RC_equal_R": true,
+  "generation_seconds": 14.292551949620247,
+  "initialization_failure_seconds": 53.57300166785717,
+  "second_run_wall_seconds": 42.30523173511028,
+  "total_execution_seconds": 95.87823340296745,
+  "excludes": "SSH, local preparation and artifact transfer wall time",
+  "gate_passed": false,
+  "root_cause": {
+    "file": "sources/EasySteer/vllm-steer/vllm/entrypoints/offline_utils.py",
+    "line": 615,
+    "behavior": "LLM.enqueue overwrites output_kind to FINAL_ONLY; C-probe cannot inspect intermediate checkpoints",
+    "consequence": "run_arm sees only finished records and discards pending checkpoint before probing",
+    "text_blankline_counts": [
+      3,
+      9,
+      3,
+      7,
+      3,
+      2,
+      3,
+      3
+    ]
+  },
+  "local_fix": "Restore CUMULATIVE in copied output-processor states and assert per-token publication; local 14 CPU checks passed; not deployed/GPU tested",
+  "raw_archive_sha256": "2497f5587969acf5de3b3e74fd994caeb163246db4f08af33b5172cedd150c5e",
+  "limitations": [
+    "256-token engineering caps are intentional; no accuracy/compression result",
+    "No formal screening authorized or launched",
+    "Current revised source cannot reuse failed gate"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "completed": [
+    {
+      "train_index": 3241,
+      "chunk_size": 256,
+      "input_tokens": 1200,
+      "boundaries": 5,
+      "gpu_forward_seconds": 0.4007105274200439,
+      "wall_seconds": 0.40369898080825806
+    },
+    {
+      "train_index": 5353,
+      "chunk_size": 256,
+      "input_tokens": 1393,
+      "boundaries": 16,
+      "gpu_forward_seconds": 0.0746500482559204,
+      "wall_seconds": 0.09016948938369751
+    },
+    {
+      "train_index": 5353,
+      "chunk_size": 128,
+      "input_tokens": 1393,
+      "boundaries": 16,
+      "gpu_forward_seconds": 0.13421190452575685,
+      "wall_seconds": 0.1388954222202301
+    },
+    {
+      "train_index": 759,
+      "chunk_size": 256,
+      "input_tokens": 1782,
+      "boundaries": 31,
+      "gpu_forward_seconds": 0.08630880069732666,
+      "wall_seconds": 0.08965587615966797
+    },
+    {
+      "train_index": 7012,
+      "chunk_size": 256,
+      "input_tokens": 1789,
+      "boundaries": 31,
+      "gpu_forward_seconds": 0.08393318462371827,
+      "wall_seconds": 0.08726853132247925
+    },
+    {
+      "train_index": 26,
+      "chunk_size": 256,
+      "input_tokens": 2190,
+      "boundaries": 71,
+      "gpu_forward_seconds": 0.12189212989807129,
+      "wall_seconds": 0.12827938795089722
+    },
+    {
+      "train_index": 26,
+      "chunk_size": 128,
+      "input_tokens": 2190,
+      "boundaries": 71,
+      "gpu_forward_seconds": 0.3068713598251343,
+      "wall_seconds": 0.3158460706472397
+    },
+    {
+      "train_index": 64,
+      "chunk_size": 256,
+      "input_tokens": 2091,
+      "boundaries": 62,
+      "gpu_forward_seconds": 0.108814208984375,
+      "wall_seconds": 0.11319445073604584
+    },
+    {
+      "train_index": 76,
+      "chunk_size": 256,
+      "input_tokens": 2095,
+      "boundaries": 58,
+      "gpu_forward_seconds": 0.10877942371368408,
+      "wall_seconds": 0.11296716332435608
+    },
+    {
+      "train_index": 385,
+      "chunk_size": 256,
+      "input_tokens": 2175,
+      "boundaries": 55,
+      "gpu_forward_seconds": 0.11198236846923829,
+      "wall_seconds": 0.1164172887802124
+    }
+  ],
+  "startup_seconds": 7.03279535472393,
+  "wall_seconds": 8.633139535784721,
+  "generated_tokens": 0,
+  "scope": "Saved unsteered prefixes only; not RC14 replay or efficacy evaluation"
+}

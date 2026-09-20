@@ -1,0 +1,48 @@
+{
+  "original_input": "/root/autodl-tmp/projects/feedback_expanded_gradient_20260919_run1",
+  "original_plan_sha256": "e4c26e2ae7a0a04f4df9d26b55f4fcb1df795afed946b89c0fca4ba25f29774c",
+  "input_sha256": {
+    "run_feedback_numerical_probe.py": "c3ce518c5ac6e05c4ef1762f41997dbebada6b96c50d7ba9672564bd80a55aa0"
+  },
+  "targets": [
+    {
+      "key": "486_U",
+      "index": 2316,
+      "saved_full_hf_logp": -7.2512664794921875,
+      "trace_sha256": "7c436c7ba7d1230eecf77d7e9b12a8fdde143f2487b3fd178ee158d963328d8e"
+    },
+    {
+      "key": "129_U",
+      "index": 4610,
+      "saved_full_hf_logp": -5.419496536254883,
+      "trace_sha256": "ec3da09a1b33f6e5502bb139cd48f9cb098b5a555253b319e8b369f091b2a4e6"
+    },
+    {
+      "key": "414_L27",
+      "index": 2588,
+      "saved_full_hf_logp": -4.388910293579102,
+      "trace_sha256": "ce5987323b4d6b78c84f4936d0c821e88c3817f219622e28045bf40f1a681c39"
+    }
+  ],
+  "model": "DeepSeek-R1-Distill-Qwen-1.5B",
+  "purpose": "FP32 eager original fixed-history L27 prefix scoring; three saved prefixes only",
+  "new_generations": 0,
+  "optimizer_steps": 0,
+  "expected_minutes": [
+    2,
+    6
+  ],
+  "ceiling_seconds": 600,
+  "stop": [
+    "hash mismatch",
+    "OOM",
+    "nonfinite scores",
+    "600s"
+  ],
+  "scope": "Diagnostic prefixes only, not truncated training likelihood or accuracy test",
+  "hf_dtype": "float32",
+  "hf_attention": "eager",
+  "modes": [
+    "full"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "groups": {
+    "all": {
+      "steps": 84008,
+      "questions": 500,
+      "repeats": 34048,
+      "before_first_repeat": 22661,
+      "positive_control": 24561,
+      "negative_control": 59447,
+      "mean_coefficient": -0.3202873170375824,
+      "mean_confidence": 0.9286537614383824
+    },
+    "exact_repeat": {
+      "steps": 34048,
+      "questions": 227,
+      "repeats": 34048,
+      "before_first_repeat": 0,
+      "positive_control": 16700,
+      "negative_control": 17348,
+      "mean_coefficient": -0.0038642766885459423,
+      "mean_confidence": 0.9902771180446743
+    },
+    "length_over": {
+      "steps": 39515,
+      "questions": 166,
+      "repeats": 23107,
+      "before_first_repeat": 5632,
+      "positive_control": 11858,
+      "negative_control": 27657,
+      "mean_coefficient": -0.3713642656803131,
+      "mean_confidence": 0.9170086220360936
+    },
+    "length_under": {
+      "steps": 854,
+      "questions": 166,
+      "repeats": 32,
+      "before_first_repeat": 650,
+      "positive_control": 854,
+      "negative_control": 0,
+      "mean_coefficient": 0.03605206683278084,
+      "mean_confidence": 0.9996843342190868
+    },
+    "repeat_in_length_over": {
+      "steps": 23107,
+      "questions": 142,
+      "repeats": 23107,
+      "before_first_repeat": 0,
+      "positive_control": 10645,
+      "negative_control": 12462,
+      "mean_coefficient": -0.010837236419320107,
+      "mean_confidence": 0.989118143250211
+    },
+    "nonrepeat_in_length_over": {
+      "steps": 16408,
+      "questions": 166,
+      "repeats": 0,
+      "before_first_repeat": 5632,
+      "positive_control": 1213,
+      "negative_control": 15195,
+      "mean_coefficient": -0.8790860176086426,
+      "mean_confidence": 0.8154584814525603
+    }
+  },
+  "interpretation": "Native coefficient evaluated on frozen GREEDY calibration step confidence/variance, not a replay of online interventions. Each coefficient acts AFTER its completed step; association cannot prove that positive steering caused repetitions.",
+  "proxy": "Exact repeated >=16-token step within same question, whitespace/lowercase normalized. Not semantic gold.",
+  "inputs": {
+    "steps_sha256": "fc1e677fa50b834eec62a4caebbc39d341f93716624d4deca9c427a5fa0c8f93",
+    "script_sha256": "51fd3beaf9306028c6e046493b573c6477c9a722255bba0a8bdcfe7c215c31f1",
+    "calibration_source_sha256": "4d0194b30bb97d1ef0779b13d24ba47ba0aa7ccf38803e6a68f5c233ceb756a3"
+  }
+}

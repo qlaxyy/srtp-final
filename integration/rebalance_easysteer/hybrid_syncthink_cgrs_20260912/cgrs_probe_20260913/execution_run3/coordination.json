@@ -1,0 +1,17 @@
+{
+  "run_id": "cgrs_probe_engineering8_run3_20260913",
+  "phase": "engineering",
+  "dataset": "math",
+  "rows_sha256": "7baabd668e257ff0e0cf016c11a9dd7c4b8d9ea42c061181bd42a35a72f03701",
+  "data_reconciled": true,
+  "gpu_authorized": true,
+  "authorization_text": "Existing GPU engineering8 x5 authorization plus user: 什么意思，没跑通吗？请修改. Same engineering scope; no efficacy screening.",
+  "checked_registries": [
+    "local_reconciliation.json",
+    "remote_reconciliation.json"
+  ],
+  "purpose": "Reuse original B engineering8, no independent accuracy claim",
+  "runtime_commit": "9727aa175ac3e91d31ea54cba373ed1921cdfa7b",
+  "prior_failure": "run2 FINAL_ONLY suppressed all intermediate checkpoints; local streaming fix and coverage regression checks passed",
+  "status": "prepared_not_deployed_connection_closed"
+}

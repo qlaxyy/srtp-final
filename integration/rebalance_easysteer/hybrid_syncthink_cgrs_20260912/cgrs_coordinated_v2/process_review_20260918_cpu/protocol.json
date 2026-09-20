@@ -1,0 +1,14 @@
+{
+  "selection": "Original500 parents stratified by observed thinking cap16000:6 each by SHA256(process-stage-v1:normalized_problem_hash). Require4 steps >=16 tokens. Each parent: floor(n*.25), floor(n*.5), floor(n*.75) in eligible steps.",
+  "labels": [
+    "valid_advancement",
+    "necessary_correction",
+    "redundant_restatement",
+    "harmful_revision",
+    "mixed_or_uncertain"
+  ],
+  "evidence": "Use problem and previous context only. A redundant label needs explicit prior support; exact text recurrence alone is not enough. A correction needs old error and justified new proposition. Store local mathematical validity separately.",
+  "limits": "12 parents,36 steps, stratified content diagnosis, not prevalence or training-grade gold. Labels/confidence/final grading hidden in reading view; wording and cap stratum may remain visible. Do not fit a direction from this review.",
+  "gpu_calls": 0,
+  "new_answers": 0
+}

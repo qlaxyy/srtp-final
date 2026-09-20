@@ -1,0 +1,10 @@
+{
+  "archive": ".codex_work\\self_feedback_math500_20260918_evidence.tar.gz",
+  "sha256": "77b3411cb13a8703b65a6c252c1c60e04b08e6b645f016348464fe17ca324ca2",
+  "verified_remote_and_local": true,
+  "result_hash_verified": true,
+  "gpu_sample_count": 468,
+  "gpu_mean_sampled_utilization_percent": 74.47008547008546,
+  "gpu_max_sampled_utilization_percent": 87.0,
+  "sampling_note": "1-second nvidia-smi samples across generation; not a wall-time-weighted hardware counter"
+}
